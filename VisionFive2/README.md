@@ -25,14 +25,18 @@
 
 ## 测试结果
 
-| 软件分类                | 软件包名 | 测试结果（测试报告）      |
-|---------------------|----------|-----------------------|
-| openEuler/Base 镜像启动 | N/A      | [成功][oERVBase]        |
-| openEuler/Xfce 镜像启动 | N/A      | [成功][oERVXfce]        |
-| Debian 镜像启动         | N/A      | 成功（StarFive 厂商镜像） |
-| openKylin 镜像启动      | N/A      | 成功（官方支持）          |
-| Ubuntu 镜像启动         | N/A      | 成功（官方支持）          |
-| BuildRoot 镜像启动      | N/A      | 成功（StarFive 厂商镜像） |
+| 软件分类                | 软件包名 | 测试结果（测试报告）                   |
+|---------------------|----------|------------------------------------|
+| openEuler/Base 镜像启动 | N/A      | [成功][oERVBase]                     |
+| openEuler/Xfce 镜像启动 | N/A      | [成功][oERVXfce]                     |
+| Debian 镜像启动         | N/A      | [成功][Debian]（StarFive 厂商镜像）    |
+| openKylin 镜像启动      | N/A      | [成功][oK]（官方支持）                 |
+| Ubuntu 镜像启动         | N/A      | [成功][Ubuntu]（官方支持）             |
+| BuildRoot 镜像启动      | N/A      | [成功][BuildRoot]（StarFive 厂商镜像） |
 
 [oERVBase]: https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/tree/master/VF2
 [oERVXfce]: https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/tree/master/VF2
+[Debian]: https://github.com/starfive-tech/VisionFive2/releases/
+[oK]: https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+[Ubuntu]: https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
+[BuildRoot]: https://github.com/starfive-tech/VisionFive2

@@ -20,11 +20,13 @@
 
 ## 测试结果
 
-| 软件分类                | 软件包名 | 测试结果（测试报告） |
-|---------------------|----------|------------------|
-| openEuler/Base 镜像启动 | N/A      | [成功][oERV]       |
-| openEuler/Xfce 镜像启动 | N/A      | [成功][oERV]       |
-| RevyOS 桌面镜像启动     | N/A      | 成功（官方支持）     |
-| Fedora 桌面镜像启动     | N/A      | 成功（官方支持）     |
+| 软件分类                | 软件包名 | 测试结果（测试报告）       |
+|---------------------|----------|------------------------|
+| openEuler/Base 镜像启动 | N/A      | [成功][oERV]             |
+| openEuler/Xfce 镜像启动 | N/A      | [成功][oERV]             |
+| RevyOS 桌面镜像启动     | N/A      | [成功][RevyOS]（官方支持） |
+| Fedora 桌面镜像启动     | N/A      | [成功][Fedora]（官方支持） |
 
 [oERV]: https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/tree/master/lpi4a
+[RevyOS]: https://docs.revyos.dev/
+[Fedora]: https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head
