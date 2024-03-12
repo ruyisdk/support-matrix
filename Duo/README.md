@@ -13,9 +13,10 @@
 
 - Milk-V Duo (64M, CV1800B)
 
-
 ## 测试结果
 
-| 软件分类           | 软件包名 | 测试结果（测试报告）                                                                         |
-|----------------|----------|--------------------------------------------------------------------------------------|
-| BuildRoot 镜像启动 |          | [成功](https://asciinema.org/a/rsenSOJwdlmUXcJ8sQwubPgtr?autoplay=1)（通过 `ruyi` CLI 刷写） |
+| 软件分类           | 软件包名 | 测试结果（测试报告）                |
+|----------------|----------|-----------------------------|
+| BuildRoot 镜像启动 | N/A      | [成功][Duo]（通过 `ruyi` CLI 刷写） |
+
+[Duo]: https://gitee.com/yunxiangluo/ruyisdk-test/blob/master/20240116/MilkV-Duo-%E9%95%9C%E5%83%8F%E5%88%B7%E5%86%99%E6%B5%8B%E8%AF%95.md

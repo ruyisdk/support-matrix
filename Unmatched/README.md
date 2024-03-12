@@ -23,7 +23,7 @@
     - 参考安装文档：https://docs.zephyrproject.org/latest/boards/riscv/index.html
 - OpenWrt 23.05.2
     - 下载链接（Firmware Selector）：https://firmware-selector.openwrt.org/?version=23.05.2&target=sifiveu%2Fgeneric&id=sifive_unmatched
-    - 参考安装文档：https://github.com/Pagerd/PLCT/blob/main/Report/week/week33/OpenWrt.md
+    - 参考安装文档：https://openwrt.org/docs/techref/hardware/soc/soc.sifive
 
 ### 硬件开发板信息
 
@@ -31,13 +31,18 @@
 
 ## 测试结果
 
-| 软件分类                | 软件包名 | 测试结果（测试报告）                                                                               |
-|-----------------------|----------|------------------------------------------------------------------------------------------------|
-| openEuler/Base 镜像启动 | N/A      | [成功](https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/tree/master/Unmatched)   |
-| openEuler/Xfce 镜像启动 | N/A      | [成功](https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/tree/master/Unmatched)   |
-| openKylin 镜像启动      | N/A      | [成功](https://github.com/ruyisdk/ruyi/issues/65#issuecomment-1970489466)                        |
-| Ubuntu 镜像启动         | N/A      | [成功](https://github.com/ruyisdk/ruyi/issues/65#issuecomment-1970489466)                        |
-| FreeBSD 镜像启动        | N/A      | [成功](https://github.com/ruyisdk/ruyi/issues/65#issuecomment-1970489466)                        |
-| OpenBSD 镜像启动        | N/A      | [成功](https://github.com/ruyisdk/ruyi/issues/65#issuecomment-1970489466)                        |
-| Zephyr 启动             | N/A      | [成功](https://github.com/KevinMX/PLCT-Tarsier-Works/blob/main/misc/month10/Zephyr_Unmatched.md) |
-| OpenWrt 启动            | N/A      | [成功](https://github.com/Pagerd/PLCT/blob/main/Report/week/week33/OpenWrt.md)                   |
+| 软件分类                | 软件包名 | 测试结果（测试报告）        |
+|-----------------------|----------|-------------------------|
+| openEuler/Base 镜像启动 | N/A      | [成功][oERV]              |
+| openEuler/Xfce 镜像启动 | N/A      | [成功][oERV]              |
+| openKylin 镜像启动      | N/A      | [成功][ruyi]（官方支持）    |
+| Ubuntu 镜像启动         | N/A      | [成功][ruyi]（官方支持）    |
+| FreeBSD 镜像启动        | N/A      | [成功][ruyi]（官方支持）    |
+| OpenBSD 镜像启动        | N/A      | [成功][ruyi]（官方支持）    |
+| Zephyr 启动             | N/A      | [成功][Zephyr]（官方支持）  |
+| OpenWrt 启动            | N/A      | [成功][OpenWrt]（官方支持） |
+
+[oERV]: https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/tree/master/Unmatched
+[ruyi]: https://github.com/ruyisdk/ruyi/issues/65#issuecomment-1970489466
+[Zephyr]: https://github.com/KevinMX/PLCT-Tarsier-Works/blob/main/misc/month10/Zephyr_Unmatched.md
+[OpenWrt]: https://openwrt.org/docs/techref/hardware/soc/soc.sifive
