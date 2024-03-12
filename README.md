@@ -18,7 +18,7 @@
 * Basic：能启动运行
 * CFH (Call for help)：官方/论坛资料表示支持，但是未跑通
 * CFT (Call for testing)：镜像链接有，但是缺乏硬件设备验证
-* CFI (Call for more infomation)：官方资料宣称有，但是找不到镜像文件等实际可用的资料
+* CFI (Call for more information)：官方资料宣称有，但是找不到镜像文件等实际可用的资料
 * WIP：官方宣发操作系统即将/正在对开发板进行支持，但暂未获取到可用的镜像
 * N/A：暂未从官方或者其它渠道获取到开发板的支持信息
 
