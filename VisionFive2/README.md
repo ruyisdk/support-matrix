@@ -15,6 +15,9 @@
 - Ubuntu 23.10
     - 下载链接：https://cdimage.ubuntu.com/releases/23.10/release/
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
+- BuildRoot (VisionFive 2 SDK)
+    - 下载链接：https://github.com/starfive-tech/VisionFive2/releases
+    - 参考安装文档：https://github.com/starfive-tech/VisionFive2
 
 ### 硬件开发板信息
 
@@ -22,9 +25,14 @@
 
 ## 测试结果
 
-| 软件分类                | 软件包名 | 测试结果（测试报告）                                                                       |
-|---------------------|----------|----------------------------------------------------------------------------------------|
-| openEuler/Base 镜像启动 | N/A      | [成功](https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/tree/master/VF2) |
-| openEuler/Xfce 镜像启动 | N/A      | [成功](https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/tree/master/VF2) |
-| openKylin 镜像启动      | N/A      | 成功                                                                                     |
-| Ubuntu 镜像启动         | N/A      | 成功                                                                                     |
+| 软件分类                | 软件包名 | 测试结果（测试报告）      |
+|---------------------|----------|-----------------------|
+| openEuler/Base 镜像启动 | N/A      | [成功][oERVBase]        |
+| openEuler/Xfce 镜像启动 | N/A      | [成功][oERVXfce]        |
+| Debian 镜像启动         | N/A      | 成功（StarFive 厂商镜像） |
+| openKylin 镜像启动      | N/A      | 成功（官方支持）          |
+| Ubuntu 镜像启动         | N/A      | 成功（官方支持）          |
+| BuildRoot 镜像启动      | N/A      | 成功（StarFive 厂商镜像） |
+
+[oERVBase]: https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/tree/master/VF2
+[oERVXfce]: https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/tree/master/VF2

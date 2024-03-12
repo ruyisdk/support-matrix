@@ -23,8 +23,12 @@
 
 ## 测试结果
 
-| 软件分类                | 软件包名 | 测试结果（测试报告）                                                   |
-|---------------------|----------|--------------------------------------------------------------------|
-| openEuler/Base 镜像启动 | N/A      | [成功](https://asciinema.org/a/PR6WS7vjgMY2TId2EjaDjQb7a?autoplay=1) |
-| openEuler/Xfce 镜像启动 | N/A      | 成功                                                                 |
-| RevyOS 镜像启动         | N/A      | 成功                                                                 |
+| 软件分类                | 软件包名 | 测试结果（测试报告）                 |
+|---------------------|----------|------------------------------|
+| openEuler/Base 镜像启动 | N/A      | [成功][oERV]（使用 `ruyi` CLI 刷写） |
+| openEuler/Xfce 镜像启动 | N/A      | [成功][oERV]（使用 `ruyi` CLI 刷写） |
+| RevyOS 镜像启动         | N/A      | 成功（官方支持）                     |
+| openKylin 镜像启动      | N/A      | 成功（官方支持）                     |
+| Fedora 镜像启动         | N/A      | 成功（官方支持&出厂预装）            |
+
+[oERV]: https://gitee.com/yunxiangluo/ruyisdk-test/blob/master/20240116/LPi4A-Pioneer-%E9%95%9C%E5%83%8F%E5%88%B7%E5%86%99%E6%B5%8B%E8%AF%95.md
