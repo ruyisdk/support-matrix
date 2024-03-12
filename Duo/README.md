@@ -1,4 +1,4 @@
-# LicheeRV / AWOL Nezha D1
+# Milk-V Duo
 
 ## 测试环境
 
