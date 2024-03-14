@@ -35,16 +35,15 @@
 
 | 软件分类                       | 软件包名     | 测试结果（测试报告）          |
 |----------------------------|--------------|---------------------------|
-| openEuler/Base 镜像启动        | N/A          | [成功][oERVBase]            |
-| openEuler/Xfce 镜像启动        | Xfce Desktop | [成功][oERVXfce]            |
+| openEuler/Base 镜像启动        | N/A          | [成功][oERV]                |
+| openEuler/Xfce 镜像启动        | Xfce Desktop | [成功][oERV]                |
 | Tina-Linux 镜像启动 - Nezha D1 | N/A          | [成功][TinaNezha]（官方支持） |
 | Ubuntu 镜像启动                | N/A          | [成功][Ubuntu]（官方支持）    |
 | Ubuntu 镜像启动                | N/A          | [成功][Ubuntu]（官方支持）    |
 | OpenWrt 镜像启动               | N/A          | [成功][OpenWrt]（官方支持）   |
 
 [oERVDL]: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/D1/
-[oERVBase]: ./openEuler/README.md
-[oERVXfce]: https://gitee.com/openeuler/RISC-V/tree/master/release/openEuler-23.03/Installation_Book/D1_and_Licheerv
+[oERV]: ./openEuler/README.md
 [TinaNezha]: https://d1.docs.aw-ol.com/study/study_1tina/
 [Ubuntu]: ./Ubuntu/README.md
 [OpenWrt]: ./OpenWrt/README.md

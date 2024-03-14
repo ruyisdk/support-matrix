@@ -19,4 +19,4 @@
 |----------------|----------|-----------------------------|
 | BuildRoot 镜像启动 | N/A      | [成功][Duo]（通过 `ruyi` CLI 刷写） |
 
-[Duo]: https://gitee.com/yunxiangluo/ruyisdk-test/blob/master/20240116/MilkV-Duo-%E9%95%9C%E5%83%8F%E5%88%B7%E5%86%99%E6%B5%8B%E8%AF%95.md
+[Duo]: ./BuildRoot/README.md

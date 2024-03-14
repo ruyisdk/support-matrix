@@ -10,9 +10,6 @@
 - RevyOS
     - 下载链接：https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
     - 参考安装文档：https://docs.revyos.dev/
-- Fedora
-    - 下载链接：https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/
-    - 参考安装文档：https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head
 
 ### 硬件开发板信息
 
@@ -25,8 +22,6 @@
 | openEuler/Base 镜像启动 | N/A      | [成功][oERV]             |
 | openEuler/Xfce 镜像启动 | N/A      | [成功][oERV]             |
 | RevyOS 桌面镜像启动     | N/A      | [成功][RevyOS]（官方支持） |
-| Fedora 桌面镜像启动     | N/A      | [成功][Fedora]（官方支持） |
 
-[oERV]: https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/tree/master/lpi4a
-[RevyOS]: https://docs.revyos.dev/
-[Fedora]: https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head
+[oERV]: ./openEuler/README.md
+[RevyOS]: ./RevyOS/README.md

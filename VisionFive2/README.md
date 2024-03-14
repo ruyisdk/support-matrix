@@ -21,7 +21,7 @@
 
 ### 硬件开发板信息
 
-- HiFive Unmatched
+- StarFive VisionFive 2
 
 ## 测试结果
 
@@ -34,8 +34,8 @@
 | Ubuntu 镜像启动         | N/A      | [成功][Ubuntu]（官方支持）             |
 | BuildRoot 镜像启动      | N/A      | [成功][BuildRoot]（StarFive 厂商镜像） |
 
-[oERVBase]: https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/tree/master/VF2
-[oERVXfce]: https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/tree/master/VF2
+[oERVBase]: ./openEuler/README.md
+[oERVXfce]: ./openEuler/README.md
 [Debian]: https://github.com/starfive-tech/VisionFive2/releases/
 [oK]: https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 [Ubuntu]: https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
