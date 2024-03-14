@@ -35,14 +35,17 @@
 |-----------------------|----------|-------------------------|
 | openEuler/Base 镜像启动 | N/A      | [成功][oERV]              |
 | openEuler/Xfce 镜像启动 | N/A      | [成功][oERV]              |
-| openKylin 镜像启动      | N/A      | [成功][ruyi]（官方支持）    |
-| Ubuntu 镜像启动         | N/A      | [成功][ruyi]（官方支持）    |
-| FreeBSD 镜像启动        | N/A      | [成功][ruyi]（官方支持）    |
-| OpenBSD 镜像启动        | N/A      | [成功][ruyi]（官方支持）    |
+| openKylin 镜像启动      | N/A      | [成功][oK]（官方支持）    |
+| Ubuntu 镜像启动         | N/A      | [成功][Ubuntu]（官方支持）    |
+| FreeBSD 镜像启动        | N/A      | [成功][FreeBSD]（官方支持）    |
+| OpenBSD 镜像启动        | N/A      | [成功][OpenBSD]（官方支持）    |
 | Zephyr 启动             | N/A      | [成功][Zephyr]（官方支持）  |
 | OpenWrt 启动            | N/A      | [成功][OpenWrt]（官方支持） |
 
-[oERV]: https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/tree/master/Unmatched
-[ruyi]: https://github.com/ruyisdk/ruyi/issues/65#issuecomment-1970489466
-[Zephyr]: https://github.com/KevinMX/PLCT-Tarsier-Works/blob/main/misc/month10/Zephyr_Unmatched.md
-[OpenWrt]: https://openwrt.org/docs/techref/hardware/soc/soc.sifive
+[oERV]: ./openEuler/README.md
+[oK]: ./openKylin/README.md
+[Ubuntu]: ./Ubuntu/README.md
+[FreeBSD]: ./FreeBSD/README.md
+[OpenBSD]: ./OpenBSD/README.md
+[Zephyr]: ./Zephyr/README.md
+[OpenWrt]: ./OpenWrt/README.md
