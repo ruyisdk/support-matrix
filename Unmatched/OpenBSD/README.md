@@ -58,3 +58,13 @@ sudo dd if=install74.img of=/dev/sdc status=progress
 ### 启动信息
 
 ![image](https://github.com/ruyisdk/ruyi/assets/17025286/1b1f5549-3be5-4d57-920d-a006c7f2e026)
+
+## 测试判定标准
+
+测试成功：实际结果与预期结果相符。
+
+测试失败：实际结果与预期结果不符。
+
+## 测试结论
+
+测试成功。

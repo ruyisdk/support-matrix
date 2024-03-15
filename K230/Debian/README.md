@@ -38,3 +38,13 @@ sudo dd if=canmv_debian_sdcard_sdk_1.3.img of=/dev/sdb bs=1M status=progress ofl
 ### 启动信息
 
 ![Debian](image.png)
+
+## 测试判定标准
+
+测试成功：实际结果与预期结果相符。
+
+测试失败：实际结果与预期结果不符。
+
+## 测试结论
+
+测试成功。

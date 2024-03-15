@@ -43,3 +43,13 @@
 屏幕录像（从刷写镜像到登录系统）：
 
 https://gitee.com/yunxiangluo/ruyisdk-test/blob/master/20240130/videos/VF2.mp4
+
+## 测试判定标准
+
+测试成功：实际结果与预期结果相符。
+
+测试失败：实际结果与预期结果不符。
+
+## 测试结论
+
+测试成功。
