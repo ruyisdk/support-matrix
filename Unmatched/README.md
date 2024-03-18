@@ -24,6 +24,9 @@
 - OpenWrt 23.05.2
     - 下载链接（Firmware Selector）：https://firmware-selector.openwrt.org/?version=23.05.2&target=sifiveu%2Fgeneric&id=sifive_unmatched
     - 参考安装文档：https://openwrt.org/docs/techref/hardware/soc/soc.sifive
+- Debian sid
+    - 下载链接：https://people.debian.org/~deiv/riscv/debian-sid-risc-v-sifive-unmatched.tar.xz
+    - 参考安装文档：https://wiki.debian.org/InstallingDebianOn/SiFive/%20HiFiveUnmatched
 
 ### 硬件开发板信息
 
@@ -33,16 +36,21 @@
 
 | 软件分类                | 软件包名 | 测试结果（测试报告）        |
 |-----------------------|----------|-------------------------|
+| Debian 镜像启动         | N/A      | [成功][Debian]            |
 | openEuler/Base 镜像启动 | N/A      | [成功][oERV]              |
 | openEuler/Xfce 镜像启动 | N/A      | [成功][oERV]              |
-| openKylin 镜像启动      | N/A      | [成功][ruyi]（官方支持）    |
-| Ubuntu 镜像启动         | N/A      | [成功][ruyi]（官方支持）    |
-| FreeBSD 镜像启动        | N/A      | [成功][ruyi]（官方支持）    |
-| OpenBSD 镜像启动        | N/A      | [成功][ruyi]（官方支持）    |
+| openKylin 镜像启动      | N/A      | [成功][oK]（官方支持）      |
+| Ubuntu 镜像启动         | N/A      | [成功][Ubuntu]（官方支持）  |
+| FreeBSD 镜像启动        | N/A      | [成功][FreeBSD]（官方支持） |
+| OpenBSD 镜像启动        | N/A      | [成功][OpenBSD]（官方支持） |
 | Zephyr 启动             | N/A      | [成功][Zephyr]（官方支持）  |
 | OpenWrt 启动            | N/A      | [成功][OpenWrt]（官方支持） |
 
-[oERV]: https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/tree/master/Unmatched
-[ruyi]: https://github.com/ruyisdk/ruyi/issues/65#issuecomment-1970489466
-[Zephyr]: https://github.com/KevinMX/PLCT-Tarsier-Works/blob/main/misc/month10/Zephyr_Unmatched.md
-[OpenWrt]: https://openwrt.org/docs/techref/hardware/soc/soc.sifive
+[Debian]: ./Debian/README.md
+[oERV]: ./openEuler/README.md
+[oK]: ./openKylin/README.md
+[Ubuntu]: ./Ubuntu/README.md
+[FreeBSD]: ./FreeBSD/README.md
+[OpenBSD]: ./OpenBSD/README.md
+[Zephyr]: ./Zephyr/README.md
+[OpenWrt]: ./OpenWrt/README.md

@@ -33,21 +33,17 @@
 
 ## 测试结果
 
-| 软件分类                        | 软件包名     | 测试结果（测试报告）               |
-|-----------------------------|--------------|--------------------------------|
-| openEuler/Base 镜像启动         | N/A          | [成功][oERVBase]                 |
-| openEuler/Xfce 镜像启动         | Xfce Desktop | [成功][oERVXfce]                 |
-| Tina-Linux 镜像启动 - Nezha D1  | N/A          | [成功][TinaNezha]（官方支持）      |
-| Tina-Linux 镜像启动 - Lichee RV | N/A          | [成功][TinaLicheeRV]（官方支持）   |
-| Ubuntu 镜像启动                 | N/A          | [成功][UbuntuNezha]（官方支持）    |
-| Ubuntu 镜像启动                 | N/A          | [成功][UbuntuLicheeRV]（官方支持） |
-| OpenWrt 镜像启动                | N/A          | [成功][OpenWrt]（官方支持）        |
+| 软件分类                       | 软件包名     | 测试结果（测试报告）          |
+|----------------------------|--------------|---------------------------|
+| openEuler/Base 镜像启动        | N/A          | [成功][oERV]                |
+| openEuler/Xfce 镜像启动        | Xfce Desktop | [成功][oERV]                |
+| Tina-Linux 镜像启动 - Nezha D1 | N/A          | [成功][TinaNezha]（官方支持） |
+| Ubuntu 镜像启动                | N/A          | [成功][Ubuntu]（官方支持）    |
+| Ubuntu 镜像启动                | N/A          | [成功][Ubuntu]（官方支持）    |
+| OpenWrt 镜像启动               | N/A          | [成功][OpenWrt]（官方支持）   |
 
 [oERVDL]: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/D1/
-[oERVBase]: https://gitee.com/yunxiangluo/ruyisdk-test/blob/master/20240130/D1-%E9%95%9C%E5%83%8F%E5%88%B7%E5%86%99%E6%B5%8B%E8%AF%95.md
-[oERVXfce]: https://gitee.com/openeuler/RISC-V/tree/master/release/openEuler-23.03/Installation_Book/D1_and_Licheerv
+[oERV]: ./openEuler/README.md
 [TinaNezha]: https://d1.docs.aw-ol.com/study/study_1tina/
-[TinaLicheeRV]: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
-[UbuntuNezha]: https://wiki.ubuntu.com/RISC-V/Nezha%20D1
-[UbuntuLicheeRV]: https://wiki.ubuntu.com/RISC-V/LicheeRV
-[OpenWrt]: (https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1)
+[Ubuntu]: ./Ubuntu/README.md
+[OpenWrt]: ./OpenWrt/README.md

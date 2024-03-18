@@ -31,7 +31,7 @@
 | openKylin 镜像启动      | N/A      | [成功][oK]（官方支持）               |
 | Fedora 镜像启动         | N/A      | [成功][Fedora]（官方支持&出厂预装）  |
 
-[oERV]: https://gitee.com/yunxiangluo/ruyisdk-test/blob/master/20240116/LPi4A-Pioneer-%E9%95%9C%E5%83%8F%E5%88%B7%E5%86%99%E6%B5%8B%E8%AF%95.md
+[oERV]: ./openEuler/README.md
 [RevyOS]: https://docs.revyos.dev/
 [oK]: https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 [Fedora]: https://milkv.io/zh/docs/pioneer/getting-started/download
