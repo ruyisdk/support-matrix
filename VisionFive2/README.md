@@ -8,7 +8,8 @@
     - 下载链接：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/Visionfive2/
     - 参考安装文档：https://gitee.com/openeuler/RISC-V/blob/master/release/openEuler-23.03/Installation_Book/Visionfive2/README.md
 - Debian（官方提供）
-    - 下载链接：https://github.com/starfive-tech/VisionFive2/releases/
+    - 下载链接：https://debian.starfivetech.com/
+    - 参考安装文档：https://gitee.com/openeuler/RISC-V/blob/master/release/openEuler-23.03/Installation_Book/Visionfive2/README.md
 - openKylin
     - 下载链接：https://www.openkylin.top/downloads
     - 参考安装文档：https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
@@ -36,7 +37,7 @@
 
 [oERVBase]: ./openEuler/README.md
 [oERVXfce]: ./openEuler/README.md
-[Debian]: https://github.com/starfive-tech/VisionFive2/releases/
-[oK]: https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
-[Ubuntu]: https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
-[BuildRoot]: https://github.com/starfive-tech/VisionFive2
+[Debian]: ./Debian/README.md
+[oK]: ./openKylin/README.md
+[Ubuntu]: ./Ubuntu/README.md
+[BuildRoot]: ./BuildRoot/README.md
