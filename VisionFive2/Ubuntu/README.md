@@ -34,7 +34,7 @@ StarFive VisionFive 2 提供了多种引导模式，可在上电前通过板载�
 
 开发板本体上亦有丝印标注。
 
-为了启动 openKylin 镜像，选择 1-bit QSPI Nor Flash 模式（即：`RGPIO_0 = 0`, `RGPIO_1 = 0`）。
+为了启动 Ubuntu 镜像，选择 1-bit QSPI Nor Flash 模式（即：`RGPIO_0 = 0`, `RGPIO_1 = 0`）。
 
 注意：此模式需要提前更新 Flash 内的固件，详情请参考官方文档：[更新 SPL 和 U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
 

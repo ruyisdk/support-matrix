@@ -29,7 +29,19 @@ StarFive VisionFive 2 提供了多种引导模式，可在上电前通过板载�
 
 开发板本体上亦有丝印标注。
 
-为了启动 openKylin 镜像，选择 1-bit QSPI Nor Flash 模式（即：`RGPIO_0 = 0`, `RGPIO_1 = 0`）。注意，此模式可能需要提前更新 Flash 内的固件，详情请参考官方文档：[更新 SPL 和 U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
+为了启动 openEuler 镜像，选择 1-bit QSPI Nor Flash 模式（即：`RGPIO_0 = 0`, `RGPIO_1 = 0`）。注意，此模式可能需要提前更新 Flash 内的固件，详情请参考官方文档：[更新 SPL 和 U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
+
+若不更新固件，请选择 microSD 卡引导（即：`RGPIO_0 = 1`, `RGPIO_1 = 0`）。
+
+> 注意，此模式下有小概率出现启动失败的情况，如遇到启动失败，串口输出类似如下信息：
+>
+>```log
+>dwmci_s: Response Timeout.                                                                                            
+>dwmci_s: Response Timeout.                                                                                            
+>BOOT fail,Error is 0xffffffff
+>```
+>
+> 您可以尝试重新给开发板上电，或点按一下 USB Type-C 供电接口附近的按钮。通常这可以解决无法启动的问题。
 
 ### 登录系统
 
@@ -50,7 +62,7 @@ StarFive VisionFive 2 提供了多种引导模式，可在上电前通过板载�
 
 屏幕录像（从刷写镜像到登录系统）：
 
-https://gitee.com/yunxiangluo/ruyisdk-test/blob/master/20240130/videos/VF2.mp4
+[![asciicast](https://asciinema.org/a/A3KitOgctHGhyUvkUd2a8LwsH.svg)](https://asciinema.org/a/A3KitOgctHGhyUvkUd2a8LwsH)
 
 ## 测试判定标准
 
