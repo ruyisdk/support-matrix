@@ -6,7 +6,7 @@
 
 - 系统版本：Ubuntu 23.10
 - 下载链接：https://ubuntu.com/download/risc-v
-    - 或者镜像源：
+    - 或者镜像站：[Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/mantic/release/ubuntu-23.10-preinstalled-server-riscv64+nezha.img.xz) | [Lichee RV](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/mantic/release/ubuntu-23.10-preinstalled-server-riscv64+licheerv.img.xz)
 - 参考安装文档：https://wiki.ubuntu.com/RISC-V/LicheeRV
 
 ### 硬件信息
