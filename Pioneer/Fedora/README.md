@@ -10,7 +10,7 @@
 
 - Milk-V Pioneer Box v1.1
 - microSD 卡一张
-- USB to UART 调试器一个 （或 HDMI线 + 显示器）
+- USB to UART 调试器一个（或 HDMI 线 + 显示器）
 
 ## 安装步骤
 
@@ -31,7 +31,7 @@ sudo dd if=/path/to/fedora.raw of=/dev/your_device bs=4M status=progress
 默认用户名： `root`
 默认密码： `riscv`
 
-若从HDMI初次启动，系统会进入安装向导界面。
+若从 HDMI 初次启动，系统会进入安装向导界面。
 
 ## 预期结果
 

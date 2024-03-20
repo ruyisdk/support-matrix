@@ -12,7 +12,7 @@
 
 - Milk-V Pioneer Box v1.1
 - microSD 卡一张
-- HDMI线 + 显示器
+- HDMI 线 + 显示器
 
 ## 安装步骤
 
@@ -28,7 +28,7 @@ dd if=/path/to/revyos.img of=/dev/yout-device bs=4M status=progress
 
 ### 常见问题
 
-若需要从SD卡启动，需要手动向其中添加 Fip 和 zsbl 。
+- 若需要从 SD 卡启动，需要手动向其中添加 Fip.bin 和 ZSBL。
 
 ### 登录系统
 

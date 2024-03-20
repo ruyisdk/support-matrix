@@ -10,7 +10,7 @@
 
 - Milk-V Pioneer Box v1.1
 - microSD 卡一张
-- HDMI线 + 显示器
+- HDMI 线 + 显示器
 
 ## 安装步骤
 
