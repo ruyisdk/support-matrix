@@ -58,9 +58,9 @@ sudo dd if=FreeBSD-14.0-RELEASE-riscv-riscv64-mini-memstick.img of=/dev/sdc stat
 
 ### 启动信息
 
-![image](https://github.com/ruyisdk/ruyi/assets/17025286/1f709fe0-d233-4107-8edc-8c4fb6a23216)
+![alt text](image.png)
 
-![image](https://github.com/ruyisdk/ruyi/assets/17025286/a5a39f97-949e-4ef1-bed1-a805485900f0)
+![alt text](image-1.png)
 
 ## 测试判定标准
 
