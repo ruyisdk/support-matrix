@@ -88,7 +88,7 @@ openocd -c 'bindto 0.0.0.0' \
 Hello World! hifive_unmatched
 ```
 
-![](https://github.com/KevinMX/PLCT-Tarsier-Works/blob/main/misc/month10/images/zephyr_unmatched.png?raw=true)
+![alt text](image.png)
 
 ## 参考文档 / Credits
 
