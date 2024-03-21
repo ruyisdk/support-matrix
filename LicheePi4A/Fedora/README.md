@@ -1,12 +1,12 @@
-# Fedora 38 LPi4A 测试报告
+# Fedora 38 LPi4A 官方版本 测试报告
 
 ## 测试环境
 
 ### 系统信息
 
 - 系统版本：Fedora 38
-- 下载链接：[https://github.com/chainsx/fedora-riscv-builder/releases](https://github.com/chainsx/fedora-riscv-builder/releases)
-- 参考安装文档：[https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html)
+- 下载链接：[https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/](https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/)
+- 参考安装文档：[https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head](https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head)
 - fastboot 链接：
     - [https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)
     - [https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
@@ -20,21 +20,6 @@
 
 ## 安装步骤
 
-### 刷写 bootloader
-
-进入 fastboot。
-- 正式版确认 boot 拨码开关为 eMMC。
-- 按动 BOOT 同时上电。
-- （详见官方教程）
-使用 fastboot 按命令烧录 u-boot。
-
-```bash
-sudo ./fastboot flash ram ./path/to/your/lpi4a-($ram_size)gb-u-boot-with-spl.bin
-sudo ./fastboot reboot
-sleep 10
-sudo ./fastboot flash uboot ./path/to/your/lpi4a-($ram_size)gb-u-boot-with-spl.bin
-```
-
 ### 刷写镜像
 
 使用 `unxz` 解压镜像。
@@ -45,12 +30,30 @@ unxz /path/to/fedora.raw.xz
 sudo dd if=/path/to/fedora.raw of=/dev/your_device bs=1M status=progress
 ```
 
+### 刷写 bootloader
+
+**注意：fedora 的 u-boot 在镜像中，上一步 dd 完镜像后，从 sd 卡中的 boot 分区提取！**
+![u-boot](./u-boot.png)
+
+进入 fastboot。
+- 正式版确认 boot 拨码开关为 eMMC。
+- 按动 BOOT 同时上电。
+- （详见官方教程）
+使用 fastboot 按命令烧录 u-boot。
+
+```bash
+sudo ./fastboot flash ram ./path/to/your/u-boot-with-spl_lpi4a.bin
+sudo ./fastboot reboot
+sleep 10
+sudo ./fastboot flash uboot ./path/to/your/u-boot-with-spl_lpi4a.bin
+```
+
 ### 登录系统
 
 通过串口登录系统。
 
 默认用户名： `root`
-默认密码： `fedora`
+默认密码： `riscv`
 
 ## 预期结果
 
@@ -58,48 +61,56 @@ sudo dd if=/path/to/fedora.raw of=/dev/your_device bs=1M status=progress
 
 ## 实际结果
 
-系统正常启动，成功通过板载串口登录。
+系统正常启动，成功通过板载串口登录。能进入桌面。
 
 ### 启动信息
 
 屏幕录像（从刷写镜像到登录系统）：
 
-[![asciicast](https://asciinema.org/a/EkD4lbohO4sNJGO518rLQtL59.svg)](https://asciinema.org/a/EkD4lbohO4sNJGO518rLQtL59)
+[![asciicast](https://asciinema.org/a/h2waHR5bazhEOeMYYxbbWUxBm.svg)](https://asciinema.org/a/h2waHR5bazhEOeMYYxbbWUxBm)
 
 ```log
-Fedora Linux 38 (Thirty Eight)
-Kernel 5.10.113-g052b22ef8baf on an riscv64 (ttyS0)
+Welcome to the Fedora RISC-V disk image
+https://openkoji.iscas.ac.cn/koji/
 
+Build date: Mon May 15 18:37:47 UTC 2023
+
+Kernel 5.10.113 on an riscv64 (ttyS0)
+
+The root password is 'riscv'.
+root password logins are disabled in SSH starting Fedora.
+
+If DNS isn’t working, try editing ‘/etc/yum.repos.d/fedora-riscv.repo’.
+
+For updates and latest information read:
+https://fedoraproject.org/wiki/Architectures/RISC-V
+
+Fedora RISC-V
+-------------
 fedora-riscv login: root
 Password: 
-Last login: Thu May 11 00:00:31 on ttyS0
-[root@fedora-riscv ~]# [   35.894822] soc_dovdd18_scan: disabling
-[   35.899400] soc_dvdd12_scan: disabling
-[   35.903909] soc_avdd28_scan_en: disabling
+Last login: Wed May 10 20:03:42 on ttyS0
+[root@fedora-riscv ~]# neofetch
+             .',;::::;,'.                                                                                                       
+         .';:cccccccccccc:;,.            ----------------- 
+      .;cccccccccccccccccccccc;.         OS: Fedora Linux 38 (Xfce) riscv64 
+    .:cccccccccccccccccccccccccc:.       Host: T-HEAD Light Lichee Pi 4A configuration for 8GB DDR board 
+  .;ccccccccccccc;.:dddl:.;ccccccc;.     Kernel: 5.10.113 
+ .:ccccccccccccc;OWMKOOXMWd;ccccccc:.    Uptime: 5 mins 
+.:ccccccccccccc;KMMc;cc;xMMc:ccccccc:.   Packages: 2070 (rpm) 
+,cccccccccccccc;MMM.;cc;;WW::cccccccc,   Shell: bash 5.2.15 
+:cccccccccccccc;MMM.;cccccccccccccccc:   Resolution: 1920x1080 
+:ccccccc;oxOOOo;MMM0OOk.;cccccccccccc:   Terminal: /dev/ttyS0 
+cccccc:0MMKxdd:;MMMkddc.;cccccccccccc;   CPU: (4) 
+ccccc:XM0';cccc;MMM.;cccccccccccccccc'   Memory: 217MiB / 7803MiB 
+ccccc;MMo;ccccc;MMW.;ccccccccccccccc;
+ccccc;0MNc.ccc.xMMd:ccccccccccccccc;                             
+cccccc;dNMWXXXWM0::cccccccccccccc:,                              
+cccccccc;.:odl:.;cccccccccccccc:,.
+:cccccccccccccccccccccccccccc:'.
+.:cccccccccccccccccccccc:;,..
+  '::cccccccccccccc::;,.
 
-[root@fedora-riscv ~]# uname -a
-Linux fedora-riscv 5.10.113-g052b22ef8baf #1 SMP PREEMPT Thu Sep 14 05:05:31 UTC 2023 riscv64 GNU/Linux
-[root@fedora-riscv ~]# cat /etc/os-release 
-NAME="Fedora Linux"
-VERSION="38 (Thirty Eight)"
-ID=fedora
-VERSION_ID=38
-VERSION_CODENAME=""
-PLATFORM_ID="platform:f38"
-PRETTY_NAME="Fedora Linux 38 (Thirty Eight)"
-ANSI_COLOR="0;38;2;60;110;180"
-LOGO=fedora-logo-icon
-CPE_NAME="cpe:/o:fedoraproject:fedora:38"
-DEFAULT_HOSTNAME="fedora"
-HOME_URL="https://fedoraproject.org/"
-DOCUMENTATION_URL="https://docs.fedoraproject.org/en-US/fedora/f38/system-administrators-guide/"
-SUPPORT_URL="https://ask.fedoraproject.org/"
-BUG_REPORT_URL="https://bugzilla.redhat.com/"
-REDHAT_BUGZILLA_PRODUCT="Fedora"
-REDHAT_BUGZILLA_PRODUCT_VERSION=38
-REDHAT_SUPPORT_PRODUCT="Fedora"
-REDHAT_SUPPORT_PRODUCT_VERSION=38
-SUPPORT_END=2024-05-14
 ```
 
 ## 测试判定标准

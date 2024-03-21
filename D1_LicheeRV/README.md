@@ -25,6 +25,12 @@
     - Nezha D1: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=nezha
     - Sipeed Lichee RV Dock: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
   - 参考安装文档：https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1
+- Debian
+  - 下载链接：http://www.perfxlab.cn:8080/rvboards/
+  - 参考安装文档：https://d1.docs.aw-ol.com/strong/strong_4debian/#v041
+- Fedora
+  - 下载链接：https://openkoji.iscas.ac.cn/pub/dl/riscv/Allwinner/Nezha_D1/images-release/Fedora/
+  - 参考安装文档：https://fedoraproject.org/wiki/Architectures/RISC-V/Allwinner/zh-cn
 
 ### 硬件开发板信息
 
@@ -39,11 +45,14 @@
 | openEuler/Xfce 镜像启动        | Xfce Desktop | [成功][oERV]                |
 | Tina-Linux 镜像启动 - Nezha D1 | N/A          | [成功][TinaNezha]（官方支持） |
 | Ubuntu 镜像启动                | N/A          | [成功][Ubuntu]（官方支持）    |
-| Ubuntu 镜像启动                | N/A          | [成功][Ubuntu]（官方支持）    |
 | OpenWrt 镜像启动               | N/A          | [成功][OpenWrt]（官方支持）   |
+| Debian 镜像启动                | N/A          | [成功][Debian]              |
+| Fedora 镜像启动                | N/A          | [成功][Fedora]              |
 
 [oERVDL]: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/D1/
 [oERV]: ./openEuler/README.md
 [TinaNezha]: https://d1.docs.aw-ol.com/study/study_1tina/
 [Ubuntu]: ./Ubuntu/README.md
 [OpenWrt]: ./OpenWrt/README.md
+[Debian]: ./Debian/README.md
+[Fedora]: ./Fedora/README.md
