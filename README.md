@@ -7,6 +7,7 @@
 | SG2042   | [Pioneer Box][Pioneer]        | CFT        | Good          | Good   | N/A     | CFT    | N/A        | N/A     | WIP         | Good      | Good      | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | WIP         | N/A      | N/A       | N/A    | N/A     | N/A     |
 | CV1800B  | [Milk-V Duo][Duo]             | CFT        | CFT           | CFT    | N/A     | CFT    | N/A        | N/A     | N/A         | CFT       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | Basic     | N/A         | CFT      | CFT       | N/A    | WIP     | N/A     |
 | TH1520   | [LicheePi 4A][LPi4A]          | Good       | Good          | Good   | N/A     | CFT    | CFT        | N/A     | N/A         | Good      | Good      | N/A      | WIP    | N/A        | N/A        | Good    | N/A       | WIP         | N/A      | N/A       | N/A    | CFT     | N/A     |
+| JH7100   | [VisionFive 1][VF1]          | CFT        | CFT          | Good   | CFT     | CFT    | CFT        | CFT     | N/A         | Good     | Good     | CFT      | Good  | N/A        | N/A        | CFT     | CFT     | CFT         | N/A      | CFT       | N/A    | CFT     | N/A     |
 | JH7110   | [VisionFive 2][VF2]           | CFT        | Good          | CFT    | CFT     | CFT    | CFT        | CFT     | N/A         | Good      | Good      | CFT      | Good   | N/A        | WIP        | CFT     | Basic     | WIP         | N/A      | CFT       | N/A    | CFT     | N/A     |
 | K230     | [CanMV K230][K230]            | CFT        | Basic         | N/A    | N/A     | CFT    | CFT        | CFT     | CFT         | CFT       | N/A       | N/A      | Basic  | N/A        | N/A        | N/A     | N/A       | N/A         | N/A      | CFT       | N/A    | CFT     | N/A     |
 | C906     | [LicheeRV/AWOL Nezha][C906]   | CFT        | Good          | Good   | N/A     | CFT    | CFT        | N/A     | N/A         | Good      | N/A       | N/A      | Good   | Basic      | N/A        | N/A     | N/A       | N/A         | N/A      | N/A       | N/A    | Basic   | N/A     |
@@ -28,6 +29,7 @@
 [Pioneer]: ./Pioneer/README.md
 [Duo]: ./Duo/README.md
 [LPi4A]: ./LicheePi4A/README.md
+[VF1]: ./VisionFive1/README.md
 [VF2]: ./VisionFive2/README.md
 [K230]: ./K230/README.md
 [C906]: ./D1_LicheeRV/README.md
