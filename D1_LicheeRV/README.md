@@ -48,6 +48,7 @@
 | OpenWrt 镜像启动               | N/A          | [成功][OpenWrt]（官方支持）   |
 | Debian 镜像启动                | N/A          | [成功][Debian]              |
 | Fedora 镜像启动                | N/A          | [成功][Fedora]              |
+| openSUSE 镜像启动              | N/A          | [成功][openSUSE]            |
 
 [oERVDL]: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/D1/
 [oERV]: ./openEuler/README.md
@@ -56,3 +57,4 @@
 [OpenWrt]: ./OpenWrt/README.md
 [Debian]: ./Debian/README.md
 [Fedora]: ./Fedora/README.md
+[openSUSE]: ./openSUSE/README.md

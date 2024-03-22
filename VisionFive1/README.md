@@ -16,10 +16,12 @@
 | openEuler/Xfce 镜像启动        | N/A      | [成功][oERVXfce]                 |
 | Fedora 镜像启动                | N/A      | [成功][Fedora]（官方支持）         |
 | Ubuntu 镜像启动                | N/A      | [成功][Ubuntu]                   |
-| openKylin 镜像启动             | N/A      | [成功][oK]（官方支持）               |
+| openKylin 镜像启动             | N/A      | [成功][oK]（官方支持）             |
+| openSUSE 镜像启动              | N/A      | [成功][openSUSE]                 |
 
 [oERVBase]: ./openEuler/README.md
 [oERVXfce]: ./openEuler/README.md
 [Fedora]: ./Fedora/README.md
 [Ubuntu]: ./Ubuntu/README.md
 [oK]: ./openKylin/README.md
+[openSUSE]: ./openSUSE/README.md
