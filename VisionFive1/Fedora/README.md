@@ -24,7 +24,7 @@
 
 ```bash
 zstd -d /path/to/fedora.raw.zst
-sudo dd if=/path/to/fedora of=/dev/yout-device bs=1M status=progress
+sudo dd if=/path/to/fedora of=/dev/your-device bs=1M status=progress
 ```
 
 ### 登录系统

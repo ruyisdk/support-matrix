@@ -24,7 +24,7 @@
 
 ```bash
 unxz /path/to/openKylin.img.xz
-sudo dd if=/path/to/openKylin.img of=/dev/yout-device bs=1M status=progress
+sudo dd if=/path/to/openKylin.img of=/dev/your-device bs=1M status=progress
 ```
 
 ### 登录系统

@@ -1,4 +1,4 @@
-# Armbian LPi4A 官方版本 测试报告
+# Armbian LPi4A 测试报告
 
 ## 测试环境
 
