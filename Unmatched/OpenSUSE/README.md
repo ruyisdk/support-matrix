@@ -1,10 +1,10 @@
-# OpenSUSE Tumbleweed HiFive Unmatched 测试报告
+# openSUSE Tumbleweed HiFive Unmatched 测试报告
 
 ## 测试环境
 
 ### 操作系统信息
 
-- 系统版本：OpenSUSE Tumbleweed
+- 系统版本：openSUSE Tumbleweed
 - 下载链接：https://download.opensuse.org/repositories/home:/Andreas_Schwab:/riscv:/unmatched/images/openSUSE-Tumbleweed-RISC-V-JeOS-hifiveunmatched.riscv64-2024.03.15-Build1.7.raw.xz
 - 参考安装文档：https://en.opensuse.org/HCL:HiFive_Unmatched
 
