@@ -1,4 +1,4 @@
-# StarFive VisionFive 1
+# StarFive VisionFive
 
 ## 测试环境
 
@@ -6,7 +6,7 @@
 
 ### 硬件开发板信息
 
-- StarFive VisionFive 1
+- StarFive VisionFive
 
 ## 测试结果
 

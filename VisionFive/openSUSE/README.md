@@ -1,4 +1,4 @@
-# openSUSE Tumbleweed VisionFive 1 测试报告
+# openSUSE Tumbleweed VisionFive 测试报告
 
 ## 测试环境
 
@@ -10,7 +10,7 @@
 
 ### 硬件信息
 
-- StarFive VisionFive 1
+- StarFive VisionFive
 - 电源适配器
 - microSD 卡一张
 - USB to UART 调试器一个
