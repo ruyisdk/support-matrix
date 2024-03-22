@@ -27,6 +27,9 @@
 - Debian sid
     - 下载链接：https://people.debian.org/~deiv/riscv/debian-sid-risc-v-sifive-unmatched.tar.xz
     - 参考安装文档：https://wiki.debian.org/InstallingDebianOn/SiFive/%20HiFiveUnmatched
+- OpenSUSE Tumbleweed
+    - 下载链接：https://download.opensuse.org/repositories/home:/Andreas_Schwab:/riscv:/unmatched/images/openSUSE-Tumbleweed-RISC-V-JeOS-hifiveunmatched.riscv64-2024.03.15-Build1.7.raw.xz
+    - 参考安装文档：https://en.opensuse.org/HCL:HiFive_Unmatched
 
 ### 硬件开发板信息
 
@@ -40,6 +43,7 @@
 | openEuler/Base 镜像启动 | N/A      | [成功][oERV]              |
 | openEuler/Xfce 镜像启动 | N/A      | [成功][oERV]              |
 | openKylin 镜像启动      | N/A      | [成功][oK]（官方支持）      |
+| OpenSUSE 镜像启动       | N/A      | [成功][SUSE]              |
 | Ubuntu 镜像启动         | N/A      | [成功][Ubuntu]（官方支持）  |
 | FreeBSD 镜像启动        | N/A      | [成功][FreeBSD]（官方支持） |
 | OpenBSD 镜像启动        | N/A      | [成功][OpenBSD]（官方支持） |
@@ -49,6 +53,7 @@
 [Debian]: ./Debian/README.md
 [oERV]: ./openEuler/README.md
 [oK]: ./openKylin/README.md
+[SUSE]: ./OpenSUSE/README.md
 [Ubuntu]: ./Ubuntu/README.md
 [FreeBSD]: ./FreeBSD/README.md
 [OpenBSD]: ./OpenBSD/README.md

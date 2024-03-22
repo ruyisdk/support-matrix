@@ -21,6 +21,8 @@
 |-------------|----------|------------------|
 | Debian 镜像启动 | N/A      | [成功][K230Debian]（厂商镜像） |
 | Ubuntu 镜像启动 | N/A      | [成功][K230Ubuntu]（厂商镜像） |
+| Fedora 镜像启动 | N/A      | [成功][Fedora]               |
 
 [K230Debian]: ./Debian/README.md
 [K230Ubuntu]: ./Ubuntu/README.md
+[Fedora]: ./Fedora/README.md
