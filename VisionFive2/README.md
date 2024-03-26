@@ -19,6 +19,15 @@
 - BuildRoot (VisionFive 2 SDK)
     - 下载链接：https://github.com/starfive-tech/VisionFive2/releases
     - 参考安装文档：https://github.com/starfive-tech/VisionFive2
+- Arch Linux
+    - 下载链接：https://github.com/cwt-vf2/archlinux-image-vf2/releases/tag/cwt21.1
+    - 参考安装文档：https://forum.rvspace.org/t/arch-linux-image-for-visionfive-2/1459
+- Gentoo
+    - 下载链接：https://drive.google.com/file/d/10TDsk2FwZDJv3yJvDAfCam5Wf9ibS6Eg/view?usp=sharing
+    - 参考安装文档：https://forum.rvspace.org/t/experimental-gentoo-image/1807
+- openSUSE
+    - 下载链接：https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/StarFive:/VisionFive2/images/
+    - 参考安装文档：https://en.opensuse.org/HCL:VisionFive2
 - OpenBSD
   - 下载链接：https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/
   - 参考安装文档：https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64
@@ -37,6 +46,9 @@
 | openKylin 镜像启动      | N/A      | [成功][oK]（官方支持）                 |
 | Ubuntu 镜像启动         | N/A      | [成功][Ubuntu]（官方支持）             |
 | BuildRoot 镜像启动      | N/A      | [成功][BuildRoot]（StarFive 厂商镜像） |
+| Arch Linux 镜像启动     | N/A      | [成功][Arch]                         |
+| Gentoo 镜像启动         | N/A      | [成功][Gentoo]                       |
+| openSUSE 镜像启动       | N/A      | [成功][SUSE]（官方支持）               |
 | OpenBSD 镜像启动        | N/A      | [成功][OpenBSD]                      |
 
 [oERVBase]: ./openEuler/README.md
@@ -45,4 +57,7 @@
 [oK]: ./openKylin/README.md
 [Ubuntu]: ./Ubuntu/README.md
 [BuildRoot]: ./BuildRoot/README.md
+[Arch]: ./ArchLinux/README.md
+[Gentoo]: ./Gentoo/README.md
+[openSUSE]: ./openSUSE/README.md
 [OpenBSD]: ./OpenBSD/README.md
