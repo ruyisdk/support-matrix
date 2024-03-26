@@ -24,14 +24,16 @@
 
 ## 测试结果
 
-| 软件分类            | 软件包名 | 测试结果（测试报告）                |
-|-----------------|----------|---------------------------------|
-| BuildRoot 镜像启动  | N/A      | [成功][Duo]（通过 `ruyi` CLI 刷写） |
-| Arch Linux 镜像启动 | N/A      | [成功][Arch]                      |
-| Debian 镜像启动     | N/A      | [成功][Debian]                    |
-| Fedora 镜像启动     | N/A      | [成功][Fedora]                    |
+| 软件分类                 | 软件包名 | 测试结果（测试报告）                |
+|----------------------|----------|---------------------------------|
+| BuildRoot 镜像启动       | N/A      | [成功][Duo]（通过 `ruyi` CLI 刷写） |
+| Arch Linux 镜像启动      | N/A      | [成功][Arch]                      |
+| Debian 镜像启动          | N/A      | [成功][Debian]                    |
+| RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]                 |
+| Fedora 镜像启动          | N/A      | [失败][Fedora]                    |
 
 [Duo]: ./BuildRoot/README.md
 [Arch]: ./ArchLinux/README.md
 [Debian]: ./Debian/README.md
 [Fedora]: ./Fedora/README.md
+[RT-Thread]: ./RT-Thread/README.md
