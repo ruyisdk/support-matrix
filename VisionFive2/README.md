@@ -19,6 +19,9 @@
 - BuildRoot (VisionFive 2 SDK)
     - 下载链接：https://github.com/starfive-tech/VisionFive2/releases
     - 参考安装文档：https://github.com/starfive-tech/VisionFive2
+- OpenBSD
+  - 下载链接：https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/
+  - 参考安装文档：https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64
 
 ### 硬件开发板信息
 
@@ -34,6 +37,7 @@
 | openKylin 镜像启动      | N/A      | [成功][oK]（官方支持）                 |
 | Ubuntu 镜像启动         | N/A      | [成功][Ubuntu]（官方支持）             |
 | BuildRoot 镜像启动      | N/A      | [成功][BuildRoot]（StarFive 厂商镜像） |
+| OpenBSD 镜像启动        | N/A      | [成功][OpenBSD]                      |
 
 [oERVBase]: ./openEuler/README.md
 [oERVXfce]: ./openEuler/README.md
@@ -41,3 +45,4 @@
 [oK]: ./openKylin/README.md
 [Ubuntu]: ./Ubuntu/README.md
 [BuildRoot]: ./BuildRoot/README.md
+[OpenBSD]: ./OpenBSD/README.md

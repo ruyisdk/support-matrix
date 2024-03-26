@@ -27,6 +27,9 @@
 - OpenWRT
   - 下载链接：https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=starfive%2Fgeneric&id=visionfive-v1
   - 参考安装文档：https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.starfive?s[]=visionfive
+- OpenBSD
+  - 下载链接：https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/
+  - 参考安装文档：https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64
 
 ### 硬件开发板信息
 
@@ -42,8 +45,9 @@
 | Ubuntu 镜像启动                | N/A      | [成功][Ubuntu]                   |
 | openKylin 镜像启动             | N/A      | [成功][oK]（官方支持）             |
 | openSUSE 镜像启动              | N/A      | [成功][openSUSE]                 |
-| Armbian 镜像启动               | N/A      | [成功][Armbian]                 |
-| OpenWRT 镜像启动               | N/A      | [成功][OpenWRT]                 |
+| Armbian 镜像启动               | N/A      | [成功][Armbian]                  |
+| OpenWRT 镜像启动               | N/A      | [成功][OpenWRT]                  |
+| OpenBSD 镜像启动               | N/A      | [成功][OpenBSD]                  |
 
 [oERVBase]: ./openEuler/README.md
 [oERVXfce]: ./openEuler/README.md
@@ -53,3 +57,4 @@
 [openSUSE]: ./openSUSE/README.md
 [Armbian]: ./Armbian/README.md
 [OpenWRT]: ./OpenWRT/README.md
+[OpenBSD]: ./OpenBSD/README.md
