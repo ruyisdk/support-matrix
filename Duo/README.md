@@ -8,6 +8,15 @@
   - 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk/releases
     - Milk-V 官方提供的 BuildRoot SDK，同时包含了 FreeRTOS
   - 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk
+- Arch Linux
+  - 下载链接：https://drive.google.com/file/d/1Qf8ioR29KCsvt2MIWre168Um9Q8ot_z5/view?usp=sharing
+  - 参考安装文档：https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/#ArchLinux_Disk_Image
+- Debian trixie/sid
+  - 下载链接：https://drive.google.com/file/d/1TqMuFsRo5Es2Y6-qAyxV8jnFdAkcCp4v/view?usp=sharing
+  - 参考安装文档：https://github.com/hongwenjun/riscv64/tree/main/milkv-duo
+- Fedora 38
+  - 下载链接：https://github.com/chainsx/fedora-riscv-builder/releases/download/20230719-1650/Fedora-38-Minimal-MilkV-Duo-riscv64.img.xz
+  - 参考安装文档：https://github.com/chainsx/fedora-riscv-builder
 
 ### 硬件开发板信息
 
@@ -15,8 +24,14 @@
 
 ## 测试结果
 
-| 软件分类           | 软件包名 | 测试结果（测试报告）                |
-|----------------|----------|-----------------------------|
-| BuildRoot 镜像启动 | N/A      | [成功][Duo]（通过 `ruyi` CLI 刷写） |
+| 软件分类            | 软件包名 | 测试结果（测试报告）                |
+|-----------------|----------|---------------------------------|
+| BuildRoot 镜像启动  | N/A      | [成功][Duo]（通过 `ruyi` CLI 刷写） |
+| Arch Linux 镜像启动 | N/A      | [成功][Arch]                      |
+| Debian 镜像启动     | N/A      | [成功][Debian]                    |
+| Fedora 镜像启动     | N/A      | [成功][Fedora]                    |
 
 [Duo]: ./BuildRoot/README.md
+[Arch]: ./ArchLinux/README.md
+[Debian]: ./Debian/README.md
+[Fedora]: ./Fedora/README.md
