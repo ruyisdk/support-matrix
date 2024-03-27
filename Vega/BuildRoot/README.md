@@ -7,6 +7,8 @@
 - Host: Ubuntu 22.04.3 LTS x86_64
 - Milk-V Vega Switch
 - 参考文档：https://milkv.io/zh/docs/vega/getting-started/buildroot-sdk
+- Issue/CFH: https://github.com/milkv-vega/vega-buildroot-sdk/issues/1
+  - BuildRoot 构建失败
 
 ## 操作步骤
 
@@ -47,8 +49,6 @@ out/
 ### 实际结果
 
 固件构建失败，日志如下。
-
-GitHub issue: https://github.com/milkv-vega/vega-buildroot-sdk/issues/1
 
 ```log
 In file included from /usr/include/signal.h:328,
