@@ -10,7 +10,7 @@
 
 ### 硬件开发板信息
 
-- Milk-V Mars
+- Milk-V Meles 4GB/8GB
 
 ## 测试结果
 
