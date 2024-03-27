@@ -28,6 +28,9 @@
 - openSUSE
     - 下载链接：https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/StarFive:/VisionFive2/images/
     - 参考安装文档：https://en.opensuse.org/HCL:VisionFive2
+- OpenBSD
+  - 下载链接：https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/
+  - 参考安装文档：https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64
 
 ### 硬件开发板信息
 
@@ -46,6 +49,7 @@
 | Arch Linux 镜像启动     | N/A      | [成功][Arch]                         |
 | Gentoo 镜像启动         | N/A      | [成功][Gentoo]                       |
 | openSUSE 镜像启动       | N/A      | [成功][SUSE]（官方支持）               |
+| OpenBSD 镜像启动        | N/A      | [成功][OpenBSD]                      |
 
 [oERVBase]: ./openEuler/README.md
 [oERVXfce]: ./openEuler/README.md
@@ -56,3 +60,4 @@
 [Arch]: ./ArchLinux/README.md
 [Gentoo]: ./Gentoo/README.md
 [openSUSE]: ./openSUSE/README.md
+[OpenBSD]: ./OpenBSD/README.md
