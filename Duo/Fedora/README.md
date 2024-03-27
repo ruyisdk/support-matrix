@@ -7,6 +7,8 @@
 - 系统版本：Fedora 38
 - 下载链接：https://github.com/chainsx/fedora-riscv-builder/releases/download/20230719-1650/Fedora-38-Minimal-MilkV-Duo-riscv64.img.xz
 - 参考安装文档：https://github.com/chainsx/fedora-riscv-builder
+- Issue/CFH: https://github.com/chainsx/fedora-riscv-builder/issues/6
+    - （镜像无法启动）
 
 > Note: 此镜像为社区开发者提供，非官方镜像。
 
