@@ -56,7 +56,7 @@ CONFIG_TIMERFD=y
 CONFIG_EPOLL=y
 CONFIG_IPV6=y
 CONFIG_FANOTIFY
-EOF网络
+EOF
 ```
 
 修改 memmap.py 第 43 行为 0
@@ -117,7 +117,7 @@ sudo mount /dev/your-device-p2 mnt
 sudo tar -zxvf /path/to/openeuler-rootfs.tar.gz -C mnt
 ```
 
-接下来挂载原镜像并拷贝一些必要的文（以下的回环设备请根据实际情况更改）：
+接下来挂载原镜像并拷贝一些必要的文件（以下的回环设备请根据实际情况更改）：
 ```bash
 sudo losetup -f -P milkv-duo-20240326-1620.img
 sudo mount /dev/loop0p2 mnt2
@@ -238,8 +238,6 @@ ANSI_COLOR="0;31"
 
 [root@openeuler-riscv64 ~]# 
 ```
-
-屏幕录像（从刷写镜像到登录系统）：
 
 
 

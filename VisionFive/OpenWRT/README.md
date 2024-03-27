@@ -127,4 +127,4 @@ OPENWRT_RELEASE="OpenWrt SNAPSHOT r25661-bf4c04a4d0"
 
 ## 测试结论
 
-测试部分成功。
+测试成功。
