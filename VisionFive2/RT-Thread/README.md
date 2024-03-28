@@ -1,4 +1,4 @@
-# RE-Thread VisionFive 2 测试报告
+# RT-Thread VisionFive 2 测试报告
 
 ## 测试环境
 
@@ -51,13 +51,15 @@ wget https://github.com/starfive-tech/rt-thread/blob/rtthread_AMP/toolchain/tool
 sudo tar xf rtthread/toolchain/tool-root1.tar.gz -C /opt/
 ```
 
+请确保环境中安装并启用了 git-lfs！否则会编译错误 (issue #5)[https://github.com/starfive-tech/VisionFive2/issues/5]
+
 编译：
 ```bash
 # scons --menuconfig # 若需配置再运行
 make -j($nproc)
 ```
 
-**注：编译时间较长，保持良好网络连接并耐心等待**
+**注：编译时间较长，保持良好网络连接并耐心等待数小时**
 
 ### 运行系统
 
@@ -69,62 +71,48 @@ make -j($nproc)
 > Pin11 (GPIO42): UART1 RX
 > Pin13 (GPIO43): UART1 TX
 
-烧写编译出的 `u-boot-spl.bin.normal.out` 和 `visionfive2_fw_payload.img` 文件。官方教程为用 xmodem 烧写到 flash，但也可以烧写到 sd 卡以避免覆盖原有的 boot。
+烧写编译出的 `u-boot-spl.bin.normal.out` 和 `visionfive2_fw_payload.img` 文件。官方教程为烧写到 flash，可以参考[更新 uboot 和 spl](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_SDK_QSG/updating_spl_and_u_boot%20-%20vf2.html#updating_spl_and_u_boot-vf2__section_y3j_yp5_yvb)。
 
-以下为烧写到 sd 卡的示例。需要首先准备好 VisionFive2 的 Debian SD 卡镜像。
+也可以烧写到 sd 卡以避免覆盖原有的 boot。但由于 visionfive2_fw_payload.img 超过了 4M 不能直接替换，此种方法还需要构建 rootfs。
+以下为烧写到 sd 卡的示例。需要首先准备好 VisionFive2 的 SD 卡镜像。
 
 ```bash
-sudo dd if=starfive-jh7110-202403-SD-minimal-desktop-wayland.img of=/dev/mmcblk0 bs=1M status=progress
+make buildroot_rootfs -j$(nproc)
+make img
 ```
 
-接下来将 spl 和 uboot 替换：
+接下来将镜像烧录：
 ```bash
-dd if=u-boot-spl.bin.normal.out of=/dev/your-device-p1 conv=fsync
-dd if=visionfive2_fw_payload.img of=/dev/myour-device-p2 conv=fsync
+sudo dd if=work/sdcard.img of=/dev/ of=/dev/your-device bs=1M status=progress
+sync
 ```
 
 注意此种方式需要将 boot 选为从 sd 卡启动。
 
 ## 预期结果
 
-系统正常启动，输出 Hello World 信息。
+系统正常启动，成功通过串口登录。
 
 ## 实际结果
 
+系统正常启动，成功通过串口登录。
+
 ```log
-OpenSBI v0.9
-vicap_mcm_init[I/utest] utest is initialize success.
-[I/utest] total utest testcase num: (17)
-RT-SMART Hello RISC-V
-msh />ov5647_power_rest OV564press 'q' to exit application!!
-7_CAM_PIN is 0 
-kd_vi_open_timestamp>enable stc
-kd_mpi_isp_set_output_chn_format, width(1920), height(1080), pix_format(2)
-kd_mpi_isp_set_output_chn_format, width(1280), height(720), pix_format(7)
-ov5647_power_rest OV5647_CAM_PIN is 0 
-vtotal 0 vactive 0 htotal_sys 0
-[dw] init, version Feb  5 2024 16:26:41
-<ipcm> phys 0x180000, size 0x79000
-q
-release reserved vb 275623936
-release reserved vb 0
-ov5647_power_rest OV5647_CAM_PIN is 0                                    
-ps
-thread               pri  status      sp     stack size max used left tick  error
--------------------- ---  ------- ---------- ----------  ------  ---------- ---
-tshell                20  running 0x00000c3a 0x00014000    03%   0x00000004 OK
-sharefs_client         5  suspend 0x0000050a 0x00006000    05%   0x00000005 EINTRPT
-thermal_detect_threa  16  suspend 0x000004da 0x00002800    12%   0x0000000a EINTRPT
-auto_load_thread      16  suspend 0x000004ca 0x00002800    12%   0x0000000a EINTRPT
-ipcm-discovery         5  suspend 0x000004fa 0x00001000    41%   0x00000001 EINTRPT
-ipcm-recv              5  suspend 0x0000051a 0x00001000    33%   0x00000005 EINTRPT
-tidle0                31  ready   0x00000478 0x00004000    09%   0x0000001a OK
-timer                  4  suspend 0x00000488 0x00004000    07%   0x00000009 OK
-msh />
+SBI: OpenSBI v1.2
+SBI Specification Version: 1.0
+heap: [0x6f000000 - 0x70000000]
 
+ \ | /
+- RT -     Thread Operating System
+ / | \     5.1.0 build Mar 28 2024 14:25:42
+ 2006 - 2022 Copyright by RT-Thread team
+lwIP-2.0.3 initialized!
+Hello RISC-V
+Hello Starfive RT-Thread! CPU_ID(4)
+rpmsg linux test: receive data from linux then send back
+rpmsg remote: remote core cpu_id-4
+rpmsg remote: shmem_base-0x6e410000 shmem_end-0x6e7fffff
 ```
-
-![alt text](image-1.png)
 
 ## 测试判定标准
 
