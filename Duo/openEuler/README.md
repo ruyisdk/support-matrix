@@ -67,7 +67,7 @@ vim build/boards/cv180x/cv1800b_milkv_duo_sd/memmap.py
 ION_SIZE = 0
 ```
 
-在 docker 进行编译（推荐）
+在 Docker 进行编译（推荐）
 ```bash
 docker run -itd --name duodocker -v $(pwd):/home/work milkvtech/milkv-duo:latest /bin/bash
 docker exec -it duodocker /bin/bash -c "cd /home/work && cat /etc/issue && ./build.sh milkv-duo"
@@ -82,7 +82,8 @@ cd ..
 cp duo-buildroot-sdk/out/milkv-duo-20240326-1620.img .
 ```
 
-写入到 sd 卡中先
+写入到 sd 卡中
+
 ```bash
 sudo dd if=milkv-duo-20240326-1620.img of=/dev/your-device bs=1M status=progress
 ```
@@ -127,7 +128,7 @@ sudo cp mnt2/etc/uhubon.sh mnt/etc/
 sudo cp mnt2/etc/init.d/S99user mnt/etc/init.d/
 ```
 
-接下来准备进入镜像，先创建 dns 解析：
+接下来准备进入镜像，先创建 DNS 解析：
 ```bash
 echo "nameserver 8.8.8.8" | sudo tee mnt/etc/resolv.conf
 ```
