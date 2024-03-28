@@ -37,66 +37,42 @@ sudo dd if=/path/to/k230.img of=/dev/your_device bs=1M status=progress
 
 其中小核 tty 为 Linux，大核 tty 为 RT-Smart。
 
-## 预期结果
-
-系统正常启动，能够通过板载串口登录。
-
 ## 实际结果
 
-系统正常启动，成功通过板载串口登录。
-
-### 启动信息
-
-屏幕录像（从烧录到登录系统）：
-
-[![asciicast](https://asciinema.org/a/urysrirhMB8fivXe1JHQ65Hyv.svg)](https://asciinema.org/a/urysrirhMB8fivXe1JHQ65Hyv)
-
 ```log
-Welcome to the Fedora RISC-V disk image
-https://openkoji.iscas.ac.cn/koji/
-
-Build date: Tue Aug 15 19:14:20 UTC 2023
-
-Kernel 6.6.0+ on an riscv64 (ttyS0)
-
-The root password is 'riscv'.
-root password logins are disabled in SSH starting Fedora.
-
-If DNS isn’t working, try editing ‘/etc/yum.repos.d/fedora-riscv.repo’.
-
-For updates and latest information read:
-https://fedoraproject.org/wiki/Architectures/RISC-V
-
-Fedora RISC-V
--------------
-fedora-riscv login: root
-Password: 
-Last login: Sun Mar  3 02:47:32 on ttyS0
--bash-5.2# uname -a
-Linux fedora-riscv 6.6.0+ #1 SMP Wed Mar 13 09:16:28 UTC 2024 riscv64 GNU/Linux
--bash-5.2# cat /etc/os-release 
-NAME="Fedora Linux"
-VERSION="38 (Thirty Eight)"
-ID=fedora
-VERSION_ID=38
-VERSION_CODENAME=""
-PLATFORM_ID="platform:f38"
-PRETTY_NAME="Fedora Linux 38 (Thirty Eight)"
-ANSI_COLOR="0;38;2;60;110;180"
-LOGO=fedora-logo-icon
-CPE_NAME="cpe:/o:fedoraproject:fedora:38"
-DEFAULT_HOSTNAME="fedora"
-HOME_URL="https://fedoraproject.org/"
-DOCUMENTATION_URL="https://docs.fedoraproject.org/en-US/fedora/f38/system-administrators-guide/"
-SUPPORT_URL="https://ask.fedoraproject.org/"
-BUG_REPORT_URL="https://bugzilla.redhat.com/"
-REDHAT_BUGZILLA_PRODUCT="Fedora"
-REDHAT_BUGZILLA_PRODUCT_VERSION=38
-REDHAT_SUPPORT_PRODUCT="Fedora"
-REDHAT_SUPPORT_PRODUCT_VERSION=38
-SUPPORT_END=2024-05-14
+OpenSBI v0.9
+vicap_mcm_init[I/utest] utest is initialize success.
+[I/utest] total utest testcase num: (17)
+RT-SMART Hello RISC-V
+msh />ov5647_power_rest OV564press 'q' to exit application!!
+7_CAM_PIN is 0 
+kd_vi_open_timestamp>enable stc
+kd_mpi_isp_set_output_chn_format, width(1920), height(1080), pix_format(2)
+kd_mpi_isp_set_output_chn_format, width(1280), height(720), pix_format(7)
+ov5647_power_rest OV5647_CAM_PIN is 0 
+vtotal 0 vactive 0 htotal_sys 0
+[dw] init, version Feb  5 2024 16:26:41
+<ipcm> phys 0x180000, size 0x79000
+q
+release reserved vb 275623936
+release reserved vb 0
+ov5647_power_rest OV5647_CAM_PIN is 0                                    
+ps
+thread               pri  status      sp     stack size max used left tick  error
+-------------------- ---  ------- ---------- ----------  ------  ---------- ---
+tshell                20  running 0x00000c3a 0x00014000    03%   0x00000004 OK
+sharefs_client         5  suspend 0x0000050a 0x00006000    05%   0x00000005 EINTRPT
+thermal_detect_threa  16  suspend 0x000004da 0x00002800    12%   0x0000000a EINTRPT
+auto_load_thread      16  suspend 0x000004ca 0x00002800    12%   0x0000000a EINTRPT
+ipcm-discovery         5  suspend 0x000004fa 0x00001000    41%   0x00000001 EINTRPT
+ipcm-recv              5  suspend 0x0000051a 0x00001000    33%   0x00000005 EINTRPT
+tidle0                31  ready   0x00000478 0x00004000    09%   0x0000001a OK
+timer                  4  suspend 0x00000488 0x00004000    07%   0x00000009 OK
+msh />
 
 ```
+
+![img](image-1.png)
 
 ## 测试判定标准
 
