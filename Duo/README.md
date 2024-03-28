@@ -24,7 +24,7 @@
 - 下载链接：
     - buildroot: https://github.com/milkv-duo/duo-buildroot-sdk.git
     - rootfs: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/openeuler-rootfs.tar.gz
-- 参考安装文档：https://blog.inuyasha.love/linuxeveryday/33.html
+  - 参考安装文档：https://blog.inuyasha.love/linuxeveryday/33.html
 
 ### 硬件开发板信息
 
