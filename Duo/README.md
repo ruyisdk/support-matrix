@@ -20,6 +20,11 @@
 - RT-Thread 5.1.0
   - 源码链接：https://github.com/RT-Thread/rt-thread
   - 参考安装文档：https://github.com/RT-Thread/rt-thread/tree/master/bsp/cvitek/cv1800b
+- openEuler 23.03 riscv64
+- 下载链接：
+    - buildroot: https://github.com/milkv-duo/duo-buildroot-sdk.git
+    - rootfs: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/openeuler-rootfs.tar.gz
+  - 参考安装文档：https://blog.inuyasha.love/linuxeveryday/33.html
 
 ### 硬件开发板信息
 
@@ -35,6 +40,7 @@
 | Debian 镜像启动          | N/A      | [成功][Debian]                              |
 | RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]                           |
 | Fedora 镜像启动          | N/A      | [失败][Fedora]                              |
+| openEuler | N/A | [成功][oE]|
 
 [Duo]: ./BuildRoot/README.md
 [Arch]: ./ArchLinux/README.md
@@ -42,3 +48,4 @@
 [Fedora]: ./Fedora/README.md
 [RT-Thread]: ./RT-Thread/README.md
 [FreeRTOS]: ./FreeRTOS/README.md
+[oE]: ./openEuler/README.md

@@ -30,6 +30,9 @@
 - OpenBSD
   - 下载链接：https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/
   - 参考安装文档：https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64
+- Buildroot
+  - 源码链接：https://buildroot.org/download.html
+  - 参考安装文档：https://gitlab.com/buildroot.org/buildroot/-/tree/master/board/visionfive?ref_type=heads
 
 ### 硬件开发板信息
 
@@ -37,17 +40,18 @@
 
 ## 测试结果
 
-| 软件分类                | 软件包名 | 测试结果（测试报告）                   |
-|---------------------|----------|------------------------------------|
-| openEuler/Base 镜像启动        | N/A      | [成功][oERVBase]                 |
-| openEuler/Xfce 镜像启动        | N/A      | [成功][oERVXfce]                 |
-| Fedora 镜像启动                | N/A      | [成功][Fedora]（官方支持）         |
-| Ubuntu 镜像启动                | N/A      | [成功][Ubuntu]                   |
-| openKylin 镜像启动             | N/A      | [成功][oK]（官方支持）             |
-| openSUSE 镜像启动              | N/A      | [成功][openSUSE]                 |
-| Armbian 镜像启动               | N/A      | [成功][Armbian]                  |
-| OpenWRT 镜像启动               | N/A      | [成功][OpenWRT]                  |
-| OpenBSD 镜像启动               | N/A      | [成功][OpenBSD]                  |
+| 软件分类                 | 软件包名 | 测试结果（测试报告）       |
+|----------------------|----------|------------------------|
+| openEuler/Base 镜像启动  | N/A      | [成功][oERVBase]         |
+| openEuler/Xfce 镜像启动  | N/A      | [成功][oERVXfce]         |
+| Fedora 镜像启动          | N/A      | [成功][Fedora]（官方支持） |
+| Ubuntu 镜像启动          | N/A      | [成功][Ubuntu]           |
+| openKylin 镜像启动       | N/A      | [成功][oK]（官方支持）     |
+| openSUSE 镜像启动        | N/A      | [成功][openSUSE]         |
+| Armbian 镜像启动         | N/A      | [成功][Armbian]          |
+| OpenWRT 镜像启动         | N/A      | [成功][OpenWRT]          |
+| OpenBSD 镜像启动         | N/A      | [成功][OpenBSD]          |
+| Buildroot 镜像构建及启动 | N/A      | [成功][Buildroot]        |
 
 [oERVBase]: ./openEuler/README.md
 [oERVXfce]: ./openEuler/README.md
@@ -58,3 +62,4 @@
 [Armbian]: ./Armbian/README.md
 [OpenWRT]: ./OpenWRT/README.md
 [OpenBSD]: ./OpenBSD/README.md
+[Buildroot]: ./BuildRoot/README.md

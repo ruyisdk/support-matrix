@@ -31,6 +31,17 @@
 - OpenBSD
   - 下载链接：https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/
   - 参考安装文档：https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64
+- Armbian Noble Minimal & Armbian Jammy Xfce
+    - 下载链接：https://www.armbian.com/visionfive2/
+    - 参考安装文档：https://www.armbian.com/visionfive2/
+- OpenWrt SNAPSHOT
+    - 下载链接：https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=starfive%2Fgeneric&id=visionfive2-v1.3b
+    - 参考安装文档：https://doc.rvspace.org/VisionFive2/Application_Notes/VisionFive2_OpenWrt/VisionFive_2/openwrt/compile.html
+- RT-Thread
+    - 源码链接：https://github.com/starfive-tech/VisionFive2
+    - 参考安装文档：https://doc.rvspace.org/VisionFive2/Application_Notes/RT-Thread/index.html
+- Zephyr
+    - 参考安装文档：https://docs.zephyrproject.org/latest/boards/starfive/visionfive2/doc/index.html
 
 ### 硬件开发板信息
 
@@ -38,21 +49,25 @@
 
 ## 测试结果
 
-| 软件分类                | 软件包名 | 测试结果（测试报告）                   |
-|---------------------|----------|------------------------------------|
-| openEuler/Base 镜像启动 | N/A      | [成功][oERVBase]                     |
-| openEuler/Xfce 镜像启动 | N/A      | [成功][oERVXfce]                     |
-| Debian 镜像启动         | N/A      | [成功][Debian]（StarFive 厂商镜像）    |
-| openKylin 镜像启动      | N/A      | [成功][oK]（官方支持）                 |
-| Ubuntu 镜像启动         | N/A      | [成功][Ubuntu]（官方支持）             |
-| BuildRoot 镜像启动      | N/A      | [成功][BuildRoot]（StarFive 厂商镜像） |
-| Arch Linux 镜像启动     | N/A      | [成功][Arch]                         |
-| Gentoo 镜像启动         | N/A      | [成功][Gentoo]                       |
-| openSUSE 镜像启动       | N/A      | [成功][SUSE]（官方支持）               |
-| OpenBSD 镜像启动        | N/A      | [成功][OpenBSD]                      |
+| 软件分类                 | 软件包名 | 测试结果（测试报告）                   |
+|----------------------|----------|------------------------------------|
+| openEuler/Base 镜像启动  | N/A      | [成功][oERV]                         |
+| openEuler/Xfce 镜像启动  | Xfce     | [成功][oERV]                         |
+| Debian 镜像启动          | N/A      | [成功][Debian]（StarFive 厂商镜像）    |
+| openKylin 镜像启动       | N/A      | [成功][oK]（官方支持）                 |
+| Ubuntu 镜像启动          | N/A      | [成功][Ubuntu]（官方支持）             |
+| BuildRoot 镜像启动       | N/A      | [成功][BuildRoot]（StarFive 厂商镜像） |
+| Arch Linux 镜像启动      | N/A      | [成功][Arch]                         |
+| Gentoo 镜像启动          | N/A      | [成功][Gentoo]                       |
+| openSUSE 镜像启动        | N/A      | [成功][SUSE]（官方支持）               |
+| OpenBSD 镜像启动         | N/A      | [成功][OpenBSD]                      |
+| Armbian/Minimal 镜像启动 | N/A      | [成功][Armbian]                      |
+| Armbian/Xfce 镜像启动    | Xfce     | [成功][Armbian]                      |
+| OpenWrt 镜像启动         | N/A      | [成功][OpenWrt]                      |
+| RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]（官方支持）   |
+| Zephyr 镜像构建及启动 | N/A      | [失败][Zephyr]   |
 
-[oERVBase]: ./openEuler/README.md
-[oERVXfce]: ./openEuler/README.md
+[oERV]: ./openEuler/README.md
 [Debian]: ./Debian/README.md
 [oK]: ./openKylin/README.md
 [Ubuntu]: ./Ubuntu/README.md
@@ -61,3 +76,7 @@
 [Gentoo]: ./Gentoo/README.md
 [openSUSE]: ./openSUSE/README.md
 [OpenBSD]: ./OpenBSD/README.md
+[Armbian]: ./Armbian/README.md
+[OpenWrt]: ./OpenWRT/README.md
+[RT-Thread]: ./RT-Thread/README.md
+[Zephyr]: ./Zephyr/README.md

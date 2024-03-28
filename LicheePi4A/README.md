@@ -26,15 +26,15 @@
 
 ## 测试结果
 
-| 软件分类                | 软件包名 | 测试结果（测试报告）       |
-|---------------------|----------|------------------------|
-| openEuler/Base 镜像启动 | N/A      | [成功][oERV]             |
-| openEuler/Xfce 镜像启动 | N/A      | [成功][oERV]             |
-| RevyOS 桌面镜像启动      | N/A      | [成功][RevyOS]（官方支持） |
-| Fedora 桌面镜像启动      | N/A      | [成功][Fedora]（官方支持） |
-| openKylin 桌面镜像启动   | N/A      | [成功][openKylin]（官方支持）|
-| Armbian 镜像启动        | N/A      | [成功][Armbian]          |
-| OpenWRT 镜像启动        | N/A      | [成功][OpenWRT]          |
+| 软件分类                | 软件包名 | 测试结果（测试报告）          |
+|---------------------|----------|---------------------------|
+| openEuler/Base 镜像启动 | N/A      | [成功][oERV]                |
+| openEuler/Xfce 镜像启动 | Xfce     | [成功][oERV]                |
+| RevyOS 桌面镜像启动     | N/A      | [成功][RevyOS]（官方支持）    |
+| Fedora 桌面镜像启动     | N/A      | [成功][Fedora]（官方支持）    |
+| openKylin 桌面镜像启动  | N/A      | [成功][openKylin]（官方支持） |
+| Armbian 镜像启动        | N/A      | [成功][Armbian]             |
+| OpenWRT 镜像启动        | N/A      | [成功][OpenWRT]             |
 
 [oERV]: ./openEuler/README.md
 [RevyOS]: ./RevyOS/README.md
