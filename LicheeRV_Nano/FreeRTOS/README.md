@@ -5,8 +5,8 @@
 ### 操作系统信息
 
 - 系统版本：20240401
-- 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk/releases
-- 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk
+- 下载链接：https://github.com/sipeed/LicheeRV-Nano-Build/releases
+- 参考安装文档：https://github.com/sipeed/LicheeRV-Nano-Build/releases
 
 ### 硬件信息
 
