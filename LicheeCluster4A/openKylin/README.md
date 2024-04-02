@@ -52,7 +52,8 @@ sudo ./fastboot flash root ../../images/openkylin-2.0-alpha-licheepi4a-riscv64.e
 通过 SOL (Serial Over LAN) 登录系统。
 
 BMC 默认用户名：`root`
-BMC 默认密码：`0penBmc` **注意是 `0` 而不是 `O` **
+
+BMC 默认密码：`0penBmc` **注意是 `0` 而不是 `O`**
 
 通过 `ssh -p 2301 root@lichee-rv.local` 连接
 
