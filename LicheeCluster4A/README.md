@@ -47,3 +47,4 @@
 [oK]: ./openKylin/README.md
 [Fedora]: ./Fedora/README.md
 [Armbian]: ./Armbian/README.md
+[OpenWRT]: ./OpenWRT/README.md
