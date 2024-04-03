@@ -28,7 +28,7 @@
 
 ### 硬件开发板信息
 
-- Lichee Cluster 4A + 7 * Lichee Pi 4A 8GB RAM
+- Lichee Cluster 4A + 7 * LM4A 8GB RAM
 
 ## 测试结果
 
