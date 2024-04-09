@@ -64,6 +64,8 @@ BMC 默认密码：`0penBmc` **注意是 `0` 而不是 `O`**
 
 若无法使用 USB，是因为 Linux 设备树需要 patch。[patch 下载](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
 
+若不想手动编译 dtb，也可以考虑自行从 [预编译镜像](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin) 中提取 dtb（light-lpi4a.dtb）并替换 boot 下对应文件。
+
 ## 预期结果
 
 系统正常启动，能够通过 SOL (Serial Over LAN) 登录。

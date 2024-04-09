@@ -4,6 +4,9 @@
 
 ### 操作系统信息
 
+- Debian
+    - 下载链接：https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin
+    - 参考安装文档：https://wiki.sipeed.com/hardware/zh/lichee/th1520/lc4a/lc4a.html
 - openEuler RISC-V 23.09 Preview
     - 下载链接：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/lpi4a/
     - 参考安装文档：https://revyos.github.io/
@@ -34,14 +37,17 @@
 
 | 软件分类                | 软件包名   | 测试结果（测试报告）  |
 |------------------------|----------|--------------------|
+| Debian 镜像启动         | N/A      | [成功][Debian]（厂家镜像）|
 | RevyOS 镜像启动         | N/A      | [成功][RevyOS]      |
+| RevyOS 镜像启动         | mainline | [成功][RevyOS]（官方支持）|
 | openEuler/Base 镜像启动 | N/A      | [成功][oERV]        |
 | openEuler/Xfce 镜像启动 | Xfce     | [成功][oERV]        |
 | openKylin 镜像启动      | N/A      | [成功][oK]          |
-| Fedora 桌面镜像启动     | N/A      | [成功][Fedora]       |
+| Fedora 桌面镜像启动      | N/A      | [成功][Fedora]       |
 | Armbian 镜像启动        | N/A      | [成功][Armbian]     |
 | OpenWRT 镜像启动        | N/A      | [成功][OpenWRT]     |
 
+[Debian]: ./Debian/README.md
 [RevyOS]: ./RevyOS/README.md
 [oERV]: ./openEuler/README.md
 [oK]: ./openKylin/README.md
