@@ -1,10 +1,10 @@
-# Debian Lichee Cluster 4A 版本测试报告
+# RevyOS Sipeed 厂商镜像 Lichee Cluster 4A 版本测试报告
 
 ## 测试环境
 
 ### 操作系统信息
 
-- 系统版本：Debian 12
+- 系统版本：RevyOS 20230614-183009
 - 下载链接：https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin
 - 参考安装文档：https://wiki.sipeed.com/hardware/zh/lichee/th1520/lc4a/lc4a.html
 
@@ -70,6 +70,9 @@ BMC 默认密码：`0penBmc`  **注意是 `0` 而不是 `O`**
 [![asciicast](https://asciinema.org/a/KwCIHjcPOuepxFiwUGhh7sLuh.svg)](https://asciinema.org/a/KwCIHjcPOuepxFiwUGhh7sLuh)
 
 ```log
+Debian GNU/Linux 12 lc4aa0c8 ttyS0
+
+lc4aa0c8 login: debian
 Password: 
 Linux lc4aa0c8 5.10.113-cluster #1 SMP PREEMPT 1 riscv64
 
@@ -79,6 +82,9 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
+Last login: Tue Apr  9 05:31:05 UTC 2024 on ttyS0
+debian@lc4aa0c8:~$ uname -a
+Linux lc4aa0c8 5.10.113-cluster #1 SMP PREEMPT 1 riscv64 GNU/Linux
 debian@lc4aa0c8:~$ cat /etc/os-release 
 PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
 NAME="Debian GNU/Linux"
@@ -89,8 +95,8 @@ ID=debian
 HOME_URL="https://www.debian.org/"
 SUPPORT_URL="https://www.debian.org/support"
 BUG_REPORT_URL="https://bugs.debian.org/"
-debian@lc4aa0c8:~$ uname -a
-Linux lc4aa0c8 5.10.113-cluster #1 SMP PREEMPT 1 riscv64 GNU/Linux
+debian@lc4aa0c8:~$ cat /etc/revyos-release 
+20230614-183009
 debian@lc4aa0c8:~$ 
 
 ```
