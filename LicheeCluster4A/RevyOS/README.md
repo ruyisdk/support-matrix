@@ -20,7 +20,6 @@
     - 或 LPi4A 底板
 - 网络和网线（注意连接到 BMC 而非交换机）
 
-
 ## 安装步骤
 
 *以下以刷写到集群中一号板为例*
@@ -29,11 +28,23 @@
 
 使用 A to A 线缆连接 SOM。
 
-### 使用 `ruyi` CLI 刷写镜像到板载 eMMC
+### 刷写镜像
 
-安装 [`ruyi`](https://github.com/ruyisdk/ruyi) 包管理器，运行 `ruyi device provision` 并按提示操作。
+使用 `zstd` 解压镜像。
 
-镜像按照 LPi4A 选择即可。
+```bash
+zstd -d boot-lpi4amain-20240127_105111.ext4.zst
+zstd -d root-lpi4amain-20240127_105111.ext4.zst
+```
+
+使用 `fastboot` 刷写镜像
+```bash
+sudo ./fastboot flash ram u-boot-with-spl-lc4a-main.bin
+sudo ./fastboot reboot
+sudo ./fastboot flash uboot u-boot-with-spl-lc4a-main.bin
+sudo ./fastboot flash boot boot-lpi4amain-20240127_105111.ext4
+sudo ./fastboot flash root root-lpi4amain-20240127_105111.ext4
+```
 
 ### 登录系统
 
@@ -48,10 +59,6 @@ BMC 默认密码：`0penBmc`  **注意是 `0` 而不是 `O`**
 默认用户名：`debian`
 默认密码：`debian`
 
-### 常见问题
-
-若无法使用 USB，是因为 Linux 设备树需要 patch。[patch 下载](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
-
 ## 预期结果
 
 系统正常启动，能够通过 SOL (Serial Over LAN) 登录。
@@ -64,14 +71,37 @@ BMC 默认密码：`0penBmc`  **注意是 `0` 而不是 `O`**
 
 屏幕录像（从刷写系统到启动）：
 
-[![asciicast](https://asciinema.org/a/G0poBmxPbBjIfpVOC1PW2xh9y.svg)](https://asciinema.org/a/G0poBmxPbBjIfpVOC1PW2xh9y)
+[![asciicast](https://asciinema.org/a/TVYy7DGHQR3O71I9BGJL0bECY.svg)](https://asciinema.org/a/TVYy7DGHQR3O71I9BGJL0bECY)
 
 ```log
-Debian GNU/Linux 12 lpi4a ttyS0
+Debian GNU/Linux 12 lpi4amain ttyS0
 
-lpi4a login: 
-lpi4a login: debian
+lpi4amain login: [   25.687999] platform aon:soc_lcd0_vdd18_en: deferred probe pending
+[   25.694254] platform aon:soc_avdd28_rgb: deferred probe pending
+[   25.700242] platform aon:soc_dovdd18_rgb: deferred probe pending
+[   25.706303] platform aon:soc_avdd25_ir: deferred probe pending
+[   25.712189] platform aon:soc_dovdd18_ir: deferred probe pending
+[   25.718180] platform aon:soc_dvdd12_ir: deferred probe pending
+[   25.724063] platform aon:soc_cam2_avdd25_ir: deferred probe pending
+[   25.730376] platform aon:soc_cam2_dvdd12_ir: deferred probe pending
+[   25.736694] platform aon:soc_cam2_dovdd18_ir: deferred probe pending
+[   25.743102] platform aon:soc_dvdd12_rgb: deferred probe pending
+[   25.749071] platform aon:soc_lcd0_vdd33_en: deferred probe pending
+         Starting ssh.service - OpenBSD Secure Shell server...
+[  OK  ] Started ssh.service - OpenBSD Secure Shell server.
+[FAILED] Failed to listen on ssh.so…penBSD Secure Shell server socket.
+See 'systemctl status ssh.socket' for details.
+[  OK  ] Finished firstboot.service - FirstBoot.
+[  OK  ] Reached target multi-user.target - Multi-User System.
+[  OK  ] Reached target graphical.target - Graphical Interface.
+         Starting systemd-update-ut… Record Runlevel Change in UTMP...
+[  OK  ] Finished systemd-update-ut… - Record Runlevel Change in UTMP.
 
+lpi4amain login: [   40.022409] soc_dovdd18_scan: disabling
+[   40.026957] soc_dvdd12_scan: disabling
+[   40.031410] soc_avdd28_scan_en: disabling
+
+lpi4amain login: debian
 Password: 
 
    ____              _ ____  ____  _  __
@@ -82,9 +112,9 @@ Password:
                |___/                    
                    -- Presented by ISCAS
 
-  Debian GNU/Linux 12 (bookworm) (kernel 5.10.113-lpi4a)
+  Debian GNU/Linux 12 (bookworm) (kernel 6.7.1-lpi4a)
 
-Linux lpi4a 5.10.113-lpi4a #2023.12.08.03.26+b8c5d3546 SMP PREEMPT Fri Dec 8 03:26:13 UTC 2 riscv64
+Linux lpi4amain 6.7.1-lpi4a #1 SMP Mon Jan 22 16:37:48 UTC 2024 riscv64
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -92,11 +122,9 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-Last login: Tue Feb 28 19:16:04 CST 2023 on ttyS0
-debian@lpi4a:~$
-debian@lpi4a:~$ uname -a
-Linux lpi4a 5.10.113-lpi4a #2023.12.08.03.26+b8c5d3546 SMP PREEMPT Fri Dec 8 03:26:13 UTC 2 riscv64 GNU/Linux
-debian@lpi4a:~$ cat /etc/os-release 
+debian@lpi4amain:~$ uname -a
+Linux lpi4amain 6.7.1-lpi4a #1 SMP Mon Jan 22 16:37:48 UTC 2024 riscv64 GNU/Linux
+debian@lpi4amain:~$ cat /etc/os-release 
 PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
 NAME="Debian GNU/Linux"
 VERSION_ID="12"
@@ -106,7 +134,7 @@ ID=debian
 HOME_URL="https://www.debian.org/"
 SUPPORT_URL="https://www.debian.org/support"
 BUG_REPORT_URL="https://bugs.debian.org/"
-debian@lpi4a:~$ 
+debian@lpi4amain:~$ 
 
 ```
 
