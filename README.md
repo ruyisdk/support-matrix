@@ -48,4 +48,4 @@
 [Cluster4A]: ./LicheeCluster4A/README.md
 [Console4A]: ./LicheeConsole4A/README.md
 [LicheeRVNano]: ./LicheeRV_Nano/README.md
-[TangMega128K]: ./Tang_Mega_138K/README.md
+[TangMega138K]: ./Tang_Mega_138K/README.md
