@@ -16,6 +16,6 @@
 
 | 软件分类        | 软件包名 | 测试结果（测试报告） |
 |-------------|----------|--------------------|
-| RevyOS 镜像启动 | N/A      | [CFT][RevyOS]      |
+| RevyOS 镜像启动 | N/A    | [Good][RevyOS]     |
 
 [RevyOS]: ./RevyOS/README.md
