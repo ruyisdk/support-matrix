@@ -20,7 +20,7 @@
 | TH1520   | [Lichee Cluster 4A][Cluster4A] | N/A        | Good          | Good   | N/A     | N/A    | N/A        | N/A     | N/A         | Good      | Good      | N/A      | N/A    | N/A        | N/A        | Good    | N/A       | N/A         | N/A      | N/A       | N/A    | Basic   | N/A     |
 | TH1520   | [Lichee Console 4A][Console4A] | N/A        | Good          | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | N/A      | N/A       | N/A    | N/A     | N/A     |
 | SG2002   | [LicheeRV Nano][LicheeRVNano]  | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | CFT       | N/A         | CFT      | N/A       | N/A    | N/A     | N/A     |
-| AE350    | [Tang Mega 138K][TangMega138K] | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | CFT       | N/A         | CFT      | CFT       | CFT    | N/A     | N/A     |
+| AE350    | [Tang Mega 138K][TangMega138K] | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | CFH    | N/A     | N/A     |
 
 #### 说明
 
