@@ -35,12 +35,12 @@
 
 ## 测试结果
 
-| 软件分类                      | 软件包名 | 测试结果（测试报告）  |
+| 软件分类                      | 软件包名 | 测试结果（测试报告）     |
 | ----------------------------- | -------- | --------------------- |
-| FreeRTOS 镜像构建及启动       | N/A      | [CFT][FreeRTOS]       |
-| RT-Thread nano 镜像构建及启动 | N/A      | [CFT][RT-Thread-nano] |
-| RT-Thread std 镜像构建及启动  | N/A      | [CFT][RT-Thread-std]  |
-| Zephyr 镜像构建及启动         | N/A      | [CFT][Zephyr]         |
+| FreeRTOS 镜像构建及启动       | N/A      | [Basic][FreeRTOS]      |
+| RT-Thread nano 镜像构建及启动 | N/A      | [Basic][RT-Thread-nano]|
+| RT-Thread std 镜像构建及启动  | N/A      | [Basic][RT-Thread-std] |
+| Zephyr 镜像构建及启动         | N/A      | [CFH][Zephyr]          |
 
 [FreeRTOS]: ./FreeRTOS/README.md
 [RT-Thread-std]: ./RT-Thread/README.md

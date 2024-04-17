@@ -4,7 +4,7 @@
 
 ### 操作系统信息
 
-- Host: Ubuntu 22.04.3 LTS x86_64
+- Host: Ubuntu 22.04.4 LTS x86_64 (in Docker)
 - Milk-V Vega Switch
 - 参考文档：https://milkv.io/zh/docs/vega/getting-started/buildroot-sdk
 - Issue/CFH: https://github.com/milkv-vega/vega-buildroot-sdk/issues/1
@@ -15,7 +15,7 @@
 ### 构建依赖包安装
 
 ```bash
-sudo apt install -y make git gcc g++ bison flex device-tree-compiler mtd-utils
+sudo apt install -y make git gcc g++ bison flex device-tree-compiler mtd-utils zip unzip lz4
 ```
 
 ### 获取 SDK
@@ -23,6 +23,11 @@ sudo apt install -y make git gcc g++ bison flex device-tree-compiler mtd-utils
 ```bash
 git clone --depth=1 https://github.com/milkv-vega/vega-buildroot-sdk
 ```
+
+> [!TIP]
+> 目前官方仓库构建会失败，需要手动更新 `m4`, `fakeroot` 和 `autoconf`
+> 已经有社区开发者修复了这一问题，在官方合并 PR 或修复之前请先使用此仓库：
+> `git clone --depth=1 https://github.com/michaelfuckner/vega-buildroot-sdk`
 
 ### 构建固件
 
@@ -48,7 +53,10 @@ out/
 
 ### 实际结果
 
-固件构建失败，日志如下。
+使用来自官方仓库的源码构建失败。
+
+<details>
+<summary>日志如下。</summary>
 
 ```log
 In file included from /usr/include/signal.h:328,
@@ -128,4 +136,38 @@ Image generation was successful in the 'out' directory.
 mx @ Phony in ~/vega-buildroot-sdk |16:11:55  |main ✓| 
 $ 
 
+```
+</details>
+
+使用社区开发者更新了部分包之后的源码成功构建。
+
+```log
+make -C /home/mx/vega-buildroot-sdk/freeloader ARCH=rv64gc ABI=lp64d CROSS_COMPILE=/home/mx/vega-buildroot-sdk/work/buildroot_initramfs/host/bin/riscv-nuclei-linux-gnu- \                      FW_JUMP_BIN=/home/mx/vega-buildroot-sdk/work/opensbi/platform/nuclei/ux600/firmware/fw_jump.bin UBOOT_BIN=/home/mx/vega-buildroot-sdk/work/u-boot/u-boot.bin DTB=/home/mx/vega-buildroot-sdk/work/nuclei_ux600fd.dtb                                                                                                                                                    make[1]: Entering directory '/home/mx/vega-buildroot-sdk/freeloader_rootfs'                                                                                                             cp /home/mx/vega-buildroot-sdk/work/u-boot/u-boot.bin .                                                                                                                                 cp /home/mx/vega-buildroot-sdk/work/opensbi/platform/nuclei/ux600/firmware/fw_jump.bin .                                                                                                cp ../work/boot/uImage.lz4 ./kernel.bin                                                                                                                                                 cp ../work/boot/uInitrd.lz4 ./initrd.bin                                                                                                                                                cp /home/mx/vega-buildroot-sdk/work/nuclei_ux600fd.dtb ./fdt.dtb                                                                                                                        /home/mx/vega-buildroot-sdk/work/buildroot_initramfs/host/bin/riscv-nuclei-linux-gnu-gcc -g -march=rv64gc -mabi=lp64d freeloader.S -o freeloader.elf -nostartfiles -Tlinker.lds         /home/mx/vega-buildroot-sdk/work/buildroot_initramfs/host/bin/riscv-nuclei-linux-gnu-objcopy freeloader.elf -O binary freeloader.bin                                                    /home/mx/vega-buildroot-sdk/work/buildroot_initramfs/host/bin/riscv-nuclei-linux-gnu-objdump -d freeloader.elf > freeloader.dis                                                         make[1]: Leaving directory '/home/mx/vega-buildroot-sdk/freeloader_rootfs'                  
+freeloader is generated in /home/mx/vega-buildroot-sdk/freeloader/freeloader.elf                                                                                                        
+You can download this elf into development board using make upload_freeloader               
+or using openocd and gdb to achieve it                                                                                                                                                  
+copy lib and usr/sbin and www                                                               
+copy etc files                                                                                                                                                                          
+copy files to install                                                                                                                                                                   
+create file system                                                                                                                                                                      
+~/vega-buildroot-sdk/install ~/vega-buildroot-sdk                                                                                                                                       
+###Generating rootfs###                                                                                                                                                                 
+rootfs: ubifs web                                                                                                                                                                       
+1.gen sh                                                                                                                                                                                
+2.clean /root and /dev of rootfs                                                                                                                                                        
+3.cp file to rootfs                                                                                                                                                                     
+4.add ssh & scp to rootfs                                                                                                                                                               
+  etc/dropbear already exists                                                                                                                                                           
+5.generating ubifs rootfs                                                                                                                                                               
+done! rootfs is work/ubifs.img                                                                                                                                                          
+~/vega-buildroot-sdk ~/vega-buildroot-sdk/work                                                                                                                                          
+copy images to out                                                                                                                                                                      
+Image generation was successful in the 'out' directory.
+mx@7427944a6e87:~/vega-buildroot-sdk$ ls -alh out
+total 24M
+drwxrwxr-x 1 mx mx   66 Apr 16 09:55 .
+drwxrwxr-x 1 mx mx  336 Apr 16 09:55 ..
+-rwxrwxr-x 1 mx mx 1.1M Apr 16 09:55 freeloader.bin
+-rw-rw-r-- 1 mx mx 3.5M Apr 16 09:55 kernel.bin
+-rw-rw-r-- 1 mx mx  20M Apr 16 09:55 ubifs.img
 ```

@@ -7,12 +7,16 @@
 - 构建系统：Linux
 - FreeRTOS
 - 源码下载链接：https://cdn.gowinsemi.com.cn/RiscV_AE350_SOC_V1.1.zip
+	- bitstream：https://github.com/sipeed/TangMega-138KPro-example
 - 参考安装文档：https://cdn.gowinsemi.com.cn/MUG1029-1.1_Gowin_RiscV_AE350_SOC%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
 - 参考设计文档：https://cdn.gowinsemi.com.cn/MUG1031-1.1_Gowin_RiscV_AE350_SOC%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
 
 ### 硬件信息
 
 - Tang Mega 138K Pro Dock
+- type A to C 线一根
+- UART串口线一根
+- 随机电源线
 
 ## 安装步骤
 
@@ -73,13 +77,11 @@ cd Debug
 make ANDESIGHT_ROOT=<RDS_ROOT> CROSS_COMPILE=<RDS_ROOT>/toolchains/nds32le-elf-mculib-v5/bin/riscv32-elf-
 ```
 
-### 生成 FPGA 码流
+### 获取 FPGA 码流
 
 **Tang Mega 138K 支持仅在商业版中提供**
 
-FPGA 工程位于位于源码压缩包内，ref_design/FPGA_RefDesign/Tang_MEGA_138K_Pro_Dock/ae350_demo 路径下。
-
-使用高云云源软件，打开该工程后，进行综合、布线布局和生成码流。
+FPGA 工程可以使用 Sipeed 官方提供的 demo，位于 [TangMega-138KPro-example](https://github.com/sipeed/TangMega-138KPro-example) 中的 ae350_customized_demo 里。其中码流已经编译好，不需要重新生成。
 
 ### 下载码流
 
@@ -87,23 +89,88 @@ FPGA 工程位于位于源码压缩包内，ref_design/FPGA_RefDesign/Tang_MEGA_
 
 ### 烧录程序
 
-使用 ICEman，将生成的 bin 文件烧录至 flash 中。
+使用 RDS 目录下 flash 中的 programmer.exe 进行烧录。设置如下：
+- External Flash Mode 5AT
+- exFlash C Bin Erase, Program 5AT
+- Start address: 0x600000
 
-### 登录系统
+![image](image.png)
 
-通过串口登录系统。
+烧录程序后若无输出，需要再次重新下载码流。
+
+### 连接串口
+
+默认的 UART2 被绑定到了：
+```
+IO_LOC "UART2_TXD" U16;     //1
+IO_LOC "UART2_RXD" V16;     //2
+```
+
+### 查看输出
+
+通过串口查看 FreeRTOS 输出。
 
 ## 预期结果
 
-系统正常启动，能够通过板载串口登录。
+系统正常启动，能够通过板载串口查看 FreeRTOS 输出。
 
 ## 实际结果
 
-CFT
+系统正常启动，能够通过板载串口查看 FreeRTOS 输出。
 
 ### 启动信息
 
-CFT
+```log
+
+****************************************************************************
+
+Name:     FreeRTOS-AE350_SOC
+
+Edition:  V10.3.1
+
+Compiled: Apr 16 2024, 16:25:50
+
+Author:   GowinSemiconductor
+
+****************************************************************************
+
+****************************************************************************
+
+                     ◆
+
+           ◆◆◆◆◆◆◆◆◆◆◆            ◆◆◆◆◆◆◆
+
+               ◆◆◆◆◆◆◆
+
+               ◆          ◆
+
+               ◆◆◆◆◆◆◆            ◆◆◆◆◆◆◆◆◆◆◆
+
+                                                   ◆
+
+           ◆◆◆◆◆◆◆◆◆◆◆                ◆
+
+           ◆                  ◆              ◆      ◆
+
+           ◆    ◆◆◆◆◆    ◆            ◆          ◆
+
+           ◆    ◆      ◆    ◆          ◆◆◆◆◆◆◆◆◆
+
+           ◆    ◆◆◆◆◆  ◆◆                          ◆
+
+****************************************************************************
+
+1.task1 
+
+0.task0 
+
+0.task0 
+
+0.task0 
+
+0.task0 
+
+```
 
 ## 测试判定标准
 
@@ -113,4 +180,4 @@ CFT
 
 ## 测试结论
 
-CFT
+测试成功。
