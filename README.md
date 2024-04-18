@@ -52,3 +52,4 @@
 [LicheeRVNano]: ./LicheeRV_Nano/README.md
 [TangMega138K]: ./Tang_Mega_138K/README.md
 [K510]: ./K510/README.md
+[SipeedM1s]: ./M1s/README.md
