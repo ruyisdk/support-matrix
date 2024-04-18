@@ -16,9 +16,9 @@
 ## 测试结果
 
 | 软件分类           | 软件包名 | 测试结果（测试报告） |
-|------------------|----------|--------------------|
-| BuildRoot 镜像启动 | N/A      | CFT                |
-| FreeRTOS 启动      | N/A      | CFT                |
+|------------------|----------|------------------|
+| BuildRoot 镜像启动 | N/A     | Basic            |
+| FreeRTOS 启动     | N/A     | Basic             |
 
 [BuildRoot]: ./BuildRoot/README.md
 [FreeRTOS]: ./FreeRTOS/README.md

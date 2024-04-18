@@ -11,30 +11,49 @@
 ### 硬件信息
 
 - LicheeRV Nano
+- type-c 电源线一根
+- UART 转 USB 调试器一个
 
 ## 安装步骤
 
-### 使用 `dd` 刷写镜像到 microSD 卡
+LicheeRV Nano 的 FreeRTOS 被集成在了 Linux SDK 中，使用 mailbox 与 Linux 系统进行交互。
 
-```shell
-gzip -dc c906-2024-04-01-15-48-55a549.img.gz | sudo dd of=/dev/sdc iflag=fullblock bs=4M status=progress
-```
+### 查看 FreeRTOS 设备
+
+FreeRTOS 与 Linux 之间的交互通过 mailbox 实现，可以在 `/dev` 中找到 `cvi-rtos-cmdqu`。
 
 ### 登录系统
 
 通过串口登录系统。
 
+默认用户名：root
+默认密码：root
+
 ## 预期结果
 
-系统正常启动，能够通过板载串口登录。
+系统正常启动，能够看到 rtos 设备。
 
 ## 实际结果
 
-CFT
+系统正常启动，能够看到 rtos 设备。
 
 ### 启动信息
 
-CFT
+```log
+
+Welcome to Linux
+licheervnano-b6c0 login: root
+licheervnano-b6c0 login: root
+Password: 
+# ls /dev/ | grep rtos
+cvi-rtos-cmdqu
+# 
+
+```
+
+屏幕录像：
+
+[![asciicast](https://asciinema.org/a/zG1HsQyGWkGTVHFI74Nwhxcv8.svg)](https://asciinema.org/a/zG1HsQyGWkGTVHFI74Nwhxcv8)
 
 ## 测试判定标准
 
@@ -44,4 +63,4 @@ CFT
 
 ## 测试结论
 
-CFT
+测试成功

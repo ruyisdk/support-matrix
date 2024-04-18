@@ -2,7 +2,7 @@
 
 ## 主流操作系统 for RISC-V 硬件适配情况（主流 RISC-V 开发板）
 
-| CPU      | 产品型号                         | Arch Linux | Debian/RevyOS | Fedora | FreeBSD | Gentoo | openAnolis | OpenBSD | openCloudOS | openEuler | openKylin | openSUSE | Ubuntu | Tina-Linux | Android 13 | Armbian | BuildRoot | OpenHarmony | FreeRTOS | RT-Thread | Zephyr | OpenWRT | ThreadX |
+| CPU      | 产品型号                          | Arch Linux | Debian/RevyOS | Fedora | FreeBSD | Gentoo | openAnolis | OpenBSD | openCloudOS | openEuler | openKylin | openSUSE | Ubuntu | Tina-Linux | Android 13 | Armbian | BuildRoot | OpenHarmony | FreeRTOS | RT-Thread | Zephyr | OpenWRT | ThreadX |
 |----------|----------------------------------|------------|---------------|--------|---------|--------|------------|---------|-------------|-----------|-----------|----------|--------|------------|------------|---------|-----------|-------------|----------|-----------|--------|---------|---------|
 | SG2042   | [Pioneer Box][Pioneer]           | N/A        | Good          | Good   | N/A     | N/A    | N/A        | N/A     | WIP         | Good      | Good      | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | WIP         | N/A      | N/A       | N/A    | N/A     | N/A     |
 | CV1800B  | [Milk-V Duo (64M)][Duo]          | Basic      | Basic         | CFH    | N/A     | N/A    | N/A        | N/A     | N/A         | Basic     | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | Basic     | N/A         | Basic    | Basic     | N/A    | WIP     | N/A     |
@@ -20,8 +20,10 @@
 | K210     | [Sipeed Maix-I][Maix]            | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | CFT      | N/A       | N/A    | N/A     | N/A     |
 | TH1520   | [Lichee Cluster 4A][Cluster4A]   | N/A        | Good          | Good   | N/A     | N/A    | N/A        | N/A     | N/A         | Good      | Good      | N/A      | N/A    | N/A        | N/A        | Good    | N/A       | N/A         | N/A      | N/A       | N/A    | Basic   | N/A     |
 | TH1520   | [Lichee Console 4A][Console4A]   | N/A        | Good          | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | N/A      | N/A       | N/A    | N/A     | N/A     |
-| SG2002   | [LicheeRV Nano][LicheeRVNano]    | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | CFT       | N/A         | CFT      | N/A       | N/A    | N/A     | N/A     |
+| SG2002   | [LicheeRV Nano][LicheeRVNano]    | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | Basic     | N/A         | Basic    | N/A       | N/A    | N/A     | N/A     |
 | AE350    | [Tang Mega 138K][TangMega138K]   | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | CFH    | N/A     | N/A     |
+| BL808    | [Sipeed M1s Dock][SipeedM1s]     | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | Basic     | N/A         | Basic    | N/A       | N/A    | N/A     | N/A     |
+| BL702  | [Sipeed M0 sense][M0sense]      | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | N/A       | N/A    | N/A     | N/A     |
 
 #### 说明
 
@@ -51,3 +53,5 @@
 [LicheeRVNano]: ./LicheeRV_Nano/README.md
 [TangMega138K]: ./Tang_Mega_138K/README.md
 [K510]: ./K510/README.md
+[SipeedM1s]: ./M1s/README.md
+[M0sense]: ./M0sense/
