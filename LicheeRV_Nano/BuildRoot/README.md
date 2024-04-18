@@ -72,4 +72,4 @@ Linux licheervnano-b6c0 5.10.4-tag- #1 PREEMPT Wed Apr 10 14:12:37 HKT 2024 risc
 
 ## 测试结论
 
-CFT
+测试成功。
