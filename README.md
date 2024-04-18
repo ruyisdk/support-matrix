@@ -23,6 +23,7 @@
 | SG2002   | [LicheeRV Nano][LicheeRVNano]    | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | Basic     | N/A         | Basic    | N/A       | N/A    | N/A     | N/A     |
 | AE350    | [Tang Mega 138K][TangMega138K]   | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | CFH    | N/A     | N/A     |
 | BL808    | [Sipeed M1s Dock][SipeedM1s]     | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | Basic     | N/A         | Basic    | N/A       | N/A    | N/A     | N/A     |
+| BL702  | [Sipeed M0 sense][M0sense]      | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | N/A       | N/A    | N/A     | N/A     |
 
 #### 说明
 
@@ -53,3 +54,4 @@
 [TangMega138K]: ./Tang_Mega_138K/README.md
 [K510]: ./K510/README.md
 [SipeedM1s]: ./M1s/README.md
+[M0sense]: ./M0sense/
