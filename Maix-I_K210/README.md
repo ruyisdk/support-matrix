@@ -9,7 +9,7 @@
 
 ### 硬件开发板信息
 
-- Milk-V Pioneer (v1.3)
+- Sipeed Maix-I
 
 ## 测试结果
 
