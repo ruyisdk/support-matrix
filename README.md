@@ -59,3 +59,4 @@
 [SipeedM1s]: ./M1s/README.md
 [M0sense]: ./M0sense/README.md
 [M0P]: ./M0P_Dock/README.md
+[CH32V103]: ./CH32V103/README.md
