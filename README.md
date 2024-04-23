@@ -55,4 +55,5 @@
 [TangMega138K]: ./Tang_Mega_138K/README.md
 [K510]: ./K510/README.md
 [SipeedM1s]: ./M1s/README.md
-[M0sense]: ./M0sense/
+[M0sense]: ./M0sense/README.md
+[M0P]: ./M0P_Dock/README.md
