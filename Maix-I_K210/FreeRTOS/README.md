@@ -11,7 +11,7 @@
 
 ### 硬件信息
 
-- Sipeed Maix-I (K210)
+- Sipeed Maix-Bit (K210)
 
 ## 安装步骤
 
@@ -58,9 +58,12 @@ hello_world: ELF 64-bit LSB executable, UCB RISC-V, RVC, single-float ABI, versi
 
 ### 烧录镜像
 
-若使用 JLink 来运行或者调试程序，使用 `hello_world`。
+使用 k_flash 进行烧写，工具链文档可见：https://github.com/kendryte/kflash.py
 
-若需要直接烧录至开发板，使用 `hello_world.bin`。
+```bash
+pip install kflash
+kflash -b 115200 -p /dev/ttyUSBx hello_world.bin
+```
 
 ### 登录系统
 
@@ -72,9 +75,16 @@ hello_world: ELF 64-bit LSB executable, UCB RISC-V, RVC, single-float ABI, versi
 
 ## 实际结果
 
-构建成功。
+构建成功，开发板正常输出 Hello World 信息。
 
 ### 启动信息
+
+屏幕录像（从刷写系统到启动）：
+[![asciicast](https://asciinema.org/a/uml0eDGjJXKoaFuPn2K1D2WSv.svg)](https://asciinema.org/a/uml0eDGjJXKoaFuPn2K1D2WSv)
+
+```log
+Hello World
+```
 
 ## 测试判定标准
 
@@ -84,4 +94,4 @@ hello_world: ELF 64-bit LSB executable, UCB RISC-V, RVC, single-float ABI, versi
 
 ## 测试结论
 
-CFT
+测试成功
