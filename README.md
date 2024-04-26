@@ -25,8 +25,14 @@
 | BL808    | [Sipeed M1s Dock][SipeedM1s]     | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | Basic     | N/A         | Basic    | N/A       | N/A    | N/A     | N/A     |
 | BL702    | [Sipeed M0 sense][M0sense]       | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | N/A       | N/A    | N/A     | N/A     |
 | BL618    | [Sipeed M0P Dock][M0P]           | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | N/A       | N/A    | N/A     | N/A     |
-| CH32V103 | [CH32V103C-EVT][CH32V103]        | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | CFT       | N/A    | N/A     | N/A     |
-
+| CH32V103 | [CH32V103-EVT][CH32V103]         | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     |
+| CH32V203 | [CH32V203-EVT][CH32V203]         | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     |
+| CH32V208 | [CH32V208-EVT][CH32V208]         | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     |
+| CH32V303 | [CH32V303-EVT][CH32V303]         | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     |
+| CH32V305 | [CH32V305-EVT][CH32V305]         | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     |
+| CH32V307 | [CH32V307-EVT][CH32V307]         | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     |
+| CH582F   | [CH582F-EVT][CH582F]             | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     |
+| CH592X   | [CH592X-EVT][CH592X]             | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     |
 
 #### 说明
 
@@ -60,3 +66,10 @@
 [M0sense]: ./M0sense/README.md
 [M0P]: ./M0P_Dock/README.md
 [CH32V103]: ./CH32V103/README.md
+[CH32V203]: ./CH32V203/README.md
+[CH32V208]: ./CH32V208/README.md
+[CH32V303]: ./CH32V303/README.md
+[CH32V305]: ./CH32V305/README.md
+[CH32V307]: ./CH32V307/README.md
+[CH582F]: ./CH582F/README.md
+[CH592X]: ./CH592X/README.md

@@ -1,4 +1,4 @@
-# FreeRTOS CH32V103C 测试报告
+# FreeRTOS CH32V103C 官方示例 测试报告
 
 ## 测试环境
 
@@ -13,6 +13,8 @@
 ### 硬件信息
 
 - CH32V103C8T6-EVT-R1
+- USB to UART 调试器一个
+- WCH-Link(E) 一个
 
 ## 安装步骤
 
@@ -44,7 +46,13 @@
 - Error: error writing to flash at address 0x00000000 at offset 0x00000000
     - 这是由于 WCH-Link 固件版本过低造成的。（见[important-notices](https://github.com/Community-PIO-CH32V/platform-ch32v?tab=readme-ov-file#important-notices)）。
     - 请使用[WCH-Link 工具链](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html)连接一次 W2 有 CH-Link 即可自动更新。**该工具目前仅有 Windows 版本**
-
+- Error: Read-Protect Status Currently Enabled
+    - 这是由于芯片开启了写保护导致的。Winodws 下我们可以使用 [WCH-Link 工具链](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html)解保护，Linux 下可以使用 OpenOCD 解保护：
+```bash
+cd path/to/openocd/bin
+./openocd -f wch-riscv.cfg -c init -c halt -c "flash protect wch_riscv 0 last  off " -c exit
+cd - # 别忘了回到工作目录
+```
 
 ### 登录系统
 
