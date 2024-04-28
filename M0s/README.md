@@ -18,6 +18,6 @@
 
 | 软件分类           | 软件包名    | 测试结果（测试报告） |
 |------------------|-------------|------------------|
-| FreeRTOS 启动     | N/A        | Basic             |
+| FreeRTOS 启动     | N/A        | [成功][FreeRTOS]  |
 
 [FreeRTOS]: ./FreeRTOS/README.md
