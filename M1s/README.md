@@ -17,14 +17,14 @@
 
 ### 硬件开发板信息
 
-- Milk-V Duo S (256M, SG2002)
+- Sipeed M1s Dock
 
 ## 测试结果
 
 | 软件分类           | 软件包名    | 测试结果（测试报告） |
 |------------------|-------------|------------------|
-| BuildRoot 镜像启动 | N/A        | Basic            |
-| FreeRTOS 启动     | hello_world | Basic             |
+| BuildRoot 镜像启动 | N/A        | [成功][BuildRoot] |
+| FreeRTOS 启动     | hello_world | [成功][BuildRoot]|
 
 [BuildRoot]: ./BuildRoot/README.md
 [FreeRTOS]: ./FreeRTOS/README.md

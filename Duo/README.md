@@ -33,14 +33,15 @@
 ## 测试结果
 
 | 软件分类                 | 软件包名 | 测试结果（测试报告）                          |
-|------------------------|----------|-------------------------------------------|
+|--------------------------|----------|-------------------------------------------|
 | BuildRoot 镜像启动       | N/A      | [成功][Duo]（通过 `ruyi` CLI 刷写）           |
 | FreeRTOS 启动            | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内） |
 | Arch Linux 镜像启动      | N/A      | [成功][Arch]                                |
 | Debian 镜像启动          | N/A      | [成功][Debian]                              |
 | RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]                           |
 | Fedora 镜像启动          | N/A      | [失败][Fedora]                              |
-| openEuler | N/A | [成功][oE]|
+| openEuler                | N/A      | [成功][oE]                                  |
+| ThreadX 镜像构建及启动   | N/A      | [成功][ThreadX]                             |
 
 [Duo]: ./BuildRoot/README.md
 [Arch]: ./ArchLinux/README.md
@@ -49,3 +50,4 @@
 [RT-Thread]: ./RT-Thread/README.md
 [FreeRTOS]: ./FreeRTOS/README.md
 [oE]: ./openEuler/README.md
+[ThreadX]: ./ThreadX/README.md
