@@ -25,6 +25,7 @@
 | BL808    | [Sipeed M1s Dock][SipeedM1s]     | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | Basic     | N/A         | Basic    | N/A       | N/A    | N/A     | N/A     |
 | BL702    | [Sipeed M0 sense][M0sense]       | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | N/A       | N/A    | N/A     | N/A     |
 | BL618    | [Sipeed M0P Dock][M0P]           | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | N/A       | N/A    | N/A     | N/A     |
+| BL616    | [Sipeed M0s Dock][M0s]           | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | N/A       | N/A    | N/A     | N/A     |
 | CH32V103 | [CH32V103-EVT][CH32V103]         | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     |
 | CH32V203 | [CH32V203-EVT][CH32V203]         | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     |
 | CH32V208 | [CH32V208-EVT][CH32V208]         | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     |
@@ -33,6 +34,7 @@
 | CH32V307 | [CH32V307-EVT][CH32V307]         | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     |
 | CH582F   | [CH582F-EVT][CH582F]             | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     |
 | CH592X   | [CH592X-EVT][CH592X]             | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     |
+| GD32VF103| [Longan Nano][Longan_Nano]       | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | N/A      | N/A       | Basic  | N/A     | N/A     |
 
 #### 说明
 
@@ -65,6 +67,7 @@
 [SipeedM1s]: ./M1s/README.md
 [M0sense]: ./M0sense/README.md
 [M0P]: ./M0P_Dock/README.md
+[M0s]: ./M0s/README.md
 [CH32V103]: ./CH32V103/README.md
 [CH32V203]: ./CH32V203/README.md
 [CH32V208]: ./CH32V208/README.md
@@ -73,3 +76,4 @@
 [CH32V307]: ./CH32V307/README.md
 [CH582F]: ./CH582F/README.md
 [CH592X]: ./CH592X/README.md
+[Longan_Nano]: ./Longan_Nano/README.md

@@ -17,7 +17,7 @@
 
 ### 硬件开发板信息
 
-- Milk-V Duo S (256M, SG2002)
+- Sipeed M1s Dock
 
 ## 测试结果
 
