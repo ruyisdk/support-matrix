@@ -35,7 +35,6 @@ cd duo-buildroot-sdk/
 ./build.sh milkv-duo -j${nproc}
 ```
 
-
 此时会产生 `out/milkv-duo-????????-????.img` 的镜像文件。该文件为镜像。
 
 如此过程不正常，请参考 [项目简介](https://github.com/milkv-duo/duo-buildroot-sdk/blob/develop/README-zh.md) 排除故障。
