@@ -1,4 +1,4 @@
-# RT-Thread Milk-V Duo 测试报告
+# ThreadX Milk-V Duo 测试报告
 
 ## 测试环境
 
