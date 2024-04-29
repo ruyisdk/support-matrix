@@ -89,7 +89,7 @@ Xfce 屏幕截图：
 
 屏幕录像：
 
-![Xfce](./Xfce.mp4)
+https://github.com/ruyisdk/support-matrix/assets/17025286/14c27bbd-5477-426b-a3e4-85cca5f5eabd
 
 Minimal 版屏幕录像（从刷写镜像到登录系统）：
 
