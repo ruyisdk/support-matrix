@@ -20,7 +20,9 @@
 | 软件分类      | 软件包名    | 测试结果（测试报告） |
 |--------------|-------------|------------------|
 | FreeRTOS 编译 | hello_world | [成功][FreeRTOS]   |
-| RT-Thread    | N/A         | [成功][RTThread]   
+| RT-Thread    | N/A         | [成功][RTThread]   |
+| NuttX        | nsh         | [成功][NuttX]      |
 
 [FreeRTOS]: ./FreeRTOS/README.md
 [RTThread]: ./RT-Thread/README.md
+[NuttX]: ./NuttX/README.md
