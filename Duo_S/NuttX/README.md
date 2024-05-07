@@ -131,7 +131,7 @@ ssh tftpserver ls -l /tftpboot/Image
 
 ### 从 TFTP Server 启动 NuttX RTOS
 
-首先，烧录官方镜像到存储卡。
+首先，烧录 Debian 镜像到存储卡。
 
 ```shell
 unzip milkv-duos-sd-v1.1.0-2024-0410.img.zip
