@@ -29,8 +29,10 @@
 | Ubuntu 镜像启动 | N/A      | [成功][K230Ubuntu]（厂商镜像） |
 | Fedora 镜像启动 | N/A      | [成功][Fedora]               |
 | RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]（厂商镜像）   |
+| NuttX 镜像构建及启动     | N/A      | [成功][NuttX]                 |
 
 [K230Debian]: ./Debian/README.md
 [K230Ubuntu]: ./Ubuntu/README.md
 [Fedora]: ./Fedora/README.md
 [RT-Thread]: ./RT-Thread/README.md
+[NuttX]: ./NuttX/README.md

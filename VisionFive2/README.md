@@ -63,8 +63,9 @@
 | Armbian/Minimal 镜像启动 | N/A      | [成功][Armbian]                      |
 | Armbian/Xfce 镜像启动    | Xfce     | [成功][Armbian]                      |
 | OpenWrt 镜像启动         | N/A      | [成功][OpenWrt]                      |
-| RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]（官方支持）   |
-| Zephyr 镜像构建及启动 | N/A      | [失败][Zephyr]   |
+| RT-Thread 镜像构建及启动  | N/A      | [成功][RT-Thread]（官方支持）          |
+| Zephyr 镜像构建及启动     | N/A      | [失败][Zephyr]                       |
+| NuttX 镜像构建及启动      | N/A      | [成功][NuttX]                        |
 
 [oERV]: ./openEuler/README.md
 [Debian]: ./Debian/README.md
@@ -79,3 +80,4 @@
 [OpenWrt]: ./OpenWRT/README.md
 [RT-Thread]: ./RT-Thread/README.md
 [Zephyr]: ./Zephyr/README.md
+[NuttX]: ./NuttX/README.md
