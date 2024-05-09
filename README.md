@@ -34,7 +34,10 @@
 | CH32V307 | [CH32V307-EVT][CH32V307]         | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     | N/A     |
 | CH582F   | [CH582F-EVT][CH582F]             | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     | N/A     |
 | CH592X   | [CH592X-EVT][CH592X]             | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | Basic    | Basic     | N/A    | N/A     | N/A     | N/A     |
-| GD32VF103| [Longan Nano][Longan_Nano]       | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | N/A      | N/A       | Basic  | N/A     | N/A     | N/A     |
+| GD32VF103| [Longan Nano][Longan_Nano]       | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | CFT      | CFT       | Basic  | N/A     | N/A     | N/A     |
+| GD32VF103| [RV-STAR][RV_STAR]               | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | CFT      | CFT       | N/A    | N/A     | N/A     | N/A     |
+| GD32VF103| [Nuclei DDR200T][DDR200T]        | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | CFT      | CFT       | N/A    | N/A     | N/A     | N/A     |
+
 
 #### 说明
 
@@ -77,3 +80,5 @@
 [CH582F]: ./CH582F/README.md
 [CH592X]: ./CH592X/README.md
 [Longan_Nano]: ./Longan_Nano/README.md
+[RV_STAR]: ./RV_STAR/README.md
+[DDR200T]: ./DDR200T/README.md
