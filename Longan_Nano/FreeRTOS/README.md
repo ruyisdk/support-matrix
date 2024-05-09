@@ -1,4 +1,4 @@
-# FreeRTOS RV-STAR 测试报告
+# FreeRTOS Longan Nano 测试报告
 
 ## 测试环境
 
@@ -17,7 +17,9 @@
 
 ### 硬件信息
 
-- RV-STAR 开发板（GD32VF103VBT6）
+- Longan Nano
+- USB to UART 调试器一个
+- type-c 线一根
 
 ## 安装步骤
 
