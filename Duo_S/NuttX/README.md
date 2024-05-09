@@ -31,6 +31,8 @@ NuttX SG2000 移植仍在进行中，目前需要通过 TFTP 启动。
 
 ```shell
 sudo pacman -S --needed base-devel ncurses5-compat-libs gperf pkg-config gmp libmpc mpfr libelf expat picocom uboot-tools util-linux git wget libisl
+# Don't use Arch repo's gcc toolchain for now
+sudo pacman -Rnscu riscv64-elf-gcc
 # AUR packages only, use any AUR helper as you wish
 paru -S kconfig-frontends genromfs
 # yay -S kconfig-frontends genromfs
@@ -39,8 +41,8 @@ paru -S kconfig-frontends genromfs
 ### 获取源码
 
 ```shell
-git clone --b sg2000 https://github.com/lupyuen2/wip-nuttx nuttx
-git clone --b sg2000 https://github.com/lupyuen2/wip-nuttx-apps apps
+git clone -b sg2000 https://github.com/lupyuen2/wip-nuttx nuttx
+git clone -b sg2000 https://github.com/lupyuen2/wip-nuttx-apps apps
 cd nuttx
 git pull && git status && hash1=`git rev-parse HEAD`
 pushd ../apps
@@ -77,6 +79,9 @@ popd
 
 ## Return to previous folder
 popd
+
+## Remove previous files if not building the first time
+# rm /tmp/nuttx.pad Image nuttx.S init.S hello.S
 
 ## Generate Initial RAM Disk
 genromfs -f initrd -d ../apps/bin -V "NuttXBootVol"
@@ -143,17 +148,18 @@ sudo dd if=milkv-duos-sd-v1.1.0-2024-0410.img of=/dev/sdX bs=1M status=progress
 ```shell
 sudo mount /dev/sdX1 /mnt
 cp /mnt/fdt/linux-image-duos-5.10.4-20240329-1+/cv181x_milkv_duos_sd.dtb ~/
+sudo umount /mnt
 ```
 
-将存储卡插入开发板。
+至此，存储卡准备完成。将存储卡插入开发板。
 
 在计算机上开启一个 TFTP Server。确保先前编译生成的 Image（位于 NuttX 源码目录下）和 dtb 均可被 TFTP Server 访问。
 
 TFTP Server 配置请参考：[Arch Wiki/TFTP](https://wiki.archlinux.org/title/TFTP)
 
-若您是在 Windows 下，可使用 [Tftpd64](http://tftpd32.jounin.net)。
+若您是在 Windows 下，可考虑使用 [Tftpd64](http://tftpd32.jounin.net)。
 
-接上 UART 调试线，给开发板上电，启动时打断 U-Boot，并手动配置 U-Boot 以从 TFTP 启动 NuttX：
+接上 UART 调试线，给开发板上电，在提示 `Hit any key to stop autoboot` 时按任意键打断 U-Boot，并手动配置 U-Boot 以从 TFTP 启动 NuttX：
 
 ```shell
 setenv tftp_server your_tftp_server_ip
@@ -164,13 +170,18 @@ booti ${kernel_addr_r} ${ramdisk_addr_r}:${ramdisk_size} ${fdt_addr_r}
 
 ## 预期结果
 
-系统正常启动，串口输出 123。
+系统正常启动，通过串口连接时能成功进入 NuttX Shell。
 
 ## 实际结果
 
-系统正常启动，串口输出 123。
+系统正常启动，通过串口连接时能成功进入 NuttX Shell。
+
+能够执行 `uname`, `ls`, `ostest` 等指令。
 
 ### 启动信息
+
+
+<details><summary>Boot log</summary>
 
 ```log
 C.SCS/0/0.WD.URPL.SDI/25000000/6000000.BS/SD.PS.SD/0x0/0x1000/0x1000/0.PE.BS.SD/0x1000/0x8200/0x8200/0.BE.J.
@@ -260,7 +271,7 @@ In:    serial
 Out:   serial
 Err:   serial
 Net:
-Warning: ethernet@4070000 (eth0) using random MAC address - 3e:16:f7:e0:6e:6c
+Warning: ethernet@4070000 (eth0) using random MAC address - 66:a9:0b:51:a2:68
 eth0: ethernet@4070000
 Hit any key to stop autoboot:  0
 cv181x_c906# setenv tftp_server 10.0.0.189
@@ -270,9 +281,9 @@ BOOTP broadcast 1
 BOOTP broadcast 2
 BOOTP broadcast 3
 BOOTP broadcast 4
-DHCP client bound to address 10.0.0.225 (3013 ms)
+DHCP client bound to address 10.0.0.210 (3037 ms)
 Using ethernet@4070000 device
-TFTP from server 10.0.0.189; our IP address is 10.0.0.225
+TFTP from server 10.0.0.189; our IP address is 10.0.0.210
 Filename 'Image'.
 Load address: 0x80200000
 Loading: #################################################################
@@ -291,14 +302,14 @@ Loading: #################################################################
          #################################################################
          #################################################################
          #################################################################
-         ###############
-         5.5 MiB/s
+         #################
+         6.3 MiB/s
 done
-Bytes transferred = 15477329 (ec2a51 hex)
+Bytes transferred = 15512152 (ecb258 hex)
 cv181x_c906# tftpboot ${fdt_addr_r} ${tftp_server}:cv181x_milkv_duos_sd.dtb
 Speed: 100, full duplex
 Using ethernet@4070000 device
-TFTP from server 10.0.0.189; our IP address is 10.0.0.225
+TFTP from server 10.0.0.189; our IP address is 10.0.0.210
 Filename 'cv181x_milkv_duos_sd.dtb'.
 Load address: 0x81200000
 Loading: ##
@@ -313,12 +324,494 @@ cv181x_c906# booti ${kernel_addr_r} ${ramdisk_addr_r}:${ramdisk_size} ${fdt_addr
 
 Starting kernel ...
 
-123
+123ABCnx_start: Entry
+uart_register: Registering /dev/console
+uart_register: Registering /dev/ttyS0
+work_start_lowpri: Starting low-priority kernel worker thread(s)
+nxtask_activate: lpwork pid=1,TCB=0x80409130
+nxtask_activate: AppBringUp pid=2,TCB=0x80409740
+nx_start_application: Starting init task: /system/bin/init
+elf_symname: Symbol has no name
+elf_symvalue: SHN_UNDEF: Failed to get symbol name: -3
+elf_relocateadd: Section 2 reloc 1: Undefined symbol[0] has no name: -3
+nxtask_activate: /system/bin/init pid=3,TCB=0x8040b8c0
+nxtask_exit: AppBringUp pid=2,TCB=0x80409740
+
+NuttShell (NSH) NuttX-12.4.0
+nsh> nx_start: CPU0: Beginning Idle Loop
+
+nsh> help
+posix_spawn: pid=0xc0202968 path=help file_actions=0xc0202970 attr=0xc0202978 argv=0xc0202a18
+exec_internal: ERROR: Failed to load program 'help': -2
+nxposix_spawn_exec: ERROR: exec failed: 2
+help usage:  help [-v] [<cmd>]
+
+    .           cp          exit        mkdir       rmdir       umount
+    [           cmp         expr        mkrd        set         unset
+    ?           dirname     false       mount       sleep       uptime
+    alias       dd          fdinfo      mv          source      usleep
+    unalias     df          free        pidof       test        xd
+    basename    dmesg       help        printf      time
+    break       echo        hexdump     ps          true
+    cat         env         kill        pwd         truncate
+    cd          exec        ls          rm          uname
+nsh> uname -a
+posix_spawn: pid=0xc0202968 path=uname file_actions=0xc0202970 attr=0xc0202978 argv=0xc0202a18
+exec_internal: ERROR: Failed to load program 'uname': -2
+nxposix_spawn_exec: ERROR: exec failed: 2
+NuttX 12.4.0 122c717447 May  9 2024 17:51:20 risc-v ox64
+nsh> ls
+posix_spawn: pid=0xc0202968 path=ls file_actions=0xc0202970 attr=0xc0202978 argv=0xc0202a18
+exec_internal: ERROR: Failed to load program 'ls': -2
+nxposix_spawn_exec: ERROR: exec failed: 2
+/:
+ dev/
+ proc/
+ system/
+nsh> ls /dev/
+posix_spawn: pid=0xc0202968 path=ls file_actions=0xc0202970 attr=0xc0202978 argv=0xc0202a18
+exec_internal: ERROR: Failed to load program 'ls': -2
+nxposix_spawn_exec: ERROR: exec failed: 2
+/dev:
+ console
+ null
+ ram0
+ ttyS0
+ zero
+nsh> cat /proc/cpuinfo
+posix_spawn: pid=0xc0202968 path=cat file_actions=0xc0202970 attr=0xc0202978 argv=0xc0202a18
+exec_internal: ERROR: Failed to load program 'cat': -2
+nxposix_spawn_exec: ERROR: exec failed: 2
+processor       : 0
+hart            : 0
+isa             : rv64imafdc
+mmu             : none
+nsh> free
+posix_spawn: pid=0xc0202968 path=free file_actions=0xc0202970 attr=0xc0202978 argv=0xc0202a18
+exec_internal: ERROR: Failed to load program 'free': -2
+nxposix_spawn_exec: ERROR: exec failed: 2
+                 total       used       free    maxused    maxfree  nused  nfree
+      Kmem:    2065400      14248    2051152      77016    2048992     35      3
+      Page:   20971520     647168   20324352   20324352
+nsh> ostest
+posix_spawn: pid=0xc0202968 path=ostest file_actions=0xc0202970 attr=0xc0202978 argv=0xc0202a18
+elf_symname: Symbol has no name
+elf_symvalue: SHN_UNDEF: Failed to get symbol name: -3
+elf_relocateadd: Section 2 reloc 1: Undefined symbol[0] has no name: -3
+nxtask_activate: ostest pid=6,TCB=0x80409740
+stdio_test: write fd=1
+stdio_test: Standard I/O Check: printf
+stdio_test: write fd=2
+stdio_test: Standard I/O Check: fprintf to stderr
+ostest_main: putenv(Variable1=BadValue3)
+ostest_main: setenv(Variable1, GoodValue1, TRUE)
+ostest_main: setenv(Variable2, BadValue1, FALSE)
+ostest_main: setenv(Variable2, GoodValue2, TRUE)
+ostest_main: setenv(Variable3, GoodValue3, FALSE)
+ostest_main: setenv(Variable3, BadValue2, FALSE)
+show_variable: Variable=Variable1 has value=GoodValue1
+show_variable: Variable=Variable2 has value=GoodValue2
+show_variable: Variable=Variable3 has value=GoodValue3
+posix_spawn: pid=0xc020276c path=ostest file_actions=0 attr=0xc0202770 argv=0xc0202788
+elf_symname: Symbol has no name
+elf_symvalue: SHN_UNDEF: Failed to get symbol name: -3
+elf_relocateadd: Section 2 reloc 1: Undefined symbol[0] has no name: -3
+nxtask_activate: ostest pid=7,TCB=0x8040c830
+ostest_main: Started user_main at PID=7
+
+user_main: Begin argument test
+user_main: Started with argc=5
+user_main: argv[0]="user_main"
+user_main: argv[1]="Arg1"
+user_main: argv[2]="Arg2"
+user_main: argv[3]="Arg3"
+user_main: argv[4]="Arg4"
+
+End of test memory usage:
+VARIABLE  BEFORE   AFTER
+======== ======== ========
+arena       80ff8    80ff8
+ordblks         2        2
+mxordblk    7cff0    7cff0
+uordblks     2688     2688
+fordblks    7e970    7e970
+
+user_main: getopt() test
+getopt():  Simple test
+getopt():  Invalid argument
+getopt():  Missing optional argument
+getopt_long():  Simple test
+getopt_long():  No short options
+getopt_long():  Argument for --option=argument
+getopt_long():  Invalid long option
+getopt_long():  Mixed long and short options
+getopt_long():  Invalid short option
+getopt_long():  Missing optional arguments
+getopt_long_only():  Mixed long and short options
+getopt_long_only():  Single hyphen long options
+
+End of test memory usage:
+VARIABLE  BEFORE   AFTER
+======== ======== ========
+arena       80ff8    80ff8
+ordblks         2        2
+mxordblk    7cff0    7cff0
+uordblks     2688     2688
+fordblks    7e970    7e970
+
+user_main: libc tests
+
+End of test memory usage:
+VARIABLE  BEFORE   AFTER
+======== ======== ========
+arena       80ff8    80ff8
+ordblks         2        2
+mxordblk    7cff0    7cff0
+uordblks     2688     2688
+fordblks    7e970    7e970
+show_variable: Variable=Variable1 has value=GoodValue1
+show_variable: Variable=Variable2 has value=GoodValue2
+show_variable: Variable=Variable3 has value=GoodValue3
+show_variable: Variable=Variable1 has no value
+show_variable: Variable=Variable2 has value=GoodValue2
+show_variable: Variable=Variable3 has value=GoodValue3
+
+End of test memory usage:
+VARIABLE  BEFORE   AFTER
+======== ======== ========
+arena       80ff8    80ff8
+ordblks         2        3
+mxordblk    7cff0    7cff0
+uordblks     2688     2668
+fordblks    7e970    7e990
+show_variable: Variable=Variable1 has no value
+show_variable: Variable=Variable2 has no value
+show_variable: Variable=Variable3 has no value
+
+End of test memory usage:
+VARIABLE  BEFORE   AFTER
+======== ======== ========
+arena       80ff8    80ff8
+ordblks         3        2
+mxordblk    7cff0    7cff0
+uordblks     2668     2588
+fordblks    7e990    7ea70
+
+user_main: setvbuf test
+setvbuf_test: Test NO buffering
+setvbuf_test: Using NO buffering
+setvbuf_test: Test default FULL buffering
+setvbuf_test: Using default FULL buffering
+setvbuf_test: Test FULL buffering, buffer size 64
+setvbuf_test: Using FULL buffering, buffer size 64
+setvbuf_test: Test FULL buffering, pre-allocated buffer
+setvbuf_test: Using FULL buffering, pre-allocated buffer
+setvbuf_test: Test LINE buffering, buffer size 64
+setvbuf_test: Using LINE buffering, buffer size 64
+setvbuf_test: Test FULL buffering, pre-allocated buffer
+setvbuf_test: Using FULL buffering, pre-allocated buffer
+
+End of test memory usage:
+VARIABLE  BEFORE   AFTER
+======== ======== ========
+arena       80ff8    80ff8
+ordblks         2        2
+mxordblk    7cff0    7cff0
+uordblks     2588     2588
+fordblks    7ea70    7ea70
+
+user_main: /dev/null test
+dev_null: Read 0 bytes from /dev/null
+dev_null: Wrote 1024 bytes to /dev/null
+
+End of test memory usage:
+VARIABLE  BEFORE   AFTER
+======== ======== ========
+arena       80ff8    80ff8
+ordblks         2        2
+mxordblk    7cff0    7cff0
+uordblks     2588     2588
+fordblks    7ea70    7ea70
+
+user_main: mutex test
+Initializing mutex
+pthread_mutex_init: mutex=0xc0101588 attr=0
+pthread_mutex_init: Returning 0
+Starting thread 1
+nxtask_activate: ostest pid=10,TCB=0x80409af0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+Starting thread 2
+nxtask_activate: ostest pid=12,TCB=0x8040e3b0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101pt588
+hread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xcpthread_mutex_timedlock: Returning 0
+0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returningpthread_mutex_timedlock: Returning 0
+ 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returpthread_mutex_timedlock: Returning 0
+ning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returpthread_mutex_timedlock: mutex=0xc0101588
+ning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101pthread_mutex_timedlock: Returning 0
+588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutpthread_mutex_timedlock: Returning 0
+ex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returningpthread_mutex_timedlock: Returning 0
+ 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Rpthread_mutex_timedlock: Returning 0eturning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Retpthread_mutex_timedlock: mutex=0xc0101588
+urning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=pthread_mutex_timedlock: Returning 0
+0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returningpthread_mutex_timedlock: Returning 0
+ 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Retpthread_mutex_timedlock: Returning 0
+urning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Rpthread_mutex_timedlock: mutex=0xc0101588
+eturning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc010158pthread8
+_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc010158pthread_mutex_timedlock: Returning 0
+8
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock:pthread_mutex_timedlock: Returning 0
+ mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mpthread_mutex_timedlock: Returning 0
+utex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning pthread_mutex_timedlock: Returning 0
+0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock:pthread_mutex_timedlock: Returning 0
+ Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlockpthread_mutex_timedlock: mutex=0xc0101588
+: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101pthre588
+ad_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc01pthread_mutex_timedlock: Returning 0
+01588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock:pthread_mutex_timedlock: Returning 0
+ mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returnipthread_mutex_timedlock: Returning 0
+ng 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returningpthread_mutex_timedlock: mutex=0xc0101588
+ 0
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_timedlock: Returning 0
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: mutex=0xc0101588
+pthread_mutex_unlock: mutex=0xc0101588
+pthread_mutex_unlock: Returning 0
+pthread_mutex_timedlock: Returning 0
+nx_pthread_exit: exit_value=0
+pthread_completejoin: pid=10 exit_value=0
+nxtask_exit: ostest pid=10,TCB=0x80409af0
+riscv_exception: EXCEPTION: Load access fault. MCAUSE: 0000000000000005, EPC: 000000008021890e, MTVAL: 0000000000000000
+riscv_exception: Segmentation fault in PID 7: ostest
+pthread_completejoin: pid=12 exit_value=0xffffffffffffffff
+nxtask_exit: ostest pid=7,TCB=0x8040c830
+ostest_main: Exiting with status -1
+nxtask_exit: ostest pid=6,TCB=0x80409740
+nsh>
 ```
+
+</details>
 
 屏幕录像：
 
-[![asciicast](https://asciinema.org/a/TpjMi4tpcibu0HCYVJXCLTN3n.svg)](https://asciinema.org/a/TpjMi4tpcibu0HCYVJXCLTN3n)
+[![asciicast](https://asciinema.org/a/P4kzXcnL4g0A0LIiiOLtsG779.svg)](https://asciinema.org/a/P4kzXcnL4g0A0LIiiOLtsG779)
 
 ## 测试判定标准
 
