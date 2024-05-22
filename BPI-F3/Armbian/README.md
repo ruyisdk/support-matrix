@@ -1,4 +1,4 @@
-# Bianbu 香蕉派 BPI-F3 测试报告
+# Armbian 香蕉派 BPI-F3 测试报告
 
 ## 测试环境
 

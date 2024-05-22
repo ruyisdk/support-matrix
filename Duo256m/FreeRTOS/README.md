@@ -4,8 +4,6 @@
 
 ### 操作系统信息
 
-- 构建系统：Ubuntu 22.04.3 LTS x86_64
-- 系统版本：Duo-V1.0.9
 - 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk/releases
 - 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk
     - FreeRTOS: https://milkv.io/zh/docs/duo/getting-started/rtoscore
