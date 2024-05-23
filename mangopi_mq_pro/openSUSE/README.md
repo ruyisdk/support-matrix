@@ -1,11 +1,11 @@
-# Debian MangoPi MQ Pro 测试报告
+# Armbian MangoPi MQ Pro 测试报告
 
 ## 测试环境
 
 ### 操作系统信息
 
-- 下载链接：https://popolon.org/depots/RISC-V/D1/ovsienko/RVBoards_D1_Debian_lxde_img_linux_v0.4.1.img.zip
-- 参考安装文档：https://popolon.org/depots/RISC-V/D1/ovsienko/_index.html
+- 下载链接：https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/openSUSE-Tumbleweed-RISC-V-JeOS-mangopimqpro.riscv64.raw.xz
+- 参考安装文档：https://en.opensuse.org/HCL:MangoPi_MQ-Pro
 
 ### 硬件信息
 
@@ -18,20 +18,19 @@
 
 ### 刷写镜像
 
-使用 `unzip` 解压镜像。
+使用 `xz` 解压镜像。
 使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
-unzip /path/to/RVBoards_D1_Debian_lxde_img_linux_v0.4.1.img.zip
-sudo dd if=/path/to/RVBoards_D1_Debian_lxde_img_linux_v0.4.1.img of=/dev/your_device bs=1M status=progress
+xzcat openSUSE-Tumbleweed-RISC-V-JeOS-mangopimqpro.riscv64.raw.xz.raw.xz | dd bs=4M of=/dev/your/device iflag=fullblock oflag=direct status=progress; sync
 ```
 
 ### 登录系统
 
 通过串口登录系统。
 
-默认用户名：`root`
-默认密码：`rvboards`
+默认用户名： `root`
+默认密码： `linux`
 
 ## 预期结果
 

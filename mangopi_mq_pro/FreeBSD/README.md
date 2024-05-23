@@ -1,11 +1,11 @@
-# Debian MangoPi MQ Pro 测试报告
+# FreeBSD MangoPi MQ Pro 测试报告
 
 ## 测试环境
 
 ### 操作系统信息
 
-- 下载链接：https://popolon.org/depots/RISC-V/D1/ovsienko/RVBoards_D1_Debian_lxde_img_linux_v0.4.1.img.zip
-- 参考安装文档：https://popolon.org/depots/RISC-V/D1/ovsienko/_index.html
+- 下载链接：https://github.com/freebsd-d1/freebsd-d1
+- 参考安装文档：https://github.com/freebsd-d1/freebsd-d1
 
 ### 硬件信息
 
@@ -18,12 +18,11 @@
 
 ### 刷写镜像
 
-使用 `unzip` 解压镜像。
-使用 `dd` 将镜像写入 microSD 卡。
+clone 仓库并生成镜像：
 
 ```bash
-unzip /path/to/RVBoards_D1_Debian_lxde_img_linux_v0.4.1.img.zip
-sudo dd if=/path/to/RVBoards_D1_Debian_lxde_img_linux_v0.4.1.img of=/dev/your_device bs=1M status=progress
+gmake
+dd if=freebsd-d1.img of=/dev/your/device
 ```
 
 ### 登录系统
@@ -31,7 +30,7 @@ sudo dd if=/path/to/RVBoards_D1_Debian_lxde_img_linux_v0.4.1.img of=/dev/your_de
 通过串口登录系统。
 
 默认用户名：`root`
-默认密码：`rvboards`
+第一次后会设置密码
 
 ## 预期结果
 
