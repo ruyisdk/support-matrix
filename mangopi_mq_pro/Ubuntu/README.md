@@ -1,4 +1,4 @@
-# Armbian MangoPi MQ Pro 测试报告
+# Ubuntu MangoPi MQ Pro 测试报告
 
 ## 测试环境
 
