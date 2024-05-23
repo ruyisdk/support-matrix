@@ -17,7 +17,6 @@
 - 开发板：Star64
 - USB A to C / USB C to C 线缆
 - SD 卡
-- 网络连接与 TFTP 服务器
 
 ## 安装步骤
 
