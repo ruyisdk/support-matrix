@@ -1,4 +1,4 @@
-# NuttX VisionFive 2 测试报告
+# NuttX Star64 测试报告
 
 ## 测试环境
 
@@ -14,7 +14,7 @@
 
 ### 硬件信息
 
-- 开发板：VisionFive 2
+- 开发板：Star64
 - USB A to C / USB C to C 线缆
 - SD 卡
 
@@ -173,14 +173,9 @@ rm -r mnt
 ### 启动信息
 
 屏幕录像（从刷写系统到启动）：
-[![asciicast](https://asciinema.org/a/boXeQ4xPfJgGjsJPZeT00uMH0.svg)](https://asciinema.org/a/boXeQ4xPfJgGjsJPZeT00uMH0)
+
 
 ```log
-ABC                                                                       
-NuttShell (NSH) NuttX-12.5.1                                              
-nsh> cat /proc/version                                                    
-NuttX version 12.5.1 6e941aed8b May  7 2024 11:25:17 star64:nsh           
-nsh> 
 ```
 
 ## 测试判定标准
@@ -191,4 +186,4 @@ nsh>
 
 ## 测试结论
 
-测试成功
+CFT

@@ -27,6 +27,30 @@ dd if=1657169725953-e6e69a0f-5837-4840-99fe-8bc62c7abbf2-tina_v853-vision_uart0.
 
 使用 LiveSuit 软件，选择镜像后，连接开发板刷写。
 
+LiveSuit 获取见：https://linux-sunxi.org/LiveSuit
+
+#### LiveSuit
+
+下载并构建：
+```bash
+git clone https://github.com/linux-sunxi/sunxi-livesuite.git
+apt-get install dkms
+make
+# If you are getting error that /lib/modules/4.4.50+/build is missing try adding symlink to the /usr/src/linux-headers-XXX, for example:
+# sudo ln -s /usr/src/linux-headers-3.6-trunk-rpi/ /lib/modules/4.4.50+/build
+
+cp awusb.ko /lib/modules/`uname -r`/kernel/
+depmod -a
+modprobe awusb
+KERNEL=="aw_efex[0-9]*", MODE="0666"
+udevadm control --reload-rules
+```
+
+运行：
+```bash
+./LiveSuit.sh
+```
+
 ### 登录系统
 
 连接 UART3 查看串口输出。

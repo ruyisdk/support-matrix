@@ -1,29 +1,31 @@
-# Melis 100ASK-V853-PRO 测试报告
+# Tina Linux D1s NeZha 测试报告
 
 ## 测试环境
 
 ### 操作系统信息
 
-- 镜像链接：https://bbs.aw-ol.com/assets/uploads/files/1657169725953-e6e69a0f-5837-4840-99fe-8bc62c7abbf2-tina_v853-vision_uart0.img
-- 参考文档：https://v853.docs.aw-ol.com/
+- 链接：https://pan.baidu.com/s/1v55AKMFripaEu22tJ92lmw?pwd=awol 提取码：awol
+- 参考安装文档：https://d1s.docs.aw-ol.com/study/study_1tina/
 
 ### 硬件信息
 
-- 100ASK-V853-PRO 开发板
-
+- D1s NeZha
+- microSD 卡一张
+- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
 
 ## 安装步骤
 
-### 刷写镜像（sd 卡）
+### 打包镜像
 
-将镜像刷写到 sd 卡：
-```shell
-dd if=1657169725953-e6e69a0f-5837-4840-99fe-8bc62c7abbf2-tina_v853-vision_uart0.img of=/dev/your/device bs=1M status=progress
+下载并解压后，准备编译 SDK：
+```bash
+source build/envsetup.sh
+lunch
+make -j$(nproc)
+pack
 ```
 
-将卡插入到设备启动。
-
-### 刷写镜像（板载 EMMC）
+### 烧写镜像
 
 使用 LiveSuit 软件，选择镜像后，连接开发板刷写。
 
@@ -53,22 +55,24 @@ udevadm control --reload-rules
 
 ### 登录系统
 
-连接 UART3 查看串口输出。
+通过串口登录系统。
 
 ## 预期结果
 
-系统正常启动，能够通过串口查看输出。
+系统正常启动，能够通过板载串口登录。
 
 ## 实际结果
 
-系统正常启动，成功通过串口查看输出。
+系统正常启动，成功通过板载串口登录。
 
 ### 启动信息
 
-屏幕录像：
+
+屏幕录像（从刷写镜像到登录系统）：
 
 ```log
 ```
+
 
 ## 测试判定标准
 
