@@ -49,7 +49,12 @@
 | V851s     | [柚木 PI-蜥蜴][YouMuPI]           | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | N/A      | N/A       | N/A    | N/A     | N/A     | N/A   | CFT   | N/A   |
 | V851se    | [TinyVision][TinyVision]         | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | N/A      | N/A       | N/A    | N/A     | N/A     | N/A   | CFT   | N/A   |
 | k1        | [香蕉派 BPI-F3][BPI-F3]           | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | N/A      | N/A       | N/A    | N/A     | N/A     | N/A   | N/A   | CFT   |
+| MPFS025T  | [BeagleV-Ahead][BeagleV-Ahead]   | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | CFT    | N/A        | N/A        | N/A     | N/A       | N/A         | N/A      | N/A       | N/A    | N/A     | N/A     | N/A   | N/A   | N/A   |
+| TH1520    | [BeagleV-Fire][BeagleV-Fire]     | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | CFT    | N/A        | N/A        | N/A     | N/A       | N/A         | N/A      | N/A       | N/A    | N/A     | N/A     | N/A   | N/A   | N/A   |
+| JH7110    | [Star64][STAR64]                 | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | CFT     | N/A       | N/A         | N/A      | N/A       | N/A    | N/A     | N/A     | CFT   | N/A   | N/A   |
+| PolarFire SoC | [PolarFire SoC Icicle Kit][PolarFire] | N/A   | N/A       | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | N/A     | N/A       | N/A         | N/A      | N/A       | N/A    | N/A     | N/A     | N/A   | N/A   | N/A   |
 
+PolarFire SoC Icicle Kit
 #### 说明
 
 * Good：支持图形界面
@@ -105,3 +110,7 @@
 [mangopi_mq]: ./mangopi_mq/README.md
 [NeZha-D1s]: ./NeZha-D1s/README.md
 [BPI-F3]: ./BPI-F3/README.md
+[BeagleV-Ahead]: ./BeagleV-Ahead/README.md
+[BeagleV-Fire]: ./BeagleV-Fire/README.md
+[STAR64]: ./STAR64/README.md
+[PolarFire]: ./PolarFire/README.md
