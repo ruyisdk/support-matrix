@@ -52,7 +52,7 @@
 | TH1520      | [BeagleV-Ahead][BeagleV-Ahead]          | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | CFT    | N/A        | N/A        | N/A     | N/A       | N/A         | N/A      | N/A       | N/A    | N/A     | N/A     | N/A   | N/A   | N/A    |
 | MPFS025T    | [BeagleV-Fire][BeagleV-Fire]            | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | CFT    | N/A        | N/A        | N/A     | N/A       | N/A         | N/A      | N/A       | N/A    | N/A     | N/A     | N/A   | N/A   | N/A    |
 | JH7110      | [Star64][STAR64]                        | N/A        | N/A           | N/A    | N/A     | N/A    | N/A        | N/A     | N/A         | N/A       | N/A       | N/A      | N/A    | N/A        | N/A        | CFT     | N/A       | N/A         | N/A      | N/A       | N/A    | N/A     | N/A     | CFT   | N/A   | N/A    |
-| MPFS250T    | [PolarFire FPGA SoC Icicle Kit][Icicle] | CFT        | N/A           | N/A    | N/A     | N/A    | N/A        | CFT     | N/A         | N/A       | N/A       | N/A      | Basic  | N/A        | N/A        | N/A     | CFT       | N/A         | CFT      | N/A       | CFT    | N/A     | N/A     | CFT   | N/A   | N/A    |
+| MPFS250T    | [PolarFire FPGA SoC Icicle Kit][Icicle] | CFT        | N/A           | N/A    | N/A     | N/A    | N/A        | CFT     | N/A         | N/A       | N/A       | N/A      | Basic  | N/A        | N/A        | N/A     | Basic     | N/A         | CFT      | N/A       | CFT    | N/A     | N/A     | CFT   | N/A   | N/A    |
 
 #### 说明
 
