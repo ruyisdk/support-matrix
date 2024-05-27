@@ -80,7 +80,7 @@ https://github.com/polarfire-soc/icicle-kit-reference-design/releases
 
 Polarfire SoC FPGA Icicle Kit 支持从板载 eMMC 启动或 SD 卡启动。
 
-默认优先 SD 卡。
+默认优先 SD 卡。当 SD 卡不存在或 SD 卡启动失败时会从板载 eMMC 启动。
 
 ### 烧录镜像至 eMMC
 
@@ -147,6 +147,17 @@ xzcat ubuntu-24.04-preinstalled-server-riscv64+icicle.img.xz | sudo dd of=/dev/s
 屏幕录像（从 eMMC 刷写到启动）：
 
 [![asciicast](https://asciinema.org/a/ECbt7b3ltAF29zFjDDgW9NUnU.svg)](https://asciinema.org/a/ECbt7b3ltAF29zFjDDgW9NUnU)
+
+
+## 测试判定标准
+
+测试成功：实际结果与预期结果相符。
+
+测试失败：实际结果与预期结果不符。
+
+## 测试结论
+
+测试成功。
 
 ## 参考文档
 
