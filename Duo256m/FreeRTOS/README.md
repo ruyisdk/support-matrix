@@ -71,6 +71,9 @@ sudo dd if=milkv-duo256m-v1.1.0-2024-0410.img of=/dev/sdc bs=4M status=progress 
 
 通过串口登录系统。
 
+默认用户名：`root`
+默认密码： `milkv`
+
 ## 预期结果
 
 系统正常启动，通过板载串口登录后运行 `mailbox_test` 二进制，板载蓝色 LED 灯先亮后灭。
@@ -84,9 +87,21 @@ sudo dd if=milkv-duo256m-v1.1.0-2024-0410.img of=/dev/sdc bs=4M status=progress 
 ### 启动信息
 
 ```log
+The authenticity of host '192.168.42.1 (192.168.42.1)' can't be established.
+ED25519 key fingerprint is SHA256:JrNwim4ZPbnSw+aC9orl+VPBoRBkXxMatEDjRSq8SSw.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.42.1' (ED25519) to the list of known hosts.
+root@192.168.42.1's password: 
+[root@milkv-duo]~# ./mailbox_test 
+C906B: cmd.param_ptr = 0x4
+C906B: cmd.param_ptr = 0x3
+[root@milkv-duo]~# exit
+
 ```
 
 屏幕录像：
+[![asciicast](https://asciinema.org/a/MhkD6TsSDQ9N0w4u2k6VUHn3s.svg)](https://asciinema.org/a/MhkD6TsSDQ9N0w4u2k6VUHn3s)
 
 ## 测试判定标准
 
@@ -95,4 +110,5 @@ sudo dd if=milkv-duo256m-v1.1.0-2024-0410.img of=/dev/sdc bs=4M status=progress 
 测试失败：实际结果与预期结果不符。
 
 ## 测试结论
-CFT 
+
+成功
