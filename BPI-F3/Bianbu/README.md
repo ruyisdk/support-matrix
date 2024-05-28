@@ -28,6 +28,7 @@
 下载并解压镜像后，使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
+unzip Bianbu-23.10-desktop-k1-v1.0rc1-release-20240429194149.img
 sudo dd if=/path/to/Bianbu-23.10-desktop-k1-v1.0rc1-release-20240429194149.img of=/dev/your-device bs=1M status=progress
 ```
 
@@ -49,9 +50,45 @@ sudo dd if=/path/to/Bianbu-23.10-desktop-k1-v1.0rc1-release-20240429194149.img o
 ### 启动信息
 
 屏幕录像（从刷写镜像到登录系统）：
-
+[![asciicast](https://asciinema.org/a/TFRjqFjOEIHc38Wha93bw0ti8.svg)](https://asciinema.org/a/TFRjqFjOEIHc38Wha93bw0ti8)
 
 ```log
+Bianbu 1.0rc1 k1 ttyS0k1 login: root
+密码： 
+Welcome to Bianbu 1.0rc1 (GNU/Linux 6.1.15 riscv64)
+
+ * Documentation:  coming soon
+ * Management:     coming soon
+ * Support:        coming soon
+
+0 updates can be applied immediately.
+
+
+The programs included with the Bianbu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Bianbu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+root@k1:~# cat /etc/os-release 
+PRETTY_NAME="Bianbu 1.0rc1"
+NAME="Bianbu"
+VERSION_ID="1.0rc1"
+VERSION="1.0rc1 (Mantic Minotaur)"
+VERSION_CODENAME=mantic
+ID=bianbu
+ID_LIKE=debian
+HOME_URL="coming soon"
+SUPPORT_URL="coming soon"
+BUG_REPORT_URL="coming soon"
+PRIVACY_POLICY_URL="coming soon"
+UBUNTU_CODENAME=mantic
+LOGO=ubuntu-logo
+root@k1:~# uname -a
+Linux k1 6.1.15 #1.0~rc1 SMP PREEMPT Mon Apr 29 09:05:59 UTC 2024 riscv64 riscv64 riscv64 GNU/Linux
+root@k1:~# 
+
 ```
 
 ## 测试判定标准
@@ -62,4 +99,4 @@ sudo dd if=/path/to/Bianbu-23.10-desktop-k1-v1.0rc1-release-20240429194149.img o
 
 ## 测试结论
 
-CFT
+成功
