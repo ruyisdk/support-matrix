@@ -86,6 +86,23 @@ work/
     └── vmlinuz-5.15.0
 ```
 
+
+### 构建 SD 卡镜像
+
+继续构建 SD 卡镜像：
+```bash
+make buildroot_rootfs -j$(nproc)
+make img
+```
+
+### 烧写 SD 卡
+
+将刚才构建的镜像烧到 SD 卡中：
+```bash
+sudo dd if=work/sdcard.img of=/dev/sdX bs=4096
+sync
+```
+
 ### 登录系统
 
 连接串口和有线网络，给 Mars 上电。
