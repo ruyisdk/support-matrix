@@ -23,10 +23,10 @@
 
 | 软件分类                 | 软件包名 | 测试结果（测试报告）                          |
 |--------------------------|----------|-------------------------------------------|
-| BuildRoot 镜像启动       | N/A      | [CFT][BuildRoot]                           |
-| FreeRTOS 启动            | N/A      | [CFT][FreeRTOS]（已包含在 BuildRoot 镜像内） |
-| Debian 镜像启动          | N/A      | [CFT][Debian]                              |
-| RT-Thread 镜像构建及启动 | N/A      | [CFT][RT-Thread]                           |
+| BuildRoot 镜像启动       | N/A      | [成功][BuildRoot]                           |
+| FreeRTOS 启动            | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内） |
+| Debian 镜像启动          | N/A      | [成功][Debian]                              |
+| RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]                           |
 
 [BuildRoot]: ./BuildRoot/README.md
 [Debian]: ./Debian/README.md

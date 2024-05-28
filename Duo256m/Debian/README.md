@@ -25,7 +25,7 @@
 ```shell
 wget https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/download/v1.3.0/duo256_sd.img.lz4
 lz4 -d duo256_sd.img.lz4
-dd if=duo256_sd.img of=/dev/your/device bs=1M status=progress
+sudo dd if=duo256_sd.img of=/dev/your/device bs=1M status=progress
 ```
 
 ### 登录系统
@@ -46,9 +46,35 @@ dd if=duo256_sd.img of=/dev/your/device bs=1M status=progress
 ### 启动信息
 
 ```log
+Debian GNU/Linux trixie/sid duo256 ttyS0
+
+duo256 login: root
+Password: 
+Linux duo256 5.10.4-20240329-1+ #1 Sat May 18 10:13:53 UTC 2024 riscv64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+root@duo256:~# cat /etc/os-release 
+PRETTY_NAME="Debian GNU/Linux trixie/sid"
+NAME="Debian GNU/Linux"
+VERSION_CODENAME=trixie
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+root@duo256:~# uname -a\
+> 
+Linux duo256 5.10.4-20240329-1+ #1 Sat May 18 10:13:53 UTC 2024 riscv64 GNU/Linux
+root@duo256:~# 
+
 ```
 
 启动流程屏幕录像：
+[![asciicast](https://asciinema.org/a/4p20IBBlCuE8jMxEExj19vMqd.svg)](https://asciinema.org/a/4p20IBBlCuE8jMxEExj19vMqd)
 
 
 ## 测试判定标准
@@ -59,4 +85,4 @@ dd if=duo256_sd.img of=/dev/your/device bs=1M status=progress
 
 ## 测试结论
 
-CFT
+成功
