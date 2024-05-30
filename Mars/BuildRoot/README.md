@@ -22,7 +22,7 @@
 
 ### 构建镜像
 
-注：由于自带的 buildroot 较老，若构建过程中出现 CHA 错误或 404，可以尝试手动更新 SHA256SUM 或下载链接。你可以在 (buildroot)[https://github.com/buildroot/buildroot]找到最新的 buildroot 并替换 buildroot/package 下的相应部分。
+注：由于自带的 buildroot 较老，若构建过程中出现 SHA 错误或 404，可以尝试手动更新 SHA256SUM 或下载链接。你可以在 [buildroot](https://github.com/buildroot/buildroot) 找到最新的 buildroot 并替换 buildroot/package 下的相应部分。
 （您也可以尝试直接替换为最新的 buildroot）
 
 安装构建依赖：
