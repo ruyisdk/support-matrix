@@ -22,6 +22,9 @@
 
 ### 构建镜像
 
+注：由于自带的 buildroot 较老，若构建过程中出现 SHA 错误或 404，可以尝试手动更新 SHA256SUM 或下载链接。你可以在 [buildroot](https://github.com/buildroot/buildroot) 找到最新的 buildroot 并替换 buildroot/package 下的相应部分。
+（您也可以尝试直接替换为最新的 buildroot）
+
 安装构建依赖：
 
 ```shell
@@ -30,7 +33,7 @@ sudo apt install -y build-essential automake libtool texinfo bison flex gawk \
 g++ git xxd curl wget gdisk gperf cpio bc screen texinfo unzip libgmp-dev \
 libmpfr-dev libmpc-dev libssl-dev libncurses-dev libglib2.0-dev libpixman-1-dev \
 libyaml-dev patchutils python3-pip zlib1g-dev device-tree-compiler dosfstools \
-mtools kpartx rsync
+mtools kpartx rsync libcap-dev
 ```
 
 拉取源码：
@@ -62,6 +65,8 @@ git clone https://github.com/milkv-mars/mars-buildroot-sdk.git --depth=1
 make -j$(nproc)
 ```
 
+**该过程很长很长，请耐心等待**
+
 编译完成后会在 work 目录下生成如下镜像：
 
 ```
@@ -86,15 +91,37 @@ work/
     └── vmlinuz-5.15.0
 ```
 
+**该过程很长很长**
+
+### 构建 SD 卡镜像
+
+继续构建 SD 卡镜像：
+```bash
+make buildroot_rootfs -j$(nproc)
+make img
+```
+
+注：若遇到如 libfakeroot 等构建问题，替换相关 package 为 buildroot 中较新的即可（包括 patch）。
+
+### 烧写 SD 卡
+
+将刚才构建的镜像烧到 SD 卡中：
+```bash
+sudo dd if=work/sdcard.img of=/dev/sdX bs=4096
+sync
+```
+
 ### 登录系统
+
+若直接采用网络启动，将文件放入 TFTP 后：
 
 连接串口和有线网络，给 Mars 上电。
 
 在 U-Boot 提示 `Hit any key to stop autoboot` 时按任意键打断启动流程，在计算机上运行 TFTP server。
 
 ```
-setenv 192.168.xxx.xxx; setenv serverip 192.168.xxx.xxx;
-tftpboot ${fdt_addr_r} jh7110-milkv-mars-cm-sdcard.dtb;
+dhcp; setenv serverip xxx.xxx.xxx.xxx;
+tftpboot ${fdt_addr_r} jh7110-milkv-mars.dtb;
 tftpboot ${kernel_addr_r} Image.gz;
 tftpboot ${ramdisk_addr_r} initramfs.cpio.gz;
 run chipa_set_linux;run cpu_vol_set;
@@ -107,8 +134,41 @@ booti ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
 
 ## 预期结果
 
-镜像构建成功，系统正常启动，能够通过板载串口登录。能进入安装向导。
+镜像构建成功，系统正常启动，能够通过板载串口登录。
 
 ## 实际结果
 
-系统构建成功，启动待测试 / CFT
+系统正常启动，能够通过板载串口登录。
+
+### 启动信息
+
+屏幕录像：
+[![asciicast](https://asciinema.org/a/uweoEDTIkJplZk2LZwK3KVwhn.svg)](https://asciinema.org/a/uweoEDTIkJplZk2LZwK3KVwhn)
+
+```log
+Welcome to Buildroot
+buildroot login: root
+Password: 
+# cat /etc/os-
+cat: can't open '/etc/os-': No such file or directory
+# cat /etc/os-release 
+NAME=Buildroot
+VERSION=2021.11
+ID=buildroot
+VERSION_ID=2021.11
+PRETTY_NAME="Buildroot 2021.11"
+# uname -a
+Linux buildroot 5.15.0 #1 SMP Tue May 28 17:36:13 CST 2024 riscv64 GNU/Linux
+
+
+```
+
+## 测试判定标准
+
+测试成功：实际结果与预期结果相符。
+
+测试失败：实际结果与预期结果不符。
+
+## 测试结论
+
+成功

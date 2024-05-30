@@ -1,0 +1,388 @@
+diff --git a/Makefile b/Makefile
+index 7b9272aa7..bc05c1bd6 100644
+--- a/Makefile
++++ b/Makefile
+@@ -465,7 +465,7 @@ else
+ 	@echo Error: Could not find bootloader partition for $(DISK)
+ 	@exit 1
+ endif
+-	sudo dd if=$(spl_bin_normal_out) of=$(PART1) bs=4096
++	sudo dd if=$(wrkdir)/$(spl_bin_normal_out) of=$(PART1) bs=4096
+ 	sudo dd if=$(uboot_fit)          of=$(PART2) bs=4096
+ 	sudo dd if=$(vfat_image)         of=$(PART3) bs=4096
+ 	sync; sleep 1;
+diff --git a/buildroot/package/fakeroot/0001-skip-doc-subdirs.patch b/buildroot/package/fakeroot/0001-skip-doc-subdirs.patch
+deleted file mode 100644
+index 91663fb64..000000000
+--- a/buildroot/package/fakeroot/0001-skip-doc-subdirs.patch
++++ /dev/null
+@@ -1,14 +0,0 @@
+-For some reason, version 1.25 and up is missing all localized doc,
+-and thus fails on the install stage.
+-
+-Skip the directories.
+-
+-Signed-off-by: Norbert Lange <nolange79@gmail.com>
+---- fakeroot-1.25.1.org/doc/Makefile.am	2020-09-22 23:52:20.000000000 +0200
+-+++ fakeroot-1.25.1/doc/Makefile.am	2020-09-24 11:05:27.611298673 +0200
+-@@ -1,5 +1,4 @@
+- AUTOMAKE_OPTIONS=foreign
+--SUBDIRS = de es fr nl pt sv
+-
+- man_MANS = faked.1 fakeroot.1
+-
+diff --git a/buildroot/package/fakeroot/0002-libfakeroot.c-define-_STAT_VER-if-not-already-define.patch b/buildroot/package/fakeroot/0002-libfakeroot.c-define-_STAT_VER-if-not-already-define.patch
+deleted file mode 100644
+index 574e55e33..000000000
+--- a/buildroot/package/fakeroot/0002-libfakeroot.c-define-_STAT_VER-if-not-already-define.patch
++++ /dev/null
+@@ -1,45 +0,0 @@
+-From 03bc0ee07fb6e293d081ffd8af1654788b434f6a Mon Sep 17 00:00:00 2001
+-From: Ilya Lipnitskiy <ilya.lipnitskiy@gmail.com>
+-Date: Thu, 11 Feb 2021 20:59:25 -0800
+-Subject: [PATCH] libfakeroot.c: define _STAT_VER if not already defined
+-MIME-Version: 1.0
+-Content-Type: text/plain; charset=UTF-8
+-Content-Transfer-Encoding: 8bit
+-
+-glibc 2.33 does does declare `_STAT_VER` anymore.
+-
+-Based on patch from Jan Pazdziora:
+-https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/message/SMQ3RYXEYTVZH6PLQMKNB3NM4XLPMNZO/
+-
+-Backported from: feda578ca3608b7fc9a28a3a91293611c0ef47b7
+-
+-Signed-off-by: Ilya Lipnitskiy <ilya.lipnitskiy@gmail.com>
+-Signed-off-by: Jörg Krause <joerg.krause@embedded.rocks>
+----
+- libfakeroot.c | 10 ++++++++++
+- 1 file changed, 10 insertions(+)
+-
+-diff --git a/libfakeroot.c b/libfakeroot.c
+-index 3e80e38..14cdbc4 100644
+---- a/libfakeroot.c
+-+++ b/libfakeroot.c
+-@@ -90,6 +90,16 @@
+- #define SEND_GET_XATTR64(a,b,c) send_get_xattr64(a,b)
+- #endif
+- 
+-+#ifndef _STAT_VER
+-+ #if defined (__aarch64__)
+-+  #define _STAT_VER 0
+-+ #elif defined (__x86_64__)
+-+  #define _STAT_VER 1
+-+ #else
+-+  #define _STAT_VER 3
+-+ #endif
+-+#endif
+-+
+- /*
+-    These INT_* (which stands for internal) macros should always be used when
+-    the fakeroot library owns the storage of the stat variable.
+--- 
+-2.30.1
+-
+diff --git a/buildroot/package/fakeroot/0003-libfakeroot.c-add-wrappers-for-new-glibc-2.33-symbol.patch b/buildroot/package/fakeroot/0003-libfakeroot.c-add-wrappers-for-new-glibc-2.33-symbol.patch
+deleted file mode 100644
+index 8115598d6..000000000
+--- a/buildroot/package/fakeroot/0003-libfakeroot.c-add-wrappers-for-new-glibc-2.33-symbol.patch
++++ /dev/null
+@@ -1,80 +0,0 @@
+-From feda578ca3608b7fc9a28a3a91293611c0ef47b7 Mon Sep 17 00:00:00 2001
+-From: Ilya Lipnitskiy <ilya.lipnitskiy@gmail.com>
+-Date: Thu, 11 Feb 2021 21:00:04 -0800
+-Subject: [PATCH] libfakeroot.c: add wrappers for new glibc 2.33+ symbols
+-MIME-Version: 1.0
+-Content-Type: text/plain; charset=UTF-8
+-Content-Transfer-Encoding: 8bit
+-
+-This patch add wrappers for newly exported symbols in glibc 2.33.
+-
+-Backported from: feda578ca3608b7fc9a28a3a91293611c0ef47b7
+-
+-Signed-off-by: Ilya Lipnitskiy <ilya.lipnitskiy@gmail.com>
+-Signed-off-by: Jörg Krause <joerg.krause@embedded.rocks>
+----
+- libfakeroot.c | 48 ++++++++++++++++++++++++++++++++++++++++++++++++
+- 1 file changed, 48 insertions(+)
+-
+-diff --git a/libfakeroot.c b/libfakeroot.c
+-index 14cdbc4..d75c51f 100644
+---- a/libfakeroot.c
+-+++ b/libfakeroot.c
+-@@ -1352,6 +1352,54 @@ int renameat(int olddir_fd, const char *oldpath,
+- #endif /* HAVE_FSTATAT */
+- 
+- 
+-+#if defined(__GLIBC__) && __GLIBC_PREREQ(2,33)
+-+/* Glibc 2.33 exports symbols for these functions in the shared lib */
+-+  int lstat(const char *file_name, struct stat *statbuf) {
+-+     return WRAP_LSTAT LSTAT_ARG(_STAT_VER, file_name, statbuf);
+-+  }
+-+  int stat(const char *file_name, struct stat *st) {
+-+     return WRAP_STAT STAT_ARG(_STAT_VER, file_name, st);
+-+  }
+-+  int fstat(int fd, struct stat *st) {
+-+     return WRAP_FSTAT FSTAT_ARG(_STAT_VER, fd, st);
+-+  }
+-+
+-+  #ifdef HAVE_FSTATAT
+-+    int fstatat(int dir_fd, const char *path, struct stat *st, int flags) {
+-+       return WRAP_FSTATAT FSTATAT_ARG(_STAT_VER, dir_fd, path, st, flags);
+-+    }
+-+  #endif
+-+
+-+  #ifdef STAT64_SUPPORT
+-+    int lstat64(const char *file_name, struct stat64 *st) {
+-+       return WRAP_LSTAT64 LSTAT64_ARG(_STAT_VER, file_name, st);
+-+    }
+-+    int stat64(const char *file_name, struct stat64 *st) {
+-+       return WRAP_STAT64 STAT64_ARG(_STAT_VER, file_name, st);
+-+    }
+-+    int fstat64(int fd, struct stat64 *st) {
+-+       return WRAP_FSTAT64 FSTAT64_ARG(_STAT_VER, fd, st);
+-+    }
+-+
+-+    #ifdef HAVE_FSTATAT
+-+      int fstatat64(int dir_fd, const char *path, struct stat64 *st, int flags) {
+-+	 return WRAP_FSTATAT64 FSTATAT64_ARG(_STAT_VER, dir_fd, path, st, flags);
+-+      }
+-+    #endif
+-+  #endif
+-+
+-+  int mknod(const char *pathname, mode_t mode, dev_t dev) {
+-+     return WRAP_MKNOD MKNOD_ARG(_STAT_VER, pathname, mode, &dev);
+-+  }
+-+
+-+  #if defined(HAVE_FSTATAT) && defined(HAVE_MKNODAT)
+-+    int mknodat(int dir_fd, const char *pathname, mode_t mode, dev_t dev) {
+-+       return WRAP_MKNODAT MKNODAT_ARG(_STAT_VER, dir_fd, pathname, mode, &dev);
+-+    }
+-+  #endif
+-+#endif /* GLIBC_PREREQ */
+-+
+-+
+- #ifdef FAKEROOT_FAKENET
+- pid_t fork(void)
+- {
+--- 
+-2.30.1
+-
+diff --git a/buildroot/package/fakeroot/0004-configure.ac-fix-__xmknod-at-pointer-argument.patch b/buildroot/package/fakeroot/0004-configure.ac-fix-__xmknod-at-pointer-argument.patch
+deleted file mode 100644
+index 38dfea868..000000000
+--- a/buildroot/package/fakeroot/0004-configure.ac-fix-__xmknod-at-pointer-argument.patch
++++ /dev/null
+@@ -1,66 +0,0 @@
+-From 432dd46e662772020306a2ce8b1be38321697e69 Mon Sep 17 00:00:00 2001
+-From: Ilya Lipnitskiy <ilya.lipnitskiy@gmail.com>
+-Date: Sat, 13 Feb 2021 19:32:08 -0800
+-Subject: [PATCH] configure.ac: fix __xmknod{,at} pointer argument
+-MIME-Version: 1.0
+-Content-Type: text/plain; charset=UTF-8
+-Content-Transfer-Encoding: 8bit
+-
+-Switch default to assume * and not the absence of *.
+-
+-On glibc 2.33+, there is no definition for these functions in header
+-files, so the compile test doesn't work. But, we can default to using
+-the pointer (as is the case with newer glibc), and use the header file
+-on older platforms to fail the test and use no pointer.
+-
+-Backported from: c3eebec293e35b997bb46c22fb5a4e114afb5e7f
+-
+-Signed-off-by: Ilya Lipnitskiy <ilya.lipnitskiy@gmail.com>
+-Signed-off-by: Jörg Krause <joerg.krause@embedded.rocks>
+----
+- configure.ac | 16 ++++++++--------
+- 1 file changed, 8 insertions(+), 8 deletions(-)
+-
+-diff --git a/configure.ac b/configure.ac
+-index 73415d2..d85566f 100644
+---- a/configure.ac
+-+++ b/configure.ac
+-@@ -183,13 +183,13 @@ AC_MSG_CHECKING([for type of arg of __xmknod])
+-   ]], [[
+-        int __xmknod  ( int ver,
+-                        const char *pathname ,
+--                       mode_t  mode ,  dev_t dev);
+-+                       mode_t  mode ,  dev_t *dev);
+-   ]])],[
+--   AC_DEFINE(XMKNOD_FRTH_ARG,)
+--   AC_MSG_RESULT([no extra *])
+--  ],[
+-    AC_DEFINE(XMKNOD_FRTH_ARG,[*])
+-    AC_MSG_RESULT([needs *])
+-+  ],[
+-+   AC_DEFINE(XMKNOD_FRTH_ARG,)
+-+   AC_MSG_RESULT([no extra *])
+- 
+-   ])
+- 
+-@@ -210,13 +210,13 @@ AC_MSG_CHECKING([for type of arg of __xmknodat])
+-        int __xmknodat  ( int ver,
+-                          int dirfd,
+-                          const char *pathname ,
+--                         mode_t  mode ,  dev_t dev);
+-+                         mode_t  mode ,  dev_t *dev);
+-   ]])],[
+--   AC_DEFINE(XMKNODAT_FIFTH_ARG,)
+--   AC_MSG_RESULT([no extra *])
+--  ],[
+-    AC_DEFINE(XMKNODAT_FIFTH_ARG,[*])
+-    AC_MSG_RESULT([needs *])
+-+  ],[
+-+   AC_DEFINE(XMKNODAT_FIFTH_ARG,)
+-+   AC_MSG_RESULT([no extra *])
+- 
+-   ])
+- 
+--- 
+-2.30.1
+-
+diff --git a/buildroot/package/fakeroot/0005-fix-build-regression-on-macOS.patch b/buildroot/package/fakeroot/0005-fix-build-regression-on-macOS.patch
+deleted file mode 100644
+index d5589a79f..000000000
+--- a/buildroot/package/fakeroot/0005-fix-build-regression-on-macOS.patch
++++ /dev/null
+@@ -1,63 +0,0 @@
+-From 3590b817df703a256f2c1de9a5f5469eaa1c86e9 Mon Sep 17 00:00:00 2001
+-From: Ilya Lipnitskiy <ilya.lipnitskiy@gmail.com>
+-Date: Mon, 15 Feb 2021 11:07:56 -0800
+-Subject: [PATCH] fix build regression on macOS
+-
+-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+-Signed-off-by: Ilya Lipnitskiy <ilya.lipnitskiy@gmail.com>
+-[Ryan: backported from 8090dffdad8fda86dccd47ce7a7db8840bdf7d7b]
+-Signed-off-by: Ryan Barnett <ryanbarnett3@gmail.com>
+----
+- configure.ac  | 6 ++++++
+- libfakeroot.c | 4 +++-
+- 2 files changed, 9 insertions(+), 1 deletion(-)
+-
+-diff --git a/configure.ac b/configure.ac
+-index d85566f..d635df1 100644
+---- a/configure.ac
+-+++ b/configure.ac
+-@@ -181,6 +181,9 @@ AC_MSG_CHECKING([for type of arg of __xmknod])
+-        #include <fcntl.h>
+-        #include <unistd.h>
+-   ]], [[
+-+#ifndef __GLIBC__
+-+#error no extra *
+-+#endif
+-        int __xmknod  ( int ver,
+-                        const char *pathname ,
+-                        mode_t  mode ,  dev_t *dev);
+-@@ -207,6 +210,9 @@ AC_MSG_CHECKING([for type of arg of __xmknodat])
+-        #include <fcntl.h>
+-        #include <unistd.h>
+-   ]], [[
+-+#ifndef __GLIBC__
+-+#error no extra *
+-+#endif
+-        int __xmknodat  ( int ver,
+-                          int dirfd,
+-                          const char *pathname ,
+-diff --git a/libfakeroot.c b/libfakeroot.c
+-index d75c51f..ec4e577 100644
+---- a/libfakeroot.c
+-+++ b/libfakeroot.c
+-@@ -1352,7 +1352,8 @@ int renameat(int olddir_fd, const char *oldpath,
+- #endif /* HAVE_FSTATAT */
+- 
+- 
+--#if defined(__GLIBC__) && __GLIBC_PREREQ(2,33)
+-+#if defined(__GLIBC__)
+-+#if __GLIBC_PREREQ(2,33)
+- /* Glibc 2.33 exports symbols for these functions in the shared lib */
+-   int lstat(const char *file_name, struct stat *statbuf) {
+-      return WRAP_LSTAT LSTAT_ARG(_STAT_VER, file_name, statbuf);
+-@@ -1397,6 +1398,7 @@ int renameat(int olddir_fd, const char *oldpath,
+-        return WRAP_MKNODAT MKNODAT_ARG(_STAT_VER, dir_fd, pathname, mode, &dev);
+-     }
+-   #endif
+-+#endif /* __GLIBC__ */
+- #endif /* GLIBC_PREREQ */
+- 
+- 
+--- 
+-2.25.1
+-
+diff --git a/buildroot/package/fakeroot/fakeroot.hash b/buildroot/package/fakeroot/fakeroot.hash
+index 1a23d9e8d..5e7b6af94 100644
+--- a/buildroot/package/fakeroot/fakeroot.hash
++++ b/buildroot/package/fakeroot/fakeroot.hash
+@@ -1,4 +1,4 @@
+-# From http://deb.debian.org/debian/pool/main/f/fakeroot/fakeroot_1.25.3-1.dsc
+-sha256  8e903683357f7f5bcc31b879fd743391ad47691d4be33d24a76be3b6c21e956c  fakeroot_1.25.3.orig.tar.gz
++# From https://deb.debian.org/debian/pool/main/f/fakeroot/fakeroot_1.32.1-1.dsc
++sha256  c072b0f65bafc4cc5b6112f7c61185f5170ce4cb0c410d1681c1af4a183e94e6  fakeroot_1.32.1.orig.tar.gz
+ # License files, locally calculated
+ sha256  fc82ca8b6fdb18d4e3e85cfd8ab58d1bcd3f1b29abe782895abd91d64763f8e7  COPYING
+diff --git a/buildroot/package/fakeroot/fakeroot.mk b/buildroot/package/fakeroot/fakeroot.mk
+index c3312b777..1a0ad70c1 100644
+--- a/buildroot/package/fakeroot/fakeroot.mk
++++ b/buildroot/package/fakeroot/fakeroot.mk
+@@ -4,9 +4,9 @@
+ #
+ ################################################################################
+ 
+-FAKEROOT_VERSION = 1.25.3
++FAKEROOT_VERSION = 1.32.1
+ FAKEROOT_SOURCE = fakeroot_$(FAKEROOT_VERSION).orig.tar.gz
+-FAKEROOT_SITE = https://snapshot.debian.org/archive/debian/20201008T205817Z/pool/main/f/fakeroot
++FAKEROOT_SITE = https://snapshot.debian.org/archive/debian/20230724T160429Z/pool/main/f/fakeroot
+ 
+ HOST_FAKEROOT_DEPENDENCIES = host-acl
+ # Force capabilities detection off
+@@ -15,14 +15,7 @@ HOST_FAKEROOT_DEPENDENCIES = host-acl
+ HOST_FAKEROOT_CONF_ENV = \
+ 	ac_cv_header_sys_capability_h=no \
+ 	ac_cv_func_capset=no
+-# patching configure.ac in patch 0003
+-HOST_FAKEROOT_AUTORECONF = YES
+ FAKEROOT_LICENSE = GPL-3.0+
+ FAKEROOT_LICENSE_FILES = COPYING
+ 
+-define HOST_FAKEROOT_BUILD_AUX
+-	mkdir -p $(@D)/build-aux
+-endef
+-HOST_FAKEROOT_POST_PATCH_HOOKS += HOST_FAKEROOT_BUILD_AUX
+-
+ $(eval $(host-autotools-package))
+diff --git a/buildroot/package/libcamera/libcamera.hash b/buildroot/package/libcamera/libcamera.hash
+index 7c010715c..c8783eb7a 100644
+--- a/buildroot/package/libcamera/libcamera.hash
++++ b/buildroot/package/libcamera/libcamera.hash
+@@ -1,7 +1,7 @@
+ sha256  a7800b54584dee321874610ef70b1b7690c79d8340c5b134ea35176657681e29  libcamera-e59713c68678f3eb6b6ebe97cabdc88c7042567f.tar.gz
+ sha256  5bca8bc504318da05fd238ca48a2519e71721d3417ff6f014b42146d270281a8  libcamera-06e53199c2563105030bda4c72752b853da7edc8.tar.gz
+ sha256  9369e7cbc138cd31f782325a4361f4163909d09c7475a1f99e938504c191d5f2  libcamera-d6f4abeead1e86d89dc376e8a303849bdb98d5fd.tar.gz
+-sha256  111c99661b1c04bd1f6d0630caf910f36f213ab74a0c1966f0592547d3a86b41 libcamera-d6f4abeead1e86d89dc376e8a303849bdb98d5fd-br1.tar.gz
++sha256  3fce7e91ab66b9866434d370143ce701d1d0fcb402475a4cb5bf7a4ccfd43ae0  libcamera-d6f4abeead1e86d89dc376e8a303849bdb98d5fd-br1.tar.gz
+ 
+ # license files
+ sha256  fd38b2c053c0cce46d9c5ef3545a6e34d157a240ba99c9b8dca5d37a8147da6c  LICENSES/BSD-2-Clause.txt
+diff --git a/buildroot/package/libkcapi/libkcapi.mk b/buildroot/package/libkcapi/libkcapi.mk
+index 42e1c6b3b..c9a7a5c36 100644
+--- a/buildroot/package/libkcapi/libkcapi.mk
++++ b/buildroot/package/libkcapi/libkcapi.mk
+@@ -6,7 +6,7 @@
+ 
+ LIBKCAPI_VERSION = 1.3.1
+ LIBKCAPI_SOURCE = libkcapi-$(LIBKCAPI_VERSION).tar.xz
+-LIBKCAPI_SITE = http://www.chronox.de/libkcapi
++LIBKCAPI_SITE = http://www.chronox.de/libkcapi/releases/historic
+ LIBKCAPI_AUTORECONF = YES
+ LIBKCAPI_INSTALL_STAGING = YES
+ LIBKCAPI_LICENSE = BSD-3-Clause (library), BSD-3-Clause or GPL-2.0 (programs)
+diff --git a/buildroot/package/starfive/libcamera-apps/libcamera-apps.hash b/buildroot/package/starfive/libcamera-apps/libcamera-apps.hash
+index ef2e40d38..4b25ac256 100644
+--- a/buildroot/package/starfive/libcamera-apps/libcamera-apps.hash
++++ b/buildroot/package/starfive/libcamera-apps/libcamera-apps.hash
+@@ -1,3 +1,3 @@
+ sha256  5600c4289457c03a5062001f5942c77fabe4fcef8877b67cfaeed5bae5672756  libcamera-apps-main.tar.gz
+ sha256  3fe6e9e343f268c518652a00260791c55f18cd5902fd5de578005b9c6ec9785b  libcamera-apps-87f807f4eacf7d62021e3b4061348e64b2ecadc3.tar.gz
+-sha256  09a169037dfba889bc9f449aaefc18c210fdf4eb7ea02cffd4a36c383b71583c  libcamera-apps-87f807f4eacf7d62021e3b4061348e64b2ecadc3-br1.tar.gz
++sha256  98bf1652a8f569da73f5a8b0759fc74a06bc1389cd10786c860929f8a74b512a  libcamera-apps-87f807f4eacf7d62021e3b4061348e64b2ecadc3-br1.tar.gz
