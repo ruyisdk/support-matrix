@@ -27,8 +27,10 @@
 | FreeRTOS 启动            | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内） |
 | Debian 镜像启动          | N/A      | [成功][Debian]                              |
 | RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]                           |
-
+| Zephyr 镜像构建及启动     | N/A      | [成功][Zephyr]                             |
+  
 [BuildRoot]: ./BuildRoot/README.md
 [Debian]: ./Debian/README.md
 [RT-Thread]: ./RT-Thread/README.md
 [FreeRTOS]: ./FreeRTOS/README.md
+[Zephyr]: ./Zephyr/README.md
