@@ -25,7 +25,9 @@
 | BuildRoot 镜像启动      | N/A          | [Basic][BuildRoot]  |
 | FreeRTOS 启动           | mailbox-test | [Basic][FreeRTOS]   |
 | Apache NuttX 构建及启动 | N/A          | [Basic, WIP][NuttX] |
+| Zephyr 镜像构建及启动    | N/A          | [Basic][Zephyr]   |
 
 [BuildRoot]: ./BuildRoot/README.md
 [FreeRTOS]: ./FreeRTOS/README.md
 [NuttX]: ./NuttX/README.md
+[Zephyr]: ./Zephyr/README.md
