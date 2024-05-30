@@ -33,7 +33,7 @@ sudo apt install -y build-essential automake libtool texinfo bison flex gawk \
 g++ git xxd curl wget gdisk gperf cpio bc screen texinfo unzip libgmp-dev \
 libmpfr-dev libmpc-dev libssl-dev libncurses-dev libglib2.0-dev libpixman-1-dev \
 libyaml-dev patchutils python3-pip zlib1g-dev device-tree-compiler dosfstools \
-mtools kpartx rsync
+mtools kpartx rsync libcap-dev
 ```
 
 拉取源码：
