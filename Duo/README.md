@@ -42,6 +42,7 @@
 | Fedora 镜像启动          | N/A      | [失败][Fedora]                              |
 | openEuler                | N/A      | [成功][oE]                                  |
 | ThreadX 镜像构建及启动   | N/A      | [成功][ThreadX]                             |
+| Zephyr  镜像构建及启动   | N/A      | [成功][Zephyr]                             |
 
 [Duo]: ./BuildRoot/README.md
 [Arch]: ./ArchLinux/README.md
@@ -51,3 +52,4 @@
 [FreeRTOS]: ./FreeRTOS/README.md
 [oE]: ./openEuler/README.md
 [ThreadX]: ./ThreadX/README.md
+[Zephyr]: ./Zephyr/README.md

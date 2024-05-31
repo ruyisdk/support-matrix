@@ -5,9 +5,7 @@
 ### 操作系统信息
 
 - 源码链接：https://github.com/Nuclei-Software/nuclei-sdk
-- 参考文档：
-    - PlatformIO Core：https://docs.platformio.org/en/latest/core/installation/index.html
-    - PlatformIO ch32v：https://pio-ch32v.readthedocs.io/en/latest/installation.html
+- 参考文档：https://doc.nucleisys.com/nuclei_sdk/design/board/gd32vf103c_longan_nano.html
 - 下载链接：
     - SDK：https://github.com/Nuclei-Software/nuclei-sdk
     - toolchain：https://www.nucleisys.com/download.php
@@ -19,6 +17,7 @@
 
 - Longan Nano
 - USB to UART 调试器一个
+- **JTAG 调试器**
 - type-c 线一根
 
 ## 安装步骤

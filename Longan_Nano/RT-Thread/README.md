@@ -5,9 +5,7 @@
 ### 操作系统信息
 
 - 源码链接：https://github.com/Nuclei-Software/nuclei-sdk
-- 参考文档：
-    - PlatformIO Core：https://docs.platformio.org/en/latest/core/installation/index.html
-    - PlatformIO ch32v：https://pio-ch32v.readthedocs.io/en/latest/installation.html
+- 参考文档：https://doc.nucleisys.com/nuclei_sdk/design/board/gd32vf103c_longan_nano.html
 - 下载链接：
     - SDK：https://github.com/Nuclei-Software/nuclei-sdk
     - toolchain：https://www.nucleisys.com/download.php
@@ -19,6 +17,7 @@
 
 - Longan Nano
 - USB to UART 调试器一个
+- **JTAG 调试器**
 - type-c 线一根
 
 ## 安装步骤
@@ -28,6 +27,7 @@
 下载工具链和 OpenOCD 并解压，设置工具链目录：
 ```bash
 wget https://download.nucleisys.com/upload/files/toolchain/gcc/nuclei_riscv_newlibc_prebuilt_linux64_nuclei-2024.tar.bz2
+tar -xzf nuclei_riscv_newlibc_prebuilt_linux64_nuclei-2024.tar.bz2
 wget https://download.nucleisys.com/upload/files/toolchain/openocd/nuclei-openocd-2024.02.28-linux-x64.tgz
 tar -xzvf nuclei-openocd-2024.02.28-linux-x64.tgz
 export NUCLEI_TOOL_ROOT=$(pwd)

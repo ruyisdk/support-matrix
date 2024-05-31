@@ -35,15 +35,18 @@
 | 软件分类                | 软件包名 | 测试结果（测试报告）        |
 |-----------------------|----------|---------------------------|
 | Ubuntu 镜像启动         | N/A      | [Basic][Ubuntu]（官方支持） |
-| BuildRoot 镜像启动      | N/A      | [CFT][BuildRoot]          |
+| Yocto 镜像构建及启动    | N/A      | [Basic][Yocto]            |
+| BuildRoot 镜像启动      | N/A      | [Basic][BuildRoot]        |
 | Arch Linux 启动         | N/A      | [CFT][Arch]               |
 | OpenBSD 镜像启动        | N/A      | [CFT][OpenBSD]            |
 | FreeRTOS 镜像构建及启动 | N/A      | [CFT][FreeRTOS]           |
 | Zephyr 镜像构建及启动   | N/A      | [CFT][Zephyr]             |
 | NuttX 镜像构建及启动    | N/A      | [CFT][NuttX]              |
 
+
 [Ubuntu]: ./Ubuntu/README.md
 [BuildRoot]: ./BuildRoot/README.md
+[Yocto]: ./Yocto/README.md
 [Arch]: ./ArchLinux/README.md
 [OpenBSD]: ./OpenBSD/README.md
 [FreeRTOS]: ./FreeRTOS/README.md

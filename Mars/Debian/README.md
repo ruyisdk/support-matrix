@@ -37,3 +37,52 @@ sudo dd if=mars_debian-desktop_sdk-v3.6.1_sdcard_v1.0.6.img of=/dev/sdc bs=1M st
 ## 预期结果
 
 系统正常启动，能够通过板载串口登录。能进入安装向导。
+
+## 实际结果
+
+系统正常启动，成功通过串口查看输出。
+
+### 启动信息
+
+屏幕录像：
+[![asciicast](https://asciinema.org/a/v8FxrttpHTJVye5N4U5KCgUsT.svg)](https://asciinema.org/a/v8FxrttpHTJVye5N4U5KCgUsT)
+
+```log
+Debian GNU/LinuxDebian GNU/Linux bookworm/sid milkv hvc0
+
+milkv login:  bookworm/sid milkv ttyS0
+
+milkv login: user
+Password: 
+Linux milkv 5.15.0 #1 SMP Mon Nov 13 18:56:24 CST 2023 riscv64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+user@milkv:~$ cat /etc/os-release 
+PRETTY_NAME="Debian GNU/Linux bookworm/sid"
+NAME="Debian GNU/Linux"
+VERSION_CODENAME=bookworm
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+BUILD_ID=40
+user@milkv:~$ uname -a
+Linux milkv 5.15.0 #1 SMP Mon Nov 13 18:56:24 CST 2023 riscv64 GNU/Linux
+user@milkv:~$ 
+
+```
+
+## 测试判定标准
+
+测试成功：实际结果与预期结果相符。
+
+测试失败：实际结果与预期结果不符。
+
+## 测试结论
+
+成功
