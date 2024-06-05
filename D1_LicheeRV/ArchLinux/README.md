@@ -1,4 +1,4 @@
-# ArchLinux LicheeRV / AWOL Nezha D1 测试报告
+# Arch Linux LicheeRV / AWOL Nezha D1 测试报告
 
 ## 测试环境
 
@@ -24,7 +24,7 @@ pacman -Sy riscv64-linux-gnu-gcc swig cpio python3 python-setuptools base-devel 
 ```
 
 
-社区创建了自动打包 ArchLinux 的脚本。您若想使用，可直接跳过以下所有安装过程。
+社区创建了自动打包 Arch Linux 的脚本。您若想使用，可直接跳过以下所有安装过程。
 
 clone 对应仓库：
 ```bash
