@@ -31,6 +31,8 @@
 - Fedora
   - 下载链接：https://openkoji.iscas.ac.cn/pub/dl/riscv/Allwinner/Nezha_D1/images-release/Fedora/
   - 参考安装文档：https://fedoraproject.org/wiki/Architectures/RISC-V/Allwinner/zh-cn
+- Arch Linux
+  - 打包脚本：https://github.com/sehraf/d1-riscv-arch-image-builder
 
 ### 硬件开发板信息
 
@@ -49,6 +51,7 @@
 | Debian 镜像启动                | N/A          | [成功][Debian]              |
 | Fedora 镜像启动                | N/A          | [成功][Fedora]              |
 | openSUSE 镜像启动              | N/A          | [成功][openSUSE]            |
+| Arch Linux 镜像启动            | N/A          | [成功][Arch]                |
 
 [oERVDL]: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/D1/
 [oERV]: ./openEuler/README.md
@@ -58,3 +61,4 @@
 [Debian]: ./Debian/README.md
 [Fedora]: ./Fedora/README.md
 [openSUSE]: ./openSUSE/README.md
+[Arch]: ./ArchLinux/README.md

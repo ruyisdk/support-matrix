@@ -1,4 +1,4 @@
-# ArchLinux LPi4A 测试报告
+# Arch Linux LPi4A 测试报告
 
 ## 测试环境
 
@@ -20,7 +20,7 @@
 
 ### 创建 rootfs
 
-由于 ArchLinux 提供的并非打包好的镜像，而是 rootfs，我们需要自行打包镜像。
+由于 Arch Linux 提供的并非打包好的镜像，而是 rootfs，我们需要自行打包镜像。
 
 - 创建块设备，并创建文件系统
 ```bash
