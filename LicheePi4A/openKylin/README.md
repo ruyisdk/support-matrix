@@ -1,26 +1,26 @@
-# openKylin 2.0 alpha LPi4A 测试报告
+# openKylin 2.0 Alpha LPi4A Test Report
 
-## 测试环境
+## Test Environment
 
-### 系统信息
+### System Information
 
-- 系统版本：openKylin 2.0 alpha
-- 下载链接：[https://www.openkylin.top/downloads/index-cn.html](https://www.openkylin.top/downloads/index-cn.html)
-- 参考安装文档：[https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin](https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
+- System Version: openKylin 2.0 Alpha
+- Download Link: [https://www.openkylin.top/downloads/index-cn.html](https://www.openkylin.top/downloads/index-cn.html)
+- Reference Installation Document: [https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin](https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
 
-### 硬件信息
+### Hardware Information
 
-- Lichee Pi 4A (8G RAM + 64G eMMC)
-- 电源适配器
-- USB to UART 调试器一个
+- Lichee Pi 4A (8GB RAM + 64GB eMMC)
+- Power Adapter
+- One USB to UART Debugger
 
-## 安装步骤
+## Installation Steps
 
-### 刷写 bootloader
+### Flashing the Bootloader
 
-解压安装套件。
-进入 fastboot 工具所在目录。
-刷入 u-boot 与 boot。
+Extract the installation suite.
+Navigate to the fastboot tool directory.
+Flash the u-boot and boot.
 
 ```bash
 tar -xvf openKylin-2.0-alpha-licheepi4a.tar.xz
@@ -31,32 +31,32 @@ sudo ./fastboot flash uboot ../../images/$(ram_size)/u-boot-nonsec-2020.10-r0-no
 sudo ./fastboot flash boot ../../images/$(ram_size)/boot.ext4
 ```
 
-### 刷写镜像
+### Flashing the Image
 
-将 root 分区刷入 eMMC 中。
+Flash the root partition into the eMMC.
 
 ```bash
 sudo ./fastboot flash root ../../images/openkylin-2.0-alpha-licheepi4a-riscv64.ext4
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via serial console.
 
-默认用户名： `openkylin`
-默认密码： `openkylin`
+Default username: `openkylin`
+Default password: `openkylin`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot successfully, allowing login via the onboard serial console.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted up correctly, and login via the onboard serial console was successful.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing the image to system login):
 
 [![asciicast](https://asciinema.org/a/ewHfNb9rFIHqHfqznJgiDHapM.svg)](https://asciinema.org/a/ewHfNb9rFIHqHfqznJgiDHapM)
 
@@ -95,16 +95,16 @@ openkylin@openkylin:~$
 
 ![neofetch](./neofetch.png)
 
-### 常见问题
+### Common Issue
 
-若桌面卡死，尝试使用非 wayland。
+In case of desktop freeze, try switching from wayland.
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test Successful.

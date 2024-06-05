@@ -1,26 +1,27 @@
+
 # CH592X
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
 - FreeRTOS / RT-Thread
-    - 源码链接：https://www.wch.cn/downloads/CH592EVT_ZIP.html
-    - 参考文档：https://www.wch.cn/downloads/CH592EVT_ZIP.html
-        - wchisp：https://github.com/ch32-rs/wchisp
-    - 刷写工具：
+    - Source Code Link: https://www.wch.cn/downloads/CH592EVT_ZIP.html
+    - Reference Installation Document: https://www.wch.cn/downloads/CH592EVT_ZIP.html
+        - WCHISP Tool: https://github.com/ch32-rs/wchisp
+    - Flash Tool:
         - https://github.com/ch32-rs/wchisp/
 
-### 硬件开发板信息
+### Hardware Information
 
 - CH592X-EVT-R1-1v0
 
-## 测试结果
+## Test Results
 
-| 软件分类      | 软件包名      | 测试结果（测试报告） |
+| Software Category | Software Package | Test Result (Test Report) |
 |--------------|-------------|------------------|
-| FreeRTOS     | N/A         | [成功][FreeRTOS]   |
-| RT-Thread    | N/A         | [成功][RTThread]  |
+| FreeRTOS     | N/A         | [Success][FreeRTOS]   |
+| RT-Thread    | N/A         | [Success][RTThread]  |
 
 [FreeRTOS]: ./FreeRTOS/README.md
 [RTThread]: ./RT-Thread/README.md

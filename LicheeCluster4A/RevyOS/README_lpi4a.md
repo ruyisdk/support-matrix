@@ -1,65 +1,64 @@
-# RevyOS Lichee Cluster 4A 版本测试报告
+# RevyOS Lichee Cluster 4A Version Testing Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### System Information
 
-- 系统版本：RevyOS
-- 参考安装文档：https://revyos.github.io/
+- System Version: RevyOS
+- Reference Installation Document: [https://revyos.github.io/](https://revyos.github.io/)
 
-### 硬件信息
+### Hardware Information
 
 - Lichee Cluster 4A 8G / 16G
-- DC 12V 电源
+- DC 12V Power Supply
 - USB-A to A
-    - 或 LPi4A 底板
-- 网络和网线（注意连接到 BMC 而非交换机）
+    - or LPi4A Dock
+- Network and Ethernet Cable (make sure to connect to BMC instead of a switch)
 
+## Installation Steps
 
-## 安装步骤
+*The following steps are based on flashing to the first board in the cluster*
 
-*以下以刷写到集群中一号板为例*
+### Connect to the Corresponding SOM
 
-### 连接对应 SOM
+Use an A to A cable to connect to the SOM.
 
-使用 A to A 线缆连接 SOM。
+### Use the `ruyi` CLI to Flash the Image to the Onboard eMMC
 
-### 使用 `ruyi` CLI 刷写镜像到板载 eMMC
+Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the prompts.
 
-安装 [`ruyi`](https://github.com/ruyisdk/ruyi) 包管理器，运行 `ruyi device provision` 并按提示操作。
+Select the image according to LPi4A.
 
-镜像按照 LPi4A 选择即可。
+### Logging into the System
 
-### 登录系统
+Logging into the System using SOL (Serial Over LAN).
 
-通过 SOL (Serial Over LAN) 登录系统。
+BMC default username: `root`
 
-BMC 默认用户名：`root`
+BMC default password: `0penBmc`  **Note that it is `0` not `O`**
 
-BMC 默认密码：`0penBmc`  **注意是 `0` 而不是 `O`**
+Connect via `ssh -p 2301 root@lichee-rv.local`
 
-通过 `ssh -p 2301 root@lichee-rv.local` 连接
+Default username: `debian`
+Default password: `debian`
 
-默认用户名：`debian`
-默认密码：`debian`
+### Common Issues
 
-### 常见问题
+If USB is not working, it may require a Linux device tree patch. You can download the [patch here](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch).
 
-若无法使用 USB，是因为 Linux 设备树需要 patch。[patch 下载](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
+If you prefer not to compile the dtb manually, you can extract the dtb (light-lpi4a.dtb) from the [precompiled image](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin) and replace the corresponding file in the boot directory.
 
-若不想手动编译 dtb，也可以考虑自行从 [预编译镜像](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin) 中提取 dtb（light-lpi4a.dtb）并替换 boot 下对应文件。
+## Expected Results
 
-## 预期结果
+The system should boot up correctly, and you should be able to log in through SOL (Serial Over LAN).
 
-系统正常启动，能够通过 SOL (Serial Over LAN) 登录。
+## Actual Results
 
-## 实际结果
+The system boots up correctly, and you can log in through SOL (Serial Over LAN).
 
-系统正常启动，能够通过 SOL (Serial Over LAN) 登录。
+### Boot Log
 
-### 启动信息
-
-屏幕录像（从刷写系统到启动）：
+Screen recording (from flashing the system to startup):
 
 [![asciicast](https://asciinema.org/a/G0poBmxPbBjIfpVOC1PW2xh9y.svg)](https://asciinema.org/a/G0poBmxPbBjIfpVOC1PW2xh9y)
 
@@ -107,12 +106,12 @@ debian@lpi4a:~$
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

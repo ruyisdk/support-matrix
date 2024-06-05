@@ -1,43 +1,42 @@
-# Armbian LPi4A 测试报告
+# Armbian LPi4A Test Report
 
-## 测试环境
+## Test Environment
 
-### 系统信息
+### System Information
 
-- 系统版本：Ubuntu 20.04 LTS 
-- 下载链接：[https://github.com/chainsx/armbian-riscv-build/tree/main](https://github.com/chainsx/armbian-riscv-build/tree/main)
-    - u-boot: [https://github.com/chainsx/thead-u-boot/actions](https://github.com/chainsx/thead-u-boot/actions)
-- 参考安装文档：[https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
-- fastboot 链接：
-    - [https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)
-    - [https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
+- System Version: Ubuntu 20.04 LTS 
+- Download Link: [Armbian-RISCV-Build Repository](https://github.com/chainsx/armbian-riscv-build/tree/main)
+    - u-boot: [thead-u-boot Actions](https://github.com/chainsx/thead-u-boot/actions)
+- Reference Installation Document: [LicheePi 4A Install Guide](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
+- Fastboot Links:
+    - [Baidu Pan Link](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)
+    - [MegaNZ Link](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 
-### 硬件信息
+### Hardware Information
 
-- Lichee Pi 4A (8G RAM + 64G eMMC)
-- 电源适配器
-- microSD 卡一张
-- USB to UART 调试器一个
+- Lichee Pi 4A (8GB RAM + 64GB eMMC)
+- Power Adapter
+- One microSD card
+- One USB to UART Debugger
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像
+### Flashing Image
 
-使用 `unxz` 解压镜像。
-使用 `dd` 将镜像写入 microSD 卡。
+Use `unxz` to decompress the image.
+Use `dd` to flash the image to the microSD card.
 
 ```bash
 unxz /path/to/Armbian.img.xz
 sudo dd if=/path/to/Armbian.img of=/dev/your_device bs=1M status=progress
 ```
 
-### 刷写 bootloader
+### Flashing Bootloader
 
-进入 fastboot。
-- 正式版确认 boot 拨码开关为 eMMC。
-- 按动 BOOT 同时上电。
-- （详见官方教程）
-使用 fastboot 按命令烧录 u-boot。
+Enter fastboot mode.
+- Ensure the boot dip switch is set to eMMC.
+- Press BOOT while powering on.
+- (Refer to the official tutorial) Use the fastboot command to flash u-boot.
 
 ```bash
 sudo ./fastboot flash ram ./path/to/your/lpi4a-$(ram_size)-u-boot-with-spl.bin
@@ -46,25 +45,24 @@ sleep 10
 sudo ./fastboot flash uboot ./path/to/your/lpi4a-$(ram_size)-u-boot-with-spl.bin
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-初次启动会要求设置用户及密码。
+On initial startup, you will be prompted to set up a user and password.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully and login via the onboard serial port was also successful.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
-
-[![asciicast](https://asciinema.org/a/CPXNwT3yJUG4wHDKdWGucbHm9.svg)](https://asciinema.org/a/CPXNwT3yJUG4wHDKdWGucbHm9)
+Screen recording (From flashing image to system login):
+[![asciicast](https://asciinema.org/a/CPXNwT3yJUG4wHDKdWGucbHm9.svg)](https://asciinema.org/a/CPXNwT3yJUG4wHDKdWGucbHm9))
 
 ```log
 Welcome to ARMBIAN! 
@@ -116,12 +114,13 @@ ossyNMMMNyMMhsssssssssssssshmmmhssssssso   Memory: 165MiB / 7705MiB
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.
+

@@ -1,54 +1,53 @@
-# Fedora 38 HiFive Unmatched 测试报告
+# Fedora 38 HiFive Unmatched Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：Fedora 38
-- 下载链接：https://dl.fedoraproject.org/pub/alt/risc-v/disk_images/Fedora-Developer-38-20230519.n.0.SiFive.Unmatched.and.QEMU/Fedora-Developer-38-20230519.n.0-mmc.raw.img.xz
-- 参考安装文档：https://dl.fedoraproject.org/pub/alt/risc-v/disk_images/Fedora-Developer-38-20230519.n.0.SiFive.Unmatched.and.QEMU/README.md
+- System Version: Fedora 38
+- Download Link: https://dl.fedoraproject.org/pub/alt/risc-v/disk_images/Fedora-Developer-38-20230519.n.0.SiFive.Unmatched.and.QEMU/Fedora-Developer-38-20230519.n.0-mmc.raw.img.xz
+- Reference Installation Document: https://dl.fedoraproject.org/pub/alt/risc-v/disk_images/Fedora-Developer-38-20230519.n.0.SiFive.Unmatched.and.QEMU/README.md
 
-### 硬件信息
+### Hardware Information
 
 - HiFive Unmatched Rev A
-- microUSB 线缆一条（随 HiFive Unmatched 附赠）
-- ATX 电源一个
-- microSD 卡一张（Sandisk Extreme Pro 64G UHS-I）
+- One microUSB cable (included with HiFive Unmatched)
+- One ATX power supply
+- One microSD card (Sandisk Extreme Pro 64G UHS-I)
 
-## 安装步骤
+## Installation Steps
 
-### 引导设备选择
+### Boot Device Selection
 
-确保拨码开关已调整为从 microSD 卡引导。若您未更改，出厂默认即为从 microSD 卡引导。
+Ensure that the dip switch is set to boot from the microSD card. The default factory setting is to boot from the microSD card.
 
-拨码开关应如下设置：`MSEL[3:0]=1011`
+The dip switch should be set as follows: `MSEL[3:0]=1011`
 
-### 解压并烧录镜像到 microSD 卡
+### Extract and Flash the Image to the microSD Card
 
-`/dev/sdc` 为 microSD 卡所在位置，请根据实际情况更改。
+`/dev/sdc` represents the microSD card location. Please adjust as necessary.
 
 ```bash
 sudo wipefs -af /dev/sdc
 xzcat Fedora-Developer-38-20230519.n.0-mmc.raw.img.xz | sudo dd of=/dev/sdc iflag=fullblock bs=4M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过板载串口（使用 microUSB 线缆连接至其他计算机）登录系统。
+Log into the system via the onboard serial port using a microUSB cable connected to another computer.
 
-默认用户名：`riscv` 或 `root`
-默认密码：`fedora_rocks!`
+Default username: `riscv` or `root`
+Default password: `fedora_rocks!`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully and login via the onboard serial port was also successful.
 
-### 启动信息
-
+### Boot Log
 
 ```log
 https://fedoraproject.org/wiki/Architectures/RISC-V                                                                                 
@@ -112,16 +111,16 @@ SUPPORT_END=2024-05-14
 [root@fedora-riscv ~]#
 ```
 
-屏幕录像（从刷写镜像到登录系统）
+Screen recording (From flashing image to login)
 
 [![asciicast](https://asciinema.org/a/vulbDuQBEkAx4ldcquyMpVR2m.svg)](https://asciinema.org/a/vulbDuQBEkAx4ldcquyMpVR2m)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

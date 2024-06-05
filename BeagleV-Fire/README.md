@@ -1,21 +1,22 @@
+
 # BeagleV-Fire
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### System Information
 
 - Ubuntu
-    - 下载链接：https://files.beagle.cc/file/beagleboard-public-2021/images/beaglev-fire-ubuntu-23.04-20231121.zip
-    - 参考安装文档：https://docs.beagleboard.org/latest/boards/beaglev/fire/demos-and-tutorials/flashing-board.html
+    - Download link: https://files.beagle.cc/file/beagleboard-public-2021/images/beaglev-fire-ubuntu-23.04-20231121.zip
+    - Reference Installation Document: https://docs.beagleboard.org/latest/boards/beaglev/fire/demos-and-tutorials/flashing-board.html
 
-### 硬件开发板信息
+### Hardware Information
 
 - BeagleV-Fire
 
-## 测试结果
+## Test Results
 
-| 软件分类                | 软件包名 | 测试结果（测试报告）          |
-|---------------------|----------|---------------------------|
-| Ubuntu 镜像启动         | N/A      | [CFT][Ubuntu]              |
+| Software Category       | Package Name  | Test Results (Test Report)   |
+|------------------------|------------|-----------------------------|
+| Ubuntu Image Boot      | N/A        | [CFT][Ubuntu]               |
 
 [Ubuntu]: ./Ubuntu/README.md

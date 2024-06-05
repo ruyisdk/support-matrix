@@ -1,33 +1,33 @@
-# Milk-V Duo 256m
+# Milk-V Duo 256M
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
 - BuildRoot & FreeRTOS
-  - 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk/releases
-    - Milk-V 官方提供的 BuildRoot SDK，同时包含了 FreeRTOS
-  - 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk
+  - Download link: [https://github.com/milkv-duo/duo-buildroot-sdk/releases](https://github.com/milkv-duo/duo-buildroot-sdk/releases)
+    - Official Milk-V provided BuildRoot SDK, which also includes FreeRTOS.
+  - Reference Installation Document: [https://github.com/milkv-duo/duo-buildroot-sdk](https://github.com/milkv-duo/duo-buildroot-sdk)
 - Debian
-  - 下载链接：https://github.com/Fishwaldo/sophgo-sg200x-debian
-  - 参考安装文档：https://github.com/Fishwaldo/sophgo-sg200x-debian
+  - Download link: [https://github.com/Fishwaldo/sophgo-sg200x-debian](https://github.com/Fishwaldo/sophgo-sg200x-debian)
+  - Reference Installation Document: [https://github.com/Fishwaldo/sophgo-sg200x-debian](https://github.com/Fishwaldo/sophgo-sg200x-debian)
 - RT-Thread
-  - 源码链接：https://github.com/RT-Thread/rt-thread
-  - 参考安装文档：https://github.com/RT-Thread/rt-thread/blob/6101f1fd29374ac69c107e3cfeadfa06b0c901f9/bsp/cvitek/cv18xx_risc-v/README.md
+  - Source code link: [https://github.com/RT-Thread/rt-thread](https://github.com/RT-Thread/rt-thread)
+  - Reference Installation Document: [https://github.com/RT-Thread/rt-thread/blob/6101f1fd29374ac69c107e3cfeadfa06b0c901f9/bsp/cvitek/cv18xx_risc-v/README.md](https://github.com/RT-Thread/rt-thread/blob/6101f1fd29374ac69c107e3cfeadfa06b0c901f9/bsp/cvitek/cv18xx_risc-v/README.md)
 
-### 硬件开发板信息
+### Hardware Information
 
 - Milk-V Duo (256M, SG2002)
 
-## 测试结果
+## Test Results
 
-| 软件分类                 | 软件包名 | 测试结果（测试报告）                          |
-|--------------------------|----------|-------------------------------------------|
-| BuildRoot 镜像启动       | N/A      | [成功][BuildRoot]                           |
-| FreeRTOS 启动            | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内） |
-| Debian 镜像启动          | N/A      | [成功][Debian]                              |
-| RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]                           |
-| Zephyr 镜像构建及启动     | N/A      | [成功][Zephyr]                             |
+| Software Category         | Package Name | Test Result (Report)                         |
+|---------------------------|--------------|---------------------------------------------|
+| BuildRoot Image Boot      | N/A          | [Success][BuildRoot]                     |
+| FreeRTOS Boot             | N/A          | [Success][FreeRTOS] (Included in BuildRoot image) |
+| Debian Image Boot         | N/A          | [Success][Debian]                        |
+| RT-Thread Image Build & Boot | N/A        | [Success][RT-Thread]                     |
+| Zephyr Image Build & Boot | N/A          | [Success][Zephyr]                        |
   
 [BuildRoot]: ./BuildRoot/README.md
 [Debian]: ./Debian/README.md

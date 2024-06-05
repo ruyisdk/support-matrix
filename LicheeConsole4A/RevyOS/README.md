@@ -1,39 +1,39 @@
-# RevyOS Lichee Console 4A 版本测试报告
+# RevyOS Lichee Console 4A Version Testing Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### System Information
 
-- 系统版本：RevyOS
-- 下载链接：https://wiki.sipeed.com/hardware/zh/lichee/th1520/lcon4a/3_images.html
-- 参考安装文档：https://wiki.sipeed.com/hardware/zh/lichee/th1520/lcon4a/4_burn_image.html
+- System Version: RevyOS
+- Download Link: [sipeed](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lcon4a/3_images.html)
+- Reference Installation Document: [sipeed](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lcon4a/4_burn_image.html)
 
-### 硬件信息
+### Hardware Information
 
 - Lichee Cluster 4A 8G / 16G
-- 随机电源
-- USB A to C 线一根
+- Random power supply
+- One USB A to C cable
 
-## 安装步骤
+## Installation Steps
 
-### 进入 `fastboot` 环境
+### Accessing `fastboot` Environment
 
-boot 按键与 rst 按键位于 nvme 硬盘仓内：![boot_btn](image.png)
+The boot button and rst button are located inside the nvme disk compartment: ![boot_btn](image.png)
 
-按住 boot 按键同时按动键盘上的电源键进入 fastboot，lsusb 应出现：
+Press and hold the boot button while pressing the power button on the keyboard to enter fastboot mode, `lsusb` should display:
 ```
 ID 2345:7654 T-HEAD USB download gadget
 ```
 
-### 使用 `fastboot` 刷写镜像到板载 eMMC
+### Flashing Image to Onboard eMMC using `fastboot`
 
-使用 lz4 解压镜像：
+Decompress the image using lz4:
 ```bash
 lz4 -d path/to/boot.ext4.lz4
 lz4 -d path/to/root.ext4.lz4
 ```
 
-连接 USB 线至机身后端的 type-C 口，使用 `fastboot` 烧录。
+Connect the USB cable to the Type-C port at the back of the device and burn the image using `fastboot`.
 
 ```bash
 fastboot flash ram u-boot-with-spl-console-ramsize.bin
@@ -43,29 +43,29 @@ fastboot flash boot path/to/boot.ext4
 fastboot flash root path/to/root.ext4
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口或图形界面登录系统。
+Logging into the system via serial port or graphical interface.
 
-默认镜像的帐号密码配置如下：
+The default image account password configurations are as follows:
 
-账户：`sipeed`，密码：`licheepi`
+Account: `sipeed`, Password: `licheepi`
 
-账户：`debian`，密码：`debian`
+Account: `debian`, Password: `debian`
 
-root 账户默认没有设置密码。
+The root account does not have a password ny default.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够正常登录。
+The system starts up correctly, and login is successful.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，能正常登录并进入系统。
+The system boots up correctly, allows successful login, and access to the system.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（刷写系统）：
+Screen recording (flashing the system):
 
 [![asciicast](https://asciinema.org/a/hZHlwXaPj9W1AQgADtrgYRB4m.svg)](https://asciinema.org/a/hZHlwXaPj9W1AQgADtrgYRB4m)
 
@@ -93,12 +93,12 @@ debian@lpi4a:~$
 
 ![machine](image-1.png)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

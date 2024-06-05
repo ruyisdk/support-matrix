@@ -1,50 +1,50 @@
-# Ubuntu 23.10 HiFive Unmatched 测试报告
+# Ubuntu 23.10 HiFive Unmatched Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：Ubuntu 23.10
-- 下载链接：https://ubuntu.com/download/risc-v
-- 参考安装文档：https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched
+- System Version: Ubuntu 23.10
+- Download Link: [https://ubuntu.com/download/risc-v](https://ubuntu.com/download/risc-v)
+- Reference Installation Document: [https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched](https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched)
 
-### 硬件信息
+### Hardware Information
 
 - HiFive Unmatched Rev A
-- microUSB 线缆一条（随 HiFive Unmatched 附赠）
-- ATX 电源一个
-- microSD 卡一张（Sandisk Extreme Pro 64G UHS-I）
+- One microUSB cable (provided with HiFive Unmatched)
+- One ATX power supply
+- One 64GB Sandisk Extreme Pro microSD card (UHS-I)
 
-## 安装步骤
+## Installation Steps
 
-### 引导设备选择
+### Boot Device Selection
 
-确保拨码开关已调整为从 microSD 卡引导。若您未更改，出厂默认即为从 microSD 卡引导。
+Ensure the dip switch is set to boot from the microSD card. If you haven't changed it, the factory default setting is to boot from the microSD card.
 
-拨码开关应如下设置：`MSEL[3:0]=1011`
+The dip switch should be set as follows: `MSEL[3:0]=1011`
 
-### 使用 `ruyi` CLI 刷写镜像到 microSD 卡
+### Flashing the Image to the microSD Card Using `ruyi` CLI
 
-安装 [`ruyi`](https://github.com/ruyisdk/ruyi) 包管理器，运行 `ruyi device provision` 并按提示操作。
+Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the prompts.
 
-### 登录系统
+### Logging into the System
 
-通过板载串口（使用 microUSB 线缆连接至其他计算机）登录系统。
+Logging into the system via the onboard serial port (connect using a microUSB cable to another computer).
 
-默认用户名：`ubuntu`
-默认密码：`ubuntu`
+Default username: `ubuntu`
+Default password: `ubuntu`
 
-初次登录时，系统会提示更改密码。
+On initial login, the system will prompt you to change the password.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully, and login via the onboard serial port was also successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 ubuntu@ubuntu:~$ cat /proc/cpuinfo 
@@ -103,16 +103,16 @@ LOGO=ubuntu-logo
 ubuntu@ubuntu:~$
 ```
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing the image to logging into the system):
 
 [![asciicast](https://asciinema.org/a/Rh773h5eOalKZlzjQRFrQDnjY.svg)](https://asciinema.org/a/Rh773h5eOalKZlzjQRFrQDnjY)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

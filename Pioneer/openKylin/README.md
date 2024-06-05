@@ -1,58 +1,58 @@
-# openKylin 2.0 alpha RISC-V 测试报告
+# openKylin 2.0 alpha RISC-V Test Report
 
-## 测试环境
+## Test Environment
 
-- 系统版本：openKylin 2.0 alpha RISC-V
-- 下载链接：[[Google Drive](https://www.openkylin.top/downloads/)](https://www.openkylin.top/downloads/)
-- 参考安装文档：[https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin](https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
+- System Version: openKylin 2.0 alpha RISC-V
+- Download Link: [[Google Drive](https://www.openkylin.top/downloads/)](https://www.openkylin.top/downloads/)
+- Reference Installation Document: [https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin](https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
 
-### 硬件信息
+
+### Hardware Information
 
 - Milk-V Pioneer Box v1.1
-- microSD 卡一张
-- HDMI 线 + 显示器
+- One microSD card
+- HDMI cable + Monitor
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像
+### Flashing Image
 
-使用 `unxz` 解压镜像。
-使用 `dd` 将镜像写入 microSD 卡。
+Use `unxz` to extract the image.
+Use `dd` to flash the image to the microSD card.
 
 ```bash
 unxz /path/to/openKylin.img.xz
 sudo dd if=/path/to/openKylin.img of=/dev/your_device bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过图形界面登录系统。
+Logging to the system through the graphical interface.
 
-默认用户名： `openKylin`
-默认密码： `openkylin`
+Default username: `openKylin`
+Default password: `openkylin`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过图形界面登录。
+The system boots up normally and allows login through the graphical interface.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过图形界面登录。
+The system boots up normally and login through the graphical interface is successful.
 
-### 启动信息
+### Boot Log
 
 ![desktop_uname](./desktop_uname.png)
 
-串口日志（从刷写镜像到启动系统）：
+Serial port logs (from flashing image to system boot):
 [![asciicast](https://asciinema.org/a/LrlBd3N4GZWvXRKHP8vikgTBF.svg)](https://asciinema.org/a/LrlBd3N4GZWvXRKHP8vikgTBF)
 
+## Test Criteria
 
-## 测试判定标准
+Successful: The actual result matches the expected result.
 
-测试成功：实际结果与预期结果相符。
+Failed: The actual result does not match the expected result.
 
-测试失败：实际结果与预期结果不符。
+## Test Conclusion
 
-## 测试结论
-
-测试成功。
+Test successful.

@@ -1,20 +1,21 @@
-# Sipeed M0sense
+# Sipeed M0sense Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
 - FreeRTOS Demo
-- 源码链接：https://gitee.com/Sipeed/M0sense_BL702_example
+    - Source Link: [https://gitee.com/Sipeed/M0sense_BL702_example](https://gitee.com/Sipeed/M0sense_BL702_example)
+    - Reference Installation Document: [https://wiki.sipeed.com/hardware/zh/maixzero/sense/start.html](https://wiki.sipeed.com/hardware/zh/maixzero/sense/start.html)
 
-### 硬件开发板信息
+### Hardware Information
 
 - Sipeed Maix M0sense
 
-## 测试结果
+## Test Results
 
-| 软件分类      | 软件包名    | 测试结果（测试报告） |
-|-------------|-------------|------------------|
-| FreeRTOS Demo | single_button_control | [成功][FreeRTOS]   |
+| Software Category | Package Name          | Test Result (Test Report) |
+| ----------------- | --------------------- | ------------------------- |
+| FreeRTOS Demo     | single_button_control | [Successful][FreeRTOS]       |
 
 [FreeRTOS]: ./FreeRTOS/README.md

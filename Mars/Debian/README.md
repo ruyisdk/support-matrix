@@ -1,50 +1,50 @@
-# Debian on Milk-V Mars
+# Debian on Milk-V Mars Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
 - Debian bookworm/sid
-  - 下载链接：https://github.com/milkv-mars/mars-buildroot-sdk/releases/
-    - Milk-V 官方提供的 Debian 镜像，同时仓库中提供了 BuildRoot
-  - 参考安装文档：https://milkv.io/zh/docs/mars/getting-started/boot
+  - Download Link: https://github.com/milkv-mars/mars-buildroot-sdk/releases/
+    - Official Debian image is provided by Milk-V, with BuildRoot available in the repository
+  - Reference Installation Document: https://milkv.io/zh/docs/mars/getting-started/boot
 
-### 硬件开发板信息
+### Hardware Information
 
 - Milk-V Mars
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像
+### Flashing the Image
 
-使用 `unzip` 解压镜像。
-使用 `dd` 将镜像写入 microSD 卡。
+Use `unzip` to decompress the image.
+Use `dd` to flash the image to the microSD card.
 
-其中，`/dev/sdc` 为存储卡对应设备。
+Note that `/dev/sdc` corresponds to the storage card device.
 
 ```bash
 unzip mars_debian-desktop_sdk-v3.6.1_sdcard_v1.0.6.img.zip
 sudo dd if=mars_debian-desktop_sdk-v3.6.1_sdcard_v1.0.6.img of=/dev/sdc bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-默认用户名： `user`
-默认密码： `milkv`
+Default username: `user`
+Default password: `milkv`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。能进入安装向导。
+The system should boot normally and allow login via the onboard serial port. You should be able to enter the installation wizard.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过串口查看输出。
+The system booted successfully and output was successfully viewed through the serial port.
 
-### 启动信息
+### Boot Information
 
-屏幕录像：
+Screen recording:
 [![asciicast](https://asciinema.org/a/v8FxrttpHTJVye5N4U5KCgUsT.svg)](https://asciinema.org/a/v8FxrttpHTJVye5N4U5KCgUsT)
 
 ```log
@@ -77,12 +77,12 @@ user@milkv:~$
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-成功
+Test successful.

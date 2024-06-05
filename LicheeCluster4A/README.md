@@ -1,51 +1,52 @@
 # Lichee Cluster 4A
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### System Information
 
-- RevyOS (Sipeed 厂商镜像)
-    - 下载链接：https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin
-    - 参考安装文档：https://wiki.sipeed.com/hardware/zh/lichee/th1520/lc4a/lc4a.html
+- RevyOS (Sipeed Vendor Image)
+    - Download link: [here](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin)
+    - Reference Installation Document: [here](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lc4a/lc4a.html)
 - openEuler RISC-V 23.09 Preview
-    - 下载链接：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/lpi4a/
-    - 参考安装文档：https://revyos.github.io/
+    - Download link: [here](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/lpi4a/)
+    - Reference Installation Document: [here](https://revyos.github.io/)
 - RevyOS (w/mainline kernel)
-    - 下载链接：https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/
-    - 参考安装文档：https://revyos.github.io/
+    - Download link: [here](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/)
+    - Reference Installation Document: [here](https://revyos.github.io/)
 - RevyOS
-    - 下载链接：https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
-    - 参考安装文档：https://docs.revyos.dev/
+    - Download link: [here](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
+    - Reference Installation Document: [here](https://docs.revyos.dev/)
 - openKylin
-    - 下载链接：https://www.openkylin.top/downloads/index-cn.html
-    - 参考安装文档：https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+    - Download link: [here](https://www.openkylin.top/downloads/index-cn.html)
+    - Reference Installation Document: [here](https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
 - Fedora
-    - 下载链接：https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/
-    - 参考安装文档：https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head
+    - Download link: [here](https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/)
+    - Reference Installation Document: [here](https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head)
 - Armbian
-    - 下载链接：https://github.com/chainsx/armbian-riscv-build/tree/main
-    - 参考安装文档：https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md
+    - Download link: [here](https://github.com/chainsx/armbian-riscv-build/tree/main)
+    - Reference Installation Document: [here](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
 - OpenWRT
-    - 下载链接：https://github.com/chainsx/openwrt-th1520/releases
-    - 参考安装文档：https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md
+    - Download link: [here](https://github.com/chainsx/openwrt-th1520/releases)
+    - Reference Installation Document: [here](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
 
-### 硬件开发板信息
+### Hardware Information
 
 - Lichee Cluster 4A + 7 * LM4A 8GB RAM
 
-## 测试结果
+## Test Results
 
-| 软件分类                         | 软件包名 | 测试结果（测试报告）                  |
-| -------------------------------- | -------- | ------------------------------------- |
-| RevyOS(Sipeed 厂商镜像) 镜像启动 | N/A      | [成功][RevySipeed]（Sipeed 厂商镜像） |
-| RevyOS(LPi4a 镜像) 镜像启动      | N/A      | [成功][RevyLPi]                       |
-| RevyOS(mainline 镜像) 镜像启动   | N/A      | [成功][RevyOS]（官方支持）            |
-| openEuler/Base 镜像启动          | N/A      | [成功][oERV]                          |
-| openEuler/Xfce 镜像启动          | Xfce     | [成功][oERV]                          |
-| openKylin 镜像启动               | N/A      | [成功][oK]                            |
-| Fedora 桌面镜像启动              | N/A      | [成功][Fedora]                        |
-| Armbian 镜像启动                 | N/A      | [成功][Armbian]                       |
-| OpenWRT 镜像启动                 | N/A      | [成功][OpenWRT]                       |
+
+| Software Category                | Package Name | Test Results (Test Report)                     |
+| -------------------------------- | ------------ | ---------------------------------------------- |
+| RevyOS (Sipeed Manufacturer Image)| N/A          | [Success][RevySipeed] (Sipeed Manufacturer Image)|
+| RevyOS (LPi4a Image) Image Boot  | N/A          | [Success][RevyLPi]                             |
+| RevyOS (mainline Image) Image Boot| N/A         | [Success][RevyOS] (Official Support)           |
+| openEuler/Base Image Boot        | N/A          | [Success][oERV]                                |
+| openEuler/Xfce Image Boot        | Xfce         | [Success][oERV]                                |
+| openKylin Image Boot             | N/A          | [Success][oK]                                  |
+| Fedora Desktop Image Boot        | N/A          | [Success][Fedora]                              |
+| Armbian Image Boot               | N/A          | [Success][Armbian]                             |
+| OpenWRT Image Boot               | N/A          | [Success][OpenWRT]                             |
 
 [RevySipeed]: ./RevyOS/README_Sipeed.md
 [RevyLPi]: ./RevyOS/README_lpi4a.md

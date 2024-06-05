@@ -1,40 +1,41 @@
 # Lichee Pi 4A
 
-## 测试环境
+## Testing Environment
 
-### 操作系统信息
+### System Information
 
 - openEuler RISC-V 23.09 Preview
-    - 下载链接：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/lpi4a/
-    - 参考安装文档：https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/blob/master/lpi4a/Install.md
+    - Download link: [openEuler-RISC-V](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/lpi4a/)
+    - Reference Installation Document: [Installation Guide](https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/blob/master/lpi4a/Install.md)
 - RevyOS
-    - 下载链接：https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
-    - 参考安装文档：https://docs.revyos.dev/
+    - Download link: [RevyOS Images](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
+    - Reference Installation Document: [RevyOS Documentation](https://docs.revyos.dev/)
 - openKylin
-    - 下载链接：https://www.openkylin.top/downloads/index-cn.html
-    - 参考安装文档：https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+    - Download link: [OpenKylin Downloads](https://www.openkylin.top/downloads/index-cn.html)
+    - Reference Installation Document: [OpenKylin Installation Guide](https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
 - Fedora
-    - 下载链接：https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/
-    - 参考安装文档：https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head
+    - Download link: [Fedora Images](https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/)
+    - Reference Installation Document: [Fedora Installation Guide](https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head)
 - Armbian
-    - 下载链接：https://github.com/chainsx/armbian-riscv-build/tree/main
-    - 参考安装文档：https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md
+    - Download link: [Armbian Images](https://github.com/chainsx/armbian-riscv-build/tree/main)
+    - Reference Installation Document: [Armbian Installation Guide](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
 
-### 硬件开发板信息
+### Hardware Information
 
 - Lichee Pi 4A 16GB RAM + 128GB eMMC
+- Lichee Pi 4A 8GB RAM + 64GB eMMC
 
-## 测试结果
+## Test Results
 
-| 软件分类                | 软件包名 | 测试结果（测试报告）          |
-|---------------------|----------|---------------------------|
-| openEuler/Base 镜像启动 | N/A      | [成功][oERV]                |
-| openEuler/Xfce 镜像启动 | Xfce     | [成功][oERV]                |
-| RevyOS 桌面镜像启动     | N/A      | [成功][RevyOS]（官方支持）    |
-| Fedora 桌面镜像启动     | N/A      | [成功][Fedora]（官方支持）    |
-| openKylin 桌面镜像启动  | N/A      | [成功][openKylin]（官方支持） |
-| Armbian 镜像启动        | N/A      | [成功][Armbian]             |
-| OpenWRT 镜像启动        | N/A      | [成功][OpenWRT]             |
+| Software Category         | Software Package | Test Results (Test Report) |
+|-------------------------|------------------|---------------------------|
+| openEuler/Base Image Boot  | N/A              | [Success][oERV]           |
+| openEuler/Xfce Image Boot  | Xfce             | [Success][oERV]           |
+| RevyOS Desktop Image Boot  | N/A              | [Success][RevyOS] (Official Support)  |
+| Fedora Desktop Image Boot   | N/A              | [Success][Fedora] (Official Support) |
+| openKylin Desktop Image Boot| N/A              | [Success][openKylin] (Official Support) |
+| Armbian Image Boot          | N/A              | [Success][Armbian]         |
+| OpenWRT Image Boot          | N/A              | [Success][OpenWRT]         |
 
 [oERV]: ./openEuler/README.md
 [RevyOS]: ./RevyOS/README.md

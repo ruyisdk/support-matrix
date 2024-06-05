@@ -1,10 +1,10 @@
-# Ubuntu 23.10 VisionFive 2 版本测试报告
+# Ubuntu 24.04 VisionFive 2 版本测试报告
 
 ## 测试环境
 
 ### 操作系统信息
 
-- 系统版本：Ubuntu 23.10
+- 系统版本：Ubuntu 24.04
 - 下载链接：https://ubuntu.com/download/risc-v
 - 参考安装文档：https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
 
@@ -154,4 +154,4 @@ ubuntu@ubuntu:~$
 
 ## 测试结论
 
-测试成功。
+因硬件问题，暂无结果。

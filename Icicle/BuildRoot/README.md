@@ -1,4 +1,4 @@
-# Buildroot VisionFive 测试报告
+# Buildroot Icicle Kit 测试报告
 
 ## 测试环境
 

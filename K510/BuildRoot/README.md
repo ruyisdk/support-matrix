@@ -1,35 +1,35 @@
-# BuildRoot K510 测试报告
+# BuildRoot K510 Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 构建系统环境：Ubuntu 20.04.4 LTS in Docker
-- 系统版本：v1.9
-- 参考安装文档：https://github.com/kendryte/k510_buildroot
+- Build System Environment: Ubuntu 20.04.4 LTS in Docker
+- System Version: v1.9
+- Reference Installation Document: https://github.com/kendryte/k510_buildroot
 
-### 硬件信息
+### Hardware Information
 
 - Canaan K510 CRB-V1.2 KIT
-- USB 电源适配器一个
-- USB-A to C 两条（开发板已附带，一条用作供电，另一条用作 USB-UART 以及辅助供电）
-- microSD 卡一张（容量 ≥ 1GiB 即可，默认生成的镜像大小为 512MiB）
+- One USB Power Adapter
+- Two USB-A to C Cables (included with the development board; one for power supply and the other for USB-UART and auxiliary power supply)
+- One microSD Card (minimum capacity of 1GiB; default generated image size is 512MiB)
 
-## 安装步骤
+## Installation Steps
 
-### 构建系统镜像
+### Building System Image
 
-#### 安装 Docker 
+#### Installing Docker
 
-请参考各发行版的文档，或者 Docker 官网文档进行安装。
+Refer to the documentation for your specific distribution or the official Docker documentation for installation instructions.
 
-#### 拉取源码仓
+#### Clone Source Repository
 
 ```shell
 git clone --depth=1 https://github.com/kendryte/k510_buildroot
 ```
 
-#### 开始构建
+#### Build the Image
 
 ```shell
 sh k510_buildroot/tools/docker/run_k510_docker.sh
@@ -37,44 +37,44 @@ make dl
 make
 ```
 
-注意，默认为单线程编译，耗时较久，请确保网络连接正常。
+Note: The build is single-threaded by default, which can take a considerable amount of time. Ensure you have a stable network connection.
 
-编译结束后，会在 `k510_buildroot/k510_crb_lp3_v1_2_defconfig/image/` 目录下生成 `sysimage-sdcard.img` 镜像。
+Upon completion, the `sysimage-sdcard.img` image will be generated in the `k510_buildroot/k510_crb_lp3_v1_2_defconfig/image/` directory.
 
-#### 使用 dd 烧录镜像
+#### Flashing the Image with dd
 
-注意，`/dev/sdc` 为存储卡所在位置。请根据实际情况修改。
+Note: `/dev/sdc` represents the location of the storage card. Modify according to your actual setup.
 
 ```shell
 sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-插入 microSD 卡，确保板载 SW1 开关处于 microSD 卡启动位置：
+Insert the microSD card and ensure the onboard SW1 switch is set to boot from the microSD card position:
 
-| BOOT1  | BOOT0  | 启动方式   |
+| BOOT1  | BOOT0  | Boot Mode  |
 |--------|--------|------------|
-| 0(ON)  | 0(ON)  | 串口       |
+| 0(ON)  | 0(ON)  | Serial     |
 | 0(ON)  | 1(OFF) | microSD    |
 | 1(OFF) | 0(ON)  | NAND Flash |
 | 1(OFF) | 1(OFF) | eMMC       |
 
-插入 USB Type-C 供电和 USB-UART 串口。接口分别位于开发板两侧，丝印为 `DC:5V` 和 `UART`。
+Connect the USB Type-C for power and the USB-UART serial cable. The connectors are located on either side of the development board, labeled `DC:5V` and `UART` respectively.
 
-（K510 板载了一颗 CH340 用于 USB-UART，可直接连接使用。UART 接口同时用作 USB 辅助供电，建议连接。）
+(The K510 features an onboard CH340 for USB-UART, allowing direct connection. The UART interface also serves as an auxiliary power supply via USB, so it's recommended to connect it.)
 
-将电源开关 `K1` 拨到 ON 位置，通过串口连接并登录系统。
+Switch the power button `K1` to the ON position, connect via serial, and log into the system.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully and login via the onboard serial port was also successful.
 
-### 启动信息
+### Boot Information
 
 ```log
 [root@canaan ~ ]$ uname -a
@@ -97,16 +97,16 @@ mmu     : sv39
 [root@canaan ~ ]$
 ```
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (From flashing image to login):
 
 [![asciicast](https://asciinema.org/a/wdVYHHOcy5laeXA2tKewkqNRR.svg)](https://asciinema.org/a/wdVYHHOcy5laeXA2tKewkqNRR)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

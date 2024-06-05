@@ -1,44 +1,44 @@
-# Debian Milk-V Duo S 测试报告
+# Debian Milk-V Duo S Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 下载链接：https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/tag/v1.1.0
-- 参考安装文档：https://github.com/Fishwaldo/sophgo-sg200x-debian
+- Download Link: https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/tag/v1.1.0
+- Reference Installation Document: https://github.com/Fishwaldo/sophgo-sg200x-debian
 
-### 硬件信息
+### Hardware Information
 
 - Milk-V Duo S (512M, SG2000)
-- USB 电源适配器一个
-- USB-A to C 或 USB C to C 线缆一条，用于给开发板供电
-- microSD 卡一张
-- USB 读卡器一个
-- USB to UART 调试器一个（如：CP2102, FT2232 等，注意不可使用 CH340/341 系列，会出现乱码）
-- 杜邦线三根
+- One USB power adapter
+- One USB-A to C or USB C to C cable for powering the development board
+- One microSD card
+- One USB card reader
+- One USB to UART debugger (e.g., CP2102, FT2232, etc. Note: Avoid using CH340/341 series as they may produce garbled text)
+- Three DuPont wires
 
-## 安装步骤
+## Installation Steps
 
-### 使用 `dd` 刷写镜像到 microSD 卡
+### Using `dd` to Flash the Image to the microSD Card
 
 ```shell
 lz4 -dk duos_sd.img.lz4
 sudo dd if=duos_sd.img of=/dev/sdX bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system boots up normally and allows login through the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system boots up normally and login through the onboard serial port is successful.
 
-### 启动信息
+### Boot Information
 
 ```log
 Linux duos 5.10.4-20240329-1+ #1 PREEMPT Wed Apr 24 11:26:16 UTC 2024 riscv64
@@ -68,16 +68,16 @@ mmu             : sv39
 root@duos:~#
 ```
 
-屏幕录像：
+Screen recording:
 
 [![asciicast](https://asciinema.org/a/SHxcbudKKPuuuARa7iMAhW0RO.svg)](https://asciinema.org/a/SHxcbudKKPuuuARa7iMAhW0RO)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

@@ -1,27 +1,27 @@
-# Milk-V Mars
+# Milk-V Mars Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- BuildRoot/Debian（官方提供）
-    - 下载链接：https://github.com/milkv-mars/mars-buildroot-sdk/releases/
-    - 参考安装文档：https://milkv.io/zh/docs/mars/getting-started/boot
+- BuildRoot/Debian (officially provided)
+    - Download Link: https://github.com/milkv-mars/mars-buildroot-sdk/releases/
+    - Reference Installation Document: https://milkv.io/zh/docs/mars/getting-started/boot
 - Ubuntu
-    - 下载链接：https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-preinstalled-server-riscv64+milkvmars.img.xz
-    - 参考安装文档：https://milkv.io/zh/docs/mars/getting-started/booh
+    - Download Link: https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-preinstalled-server-riscv64+milkvmars.img.xz
+    - Reference Installation Document: https://milkv.io/zh/docs/mars/getting-started/boot
 
-### 硬件开发板信息
+### Hardware Information
 
 - Milk-V Mars
 
-## 测试结果
+## Test Results
 
-| 软件分类             | 软件包名 | 测试结果（测试报告）             |
-|------------------|----------|--------------------------------|
-| Debian 镜像启动      | N/A      | [CFT][Debian]（Milk-V 厂商镜像） |
-| BuildRoot 构建及启动 | N/A      | [CFT][BuildRoot]               |
-| Ubuntu 镜像启动      | N/A      | [CFT][Ubuntu]                  |
+| Software Category      | Package Name | Test Result (Test Report)             |
+|----------------------|---------------|---------------------------------------|
+| Debian Image Boot    | N/A           | [Successful][Debian] (Milk-V Official Image) |
+| BuildRoot Build & Boot | N/A         | [Successful][BuildRoot]               |
+| Ubuntu Image Boot    | N/A           | [Successful][Ubuntu]                  |
 
 [Debian]: ./Debian/README.md
 [BuildRoot]: ./BuildRoot/README.md

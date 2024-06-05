@@ -15,7 +15,7 @@
 
 - FreeRTOS Tang Mega 138K Pro Dock
 - type A to C 线一根
-- UART串口线一根
+- UART 串口线一根
 - 随机电源线
 
 ## 安装步骤

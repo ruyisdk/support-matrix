@@ -16,7 +16,7 @@
 - BuildRoot:
   - 下载链接：https://github.com/DongshanPI/buildroot_dongshannezhastu
   - 参考安装文档：https://dongshanpi.com/DongshanNezhaSTU/07-Buildroot-SDK_DevelopmentGuide/
-- ArchLinux
+- Arch Linux
   - 打包脚本：https://github.com/sehraf/d1-riscv-arch-image-builder
 
 ### 硬件开发板信息
@@ -30,7 +30,7 @@
 | Tina-Linux 镜像启动            | N/A          | [CFT][Tina]       |
 | OpenWrt 镜像启动               | N/A          | [CFT][OpenWrt]         |
 | Debian 镜像启动                | N/A          | [CFT][Debian]          |
-| ArchLinux 镜像启动             | N/A          | [CFT][Arch]            |
+| Arch Linux 镜像启动            | N/A          | [CFT][Arch]            |
 | BuildRoot 镜像启动             | N/A          | [CFT][BuildRoot]       |
 
 [Tina]: ./TinaLinux/README.md

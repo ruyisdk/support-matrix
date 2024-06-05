@@ -1,32 +1,32 @@
-# NuttX Maix-I K210 测试报告
+# NuttX Maix-I K210 Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 源码链接：https://github.com/apache/nuttx
-- 参考安装文档：https://nuttx.apache.org/docs/latest/platforms/risc-v/k210/boards/maix-bit/index.html
-- 工具链：
+- Source code link: https://github.com/apache/nuttx
+- Reference Installation Document: https://nuttx.apache.org/docs/latest/platforms/risc-v/k210/boards/maix-bit/index.html
+- Toolchain:
     - toolchain: https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz
-    - openOCD(若需要进行调试): https://github.com/kendryte/openocd-kendryte 
-    - kflash：https://github.com/kendryte/kflash.py
+    - openOCD (for debugging if needed): https://github.com/kendryte/openocd-kendryte 
+    - kflash: https://github.com/kendryte/kflash.py
 
-### 硬件信息
+### Hardware Information
 
 - Sipeed Maix-Bit (K210)
 
-## 安装步骤
+## Installation Steps
 
-### 准备源码及环境
+### Preparing Source Code and Environment
 
-获取工具链，下载并解压。
+Get the toolchain, download and unpack.
 ```bash
 wget https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz
 tar -xzvf riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz
 export PATH=path/to/toolchain/bin:$PATH
 ```
 
-clone 仓库并进行配置：
+Clone the repository and configure:
 ```bash
 
 mkdir nuttx && cd nuttx
@@ -34,8 +34,7 @@ git clone https://github.com/apache/nuttx.git nuttx
 git clone https://github.com/apache/nuttx-apps.git apps
 ```
 
-
-### 进行编译
+### Compile the Code
 
 ```bash
 cd nuttx
@@ -44,30 +43,30 @@ make distclean
 make V=1
 ```
 
-### 烧写镜像
+### Flashing the Image
 
-使用 k_flash 进行烧写，工具链文档可见：https://github.com/kendryte/kflash.py
+Use kflash for flashing, refer to the toolchain documentation: https://github.com/kendryte/kflash.py
 
 ```bash
 pip install kflash
 kflash -b 115200 -p /dev/ttyUSBx nuttx.bin
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口连接开发板。
+Connect to the development board via serial port.
 
-## 预期结果
+## Expected Results
 
-构建成功，开发板正常输出启动信息。
+Build succeeds, and the development board outputs startup information normally.
 
-## 实际结果
+## Actual Results
 
-构建成功，开发板正常输出启动信息。
+Build succeeded, and the development board output startup information normally.
 
-### 启动信息
+### Boot Information
 
-屏幕录像（从刷写系统到启动）：
+Screen recording (from flashing the system to startup):
 [![asciicast](https://asciinema.org/a/WlWIs9g3WqjlO9zX9t0pq2ZPU.svg)](https://asciinema.org/a/WlWIs9g3WqjlO9zX9t0pq2ZPU)
 
 ```log
@@ -77,12 +76,12 @@ NuttX version 12.5.1 6e941aed8b-dirty May  7 2024 09:51:35 maix-bit:nsh
 nsh>
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功
+Test successful.

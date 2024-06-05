@@ -1,51 +1,51 @@
-# Debian Milk-V Duo 测试报告
+# Debian Milk-V Duo Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：Debian trixie/sid
-- 下载链接：https://drive.google.com/file/d/1TqMuFsRo5Es2Y6-qAyxV8jnFdAkcCp4v/view?usp=sharing
-- 参考安装文档：https://github.com/hongwenjun/riscv64/tree/main/milkv-duo
+- System Version: Debian trixie/sid
+- Download Link: https://drive.google.com/file/d/1TqMuFsRo5Es2Y6-qAyxV8jnFdAkcCp4v/view?usp=sharing
+- Reference Installation Document: https://github.com/hongwenjun/riscv64/tree/main/milkv-duo
 
-> Note: 此镜像为社区开发者提供，非官方镜像。
+> Note: This image is provided by a community developer and is not an official image.
 
-### 硬件信息
+### Hardware Information
 
 - Milk-V Duo 64M
-- USB 电源适配器一个
-- USB-A to C 或 USB C to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
-- Milk-V Duo 本体上预先焊接好调试所需的排针
-- 可选：Milk-V Duo IOB（底板）
+- One USB power adapter
+- One USB-A to C or USB C to C cable
+- One microSD card
+- One USB to UART debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three Dupont wires
+- Milk-V Duo with pre-soldered pin headers required for debugging
+- Optional: Milk-V Duo IOB (baseboard)
 
-## 安装步骤
+## Installation Steps
 
-### 使用 `dd` 刷写镜像到 microSD 卡
+### Using `dd` to Flash the Image to the microSD Card
 
 ```shell
 7z x duo-debian-full.7z
 dd if=debian.img of=/dev/sdc bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via serial port.
 
-用户名：`root`
-密码：`riscv`
+Username: `root`
+Password: `riscv`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口登录。
+The system boots up normally and allows login through the serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过串口登录。
+The system boots up normally and login through the serial port is successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 Debian GNU/Linux trixie/sid milkv-duo ttyS0
@@ -80,17 +80,17 @@ BUG_REPORT_URL="https://bugs.debian.org/"
 root@milkv-duo:~# 
 ```
 
-启动流程屏幕录像：
+Boot process screen recording:
 
 [![asciicast](https://asciinema.org/a/oOEaHElWFYEJMCmsOkqDZfbEv.svg)](https://asciinema.org/a/oOEaHElWFYEJMCmsOkqDZfbEv)
 
+## Test Criteria
 
-## 测试判定标准
+Successful: The actual result matches the expected result.
 
-测试成功：实际结果与预期结果相符。
+Failed: The actual result does not match the expected result.
 
-测试失败：实际结果与预期结果不符。
+## Test Conclusion
 
-## 测试结论
+Test successful.
 
-测试成功。
