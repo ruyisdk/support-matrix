@@ -1,10 +1,10 @@
-# Ubuntu 23.10 D1 测试报告
+# Ubuntu 24.04 D1 测试报告
 
 ## 测试环境
 
 ### 操作系统信息
 
-- 系统版本：Ubuntu 23.10
+- 系统版本：Ubuntu 24.04
 - 下载链接：https://ubuntu.com/download/risc-v
     - 或者镜像站：[Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/mantic/release/ubuntu-23.10-preinstalled-server-riscv64+nezha.img.xz) | [Lichee RV](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/mantic/release/ubuntu-23.10-preinstalled-server-riscv64+licheerv.img.xz)
 - 参考安装文档：https://wiki.ubuntu.com/RISC-V/LicheeRV
@@ -44,23 +44,21 @@
 ### 启动信息
 
 ```log
-ubuntu@ubuntu:~$ cat /proc/cpuinfo                                                                                    
-processor       : 0                                                                                                   
-hart            : 0                                                                                                   
-isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm                                                              
-mmu             : sv39                                                                                                
-uarch           : thead,c906                                                                                          
-mvendorid       : 0x5b7                                                                                               
-marchid         : 0x0                                                                                                 
-mimpid          : 0x0                                                                                                 
-                                                                                                                      
-ubuntu@ubuntu:~$
+ubuntu@ubuntu:~$ cat /proc/cpuinfo
+processor       : 0
+hart            : 0
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : thead,c906
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
 ```
 
 屏幕录像（从刷写镜像到登录系统）：
 
-[![asciicast](https://asciinema.org/a/wEtZPokxvzJ72S9ETh8PSqdUt.svg)](https://asciinema.org/a/wEtZPokxvzJ72S9ETh8PSqdUt)
-
+[![asciicast](https://asciinema.org/a/zwX03rXaG8pP6mQMDYuSzb0Eb.svg)](https://asciinema.org/a/zwX03rXaG8pP6mQMDYuSzb0Eb)
 ## 测试判定标准
 
 测试成功：实际结果与预期结果相符。
