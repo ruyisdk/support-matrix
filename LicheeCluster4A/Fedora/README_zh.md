@@ -1,44 +1,44 @@
-# Fedora 38 Lichee Cluster 4A Test Report
+# Fedura 38 Lichee Cluster 4A 版本测试报告
 
-## Test Environment
+## 测试环境
 
-### System Information
+### 操作系统信息
 
-- System Version: Fedora 38
-- Download link: [https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/](https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/)
-- Reference Installation Document: [https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head](https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head)
-- Fastboot links:
+- 系统版本：Fedora 38
+- 下载链接：[https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/](https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/)
+- 参考安装文档：[https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head](https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head)
+- fastboot 链接：
     - [https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)
     - [https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 
-### Hardware Information
+### 硬件信息
 
 - Lichee Cluster 4A 8G / 16G
-- DC 12V Power Supply
+- DC 12V 电源
 - USB-A to A
-    - or LPi4A Dock
-- One microSD card
-- Network and Ethernet cable (connect to BMC, not a switch)
+    - 或 LPi4A 底板
+- microSD 卡一张
+- 网络和网线（注意连接到 BMC 而非交换机）
 
-## Installation Steps
+## 安装步骤
 
-*The following steps are based on flashing to the first board in the cluster*
+*以下以刷写到集群中一号板为例*
 
-*Note: Fedora system boots from an SD card, not eMMC, so make sure to insert the card*
+*注意 Fedora 系统从 sd 卡而非 eMMC 启动，需要插卡*
 
-### Flashing Image
+### 刷写镜像
 
-Use `unxz` to decompress the image.
-Use `dd` to flash the image to the microSD card.
+使用 `unxz` 解压镜像。
+使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
 unxz /path/to/fedora.raw.xz
 sudo dd if=/path/to/fedora.raw of=/dev/your_device bs=1M status=progress
 ```
 
-### Flashing Bootloader
+### 刷写 bootloader
 
-**Note: Fedora's u-boot is in the image. After the previous `dd` step, extract it from the boot partition on the SD card!**
+**注意：fedora 的 u-boot 在镜像中，上一步 dd 完镜像后，从 sd 卡中的 boot 分区提取！**
 ![u-boot](./u-boot.png)
 
 ```bash
@@ -48,36 +48,37 @@ sleep 10
 sudo ./fastboot flash uboot ./path/to/your/u-boot-with-spl_lpi4a.bin
 ```
 
-### Logging into the System
+### 登录系统
 
-Login to the system using SOL (Serial Over LAN).
+通过 SOL (Serial Over LAN) 登录系统。
 
-BMC default username: `root`
+BMC 默认用户名：`root`
 
-BMC default password: `0penBmc` **Note: it's `0`, not `O`**
+BMC 默认密码：`0penBmc` **注意是 `0` 而不是 `O`**
 
-Connect via `ssh -p 2301 root@lichee-rv.local`
+通过 `ssh -p 2301 root@lichee-rv.local` 连接
 
-Default username: `root`
-Default password: `riscv`
+默认用户名： `root`
+默认密码： `riscv`
 
-### Common Issues
+### 常见问题
 
-If USB cannot be used, it's because the Linux device tree needs patching. [Download the patch](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
+若无法使用 USB，是因为 Linux 设备树需要 patch。[patch 下载](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
 
-## Expected Results
+## 预期结果
 
-The system should boot up correctly, and you should be able to log in via SOL (Serial Over LAN).
+系统正常启动，能够通过 SOL (Serial Over LAN) 登录。
 
-## Actual Results
+## 实际结果
 
-The system boots up correctly, and you can log in via SOL (Serial Over LAN).
+系统正常启动，能够通过 SOL (Serial Over LAN) 登录。
 
-### Boot Log
+### 启动信息
 
-Screen recording (from flashing the system to startup):
+屏幕录像（从刷写系统到启动）：
 
 [![asciicast](https://asciinema.org/a/OTu3SKCoCpADbc4AMNJNOjjoQ.svg)](https://asciinema.org/a/OTu3SKCoCpADbc4AMNJNOjjoQ)
+
 
 ```log
 Welcome to the Fedora RISC-V disk image
@@ -125,12 +126,12 @@ cccccccc;.:odl:.;cccccccccccccc:,.
 
 ```
 
-## Test Criteria
+## 测试判定标准
 
-Successful: The actual result matches the expected result.
+测试成功：实际结果与预期结果相符。
 
-Failed: The actual result does not match the expected result.
+测试失败：实际结果与预期结果不符。
 
-## Test Conclusion
+## 测试结论
 
-Test successful.
+测试成功。

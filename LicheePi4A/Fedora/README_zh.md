@@ -1,45 +1,45 @@
-# Fedora 38 LPi4A Official Test Report
+# Fedora 38 LPi4A 官方版本 测试报告
 
-## Test Environment
+## 测试环境
 
-### System Information
+### 系统信息
 
-- System Version: Fedora 38
-- Download Link: [https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/](https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/)
-- Reference Installation Document: [https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head](https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head)
-- fastboot Links:
+- 系统版本：Fedora 38
+- 下载链接：[https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/](https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/)
+- 参考安装文档：[https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head](https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head)
+- fastboot 链接：
     - [https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)
     - [https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 
-### Hardware Information
+### 硬件信息
 
-- Lichee Pi 4A (8GB RAM + 64GB eMMC)
-- Power Adapter
-- One microSD Card
-- One USB to UART Debugger
+- Lichee Pi 4A (8G RAM + 64G eMMC)
+- 电源适配器
+- microSD 卡一张
+- USB to UART 调试器一个
 
-## Installation Steps
+## 安装步骤
 
-### Flashing Image
+### 刷写镜像
 
-Use `unxz` to extract the image.
-Use `dd` to flash the image to the microSD card.
+使用 `unxz` 解压镜像。
+使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
 unxz /path/to/fedora.raw.xz
 sudo dd if=/path/to/fedora.raw of=/dev/your_device bs=1M status=progress
 ```
 
-### Flashing Bootloader
+### 刷写 bootloader
 
-**Note: The Fedora's u-boot is in the image. After dd in the previous step, extract from the boot partition on the SD card!**
+**注意：fedora 的 u-boot 在镜像中，上一步 dd 完镜像后，从 sd 卡中的 boot 分区提取！**
 ![u-boot](./u-boot.png)
 
-Enter fastboot.
-- Make sure the boot switch on the production version is set to eMMC.
-- Press BOOT while powering on.
-- (Refer to official tutorials)
-Use fastboot command to flash u-boot.
+进入 fastboot。
+- 正式版确认 boot 拨码开关为 eMMC。
+- 按动 BOOT 同时上电。
+- （详见官方教程）
+使用 fastboot 按命令烧录 u-boot。
 
 ```bash
 sudo ./fastboot flash ram ./path/to/your/u-boot-with-spl_lpi4a.bin
@@ -48,24 +48,24 @@ sleep 10
 sudo ./fastboot flash uboot ./path/to/your/u-boot-with-spl_lpi4a.bin
 ```
 
-### Logging into the System
+### 登录系统
 
-Logging into the System via serial port.
+通过串口登录系统。
 
-Default Username: `root`
-Default Password: `riscv`
+默认用户名： `root`
+默认密码： `riscv`
 
-## Expected Results
+## 预期结果
 
-The system boots up correctly and can be accessed via the onboard serial port.
+系统正常启动，能够通过板载串口登录。
 
-## Actual Results
+## 实际结果
 
-The system boots up correctly, successfully logged in via the onboard serial port, and can access the desktop.
+系统正常启动，成功通过板载串口登录。能进入桌面。
 
-### Boot Log
+### 启动信息
 
-Screen recording (from flashing the image to logging into the system):
+屏幕录像（从刷写镜像到登录系统）：
 
 [![asciicast](https://asciinema.org/a/h2waHR5bazhEOeMYYxbbWUxBm.svg)](https://asciinema.org/a/h2waHR5bazhEOeMYYxbbWUxBm)
 
@@ -113,13 +113,12 @@ cccccccc;.:odl:.;cccccccccccccc:,.
 
 ```
 
-## Test Criteria
+## 测试判定标准
 
-Successful: The actual result matches the expected result.
+测试成功：实际结果与预期结果相符。
 
-Failed: The actual result does not match the expected result.
+测试失败：实际结果与预期结果不符。
 
-## Test Conclusion
+## 测试结论
 
-Test successful.
-
+测试成功。

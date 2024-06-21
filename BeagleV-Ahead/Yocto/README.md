@@ -1,65 +1,64 @@
-# Yocto BeagleV-Ahead 测试报告
 
-## 测试环境
+# Yocto BeagleV-Ahead Test Report
 
-### 操作系统信息
+## Test Environment
 
-- 下载链接：https://files.beagle.cc/file/beagleboard-public-2021/images/xuantie-yocto-1.1.2-20230610.zip
-- 参考安装文档：https://docs.beagleboard.org/latest/boards/beaglev/ahead/02-quick-start.html
+### System Information
 
-### 硬件信息
+- Download Link: [Beagle Board Public Files](https://files.beagle.cc/file/beagleboard-public-2021/images/xuantie-yocto-1.1.2-20230610.zip)
+- Refer to Installation Documentation: [BeagleV-Ahead Quick Start Guide](https://docs.beagleboard.org/latest/boards/beaglev/ahead/02-quick-start.html)
+
+### Hardware Information
 
 - BeagleV-Ahead
-- USB-C 电源适配器 / DC 电源一个
-- USB-UART 调试器一个
+- USB-C Power Adapter / DC Power Supply
+- USB-UART Debugger
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像
+### Flashing Image
 
-安装 fastboot：
+Install fastboot:
 ```bash
 sudo apt-get install android-sdk-platform-tools
 ```
 
-解压安装套件。运行自动刷写脚本：
+Unzip the installation package. Run the automatic flashing script:
 
 ```bash
 unzip xuantie-yocto-1.1.2-20230610.zip
 sudo ./fastboot_emmc.sh
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via serial port.
 
-默认用户名： `root`
-默认密码：无密码
+Default username: `root`
+Default password: No password
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system boots up correctly and can be accessed via onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system boots up correctly and can be accessed successfully via the onboard serial port.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
-
+Screen recording (from flashing  the image to startup):
 
 ```log
 
 ```
 
+## Test Criteria
 
-## 测试判定标准
+Successful: The actual result matches the expected result.
 
-测试成功：实际结果与预期结果相符。
+Failed: The actual result does not match the expected result.
 
-测试失败：实际结果与预期结果不符。
-
-## 测试结论
+## Test Conclusion
 
 CFT

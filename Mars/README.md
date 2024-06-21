@@ -9,7 +9,7 @@
     - 参考安装文档：https://milkv.io/zh/docs/mars/getting-started/boot
 - Ubuntu
     - 下载链接：https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-preinstalled-server-riscv64+milkvmars.img.xz
-    - 参考安装文档：https://milkv.io/zh/docs/mars/getting-started/booh
+    - 参考安装文档：https://milkv.io/zh/docs/mars/getting-started/boot
 
 ### 硬件开发板信息
 
@@ -19,9 +19,9 @@
 
 | 软件分类             | 软件包名 | 测试结果（测试报告）             |
 |------------------|----------|--------------------------------|
-| Debian 镜像启动      | N/A      | [CFT][Debian]（Milk-V 厂商镜像） |
-| BuildRoot 构建及启动 | N/A      | [CFT][BuildRoot]               |
-| Ubuntu 镜像启动      | N/A      | [CFT][Ubuntu]                  |
+| Debian 镜像启动      | N/A      | [成功][Debian]（Milk-V 厂商镜像） |
+| BuildRoot 构建及启动 | N/A      | [成功][BuildRoot]               |
+| Ubuntu 镜像启动      | N/A      | [成功][Ubuntu]                  |
 
 [Debian]: ./Debian/README.md
 [BuildRoot]: ./BuildRoot/README.md

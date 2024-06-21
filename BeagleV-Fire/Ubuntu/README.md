@@ -1,29 +1,29 @@
-# Ubuntu BeagleV-Fire 测试报告
+# Ubuntu BeagleV-Fire Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### System Information
 
-- 下载链接：https://files.beagle.cc/file/beagleboard-public-2021/images/beaglev-fire-ubuntu-23.04-20231121.zip
-- 参考安装文档：https://docs.beagleboard.org/latest/boards/beaglev/fire/demos-and-tutorials/flashing-board.html
+- Download Link: [BeagleV-Fire Ubuntu Image](https://files.beagle.cc/file/beagleboard-public-2021/images/beaglev-fire-ubuntu-23.04-20231121.zip)
+- Reference Installation Document: [BeagleV Fire Flashing Guide](https://docs.beagleboard.org/latest/boards/beaglev/fire/demos-and-tutorials/flashing-board.html)
 
-### 硬件信息
+### Hardware Information
 
 - BeagleV-Fire
-- USB-C 电源适配器 / DC 电源一个
-- USB-UART 调试器一个
+- USB-C Power Adapter / DC Power Supply
+- USB-UART Debugger
 
-## 安装步骤
+## Installation Steps
 
-### 刷写 Gateway 模块
+### Flashing Gatware Module
 
-**理论上 Gateway 已经刷写好，开箱即用。**
+**In theory, the Gatware should be pre-flashed and ready to use out of the box.**
 
-### 升级 Gateway
+### Gatware Upgrade
 
-**升级 Gateway 可直接在板上自带 Linux 中进行**，见[官方文档](https://docs.beagleboard.org/latest/boards/beaglev/fire/demos-and-tutorials/gateware/upgrade-gateware.html)
+**The Gatware upgrade can be directly performed in the pre-installed Linux on the board**, refer to [official documentation](https://docs.beagleboard.org/latest/boards/beaglev/fire/demos-and-tutorials/gateware/upgrade-gateware.html)
 
-进入 Linux 命令行后（SSH、UART 等均可）
+Upon accessing the Linux command line (via SSH, UART, etc.)
 ```bash
 sudo apt install bbb.io-gateware
 sudo apt update
@@ -32,66 +32,66 @@ cd /usr/share/beagleboard/gateware
 . ./change-gateware.sh default
 ```
 
-### 刷写 Gateway
+### Flashing Gatware
 
-在这里下载 FlashPro Express：
+Download FlashPro Express from here:
 https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug
 
-解压后安装：
+Once downloaded, proceed with the installation:
 ```bash
 ./launch_installer.sh
 ```
 
-运行软件：
+Launch the software:
 ```bash
 /home/$(user)/microchip/Program_Debug_v202X.Y/Program_Debug_Tool/bin/FPExpress
 ```
 
-下载 FlashProExpress.zip，其中包含所需的工程文件（ *.job）
+Download FlashProExpress.zip, which contains the necessary project files (*.job)
 
-创建工程并刷写（连接开发板）：
+Create a project and flash (connect to the development board):
 ![alt text](image.png)
-- 选择工作文件
-- 选择工程地点
-- 确认
+- Select working file
+- Choose project location
+- Confirm
 
 ![alt text](image-1.png)
-- 选择 Program 动作
-- 点击执行
+- Choose the Program action
+- Click execute
 
-### 烧写镜像
+### Flashing Image
 
-同时使用串口和 USB 线连接电脑，打开串口连接开发板。
+Connect the computer to the development board using both serial port and USB cables.
 
-在出现 DDR Training 的加载条后，按动 \[a-zA-Z0-9\] 的任意键打断启动，然后手动进行：
+Once the DDR Training loading bar appears, interrupt the boot by pressing any key \[a-zA-Z0-9\], then proceed manually:
 ```bash
 >> mmc
 >> usbdmsc
 ```
 
-你应当看到电脑上连接了一个新的存储设备。将镜像刷入：
+A new storage device should appear on your computer. Burn the image into it:
 ```bash
 sudo dd if=sdcard.img of=/dev/your/device bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Access the system via serial port.
 
-默认用户名： `root`
-默认密码：无密码
+Default username: `root`
+Default password: None
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot up normally, allowing login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted up successfully and login via the onboard serial port was achieved.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing the image to system login):
 
 
 ```log
@@ -99,12 +99,12 @@ sudo dd if=sdcard.img of=/dev/your/device bs=1M status=progress
 ```
 
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
 CFT

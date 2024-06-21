@@ -1,65 +1,65 @@
-# openEuler Lichee Cluster 4A 版本测试报告
+# openEuler Lichee Cluster 4A Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### System Information
 
-- 系统版本：openEuler 23.09 RISC-V preview
-- 下载链接：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/lpi4a/
-- 参考安装文档：https://revyos.github.io/
+- System Version: openEuler 23.09 RISC-V preview
+- Download Link: [Here](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/lpi4a/)
+- Reference Installation Documentation: [Here](https://revyos.github.io/)
 
-### 硬件信息
+### Hardware Information
 
 - Lichee Cluster 4A 8G / 16G
-- DC 12V 电源
+- DC 12V Power Supply
 - USB-A to A
-    - 或 LPi4A 底板
-- 网络和网线（注意连接到 BMC 而非交换机）
+    - or LPi4A baseboard
+- Network and Ethernet Cable (ensure connection to BMC instead of switch)
 
-## 安装步骤
+## Installation Steps
 
-*以下以刷写到集群中一号板为例*
+*Using the example of flashing to the first board in the cluster*
 
-### 连接对应 SOM
+### Connect the Corresponding SOM
 
-使用 A to A 线缆连接 SOM。
+Use an A to A cable to connect the SOM.
 
-### 使用 `ruyi` CLI 刷写镜像到板载 eMMC
+### Use the `ruyi` CLI to Flash the Image to the Onboard eMMC
 
-安装 [`ruyi`](https://github.com/ruyisdk/ruyi) 包管理器，运行 `ruyi device provision` 并按提示操作。
+Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the prompts.
 
-镜像按照 LPi4A 选择即可。
+Choose the image accordingly for LPi4A.
 
-### 登录系统
+### Logging into the System
 
-通过 SOL (Serial Over LAN) 登录系统。
+Logging into the system via SOL (Serial Over LAN).
 
-BMC 默认用户名：`root`
+BMC default username: `root`
 
-BMC 默认密码：`0penBmc` **注意是 `0` 而不是 `O`**
+BMC default password: `0penBmc` **Note: it's `0` not `O`**
 
-通过 `ssh -p 2301 root@lichee-rv.local` 连接
+Connect using `ssh -p 2301 root@lichee-rv.local`
 
-默认用户名：`openeuler` 或 `root`
-默认密码：`openEuler12#$`
+Default username: `openeuler` or `root`
+Default password: `openEuler12#$`
 
-### 常见问题
+### Common Issues
 
-若无法使用 USB，是因为 Linux 设备树需要 patch。[patch 下载](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
+If USB is not working, it may be due to needing to patch the Linux device tree. [Download the patch here](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
 
-若不想手动编译 dtb，也可以考虑自行从 [预编译镜像](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin) 中提取 dtb（light-lpi4a.dtb）并替换 boot 下对应文件。
+If you prefer not to compile the dtb manually, you can extract the dtb (light-lpi4a.dtb) from the [precompiled image](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin) and replace the corresponding file in the boot directory.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过 SOL (Serial Over LAN) 登录。
+The system boots up successfully and allows login via SOL (Serial Over LAN).
 
-## 实际结果
+## Actual Results
 
-系统正常启动，能够通过 SOL (Serial Over LAN) 登录。
+The system boots up successfully and allows login via SOL (Serial Over LAN).
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写系统到启动）：
+Screen recording (from flashing the system to startup up):
 
 [![asciicast](https://asciinema.org/a/PtLMh7Dm2RX3C4RPoTajplYbj.svg)](https://asciinema.org/a/PtLMh7Dm2RX3C4RPoTajplYbj)
 
@@ -98,12 +98,12 @@ ANSI_COLOR="0;31"
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

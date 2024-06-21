@@ -1,43 +1,44 @@
+# OpenWRT Lichee Cluster 4A 版本测试报告
 
-# OpenWRT Lichee Cluster 4A Test Report
+## 测试环境
 
-## Test Environment
+### 操作系统信息
 
-### System Information
-
-- System Version: OpenWRT
-- Download Link: [https://github.com/chainsx/openwrt-th1520/releases](https://github.com/chainsx/openwrt-th1520/releases)
-- Reference Installation Document: [https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
-- Fastboot Links:
+- 系统版本：OpenWRT
+- 下载链接：[https://github.com/chainsx/openwrt-th1520/releases](https://github.com/chainsx/openwrt-th1520/releases)
+- 参考安装文档：[https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide_zh.md](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide_zh.md)
+- fastboot 链接：
     - [https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)
     - [https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 
-### Hardware Information
 
-- Lichee Cluster 4A 8G/16G
-- DC 12V Power Supply
+### 硬件信息
+
+- Lichee Cluster 4A 8G / 16G
+- DC 12V 电源
 - USB-A to A
-    - or LPi4A Dock
-- One microSD card
-- Network and Ethernet cable (connect to BMC, not the switch)
+    - 或 LPi4A 底板
+- microSD 卡一张
+- 网络和网线（注意连接到 BMC 而非交换机）
 
-## Installation Steps
+## 安装步骤
 
-*The following steps apply to flashing the image to the first board in the cluster*
+*以下以刷写到集群中一号板为例*
 
-### Flashing Image
+### 刷写镜像
 
-Use `gzip` to decompress the image.
-Use `dd` to flash the image to the microSD card.
+使用 `gzip` 解压镜像。
+使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
 gzip -d /path/to/openwrt.img.xz
 sudo dd if=/path/to/openwrt.img of=/dev/your_device bs=1M status=progress
 ```
 
-### Flashing Bootloader
 
-Use the u-boot downloaded above for this step.
+### 刷写 bootloader
+
+此处使用上面下载的 u-boot。
 
 ```bash
 sudo ./fastboot flash ram ./path/to/your/lpi4a-$(ram_size)-u-boot-with-spl.bin
@@ -46,33 +47,33 @@ sleep 10
 sudo ./fastboot flash uboot ./path/to/your/lpi4a-$(ram_size)-u-boot-with-spl.bin
 ```
 
-### Logging into the System
+### 登录系统
 
-Login to the system via SOL (Serial Over LAN).
+通过 SOL (Serial Over LAN) 登录系统。
 
-Default BMC username: `root`
+BMC 默认用户名：`root`
 
-Default BMC password: `0penBmc` **Note that it is `0` not `O`**
+BMC 默认密码：`0penBmc` **注意是 `0` 而不是 `O`**
 
-Connect using `ssh -p 2301 root@lichee-rv.local`
+通过 `ssh -p 2301 root@lichee-rv.local` 连接
 
-Upon initial boot, automatically logged in as root.
+初次启动自动进入 root 用户。
 
-### Common Issues
+### 常见问题
 
-If USB is not working, it may be due to Linux device tree require patching. [Download patch here](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
+若无法使用 USB，是因为 Linux 设备树需要 patch。[patch 下载](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
 
-## Expected Results
+## 预期结果
 
-The system should start up correctly and allow login via SOL (Serial Over LAN).
+系统正常启动，能够通过 SOL (Serial Over LAN) 登录。
 
-## Actual Results
+## 实际结果
 
-The system booted successfully and login via SOL (Serial Over LAN) was possible.
+系统正常启动，能够通过 SOL (Serial Over LAN) 登录。
 
-### Boot Log
+### 启动信息
 
-Screen recording (from flashing the system to startup):
+屏幕录像（从刷写系统到启动）：
 
 [![asciicast](https://asciinema.org/a/z6gochTcLaWlL9m0f1Gj6vyoe.svg)](https://asciinema.org/a/z6gochTcLaWlL9m0f1Gj6vyoe)
 
@@ -137,12 +138,12 @@ root@OpenWrt:/# [   33.853164] soc_dovdd18_scan: disabling
 
 ```
 
-## Test Criteria
+## 测试判定标准
 
-Successful: The actual result matches the expected result.
+测试成功：实际结果与预期结果相符。
 
-Failed: The actual result does not match the expected result.
+测试失败：实际结果与预期结果不符。
 
-## Test Conclusion
+## 测试结论
 
-Test successful.
+测试成功。
