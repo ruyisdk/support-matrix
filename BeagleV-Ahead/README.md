@@ -11,7 +11,7 @@
     - Download link: [Yocto Image Download](https://files.beagle.cc/file/beagleboard-public-2021/images/xuantie-yocto-1.1.2-20230610.zip)
     - Reference Installation Document: [Yocto Installation Guide](https://files.beagle.cc/file/beagleboard-public-2021/images/xuantie-yocto-1.1.2-20230610.zip)
 
-### Board Information
+### Hardware Information
 
 - BeagleV-Ahead
 

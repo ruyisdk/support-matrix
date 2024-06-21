@@ -29,7 +29,7 @@
     - Download link: [here](https://github.com/chainsx/openwrt-th1520/releases)
     - Reference Installation Document: [here](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
 
-### Board Information
+### Hardware Information
 
 - Lichee Cluster 4A + 7 * LM4A 8GB RAM
 

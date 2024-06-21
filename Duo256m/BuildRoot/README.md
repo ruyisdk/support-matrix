@@ -1,55 +1,54 @@
-# BuildRoot Milk-V Duo 256M 测试报告
+# BuildRoot Milk-V Duo 256M Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：Duo 256M
-- 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk/releases
-- 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk
+- System Version: Duo 256M
+- Download Link: [https://github.com/milkv-duo/duo-buildroot-sdk/releases](https://github.com/milkv-duo/duo-buildroot-sdk/releases)
+- Reference Installation Document: [https://github.com/milkv-duo/duo-buildroot-sdk](https://github.com/milkv-duo/duo-buildroot-sdk)
 
-### 硬件信息
+### Hardware Information
 
 - Milk-V Duo 256M
-- USB-A to C 或 USB C to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等
+- One USB-A to C or USB C to C cable
+- One microSD card
+- One USB to UART debugger (e.g., CH340, CH341, FT2232, etc.)
 
-## 安装步骤
+## Installation Steps
 
-### 下载 Duo 256m 的镜像
+### Download Duo 256M Image
 
 ```bash
 wget https://github.com/milkv-duo/duo-buildroot-sdk/releases/download/Duo-V1.1.0/milkv-duo256m-v1.1.0-2024-0410.img.zip
 unzip milkv-duo256m-v1.1.0-2024-0410.img
 ```
 
-### 刷写镜像
+### Flashing the Image
 
-用 dd 刷写镜像到 sd 卡：
+Use `dd` to flash the image to the SD card:
 ```bash
 sudo dd if=milkv-duo256m-v1.1.0-2024-0410.img of=/dev/your/device bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口或 ssh 登录系统。
+Logging into the system via serial port or SSH.
 
-默认用户名：`root`
-默认密码： `milkv`
+Default username: `root`
+Default password: `milkv`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login through the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully, and login through the onboard serial port was also successful.
 
-### 启动信息
+### Boot Log
 
-
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (From flashing image to system login):
 [![asciicast](https://asciinema.org/a/ptdjXiBZX2FuisTBuEZis7JoK.svg)](https://asciinema.org/a/ptdjXiBZX2FuisTBuEZis7JoK)
 
 ```log
@@ -71,12 +70,12 @@ Linux milkv-duo 5.10.4-tag- #1 PREEMPT Wed Apr 10 21:37:02 CST 2024 riscv64 GNU/
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-成功
+Test successful.

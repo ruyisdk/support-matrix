@@ -20,7 +20,7 @@
     - Download link: [Armbian Images](https://github.com/chainsx/armbian-riscv-build/tree/main)
     - Reference Installation Document: [Armbian Installation Guide](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
 
-### Board Information
+### Hardware Information
 
 - Lichee Pi 4A 16GB RAM + 128GB eMMC
 - Lichee Pi 4A 8GB RAM + 64GB eMMC

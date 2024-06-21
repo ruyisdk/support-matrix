@@ -1,40 +1,40 @@
-# openEuler 23.03 riscv64 Milk-V Duo 测试报告
+# openEuler 23.03 riscv64 Milk-V Duo Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：openEuler 23.03 riscv64
-- 下载链接：
+- System Version: openEuler 23.03 riscv64
+- Download Links:
     - buildroot: https://github.com/milkv-duo/duo-buildroot-sdk.git
     - rootfs: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/openeuler-rootfs.tar.gz
-- 参考安装文档：https://blog.inuyasha.love/linuxeveryday/33.html
+- Reference Installation Document: https://blog.inuyasha.love/linuxeveryday/33.html
 
-> Note: 此镜像以 rootfs 方式提供
+> Note: This image is provided as a rootfs.
 
-### 硬件信息
+### Hardware Information
 
 - Milk-V Duo 64M
-- USB 电源适配器一个
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
-- Milk-V Duo 本体上预先焊接好调试所需的排针
-- 可选：Milk-V Duo IOB（底板）
+- One USB power adapter
+- One microSD card
+- One USB to UART debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three Dupont wires
+- The necessary headers for debugging pre-soldered on the Milk-V Duo
+- Optional: Milk-V Duo IOB (baseboard)
 
-## 安装步骤
+## Installation Steps
 
-### 构建镜像
+### Building the Image
 
-#### 编译 buildroot
+#### Build the buildroot
 
-clone buildroot 以构建镜像
+Clone buildroot to build the image:
 ```bash
 git clone https://github.com/milkv-duo/duo-buildroot-sdk.git
 cd duo-buildroot-sdk/
 ```
 
-修改 kernel 配置
+Modify the kernel configuration:
 ```bash
 cat <<EOF >> build/boards/cv180x/cv1800b_milkv_duo_sd/linux/cvitek_cv1800b_milkv_duo_sd_defconfig
 # for openEuler
@@ -59,40 +59,37 @@ CONFIG_FANOTIFY
 EOF
 ```
 
-修改 memmap.py 第 43 行为 0
-
+Change line 43 of memmap.py to 0:
 ```bash
 vim build/boards/cv180x/cv1800b_milkv_duo_sd/memmap.py
 
 ION_SIZE = 0
 ```
 
-在 Docker 进行编译（推荐）
+Compile in Docker (recommended):
 ```bash
 docker run -itd --name duodocker -v $(pwd):/home/work milkvtech/milkv-duo:latest /bin/bash
 docker exec -it duodocker /bin/bash -c "cd /home/work && cat /etc/issue && ./build.sh milkv-duo"
 ```
 
-#### 添加 rootfs
+#### Insert rootfs
 
-拷贝编译好的镜像：
-
+Copy the compiled image:
 ```bash
 cd ..
 cp duo-buildroot-sdk/out/milkv-duo-20240326-1620.img .
 ```
 
-写入到 sd 卡中
-
+Write to the SD card:
 ```bash
 sudo dd if=milkv-duo-20240326-1620.img of=/dev/your-device bs=1M status=progress
 ```
 
-开始准备替换 rootfs。由于原镜像 rootfs 空间不够，需要重新分区。由于我们不用到原有的 rootfs，直接删除原分区即可：
+Prepare to replace the rootfs. Since the space for the original image's rootfs is insufficient, re-partitioning is needed. As we won't use the original rootfs, simply delete the original partition:
 ```bash
 sudo fdisk /dev/your-device
 
-# 以下在 fdisk 中
+# In fdisk
 d
 3
 d
@@ -100,17 +97,16 @@ d
 n
 p
 2
-# 最开始的扇区
-# 最后的一个扇区，否则默认会只有 700M 左右
+
 w
 
-# 以下应回到bash
+# In bash
 sudo mkfs.ext4 /dev/your-device-p2
 ```
 
-注：接下来新 rootfs 会被挂在到 mnt，原 rootfs 会被挂载到 mnt2
+Note: The new rootfs will be mounted to mnt, while the original rootfs will be mounted to mnt2.
 
-接下来将 rootfs 解压到我们新创建的分区中：
+Next, decompress the rootfs to the newly created partition:
 ```bash
 mkdir mnt
 mkdir mnt2
@@ -118,7 +114,7 @@ sudo mount /dev/your-device-p2 mnt
 sudo tar -zxvf /path/to/openeuler-rootfs.tar.gz -C mnt
 ```
 
-接下来挂载原镜像并拷贝一些必要的文件（以下的回环设备请根据实际情况更改）：
+Mount the original image and copy some necessary files (adjust loop device as needed):
 ```bash
 sudo losetup -f -P milkv-duo-20240326-1620.img
 sudo mount /dev/loop0p2 mnt2
@@ -128,18 +124,17 @@ sudo cp mnt2/etc/uhubon.sh mnt/etc/
 sudo cp mnt2/etc/init.d/S99user mnt/etc/init.d/
 ```
 
-接下来准备进入镜像，先创建 DNS 解析：
+Prepare to enter the image, first create DNS resolution:
 ```bash
 echo "nameserver 8.8.8.8" | sudo tee mnt/etc/resolv.conf
 ```
 
-然后进入镜像：
+Then enter the image:
 ```bash
 chroot mnt
-# 更好的也可以使用 arch-chroot mnt
 ```
 
-安装一些必要的包（如 dhcp 等）：
+Install some necessary packages (e.g., dhcp):
 ```bash
 dnf install dhcp
 cat <<EOF >> /etc/dhcp/dhcpd.conf
@@ -150,33 +145,33 @@ subnet 192.168.42.0 netmask 255.255.255.0 {
 EOF
 ```
 
-umount
+Unmount:
 ```bash
 exit
 sudo umount mnt
 sudo umount mnt2
 ```
 
-### 登录系统
+### Logging into the System
 
-注意 RNDIS 不一定可用，建议备上串口。
+Note that RNDIS may not be available, so it's recommended to have a UART connection.
 
-通过串口登录系统。
+Log into the system via the serial port.
 
-用户名：`root`
-密码：`openEuler12#$`
+Username: `root`
+Password: `openEuler12#$`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口登录。
+The system should boot normally and allow login via the serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过串口登录。
+The system booted successfully and login via the serial port was also successful.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（跳过编译，从创建镜像到登录系统）：
+Screen recording (skipping compilation, from image creation to system login):
 
 [![asciicast](https://asciinema.org/a/eoIznNZpjPZSb9mI2NE4wwdzQ.svg)](https://asciinema.org/a/eoIznNZpjPZSb9mI2NE4wwdzQ)
 
@@ -240,14 +235,13 @@ ANSI_COLOR="0;31"
 [root@openeuler-riscv64 ~]# 
 ```
 
+## Test Criteria
 
+Successful: The actual result matches the expected result.
 
-## 测试判定标准
+Failed: The actual result does not match the expected result.
 
-测试成功：实际结果与预期结果相符。
+## Test Conclusion
 
-测试失败：实际结果与预期结果不符。
+Test successful.
 
-## 测试结论
-
-测试成功。

@@ -1,31 +1,31 @@
 # CH32V103C
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### System Information
 
 - FreeRTOS
-    - 源码链接：https://www.wch.cn/downloads/CH32V103EVT_ZIP.html
-    - 参考文档：官方文档位于压缩包内
-        - PlatformIO 提供文档：https://github.com/Community-PIO-CH32V/platform-ch32v
+    - Source code link: [https://www.wch.cn/downloads/CH32V103EVT_ZIP.html](https://www.wch.cn/downloads/CH32V103EVT_ZIP.html)
+    - Reference Installation Document: Official documentation is located inside the compressed package
+        - PlatformIO documentation: [https://github.com/Community-PIO-CH32V/platform-ch32v](https://github.com/Community-PIO-CH32V/platform-ch32v)
 - RT-Thread / FreeRTOS (PlatformIO)
-    - 源码链接：https://github.com/Community-PIO-CH32V/ch32-pio-projects
-    - 参考文档：
-        - PlatformIO Core：https://docs.platformio.org/en/latest/core/installation/index.html
-        - PlatformIO ch32v：https://pio-ch32v.readthedocs.io/en/latest/installation.html
+    - Source code link: [https://github.com/Community-PIO-CH32V/ch32-pio-projects](https://github.com/Community-PIO-CH32V/ch32-pio-projects)
+    - Reference Installation Document:
+        - PlatformIO Core: [https://docs.platformio.org/en/latest/core/installation/index.html](https://docs.platformio.org/en/latest/core/installation/index.html)
+        - PlatformIO CH32V: [https://pio-ch32v.readthedocs.io/en/latest/installation.html](https://pio-ch32v.readthedocs.io/en/latest/installation.html)
 
 
-### 硬件开发板信息
+### Hardware Information
 
 - CH32V103C-EVT-R1-1v1
 
-## 测试结果
+## Test Results
 
-| 软件分类      | 软件包名      | 测试结果（测试报告）|
-|--------------|-------------|------------------|
-| FreeRTOS     | N/A         | [成功][FreeRTOS]  |
-| FreeRTOS     | PlatformIO  | [成功][FreeRTOS_pio]  |
-| RT-Thread    | N/A         | [成功][RTThread]  |
+| Software Category | Package Name | Test Result (Test Report) |
+| ----------------- | ------------ | ------------------------- |
+| FreeRTOS          | N/A          | [Success][FreeRTOS]       |
+| FreeRTOS          | PlatformIO   | [Success][FreeRTOS_pio]   |
+| RT-Thread         | N/A          | [Success][RTThread]       |
 
 [FreeRTOS]: ./FreeRTOS/README.md
 [RTThread]: ./RT-Thread/README.md

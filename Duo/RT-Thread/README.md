@@ -1,39 +1,39 @@
-# RT-Thread Milk-V Duo 测试报告
+# RT-Thread Milk-V Duo Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 构建系统版本：Ubuntu 20.04 LTS x86_64
-- 系统版本：RT-Thread 5.1.0, commit [3ff4fe5](https://github.com/RT-Thread/rt-thread/commit/3ff4fe5395516eb734b2cead9cc50f35e54f6511)
-- 源码链接：https://github.com/RT-Thread/rt-thread
-- 参考安装文档：https://github.com/RT-Thread/rt-thread/tree/master/bsp/cvitek/cv1800b
+- Build System Version: Ubuntu 20.04 LTS x86_64
+- System Version: RT-Thread 5.1.0, commit [3ff4fe5](https://github.com/RT-Thread/rt-thread/commit/3ff4fe5395516eb734b2cead9cc50f35e54f6511)
+- Source Code Link: https://github.com/RT-Thread/rt-thread
+- Reference Installation Document: https://github.com/RT-Thread/rt-thread/tree/master/bsp/cvitek/cv1800b
 
-### 硬件信息
+### Hardware Information
 
 - Milk-V Duo 64M
-- USB 电源适配器一个
-- USB-A to C 或 USB C to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
-- Milk-V Duo 本体上预先焊接好调试所需的排针
+- One USB Power Adapter
+- One USB-A to C or USB C to C Cable
+- One microSD Card
+- One USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three Dupont Lines
+- Headers pre-soldered on the Milk-V Duo for debugging purposes
 
-## 构建步骤
+## Installation Steps
 
-### 准备系统环境
+### Preparing the System Environment
 
-注意，请使用 Ubuntu 20.04，已知在更新版本的系统上可能出现构建失败。
+Note: Please use Ubuntu 20.04. It is known that later versions might result in build failures.
 
-可以使用 Docker 等容器环境进行构建。
+You can use Docker or other container environments for the build.
 
-安装依赖包：
+Install the required packages:
 
 ```shell
 sudo apt update && sudo apt install -y git gcc build-essential scons libncurses5-dev python3 python3-requests curl
 ```
 
-获取工具链：
+Get the toolchain:
 
 ```shell
 curl -LO https://github.com/RT-Thread/toolchains-ci/releases/download/v1.7/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu_latest.tar.bz2
@@ -41,12 +41,11 @@ tar xvf riscv64-linux-musleabi_for_x86_64-pc-linux-gnu_latest.tar.bz2
 export RTT_EXEC_PATH=~/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin
 ```
 
-### 拉取源码并编译固件
+### Getting the Source Code and Compiling the Firmware
 
 ```shell
 git clone --depth=1 https://github.com/RT-Thread/rt-thread
 cd rt-thread/bsp/cvitek/cv1800b
-# 生成配置文件
 scons --menuconfig
 source ~/.env/env.sh
 scons -j$(nproc) --verbose
@@ -54,27 +53,27 @@ cd ../
 bash combine-fip.sh
 ```
 
-执行结束后，会在 `cvitek` 目录下生成 boot.sd 和 fip.bin 两个文件。
+After execution, two files, boot.sd and fip.bin, will be generated in the `cvitek` directory.
 
-### 准备 microSD 卡
+### Preparing the microSD Card
 
-清空 microSD 卡（可使用 `wipefs -af /path/to/your-card`），并创建一个 FAT32 分区。
+Wipe the microSD card (use `wipefs -af /path/to/your-card`) and create a FAT32 partition.
 
-将构建出的 boot.sd 和 fip.bin 复制进 microSD 卡。至此，存储卡已经可用来在 Duo 上启动 RT-Thread。
+Copy the compiled boot.sd and fip.bin onto the microSD card. At this point, the card is ready to boot RT-Thread on the Duo.
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口登录。
+The system should boot normally and allow login through the serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过串口登录。
+The system booted successfully, and login through the serial port was successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 Boot from SD ...                                                                                                                    
@@ -106,16 +105,16 @@ Hello RT-Smart!
 msh />  
 ```
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing the image to logging into the system):
 
 [![asciicast](https://asciinema.org/a/gbDJeUr3mdHNxd3mXev7UpBGl.svg)](https://asciinema.org/a/gbDJeUr3mdHNxd3mXev7UpBGl)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

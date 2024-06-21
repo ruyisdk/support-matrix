@@ -1,25 +1,26 @@
-# CH582F
-## 测试环境
 
-### 操作系统信息
+# CH582F
+## Test Environment
+
+### Operating System Information
 
 - RT-Thread / FreeRTOS
-    - 源码链接：https://github.com/Community-PIO-CH32V/ch32-pio-projects
-    - 参考文档：
-        - PlatformIO Core：https://docs.platformio.org/en/latest/core/installation/index.html
-        - PlatformIO ch32v：https://pio-ch32v.readthedocs.io/en/latest/installation.html
+    - Source code link: https://github.com/Community-PIO-CH32V/ch32-pio-projects
+    - Reference Installation Document:
+        - PlatformIO Core: https://docs.platformio.org/en/latest/core/installation/index.html
+        - PlatformIO CH32V: https://pio-ch32v.readthedocs.io/en/latest/installation.html
 
-
-### 硬件开发板信息
+### Hardware Information
 
 - CH582F-EVT-R2-1v0-BC
 
-## 测试结果
+## Test Results
 
-| 软件分类      | 软件包名      | 测试结果（测试报告） |
+| Software Category | Package Name | Test Results (Test Report) |
 |--------------|-------------|------------------|
-| FreeRTOS     | N/A         | [成功][FreeRTOS]   |
-| RT-Thread    | N/A         | [成功][RTThread]  |
+| FreeRTOS     | N/A         | [Success][FreeRTOS]   |
+| RT-Thread    | N/A         | [Success][RTThread]  |
 
 [FreeRTOS]: ./FreeRTOS/README.md
 [RTThread]: ./RT-Thread/README.md
+
