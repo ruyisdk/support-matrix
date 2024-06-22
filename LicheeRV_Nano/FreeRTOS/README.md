@@ -1,43 +1,43 @@
-# FreeRTOS LicheeRV Nano 测试报告
+# FreeRTOS LicheeRV Nano Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：20240401
-- 下载链接：https://github.com/sipeed/LicheeRV-Nano-Build/releases
-- 参考安装文档：https://github.com/sipeed/LicheeRV-Nano-Build/releases
+- System Version: 20240401
+- Download Link: https://github.com/sipeed/LicheeRV-Nano-Build/releases
+- Reference Installation Document: https://github.com/sipeed/LicheeRV-Nano-Build/releases
 
-### 硬件信息
+### Hardware Information
 
 - LicheeRV Nano
-- type-c 电源线一根
-- UART 转 USB 调试器一个
+- One type-C power cable
+- One UART to USB debugger
 
-## 安装步骤
+## Installation Steps
 
-LicheeRV Nano 的 FreeRTOS 被集成在了 Linux SDK 中，使用 mailbox 与 Linux 系统进行交互。
+FreeRTOS on the LicheeRV Nano is integrated within the Linux SDK and interacts with the Linux system using a mailbox.
 
-### 查看 FreeRTOS 设备
+### Viewing FreeRTOS Device
 
-FreeRTOS 与 Linux 之间的交互通过 mailbox 实现，可以在 `/dev` 中找到 `cvi-rtos-cmdqu`。
+FreeRTOS communicates with Linux through a mailbox, which can be found in `/dev` as `cvi-rtos-cmdqu`.
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-默认用户名：root
-默认密码：root
+Default Username: `root`
+Default Password: `root`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够看到 rtos 设备。
+The system should boot normally, and the RTOS device should be visible.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，能够看到 rtos 设备。
+The system booted normally, and the RTOS device was visible.
 
-### 启动信息
+### Boot Log
 
 ```log
 
@@ -51,16 +51,16 @@ cvi-rtos-cmdqu
 
 ```
 
-屏幕录像：
+Screen Recording:
 
 [![asciicast](https://asciinema.org/a/zG1HsQyGWkGTVHFI74Nwhxcv8.svg)](https://asciinema.org/a/zG1HsQyGWkGTVHFI74Nwhxcv8)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功
+Test successful.

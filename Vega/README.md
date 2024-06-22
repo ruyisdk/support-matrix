@@ -1,21 +1,21 @@
-# Milk-V Vega
+# Milk-V Vega Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
 - BuildRoot
     - GitHub: https://github.com/milkv-vega/vega-buildroot-sdk
-    - 参考文档：https://milkv.io/zh/docs/vega/getting-started/buildroot-sdk
+    - Reference Installation Document: https://milkv.io/zh/docs/vega/getting-started/buildroot-sdk
 
-### 硬件信息
+### Hardware Information
 
 - Milk-V Vega
 
-## 测试结果
+## Test Results
 
-| 软件分类           | 软件包名 | 测试结果（测试报告） |
-|----------------|----------|------------------|
-| BuildRoot 构建刷写 | N/A      | [失败][BuildRoot]               |
+| Software Category        | Package Name | Test Result (Test Report) |
+| ------------------------ | ------------ | ------------------------- |
+| BuildRoot Build and Boot | N/A          | [Failed][BuildRoot]       |
 
 [BuildRoot]: ./BuildRoot/README.md

@@ -18,7 +18,7 @@
 ### Flashing Image
 
 Use `unxz` to extract the image.
-Use `dd` to write the image to the microSD card.
+Use `dd` to flash the image to the microSD card.
 
 ```bash
 unxz /path/to/openKylin.img.xz

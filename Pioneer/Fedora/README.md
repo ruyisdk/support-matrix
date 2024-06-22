@@ -17,7 +17,7 @@
 ### Flashing Image
 
 Use `unxz` to decompress the image.
-Use `dd` to write the image to the microSD card.
+Use `dd` to flash the image to the microSD card.
 
 ```bash
 unxz /path/to/fedora.raw.xz

@@ -1,31 +1,31 @@
 # BuildRoot on Milk-V Mars
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
 - BuildRoot
-  - 源码链接：https://github.com/milkv-mars/mars-buildroot-sdk
-  - 参考安装文档：https://github.com/milkv-mars/mars-buildroot-sdk
-- 构建系统环境：Ubuntu 22.04.4 LTS in Docker
+  - Source Link: https://github.com/milkv-mars/mars-buildroot-sdk
+  - Reference Installation Document: https://github.com/milkv-mars/mars-buildroot-sdk
+- Build System Environment: Ubuntu 22.04.4 LTS in Docker
 
-### 硬件信息
+### Hardware Information
 
 - Milk-V Mars
-- USB to UART 调试器一个
-- 杜邦线三根
-- USB A to C 或 C to C 线缆一根
-- USB 电源一个
-- 有线网络连接
+- One USB to UART Debugger
+- Three Dupont Wires
+- One USB A to C or C to C Cable
+- One USB Power Supply
+- Wired Network Connection
 
-## 安装步骤
+## Installation Steps
 
-### 构建镜像
+### Building the Image
 
-注：由于自带的 buildroot 较老，若构建过程中出现 SHA 错误或 404，可以尝试手动更新 SHA256SUM 或下载链接。你可以在 [buildroot](https://github.com/buildroot/buildroot) 找到最新的 buildroot 并替换 buildroot/package 下的相应部分。
-（您也可以尝试直接替换为最新的 buildroot）
+Note: Since the provided BuildRoot is quite old, if you encounter SHA errors or 404 issues during the build process, try manually updating the SHA256SUM or the download link. You can find the latest BuildRoot at [buildroot](https://github.com/buildroot/buildroot) and replace the corresponding part under buildroot/package.
+(You could also try directly replacing it with the latest BuildRoot.)
 
-安装构建依赖：
+Install build dependencies:
 
 ```shell
 sudo apt update
@@ -36,13 +36,13 @@ libyaml-dev patchutils python3-pip zlib1g-dev device-tree-compiler dosfstools \
 mtools kpartx rsync libcap-dev
 ```
 
-拉取源码：
+Pull the source code:
 
 ```shell
 git clone https://github.com/milkv-mars/mars-buildroot-sdk.git --depth=1
 ```
 
-检出到设备对应分支：
+Checkout the branch corresponding to your device:
 
 - Mars
   ```
@@ -59,15 +59,15 @@ git clone https://github.com/milkv-mars/mars-buildroot-sdk.git --depth=1
   git checkout dev-mars-cm-sdcard
   ```
 
-开始编译：
+Start building:
 
 ```shell
 make -j$(nproc)
 ```
 
-**该过程很长很长，请耐心等待**
+**This process is very long, please be patient.**
 
-编译完成后会在 work 目录下生成如下镜像：
+After compiling, the following images will be generated in the work directory:
 
 ```
 work/
@@ -91,33 +91,31 @@ work/
     └── vmlinuz-5.15.0
 ```
 
-**该过程很长很长**
+### Building the SD Card Image
 
-### 构建 SD 卡镜像
-
-继续构建 SD 卡镜像：
+Continue to build the SD card image:
 ```bash
 make buildroot_rootfs -j$(nproc)
 make img
 ```
 
-注：若遇到如 libfakeroot 等构建问题，替换相关 package 为 buildroot 中较新的即可（包括 patch）。
+Note: If you encounter issues like libfakeroot during the build, replace the related package with a newer one from BuildRoot (including patches).
 
-### 烧写 SD 卡
+### Flashing the SD Card
 
-将刚才构建的镜像烧到 SD 卡中：
+Flash the image you just built to the SD card:
 ```bash
 sudo dd if=work/sdcard.img of=/dev/sdX bs=4096
 sync
 ```
 
-### 登录系统
+### Logging into the System
 
-若直接采用网络启动，将文件放入 TFTP 后：
+If using network boot, after placing the files into TFTP, then:
 
-连接串口和有线网络，给 Mars 上电。
+Connect the serial port and network, then power up the Mars.
 
-在 U-Boot 提示 `Hit any key to stop autoboot` 时按任意键打断启动流程，在计算机上运行 TFTP server。
+When U-Boot prompts `Hit any key to stop autoboot`, press any key to interrupt the boot process and run the TFTP server on your computer.
 
 ```
 dhcp; setenv serverip xxx.xxx.xxx.xxx;
@@ -128,21 +126,21 @@ run chipa_set_linux;run cpu_vol_set;
 booti ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
 ```
 
-用户名：`root`
+Username: `root`
 
-密码：`starfive`
+Password: `starfive`
 
-## 预期结果
+## Expected Results
 
-镜像构建成功，系统正常启动，能够通过板载串口登录。
+The image is successfully built, the system boots normally, and login via the onboard serial port is possible.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，能够通过板载串口登录。
+The system boots successfully, and login via the onboard serial port is successful.
 
-### 启动信息
+### Boot Information
 
-屏幕录像：
+Screen Recording:
 [![asciicast](https://asciinema.org/a/uweoEDTIkJplZk2LZwK3KVwhn.svg)](https://asciinema.org/a/uweoEDTIkJplZk2LZwK3KVwhn)
 
 ```log
@@ -163,12 +161,12 @@ Linux buildroot 5.15.0 #1 SMP Tue May 28 17:36:13 CST 2024 riscv64 GNU/Linux
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-成功
+Test successful.

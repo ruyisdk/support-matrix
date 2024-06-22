@@ -1,67 +1,66 @@
-# FreeRTOS Sipeed M0s Dock 测试报告
+# FreeRTOS Sipeed M0s Dock Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 下载链接：https://github.com/sipeed/M0S_BL616_example
-    - 工具链：https://gitee.com/bouffalolab/toolchain_gcc_t-head_linux
-- 参考安装文档：https://github.com/sipeed/M0S_BL616_example
+- Download Link: https://github.com/sipeed/M0S_BL616_example
+    - Toolchain: https://gitee.com/bouffalolab/toolchain_gcc_t-head_linux
+- Reference Installation Document: https://github.com/sipeed/M0S_BL616_example
     - https://bl-mcu-sdk.readthedocs.io/zh-cn/latest/get_started/get_started.html
 
-### 硬件信息
+### Hardware Information
 
 - Sipeed M0s Dock
-- type-c 线一根
+- Type-C cable
 
-## 安装步骤
+## Installation Steps
 
-### 获取 SDK 和工具链
+### Clone SDK and Toolchain
 
-clone 相关仓库到工作目录：
+Clone the relevant repositories to the working directory:
 ```bash
 git clone https://github.com/sipeed/M0S_BL616_example.git
 git clone https://gitee.com/bouffalolab/toolchain_gcc_t-head_linux.git
 ```
 
-配置环境：
+Set up the environment:
 ```bash
 export PATH=path/to/toolchain_gcc_t-head_linux/bin:$PATH
 ```
 
-### 编译
+### Compile the Code
 
-编译 FreeRTOS 例程：
+Compile the FreeRTOS examples:
 ```bash
 cd M0S_BL616_example/examples/freertos
 make CHIP=bl616 BOARD=bl616dk
 ```
 
-### 刷写程序
+### Flash the Program
 
+Connect your computer and the device using the Type-C cable.
 
-使用 type-c 线连接电脑和 C 口
+First, press and hold the boot button, then connect the Type-C cable to power up the device.
 
-先按住 boot，再连接 C 口上电。
-
-而后：
+After that:
 ```bash
 make flash CHIP=bl616 COMX=/dev/ttyACM0 # Change com on your machine
 ```
 
-### 连接串口
+### Connect to Serial Port
 
-需要连接的串口位于 C 口旁，波特率为 2000000。
+The serial port to be connected is located next to the Type-C port, with a baud rate of 2000000.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够看到串口输出。
+The system should boot normally, with startup log via the serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，能够看到串口输出。
+The system booted successfully, with startup log via the serial port.
 
-### 启动信息
+### Boot Information
 
 ```log
   ____               __  __      _       _       _     
@@ -116,16 +115,16 @@ cgen1:9f7ffffd
 
 ```
 
-屏幕录像：
+Screen recording:
 
 [![asciicast](https://asciinema.org/a/zH5ndg9eZTbjEHEkWFfAxVNQk.svg)](https://asciinema.org/a/zH5ndg9eZTbjEHEkWFfAxVNQk)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

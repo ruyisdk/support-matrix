@@ -1,30 +1,30 @@
-# Sipeed M1s
+# Sipeed M1s Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
 - FreeRTOS
-  - 下载链接：
-    - SDK：https://gitee.com/Sipeed/M1s_BL808_SDK
-    - examples：https://gitee.com/Sipeed/M1s_BL808_example
-  - 参考安装文档：https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html
+  - Download Link:
+    - SDK: https://gitee.com/Sipeed/M1s_BL808_SDK
+    - Examples: https://gitee.com/Sipeed/M1s_BL808_example
+  - Reference Installation Document: https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html
 - BuildRoot
-  - 下载链接：https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/m1sdock_linux_20221116.zip
-    - SDK：https://github.com/sipeed/M1s_BL808_Linux_SDK
-    - 烧录工具：https://dev.bouffalolab.com/download
-  - 参考安装文档：https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html
+  - Download Link: https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/m1sdock_linux_20221116.zip
+    - SDK: https://github.com/sipeed/M1s_BL808_Linux_SDK
+    - Flashing Tool: https://dev.bouffalolab.com/download
+  - Reference Installation Document: https://wiki.sipeed.com/hardware/zh/maix/m1s/other/start.html
 
-### 硬件开发板信息
+### Hardware Information
 
 - Sipeed M1s Dock
 
-## 测试结果
+## Test Results
 
-| 软件分类           | 软件包名    | 测试结果（测试报告） |
-|------------------|-------------|------------------|
-| BuildRoot 镜像启动 | N/A        | [成功][BuildRoot] |
-| FreeRTOS 启动     | hello_world | [成功][BuildRoot]|
+| Software Category         | Package Name | Test Result (Test Report) |
+|---------------------------|--------------|---------------------------|
+| BuildRoot Image Boot      | N/A          | [Successful][BuildRoot]   |
+| FreeRTOS Boot             | hello_world  | [Successful][FreeRTOS]    |
 
 [BuildRoot]: ./BuildRoot/README.md
 [FreeRTOS]: ./FreeRTOS/README.md

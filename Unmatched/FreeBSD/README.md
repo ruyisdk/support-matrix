@@ -1,73 +1,73 @@
-# FreeBSD 14.0 HiFive Unmatched 版本测试报告
+# FreeBSD 14.0 HiFive Unmatched Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：FreeBSD 14.0
-- 下载链接（USTC Mirror）：https://mirrors.ustc.edu.cn/freebsd/releases/riscv/riscv64/ISO-IMAGES/14.0/FreeBSD-14.0-RELEASE-riscv-riscv64-mini-memstick.img.xz
-- 参考安装文档：https://wiki.freebsd.org/riscv/HiFiveUnmatched
+- System Version: FreeBSD 14.0
+- Download Link (USTC Mirror): https://mirrors.ustc.edu.cn/freebsd/releases/riscv/riscv64/ISO-IMAGES/14.0/FreeBSD-14.0-RELEASE-riscv-riscv64-mini-memstick.img.xz
+- Reference Installation Document: https://wiki.freebsd.org/riscv/HiFiveUnmatched
 
-### 硬件信息
+### Hardware Information
 
 - HiFive Unmatched Rev A
-- microUSB 线缆一条（随 HiFive Unmatched 附赠）
-- ATX 电源一个
-- microSD 卡一张（Sandisk Extreme Pro 64G UHS-I），提前刷入 Freedom U SDK
-- U 盘一个（Lexar S25 32G）
+- One microUSB Cable (Included with HiFive Unmatched)
+- One ATX Power Supply
+- One microSD Card (Sandisk Extreme Pro 64G UHS-I), pre-flashed with Freedom U SDK
+- One USB Drive (Lexar S25 32G)
 
-## 安装步骤
+## Installation Steps
 
-### 引导设备选择
+### Boot Device Selection
 
-确保拨码开关已调整为从 microSD 卡引导。若您未更改，出厂默认即为从 microSD 卡引导。
+Ensure the dip switch is set to boot from the microSD card. If you haven't changed it, the factory default is to boot from the microSD card.
 
-拨码开关应如下设置：`MSEL[3:0]=1011`
+The dip switch should be set as follows: `MSEL[3:0]=1011`
 
-### 刷写 Freedom U SDK
+### Flashing Freedom U SDK
 
-从 [此处](https://github.com/sifive/freedom-u-sdk/releases/latest) 获取 demo-coreip-cli-unmatched.rootfs.wic.xz 镜像。
+Download the demo-coreip-cli-unmatched.rootfs.wic.xz image from [here](https://github.com/sifive/freedom-u-sdk/releases/latest).
 
-解压并将镜像写入 microSD 卡。其中 `/dev/sdc` 为 microSD 卡所在位置。
+Uncompress and flash the image to the microSD card. Here, `/dev/sdc` is the location of the microSD card.
 
 ```bash
 xz -dk demo-coreip-cli-unmatched.rootfs.wic.xz
 sudo dd if=demo-coreip-cli-unmatched.rootfs.wic of=/dev/sdc status=progress
 ```
 
-### 刷写安装镜像到 U 盘
+### Flashing the Installation Image to the USB Drive
 
-解压镜像，并使用 `dd` 命令写入镜像到 microSD 卡。
+Uncompress the image and use the `dd` command to flash the image to the microSD card.
 
 ```bash
 xz -dk FreeBSD-14.0-RELEASE-riscv-riscv64-mini-memstick.img.xz
 sudo dd if=FreeBSD-14.0-RELEASE-riscv-riscv64-mini-memstick.img of=/dev/sdc status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过板载串口（使用 microUSB 线缆连接至其他计算机）登录系统。
+Logging into the system via the onboard serial port (using the microUSB cable to connect to another computer).
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted normally and login via the onboard serial port was successful.
 
-### 启动信息
+### Boot Log
 
 ![alt text](image.png)
 
 ![alt text](image-1.png)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

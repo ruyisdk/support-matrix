@@ -1,53 +1,53 @@
-# Debian bookworm/sid HiFive Unmatched 测试报告
+# Debian bookworm/sid HiFive Unmatched Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：Debian bookworm/sid
-- 下载链接：https://people.debian.org/~deiv/riscv/debian-sid-risc-v-sifive-unmatched.tar.xz
-- 参考安装文档：https://wiki.debian.org/InstallingDebianOn/SiFive/%20HiFiveUnmatched
+- System Version: Debian bookworm/sid
+- Download Link: https://people.debian.org/~deiv/riscv/debian-sid-risc-v-sifive-unmatched.tar.xz
+- Reference Installation Document: https://wiki.debian.org/InstallingDebianOn/SiFive/%20HiFiveUnmatched
 
-### 硬件信息
+### Hardware Information
 
 - HiFive Unmatched Rev A
-- microUSB 线缆一条（随 HiFive Unmatched 附赠）
-- ATX 电源一个
-- microSD 卡一张（Sandisk Extreme Pro 64G UHS-I）
+- One microUSB cable (included with HiFive Unmatched)
+- One ATX power supply
+- One microSD card (Sandisk Extreme Pro 64G UHS-I)
 
-## 安装步骤
+## Installation Steps
 
-### 引导设备选择
+### Boot Device Selection
 
-确保拨码开关已调整为从 microSD 卡引导。若您未更改，出厂默认即为从 microSD 卡引导。
+Ensure the DIP switch is set to boot from the microSD card. By default, the factory setting is already configured to boot from the microSD card.
 
-拨码开关应如下设置：`MSEL[3:0]=1011`
+The DIP switch should be set as follows: `MSEL[3:0]=1011`
 
-### 解压并烧录镜像到 microSD 卡
+### Decompress and Flash the Image to the microSD Card
 
-`/dev/sdc` 为 microSD 卡所在位置，请根据实际情况更改。
+`/dev/sdc` is the location of the microSD card, please adjust accordingly.
 
 ```bash
 tar xvf debian-sid-risc-v-sifive-unmatched.tar.xz
 sudo dd if=debian-sid-risc-v-sifive-unmatched.img of=/dev/sdc bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过板载串口（使用 microUSB 线缆连接至其他计算机）登录系统。
+Logging into the system via the onboard serial port (using the microUSB cable connected to another computer).
 
-默认用户名：`root`
-默认密码：`sifive`
+Default username: `root`
+Default password: `sifive`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system boots normally and allows login through the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully and login through the onboard serial port was also successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 Debian GNU/Linux bookworm/sid unmatched ttySIF0                                                                       
@@ -99,16 +99,18 @@ uarch           : sifive,bullet0
 root@unmatched:~# 
 ```
 
-屏幕录像（从刷写镜像到登录系统）
+Screen recording (From flashing image to login):
 
 [![asciicast](https://asciinema.org/a/YjvmONomTstvHYU4yLnKVX7Rv.svg)](https://asciinema.org/a/YjvmONomTstvHYU4yLnKVX7Rv)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.
+
+> This doc was automatically translated by GPT and has not been proofread yet. Please give us feedback in issue if any omissions.

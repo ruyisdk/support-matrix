@@ -1,24 +1,24 @@
-# Fedora 38 K230 测试报告
+# Fedora 38 K230 Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：Fedora 38
-- 下载链接：https://github.com/ruyisdk/mkimg-k230-rv64ilp32/releases
-- 参考安装文档：https://developer.canaan-creative.com/k230/dev/zh/CanMV_K230_%E6%95%99%E7%A8%8B.html
+- System Version: Fedora 38
+- Download Link: [https://github.com/ruyisdk/mkimg-k230-rv64ilp32/releases](https://github.com/ruyisdk/mkimg-k230-rv64ilp32/releases)
+- Reference Installation Document: [https://developer.canaan-creative.com/k230/dev/zh/CanMV_K230_%E6%95%99%E7%A8%8B.html](https://developer.canaan-creative.com/k230/dev/zh/CanMV_K230_%E6%95%99%E7%A8%8B.html)
 
-### 硬件信息
+### Hardware Information
 
-- 开发板：Canaan Kendryte K230
+- Development Board: Canaan Kendryte K230
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像
+### Flashing the Image
 
-使用 `unzstd` 解压镜像。
-清空你的 sd 卡。
-使用 `dd` 将镜像写入 microSD 卡。
+Use `unzstd` to decompress the image.
+Wipe your sd card.
+Use `dd` to flash the image to the microSD card.
 
 ```bash
 unzstd /path/to/fedora.img.zst
@@ -26,24 +26,24 @@ sudo wipefs -a /dev/your_device
 sudo dd if=/path/to/fedora.img of=/dev/your_device bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging to the system via serial port.
 
-默认用户： `root`
-默认密码：`riscv`
+Default user: `root`
+Default password: `riscv`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully and login via the onboard serial port was also successful.
 
-### 启动信息
+### Boot Information
 
-屏幕录像（从烧录到登录系统）：
+Screen recording (from flashing the image to login):
 
 [![asciicast](https://asciinema.org/a/urysrirhMB8fivXe1JHQ65Hyv.svg)](https://asciinema.org/a/urysrirhMB8fivXe1JHQ65Hyv)
 
@@ -94,12 +94,12 @@ SUPPORT_END=2024-05-14
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

@@ -1,27 +1,27 @@
-# LicheeRV Nano
+# LicheeRV Nano Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
 - BuildRoot & FreeRTOS
-  - 下载链接：https://github.com/sipeed/LicheeRV-Nano-Build/releases
-    - Sipeed 官方提供的 BuildRoot SDK，同时包含了 FreeRTOS
-  - 参考安装文档：https://github.com/sipeed/LicheeRV-Nano-Build
+  - Download Link: https://github.com/sipeed/LicheeRV-Nano-Build/releases
+    - BuildRoot SDK provided by Sipeed, which also includes FreeRTOS
+  - Reference Installation Document: https://github.com/sipeed/LicheeRV-Nano-Build
 - Debian
-  - 下载链接：https://github.com/Fishwaldo/sophgo-sg200x-debian
+  - Download Link: https://github.com/Fishwaldo/sophgo-sg200x-debian
 
-### 硬件开发板信息
+### Hardware Information
 
 - Milk-V Duo S (256M, SG2002)
 
-## 测试结果
+## Test Results
 
-| 软件分类           | 软件包名 | 测试结果（测试报告） |
-|------------------|----------|--------------------|
-| BuildRoot 镜像启动 | N/A      | [Basic][BuildRoot] |
-| FreeRTOS 启动      | N/A      | [Basic][FreeRTOS]  |
-| Debian 镜像启动    | N/A      | [Basic][Debian]    |
+| Software Category | Package Name | Test Results (Test Report)     |
+|-------------------|--------------|--------------------------------|
+| BuildRoot Image   | N/A          | [Basic][BuildRoot]             |
+| FreeRTOS Startup  | N/A          | [Basic][FreeRTOS]              |
+| Debian Image      | N/A          | [Basic][Debian]                |
 
 [BuildRoot]: ./BuildRoot/README.md
 [FreeRTOS]: ./FreeRTOS/README.md

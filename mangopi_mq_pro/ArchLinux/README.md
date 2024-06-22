@@ -1,4 +1,4 @@
-# Archlinux MangoPi MQ Pro 测试报告
+# Arch Linux MangoPi MQ Pro 测试报告
 
 ## 测试环境
 
@@ -21,7 +21,7 @@
 
 ### 安装依赖
 
-使用 Archlinux 安装依赖如下：
+使用 Arch Linux 安装依赖如下：
 ```bash
 pacman -Sy riscv64-linux-gnu-gcc swig cpio python3 python-setuptools base-devel bc arch-install-scripts qemu-user-static qemu-user-static-binfmt
 ```

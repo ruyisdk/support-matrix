@@ -1,21 +1,21 @@
-# Milk-V Meles
+# Milk-V Meles Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- RevyOS（官方提供）
-    - 下载链接：https://github.com/milkv-meles/meles-images/releases
-    - 参考安装文档：https://milkv.io/zh/docs/meles/getting-started/boot
+- RevyOS (provided by official source)
+    - Download link: https://github.com/milkv-meles/meles-images/releases
+    - Reference Installation Document: https://milkv.io/zh/docs/meles/getting-started/boot
 
-### 硬件开发板信息
+### Hardware Information
 
 - Milk-V Meles 4GB/8GB
 
-## 测试结果
+## Test Results
 
-| 软件分类        | 软件包名 | 测试结果（测试报告）             |
-|-------------|----------|----------------------------|
-| RevyOS 镜像启动 | N/A      | [CFT][RevyOS]（Milk-V 厂商镜像） |
+| Software Category | Package Name | Test Results (Test Report)            |
+|-------------------|--------------|---------------------------------------|
+| RevyOS Image Boot | N/A          | [CFT][RevyOS] (Milk-V Official Image) |
 
 [RevyOS]: ./RevyOS/README.md
