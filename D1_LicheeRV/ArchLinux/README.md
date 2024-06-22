@@ -18,7 +18,7 @@
 
 ### Using the Packaging Script
 
-Install dependencies on Archlinux as follows:
+Install dependencies on Arch Linux as follows:
 ```bash
 pacman -Sy riscv64-linux-gnu-gcc swig cpio python3 python-setuptools base-devel bc arch-install-scripts qemu-user-static qemu-user-static-binfmt
 ```
