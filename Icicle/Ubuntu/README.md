@@ -1,167 +1,168 @@
 # Ubuntu on Microchip Polarfire SoC FPGA Icicle Kit
 
-## 测试环境
+## Test Environment
 
-### 硬件信息
+### Hardware Information
 
-- Microchip Polarfire SoC FPGA Icicle Kit 开发板
-- 原装 12V 5A DC 5.5*2.1mm 电源适配器（原厂附带线材为美标插脚，在中国大陆使用需要转接器/更换国标线材）
-- micro-USB to USB-A 线缆两条（出厂附带），用于连接 USB-UART、更新 FPGA/HSS 和烧录镜像至板载 eMMC
-- （可选）SD 卡一张（不推荐使用 microSD + 卡套转接的方式，可能无法识别；此外请确保存储卡没有处于写保护状态）
+- Microchip Polarfire SoC FPGA Icicle Kit development board
+- Original 12V 5A DC 5.5*2.1mm power adapter (comes with US standard plug, requires an adapter/replacement with national standard plug for use in mainland China)
+- Two micro-USB to USB-A cables (included), used for connecting USB-UART, updating FPGA/HSS, and flashing images to the onboard eMMC
+- (Optional) An SD card (not recommended to use microSD with adapter, it may not be recognized; ensure the card is not write-protected)
 
-### 操作系统信息
+### Operating System Information
 
 - Ubuntu 24.04
-    - 下载链接：https://cdimage.ubuntu.com/releases/24.04/release/
-        - TUNA 镜像源：https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.04-preinstalled-server-riscv64+icicle.img.xz
-    - 参考安装文档：https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
+    - Download link: https://cdimage.ubuntu.com/releases/24.04/release/
+        - TUNA Mirror: https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.04-preinstalled-server-riscv64+icicle.img.xz
+    - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
 
-### 其他信息
+### Other Information
 
 - Icicle Kit Reference Design Release v2024.02
-    - 下载链接：https://github.com/polarfire-soc/icicle-kit-reference-design/releases/tag/v2024.02
-- FlashPro Express v2024.1（打包在 Programming and Debug Tools 内）
-    - 下载链接（需要登录）：https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug/lab
+    - Download link: https://github.com/polarfire-soc/icicle-kit-reference-design/releases/tag/v2024.02
+- FlashPro Express v2024.1 (packaged in Programming and Debug Tools)
+    - Download link (requires login): https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug/lab
 
-## （可选，建议）更新 FPGA Design 和 Hart Software Services (HSS)
+## (Optional, Recommended) Update FPGA Design and Hart Software Services (HSS)
 
-### 安装 FlashPro Express 工具
+### Installing FlashPro Express Tool
 
-访问上面提到的下载链接，根据您所使用的操作系统下载。
+Visit the mentioned download link and download according to your operating system. 
 
-> 注意，有登录墙，需要注册并登录后方可下载。
->
-> 填写邮箱等信息后即可免费注册。
+> Note: There is a login barrier, you need to register and log in to download.
+> 
+> Fill in the email and other information to register for free.
 
-此工具支持的系统有：
+This tool supports:
 
 - Windows 10/11
 - RHEL/CentOS 7.x, RHEL/CentOS 8.0-8.2
 - OpenSUSE Leap 42.3 (SLES 12.3)
-- Ubuntu 18.04 LTS, 20.04.3 LTS, 以及 22.04.1 LTS
+- Ubuntu 18.04 LTS, 20.04.3 LTS, and 22.04.1 LTS
 
-笔者使用的为 Windows 11 Home x64，尽管安装程序会提示不受支持的系统环境，但实测可正常安装。
+I used Windows 11 Home x64, although the installer will prompt an unsupported system, it works fine.
 
-下载后直接运行并按默认流程安装即可。Linux 环境下先 `chmod +x` 赋予可执行权限再执行。可能需要 `root` 权限。
+Once downloaded, run and follow the default installation process. In Linux, first use `chmod +x` to grant executable permissions, then execute. Root permissions may be required.
 
-### 更新 FPGA Design & HSS
+### Update FPGA Design & HSS
 
-Ubuntu 自 5.19 内核起依赖 Icicle Kit Reference Design v2022.10 或更新版本。
+Ubuntu from kernel 5.19 depends on Icicle Kit Reference Design v2022.10 or newer versions.
 
-从 GitHub 下载最新版本：
+Download the latest version from GitHub:
 
 https://github.com/polarfire-soc/icicle-kit-reference-design/releases
 
-下载 `MPFS_ICICLE_BASE_DESIGN_yyyy_mm.zip` 文件解压备用。
+Download the `MPFS_ICICLE_BASE_DESIGN_yyyy_mm.zip` file and extract for later use.
 
-使用 microUSB 线缆连接开发板和计算机。
+Use the microUSB cable to connect the development board to the computer.
 
-开发板上共有两个 microUSB 接口，烧写 FPGA 时请连接至 `J33` 接口，即位于电源开关附近的 microUSB 接口，如下图所示。
+The development board has two microUSB interfaces, connect to the `J33` interface near the power switch to flash the FPGA, as shown in the figure below.
 
 ![Connectors](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/reference-designs-fpga-and-development-kits/images/icicle-kit-user-guide/icicle-kit-connectors.png?raw=true)
 
-打开 FlashPro Express，点击左上角菜单栏 `Project -> New Job Project`
+Open FlashPro Express, click the top left menu `Project -> New Job Project`
 
 ![](./images/image.png)
 
-选择先前解压的 `MPFS_ICICLE_BASE_DESIGN`，插上 12V 电源，给开发板上电，然后点击 OK：
+Select the previously extracted `MPFS_ICICLE_BASE_DESIGN`, plug in the 12V power, power on the board, then click OK:
 
 ![alt text](./images/image-1.png)
 
-此时应该已经识别到 FPGA 了。确保左侧下拉菜单选择的是 `PROGRAM`，点击 `RUN` 开始烧写 FPGA。
+At this point, the FPGA should be recognized. Ensure the dropdown menu on the left is set to `PROGRAM`, click `RUN` to start flashing the FPGA.
 
 ![alt text](./images/image-2.png)
 
-烧写成功会有绿色提示：
+A green prompt indicates success:
 
 ![alt text](./images/image-3.png)
 
-## 烧录镜像
+## Flashing the Image
 
-Polarfire SoC FPGA Icicle Kit 支持从板载 eMMC 启动或 SD 卡启动。
+Polarfire SoC FPGA Icicle Kit supports booting from onboard eMMC or SD card.
 
-默认优先 SD 卡。当 SD 卡不存在或 SD 卡启动失败时会从板载 eMMC 启动。
+By default, it prioritizes the SD card. If the SD card is missing or fails to boot, it will boot from the onboard eMMC.
 
-### 烧录镜像至 eMMC
+### Flashing the Image to eMMC
 
-连接 microUSB 线缆至 USB OTG 接口，位于 SD 卡槽附近，丝印 `J19`。
+Connect the microUSB cable to the USB OTG interface near the SD card slot, marked `J19`.
 
-连接 USB UART，位于以太网接口一侧，丝印 `J11`。
+Connect the USB UART near the Ethernet interface, marked `J11`.
 
-计算机上会识别到一个 CP2108 USB 转 UART，如果这是您计算机上唯一一个 USB 转 UART，此时会识别到四个串口。
+Your computer will recognize it as a CP2108 USB to UART. If this is the only USB to UART on your computer, four serial ports will be recognized.
 
-Windows 上会出现四个 COM 口，Linux 下会出现 /dev/ttyUSB{0,1,2,3}，如下图所示：
+On Windows, four COM ports will appear, on Linux, /dev/ttyUSB{0,1,2,3} will appear, as shown below:
 
 ![alt text](./images/image-4.png)
 
-其中，`Interface 0` 为 `HSS` 输出，`Interface 1` 为 U-Boot 和 Linux 控制台输出。
+`Interface 0` is for `HSS` output, `Interface 1` is for U-Boot and Linux console output.
 
-在 Linux 系统下，分别对应第一个和第二个串口。
+In Linux, they correspond to the first and second serial ports respectively.
 
-| 串口功能              | Windows     | Linux        |
-|--------------------|-------------|--------------|
-| HSS 控制台            | Interface 0 | /dev/ttyUSB0 |
-| U-Boot & Linux 控制台 | Interface 1 | /dev/ttyUSB1 |
+| Serial Port Function    | Windows     | Linux        |
+|-------------------------|-------------|--------------|
+| HSS Console             | Interface 0 | /dev/ttyUSB0 |
+| U-Boot & Linux Console  | Interface 1 | /dev/ttyUSB1 |
 
-欲向 eMMC 烧录镜像，连接至 `HSS` 控制台，在启动时（提示 `Press a key to enter CLI, ESC to skip`）按任意键打断启动流程。
+To flash an image to eMMC, connect to the `HSS` console, during startup (when prompted `Press a key to enter CLI, ESC to skip`) press any key to interrupt.
 
-输入：`
+Enter: 
 ```
 mmc
 usbdmsc
 ```
-会提示 `Waiting for USB Host to connect`。
+It will prompt `Waiting for USB Host to connect`.
 
-此时计算机一侧应该会出现一个 USB 大容量存储设备。至此可以使用 Win32DiskImager/Rufus/USBImager/dd 等工具直接向其中写入镜像了。
+At this point, your computer should recognize a USB mass storage device. Use Win32DiskImager/Rufus/USBImager/dd and other tools to write the image directly.
 
-镜像烧写完成后，在 HSS 控制台按 Ctrl+C 退出 USB 存储模式。至此镜像烧录结束。
+After writing the image, press Ctrl+C in the HSS console to exit USB storage mode. The image flashing is complete.
 
-### 烧录镜像至 SD 卡
+### Flashing the Image to SD Card
 
-直接使用 Rufus/Win32DiskImager/dd 等工具写入镜像至 SD 卡即可。
+Directly use Rufus/Win32DiskImager/dd and other tools to write the image to the SD card.
 
 ```shell
 xzcat ubuntu-24.04-preinstalled-server-riscv64+icicle.img.xz | sudo dd of=/dev/sdX bs=4M iflag=fullblock status=progress 
 ```
 
-## 启动开发板
+## Booting the Development Board
 
-给开发板上电。在第二个串口会输出启动信息。
+Power on the development board. The second serial port will display the boot information.
 
-> Ubuntu 首次启动会调用 `cloud-init`，受限于开发板性能，启动速度可能较慢，从上电到能够登录可能要花费数分钟时间，这是预期结果。
+> On the first boot, Ubuntu will invoke `cloud-init`. Limited by the performance of the development board, startup may take several minutes, which is expected.
 
-用户名：`ubuntu`
+Username: `ubuntu`
 
-密码：`ubuntu`
+Password: `ubuntu`
 
-初次登录时会强制要求修改密码，按提示操作即可。
+You will be prompted to change the password upon first login, follow the instructions.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口登录。
+The system should boot normally and allow login through the serial console.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，能够通过串口登录。
+The system booted successfully and login through the serial console was also successful.
 
-屏幕录像（从 eMMC 刷写到启动）：
+### Boot Log
+
+Screen recording (from eMMC flashing to login):
 
 [![asciicast](https://asciinema.org/a/ECbt7b3ltAF29zFjDDgW9NUnU.svg)](https://asciinema.org/a/ECbt7b3ltAF29zFjDDgW9NUnU)
 
+## Test Criteria
 
-## 测试判定标准
+Successful: The actual result matches the expected result.
 
-测试成功：实际结果与预期结果相符。
+Failed: The actual result does not match the expected result.
 
-测试失败：实际结果与预期结果不符。
+## Test Conclusion
 
-## 测试结论
+Test successful.
 
-测试成功。
+## Reference Documents
 
-## 参考文档
-
-- [PolarFire SoC Software Tool Flow](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/knowledge-base/polarfire-soc-software-tool-flow.md) 
+- [PolarFire SoC Software Tool Flow](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/knowledge-base/polarfire-soc-software-tool-flow.md)
 - [MPFS Icicle Kit User Guide](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/reference-designs-fpga-and-development-kits/icicle-kit-user-guide.md)
 - [Updating MPFS Kit](https://github.com/polarfire-soc/polarfire-soc-documentation/blob/master/reference-designs-fpga-and-development-kits/updating-mpfs-kit.md)
 - Under CC BY 4.0 license, by Microchip Technology Inc. and its subsidiaries

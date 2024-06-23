@@ -1,4 +1,4 @@
-# CanMV K230 Test Report
+# CanMV K230
 
 ## Test Environment
 

@@ -1,51 +1,49 @@
-# Melis 柚木 PI-蜥蜴 测试报告
+# Melis Yuzuki PI-Lizard Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- SDK 链接：
-    - 国外 - GoogleDriver：https://drive.google.com/drive/folders/1_HAZRddR69hRMZAVrxFrPZXFFQiV3vE0?usp=share_link
-    - 国内 - BaiduYun: https://pan.baidu.com/s/115gVK-8Pt-vJi8jn2AWMYw?pwd=7n4q 提取码：7n4q
-- 参考文档：
+- SDK Links:
+    - Global - Google Drive: https://drive.google.com/drive/folders/1_HAZRddR69hRMZAVrxFrPZXFFQiV3vE0?usp=share_link
+    - Recommended for users in Mainland China - Baidu Netdisk: https://pan.baidu.com/s/115gVK-8Pt-vJi8jn2AWMYw?pwd=7n4q Password: 7n4q
+- Reference Installation Document:
     - https://dongshanpi.com/YuzukiHD-Lizard/01-BoardIntroduction/
     - https://tina.100ask.net/SdkModule/Linux_E907_DevelopmentGuide-01/
 
-### 硬件信息
+### Hardware Information
 
-- 柚木 PI-蜥蜴 开发板
+- Yuzuki PI-Lizard Development Board
 
+## Installation Steps
 
-## 安装步骤
+### Extracting the SDK
 
-### 解压 SDK
-
-下载 SDK 后，合并压缩包，并解压：
+After downloading the SDK, merge the package files and extract:
 ```bash
 cat tina-v853-open.tar.gz.* > tina-v853-open.tar.gz
 tar -xzvf tina-v853-open.tar.gz
 ```
 
-由于默认的 sdk 并未支持此开发板，所以我们需要支持此开发板的配置 单独拷贝增加到 tina-v853-open sdk 内，首先 clone 此开发板补丁仓库，然后单独覆盖：
+Since the default SDK doesn’t support this development board, you need to add the necessary configurations separately to the tina-v853-open SDK. First, clone the patch repository for this development board and then overwrite it:
 ```bash
 git clone  https://github.com/DongshanPI/Yzukilizard-v851s-TinaSDK
 cp -rfvd Yzukilizard-v851s-TinaSDK/* tina-v853-open/
 ```
 
+### System Configuration and Compilation
 
-### 配置系统并编译
-
-下载 SDK 后，进行配置环境工作：
+After downloading the SDK, configure the environment:
 ```bash
 cd tina-v853-open
 source build/envsetup.sh
 lunch
 ```
-选择对应方案。
+Choose the appropriate scheme.
 
-**若出现问题，请尝试换用 bash 而非 zsh 等其他 shell 环境**
+**If you encounter issues, try using bash instead of zsh or other shell environments**
 
-配置 E906 启动 RTOS：
+Configure E906 to start RTOS:
 ```bash
 cconfigs
 cd ../default/
@@ -79,13 +77,13 @@ vim boot_package.cfg
  ;item=androidcharge,          battery_charge.bmp.lzma
 ```
 
-配置 kernel：
+Configure the kernel:
 ```bash
 ckernel
 m kernel_menuconfig
 ```
-Include `Device Drivers` 下的 `Mailbox Hardware Support`；
-Include `Device Drivers → Mailbox Hardware Support` 下的 `sunxi Mailbox` 和 `sunxi rv32 standby driver`：
+Include `Device Drivers` under `Mailbox Hardware Support`;
+Include `Device Drivers → Mailbox Hardware Support` under `sunxi Mailbox` and `sunxi rv32 standby driver`:
 ```diff
 --- .config.old 2024-05-09 16:42:29.690187100 +0800
 +++ .config     2024-05-09 16:45:57.840189075 +0800
@@ -124,46 +122,46 @@ Include `Device Drivers → Mailbox Hardware Support` 下的 `sunxi Mailbox` 和
 mkernel -j
 ```
 
-> 若出现链接器报告 `yyloc` 重定义：
-> 这是由于 GCC 版本高于 10，更改 `scripts/dtc/dtc-parser.tab.c` 下的 `YYLTYPE yyloc` 为 `extern YYLTYPE yyloc`
+> If a linker error regarding `yyloc` redefinition occurs:
+> This is due to GCC version being higher than 10. Change `YYLTYPE yyloc` to `extern YYLTYPE yyloc` in `scripts/dtc/dtc-parser.tab.c`
 
-配置 RTOS：
+Configure RTOS:
 ```bash
 mmelis menuconfig
 ```
 
-### 构建并打包
+### Build and Package
 
 ```bash
 make -j$(nproc)
 p
 ```
 
-### 登录系统
+### Logging into the System
 
-连接 UART3 查看串口输出。
+Connect to UART3 to observe the serial port output.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口查看输出。
+The system should boot normally and provide serial port output.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过串口查看输出。
+CFT
 
-### 启动信息
+### Boot Log
 
-屏幕录像：
+Screen recording:
 
 ```log
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
 CFT

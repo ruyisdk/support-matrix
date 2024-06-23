@@ -1,4 +1,4 @@
-# Banana Pi BPI-F3 Test Report
+# Banana Pi BPI-F3
 
 ## Test Environment
 

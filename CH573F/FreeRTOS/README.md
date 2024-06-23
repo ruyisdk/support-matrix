@@ -13,8 +13,8 @@
 ### Hardware Information
 
 - CH573F
-- One USB to UART debugger
-- One USB Type-C cable
+- A USB to UART debugger
+- A USB Type-C cable
 
 ## Installation Steps
 
@@ -40,7 +40,7 @@ The system starts up correctly and information can be viewed through the onboard
 
 ## Actual Results
 
-The system starts up correctly, and information can be viewed through the onboard serial port.
+CFT
 
 ### Boot Log
 

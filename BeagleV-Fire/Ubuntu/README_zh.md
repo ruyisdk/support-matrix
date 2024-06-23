@@ -87,7 +87,7 @@ sudo dd if=sdcard.img of=/dev/your/device bs=1M status=progress
 
 ## 实际结果
 
-系统正常启动，成功通过板载串口登录。
+CFT
 
 ### 启动信息
 

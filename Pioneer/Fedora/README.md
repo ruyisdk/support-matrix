@@ -9,8 +9,8 @@
 ### Hardware Information
 
 - Milk-V Pioneer Box v1.1
-- One microSD card
-- One USB to UART debugger (or HDMI cable + monitor)
+- A microSD card
+- A USB to UART debugger (or HDMI cable + monitor)
 
 ## Installation Steps
 

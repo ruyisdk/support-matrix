@@ -13,8 +13,8 @@
 ### Hardware Information
 
 - CH32V103C8T6-EVT-R1
-- One USB to UART Debugger
-- One WCH-Link(E)
+- A USB to UART Debugger
+- A WCH-Link(E)
 
 ## Installation Steps
 

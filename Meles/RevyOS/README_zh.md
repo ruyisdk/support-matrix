@@ -61,7 +61,7 @@ fastboot flash root root-meles-20231210_134926.ext4
 
 ## 实际结果
 
-系统正常启动，成功通过串口登录。
+CFT
 
 ### 启动信息
 

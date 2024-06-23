@@ -10,8 +10,8 @@
 ### Hardware Information
 
 - Mangopi MQ
-- One microSD card
-- One USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
+- A microSD card
+- A USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
 
 ## Installation Steps
 
@@ -67,7 +67,7 @@ The system should boot up normally, allowing login through the onboard serial po
 
 ## Actual Results
 
-The system booted up successfully, and login via the onboard serial port was also successful.
+CFT
 
 ### Boot Log
 

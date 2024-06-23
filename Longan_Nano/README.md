@@ -1,29 +1,30 @@
 # Longan Nano
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
 - FreeRTOS/RT-Thread
-    - 源码链接：https://github.com/Nuclei-Software/nuclei-sdk
-    - 参考文档：https://doc.nucleisys.com/nuclei_sdk/quickstart.html#build-run-and-debug-sample-application
+    - Source Code: https://github.com/Nuclei-Software/nuclei-sdk
+    - Reference Installation Document: https://doc.nucleisys.com/nuclei_sdk/quickstart.html#build-run-and-debug-sample-application
         - https://doc.nucleisys.com/nuclei_sdk/design/board/gd32vf103c_longan_nano.html
 - Zephyr
-    - 源码链接：https://github.com/zephyrproject-rtos/zephyr/tree/main
-    - 参考文档：https://docs.zephyrproject.org/latest/develop/getting_started/index.html
+    - Source Code: https://github.com/zephyrproject-rtos/zephyr/tree/main
+    - Reference Installation Document: https://docs.zephyrproject.org/latest/develop/getting_started/index.html
 
-### 硬件开发板信息
+### Hardware Information
 
 - Longan Nano
 
-## 测试结果
+## Test Results
 
-| 软件分类      | 软件包名      | 测试结果（测试报告） |
-|--------------|-------------|------------------|
-| FreeRTOS     | N/A         | [CFT][FreeRTOS]  |
-| RT-Thread    | N/A         | [CFT][RT-Thread] |
-| Zephyr       | N/A         | [成功][Zephyr]    |
+| Software Category | Package Name | Test Results (Test Report) |
+|-------------------|--------------|----------------------------|
+| FreeRTOS          | N/A          | [CFT][FreeRTOS]            |
+| RT-Thread         | N/A          | [CFT][RT-Thread]           |
+| Zephyr            | N/A          | [Successful][Zephyr]       |
 
 [FreeRTOS]: ./FreeRTOS/README.md
 [RT-Thread]: ./RT-Thread/README.md
 [Zephyr]: ./Zephyr/README.md
+

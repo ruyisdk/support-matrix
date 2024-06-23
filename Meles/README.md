@@ -1,4 +1,4 @@
-# Milk-V Meles Test Report
+# Milk-V Meles
 
 ## Test Environment
 

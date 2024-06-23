@@ -1,4 +1,4 @@
-# Canaan Kendryte K510 Test Report
+# Canaan Kendryte K510
 
 ## Test Environment
 

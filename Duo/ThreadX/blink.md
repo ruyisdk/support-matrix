@@ -12,10 +12,10 @@
 ### Hardware Information
 
 - Milk-V Duo 64M
-- One USB Power Adapter
-- One USB-A to C or USB C to C Cable
-- One TF Card
-- One USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
+- A USB Power Adapter
+- A USB-A to C or USB C to C Cable
+- A TF Card
+- A USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
 - Three Dupont Wires
 - Milk-V Duo pre-soldered with necessary pin headers for debugging
 

@@ -42,7 +42,7 @@ The system boots up successfully and can be logged into through the onboard seri
 
 ## Actual Results
 
-The system boots up successfully, and login via the onboard serial port is successful.
+CFT
 
 ### Boot Log
 

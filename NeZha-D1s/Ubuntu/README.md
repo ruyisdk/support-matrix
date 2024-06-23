@@ -1,65 +1,64 @@
-# Ubuntu 23.10 VisionFive 2 版本测试报告
+# Ubuntu D1s NeZha Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：Ubuntu 24.04
-- 下载链接：https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04-preinstalled-server-riscv64+nezha.img.xz?
-- 参考安装文档：https://wiki.ubuntu.com/RISC-V/Nezha%20D1?
+- Download Link: https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04-preinstalled-server-riscv64+nezha.img.xz?
+- Reference Installation Document: https://wiki.ubuntu.com/RISC-V/Nezha%20D1?
 
-### 硬件信息
+### Hardware Information
 
 - D1s NeZha
-- USB-A to C 或 C to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
+- A USB-A to C or C to C cable
+- A microSD card
+- A USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three Dupont wires
 
-## 安装步骤
+## Installation Steps
 
-### 解压并刷写镜像到 microSD 卡
+### Decompress and Flash the Image to the microSD Card
 
-假定 `/dev/sdc` 为存储卡。
+Assume `/dev/sdc` is the storage card.
 
 ```bash
 xz -d ubuntu-24.04-preinstalled-server-riscv64+licheerv.img.xz
 sudo dd if=ubuntu-24.04-preinstalled-server-riscv64+licheerv.img of=/dev/sdc bs=1m status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Log into the system via the serial port.
 
-默认用户名：`ubuntu`
-默认密码：`ubuntu`
+Default username: `ubuntu`
+Default password: `ubuntu`
 
-初次登录时，会提示更改默认密码。
+Upon the first login, you will be prompted to change the default password.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口登录。
+The system should boot normally and allow login via the serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过串口登录。
+The system boots up normally, and login via the serial port is successful.
 
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
-
+Screen recording (from compilation to startup):
 [![asciicast](https://asciinema.org/a/gPmHuofP650Kl9mTp8xLk1tod.svg)](https://asciinema.org/a/gPmHuofP650Kl9mTp8xLk1tod)
-
-### 启动信息
 
 ```log
 ubuntu@ubuntu:~$ cat /proc/cpuinfo                                              processor       : 0                                                             hart            : 0                                                             isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm                        mmu             : sv39                                                          uarch           : thead,c906                                                    mvendorid       : 0x5b7                                                         marchid         : 0x0                                                           mimpid          : 0x0                                                           hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
 ```
-## 测试判定标准
 
-测试成功：实际结果与预期结果相符。
+## Test Criteria
 
-测试失败：实际结果与预期结果不符。
+Successful: The actual result matches the expected result.
 
-## 测试结论
+Failed: The actual result does not match the expected result.
 
-测试成功。
+## Test Conclusion
+
+Test successful.
+

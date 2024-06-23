@@ -1,114 +1,113 @@
-# Zephyr Tang Mega 138K Pro 测试报告
+# Zephyr Tang Mega 138K Pro Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 构建系统：Linux
+- Build System: Linux
 - FreeRTOS
-- 源码下载链接：https://cdn.gowinsemi.com.cn/RiscV_AE350_SOC_V1.1.zip
-	- bitstream：https://github.com/sipeed/TangMega-138KPro-example
-- 参考安装文档：https://cdn.gowinsemi.com.cn/MUG1029-1.1_Gowin_RiscV_AE350_SOC%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
-- 参考设计文档：https://cdn.gowinsemi.com.cn/MUG1031-1.1_Gowin_RiscV_AE350_SOC%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
+- Source Code Download Link: https://cdn.gowinsemi.com.cn/RiscV_AE350_SOC_V1.1.zip
+    - Bitstream: https://github.com/sipeed/TangMega-138KPro-example
+- Reference Installation Document: https://cdn.gowinsemi.com.cn/MUG1029-1.1_Gowin_RiscV_AE350_SOC%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
+- Reference Design Document: https://cdn.gowinsemi.com.cn/MUG1031-1.1_Gowin_RiscV_AE350_SOC%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
 
-### 硬件信息
+### Hardware Information
 
 - FreeRTOS Tang Mega 138K Pro Dock
-- type A to C 线一根
-- UART 串口线一根
-- 随机电源线
+- A Type A to C Cable
+- A UART Cable
+- Power supply come with the board
 
-## 安装步骤
+## Installation Steps
 
-**以下以 Linux 系统下的构建为例，Windows 下请安装 AE350 SOC RDS，并在附带的 cygwin 环境下进行除注明外相同的操作**
+**The following example uses a Linux system for the build. For Windows, install the AE350 SOC RDS and perform the same operations in the provided Cygwin environment, unless otherwise specified.**
 
-*若不需要 IDE 功能，Windows 下构建不需要 RDS License*
+*If IDE functionality is not needed, a Windows build does not require an RDS License.*
 
-### 拷贝代码
+### Copy Code
 
-Zephyr 代码位于源码压缩包内，ref_design/MCU_RefDesign/ae350_zephyr 路径下。将其解压到您的工作区。
+Zephyr code is located in the source archive at ref_design/MCU_RefDesign/ae350_zephyr. Extract it to your workspace.
 
-### 编译代码
+### Build Code
 
-进入到代码目录下，设置环境变量：
+Navigate to the code directory and set environment variables:
 ```bash
 source zephyr-env.sh
 export ZEPHYR_TOOLCHAIN_VARIANT='cross-compile
 ```
 
-设置交叉编译工具链，此处建议使用 nds32le-elf-mculib-v5：
+Set the cross-compilation toolchain, preferably using nds32le-elf-mculib-v5:
 ```bash
 export CROSS_COMPILE=path/to/nds32le-elf-mculib-v5/bin/riscv32-elf-
 ```
 
-Windows 下该文件在 RDS 安装目录下的 toolchains 中。
+For Windows, this file is located in the toolchains directory of the RDS installation.
 
-进入 hello_world 目录：
+Navigate to the hello_world directory:
 ```bash
 cd samples/hello_world
 ```
 
-准备构建文件：
+Prepare the build files:
 ```bash
 mkdir build
 cd build
 cmake -DBOARD=adp_xc7k_ae350 ../
 ```
 
-图形化配置构建选项：`make menuconfig`
+Graphically configure build options: `make menuconfig`
 
-构建源码：`make`
+Build the source code: `make`
 
+### Obtain FPGA Bitstream
 
-### 获取 FPGA 码流
+**The Tang Mega 138K supports this feature only in the commercial version**
 
-**Tang Mega 138K 支持仅在商业版中提供**
+The FPGA project can use the demo provided by Sipeed, located in the ae350_customized_demo directory of the [TangMega-138KPro-example](https://github.com/sipeed/TangMega-138KPro-example). The bitstream has already been compiled and does not need regeneration.
 
-FPGA 工程可以使用 Sipeed 官方提供的 demo，位于 [TangMega-138KPro-example](https://github.com/sipeed/TangMega-138KPro-example) 中的 ae350_customized_demo 里。其中码流已经编译好，不需要重新生成。
+### Download Bitstream
 
-### 下载码流
+Connect the FPGA and use the GowinCloud software to download the bitstream.
 
-连接 FPGA，使用高云云源软件下载码流。
+### Flash Program
 
-### 烧录程序
-
-使用 RDS 目录下 flash 中的 programmer.exe 进行烧录。设置如下：
+Use programmer.exe located in the flash directory of the RDS for flashing. Set up as follows:
 - External Flash Mode 5AT
 - exFlash C Bin Erase, Program 5AT
 - Start address: 0x600000
 
-烧录程序后若无输出，需要再次重新下载码流。
+If there is no output after flashing, try re-downloading the bitstream.
 
-### 连接串口
+### Connect UART
 
-默认的 UART2 被绑定到了：
+The default UART2 is bound to:
 ```
 IO_LOC "UART2_TXD" U16;     //1
 IO_LOC "UART2_RXD" V16;     //2
 ```
 
-### 登录系统
+### Log into the System
 
-通过串口登录系统。
+Log into the system via the serial port.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login through the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-成功编译并刷入镜像，但串口无任何输出。
+Compiled and flashed the image successfully, but there is no output from the serial port.
 
-### 启动信息
+### Boot Log
 
 N/A
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
 CFH

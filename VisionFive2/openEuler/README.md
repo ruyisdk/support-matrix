@@ -1,75 +1,74 @@
-# openEuler RISC-V 23.09 VisionFive 2 版本测试报告
+# openEuler RISC-V 23.09 VisionFive 2 Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：openEuler 23.09 RISC-V preview
-- 下载链接：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/VisionFive2/
-- 参考安装文档：https://gitee.com/openeuler/RISC-V/blob/master/release/openEuler-23.03/Installation_Book/Visionfive2/README.md
+- System Version: openEuler 23.09 RISC-V preview
+- Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/VisionFive2/
+- Reference Installation Document: https://gitee.com/openeuler/RISC-V/blob/master/release/openEuler-23.03/Installation_Book/Visionfive2/README.md
 
-### 硬件信息
+### Hardware Information
 
 - StarFive VisionFive 2
-- USB 电源适配器一个
-- USB-A to C 或 C to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
+- A USB power adapter
+- A USB-A to C or C to C cable
+- A microSD card
+- A USB to UART debugger (e.g., CH340, CH341, FT2232)
+- Three DuPont lines
 
-## 安装步骤
+## Installation Steps
 
-### 使用 `ruyi` CLI 刷写镜像到 microSD 卡
+### Flashing the Image to microSD Card using `ruyi` CLI
 
-安装 [`ruyi`](https://github.com/ruyisdk/ruyi) 包管理器，运行 `ruyi device provision` 并按提示操作。
+Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the instructions.
 
-### 引导模式选择
+### Boot Mode Selection
 
-StarFive VisionFive 2 提供了多种引导模式，可在上电前通过板载拨码开关进行配置，可参考 StarFive [官方文档](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_SDK_QSG/boot_mode_settings.html)。
+StarFive VisionFive 2 provides multiple boot modes, configurable via the onboard dip switch before powering on. Refer to the StarFive [official documentation](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_SDK_QSG/boot_mode_settings.html).
 
-开发板本体上亦有丝印标注。
+The board itself also has silkscreen labels.
 
-为了启动 openEuler 镜像，选择 1-bit QSPI Nor Flash 模式（即：`RGPIO_0 = 0`, `RGPIO_1 = 0`）。注意，此模式可能需要提前更新 Flash 内的固件，详情请参考官方文档：[更新 SPL 和 U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
+To boot the openEuler image, select the 1-bit QSPI Nor Flash mode (`RGPIO_0 = 0`, `RGPIO_1 = 0`). Note that this mode might require prior firmware updates in the Flash, detailed in the official documentation: [Updating SPL and U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html).
 
-若不更新固件，请选择 microSD 卡引导（即：`RGPIO_0 = 1`, `RGPIO_1 = 0`）。
+If not updating the firmware, choose microSD card boot (`RGPIO_0 = 1`, `RGPIO_1 = 0`).
 
-> 注意，此模式下有小概率出现启动失败的情况，如遇到启动失败，串口输出类似如下信息：
+> Note: In this mode, there is a small chance of boot failure. If boot fails, serial output might show information similar to the following:
 >
->```log
+> ```log
 >dwmci_s: Response Timeout.                                                                                            
 >dwmci_s: Response Timeout.                                                                                            
 >BOOT fail,Error is 0xffffffff
 >```
 >
-> 您可以尝试重新给开发板上电，或点按一下 USB Type-C 供电接口附近的按钮。通常这可以解决无法启动的问题。
+> You can try re-powering the development board or pressing the button near the USB Type-C power interface. This usually resolves the boot issue.
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Log into the system via the serial port.
 
-默认用户名：`openeuler` 或 `root`
-默认密码：`openEuler12#$`
+Default Username: `openeuler` or `root`  
+Default Password: `openEuler12#$`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过图形界面登录。
+The system should boot normally and allow login through the graphical interface.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过图形界面登录。
+The system booted normally and login through the graphical interface was successful.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
-
+Screen recording (from flashing the image to system login):
 [![asciicast](https://asciinema.org/a/A3KitOgctHGhyUvkUd2a8LwsH.svg)](https://asciinema.org/a/A3KitOgctHGhyUvkUd2a8LwsH)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

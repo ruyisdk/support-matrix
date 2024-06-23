@@ -1,29 +1,30 @@
 # D1s NeZha
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
 - Tina Linux:
-  - 下载链接: https://pan.baidu.com/s/1v55AKMFripaEu22tJ92lmw?pwd=awol 提取码：awol
-  - 参考安装文档：https://d1s.docs.aw-ol.com/study/study_1tina/
+  - Download Link: https://pan.baidu.com/s/1v55AKMFripaEu22tJ92lmw?pwd=awol Code: awol
+  - Reference Installation Document: https://d1s.docs.aw-ol.com/study/study_1tina/
 - RT-Thread:
-  - 下载链接：https://github.com/RT-Thread/rt-thread
-  - 参考安装文档：https://github.com/RT-Thread/rt-thread/blob/master/bsp/allwinner/d1s/README-M7.md
+  - Download Link: https://github.com/RT-Thread/rt-thread
+  - Reference Installation Document: https://github.com/RT-Thread/rt-thread/blob/master/bsp/allwinner/d1s/README-M7.md
   - Ubuntu:
-  - 下载链接：https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04-preinstalled-server-riscv64+nezha.img.xz?
-  - 参考安装文档：https://wiki.ubuntu.com/RISC-V/Nezha%20D1?
-### 硬件开发板信息
+  - Download Link: https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04-preinstalled-server-riscv64+nezha.img.xz?
+  - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/Nezha%20D1?
+
+### Hardware Information
 
 - D1s NeZha
 
-## 测试结果
+## Test Results
 
-| 软件分类            | 软件包名 | 测试结果（测试报告）       |
-| --------------- | ---- | ---------------- |
-| Tina-Linux 镜像启动 | N/A  | [CFT][Tina]      |
-| RT-Thread 镜像启动  | N/A  | [CFT][RT-Thread] |
-| Ubuntu 镜像启动     | N/A  | [CFT][Ubuntu]    |
+| Software Category      | Package Name | Test Results (Test Report) |
+| ---------------------- | ------------ | -------------------------- |
+| Tina-Linux Image Boot  | N/A          | [CFT][Tina]                |
+| RT-Thread Image Boot   | N/A          | [CFT][RT-Thread]           |
+| Ubuntu Image Boot      | N/A          | [CFT][Ubuntu]              |
 
 [Tina]: ./TinaLinux/README.md
 [RT-Thread]: ./RT-Thread/README.md

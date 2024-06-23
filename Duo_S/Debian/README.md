@@ -10,11 +10,11 @@
 ### Hardware Information
 
 - Milk-V Duo S (512M, SG2000)
-- One USB power adapter
-- One USB-A to C or USB C to C cable for powering the development board
-- One microSD card
-- One USB card reader
-- One USB to UART debugger (e.g., CP2102, FT2232, etc. Note: Avoid using CH340/341 series as they may produce garbled text)
+- A USB power adapter
+- A USB-A to C or USB C to C cable for powering the development board
+- A microSD card
+- A USB card reader
+- A USB to UART Debugger (e.g., CP2102, FT2232, etc. Be aware that WCH CH340/341 series will cause garbled text output, DO NOT USE)
 - Three DuPont wires
 
 ## Installation Steps

@@ -1,31 +1,30 @@
-# FreeRTOS R128 EVT 开发套件 测试报告
+# FreeRTOS R128 EVT Development Kit Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- SDK 链接：
+- SDK Link:
     - https://r128.docs.aw-ol.com/r128/get_sdk/
-- 测试预编译固件：https://www.aw-ol.com/downloads/resources/126
-- 参考文档：
+- Precompiled Firmware for Testing: https://www.aw-ol.com/downloads/resources/126
+- Reference Installation Document:
     - https://r128.docs.aw-ol.com/devkit/r128_evt/
 
-### 硬件信息
+### Hardware Information
 
-- TinyVision 开发板
+- TinyVision Development Board
 
+## Installation Steps
 
-## 安装步骤
+### Flashing the Image
 
-### 烧写镜像
+After downloading the image, use the LiveSuit software to select the image and connect the development board for flashing.
 
-下载镜像后，使用 LiveSuit 软件，选择镜像后，连接开发板刷写。
-
-LiveSuit 获取见：https://linux-sunxi.org/LiveSuit
+For downloading LiveSuit, see: https://linux-sunxi.org/LiveSuit
 
 #### LiveSuit
 
-下载并构建：
+Download and build:
 ```bash
 git clone https://github.com/linux-sunxi/sunxi-livesuite.git
 apt-get install dkms
@@ -40,36 +39,36 @@ KERNEL=="aw_efex[0-9]*", MODE="0666"
 udevadm control --reload-rules
 ```
 
-运行：
+Run:
 ```bash
 ./LiveSuit.sh
 ```
 
-### 登录系统
+### Logging into the System
 
-连接 UART3 查看串口输出。
+Connect UART3 to view the serial output.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口查看输出。
+The system should boot normally, and the output should be visible through the serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过串口查看输出。
+CFT
 
-### 启动信息
+### Boot Log
 
-屏幕录像：
+Screen recording:
 
 ```log
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
 CFT

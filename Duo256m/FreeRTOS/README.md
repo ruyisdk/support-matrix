@@ -11,9 +11,9 @@
 ### Hardware Information
 
 - Milk-V Duo 256M
-- One USB-A to C or USB-C to C Cable
-- One microSD card
-- One USB to UART Debugger (e.g., CH340, CH341, FT2232)
+- A USB-A to C or USB-C to C Cable
+- A microSD card
+- A USB to UART Debugger (e.g., CH340, CH341, FT2232)
 - Optional: Milk-V Duo IOB (Baseboard)
 
 ## Installation Steps

@@ -1,50 +1,50 @@
-# Fedora 33 VisionFive 测试报告
+# Fedora 33 VisionFive Test Report
 
-## 测试环境
+## Test Environment
 
-### 系统信息
+### System Information
 
-- 系统版本：Fedora 33
-- 下载链接：[https://fedora.starfivetech.com/pub/downloads/VisionFive-release/Fedora-riscv64-jh7100-developer-xfce-Rawhide-20211226-214100.n.0-sda.raw.zst](https://fedora.starfivetech.com/pub/downloads/VisionFive-release/Fedora-riscv64-jh7100-developer-xfce-Rawhide-20211226-214100.n.0-sda.raw.zst)
-- 参考安装文档：[https://doc.rvspace.org/VisionFive/PDF/VisionFive_Quick_Start_Guide.pdf](https://doc.rvspace.org/VisionFive/PDF/VisionFive_Quick_Start_Guide.pdf)
+- System Version: Fedora 33
+- Download Link: [https://fedora.starfivetech.com/pub/downloads/VisionFive-release/Fedora-riscv64-jh7100-developer-xfce-Rawhide-20211226-214100.n.0-sda.raw.zst](https://fedora.starfivetech.com/pub/downloads/VisionFive-release/Fedora-riscv64-jh7100-developer-xfce-Rawhide-20211226-214100.n.0-sda.raw.zst)
+- Reference Installation Document: [https://doc.rvspace.org/VisionFive/PDF/VisionFive_Quick_Start_Guide.pdf](https://doc.rvspace.org/VisionFive/PDF/VisionFive_Quick_Start_Guide.pdf)
 
-### 硬件信息
+### Hardware Information
 
 - StarFive VisionFive
-- 电源适配器
-- microSD 卡一张
-- USB to UART 调试器一个
+- Power Adapter
+- A microSD Card
+- A USB to UART Debugger
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像
+### Flashing Image
 
-使用 `zstd` 解压镜像。
-使用 `dd` 将镜像写入 microSD 卡。
+Use `zstd` to decompress the image.
+Use `dd` to flash the image to the microSD card.
 
 ```bash
 zstd -d /path/to/fedora.raw.zst
 sudo dd if=/path/to/fedora of=/dev/your-device bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Log into the system via the serial port.
 
-默认用户名： `root`
-默认密码： `starfive`
+Default Username: `root`
+Default Password: `starfive`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully and login via the onboard serial port was also successful.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing the image to logging into the system):
 
 [![asciicast](https://asciinema.org/a/wuaUJ0h23U1eWMFzoyQPLTvgp.svg)](https://asciinema.org/a/wuaUJ0h23U1eWMFzoyQPLTvgp)
 
@@ -106,12 +106,12 @@ Last login: Tue Dec 21 01:25:23 on pts/0
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

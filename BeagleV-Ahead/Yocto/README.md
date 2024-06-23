@@ -43,7 +43,7 @@ The system boots up correctly and can be accessed via onboard serial port.
 
 ## Actual Results
 
-The system boots up correctly and can be accessed successfully via the onboard serial port.
+CFT
 
 ### Boot Log
 

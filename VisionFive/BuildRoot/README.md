@@ -1,38 +1,38 @@
-# Buildroot VisionFive 测试报告
+# Buildroot VisionFive Test Report
 
-## 测试环境
+## Test Environment
 
-### 系统信息
+### System Information
 
-- 系统版本：Buildroot
-- 源码链接：https://buildroot.org/download.html
-    - 截止本文编写时，Buildroot 的最新稳定 / LTS 版本为：[buildroot-2024.02.1](https://buildroot.org/downloads/buildroot-2024.02.1.tar.gz)
-- 参考安装文档：https://gitlab.com/buildroot.org/buildroot/-/tree/master/board/visionfive?ref_type=heads
-- 构建机系统：Arch Linux x86_64
+- System Version: Buildroot
+- Source Code Link: [Buildroot Download](https://buildroot.org/download.html)
+    - As of the time of writing, the latest stable/LTS version of Buildroot is: [buildroot-2024.02.1](https://buildroot.org/downloads/buildroot-2024.02.1.tar.gz)
+- Reference Installation Document: [VisionFive Buildroot Documentation](https://gitlab.com/buildroot.org/buildroot/-/tree/master/board/visionfive?ref_type=heads)
+- Build Machine OS: Arch Linux x86_64
 
-### 硬件信息
+### Hardware Information
 
 - StarFive VisionFive (v1)
-- 电源适配器
-- USB A to C 或 C to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个
+- Power Adapter
+- A USB A to C or C to C Cable
+- A microSD Card
+- A USB to UART Debugger
 
-## 构建及刷写镜像
+## Building and Flashing the Image
 
-由于 VisionFive 的 Buildroot 已经主线化，直接从 Buildroot 获取源码即可构建出可用镜像。
+Since VisionFive’s Buildroot support is upstreamed, you can directly fetch the source code from Buildroot to build the functional image.
 
-### 准备构建环境
+### Preparing the Build Environment
 
 ```shell
 sudo pacman -S which sed make binutils diffutils gcc bash patch gzip bzip2 perl tar cpio unzip rsync file bc findutils wget
-# 或者从 AUR 安装，需要 AUR Helper，如 yay, paru 等
+# Or using package form AUR
 # paru -S buildroot-meta
 ```
 
-若您不使用 Arch Linux，请参考 [官方文档](https://buildroot.org/downloads/manual/manual.html#requirement) 安装所需依赖（注意，软件包名称可能不一致）。
+If you are not using Arch Linux, refer to the [official documentation](https://buildroot.org/downloads/manual/manual.html#requirement) to install the necessary dependencies (note that the names of the packages might differ).
 
-### 构建镜像
+### Building the Image
 
 ```shell
 wget https://buildroot.org/downloads/buildroot-2024.02.1.tar.gz
@@ -42,38 +42,38 @@ make visionfive_defconfig
 make -j$(nproc)
 ```
 
-Note: 请确保您的互联网连接正常，编译过程中会自动下载依赖。
+Note: Ensure you have a stable internet connection; dependencies will be downloaded automatically during the compilation.
 
-构建结束后将在 `output/images` 生成 `sdcard.img` 镜像。
+After the build, an `sdcard.img` image will be created in the `output/images` directory.
 
-### 烧录镜像至 microSD 卡
+### Flashing the Image to the microSD Card
 
-使用 `dd` 将镜像写入 microSD 卡。
+Use `dd` to write the image to the microSD card.
 
-此处以 `/dev/sdc` 为存储卡位置。
+Here, we assume the storage card is located at `/dev/sdc`.
 
 ```shell
 sudo wipefs -af /dev/sdc
 sudo dd if=~/buildroot-2024.02.1/output/images/sdcard.img of=/dev/sdc bs=1M status=progress oflag=direct
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-默认用户名： `root`
+Default username: `root`
 
-默认密码：无，输入用户名后自动登录
+Default password: none, login is automatic after entering the username.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login through the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully and login through the onboard serial port was also successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 Welcome to Buildroot                                                                                                                
@@ -90,16 +90,16 @@ PRETTY_NAME="Buildroot 2024.02.1"
 # 
 ```
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing the image to logging into the system):
 
 [![asciicast](https://asciinema.org/a/jCbFkO6AUUriql5b1g7QzGuXD.svg)](https://asciinema.org/a/jCbFkO6AUUriql5b1g7QzGuXD)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

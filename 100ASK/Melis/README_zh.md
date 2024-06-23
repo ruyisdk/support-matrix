@@ -61,7 +61,7 @@ udevadm control --reload-rules
 
 ## 实际结果
 
-系统正常启动，成功通过串口查看输出。
+CFT
 
 ### 启动信息
 

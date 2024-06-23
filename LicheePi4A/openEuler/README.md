@@ -12,8 +12,8 @@
 
 - Lichee Pi 4A (16G RAM + 128G eMMC)
 - USB-C Power Adapter / DC Power Supply
-- One microSD card (Sandisk Extreme Pro 64G UHS-I)
-- One USB-UART Debugger
+- A microSD card (Sandisk Extreme Pro 64G UHS-I)
+- A USB-UART Debugger
 
 ## Installation Steps
 

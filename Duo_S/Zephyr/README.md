@@ -12,7 +12,7 @@
 ### Hardware Information
 
 - MilkV DuoS
-- One USB to UART Debugger
+- A USB to UART Debugger
 - SD Card
 
 ## Installation Steps

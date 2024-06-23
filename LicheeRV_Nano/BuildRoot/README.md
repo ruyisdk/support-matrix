@@ -11,8 +11,8 @@
 ### Hardware Information
 
 - LicheeRV Nano
-- One Type-C power cable
-- One UART to USB debugger
+- A Type-C power cable
+- A UART to USB debugger
 
 ## Installation Steps
 

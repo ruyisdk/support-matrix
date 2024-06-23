@@ -13,8 +13,8 @@
 ### Hardware Information
 
 - CH592X-EVT-R1-1v0
-- One USB to UART Debugger
-- One USB type-c Cable
+- A USB to UART Debugger
+- A USB Type-C Cable
 
 ## Installation Steps
 
@@ -22,7 +22,7 @@
 
 The precompiled image is located at `EVT/EXAM/RT-Thread/obj/rt-thread-nano.hex`
 
-After downloading and unzipping the source code and wchisp tool, do not power on immediately. **Continuously hold** the boot (download) button, then connect the board to the computer via type-c cable.
+After downloading and unzipping the source code and wchisp tool, do not power on immediately. **Continuously hold** the boot (download) button, then connect the board to the computer via Type-C cable.
 
 Use the wchisp tool for burning:
 ```bash

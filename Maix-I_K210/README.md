@@ -1,4 +1,4 @@
-# Sipeed Maix-I Test Report
+# Sipeed Maix-I
 
 ## Test Environment
 

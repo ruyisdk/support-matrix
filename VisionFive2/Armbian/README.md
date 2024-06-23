@@ -1,28 +1,28 @@
-# Armbian VisionFive 2 版本测试报告
+# Armbian VisionFive 2 Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：Armbian Noble Minimal & Armbian Jammy Xfce
-- 下载链接：https://www.armbian.com/visionfive2/
-- 参考安装文档：https://www.armbian.com/visionfive2/
+- System Version: Armbian Noble Minimal & Armbian Jammy Xfce
+- Download Link: https://www.armbian.com/visionfive2/
+- Reference Installation Documentation: https://www.armbian.com/visionfive2/
 
-### 硬件信息
+### Hardware Information
 
 - StarFive VisionFive 2
-- USB 电源适配器一个
-- USB-A to C 或 C to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
-- 可选：显示器/采集卡 & HDMI 线缆（测试 Jammny 版本 Xfce 桌面）
+- A USB Power Adapter
+- A USB-A to C or USB-C to C Cable
+- A microSD Card
+- A USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three Dupont Cables
+- Optional: Monitor/Capture Card & HDMI Cable (for testing the Jammy version with Xfce desktop)
 
-## 安装步骤
+## Installation Steps
 
-### 解压并刷写镜像到 microSD 卡
+### Decompress and Flash Image to microSD Card
 
-假定 `/dev/sdc` 为存储卡。
+Assume `/dev/sdc` is the storage card.
 
 ```bash
 wipefs -af /dev/sdc
@@ -32,31 +32,31 @@ xzcat Armbian_community_24.5.0-trunk.278_Visionfive2_jammy_edge_5.15.0_xfce_desk
 xzcat Armbian_community_24.5.0-trunk.278_Visionfive2_noble_edge_5.15.0_minimal.img.xz | sudo dd of=/dev/sdc iflag=fullblock status=progress bs=4M
 ```
 
-### 引导模式选择
+### Boot Mode Selection
 
-StarFive VisionFive 2 提供了多种引导模式，可在上电前通过板载拨码开关进行配置；开发板本体上亦有丝印标注。
+StarFive VisionFive 2 provides multiple boot modes, which can be configured via onboard dip switches before powering on; the board itself is also silk-screened for reference.
 
-为了启动 openKylin 镜像，选择 1-bit QSPI Nor Flash 模式（即：`RGPIO_0 = 0`, `RGPIO_1 = 0`）。注意，此模式可能需要提前更新 Flash 内的固件，若启动不成功，请参考官方文档进行固件升级：[更新 SPL 和 U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
+To boot the Armbian image, select the 1-bit QSPI Nor Flash mode (`RGPIO_0 = 0`, `RGPIO_1 = 0`). Note that this mode may require you to update the firmware in the Flash beforehand. If the boot fails, please refer to the official documentation for firmware upgrades: [Updating SPL and U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Log into the system via the serial port.
 
-启动后，系统会要求用户手动配置用户名、密码、时区、语言等。
+Upon startup, the system will prompt the user to configure the username, password, timezone, language, etc.
 
-Xfce 版本需要配置完成后方可进入桌面。
+For the Xfce version, configuration completion is required before entering the desktop.
 
-可通过串口配置。若接入了键盘和显示器，亦可通过键盘配置。
+Configuration can be done through the serial port. If a keyboard and monitor are connected, configuration can also be done via the keyboard.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过图形界面或串口登录。
+The system boots normally and allows login through the graphical interface or serial port.
 
-## 实际结果
+## Actual Results
 
-Xfce 版本和 Minimal 版本系统均正常启动，成功通过图形界面或串口登录。
+Both the Xfce and Minimal versions of the system booted normally, and logins via the graphical interface or serial port were successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 root@visionfive2:~# uname -a
@@ -79,18 +79,29 @@ ARMBIAN_PRETTY_NAME="Armbian_community 24.5.0-trunk.278 noble"
 root@visionfive2:~# 
 ```
 
-Xfce 版屏幕录像（从刷写镜像到登录系统）：
+Xfce version screen recording (from flashing image to system login):
 
 [![asciicast](https://asciinema.org/a/pCI6icBzsw2UrqNN5kL20LUxH.svg)](https://asciinema.org/a/pCI6icBzsw2UrqNN5kL20LUxH)
 
-Xfce 屏幕截图：
+Xfce screenshot:
 
 ![alt text](image.png)
 
-屏幕录像：
+Screen recording:
 
 https://github.com/ruyisdk/support-matrix/assets/17025286/14c27bbd-5477-426b-a3e4-85cca5f5eabd
 
-Minimal 版屏幕录像（从刷写镜像到登录系统）：
+Minimal version screen recording (from flashing image to system login):
 
 [![asciicast](https://asciinema.org/a/kLOG9FnxGs9AnXpZqpjDJeiNo.svg)](https://asciinema.org/a/kLOG9FnxGs9AnXpZqpjDJeiNo)
+
+## Test Criteria
+
+Successful: The actual result matches the expected result.
+
+Failed: The actual result does not match the expected result.
+
+## Test Conclusion
+
+Test successful.
+

@@ -1,4 +1,4 @@
-# Sipeed M1s Test Report
+# Sipeed M1s
 
 ## Test Environment
 

@@ -15,8 +15,8 @@
 
 - Lichee Pi 4A (8GB RAM + 64GB eMMC)
 - Power Adapter
-- One microSD Card
-- One USB to UART Debugger
+- A microSD Card
+- A USB to UART Debugger
 
 ## Installation Steps
 

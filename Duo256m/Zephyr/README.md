@@ -5,7 +5,7 @@
 ### Operating System Information
 
 - Source Code Link: https://github.com/zephyrproject-rtos/zephyr/tree/main
-- Reference Documents:
+- Reference Installation Document:
     - https://docs.zephyrproject.org/latest/develop/getting_started/index.html
     - https://github.com/milkv-duo/duo-buildroot-sdk
 

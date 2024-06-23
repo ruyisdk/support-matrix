@@ -1,4 +1,4 @@
-# Milk-V Mars Test Report
+# Milk-V Mars
 
 ## Test Environment
 

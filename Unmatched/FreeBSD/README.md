@@ -11,10 +11,10 @@
 ### Hardware Information
 
 - HiFive Unmatched Rev A
-- One microUSB Cable (Included with HiFive Unmatched)
-- One ATX Power Supply
-- One microSD Card (Sandisk Extreme Pro 64G UHS-I), pre-flashed with Freedom U SDK
-- One USB Drive (Lexar S25 32G)
+- A microUSB Cable (Included with HiFive Unmatched)
+- An ATX Power Supply
+- A microSD Card (Sandisk Extreme Pro 64G UHS-I), pre-flashed with Freedom U SDK
+- A USB Drive (Lexar S25 32G)
 
 ## Installation Steps
 

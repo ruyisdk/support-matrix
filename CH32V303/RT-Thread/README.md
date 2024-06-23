@@ -12,8 +12,8 @@
 ### Hardware Information
 
 - CH32V303VCT6-EVT-R0-1v0
-- One USB to UART debugger
-- One WCH-Link(E)
+- A USB to UART debugger
+- A WCH-Link(E)
 
 ## Installation Steps
 

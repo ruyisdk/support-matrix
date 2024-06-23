@@ -11,8 +11,8 @@
 ### Hardware Information
 
 - Lichee Cluster 4A 8G / 16G
-- Random power supply
-- One USB A to C cable
+- Power supply come with the board
+- A USB A to C cable
 
 ## Installation Steps
 

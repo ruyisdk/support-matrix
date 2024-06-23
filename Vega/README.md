@@ -1,4 +1,4 @@
-# Milk-V Vega Test Report
+# Milk-V Vega
 
 ## Test Environment
 

@@ -1,45 +1,45 @@
-# RT-Thread Mangopi MQ Test Report
+# RT-Thread Mangopi MQ 测试报告
 
-## Test Environment
+## 测试环境
 
-### Operating System Information
+### 操作系统信息
 
-- Download Link: https://github.com/RT-Thread/rt-thread
-- Reference Installation Document: https://github.com/RT-Thread/rt-thread/blob/master/bsp/allwinner/d1s/README-MQ_zh.md
+- 下载链接：https://github.com/RT-Thread/rt-thread
+- 参考安装文档：https://github.com/RT-Thread/rt-thread/blob/master/bsp/allwinner/d1s/README-MQ_zh.md
 
-### Hardware Information
+### 硬件信息
 
 - Mangopi MQ
-- One microSD card
-- One USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
+- microSD 卡一张
+- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
 
-## Installation Steps
+## 安装步骤
 
-### Download Code
+### 下载代码
 
-Download the RT-Thread code:
+下载 RT-Thread 代码：
 ```bash
 git clone https://github.com/RT-Thread/userapps.git
 cd userapps
 git clone -b rt-smart https://gitee.com/rtthread/rt-thread.git
 ```
 
-Configure the toolchain:
+配置工具链：
 ```bash
 python3 get_toolchain.py riscv64
 source smart-env.sh riscv64
 ```
 
-Compile the kernel:
+编译内核：
 ```bash
 scons --menuconfig
 source ~/.env/env.sh
 pkgs --update
 ```
 
-### Flashing Image
+### 烧写镜像
 
-Partition the SD card: Reserve the first 8M of space to accommodate the bootloader:
+分区 SD 卡：前部留 8M 的空间以容纳 bootloadr：
 ```bash
 sudo fdisk /dev/your/device
 # 以下在fdisk中
@@ -51,39 +51,39 @@ p
 w
 ```
 
-Flash the system onto the SD card:
+刷入系统到 sd 卡：
 ```bash
 sudo dd if=boot0_sdcard_sun20iw1p1.bin of=/dev/your/device bs=1024 seek=8
 sudo dd if=sd.bin of=/dev/your/device bs=1024 seek=56
 ```
 
-### Logging into the System
+### 登录系统
 
-Log into the system via the serial port.
+通过串口登录系统。
 
-## Expected Results
+## 预期结果
 
-The system should boot up normally, allowing login through the onboard serial port.
+系统正常启动，能够通过板载串口登录。
 
-## Actual Results
+## 实际结果
 
-The system booted up successfully, and login via the onboard serial port was also successful.
+CFT
 
-### Boot Log
+### 启动信息
 
-Screen recording (from flashing the image to logging into the system):
+
+屏幕录像（从刷写镜像到登录系统）：
 
 ```log
 ```
 
-## Test Criteria
 
-Successful: The actual result matches the expected result.
+## 测试判定标准
 
-Failed: The actual result does not match the expected result.
+测试成功：实际结果与预期结果相符。
 
-## Test Conclusion
+测试失败：实际结果与预期结果不符。
+
+## 测试结论
 
 CFT
-
-> This doc was automatically translated by GPT and has not been proofread yet. Please give us feedback in issue if any omissions.

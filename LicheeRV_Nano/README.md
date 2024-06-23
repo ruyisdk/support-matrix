@@ -1,4 +1,4 @@
-# LicheeRV Nano Test Report
+# LicheeRV Nano
 
 ## Test Environment
 

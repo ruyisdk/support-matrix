@@ -1,4 +1,4 @@
-# Sipeed M0sense Test Report
+# Sipeed M0sense
 
 ## Test Environment
 

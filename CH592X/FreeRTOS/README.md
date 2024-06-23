@@ -13,8 +13,8 @@
 ### Hardware Information
 
 - CH592X-EVT-R1-1v0
-- One USB to UART Debugger
-- One USB Type-C Cable
+- A USB to UART Debugger
+- A USB Type-C Cable
 
 ## Installation Steps
 

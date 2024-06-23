@@ -10,8 +10,8 @@
 ### Hardware Information
 
 - Nezha D1
-- One Type-C Power Cable
-- One UART to USB Debugger
+- A Type-C Power Cable
+- A UART to USB Debugger
 - SD Card
 
 ## Installation Steps

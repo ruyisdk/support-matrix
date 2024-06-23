@@ -1,4 +1,4 @@
-# Sipeed M0s Test Report
+# Sipeed M0s
 
 ## Test Environment
 

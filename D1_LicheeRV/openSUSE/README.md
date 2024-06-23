@@ -12,8 +12,8 @@
 
 - AWOL Nezha D1 / Sipeed Lichee RV Dock
 - Power Adapter
-- One microSD card
-- One USB to UART Debugger
+- A microSD card
+- A USB to UART Debugger
 
 ## Installation Steps
 

@@ -1,38 +1,37 @@
-# Arch Linux DongshanPI-哪吒 STU 测试报告
+# Arch Linux DongshanPI-Nezha STU Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：Initial Release
-- 打包脚本：https://github.com/sehraf/d1-riscv-arch-image-builder
+- System Version: Initial Release
+- Packaging Script: https://github.com/sehraf/d1-riscv-arch-image-builder
 
-### 硬件信息
+### Hardware Information
 
-- DongshanPI-哪吒 ST
-- Type-C 电源线一根
-- UART 转 USB 调试器一个
-- SD 卡
+- DongshanPI-Nezha ST
+- A Type-C power cable
+- A UART to USB debugger
+- An SD card
 
-## 安装步骤
+## Installation Steps
 
-### 使用打包脚本
+### Using Packaging Script
 
-使用 Arch Linux 安装依赖如下：
+For Arch Linux, install dependencies as follows:
 ```bash
 pacman -Sy riscv64-linux-gnu-gcc swig cpio python3 python-setuptools base-devel bc arch-install-scripts qemu-user-static qemu-user-static-binfmt
 ```
 
+The community has created an automatic Arch Linux packaging script. If you intend to use it, you can skip all the installation steps below.
 
-社区创建了自动打包 Arch Linux 的脚本。您若想使用，可直接跳过以下所有安装过程。
-
-clone 对应仓库：
+Clone the corresponding repository:
 ```bash
 git clone https://github.com/sehraf/d1-riscv-arch-image-builder.git
 cd d1-riscv-arch-image-builder
 ```
 
-根据具体的板子，修改 `consts.sh` 中的 `DEVICE_TREE`，如：
+Modify `DEVICE_TREE` in `consts.sh` based on your specific board, for example:
 ```diff
 diff --git a/consts.sh b/consts.sh
 index 11e51cd..0b990ad 100644
@@ -50,49 +49,47 @@ index 11e51cd..0b990ad 100644
 
 ```
 
-运行 `1_compile.sh` 编译镜像；
-运行 `2_create_sd.sh /dev/your/device` 烧写到 SD 卡。
+Run `1_compile.sh` to compile the image;
+Run `2_create_sd.sh /dev/your/device` to write it to the SD card.
 
-注：若其自动配置 rootfs，需要：`arch-install-scripts`, `qemu-user-static-bin (AUR)`, `binfmt-qemu-static (AUR)`。不需要此环节可以将 `consts.sh` 中的 `USE_CHROOT` 设为 0。
+Note: If automatically configuring the rootfs, you need: `arch-install-scripts`, `qemu-user-static-bin (AUR)`, `binfmt-qemu-static (AUR)`. If this step is not required, set `USE_CHROOT` to 0 in `consts.sh`.
 
 ```bash
 ./1_compile.sh
 ./2_create_sd.sh /dev/your/device
 ```
 
-**若开启了 USE_CHROOT（默认开启），其会之后自动 chroot 进镜像等待配置。建议这步安装如 vim 等基本应用。**
+**If `USE_CHROOT` is enabled (default is enabled), it will automatically chroot into the image for configuration. It's recommended to install basic applications like vim at this step.**
 
+### Logging into the System
 
-### 登录系统
+Logging into the system via the serial port.
 
-通过串口登录系统。
+Default username: `root`
+Default password: `archriscv`
 
-默认用户名：`root`
-默认密码：`archriscv`
+## Expected Results
 
-## 预期结果
+The system should boot normally and allow login via the onboard serial port.
 
-系统正常启动，能够通过板载串口登录。
+## Actual Results
 
-## 实际结果
+CFT
 
-系统正常启动，成功通过板载串口登录。
+### Boot Log
 
-### 启动信息
-
-屏幕录像（从刷写镜像到登录系统）：
-
+Screen recording (from flashing image to logging into the system):
 
 ```log
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
 CFT

@@ -11,9 +11,9 @@
 ### Hardware Information
 
 - Canaan K510 CRB-V1.2 KIT
-- One USB Power Adapter
+- A USB Power Adapter
 - Two USB-A to C Cables (included with the development board; one for power supply and the other for USB-UART and auxiliary power supply)
-- One microSD Card (minimum capacity of 1GiB; default generated image size is 512MiB)
+- A microSD Card (minimum capacity of 1GiB; default generated image size is 512MiB)
 
 ## Installation Steps
 

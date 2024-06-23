@@ -1,63 +1,63 @@
-# Ubuntu 24.04 VisionFive 2 版本测试报告
+# Ubuntu 24.04 VisionFive 2 Version Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：Ubuntu 24.04
-- 下载链接：https://ubuntu.com/download/risc-v
-- 参考安装文档：https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
+- System Version: Ubuntu 24.04
+- Download Link: https://ubuntu.com/download/risc-v
+- Reference Installation Document: https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
 
-### 硬件信息
+### Hardware Information
 
 - StarFive VisionFive 2
-- USB 电源适配器一个
-- USB-A to C 或 C to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
+- A USB power adapter
+- A USB-A to C or C to C cable
+- A microSD card
+- A USB to UART debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three Dupont wires
 
-## 安装步骤
+## Installation Steps
 
-### 解压并刷写镜像到 microSD 卡
+### Decompress and Flash Image to microSD Card
 
-假定 `/dev/sdc` 为存储卡。
+Assume `/dev/sdc` as the storage card.
 
 ```bash
 xz -d openKylin-1.0.1-visionfive2-riscv64.img.xz 
 sudo dd if=openKylin-1.0.1-visionfive2-riscv64.img of=/dev/sdc bs=1M status=progress
 ```
 
-### 引导模式选择
+### Boot Mode Selection
 
-StarFive VisionFive 2 提供了多种引导模式，可在上电前通过板载拨码开关进行配置，可参考 StarFive [官方文档](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_SDK_QSG/boot_mode_settings.html)。
+The StarFive VisionFive 2 offers multiple boot modes, configurable via onboard dip switches prior to powering on. Refer to the StarFive [official documentation](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_SDK_QSG/boot_mode_settings.html).
 
-开发板本体上亦有丝印标注。
+The board also has silk-screen labels for guidance.
 
-为了启动 Ubuntu 镜像，选择 1-bit QSPI Nor Flash 模式（即：`RGPIO_0 = 0`, `RGPIO_1 = 0`）。
+To boot the Ubuntu image, select the 1-bit QSPI Nor Flash mode (i.e., `RGPIO_0 = 0`, `RGPIO_1 = 0`).
 
-注意：此模式需要提前更新 Flash 内的固件，详情请参考官方文档：[更新 SPL 和 U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
+Note: This mode requires prior firmware update in Flash. For details, refer to the official documentation: [Update SPL and U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
 
-注意：根据 Ubuntu [官方文档](https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202)，需要使用 U-Boot 主线提供的镜像，请参考 U-Boot [官方文档](https://u-boot.readthedocs.io/en/latest/board/starfive/visionfive2.html)。
+Note: According to the Ubuntu [official documentation](https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202), use the image provided by the mainline U-Boot. Refer to the U-Boot [official documentation](https://u-boot.readthedocs.io/en/latest/board/starfive/visionfive2.html).
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Login to the system via the serial port.
 
-默认用户名：`ubuntu`
-默认密码：`ubuntu`
+Default username: `ubuntu`
+Default password: `ubuntu`
 
-初次登录时，会提示更改默认密码。
+Upon first login, you will be prompted to change the default password.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口登录。
+The system should boot normally and allow login via the serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过串口登录。
+The system booted normally, and login via the serial port was successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 Welcome to Ubuntu 23.10 (GNU/Linux 6.5.0-9-generic riscv64)
@@ -142,16 +142,16 @@ Linux ubuntu 6.5.0-9-generic #9.1-Ubuntu SMP Sat Oct  7 17:18:31 UTC 2023 riscv6
 ubuntu@ubuntu:~$ 
 ```
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing image to system login):
 
 [![asciicast](https://asciinema.org/a/gJWTbPGEv0N9dMcDSSOsblKoB.svg)](https://asciinema.org/a/gJWTbPGEv0N9dMcDSSOsblKoB)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-因硬件问题，暂无结果。
+Ubuntu 24.10 is not tested yet/CFT; Ubuntu 23.10 has passed the test.

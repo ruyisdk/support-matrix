@@ -1,4 +1,4 @@
-# HiFive Unmatched Test Report
+# HiFive Unmatched
 
 ## Test Environment
 
@@ -59,5 +59,3 @@
 [OpenBSD]: ./OpenBSD/README.md
 [Zephyr]: ./Zephyr/README.md
 [OpenWrt]: ./OpenWrt/README.md
-
-> This doc was automatically translated by GPT and has not been proofread yet. Please give us feedback in issue if any omissions.

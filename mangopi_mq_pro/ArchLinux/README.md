@@ -1,41 +1,41 @@
-# Arch Linux MangoPi MQ Pro 测试报告
+# Arch Linux MangoPi MQ Pro Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 下载链接：
+- Download Link:
     - Image Builder: https://github.com/sehraf/d1-riscv-arch-image-builder
     - U-Boot: https://github.com/smaeul/u-boot.git
     - RootFS: https://archriscv.felixc.at
-- 参考安装文档：https://github.com/sehraf/d1-riscv-arch-image-builder
+- Reference Installation Document: https://github.com/sehraf/d1-riscv-arch-image-builder
 
-### 硬件信息
+### Hardware Information
 
 - MangoPi MQ Pro
-- 电源适配器
-- microSD 卡一张
-- USB to UART 调试器一个
+- Power Adapter
+- A microSD card
+- A USB to UART Debugger
 
-## 安装步骤
+## Installation Steps
 
-### 安装依赖
+### Install Dependencies
 
-使用 Arch Linux 安装依赖如下：
+Use Arch Linux to install dependencies as follows:
 ```bash
 pacman -Sy riscv64-linux-gnu-gcc swig cpio python3 python-setuptools base-devel bc arch-install-scripts qemu-user-static qemu-user-static-binfmt
 ```
 
-### 选择 dtb 文件
+### Select dtb File
 
-下载 builder 后，更改 consts.sh:
+After download the builder, modify consts.sh:
 ```bash
 git clone https://github.com/sehraf/d1-riscv-arch-image-builder.git
 cd d1-riscv-arch-image-builder
 vim consts.sh
 ```
 
-选择 dtb：
+Select dtb:
 ```diff
 diff --git a/consts.sh b/consts.sh
 index 11e51cd..6fc61d5 100644
@@ -53,49 +53,49 @@ index 11e51cd..6fc61d5 100644
 
 ```
 
-### 生成镜像
+### Generate Image
 
-运行 `1_compile.sh`：
+Run `1_compile.sh`:
 ```bash
 ./1_compile.sh
 ```
 
-### 刷写镜像
+### Flash Image
 
-运行 `2_create_sd.sh`：
+Run `2_create_sd.sh`:
 
 ```bash
 2_create_sd.sh /dev/your/device
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into to the system via the serial port.
 
-默认用户名：`root`
-默认密码：`archriscv`
+Default Username: `root`
+Default Password: `archriscv`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot up normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+CFT
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (From flashing the image to logging in):
 
 ```log
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
 CFT

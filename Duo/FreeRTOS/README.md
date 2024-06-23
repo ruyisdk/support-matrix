@@ -13,10 +13,10 @@
 ### Hardware Information
 
 - Milk-V Duo 64M
-- One USB Power Adapter
-- One USB-A to C or USB C to C Cable
-- One microSD Card
-- One USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
+- A USB Power Adapter
+- A USB-A to C or USB C to C Cable
+- A microSD Card
+- A USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
 - Three Jumper Wires
 - Milk-V Duo pre-soldered with necessary pins for debugging
 - Optional: Milk-V Duo IOB (Baseboard)

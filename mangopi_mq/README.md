@@ -1,4 +1,4 @@
-# Mangopi MQ Test Report
+# Mangopi MQ
 
 ## Test Environment
 

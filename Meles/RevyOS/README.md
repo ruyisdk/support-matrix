@@ -12,8 +12,8 @@
 
 - Milk-V Meles 4GB/8GB
 - eMMC module > 16GB
-- One USB A to C cable
-- Optional: One USB-TTL Debugger
+- A USB A to C cable
+- Optional: A USB-TTL Debugger
 - Optional: Keyboard, monitor, mouse (for graphical interface testing)
 
 ## Installation Steps
@@ -61,7 +61,7 @@ The system should boot up normally and allow login through the serial port.
 
 ## Actual Results
 
-The system booted successfully and login through the serial port was also successful.
+CFT
 
 ### Boot Information
 

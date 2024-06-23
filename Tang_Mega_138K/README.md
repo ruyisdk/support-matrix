@@ -1,46 +1,46 @@
 # Tang Mega 138K Pro
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
 - RT-Thread
-    - 源码链接：https://cdn.gowinsemi.com.cn/RiscV_AE350_SOC_V1.1.zip
-    - 参考安装文档：https://cdn.gowinsemi.com.cn/MUG1029-1.1_Gowin_RiscV_AE350_SOC%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
-    - 参考设计文档：https://cdn.gowinsemi.com.cn/MUG1031-1.1_Gowin_RiscV_AE350_SOC%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
-    - 工具链：
-        - 高云云源软件：http://www.gowinsemi.com.cn/faq.aspx
-        - RiscV AE350 SOC RDS 软件：https://cdn.gowinsemi.com.cn/RiscV_AE350_SOC_RDS_V1.1_win.zip
-        - Andes-Development-Kit：https://github.com/andestech/Andes-Development-Kit
+    - Source Code Link: https://cdn.gowinsemi.com.cn/RiscV_AE350_SOC_V1.1.zip
+    - Reference Installation Document: https://cdn.gowinsemi.com.cn/MUG1029-1.1_Gowin_RiscV_AE350_SOC%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
+    - Reference Design Document: https://cdn.gowinsemi.com.cn/MUG1031-1.1_Gowin_RiscV_AE350_SOC%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
+    - Toolchain:
+        - Gowin Cloud Source Software: http://www.gowinsemi.com.cn/faq.aspx
+        - RiscV AE350 SOC RDS Software: https://cdn.gowinsemi.com.cn/RiscV_AE350_SOC_RDS_V1.1_win.zip
+        - Andes-Development-Kit: https://github.com/andestech/Andes-Development-Kit
 - Zephyr
-    - 源码链接：https://cdn.gowinsemi.com.cn/RiscV_AE350_SOC_V1.1.zip
-    - 参考安装文档：https://cdn.gowinsemi.com.cn/MUG1029-1.1_Gowin_RiscV_AE350_SOC%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
-    - 参考设计文档：https://cdn.gowinsemi.com.cn/MUG1031-1.1_Gowin_RiscV_AE350_SOC%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
-    - 工具链：
-        - 高云云源软件：http://www.gowinsemi.com.cn/faq.aspx
-        - RiscV AE350 SOC RDS 软件：https://cdn.gowinsemi.com.cn/RiscV_AE350_SOC_RDS_V1.1_win.zip
-        - Andes-Development-Kit：https://github.com/andestech/Andes-Development-Kit
+    - Source Code Link: https://cdn.gowinsemi.com.cn/RiscV_AE350_SOC_V1.1.zip
+    - Reference Installation Document: https://cdn.gowinsemi.com.cn/MUG1029-1.1_Gowin_RiscV_AE350_SOC%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
+    - Reference Design Document: https://cdn.gowinsemi.com.cn/MUG1031-1.1_Gowin_RiscV_AE350_SOC%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
+    - Toolchain:
+        - Gowin Cloud Source Software: http://www.gowinsemi.com.cn/faq.aspx
+        - RiscV AE350 SOC RDS Software: https://cdn.gowinsemi.com.cn/RiscV_AE350_SOC_RDS_V1.1_win.zip
+        - Andes-Development-Kit: https://github.com/andestech/Andes-Development-Kit
 - FreeRTOS
-    - 源码链接：https://cdn.gowinsemi.com.cn/RiscV_AE350_SOC_V1.1.zip
-    - 参考安装文档：https://cdn.gowinsemi.com.cn/MUG1029-1.1_Gowin_RiscV_AE350_SOC%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
-    - 参考设计文档：https://cdn.gowinsemi.com.cn/MUG1031-1.1_Gowin_RiscV_AE350_SOC%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
-    - 工具链：
-        - 高云云源软件：http://www.gowinsemi.com.cn/faq.aspx
-        - RiscV AE350 SOC RDS 软件：https://cdn.gowinsemi.com.cn/RiscV_AE350_SOC_RDS_V1.1_win.zip
-        - Andes-Development-Kit：https://github.com/andestech/Andes-Development-Kit
+    - Source Code Link: https://cdn.gowinsemi.com.cn/RiscV_AE350_SOC_V1.1.zip
+    - Reference Installation Document: https://cdn.gowinsemi.com.cn/MUG1029-1.1_Gowin_RiscV_AE350_SOC%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
+    - Reference Design Document: https://cdn.gowinsemi.com.cn/MUG1031-1.1_Gowin_RiscV_AE350_SOC%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.pdf
+    - Toolchain:
+        - Gowin Cloud Source Software: http://www.gowinsemi.com.cn/faq.aspx
+        - RiscV AE350 SOC RDS Software: https://cdn.gowinsemi.com.cn/RiscV_AE350_SOC_RDS_V1.1_win.zip
+        - Andes-Development-Kit: https://github.com/andestech/Andes-Development-Kit
 
-### 硬件开发板信息
+### Hardware Information
 
 - Tang Mega 138K Pro Dock
 
-## 测试结果
+## Test Results
 
-| 软件分类                      | 软件包名 | 测试结果（测试报告）     |
-| ----------------------------- | -------- | --------------------- |
-| FreeRTOS 镜像构建及启动       | N/A      | [Basic][FreeRTOS]      |
-| RT-Thread nano 镜像构建及启动 | N/A      | [Basic][RT-Thread-nano]|
-| RT-Thread std 镜像构建及启动  | N/A      | [Basic][RT-Thread-std] |
-| Zephyr 镜像构建及启动         | N/A      | [CFH][Zephyr]          |
+| Software Category               | Package Name | Test Results (Test Report)   |
+| ------------------------------- | ------------ | --------------------------- |
+| FreeRTOS Image Build and Boot   | N/A          | [Basic][FreeRTOS]           |
+| RT-Thread nano Image Build and Boot | N/A      | [Basic][RT-Thread-nano]     |
+| RT-Thread std Image Build and Boot | N/A       | [Basic][RT-Thread-std]      |
+| Zephyr Image Build and Boot     | N/A          | [CFH][Zephyr]               |
 
 [FreeRTOS]: ./FreeRTOS/README.md
 [RT-Thread-std]: ./RT-Thread/README.md

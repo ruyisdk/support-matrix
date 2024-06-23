@@ -1,60 +1,60 @@
-# OpenWrt 23.05.2 DongshanPI-哪吒 STU 测试报告
+# OpenWrt 23.05.2 DongshanPI-Nezha STU Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 下载链接（OpenWrt Firmware Selector）：https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=dongshan_nezha_stu
-- 参考安装文档：https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1
+- Download Link (OpenWrt Firmware Selector): https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=dongshan_nezha_stu
+- Reference Installation Document: https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1
 
-> 在 OpenWrt Firmware Selector 中可以在线定制构建系统镜像，添加用户所需要的预装软件包。本次测试使用的为**未经修改**的原版镜像。
+> The OpenWrt Firmware Selector allows you to custom build a system image online with the pre-installed packages you need. For this test, we used the original image without any modifications.
 
-### 硬件信息
+### Hardware Information
 
-- DongshanPI-哪吒 STU 
-- USB-A 电源一个
-- USB-A to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
+- DongshanPI-Nezha STU
+- A USB-A power supply
+- A USB-A to C cable
+- A microSD card
+- A USB to UART debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three Dupont wires
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像到 microSD 卡
+### Flash Image to microSD Card
 
-使用 `dd` 刷入镜像到 microSD 卡。
+Use `dd` to flash the image to the microSD card.
 
 ```bash
 gzip -kd openwrt-d1-generic-dongshan_nezha_stu-ext4-sdcard.img.gz
 sudo dd if=openwrt-d1-generic-dongshan_nezha_stu-ext4-sdcard.img of=/dev/your/device bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login through the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+CFT
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing the image to system login):
 
 ```log
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
 CFT

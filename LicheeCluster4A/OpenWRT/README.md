@@ -18,7 +18,7 @@
 - DC 12V Power Supply
 - USB-A to A
     - or LPi4A Dock
-- One microSD card
+- A microSD card
 - Network and Ethernet cable (connect to BMC, not the switch)
 
 ## Installation Steps

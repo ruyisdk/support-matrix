@@ -1,29 +1,29 @@
-# Tina Linux DongshanPI-哪吒 STU 测试报告
+# Tina Linux DongshanPI-Nezha STU Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 下载链接：链接：https://pan.baidu.com/s/13uKlqDXImmMl9cgKc41tZg?pwd=qcw7 提取码：qcw7
-- 参考安装文档：https://d1.docs.aw-ol.com/study/study_1tina/
+- Download Link: [Link](https://pan.baidu.com/s/13uKlqDXImmMl9cgKc41tZg?pwd=qcw7) Password: qcw7
+- Reference Installation Document: [Link](https://d1.docs.aw-ol.com/study/study_1tina/)
 
-### 硬件信息
+### Hardware Information
 
-- DongshanPI-哪吒 STU
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
+- DongshanPI-Nezha STU
+- A microSD card
+- A USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
 
-## 安装步骤
+## Installation Steps
 
-### 编译 SDK
+### Compiling SDK
 
-下载完成后，可在 DongshanNezhaSTU-TinaV2.0-SDK 下找到 SDK。
-合并解压 SDK：
+After downloading, you can find the SDK under DongshanNezhaSTU-TinaV2.0-SDK.
+Merge and extract the SDK:
 ```bash
 cat tina-d1-h.tar.bz2.* | tar -zxv
 ```
 
-编译并打包：
+Compile and package:
 ```bash
 source build/envsetup.sh
 lunch
@@ -31,40 +31,38 @@ make -j$(nproc)
 pack
 ```
 
-### 烧写镜像
+### Flashing Image
 
-使用 dd 将镜像烧写到 SD 卡：
+Use `dd` to flash the image to the SD card:
 ```bash
 sudo dd if=tina_d1-h.img of=/dev/your/device bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Log into the system via the serial port.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+CFT
 
-### 启动信息
+### Boot Log
 
-
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (From flashing image to login):
 
 ```log
 ```
 
+## Test Criteria
 
-## 测试判定标准
+Successful: The actual result matches the expected result.
 
-测试成功：实际结果与预期结果相符。
+Failed: The actual result does not match the expected result.
 
-测试失败：实际结果与预期结果不符。
-
-## 测试结论
+## Test Conclusion
 
 CFT

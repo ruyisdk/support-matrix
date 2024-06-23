@@ -87,7 +87,7 @@ The system should boot up normally, allowing login via the onboard serial port.
 
 ## Actual Results
 
-The system booted up successfully and login via the onboard serial port was achieved.
+CFT
 
 ### Boot Log
 

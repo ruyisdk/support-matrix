@@ -1,4 +1,4 @@
-# Milk-V Duo S Test Report
+# Milk-V Duo S
 
 ## Test Environment
 

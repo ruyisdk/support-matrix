@@ -11,9 +11,9 @@
 ### Hardware Information
 
 - HiFive Unmatched Rev A
-- One microUSB cable (provided with HiFive Unmatched)
-- One ATX power supply
-- One 64GB Sandisk Extreme Pro microSD card (UHS-I)
+- A microUSB cable (provided with HiFive Unmatched)
+- An ATX power supply
+- A 64GB Sandisk Extreme Pro microSD card (UHS-I)
 
 ## Installation Steps
 

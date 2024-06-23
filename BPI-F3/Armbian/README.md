@@ -5,7 +5,7 @@
 ### System Information
 
 - Download Links:
-  - Baidu Pan: https://pan.baidu.com/s/1VIp3bwbDjMairyXXMZwNkQ?pwd=8888
+  - Baidu Netdisk: https://pan.baidu.com/s/1VIp3bwbDjMairyXXMZwNkQ?pwd=8888
   - Google Drive: https://drive.google.com/drive/folders/1Y5iKY55hFEO2z0sEeG_KC5EInD6nVDft?usp=sharing
 - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 
@@ -13,8 +13,8 @@
 
 - Banana Pi BPI-F3
 - Power Adapter
-- One microSD Card
-- One USB to UART Debugger
+- A microSD Card
+- A USB to UART Debugger
 
 ## Installation Steps
 

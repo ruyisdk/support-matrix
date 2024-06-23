@@ -11,8 +11,8 @@
 ### Hardware Information
 
 - HiFive Unmatched Rev A
-- One microUSB cable (included with the HiFive Unmatched)
-- One ATX power supply
+- A microUSB cable (included with the HiFive Unmatched)
+- An ATX power supply
 
 > If you are not using Arch but another distribution, please refer to the Zephyr [official documentation](https://docs.zephyrproject.org/latest/develop/getting_started/index.html) for setting up the environment.
 
@@ -90,7 +90,7 @@ Hello World! hifive_unmatched
 
 ![alt text](image.png)
 
-## Reference Documents / Credits
+## Reference Installation Document / Credits
 
 - [Zephyr on HiFive Unmatched](https://github.com/KevinMX/PLCT-Tarsier-Works/blob/main/misc/month10/Zephyr_Unmatched.md)
 - [SiFive HiFive Unmatched - Zephyr Project](https://docs.zephyrproject.org/latest/boards/riscv/hifive_unmatched/doc/index.html)

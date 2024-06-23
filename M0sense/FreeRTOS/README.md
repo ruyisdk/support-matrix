@@ -12,7 +12,7 @@
 ### Hardware Information
 
 - Sipeed M0sense (BL702)
-- One USB A to C or C to C cable
+- A USB A to C or C to C cable
 
 ## Installation Steps
 

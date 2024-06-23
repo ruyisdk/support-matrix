@@ -11,7 +11,7 @@
 ### Hardware Information
 
 - Milk-V Pioneer Box v1.1
-- One microSD card
+- A microSD card
 - HDMI cable + monitor
 
 ## Installation Steps

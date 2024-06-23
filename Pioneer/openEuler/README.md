@@ -11,8 +11,8 @@
 ### Hardware Information
 
 - Milk-V Pioneer Box v1.3
-- One microSD card (or NVMe SSD + NVMe SSD to USB hard drive enclosure)
-- One USB Type-C cable (used to connect the onboard serial port)
+- A microSD card (or NVMe SSD + NVMe SSD to USB hard drive enclosure)
+- A USB Type-C cable (used to connect the onboard serial port)
 
 ## Installation Steps
 

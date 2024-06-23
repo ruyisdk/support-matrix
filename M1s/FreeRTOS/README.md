@@ -13,7 +13,7 @@
 ### Hardware Information
 
 - Sipeed M1s Dock
-- One Type-C cable
+- A Type-C cable
 
 ## Installation Steps
 

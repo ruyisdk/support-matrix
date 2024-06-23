@@ -12,10 +12,10 @@
 ### Hardware Information
 
 - Milk-V Mars
-- One USB to UART Debugger
+- A USB to UART Debugger
 - Three Dupont Wires
-- One USB A to C or C to C Cable
-- One USB Power Supply
+- A USB A to C or C to C Cable
+- A USB Power Supply
 - Wired Network Connection
 
 ## Installation Steps

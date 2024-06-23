@@ -95,5 +95,3 @@ Failed: The actual result does not match the expected result.
 ## Test Conclusion
 
 Test successful.
-
-> This doc was automatically translated by GPT and has not been proofread yet. Please give us feedback in issue if any omissions.

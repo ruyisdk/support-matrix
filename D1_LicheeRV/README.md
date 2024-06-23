@@ -1,4 +1,4 @@
-# LicheeRV / AWOL Nezha D1 Test Report
+# LicheeRV / AWOL Nezha D1
 
 ## Test Environment
 

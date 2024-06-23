@@ -12,7 +12,7 @@
 ### Hardware Information
 
 - Sipeed M1s Dock
-- One type-c cable
+- A Type-C cable
 
 ## Installation Steps
 
@@ -27,7 +27,7 @@ unzip m1sdock_linux_20221116.zip
 
 ### Flashing the Program via Serial Port
 
-Connect the computer and the **UART-labeled** C port using the type-c cable.
+Connect the computer and the **UART-labeled** C port using the Type-C cable.
 
 Download the flashing tool and use the appropriate version for your system to flash the firmware.
 
@@ -43,7 +43,7 @@ Next, enter the IOT page, check the Single Download Options box, fill in the sta
 
 ### Connecting via Serial Port
 
-Connect the type-c cable to the **UART-labeled** C port.
+Connect the Type-C cable to the **UART-labeled** C port.
 
 ## Expected Results
 

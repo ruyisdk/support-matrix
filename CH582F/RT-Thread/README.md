@@ -14,7 +14,7 @@
 
 - CH582F-EVT-R2-1v0-BC
 - 1 USB to UART debugger
-- 1 USB type-c cable
+- 1 USB Type-C cable
 
 ## Installation Steps
 
@@ -75,7 +75,7 @@ pio run
 
 ### Flashing Image
 
-Connect the development board to the computer using the type-c cable, press and hold the boot button, then quickly run:
+Connect the development board to the computer using the Type-C cable, press and hold the boot button, then quickly run:
 ```bash
 pio run -e your_board --target upload
 ```

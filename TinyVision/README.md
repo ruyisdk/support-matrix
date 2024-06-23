@@ -1,24 +1,24 @@
 # TinyVision
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
 - Melis
-    - SDK 链接：
-        - BaiduYun: 链接：https://pan.baidu.com/s/1oIqGjCCtvUe0_k_kgXkusw?pwd=0kdr 提取码：0kdr
-    - 参考文档：
-        - https://dongshanpi.100ask.net/docs/TinyVision/part3/TinaSDK_DevelopmentGuide
-        - https://tina.100ask.net/SdkModule/Linux_E907_DevelopmentGuide-01/
+    - SDK Link:
+        - Baidu Netdisk: [Link](https://pan.baidu.com/s/1oIqGjCCtvUe0_k_kgXkusw?pwd=0kdr) Code: 0kdr
+    - Reference Installation Documents:
+        - [TinaSDK Development Guide](https://dongshanpi.100ask.net/docs/TinyVision/part3/TinaSDK_DevelopmentGuide)
+        - [Linux_E907_DevelopmentGuide-01](https://tina.100ask.net/SdkModule/Linux_E907_DevelopmentGuide-01/)
 
-### 硬件开发板信息
+### Hardware Information
 
-- TinyVision 开发板
+- TinyVision Development Board
 
-## 测试结果
+## Test Results
 
-| 软件分类      | 软件包名      | 测试结果（测试报告） |
-|--------------|-------------|------------------|
-| Melis        | N/A         | [CFT][Melis]    |
+| Software Category | Package Name | Test Result (Test Report) |
+|-------------------|--------------|---------------------------|
+| Melis             | N/A          | [CFT][Melis]              |
 
 [Melis]: ./Melis/README.md
