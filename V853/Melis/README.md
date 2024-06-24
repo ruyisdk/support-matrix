@@ -1,37 +1,36 @@
-# Melis 全志 V853 开发板 测试报告
+# Melis Allwinner V853 Development Board Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 镜像链接：https://bbs.aw-ol.com/assets/uploads/files/1657169725953-e6e69a0f-5837-4840-99fe-8bc62c7abbf2-tina_v853-vision_uart0.img
-- 参考文档：https://v853.docs.aw-ol.com/
+- Image Link: https://bbs.aw-ol.com/assets/uploads/files/1657169725953-e6e69a0f-5837-4840-99fe-8bc62c7abbf2-tina_v853-vision_uart0.img
+- Reference Installation Documentation: https://v853.docs.aw-ol.com/
 
-### 硬件信息
+### Hardware Information
 
-- 全志 V853 开发板
+- Allwinner V853 Development Board
 
+## Installation Steps
 
-## 安装步骤
+### Flashing the Image (SD Card)
 
-### 刷写镜像（sd 卡）
-
-将镜像刷写到 sd 卡：
+Flash the image to the SD card:
 ```shell
 dd if=1657169725953-e6e69a0f-5837-4840-99fe-8bc62c7abbf2-tina_v853-vision_uart0.img of=/dev/your/device bs=1M status=progress
 ```
 
-将卡插入到设备启动。
+Insert the card into the device to boot.
 
-### 刷写镜像（板载 EMMC）
+### Flashing the Image (Onboard eMMC)
 
-使用 LiveSuit 软件，选择镜像后，连接开发板刷写。
+Use LiveSuit software, select the image, then connect the development board to flash it.
 
-LiveSuit 获取见：https://linux-sunxi.org/LiveSuit
+For more information on LiveSuit, visit: https://linux-sunxi.org/LiveSuit
 
 #### LiveSuit
 
-下载并构建：
+Download and build:
 ```bash
 git clone https://github.com/linux-sunxi/sunxi-livesuite.git
 apt-get install dkms
@@ -46,36 +45,36 @@ KERNEL=="aw_efex[0-9]*", MODE="0666"
 udevadm control --reload-rules
 ```
 
-运行：
+Run:
 ```bash
 ./LiveSuit.sh
 ```
 
-### 登录系统
+### Logging into the System
 
-连接 UART3 查看串口输出。
+Connect to UART3 to view serial output.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口查看输出。
+The system should boot normally, and the output viewable via the serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过串口查看输出。
+CFT
 
-### 启动信息
+### Boot Log
 
-屏幕录像：
+Screen recording:
 
 ```log
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
 CFT

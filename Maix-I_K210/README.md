@@ -1,27 +1,27 @@
 # Sipeed Maix-I
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
 - FreeRTOS (Kendryte K210 FreeRTOS SDK)
-    - 源码链接：https://github.com/kendryte/kendryte-freertos-sdk
-    - 参考安装文档：https://github.com/kendryte/kendryte-freertos-sdk
+    - Source Code: https://github.com/kendryte/kendryte-freertos-sdk
+    - Reference Installation Document: https://github.com/kendryte/kendryte-freertos-sdk
 - RT-Thread
-    - 源码链接：https://github.com/RT-Thread/rt-thread/
-    - 参考安装文档：https://github.com/RT-Thread/rt-thread/tree/master/bsp/k210
+    - Source Code: https://github.com/RT-Thread/rt-thread/
+    - Reference Installation Document: https://github.com/RT-Thread/rt-thread/tree/master/bsp/k210
 
-### 硬件开发板信息
+### Hardware Information
 
 - Sipeed Maix-Bit
 
-## 测试结果
+## Test Results
 
-| 软件分类      | 软件包名    | 测试结果（测试报告） |
-|--------------|-------------|------------------|
-| FreeRTOS 编译 | hello_world | [成功][FreeRTOS]   |
-| RT-Thread    | N/A         | [成功][RTThread]   |
-| NuttX        | nsh         | [成功][NuttX]      |
+| Software Category    | Package Name | Test Result (Test Report) |
+| -------------------- | ------------ | ------------------------- |
+| FreeRTOS Compilation | hello_world  | [Successful][FreeRTOS]    |
+| RT-Thread            | N/A          | [Successful][RTThread]    |
+| NuttX                | nsh          | [Successful][NuttX]       |
 
 [FreeRTOS]: ./FreeRTOS/README.md
 [RTThread]: ./RT-Thread/README.md

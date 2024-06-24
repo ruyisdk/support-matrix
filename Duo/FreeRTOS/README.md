@@ -1,32 +1,31 @@
-# BuildRoot Milk-V Duo 测试报告
+# BuildRoot Milk-V Duo Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 构建系统：Ubuntu 22.04.3 LTS x86_64
-- 系统版本：Duo-V1.0.9
-- 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk/releases
-- 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk
-    - FreeRTOS: https://milkv.io/zh/docs/duo/getting-started/rtoscore
+- Build System: Ubuntu 22.04.3 LTS x86_64
+- System Version: Duo-V1.0.9
+- Download Link: [Duo-Buildroot-SDK Releases](https://github.com/milkv-duo/duo-buildroot-sdk/releases)
+- Reference Installation Document: [Duo-Buildroot-SDK](https://github.com/milkv-duo/duo-buildroot-sdk)
+    - FreeRTOS: [FreeRTOS Core](https://milkv.io/zh/docs/duo/getting-started/rtoscore)
 
-### 硬件信息
+### Hardware Information
 
 - Milk-V Duo 64M
-- USB 电源适配器一个
-- USB-A to C 或 USB C to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
-- Milk-V Duo 本体上预先焊接好调试所需的排针
-- 可选：Milk-V Duo IOB（底板）
+- A USB Power Adapter
+- A USB-A to C or USB C to C Cable
+- A microSD Card
+- A USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three Jumper Wires
+- Milk-V Duo pre-soldered with necessary pins for debugging
+- Optional: Milk-V Duo IOB (Baseboard)
 
-## 安装步骤
+## Installation Steps
 
+### Building the mailbox-test Binary
 
-### 构建 mailbox-test 二进制
-
-拉取 duo-examples 仓到本地并构建。
+Clone the duo-examples repository locally and build the binary.
 
 ```shell
 sudo apt install -y wget git make
@@ -36,22 +35,22 @@ source envsetup.sh
 cd mailbox-test
 make
 ```
-#### 将构建出的二进制打包进镜像
+#### Packaging the Binary into the Image
 
-首先，查询当前可用的 loop 设备：
+First, check available loop devices:
 
 ```shell
 sudo losetup -f
 ```
 
-此处输出：
+Sample Output:
 
 ```shell
 $ sudo losetup -f
 /dev/loop16
 ```
 
-接下来将下载好的镜像挂载，并将刚刚编译好的二进制复制进镜像：
+Next, mount the downloaded image and copy the recently compiled binary into it:
 
 ```shell
 sudo losetup /dev/loop16 milkv-duo-v1.0.9-2024-0226.img
@@ -63,29 +62,29 @@ sudo kpartx -d /dev/loop1
 sudo losetup -d /dev/loop16 
 ```
 
-接下来刷入修改后的镜像：
+Then, flash the modified image:
 
 ```shell
 sudo dd if=milkv-duo-v1.0.9-2024-0226.img of=/dev/sdc bs=4M status=progress oflag=direct
 ```
 
-至此，存储卡准备完成。插入开发板，准备启动。
+At this stage, the storage card is prepared. Insert it into the development board and get ready to boot.
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，通过板载串口登录后运行 `mailbox_test` 二进制，板载蓝色 LED 灯先亮后灭。
+The system should boot normally. After logging in through the onboard serial port, the `mailbox_test` binary should run, causing the onboard blue LED to turn on and then off.
 
-（待机状态为蓝色 LED 闪烁）
+(In standby mode, the blue LED should blink)
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录，`mailbox_test` 运行正常，板载 LED 先亮后灭。
+The system booted successfully, logging in through the onboard serial port was successful, and the `mailbox_test` ran correctly with the onboard LED turning on and then off.
 
-### 启动信息
+### Boot Log
 
 ```log
 [    7.841103] sync_task_init:177(): sync_task_init vi_pipe 1
@@ -117,16 +116,16 @@ C906B: cmd.param_ptr = 0x3
 [root@milkv-duo]~#
 ```
 
-屏幕录像：
+Screen recording:
 
 [![asciicast](https://asciinema.org/a/IANV6OK3PCAMO3L7hcx11ngck.svg)](https://asciinema.org/a/IANV6OK3PCAMO3L7hcx11ngck)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

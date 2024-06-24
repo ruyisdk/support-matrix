@@ -1,55 +1,54 @@
-# Bianbu 香蕉派 BPI-F3 测试报告
+# Bianbu Banana Pi BPI-F3 Test Report
 
-## 测试环境
+## Test Environment
 
-### 系统信息
+### System Information
 
-- 下载链接：
-  - 百度网盘：https://pan.baidu.com/s/15owwUEjIU_i26cI1iigAew?pwd=8888 (pincode: 8888)
-  - 谷歌网盘：https://drive.google.com/drive/folders/1LQoioz6N5YQpSOxY47OmetnPX4yggtT0?usp=sharing
-- 下载链接 (桌面版)：
-  - 百度网盘：https://pan.baidu.com/s/1zvFkX92f5gpZdKjP-vGJvA?pwd=8888 (pincode: 8888)
-  - 谷歌网盘：https://drive.google.com/drive/folders/1kCHiMwjnhvZaRBy5vkj6UlPeAlpRQ14P?usp=sharing
-- 参考安装文档：https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
+- Download Links:
+  - Baidu Netdisk: https://pan.baidu.com/s/15owwUEjIU_i26cI1iigAew?pwd=8888 (pincode: 8888)
+  - Google Drive: https://drive.google.com/drive/folders/1LQoioz6N5YQpSOxY47OmetnPX4yggtT0?usp=sharing
+- Download Links (Desktop Version):
+  - Baidu Netdisk: https://pan.baidu.com/s/1zvFkX92f5gpZdKjP-vGJvA?pwd=8888 (pincode: 8888)
+  - Google Drive: https://drive.google.com/drive/folders/1kCHiMwjnhvZaRBy5vkj6UlPeAlpRQ14P?usp=sharing
+- Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 
-### 硬件信息
+### Hardware Information
 
-- 香蕉派 BPI-F3
-- 电源适配器
-- microSD 卡一张
-- USB to UART 调试器一个
+- Banana Pi BPI-F3
+- Power Adapter
+- A microSD Card
+- A USB to UART Debugger
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像（sd 卡）
+### Flashing the Image (SD Card)
 
-
-**请务必选择以 `.img.zip` 结尾的压缩包**
-下载并解压镜像后，使用 `dd` 将镜像写入 microSD 卡。
+**Please make sure to choose the file ending with `.img.zip`**
+After downloading and extracting the image, use `dd` to flash the image to the microSD card.
 
 ```bash
 unzip Bianbu-23.10-desktop-k1-v1.0rc1-release-20240429194149.img
 sudo dd if=/path/to/Bianbu-23.10-desktop-k1-v1.0rc1-release-20240429194149.img of=/dev/your-device bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-默认用户名： `root`
-默认密码： `bianbu`
+Default Username: `root`
+Default Password: `bianbu`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully and login via the onboard serial port was also successful.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing image to login):
 [![asciicast](https://asciinema.org/a/TFRjqFjOEIHc38Wha93bw0ti8.svg)](https://asciinema.org/a/TFRjqFjOEIHc38Wha93bw0ti8)
 
 ```log
@@ -91,12 +90,12 @@ root@k1:~#
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-成功
+Test successful.

@@ -1,74 +1,74 @@
-# FreeRTOS CH32V103C 官方示例 测试报告
+# FreeRTOS CH32V103C Official Example Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 源码链接：https://www.wch.cn/downloads/CH32V103EVT_ZIP.html
-- 参考文档：官方文档位于压缩包内
-    - PlatformIO 提供文档：https://github.com/Community-PIO-CH32V/platform-ch32v
-- 工具链：http://mounriver.com/download
-    - WCH-Link 工具链：https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html
+- Source Code Link: [CH32V103EVT_ZIP](https://www.wch.cn/downloads/CH32V103EVT_ZIP.html)
+- Reference Installation Document: Official documentation is located inside the compressed package
+    - PlatformIO Documentation: [Community-PIO-CH32V](https://github.com/Community-PIO-CH32V/platform-ch32v)
+- Toolchain: [Mounriver Toolchain Download](http://mounriver.com/download)
+    - WCH-Link Toolchain: [WCH-Link Utility ZIP](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html)
 
-### 硬件信息
+### Hardware Information
 
 - CH32V103C8T6-EVT-R1
-- USB to UART 调试器一个
-- WCH-Link(E) 一个
+- A USB to UART Debugger
+- A WCH-Link(E)
 
-## 安装步骤
+## Installation Steps
 
-### 准备构建环境
+### Prepare Build Environment
 
-将源码与工具链解压后放到工作区中。
+Extract the source code and toolchain into the working directory.
 
-由于官方示例不带有 Makefile 或任何构建脚本，而是采用官方 IDE 进行构建，若要直接使用工具链，请下载这个改好的 [Makefile](./Makefile)，并放到源码文件夹下 `EVB/EXAM/FreeRTOS/FreeRTOS` 下。
+Since the official example does not come with a Makefile or any build scripts but uses the official IDE for building, if you want to use the toolchain directly, download this modified [Makefile](./Makefile) and place it in the source code folder under `EVB/EXAM/FreeRTOS/FreeRTOS`.
 
-将刚才获取的 Makefile 中的工具链路径进行修改，即替换 `TOOL_CHAIN_PATH` 和 `OPENOCD_PATH` 中的内容。
+Modify the toolchain paths in the obtained Makefile by replacing the content in `TOOL_CHAIN_PATH` and `OPENOCD_PATH`.
 
-接下来进行 `make prepare` 来复制一些必要的代码。
+Proceed with `make prepare` to copy necessary code.
 
-### 构建镜像
+### Build Image
 
-若 Makefile 配置正确，应当运行 `make` 后即可自动构建。
+If the Makefile is configured correctly, executing `make` should automatically build the image.
 
-#### 可能出现的问题
+#### Possible Issues
 
-- 找不到符号 `__freertos_irq_stack_top`：
-    - 将 ../FreeRTOS.bak/Ld 中的链接脚本手动复制到当前目录
+- Symbol `__freertos_irq_stack_top` not found:
+    - Manually copy the link script from ../FreeRTOS.bak/Ld to the current directory.
 
-### 刷写镜像
+### Flashing Image
 
-若配置正确，应当运行 `make flash` 后即可自动刷写。
+If the configuration is correct, executing `make flash` should automatically flash the image.
 
-#### 常见问题
+#### Common Issues
 
 - Error: error writing to flash at address 0x00000000 at offset 0x00000000
-    - 这是由于 WCH-Link 固件版本过低造成的。（见[important-notices](https://github.com/Community-PIO-CH32V/platform-ch32v?tab=readme-ov-file#important-notices)）。
-    - 请使用[WCH-Link 工具链](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html)连接一次 W2 有 CH-Link 即可自动更新。**该工具目前仅有 Windows 版本**
+    - This is due to a low firmware version of WCH-Link. (Refer to [important-notices](https://github.com/Community-PIO-CH32V/platform-ch32v?tab=readme-ov-file#important-notices)).
+    - Use the [WCH-Link Toolchain](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html) to connect to W2 once with CH-Link for automatic update. **This tool is currently available only for Windows**.
 - Error: Read-Protect Status Currently Enabled
-    - 这是由于芯片开启了写保护导致的。Winodws 下我们可以使用 [WCH-Link 工具链](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html)解保护，Linux 下可以使用 OpenOCD 解保护：
+    - This is caused by write protection enabled on the chip. On Windows, we can use the [WCH-Link Toolchain](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html) to disable protection. On Linux, we can use OpenOCD:
 ```bash
 cd path/to/openocd/bin
 ./openocd -f wch-riscv.cfg -c init -c halt -c "flash protect wch_riscv 0 last  off " -c exit
-cd - # 别忘了回到工作目录
+cd -
 ```
 
-### 登录系统
+### System Login
 
-通过串口连接开发板。
+Connect to the development board via serial port.
 
-## 预期结果
+## Expected Results
 
-构建成功，开发板正常输出 OS 信息。
+Successful build with the development board displaying OS information correctly.
 
-## 实际结果
+## Actual Results
 
-构建成功，开发板正常输出 OS 信息。
+Successful build with the development board correctly displaying OS information.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写系统到启动）：
+Screen recording (from system flashing to start):
 [![asciicast](https://asciinema.org/a/uml0eDGjJXKoaFuPn2K1D2WSv.svg)](https://asciinema.org/a/uml0eDGjJXKoaFuPn2K1D2WSv)
 
 ```log
@@ -77,12 +77,13 @@ ChipID:2500410f
 FreeRTOS Kernel Version:V10.4.6
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功
+Test successful.
+

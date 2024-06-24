@@ -1,23 +1,23 @@
-# Tina Linux D1s NeZha 测试报告
+# Tina Linux D1s NeZha Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 链接：https://pan.baidu.com/s/1v55AKMFripaEu22tJ92lmw?pwd=awol 提取码：awol
-- 参考安装文档：https://d1s.docs.aw-ol.com/study/study_1tina/
+- Link: https://pan.baidu.com/s/1v55AKMFripaEu22tJ92lmw?pwd=awol (Password: awol)
+- Reference Installation Document: https://d1s.docs.aw-ol.com/study/study_1tina/
 
-### 硬件信息
+### Hardware Information
 
 - D1s NeZha
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
+- A microSD card
+- A USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
 
-## 安装步骤
+## Installation Steps
 
-### 打包镜像
+### Packaging the Image
 
-下载并解压后，准备编译 SDK：
+After downloading and extracting, prepare to compile the SDK:
 ```bash
 source build/envsetup.sh
 lunch
@@ -25,15 +25,15 @@ make -j$(nproc)
 pack
 ```
 
-### 烧写镜像
+### Flashing the Image
 
-使用 LiveSuit 软件，选择镜像后，连接开发板刷写。
+Using the LiveSuit software, select the image and connect the development board to flash it.
 
-LiveSuit 获取见：https://linux-sunxi.org/LiveSuit
+For LiveSuit download, see: https://linux-sunxi.org/LiveSuit
 
 #### LiveSuit
 
-下载并构建：
+Download and build:
 ```bash
 git clone https://github.com/linux-sunxi/sunxi-livesuite.git
 apt-get install dkms
@@ -48,38 +48,35 @@ KERNEL=="aw_efex[0-9]*", MODE="0666"
 udevadm control --reload-rules
 ```
 
-运行：
+Run:
 ```bash
 ./LiveSuit.sh
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Login to the system via the serial port.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+CFT
 
-### 启动信息
+### Boot Log
 
-
-屏幕录像（从刷写镜像到登录系统）：
-
+Screen recording (From flashing image to login):
 ```log
 ```
 
+## Test Criteria
 
-## 测试判定标准
+Successful: The actual result matches the expected result.
 
-测试成功：实际结果与预期结果相符。
+Failed: The actual result does not match the expected result.
 
-测试失败：实际结果与预期结果不符。
-
-## 测试结论
+## Test Conclusion
 
 CFT

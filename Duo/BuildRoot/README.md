@@ -1,42 +1,42 @@
-# BuildRoot Milk-V Duo 测试报告
+# BuildRoot Milk-V Duo Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：Duo-V1.0.7
-- 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk/releases
-- 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk
+- System Version: Duo-V1.0.7
+- Download Link: https://github.com/milkv-duo/duo-buildroot-sdk/releases
+- Reference Installation Document: https://github.com/milkv-duo/duo-buildroot-sdk
 
-### 硬件信息
+### Hardware Information
 
 - Milk-V Duo 64M
-- USB 电源适配器一个
-- USB-A to C 或 USB C to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
-- Milk-V Duo 本体上预先焊接好调试所需的排针
+- A USB power adapter
+- A USB-A to C or USB C to C cable
+- A microSD card
+- A USB to UART debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three Dupont wires
+- Pins pre-soldered on the Milk-V Duo for debugging
 
-## 安装步骤
+## Installation Steps
 
-### 使用 `ruyi` CLI 刷写镜像到 microSD 卡
+### Using `ruyi` CLI to Flash the Image to the microSD Card
 
-安装 [`ruyi`](https://github.com/ruyisdk/ruyi) 包管理器，运行 `ruyi device provision` 并按提示操作。
+Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the prompts.
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system boots up normally and allows login through the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully and login via the onboard serial port was also successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 [root@milkv-duo]~# uname -a                                                                                                                                             
@@ -50,16 +50,16 @@ mmu             : sv39
 [root@milkv-duo]~# 
 ```
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing the image to system login):
 
 [![asciicast](https://asciinema.org/a/rsenSOJwdlmUXcJ8sQwubPgtr.svg)](https://asciinema.org/a/rsenSOJwdlmUXcJ8sQwubPgtr)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

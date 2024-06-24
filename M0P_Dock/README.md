@@ -1,19 +1,20 @@
 # Sipeed M0P Dock
-## 测试环境
 
-### 操作系统信息
+## Test Environment
+
+### Operating System Information
 
 - FreeRTOS Demo
-- 源码链接：https://github.com/sipeed/M0P_BL618_examples
+- Source Code: https://github.com/sipeed/M0P_BL618_examples
 
-### 硬件开发板信息
+### Hardware Information
 
 - Sipeed Maix M0P Dock
 
-## 测试结果
+## Test Results
 
-| 软件分类      | 软件包名    | 测试结果（测试报告） |
-|-------------|-------------|------------------|
-| FreeRTOS Demo | wifi_screen | [成功][FreeRTOS]   |
+| Software Category | Software Package | Test Results (Test Report) |
+|-------------------|------------------|----------------------------|
+| FreeRTOS Demo     | wifi_screen      | [Successful][FreeRTOS]     |
 
 [FreeRTOS]: ./FreeRTOS/README.md

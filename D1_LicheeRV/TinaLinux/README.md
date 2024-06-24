@@ -1,47 +1,47 @@
-# Tina Linux D1 测试报告
+# Tina Linux D1 Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：D1-H 哪吒 HDMI 测试固件 20210804
-- 下载链接：
+- System Version: D1-H Nezha HDMI Test Firmware 20210804
+- Download Link:
     - Nezha D1: https://d1.docs.aw-ol.com/source/3_getimg/
-- 参考安装文档：
+- Reference Installation Document:
     - Nezha D1: https://d1.docs.aw-ol.com/study/study_1tina/
 
-### 硬件信息
+### Hardware Information
 
 - AWOL Nezha D1
-- USB-A 电源一个
-- USB-A to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
+- USB-A power adapter
+- A USB-A to C cable
+- A microSD card
+- A USB to UART debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three Dupont wires
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像到 microSD 卡
+### Flashing Image to microSD Card
 
-使用 `dd` 刷入镜像到 microSD 卡。
+Use `dd` to flash the image to the microSD card.
 
 ```bash
 sudo dd if=D1-H哪吒HDMI测试固件20210804（开机HDMI就有小企鹅启动logo）.img of=/dev/sdc status=progress 
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Log into the system via the serial port.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully and login via the onboard serial port was also successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 BusyBox v1.27.2 () built-in shell (ash)                                                                               
@@ -65,16 +65,15 @@ Linux TinaLinux 5.4.61 #49 PREEMPT Wed Apr 28 09:23:43 UTC 2021 riscv64 GNU/Linu
 root@TinaLinux:/#
 ```
 
-屏幕录像（从刷写镜像到登录系统）：
-
+Screen recording (From flashing image to login):
 [![asciicast](https://asciinema.org/a/WSlC5RUcJFYH6hZnjxZYwqPtk.svg)](https://asciinema.org/a/WSlC5RUcJFYH6hZnjxZYwqPtk)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

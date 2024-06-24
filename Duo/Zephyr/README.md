@@ -1,30 +1,30 @@
-# Zephyr MilkV Duo 测试报告
+# Zephyr MilkV Duo Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 源码链接：https://github.com/zephyrproject-rtos/zephyr/tree/main
-- 参考文档：
+- Source code link: https://github.com/zephyrproject-rtos/zephyr/tree/main
+- Reference Installation Document:
     - https://docs.zephyrproject.org/latest/develop/getting_started/index.html
     - https://github.com/milkv-duo/duo-buildroot-sdk
 
-### 硬件信息
+### Hardware Information
 
 - MilkV Duo
-- USB to UART 调试器一个
-- SD 卡
+- A USB to UART debugger
+- SD card
 
-## 安装步骤
+## Installation Steps
 
-### 创建并编译 BuildRoot
+### Create and Compile BuildRoot
 
-根据官方教程，获取源码：
+Follow the official tutorial to fetch the source code:
 ```bash
 git clone https://github.com/milkv-duo/duo-buildroot-sdk.git --depth=1
 ```
 
-修改 `build/boards/cv180x/cv1800b_milkv_duo_sd/u-boot/cvi_board_init.c` 以去除预映射的引脚：
+Modify `build/boards/cv180x/cv1800b_milkv_duo_sd/u-boot/cvi_board_init.c` to remove pre-mapped pins:
 ```diff
 diff --git a/build/boards/cv180x/cv1800b_milkv_duo_sd/u-boot/cvi_board_init.c b/build/boards/cv180x/cv1800b_milkv_duo_sd/u-boot/cvi_board_init.c
 index 74941cb09..cd1fd6c1d 100644
@@ -81,22 +81,20 @@ index 74941cb09..cd1fd6c1d 100644
 
 ```
 
-
-
-然后使用 docker 进行编译：
+Then use Docker for compilation:
 ```bash
 cd duo-buildroot-sdk
 docker exec -it duodocker /bin/bash -c "cd /home/work && cat /etc/issue && ./build.sh milkv-duo"
 ```
 
-而后将源码烧写到 SD 卡中：
+Next, flash the source code to the SD card:
 ```bash 
 sudo dd if=out/milkv-duo-yyyymmdd-hhmm.img of=/dev/your/device bs=1M status=progress
 ```
 
-### 安装 Zephyr
+### Install Zephyr
 
-创建虚拟环境：
+Create a virtual environment:
 
 ```bash
 python3 -m venv ~/zephyrproject/.venv
@@ -104,29 +102,29 @@ source ~/zephyrproject/.venv/bin/activate
 pip install west
 ```
 
-注：当前还未合入主线，获取 Zephyr 时需要使用特定仓库：
+Note: Since the changes are not yet merged into the mainline, use the specific repository when fetching Zephyr:
 ```bash
 west init ~/zephyrproject -m https://github.com/plctlab/rvspoc-p2307-zephyr.git
 cd ~/zephyrproject
 west update
 ```
 
-配置环境：
+Configure the environment:
 ```bash
 west zephyr-export
 pip install -r ~/zephyrproject/zephyr/scripts/requirements.txt
 ```
 
-### 编译代码
+### Code Compliation
 
-使用 west 编译代码：
+Compile the code using west:
 ```bash
 west build -p always -b milkv_duo samples/hello_world
 ```
 
-### 合并 fip.bin
+### Merge fip.bin
 
-挂载刷写好 BuildRoot 镜像的 SD 卡，合并 fip：
+Mount the SD card with the BuildRoot image flashed and merge fip:
 ```bash
 sudo ./fsbl/plat/cv180x/fiptool.py -v genfip \
  './fsbl/build/cv1800b_milkv_duo_sd/fip.bin' \
@@ -146,26 +144,26 @@ sudo ./fsbl/plat/cv180x/fiptool.py -v genfip \
   --compress='lzma'
 ```
 
-复制到 SD 卡中：
+Copy to the SD card:
 ```bash
 sudo cp ./fsbl/build/cv1800b_milkv_duo_sd/fip.bin /path/to/sdcard
 ```
 
-### 连接串口
+### Connect Serial Port
 
-Zephyr 所在的小核使用了 UART1 (GP1: TX, GP2: RX, GP3: GND)
+The core used by Zephyr utilizes UART1 (GP1: TX, GP2: RX, GP3: GND)
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口查看信息。
+The system boots up normally, and information can be viewed through the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，能够通过板载串口查看信息。
+The system booted successfully, and information could be viewed through the onboard serial port.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从编译到启动）：
+Screen recording (from compilation to startup):
 [![asciicast](https://asciinema.org/a/7ax1STNgh7W6wKFH9mMKLfiHV.svg)](https://asciinema.org/a/7ax1STNgh7W6wKFH9mMKLfiHV)
 
 ```log
@@ -174,12 +172,13 @@ Hello World! milkv_duo/cv1800b
 Hello World! milkv_duo/cv1800b
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功
+Test successful.
+

@@ -1,49 +1,49 @@
-# Armbian 香蕉派 BPI-F3 测试报告
+# Armbian Banana Pi BPI-F3 Test Report
 
-## 测试环境
+## Test Environment
 
-### 系统信息
+### System Information
 
-- 下载链接：
-  - 百度网盘：https://pan.baidu.com/s/1VIp3bwbDjMairyXXMZwNkQ?pwd=8888
-  - 谷歌网盘：https://drive.google.com/drive/folders/1Y5iKY55hFEO2z0sEeG_KC5EInD6nVDft?usp=sharing
-- 参考安装文档：https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
+- Download Links:
+  - Baidu Netdisk: https://pan.baidu.com/s/1VIp3bwbDjMairyXXMZwNkQ?pwd=8888
+  - Google Drive: https://drive.google.com/drive/folders/1Y5iKY55hFEO2z0sEeG_KC5EInD6nVDft?usp=sharing
+- Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 
-### 硬件信息
+### Hardware Information
 
-- 香蕉派 BPI-F3
-- 电源适配器
-- microSD 卡一张
-- USB to UART 调试器一个
+- Banana Pi BPI-F3
+- Power Adapter
+- A microSD Card
+- A USB to UART Debugger
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像（sd 卡）
+### Flashing the Image (SD Card)
 
-下载并解压镜像后，使用 `dd` 将镜像写入 microSD 卡。
+After downloading and extracting the image, use `dd` to flash the image to the microSD card.
 
 ```bash
 xz -kd Armbian-bpi-SpacemiT_24.5.0-trunk_Bananapif3_noble_legacy_6.1.15_xfce_desktop.img.xz
 sudo dd if=/path/to/Armbian-bpi-SpacemiT_24.5.0-trunk_Bananapif3_noble_legacy_6.1.15_xfce_desktop.img of=/dev/your-device bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-首次启动创建用户
+On the first boot, create a user.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot up normally and allow login through the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully and login through the onboard serial port was also successful.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (From flashing image to system login):
 [![asciicast](https://asciinema.org/a/aoWgw2BtCDRHOpxG4eYsWRPKZ.svg)](https://asciinema.org/a/aoWgw2BtCDRHOpxG4eYsWRPKZ)
 
 ```log
@@ -359,12 +359,12 @@ root@bananapif3:~#
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-成功
+Test successful.

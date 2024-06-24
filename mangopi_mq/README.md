@@ -1,26 +1,26 @@
 # Mangopi MQ
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
 - Tina Linux
-  - 下载链接：https://mangopi.org/_media/mq-r-f133-rtl8189fs-5113-dns-uart0.zip
-  - 参考安装文档：https://mangopi.org/mangopi_mq
+  - Download Link: https://mangopi.org/_media/mq-r-f133-rtl8189fs-5113-dns-uart0.zip
+  - Reference Installation Document: https://mangopi.org/mangopi_mq
 - RT-Thread:
-  - 下载链接：https://github.com/RT-Thread/rt-thread
-  - 参考安装文档：https://github.com/RT-Thread/rt-thread/blob/master/bsp/allwinner/d1s/README-MQ.md
+  - Download Link: https://github.com/RT-Thread/rt-thread
+  - Reference Installation Document: https://github.com/RT-Thread/rt-thread/blob/master/bsp/allwinner/d1s/README-MQ.md
 
-### 硬件开发板信息
+### Hardware Information
 
 - Mangopi MQ
 
-## 测试结果
+## Test Results
 
-| 软件分类                       | 软件包名     | 测试结果（测试报告）        |
-|----------------------------|--------------|---------------------------|
-| Tina-Linux 镜像启动            | N/A          | [CFT][Tina]            |
-| RT-Thread 镜像启动             | N/A          | [CFT][RT-Thread]       |
+| Software Category            | Package Name | Test Results (Reports)    |
+|------------------------------|--------------|---------------------------|
+| Tina-Linux Image Boot         | N/A          | [CFT][Tina]               |
+| RT-Thread Image Boot          | N/A          | [CFT][RT-Thread]          |
 
 [Tina]: ./TinaLinux/README.md
 [RT-Thread]: ./RT-Thread/README.md

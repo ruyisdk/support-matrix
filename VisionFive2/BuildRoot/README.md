@@ -1,41 +1,41 @@
-# BuildRoot VisionFive 2 版本测试报告
+# BuildRoot VisionFive 2 Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：VisionFive 2 Software v5.11.3
-- 下载链接：https://github.com/starfive-tech/VisionFive2/releases
-- 参考安装文档：https://doc.rvspace.org/VisionFive2/SDK_Quick_Start_Guide/VisionFive2_SDK_QSG/running_sdk_on_visionfive_2.html
+- System Version: VisionFive 2 Software v5.11.3
+- Download Link: https://github.com/starfive-tech/VisionFive2/releases
+- Reference Installation Document: https://doc.rvspace.org/VisionFive2/SDK_Quick_Start_Guide/VisionFive2_SDK_QSG/running_sdk_on_visionfive_2.html
 
-### 硬件信息
+### Hardware Information
 
 - StarFive VisionFive 2
-- USB 电源适配器一个
-- USB-A to C 或 C to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
+- A USB power adapter
+- A USB-A to C or C to C cable
+- A microSD card
+- A USB to UART debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three DuPont wires
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像到 microSD 卡
+### Flashing the Image to the microSD Card
 
-假定 `/dev/sdc` 为存储卡。
+Assuming `/dev/sdc` is the storage card.
 
 ```bash
 sudo dd if=sdcard.img of=/dev/sdc bs=1M status=progress
 ```
 
-### 引导模式选择
+### Boot Mode Selection
 
-StarFive VisionFive 2 提供了多种引导模式，可在上电前通过板载拨码开关进行配置；开发板本体上亦有丝印标注。
+StarFive VisionFive 2 offers multiple boot modes, which can be configured via the onboard dip switches before powering on. The board itself has labeled silkscreen indications.
 
-为了启动原厂 BuildRoot 镜像，可以选择 1-bit QSPI Nor Flash 模式（即：`RGPIO_0 = 0`, `RGPIO_1 = 0`）。注意，此模式可能需要提前更新 Flash 内的固件，若您启动不成功，请参考官方文档进行固件升级：[更新 SPL 和 U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
+To start the factory BuildRoot image, choose the 1-bit QSPI Nor Flash mode (`RGPIO_0 = 0`, `RGPIO_1 = 0`). Note that this mode may require prior firmware updates in the Flash. If the boot is unsuccessful, please refer to the official documentation for firmware upgrade instructions: [Updating SPL and U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
 
-若不更新固件，请选择 microSD 卡引导（即：`RGPIO_0 = 1`, `RGPIO_1 = 0`）。
+If you do not update the firmware, choose microSD card boot (`RGPIO_0 = 1`, `RGPIO_1 = 0`).
 
-> 注意，此模式下有小概率出现启动失败的情况，如遇到启动失败，串口输出类似如下信息：
+> Note: In this mode, there is a small probability of boot failure. If this occurs, the serial output may show information similar to the following:
 >
 >```log
 >dwmci_s: Response Timeout.                                                                                            
@@ -43,24 +43,24 @@ StarFive VisionFive 2 提供了多种引导模式，可在上电前通过板载�
 >BOOT fail,Error is 0xffffffff
 >```
 >
-> 您可以尝试重新给开发板上电，或点按一下 USB Type-C 供电接口附近的按钮。通常这可以解决无法启动的问题。
+> You can try repowering the development board or pressing the button near the USB Type-C power interface. This usually resolves the boot issue.
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Log into the system via the serial port.
 
-默认用户名：`root`
-默认密码：`starfive`
+Default Username: `root`
+Default Password: `starfive`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口登录。
+The system should boot normally and allow login through the serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过串口登录。
+The system booted successfully and login via the serial port was successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 Welcome to Buildroot
@@ -77,16 +77,16 @@ PRETTY_NAME="Buildroot 2021.11"
 #
 ```
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (From image flashing to system login):
 
 [![asciicast](https://asciinema.org/a/EUliFJz2UOlHIxrZbK2mePVbS.svg)](https://asciinema.org/a/EUliFJz2UOlHIxrZbK2mePVbS)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

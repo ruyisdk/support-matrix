@@ -1,33 +1,33 @@
-# ThreadX Milk-V Duo 测试报告
+# ThreadX Milk-V Duo Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 构建系统版本：Ubuntu 22.04 LTS x86_64
-- 系统版本：[ThreadX-to-RISC-V64](https://github.com/saicogn/ThreadX-to-RISC-V64), commit [53010e6](https://github.com/saicogn/ThreadX-to-RISC-V64/commit/53010e6b5e5916c5e84c4faf4d1a93ad960dd566)
-- 源码链接：[ThreadX-to-RISC-V64](https://github.com/saicogn/ThreadX-to-RISC-V64)
-- 参考安装文档：[简介](https://github.com/saicogn/ThreadX-to-RISC-V64/blob/main/README.md)
+- Build System Version: Ubuntu 22.04 LTS x86_64
+- System Version: [ThreadX-to-RISC-V64](https://github.com/saicogn/ThreadX-to-RISC-V64), commit [53010e6](https://github.com/saicogn/ThreadX-to-RISC-V64/commit/53010e6b5e5916c5e84c4faf4d1a93ad960dd566)
+- Source Code Link: [ThreadX-to-RISC-V64](https://github.com/saicogn/ThreadX-to-RISC-V64)
+- Reference Installation Document: [Introduction](https://github.com/saicogn/ThreadX-to-RISC-V64/blob/main/README.md)
 
-### 硬件信息
+### Hardware Information
 
 - Milk-V Duo 64M
-- USB 电源适配器一个
-- USB-A to C 或 USB C to C 线缆一条
-- TF 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
-- Milk-V Duo 本体上预先焊接好调试所需的排针
+- A USB Power Adapter
+- A USB-A to C or USB C to C Cable
+- A TF Card
+- A USB to UART Debugger (e.g., CH340, CH341, FT2232)
+- Three Dupont Wires
+- Header pins pre-soldered to the Milk-V Duo for debugging purposes
 
-## 构建步骤
+## Build Steps
 
-### 准备系统环境
+### Prepare System Environment
 
 ```bash
 sudo apt install -y pkg-config build-essential ninja-build automake autoconf libtool wget curl git gcc libssl-dev bc slib squashfs-tools android-sdk-libsparse-utils jq python3-distutils scons parallel tree python3-dev python3-pip device-tree-compiler ssh cpio fakeroot libncurses5 flex bison libncurses5-dev genext2fs rsync unzip dosfstools mtools tcl openssh-client cmake expect -y
 ```
 
-### 下载和构建
+### Download and Build
 
 ```bash
 git clone https://github.com/milkv-duo/duo-buildroot-sdk.git --depth=1
@@ -35,58 +35,58 @@ cd duo-buildroot-sdk/
 ./build.sh milkv-duo -j${nproc}
 ```
 
-此时会产生 `out/milkv-duo-????????-????.img` 的镜像文件。该文件为镜像。
+This process will generate an image file `out/milkv-duo-????????-????.img`. This is the image file.
 
-如此过程不正常，请参考 [项目简介](https://github.com/milkv-duo/duo-buildroot-sdk/blob/develop/README-zh.md) 排除故障。
+If the process is not normal, please refer to the [project introduction](https://github.com/milkv-duo/duo-buildroot-sdk/blob/develop/README-zh.md) to troubleshoot.
 
-### 展开 ThreadX-to-RISC-V64
+### Extract ThreadX-to-RISC-V64
 
-在 `duo-buildroot-sdk` 中运行。
+Run in `duo-buildroot-sdk`.
 
 ```bash
 git clone https://github.com/saicogn/ThreadX-to-RISC-V64.git --depth=1
 ```
 
-然后修改 `build/milkvsetup.sh`。大约为 455 行。
+Then modify `build/milkvsetup.sh`. Around line 455.
 
 ```text
   FREERTOS_PATH="$TOP_DIR"/freertos
 ```
 
-修改为
+Modify as follows:
 
 ```text
   #FREERTOS_PATH="$TOP_DIR"/freertos # 修改此项
   FREERTOS_PATH="$TOP_DIR"/ThreadX-to-RISC-V64
 ```
 
-然后构建。
+Then build.
 
 ```bash
 ./build.sh milkv-duo -j${nproc}
 ```
 
-此时会产生 `out/milkv-duo-????????-????.img` 的镜像文件。该文件为镜像。刷写到 SD 卡即可。
+This process will generate an image file `out/milkv-duo-????????-????.img`. This is the image file. Write it to the SD card.
 
-### 准备 TF 卡
+### Prepare TF Card
 
-将产生的 `out/milkv-duo-????????-????.img` 刷入 TF 卡即可。可使用 rufus。
+Write the generated `out/milkv-duo-????????-????.img` to the TF card. Rufus can be used.
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，输出 threadx 相关信息。
+The system should boot up normally and output threadx-related information.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，输出 threadx 相关信息。
+The system boots up normally and outputs threadx-related information.
 
-### 启动信息
+### Boot Log
 
-启动完成后串口输出如下内容。
+The serial port output after boot is as follows.
 
 ```text
 [root@milkv-duo]~# RT: [9.378810]threadx 1 running: 11
@@ -111,16 +111,16 @@ RT: [37.413809]threadx 0 running: 19
 RT: [37.417046]float cal: 232
 ```
 
-屏幕截图：
+Screenshot:
 
 ![uart](./img/uart.png)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

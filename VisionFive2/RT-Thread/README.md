@@ -1,30 +1,30 @@
-# RT-Thread VisionFive 2 测试报告
+# RT-Thread VisionFive 2 Test Report
 
-## 测试环境
+## Test Environment
 
-### 系统信息
+### System Information
 
 - Host: Arch Linux
-- 参考安装文档：[https://doc.rvspace.org/VisionFive2/Application_Notes/RT-Thread/index.html](https://doc.rvspace.org/VisionFive2/Application_Notes/RT-Thread/index.html)
+- Reference Installation Document: [https://doc.rvspace.org/VisionFive2/Application_Notes/RT-Thread/index.html](https://doc.rvspace.org/VisionFive2/Application_Notes/RT-Thread/index.html)
 
-### 硬件信息
+### Hardware Information
 
 - StarFive VisionFive2
-- 电源适配器
-- USB to UART 调试器两个（分别用于连接 Linux 和 RT-Thread）
+- Power Adapter
+- Two USB to UART Debuggers (for connecting both Linux and RT-Thread)
 
-## 安装步骤
+## Installation Steps
 
-### 编译系统
+### Building the System
 
-获取工具链：scons
+Get the toolchain: scons
 
 ```bash
 sudo pacman -Syu scons
 # sudo apt-get install scons
 ```
 
-下载代码：
+Download the code:
 
 ```bash
 git clone https://github.com/starfive-tech/VisionFive2.git
@@ -33,7 +33,7 @@ git checkout --track origin/rtthread_AMP
 git submodule update --init --recursive
 ```
 
-初始化仓库：
+Initialize the repository:
 
 ```bash
 cd buildroot && git checkout --track origin/JH7110_VisionFive2_devel && cd ..
@@ -44,58 +44,58 @@ cd soft_3rdpart && git checkout JH7110_VisionFive2_devel && cd ..
 cd rtthread && git checkout rtthread_AMP && cd ..
 ```
 
-下载工具链：
+Download the toolchain:
 
 ```bash
 wget https://github.com/starfive-tech/rt-thread/blob/rtthread_AMP/toolchain/tool-root1.tar.gz
 sudo tar xf rtthread/toolchain/tool-root1.tar.gz -C /opt/
 ```
 
-请确保环境中安装并启用了 git-lfs！否则会编译错误 (issue #5)[https://github.com/starfive-tech/VisionFive2/issues/5]
+Ensure that git-lfs is installed and enabled in your environment! Otherwise, you will encounter compilation errors (issue #5)[https://github.com/starfive-tech/VisionFive2/issues/5]
 
-编译：
+Compile:
 ```bash
 # scons --menuconfig # 若需配置再运行
 make -j($nproc)
 ```
 
-**注：编译时间较长，保持良好网络连接并耐心等待数小时**
+**Note: Compilation takes a long time; maintain a good network connection and be patient for several hours.**
 
-### 运行系统
+### Running the System
 
-连接两个调试串口，RTOS 的如图：
+Connect the two debug serial ports, the RTOS setup is as shown:
 ![uart](image.png)
 
-> Pin9、Pin11 和 Pin13 组成一个完整的串口：
+> Pin9, Pin11, and Pin13 form a complete serial port:
 > Pin9 (GND)
 > Pin11 (GPIO42): UART1 RX
 > Pin13 (GPIO43): UART1 TX
 
-烧写编译出的 `u-boot-spl.bin.normal.out` 和 `visionfive2_fw_payload.img` 文件。官方教程为烧写到 flash，可以参考[更新 uboot 和 spl](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_SDK_QSG/updating_spl_and_u_boot%20-%20vf2.html#updating_spl_and_u_boot-vf2__section_y3j_yp5_yvb)。
+Flash the compiled `u-boot-spl.bin.normal.out` and `visionfive2_fw_payload.img` files. The official tutorial suggests flashing to flash memory, which can be referenced here: [Updating u-boot and SPL](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_SDK_QSG/updating_spl_and_u_boot%20-%20vf2.html#updating_spl_and_u_boot-vf2__section_y3j_yp5_yvb).
 
-也可以烧写到 sd 卡以避免覆盖原有的 boot。但由于 visionfive2_fw_payload.img 超过了 4M 不能直接替换，此种方法还需要构建 rootfs。
-以下为烧写到 sd 卡的示例。需要首先准备好 VisionFive2 的 SD 卡镜像。
+Alternatively, you can flash to an SD card to avoid overwriting the original boot. Since `visionfive2_fw_payload.img` exceeds 4M and cannot be directly replaced, this method requires building a rootfs. Below is an example of flashing to an SD card. First, prepare the VisionFive2 SD card image.
 
 ```bash
 make buildroot_rootfs -j$(nproc)
 make img
 ```
 
-接下来将镜像烧录：
+Then, flash the image:
+
 ```bash
 sudo dd if=work/sdcard.img of=/dev/ of=/dev/your-device bs=1M status=progress
 sync
 ```
 
-注意此种方式需要将 boot 选为从 sd 卡启动。
+Note that with this method, you need to set the boot to start from the SD card.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，成功通过串口登录。
+The system should boot up normally and allow login via the serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过串口登录。
+The system booted successfully and login via the serial port was also successful.
 
 ```log
 SBI: OpenSBI v1.2
@@ -114,12 +114,12 @@ rpmsg remote: remote core cpu_id-4
 rpmsg remote: shmem_base-0x6e410000 shmem_end-0x6e7fffff
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

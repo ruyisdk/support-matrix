@@ -1,41 +1,41 @@
-# openEuler RISC-V 23.09 Pioneer 版本测试报告
+# openEuler RISC-V 23.09 Pioneer  Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：openEuler 23.09 RISC-V preview
-- 下载链接：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/SG2042/
-- 参考安装文档：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/Unmatched/README.sg2042.txt
+- System Version: openEuler 23.09 RISC-V preview
+- Download Link: [openEuler-23.09-V1-riscv64](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/SG2042/)
+- Installation Guide: [README.sg2042.txt](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/Unmatched/README.sg2042.txt)
 
-### 硬件信息
+### Hardware Information
 
 - Milk-V Pioneer Box v1.3
-- microSD 卡一张（或 NVMe SSD + NVMe SSD 转 USB 硬盘盒）
-- USB Type-C 线缆一条（用来连接板载串口）
+- A microSD card (or NVMe SSD + NVMe SSD to USB hard drive enclosure)
+- A USB Type-C cable (used to connect the onboard serial port)
 
-## 安装步骤
+## Installation Steps
 
-### 使用 `ruyi` CLI 刷写镜像到板载 eMMC
+### Flashing Image to Onboard eMMC using `ruyi` CLI
 
-安装 [`ruyi`](https://github.com/ruyisdk/ruyi) 包管理器，运行 `ruyi device provision` 并按提示操作。
+Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the instructions.
 
-### 登录系统
+### Logging into the System
 
-通过 SSH 登录系统。
+Logging into the system via SSH.
 
-默认用户名：`openeuler` 或 `root`
-默认密码：`openEuler12#$`
+Default username: `openeuler` or `root`
+Default password: `openEuler12#$`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，可通过 SSH 登录。
+The system starts up properly and can be accessed via SSH.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过 SSH 登录。
+The system starts up correctly and SSH login is successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 System load:    1.61
@@ -57,12 +57,13 @@ PRETTY_NAME="openEuler 23.09"
 ANSI_COLOR="0;31"
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.
+

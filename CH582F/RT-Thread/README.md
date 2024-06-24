@@ -1,39 +1,40 @@
-# RT-Thread CH582F 测试报告
 
-## 测试环境
+# RT-Thread CH582F Test Report
 
-### 操作系统信息
+## Test Environment
 
-- 源码链接：https://github.com/Community-PIO-CH32V/ch32-pio-projects
-- 参考文档：
-    - PlatformIO Core：https://docs.platformio.org/en/latest/core/installation/index.html
-    - PlatformIO ch32v：https://pio-ch32v.readthedocs.io/en/latest/installation.html
+### Operating System Information
 
-### 硬件信息
+- Source code link: [Community-PIO-CH32V/ch32-pio-projects](https://github.com/Community-PIO-CH32V/ch32-pio-projects)
+- Reference Installation Document:
+    - PlatformIO Core: [Installation Guide](https://docs.platformio.org/en/latest/core/installation/index.html)
+    - PlatformIO CH32V: [Installation Instructions](https://pio-ch32v.readthedocs.io/en/latest/installation.html)
 
--  CH582F-EVT-R2-1v0-BC
-- USB to UART 调试器一个
-- USB type-c 口线一根
+### Hardware Information
 
-## 安装步骤
+- CH582F-EVT-R2-1v0-BC
+- 1 USB to UART debugger
+- 1 USB Type-C cable
 
-### 安装 PlatformIO Core
+## Installation Steps
 
-可以先尝试包管理器中是否带有如 [platformio-core](https://archlinux.org/packages/?name=platformio-core) 包。若无可采用安装脚本安装：
+### Installing PlatformIO Core
+
+You can first check if the package manager includes a package like [platformio-core](https://archlinux.org/packages/?name=platformio-core). If not, you can install using the installation script:
 
 ```bash
 curl -fsSL -o get-platformio.py https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
 python3 get-platformio.py
 ```
 
-### 配置 PlatformIO 环境
+### PlatformIO Environment Configuration
 
-安装 ch32v 开发环境：
+Install CH32V development environment:
 ```bash
 pio pkg install -g -p https://github.com/Community-PIO-CH32V/platform-ch32v.git
 ```
 
-添加 udev 规则并应用（根据发行版不同可能需要更改 GROUP）：
+Add udev rules and apply (may need to change GROUP according to the Linux distribution):
 ```bash
 curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/system/99-platformio-udev.rules | sudo tee /etc/udev/rules.d/99-platformio-udev.rules
 cat << EOF | sudo tee -a /etc/udev/rules.d/99-platformio-udev.rules
@@ -45,59 +46,56 @@ sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
 
-添加用户组：
-- Debian 系：
+Add user groups:
+- Debian-based systems:
 ```bash
 sudo usermod -a -G dialout $USER
 sudo usermod -a -G plugdev $USER
 ```
-- Arch 系：
+- Arch-based systems:
 ```bash
 sudo usermod -a -G uucp $USER
 sudo usermod -a -G lock $USER
 ```
 
-### 准备工程仓库
+### Setting up Project Repository
 
-clone 相关仓库：
+Clone the relevant repositories:
 ```bash
 git clone https://github.com/Community-PIO-CH32V/platform-ch32v.git
 ```
 
-### 编译代码
+### Code Compilation
 
-使用 pio 编译代码：
+Compile the code using pio:
 ```bash
 cd platform-ch32v/examples/hello-world-rt-thread-ch5xx
 pio run
 ```
 
-### 烧写镜像
+### Flashing Image
 
-使用 type-c 线连接开发板和电脑后，按住 boot 按键拨动开关。而后迅速运行：
+Connect the development board to the computer using the Type-C cable, press and hold the boot button, then quickly run:
 ```bash
 pio run -e your_board --target upload
 ```
 
+### Logging into the System
 
+Connect to the development board via serial port.
 
-### 登录系统
+## Expected Results
 
-通过串口连接开发板。
+The system should start up successfully, and information should be viewable through the onboard serial port.
 
-## 预期结果
+## Actual Results
 
-系统正常启动，能够通过板载串口查看信息。
+The system started up successfully, and information was viewable through the onboard serial port.
 
-## 实际结果
+### Boot Log
 
-系统正常启动，能够通过板载串口查看信息。
-
-### 启动信息
-
-屏幕录像（从编译到启动）：
+Screen recording (from compilation to boot):
 [![asciicast](https://asciinema.org/a/kDeNAs3hbHNSUwWVhSR7raPMJ.svg)](https://asciinema.org/a/kDeNAs3hbHNSUwWVhSR7raPMJ)
-
 
 ```log
  \ | /
@@ -115,12 +113,12 @@ task2
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功
+Test successful.

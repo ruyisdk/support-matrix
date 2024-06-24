@@ -1,26 +1,26 @@
-# OpenWRT SnapShot VisionFive 1 测试报告
+# OpenWRT SnapShot VisionFive Test Report
 
-## 测试环境
+## Test Environment
 
-### 系统信息
+### System Information
 
-- 系统版本：OpenWRT SnapShot
-- 下载链接：[https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=starfive%2Fgeneric&id=visionfive-v1](https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=starfive%2Fgeneric&id=visionfive-v1)
-- 参考安装文档：[https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.starfive?s[]=visionfive](https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.starfive?s[]=visionfive)
+- System Version: OpenWRT SnapShot
+- Download Link: [https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=starfive%2Fgeneric&id=visionfive-v1](https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=starfive%2Fgeneric&id=visionfive-v1)
+- Reference Installation Document: [https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.starfive?s[]=visionfive](https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.starfive?s[]=visionfive)
 
-### 硬件信息
+### Hardware Information
 
 - StarFive VisionFive
-- 电源适配器
-- microSD 卡一张
-- USB to UART 调试器一个
+- Power Adapter
+- A microSD Card
+- USB to UART Debugger
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像
+### Flashing Image
 
-使用 `gzip` 解压镜像。
-使用 `dd` 将镜像写入 microSD 卡。
+Use `gzip` to decompress the image.
+Use `dd` to flash the image to the microSD card.
 
 ```bash
 wget https://downloads.openwrt.org/snapshots/targets/starfive/generic/openwrt-starfive-generic-visionfive-v1-ext4-sdcard.img.gz
@@ -28,16 +28,15 @@ gzip -d /path/to/openwrt.img.gz
 sudo dd if=/path/to/openwrt.img of=/dev/your-device bs=1M status=progress
 ```
 
-### 更新/引导 boot
+### Updating/Booting Bootloader
 
+If u-boot fails to boot and enters the command line, u-boot needs to be updated (see: (pr 31) [https://github.com/starfive-tech/u-boot/pull/31]):
 
-若 u-boot 无法引导而是进入了命令行，需要更新 u-boot（详见：（pr 31）[https://github.com/starfive-tech/u-boot/pull/31]）：
+Official Documentation: [https://starfivetech.com/uploads/VisionFive%20Single%20Board%20Computer%20Quick%20Start%20Guide.pdf](https://starfivetech.com/uploads/VisionFive%20Single%20Board%20Computer%20Quick%20Start%20Guide.pdf)
 
-官方文档：[https://starfivetech.com/uploads/VisionFive%20Single%20Board%20Computer%20Quick%20Start%20Guide.pdf](https://starfivetech.com/uploads/VisionFive%20Single%20Board%20Computer%20Quick%20Start%20Guide.pdf)
+U-Boot Download: https://github.com/starfive-tech/Fedora_on_StarFive/releases
 
-u-boot 下载：https://github.com/starfive-tech/Fedora_on_StarFive/releases
-
-或者，手动输入以下命令以引导系统：
+Or manually enter the following commands to boot the system:
 
 ```u-boot
 fatload mmc 0:3 0x84000000 Image
@@ -46,23 +45,23 @@ setenv bootargs "earlyprintk console=ttyS0,115200 debug rootwait earlycon=sbi ro
 booti 0x84000000 - 0x88000000
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Log into the system via the serial port.
 
-默认无密码，自动登录 root。
+The default is no password, auto login as root.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully and login via the onboard serial port was also successful.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (From flashing the image to logging into the system):
 
 [![asciicast](https://asciinema.org/a/GwgQgY4G4s2PihEHoXxsLyjP9.svg)](https://asciinema.org/a/GwgQgY4G4s2PihEHoXxsLyjP9)
 
@@ -119,12 +118,12 @@ OPENWRT_RELEASE="OpenWrt SNAPSHOT r25661-bf4c04a4d0"
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

@@ -1,21 +1,21 @@
 # Canaan Kendryte K510
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
 - Kendryte K510 SDK (BuildRoot)
-    - 源码仓库：https://github.com/kendryte/k510_buildroot
-    - 参考文档：[英文](https://github.com/kendryte/k510_buildroot) | [中文](https://github.com/kendryte/k510_buildroot/blob/dev/docs/README.zh-Hans.md)
+    - Source Repository: https://github.com/kendryte/k510_buildroot
+    - Reference Installation Document: https://github.com/kendryte/k510_buildroot/blob/dev/docs/README.md
 
-### 硬件开发板信息
+### Hardware Information
 
 - Canaan K510 CRB-V1.2 KIT
 
-## 测试结果
+## Test Results
 
-| 软件分类           | 软件包名 | 测试结果（测试报告） |
-|----------------|----------|------------------|
-| BuildRoot 镜像启动 | N/A      | [成功][BuildRoot]  |
+| Software Category    | Package Name | Test Result (Test Report) |
+| -------------------- | ------------ | ------------------------- |
+| BuildRoot Image Boot | N/A          | [Success][BuildRoot]      |
 
 [BuildRoot]: ./BuildRoot/README.md

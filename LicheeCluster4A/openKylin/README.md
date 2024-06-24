@@ -1,34 +1,34 @@
-# openKylin Lichee Cluster 4A 版本测试报告
+# openKylin Lichee Cluster 4A Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### System Information
 
-- 系统版本：openKylin 2.0 alpha
-- 下载链接：[https://www.openkylin.top/downloads/index-cn.html](https://www.openkylin.top/downloads/index-cn.html)
-- 参考安装文档：[https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin](https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
+- System Version: openKylin 2.0 alpha
+- Download Link: [https://www.openkylin.top/downloads/index-cn.html](https://www.openkylin.top/downloads/index-cn.html)
+- Reference Installation Documentation: [https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin](https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
 
-### 硬件信息
+### Hardware Information
 
 - Lichee Cluster 4A 8G / 16G
-- DC 12V 电源
+- DC 12V Power Supply
 - USB-A to A
-    - 或 LPi4A 底板
-- 网络和网线（注意连接到 BMC 而非交换机）
+    - or LPi4A baseboard
+- Network and Ethernet cable (ensure connection to BMC instead of a switch)
 
-## 安装步骤
+## Installation Steps
 
-*以下以刷写到集群中一号板为例*
+*The following steps are based on flashing to the first board of the cluster.*
 
-### 连接对应 SOM
+### Connect the Corresponding SOM
 
-使用 A to A 线缆连接 SOM。
+Use an A to A cable to connect the SOM.
 
-### 刷写 bootloader
+### Flashing the Bootloader
 
-解压安装套件。
-进入 fastboot 工具所在目录。
-刷入 u-boot 与 boot。
+Extract the installation kit.
+Navigate to the directory of the fastboot tool.
+Flash u-boot and boot.
 
 ```bash
 tar -xvf openKylin-2.0-alpha-licheepi4a.tar.xz
@@ -39,44 +39,44 @@ sudo ./fastboot flash uboot ../../images/$(ram_size)/u-boot-nonsec-2020.10-r0-no
 sudo ./fastboot flash boot ../../images/$(ram_size)/boot.ext4
 ```
 
-### 刷写镜像
+### Flashing the Image
 
-将 root 分区刷入 eMMC 中。
+Flash the root partition into the eMMC.
 
 ```bash
 sudo ./fastboot flash root ../../images/openkylin-2.0-alpha-licheepi4a-riscv64.ext4
 ```
 
-### 登录系统
+### Logging into the System
 
-通过 SOL (Serial Over LAN) 登录系统。
+Login to the system via SOL (Serial Over LAN).
 
-BMC 默认用户名：`root`
+BMC default username: `root`
 
-BMC 默认密码：`0penBmc` **注意是 `0` 而不是 `O`**
+BMC default password: `0penBmc` **Note that it is `0`, not `O`**
 
-通过 `ssh -p 2301 root@lichee-rv.local` 连接
+Connect with `ssh -p 2301 root@lichee-rv.local`
 
-默认用户名： `openkylin`
-默认密码： `openkylin`
+Default username: `openkylin`
+Default password: `openkylin`
 
-### 常见问题
+### Common Issues
 
-若无法使用 USB，是因为 Linux 设备树需要 patch。[patch 下载](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
+If USB is not working, it may require patching the Linux device tree. [Download the patch](https://dl.sipeed.com/fileList/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/src/linux/0001-arch-riscv-boot-dts-lpi4a-disable-i2c-io-expander-fo.patch)
 
-若不想手动编译 dtb，也可以考虑自行从 [预编译镜像](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin) 中提取 dtb（light-lpi4a.dtb）并替换 boot 下对应文件。
+If you prefer not to compile the dtb manually, you can extract the dtb (light-lpi4a.dtb) from the [pre-compiled image](https://dl.sipeed.com/shareURL/LICHEE/LicheeCluster4A/04_Firmware/lpi4a/bin) and replace the corresponding file under boot.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过 SOL (Serial Over LAN) 登录。
+The system starts successfully and allows login via SOL (Serial Over LAN).
 
-## 实际结果
+## Actual Results
 
-系统正常启动，能够通过 SOL (Serial Over LAN) 登录。
+The system starts successfully and allows login via SOL (Serial Over LAN).
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写系统到启动）：
+Screen recording (from flashing the system to startup):
 
 [![asciicast](https://asciinema.org/a/d4d3yatzsx13CRtcdqV0RF7Td.svg)](https://asciinema.org/a/d4d3yatzsx13CRtcdqV0RF7Td)
 
@@ -113,12 +113,12 @@ openkylin@openkylin:~$
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

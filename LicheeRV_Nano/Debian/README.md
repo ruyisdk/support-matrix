@@ -1,51 +1,51 @@
-# BuildRoot LicheeRV Nano 测试报告
+# BuildRoot LicheeRV Nano Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：Initial Release
-- 下载链接：https://github.com/Fishwaldo/sophgo-sg200x-debian
-- 参考安装文档：https://github.com/Fishwaldo/sophgo-sg200x-debian
+- System Version: Initial Release
+- Download Link: [sophgo-sg200x-debian on GitHub](https://github.com/Fishwaldo/sophgo-sg200x-debian)
+- Reference Installation Document: [sophgo-sg200x-debian on GitHub](https://github.com/Fishwaldo/sophgo-sg200x-debian)
 
-### 硬件信息
+### Hardware Information
 
 - LicheeRV Nano
-- Type-C 电源线一根
-- UART 转 USB 调试器一个
+- A Type-C power cable
+- A UART to USB debugger
 
-## 安装步骤
+## Installation Steps
 
-### 使用 `dd` 刷写镜像到 microSD 卡
+### Using `dd` to flash the image to the microSD card
 
-下载镜像后进行解压和刷写：
+Download the image and perform decompression and flashing:
 
 ```shell
 lz4 -dk licheervnano_sd.img.lz4
 sudo dd if=licheervnano_sd.img of=/dev/your_device bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system through the serial port.
 
-| 用户名 | 密码 |
-|--------|------|
-| root   | rv   |
-| debian | rv   |
+| Username | Password |
+|----------|----------|
+| root     | rv       |
+| debian   | rv       |
 
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口登录。
+The system should boot up normally and allow login through the serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，能够通过串口登录。
+The system booted up successfully, and login through the serial port was successful.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing the image to login):
 
 [![asciicast](https://asciinema.org/a/d6uwAengdlXVbMj0KAdVbPhMX.svg)](https://asciinema.org/a/d6uwAengdlXVbMj0KAdVbPhMX)
 
@@ -81,12 +81,13 @@ Linux licheervnano 5.10.4-20240329-1+ #1 PREEMPT Sat Apr 13 07:08:27 UTC 2024 ri
 root@licheervnano:~# 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.
+

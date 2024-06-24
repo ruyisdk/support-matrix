@@ -1,51 +1,50 @@
-# FreeRTOS CH592X 官方版本 测试报告
+# FreeRTOS CH592X Official  Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 源码链接：https://www.wch.cn/downloads/CH592EVT_ZIP.html
-- 参考文档：https://www.wch.cn/downloads/CH592EVT_ZIP.html
-    - wchisp：https://github.com/ch32-rs/wchisp
-- 刷写工具：
+- Source Code Link: https://www.wch.cn/downloads/CH592EVT_ZIP.html
+- Reference Installation Document: https://www.wch.cn/downloads/CH592EVT_ZIP.html
+    - wchisp: https://github.com/ch32-rs/wchisp
+- Flashing Tool:
     - https://github.com/ch32-rs/wchisp/
 
-### 硬件信息
+### Hardware Information
 
 - CH592X-EVT-R1-1v0
-- USB to UART 调试器一个
-- USB type-c 口线一根
+- A USB to UART Debugger
+- A USB Type-C Cable
 
+## Installation Steps
 
-## 安装步骤
+### Flashing Image
 
-### 烧写镜像
+Pre-compiled image is located at `EVT/EXAM/FreeRTOS/obj/FreeRTOS.hex`
 
-预编译镜像已位于 `EVT/EXAM/FreeRTOS/obj/FreeRTOS.hex`
+After downloading and extracting the source code and wchisp tool, **do not power on first**. Press and hold the boot(download) button, then connect the board to the computer via Type-C cable.
 
-下载并解压源码与 wchisp 工具之后，先不要上电，**一直按住** boot(download) 按钮后，将板子与电脑通过 type-c 线连接上电。
-
-使用 wchisp 工具进行烧写：
+Use the wchisp tool for flashing:
 ```bash
 ./wchisp flash EVT/EXAM/FreeRTOS/obj/FreeRTOS.hex
 
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口连接开发板。
+Connect to the development board via serial port.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口查看信息。
+The system should boot up properly, and information can be viewed through the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，能够通过板载串口查看信息。
+The system booted up correctly, and information can be viewed through the onboard serial port.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写到启动）：
+Screen recording (from flashing to bootup):
 [![asciicast](https://asciinema.org/a/dQb48LYxe4BpWMlXeT0AcSBa6.svg)](https://asciinema.org/a/dQb48LYxe4BpWMlXeT0AcSBa6)
 
 ```log
@@ -60,12 +59,13 @@ start.
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功
+Test successful.
+

@@ -1,52 +1,52 @@
-# openSUSE Tumbleweed HiFive Unmatched 测试报告
+# openSUSE Tumbleweed HiFive Unmatched Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：openSUSE Tumbleweed
-- 下载链接：https://download.opensuse.org/repositories/home:/Andreas_Schwab:/riscv:/unmatched/images/openSUSE-Tumbleweed-RISC-V-JeOS-hifiveunmatched.riscv64-2024.03.15-Build1.7.raw.xz
-- 参考安装文档：https://en.opensuse.org/HCL:HiFive_Unmatched
+- System Version: openSUSE Tumbleweed
+- Download Link: <https://download.opensuse.org/repositories/home:/Andreas_Schwab:/riscv:/unmatched/images/openSUSE-Tumbleweed-RISC-V-JeOS-hifiveunmatched.riscv64-2024.03.15-Build1.7.raw.xz>
+- Reference Installation Document: <https://en.opensuse.org/HCL:HiFive_Unmatched>
 
-### 硬件信息
+### Hardware Information
 
 - HiFive Unmatched Rev A
-- microUSB 线缆一条（随 HiFive Unmatched 附赠）
-- ATX 电源一个
-- microSD 卡一张（Sandisk Extreme Pro 64G UHS-I）
+- A microUSB cable (included with HiFive Unmatched)
+- An ATX power supply
+- A microSD card (SanDisk Extreme Pro 64G UHS-I)
 
-## 安装步骤
+## Installation Steps
 
-### 引导设备选择
+### Boot Device Selection
 
-确保拨码开关已调整为从 microSD 卡引导。若您未更改，出厂默认即为从 microSD 卡引导。
+Ensure the dip switches are set to boot from the microSD card. If unchanged, the factory default is to boot from the microSD card.
 
-拨码开关应如下设置：`MSEL[3:0]=1011`
+The dip switches should be set as follows: `MSEL[3:0]=1011`
 
-### 解压并烧录镜像到 microSD 卡
+### Unzip and Flash Image to microSD Card
 
-`/dev/sdc` 为 microSD 卡所在位置，请根据实际情况更改。
+`/dev/sdc` is the location of the microSD card; please adjust according to your circumstances.
 
 ```bash
 xzcat openSUSE-Tumbleweed-RISC-V-JeOS-hifiveunmatched.riscv64-2024.03.15-Build1.7.raw.xz | sudo dd bs=4M of=/dev/sdc iflag=fullblock status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过板载串口（使用 microUSB 线缆连接至其他计算机）登录系统。
+Log into the system via the onboard serial port (connect using a microUSB cable to another computer).
 
-默认用户名：`root`
-默认密码：`linux`
+Default Username: `root`
+Default Password: `linux`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully, and login via the onboard serial port was also successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 Welcome to openSUSE Tumbleweed 20240320 - Kernel 6.8.1-1-default (ttySIF0).                                                         
@@ -80,16 +80,16 @@ Linux localhost.localdomain 6.8.1-1-default #1 SMP PREEMPT_DYNAMIC Tue Mar 19 07
 localhost:~ # 
 ```
 
-屏幕录像（从刷写镜像到登录系统）
+Screen recording (from flashing the image to logging)
 
 [![asciicast](https://asciinema.org/a/Yq2qb4xYNEMzUBxIcUkdyI2pp.svg)](https://asciinema.org/a/Yq2qb4xYNEMzUBxIcUkdyI2pp)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

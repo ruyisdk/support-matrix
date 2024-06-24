@@ -1,32 +1,31 @@
-# Fedora 38 LPi4A chainsx 版本 测试报告
+# Fedora 38 LPi4A chainsx Test Report
 
-## 测试环境
+## Test Environment
 
-### 系统信息
+### System Information
 
-- 系统版本：Fedora 38
-- 下载链接：[https://github.com/chainsx/fedora-riscv-builder/releases](https://github.com/chainsx/fedora-riscv-builder/releases)
-- 参考安装文档：[https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html)
-- fastboot 链接：
+- System Version: Fedora 38
+- Download Link: [https://github.com/chainsx/fedora-riscv-builder/releases](https://github.com/chainsx/fedora-riscv-builder/releases)
+- Reference Installation Document: [https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html](https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html)
+- Fastboot Links:
     - [https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)
     - [https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 
-### 硬件信息
+### Hardware Information
 
-- Lichee Pi 4A (8G RAM + 64G eMMC)
-- 电源适配器
-- microSD 卡一张
-- USB to UART 调试器一个
+- Lichee Pi 4A (8GB RAM + 64GB eMMC)
+- Power Adapter
+- A microSD Card
+- A USB to UART Debugger
 
-## 安装步骤
+## Installation Steps
 
-### 刷写 bootloader
+### Flashing Bootloader
 
-进入 fastboot。
-- 正式版确认 boot 拨码开关为 eMMC。
-- 按动 BOOT 同时上电。
-- （详见官方教程）
-使用 fastboot 按命令烧录 u-boot。
+Enter fastboot mode.
+- Make sure the boot DIP switch is set to eMMC for the production version.
+- Press the BOOT button while powering on.
+- (Refer to the official tutorial) Use fastboot command to burn the u-boot.
 
 ```bash
 sudo ./fastboot flash ram ./path/to/your/lpi4a-($ram_size)gb-u-boot-with-spl.bin
@@ -35,34 +34,34 @@ sleep 10
 sudo ./fastboot flash uboot ./path/to/your/lpi4a-($ram_size)gb-u-boot-with-spl.bin
 ```
 
-### 刷写镜像
+### Flashing Image
 
-使用 `unxz` 解压镜像。
-使用 `dd` 将镜像写入 microSD 卡。
+Use `unxz` to extract the image.
+Use `dd` to flash the image to the microSD card.
 
 ```bash
 unxz /path/to/fedora.raw.xz
 sudo dd if=/path/to/fedora.raw of=/dev/your_device bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into System
 
-通过串口登录系统。
+Logging into the system via serial console.
 
-默认用户名： `root`
-默认密码： `fedora`
+Default username: `root`
+Default password: `fedora`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should start up successfully and be accessible via the onboard serial console.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system started up correctly and I successfully logged in via the onboard serial console.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing the image to logging into the system):
 
 [![asciicast](https://asciinema.org/a/EkD4lbohO4sNJGO518rLQtL59.svg)](https://asciinema.org/a/EkD4lbohO4sNJGO518rLQtL59)
 
@@ -76,7 +75,6 @@ Last login: Thu May 11 00:00:31 on ttyS0
 [root@fedora-riscv ~]# [   35.894822] soc_dovdd18_scan: disabling
 [   35.899400] soc_dvdd12_scan: disabling
 [   35.903909] soc_avdd28_scan_en: disabling
-
 [root@fedora-riscv ~]# uname -a
 Linux fedora-riscv 5.10.113-g052b22ef8baf #1 SMP PREEMPT Thu Sep 14 05:05:31 UTC 2023 riscv64 GNU/Linux
 [root@fedora-riscv ~]# cat /etc/os-release 
@@ -102,12 +100,13 @@ REDHAT_SUPPORT_PRODUCT_VERSION=38
 SUPPORT_END=2024-05-14
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.
+

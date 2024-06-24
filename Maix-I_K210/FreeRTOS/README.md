@@ -1,29 +1,29 @@
-# FreeRTOS Maix-I K210 测试报告
+# FreeRTOS Maix-I K210 Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 构建系统：Ubuntu 22.04.4 LTS (Docker)
-- 源码链接：https://github.com/kendryte/kendryte-freertos-sdk
-- 参考安装文档：https://github.com/kendryte/kendryte-freertos-sdk
-- 工具链：https://github.com/kendryte/kendryte-gnu-toolchain/releases/tag/v8.2.0-20190409
+- Build System: Ubuntu 22.04.4 LTS (Docker)
+- Source Code: [kendryte-freertos-sdk](https://github.com/kendryte/kendryte-freertos-sdk)
+- Reference Installation Document: [kendryte-freertos-sdk](https://github.com/kendryte/kendryte-freertos-sdk)
+- Toolchain: [kendryte-gnu-toolchain](https://github.com/kendryte/kendryte-gnu-toolchain/releases/tag/v8.2.0-20190409)
 
-### 硬件信息
+### Hardware Information
 
 - Sipeed Maix-Bit (K210)
 
-## 安装步骤
+## Installation Steps
 
-### 创建 Docker 环境
+### Create Docker Environment
 
 ```shell
 sudo docker run -it --name ubuntu2204 ubuntu:22.04
 ```
 
-以下所有操作在 Ubuntu 22.04.4 LTS Docker 的 root shell 中进行。
+All following operations are carried out in the root shell of Ubuntu 22.04.4 LTS Docker.
 
-### 准备构建环境
+### Prepare Build Environment
 
 ```shell
 apt update
@@ -34,9 +34,9 @@ tar xvf kendryte-toolchain-ubuntu-amd64-8.2.0-20190409.tar.bz2
 cd
 ```
 
-### 构建 hello_world
+### Build hello_world
 
-拉取 FreeRTOS 仓到本地并构建。
+Clone the FreeRTOS repository locally and build.
 
 ```shell
 git clone --depth=1 https://github.com/kendryte/kendryte-freertos-sdk
@@ -46,7 +46,7 @@ cmake .. -DPROJ=hello_world -DTOOLCHAIN=/opt/kendryte-toolchain/bin
 make -j$(nproc)
 ```
 
-构建结束后，在源码目录下生成 `hello_world` 和 `hello_world.bin` 两个文件。
+Once the build is complete, the source directory will contain the files `hello_world` and `hello_world.bin`.
 
 ```log
 [100%] Linking C executable hello_world                                             
@@ -56,42 +56,42 @@ root@4b1ebf5f94f4:~/kendryte-freertos-sdk/build# file hello_world
 hello_world: ELF 64-bit LSB executable, UCB RISC-V, RVC, single-float ABI, version 1 (SYSV), statically linked, with debug_info, not stripped
 ```
 
-### 烧录镜像
+### Flash Image
 
-使用 k_flash 进行烧写，工具链文档可见：https://github.com/kendryte/kflash.py
+Use k_flash to perform the flash, you can refer to the toolchain documentation here: [kflash.py](https://github.com/kendryte/kflash.py)
 
 ```bash
 pip install kflash
 kflash -b 115200 -p /dev/ttyUSBx hello_world.bin
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口连接开发板。
+Connect to the development board via the serial port.
 
-## 预期结果
+## Expected Results
 
-构建成功，开发板正常输出 Hello World 信息。
+The build should succeed, and the development board should output the Hello World message as expected.
 
-## 实际结果
+## Actual Results
 
-构建成功，开发板正常输出 Hello World 信息。
+The build was successful, and the development board correctly output the Hello World message.
 
-### 启动信息
+### Boot Information
 
-屏幕录像（从刷写系统到启动）：
+Screen recording (From flashing image to system startup):
 [![asciicast](https://asciinema.org/a/uml0eDGjJXKoaFuPn2K1D2WSv.svg)](https://asciinema.org/a/uml0eDGjJXKoaFuPn2K1D2WSv)
 
 ```log
 Hello World
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功
+Test successful.

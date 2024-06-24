@@ -1,60 +1,58 @@
-# Armbian Star64 测试报告
+# Armbian Star64 Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 下载链接：https://www.armbian.com/star64/
-- 参考安装文档：https://www.hackster.io/lupyuen/rtos-on-a-risc-v-sbc-star64-jh7110-apache-nuttx-2a7429
+- Download Link: https://www.armbian.com/star64/
+- Reference Installation Document: https://www.hackster.io/lupyuen/rtos-on-a-risc-v-sbc-star64-jh7110-apache-nuttx-2a7429
 
-### 硬件信息
+### Hardware Information
 
-- 开发板：Star64
-- USB A to C / USB C to C 线缆
-- SD 卡
+- Development Board: Star64
+- USB A to C / USB C to C Cable
+- SD Card
 
-## 安装步骤
+## Installation Steps
 
-### 烧写镜像
+### Flashing Image
 
-下载后，解压并烧写镜像（以下以 xfce 版为例）：
+After downloading, unzip and flash the image (using the xfce version as an example):
 ```bash
 unxz -k Armbian_community_24.5.0-trunk.667_Star64_jammy_edge_5.15.0_xfce_desktop.img.xz
 sudo dd if=Armbian_community_24.5.0-trunk.667_Star64_jammy_edge_5.15.0_xfce_desktop.img of=/dev/your/sdcard bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口连接开发板。
+Connect to the development board via the serial port.
 
-启动后，系统会要求用户手动配置用户名、密码、时区、语言等。
+Upon startup, the system will prompt the user to manually configure the username, password, timezone, language, etc.
 
-Xfce 版本需要配置完成后方可进入桌面。
+The Xfce version requires configuration completion before entering the desktop environment.
 
-可通过串口配置。若接入了键盘和显示器，亦可通过键盘配置。
+Configuration can be done via the serial port. If a keyboard and monitor are connected, it can also be done via the keyboard.
 
-## 预期结果
+## Expected Results
 
-构建成功，开发板正常输出启动信息。
+The system boots up normally, and information can be viewed through the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-构建成功，开发板正常输出启动信息。
+CFT
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写系统到启动）：
-
-
+Screen recording (from flashing the system to booting up):
 ```log
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
 CFT

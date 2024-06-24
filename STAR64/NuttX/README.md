@@ -1,43 +1,44 @@
-# NuttX Star64 测试报告
+# NuttX Star64 Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 源码链接：https://github.com/apache/nuttx
-- 参考安装文档：https://nuttx.apache.org/docs/latest/platforms/risc-v/jh7110/boards/star64/index.html
-- 工具链：
-    - 启动镜像：https://github.com/starfive-tech/VisionFive2/releases/download/JH7110_VF2_515_v5.11.3/sdcard.img
-    - DTB：https://github.com/starfive-tech/VisionFive2/releases
-    - toolchain: https://github.com/sifive/freedom-tools/releases
-    - kflash：https://github.com/kendryte/kflash.py
+- Source Code Link: https://github.com/apache/nuttx
+- Reference Installation Document: https://nuttx.apache.org/docs/latest/platforms/risc-v/jh7110/boards/star64/index.html
+- Toolchain:
+    - Boot Image: https://github.com/starfive-tech/VisionFive2/releases/download/JH7110_VF2_515_v5.11.3/sdcard.img
+    - DTB: https://github.com/starfive-tech/VisionFive2/releases
+    - Toolchain: https://github.com/sifive/freedom-tools/releases
+    - kflash: https://github.com/kendryte/kflash.py
 
-### 硬件信息
+### Hardware Information
 
-- 开发板：Star64
-- USB A to C / USB C to C 线缆
-- SD 卡
+- Development Board: Star64
+- USB A to C / USB C to C Cable
+- SD Card
 
-## 安装步骤
+## Installation Steps
 
-### 准备源码及环境
+### Preparing Source and Environment
 
-获取工具链：
+Get the toolchain:
 ```bash
 wget https://static.dev.sifive.com/dev-tools/freedom-tools/v2020.12/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8-x86_64-linux-ubuntu14.tar.gz
 tar -xvzf riscv64-unknown-elf-toolchain-10.2.0-2020.12.8-x86_64-linux-ubuntu14.tar.gz
 export PATH=path/to/toolchain/bin:$PATH
 ```
 
-clone 仓库并进行配置：
+Clone the repository and configure:
 ```bash
 mkdir nuttx && cd nuttx
 git clone https://github.com/apache/nuttx.git nuttx
 git clone https://github.com/apache/nuttx-apps.git apps
 ```
-### 构建 NuttX
 
-编译 nuttx.bin：
+### Building NuttX
+
+Compile nuttx.bin:
 ```bash
 cd nuttx
 make distclean
@@ -46,7 +47,7 @@ make -j$(nproc)
 riscv64-unknown-elf-objcopy -O binary nuttx nuttx.bin
 ```
 
-构建文件系统：
+Build the file system:
 ```bash
 make export
 pushd ../apps
@@ -56,12 +57,12 @@ popd
 genromfs -f initrd -d ../apps/bin -V "NuttXBootVol"
 ```
 
-编写 dtb 文件：
-- 下载 dtb：
+Write the dtb file:
+- Download the dtb:
 ```bash
 wget https://github.com/starfive-tech/VisionFive2/releases/download/JH7110_VF2_515_v5.11.3/jh7110-visionfive-v2.dtb
 ```
-- 在 nuttx 文件夹下进行：
+- In the nuttx directory:
 ```bash
 cat << EOF > nuttx.its
 /dts-v1/;
@@ -121,35 +122,35 @@ cat << EOF > nuttx.its
 EOF
 ```
 
-确认你系统上安装了 u-boot-tools：
+Ensure you have u-boot-tools installed on your system:
 ```bash
 # sudo apt install u-boot-tools
 # sudo pacman -S uboot-tools
 # sudo dnf install u-boot-tools
 ```
 
-创建 fit：
+Create the fit:
 ```bash
 mkimage -f nuttx.its -A riscv -O linux -T flat_dt starfiveu.fit
 ```
 
-### 构建镜像
+### Building the Image
 
-下载 sd 卡镜像并烧写：
+Download the SD card image and flash:
 ```bash
 wget https://github.com/starfive-tech/VisionFive2/releases/download/JH7110_VF2_515_v5.11.3/sdcard.img
 sudo dd if=sdcard.img of=/dev/your/device bs=1M status=progress
 ```
 
-### 烧写镜像
+### Flashing the Image
 
-在 SD 卡上烧写 SBI 环境：
+Flash the SBI environment onto the SD card:
 ```bash
 unxz -k canmv230-sdcard.img.xz
 sudo dd if=canmv230-sdcard.img of=/dev/your/sdcard bs=1M status=progress
 ```
 
-替换 fit 文件：
+Replace the fit file:
 ```bash
 mkdir mnt
 sudo mount /dev/your/sdcard/p3 mnt
@@ -158,32 +159,31 @@ sudo umount mnt
 rm -r mnt
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口连接开发板。
+Connect to the development board via serial port.
 
-## 预期结果
+## Expected Results
 
-构建成功，开发板正常输出启动信息。
+The development board outputting boot information normally.
 
-## 实际结果
+## Actual Results
 
-构建成功，开发板正常输出启动信息。
+CFT
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写系统到启动）：
-
+Screen recording (from image flashing to boot):
 
 ```log
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
 CFT

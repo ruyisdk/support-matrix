@@ -1,48 +1,48 @@
-# openKylin 1.0 HiFive Unmatched 版本测试报告
+# openKylin 1.0 HiFive Unmatched Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：openKylin 1.0
-- 下载链接：https://www.openkylin.top/downloads
-- 参考安装文档：https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+- System Version: openKylin 1.0
+- Download Link: https://www.openkylin.top/downloads
+- Reference Installation Document: https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 
-### 硬件信息
+### Hardware Information
 
 - HiFive Unmatched Rev A
-- microUSB 线缆一条（随 HiFive Unmatched 附赠）
-- ATX 电源一个
-- microSD 卡一张（Sandisk Extreme Pro 64G UHS-I）
+- A microUSB cable (included with HiFive Unmatched)
+- An ATX power supply
+- A microSD card (Sandisk Extreme Pro 64G UHS-I)
 
-## 安装步骤
+## Installation Steps
 
-### 引导设备选择
+### Boot Device Selection
 
-确保拨码开关已调整为从 microSD 卡引导。若您未更改，出厂默认即为从 microSD 卡引导。
+Ensure the DIP switch is set to boot from the microSD card. If not changed, the factory default is boot from microSD.
 
-拨码开关应如下设置：`MSEL[3:0]=1011`
+The DIP switch should be set as follows: `MSEL[3:0]=1011`
 
-### 使用 `ruyi` CLI 刷写镜像到 microSD 卡
+### Use `ruyi` CLI to Flash the Image to the microSD Card
 
-安装 [`ruyi`](https://github.com/ruyisdk/ruyi) 包管理器，运行 `ruyi device provision` 并按提示操作。
+Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision` and follow the prompts.
 
-### 登录系统
+### Logging into the System
 
-通过板载串口（使用 microUSB 线缆连接至其他计算机）或图形界面登录系统。
+Logging into the system via the onboard serial port (connect using a microUSB cable to another computer) or graphical interface.
 
-默认用户名：`openkylin`
-默认密码：`openkylin`
+Default username: `openkylin`
+Default password: `openkylin`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口或图形界面登录。
+The system should boot normally and allow login via the onboard serial port or graphical interface.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully and login via the onboard serial port was successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 Welcome to openKylin 1.0 (GNU/Linux 5.11.0-1030-generic riscv64)                                                      
@@ -99,16 +99,16 @@ uarch           : sifive,u74-mc
 openkylin@openkylin:~$ 
 ```
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (From flashing image to logging):
 
 [![asciicast](https://asciinema.org/a/Wgz7wgCph6BhEQpEskH4LDMd4.svg)](https://asciinema.org/a/Wgz7wgCph6BhEQpEskH4LDMd4)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

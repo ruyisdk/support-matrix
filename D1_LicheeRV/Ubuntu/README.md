@@ -1,72 +1,71 @@
-# Ubuntu 23.10 D1 测试报告
+# Ubuntu 24.04 D1 Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：Ubuntu 23.10
-- 下载链接：https://ubuntu.com/download/risc-v
-    - 或者镜像站：[Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/mantic/release/ubuntu-23.10-preinstalled-server-riscv64+nezha.img.xz) | [Lichee RV](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/mantic/release/ubuntu-23.10-preinstalled-server-riscv64+licheerv.img.xz)
-- 参考安装文档：https://wiki.ubuntu.com/RISC-V/LicheeRV
+- System Version: Ubuntu 24.04
+- Download Link: https://ubuntu.com/download/risc-v
+    - Or from mirror sites: [Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/mantic/release/ubuntu-23.10-preinstalled-server-riscv64+nezha.img.xz) | [Lichee RV](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/mantic/release/ubuntu-23.10-preinstalled-server-riscv64+licheerv.img.xz)
+- Reference Installation Document: https://wiki.ubuntu.com/RISC-V/LicheeRV
 
-### 硬件信息
+### Hardware Information
 
 - AWOL Nezha D1 / Sipeed Lichee RV Dock
-- USB-A 电源一个
-- USB-A to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
+- A USB-A Power Adapter
+- A USB-A to C Cable
+- A microSD Card
+- A USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three DuPont Wires
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像到 microSD 卡
+### Flashing Image to microSD Card
 
-使用 `dd` 将镜像写入至 microSD 卡。
+Use `dd` to flash the image to the microSD card.
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-默认用户名：`ubuntu`
-默认密码：`ubuntu`
+Default Username: `ubuntu`
+Default Password: `ubuntu`
 
-初次登录时，系统会提示更改密码。
+On first login, the system will prompt you to change the password.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully and login via the onboard serial port was also successful.
 
-### 启动信息
+### Boot Log
 
 ```log
-ubuntu@ubuntu:~$ cat /proc/cpuinfo                                                                                    
-processor       : 0                                                                                                   
-hart            : 0                                                                                                   
-isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm                                                              
-mmu             : sv39                                                                                                
-uarch           : thead,c906                                                                                          
-mvendorid       : 0x5b7                                                                                               
-marchid         : 0x0                                                                                                 
-mimpid          : 0x0                                                                                                 
-                                                                                                                      
-ubuntu@ubuntu:~$
+ubuntu@ubuntu:~$ cat /proc/cpuinfo
+processor       : 0
+hart            : 0
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : thead,c906
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
 ```
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing the image to logging into the system):
 
-[![asciicast](https://asciinema.org/a/wEtZPokxvzJ72S9ETh8PSqdUt.svg)](https://asciinema.org/a/wEtZPokxvzJ72S9ETh8PSqdUt)
+[![asciicast](https://asciinema.org/a/zwX03rXaG8pP6mQMDYuSzb0Eb.svg)](https://asciinema.org/a/zwX03rXaG8pP6mQMDYuSzb0Eb)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

@@ -1,4 +1,4 @@
-# Zephyr CH32V103C 测试报告
+# FreeRTOS CH32V305 测试报告
 
 ## 测试环境
 
@@ -7,11 +7,11 @@
 - 源码链接：https://github.com/Community-PIO-CH32V/ch32-pio-projects
 - 参考文档：
     - PlatformIO Core：https://docs.platformio.org/en/latest/core/installation/index.html
-    - PlatformIO ch32v：https://pio-ch32v.readthedocs.io/en/latest/installation.html
+    - PlatformIO CH32V：https://pio-ch32v.readthedocs.io/en/latest/installation.html
 
 ### 硬件信息
 
-- CH32V103C8T6-EVT-R1
+- CH32V305FBP6-EVT-R0-1v0
 - USB to UART 调试器一个
 - WCH-Link(E) 一个
 
@@ -68,7 +68,7 @@ git clone https://github.com/Community-PIO-CH32V/platform-ch32v.git
 
 使用 pio 编译代码：
 ```bash
-cd platform-ch32v/examples/zephyr-blink
+cd platform-ch32v/examples/blinky-freertos
 pio run
 ```
 
@@ -81,18 +81,47 @@ pio run --target upload
 
 pio 会自行检测开发板。若烧录不成功也可尝试手动指定：
 ```bash
-pio run -e genericCH32V103C8T6 --target upload
+pio run -e your_board --target upload
 ```
+
+#### 添加开发板
+
+**若使用的是 FBP6 系列请忽略**
+这是由于其它芯片不在默认芯片列表中，我们需要手动添加。
+你可以在 `platform-ch32v/boards` 中找到你的板子对应 json 名。
+```bash
+cat << EOF | tee -a platformio.ini
+[env:your_board]
+board = your_board
+EOF
+```
+
+#### FBP6 烧写问题
+
+这是由于 FBP6 的调试引脚与 UART 互联，若芯片内运行使用 UART 的程序则无法使用调试口。详见：[WCH 官方帖](https://www.wch.cn/bbs/thread-100647-1.html)
+
+解决需要 **WCH-LinkE** 使用 nRST 进行 flash 擦除，文档见：https://www.wch.cn/uploads/file/20230227/1677463712756616.pdf
+
 
 #### 常见问题
 
 - Error: error writing to flash at address 0x00000000 at offset 0x00000000
     - 这是由于 WCH-Link 固件版本过低造成的。（见[important-notices](https://github.com/Community-PIO-CH32V/platform-ch32v?tab=readme-ov-file#important-notices)）。
     - 请使用[WCH-Link 工具链](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html)连接一次 W2 有 CH-Link 即可自动更新。**该工具目前仅有 Windows 版本**
+- Error: Read-Protect Status Currently Enabled
+    - 这是由于芯片开启了写保护导致的。Winodws 下我们可以使用 [WCH-Link 工具链](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html)解保护，Linux 下可以使用 OpenOCD 解保护：
+```bash
+cd ~/.platformio/packages/tool-openocd-riscv-wch/bin
+./openocd -f wch-riscv.cfg -c init -c halt -c "flash protect wch_riscv 0 last  off " -c exit
+cd - # 别忘了回到工作目录
+```
+
 
 ### 登录系统
 
 通过串口连接开发板。
+
+FBP6 连接方式见：[WCH 官方帖](https://www.wch.cn/bbs/thread-100647-1.html)
 
 ## 预期结果
 
@@ -105,8 +134,15 @@ pio run -e genericCH32V103C8T6 --target upload
 ### 启动信息
 
 屏幕录像（从编译到启动）：
+[![asciicast](https://asciinema.org/a/fRz5r929znlm3kaiFEWpa8dLp.svg)](https://asciinema.org/a/fRz5r929znlm3kaiFEWpa8dLp)
 
 ```log
+SystemClk:96000000
+ChipID: 30520518
+FreeRTOS Kernel Version:V10.4.6
+task2 entry
+task1 entry
+task1 entry
 
 ```
 

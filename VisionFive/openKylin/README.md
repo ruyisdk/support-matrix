@@ -1,50 +1,50 @@
-# openKylin 0.9.5 VisionFive 测试报告
+# openKylin 0.9.5 VisionFive Test Report
 
-## 测试环境
+## Test Environment
 
-### 系统信息
+### System Information
 
-- 系统版本：openKylin 0.9.5
-- 下载链接：[https://www.openkylin.top/downloads/old_releases.html](https://www.openkylin.top/downloads/old_releases.html)
-- 参考安装文档：[https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin](https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
+- System Version: openKylin 0.9.5
+- Download Link: [https://www.openkylin.top/downloads/old_releases.html](https://www.openkylin.top/downloads/old_releases.html)
+- Reference Installation Document: [https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin](https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
 
-### 硬件信息
+### Hardware Information
 
 - StarFive VisionFive
-- 电源适配器
-- microSD 卡一张
-- USB to UART 调试器一个
+- Power Adapter
+- A microSD Card
+- A USB to UART Debugger
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像
+### Flashing Image
 
-使用 `unxz` 解压镜像。
-使用 `dd` 将镜像写入 microSD 卡。
+Use `unxz` to decompress the image.
+Use `dd` to flash the image to the microSD card.
 
 ```bash
 unxz /path/to/openKylin.img.xz
 sudo dd if=/path/to/openKylin.img of=/dev/your-device bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Log into the system via the serial port.
 
-默认用户名： `openkylin`
-默认密码： `openkylin`
+Default Username: `openkylin`
+Default Password: `openkylin`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot up normally and allow login through the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted up normally and login through the onboard serial port was successful.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing image to system login):
 
 [![asciicast](https://asciinema.org/a/TgWQuZfKq1nb1CKJYuO4eyr8i.svg)](https://asciinema.org/a/TgWQuZfKq1nb1CKJYuO4eyr8i)
 
@@ -84,12 +84,12 @@ openkylin@openkylin:~$
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

@@ -1,43 +1,43 @@
-# RevyOS Lichee Cluster 4A 版本测试报告
+# Report on RevyOS Lichee Cluster 4A Version Testing
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### System Information
 
-- 系统版本：RevyOS (w/mainline kernel)
-- 下载链接
-  - 系统镜像：[root-lpi4amain-20240127_105111.ext4.zst](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/root-lpi4amain-20240127_105111.ext4.zst)
-  - boot 镜像：[boot-lpi4amain-20240127_105111.ext4.zst](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/boot-lpi4amain-20240127_105111.ext4.zst)
-  - u-boot 镜像（8G RAM）：[u-boot-with-spl-lc4a-main.bin](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/u-boot-with-spl-lc4a-main.bin)
-  - u-boot 镜像（16G RAM）：[u-boot-with-spl-lc4a-16g-main.bin](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/u-boot-with-spl-lc4a-16g-main.bin)
-- 参考安装文档：https://revyos.github.io/
+- System Version: RevyOS (with mainline kernel)
+- Download Links
+  - System Image: [root-lpi4amain-20240127_105111.ext4.zst](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/root-lpi4amain-20240127_105111.ext4.zst)
+  - Boot Image: [boot-lpi4amain-20240127_105111.ext4.zst](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/boot-lpi4amain-20240127_105111.ext4.zst)
+  - U-Boot Image (8G RAM): [u-boot-with-spl-lc4a-main.bin](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/u-boot-with-spl-lc4a-main.bin)
+  - U-Boot Image (16G RAM): [u-boot-with-spl-lc4a-16g-main.bin](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/u-boot-with-spl-lc4a-16g-main.bin)
+- Reference Installation Document: https://revyos.github.io/
 
-### 硬件信息
+### Hardware Information
 
 - Lichee Cluster 4A 8G / 16G
-- DC 12V 电源
+- DC 12V Power Supply
 - USB-A to A
-    - 或 LPi4A 底板
-- 网络和网线（注意连接到 BMC 而非交换机）
+    - or LPi4A Dock
+- Network and Ethernet Cable (connect to BMC, not a switch)
 
-## 安装步骤
+## Installation Steps
 
-*以下以刷写到集群中一号板为例*
+*The following steps are based on flashing to the first board in the cluster*
 
-### 连接对应 SOM
+### Connect to the Corresponding SOM
 
-使用 A to A 线缆连接 SOM。
+Connect SOM using an A to A cable.
 
-### 刷写镜像
+### Flash Image
 
-使用 `zstd` 解压镜像。
+Use `zstd` to decompress the image.
 
 ```bash
 zstd -d boot-lpi4amain-20240127_105111.ext4.zst
 zstd -d root-lpi4amain-20240127_105111.ext4.zst
 ```
 
-使用 `fastboot` 刷写镜像
+Use `fastboot` to flash the image
 ```bash
 sudo ./fastboot flash ram u-boot-with-spl-lc4a-main.bin
 sudo ./fastboot reboot
@@ -46,30 +46,30 @@ sudo ./fastboot flash boot boot-lpi4amain-20240127_105111.ext4
 sudo ./fastboot flash root root-lpi4amain-20240127_105111.ext4
 ```
 
-### 登录系统
+### Logging into the System
 
-通过 SOL (Serial Over LAN) 登录系统。
+Logging into the system via SOL (Serial Over LAN).
 
-BMC 默认用户名：`root`
+Default BMC username: `root`
 
-BMC 默认密码：`0penBmc`  **注意是 `0` 而不是 `O`**
+Default BMC password: `0penBmc`  **Note: `0`, not `O`**
 
-通过 `ssh -p 2301 root@lichee-rv.local` 连接
+Connect using `ssh -p 2301 root@lichee-rv.local`
 
-默认用户名：`debian`
-默认密码：`debian`
+Default username: `debian`
+Default password: `debian`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过 SOL (Serial Over LAN) 登录。
+The system boots up normally and can be accessed through SOL (Serial Over LAN).
 
-## 实际结果
+## Actual Results
 
-系统正常启动，能够通过 SOL (Serial Over LAN) 登录。
+The system boots up normally and can be accessed through SOL (Serial Over LAN).
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写系统到启动）：
+Screen recording (from flashing the system to startup):
 
 [![asciicast](https://asciinema.org/a/TVYy7DGHQR3O71I9BGJL0bECY.svg)](https://asciinema.org/a/TVYy7DGHQR3O71I9BGJL0bECY)
 
@@ -138,12 +138,12 @@ debian@lpi4amain:~$
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

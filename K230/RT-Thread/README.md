@@ -1,26 +1,26 @@
-# RT-Thread K230 测试报告
+# RT-Thread K230 Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-官方预编译 SDK 已经含有了 RT-Smart。
+The official precompiled SDK includes RT-Smart.
 
-- 下载链接：https://github.com/kendryte/k230_sdk/releases/tag/v1.4
-- 参考安装文档：https://github.com/kendryte/k230_docs/blob/main/zh/01_software/board/K230_SDK_%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md
+- Download link: https://github.com/kendryte/k230_sdk/releases/tag/v1.4
+- Reference Installation Document: https://github.com/kendryte/k230_docs/blob/main/zh/01_software/board/K230_SDK_%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md
 
-### 硬件信息
+### Hardware Information
 
-- 开发板：Canaan Kendryte K230
-- USB A to C / USB C to C 线缆
+- Development Board: Canaan Kendryte K230
+- USB A to C / USB C to C cable
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像
+### Flashing Image
 
-使用 `unzstd` 解压镜像。
-清空你的 sd 卡。
-使用 `dd` 将镜像写入 microSD 卡。
+Use `unzstd` to decompress the image.
+Clear your SD card.
+Use `dd` to flash the image to the microSD card.
 
 ```bash
 gizp -d /path/to/k230.img.gz
@@ -28,16 +28,16 @@ sudo wipefs -a /dev/your_device
 sudo dd if=/path/to/k230.img of=/dev/your_device bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-默认用户： `root`
-无默认密码。
+Default user: `root`
+No default password.
 
-其中小核 tty 为 Linux，大核 tty 为 RT-Smart。
+The small core tty is for Linux, and the large core tty is for RT-Smart.
 
-## 实际结果
+## Actual Results
 
 ```log
 OpenSBI v0.9
@@ -74,12 +74,12 @@ msh />
 
 ![img](image-1.png)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

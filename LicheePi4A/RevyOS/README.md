@@ -1,42 +1,41 @@
-# RevyOS LPi4A 版本测试报告
+# RevyOS LPi4A Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### System Information
 
-- 系统版本：RevyOS 20231210
-- 下载链接：https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
-- 参考安装文档：https://revyos.github.io/docs/
+- System Version: RevyOS 20231210
+- Download Link: [ISCAS mirror](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
+- Reference Installation Document: [Visit here](https://revyos.github.io/docs/)
 
-### 硬件信息
+### Hardware Information
 
-- Lichee Pi 4A (16G RAM + 128G eMMC)
-- USB-C 电源适配器 / DC 电源一个
-- USB-UART 调试器一个
+- Lichee Pi 4A (16GB RAM + 128GB eMMFAQC)
+- USB-C Power Adapter / DC Power Supply
+- USB-UART Debugger
 
-## 安装步骤
+## Installation Steps
 
-### 使用 `ruyi` CLI 刷写镜像到板载 eMMC
+### Using the `ruyi` CLI to Flash Image to Onboard eMMC
 
-安装 [`ruyi`](https://github.com/ruyisdk/ruyi) 包管理器，运行 `ruyi device provision` 并按提示操作。
+Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the prompts.
 
-### 登录系统
+### Logging into the System
 
-通过串口或图形界面登录系统。
+Logging into the system via serial console or graphical interface.
 
-默认用户名：`debian`
-默认密码：`debian`
+Default username: `debian`
+Default password: `debian`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口登录。
+The system boots up successfully and can be accessed via the serial console.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过串口登录。
+The system boots up successfully and login via the serial console is successful.
 
-### 启动信息
-
+### Boot Log
 
 ```log
 Debian GNU/Linux 12 lpi4a ttyS0
@@ -76,9 +75,6 @@ mmu             : sv39
 cpu-freq        : 1.848Ghz
 cpu-icache      : 64KB
 cpu-dcache      : 64KB
-cpu-l2cache     : 1MB
-cpu-tlb         : 1024 4-ways
-cpu-cacheline   : 64Bytes
 cpu-vector      : 0.7.1
 
 processor       : 1
@@ -136,12 +132,12 @@ RUNNER_ID=7158219074
 debian@lpi4a:~$
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

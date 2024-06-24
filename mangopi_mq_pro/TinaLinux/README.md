@@ -1,29 +1,29 @@
-# Tina Linux MangoPi MQ Pro 测试报告
+# Tina Linux MangoPi MQ Pro Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 下载链接：链接：https://pan.baidu.com/s/1v55AKMFripaEu22tJ92lmw?pwd=awol 提取码：awol
-- 参考安装文档：https://d1.docs.aw-ol.com/study/study_1tina/
+- Download Link: [Link](https://pan.baidu.com/s/1v55AKMFripaEu22tJ92lmw?pwd=awol) Password: awol
+- Reference Installation Document: [Installation Guide](https://d1.docs.aw-ol.com/study/study_1tina/)
 
-### 硬件信息
+### Hardware Information
 
 - MangoPi MQ Pro
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
+- A microSD card
+- USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
 
-## 安装步骤
+## Installation Steps
 
-### 编译 SDK
+### Compiling the SDK
 
-下载并解压 SDK 后，加入新目标：
+Download and extract the SDK, then add a new target:
 ```bash
 git clone https://github.com/Tina-Linux/Tina_d1x_mangopi-sbc.git
 cp -r Tina_d1x_mangopi-sbc tina_d1_open_v2_2
 ```
 
-编译并打包：
+Compile and package:
 ```bash
 source build/envsetup.sh
 lunch
@@ -31,40 +31,37 @@ make -j$(nproc)
 pack
 ```
 
-### 烧写镜像
+### Flashing Image
 
-使用 dd 将镜像烧写到 SD 卡：
+Use `dd` to flash the image to the SD card:
 ```bash
 sudo dd if=tina_d1-h.img of=/dev/your/device bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system boots up normally and allows login through the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+CFT
 
-### 启动信息
+### Boot Log
 
-
-屏幕录像（从刷写镜像到登录系统）：
-
+Screen recording (From flashing image to system login):
 ```log
 ```
 
+## Test Criteria
 
-## 测试判定标准
+Successful: The actual result matches the expected result.
 
-测试成功：实际结果与预期结果相符。
+Failed: The actual result does not match the expected result.
 
-测试失败：实际结果与预期结果不符。
-
-## 测试结论
+## Test Conclusion
 
 CFT

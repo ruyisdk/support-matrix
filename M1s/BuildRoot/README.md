@@ -1,59 +1,59 @@
-# BuildRoot Sipeed M1s Dock 测试报告
+# BuildRoot Sipeed M1s Dock Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：20240401
-- 下载链接：https://github.com/sipeed/LicheeRV-Nano-Build/releases
-    - 预编译镜像：https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/m1sdock_linux_20221116.zip
-- 参考安装文档：https://github.com/sipeed/LicheeRV-Nano-Build/releases
+- System Version: 20240401
+- Download Link: https://github.com/sipeed/LicheeRV-Nano-Build/releases
+    - Precompiled Image: https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/m1sdock_linux_20221116.zip
+- Reference Installation Document: https://github.com/sipeed/LicheeRV-Nano-Build/releases
 
-### 硬件信息
+### Hardware Information
 
 - Sipeed M1s Dock
-- type-c 线一根
+- A Type-C cable
 
-## 安装步骤
+## Installation Steps
 
-### 获取镜像
+### Get the Image
 
-下载并解压预编译镜像：
+Download and extract the precompiled image:
 ```bash
 wget https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/m1sdock_linux_20221116.zip
 unzip m1sdock_linux_20221116.zip
 
 ```
 
-### 串口方式刷写程序
+### Flashing the Program via Serial Port
 
-使用 type-c 线连接电脑和**标有 UART**的 C 口
+Connect the computer and the **UART-labeled** C port using the Type-C cable.
 
-下载烧录工具后使用对应系统的工具烧录。
+Download the flashing tool and use the appropriate version for your system to flash the firmware.
 
-上电后，先按住 boot，再按 rst，再松开 boot。
+After powering on, press and hold the boot button, then press the reset button, and finally release the boot button.
 
-进入 MCU 页面，刷入 m0 与 d0（文件为 low_load_bl808_m0/d0@0x58000000.bin），地址为0x58000000，group都为group0。串口选择高串口！
+Enter the MCU page, and flash m0 and d0 (files named low_load_bl808_m0/d0@0x58000000.bin) at address 0x58000000, with group set to group0. Ensure to select the high serial port!
 
 ![mcu](./mcu.png)
 
-接下来进入 IOT 页面，勾上 Single Download Options，起始地址填文件名中的，刷入 whole_img 文件。
+Next, enter the IOT page, check the Single Download Options box, fill in the start address with the address in the filename, and flash the whole_img file.
 
 ![iot](./iot.png)
 
-### 连接串口
+### Connecting via Serial Port
 
-将 type-c 线连接到**标有 UART**的 C 口。
+Connect the Type-C cable to the **UART-labeled** C port.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够看到串口输出。
+The system should start normally with serial output.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，能够看到串口输出。
+The system started successfully, with serial output.
 
-### 启动信息
+### Boot Information
 
 ```log
 --------Start Local Services--------
@@ -88,16 +88,17 @@ vector version  : 0.7.1
 
 ```
 
-屏幕录像（进入系统）：
+Screen recording (entering the system):
 
 [![asciicast](https://asciinema.org/a/R5eNAV87OGvoJfoNcpVCtMKRO.svg)](https://asciinema.org/a/R5eNAV87OGvoJfoNcpVCtMKRO)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.
+

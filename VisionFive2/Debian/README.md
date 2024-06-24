@@ -1,42 +1,42 @@
-# Debian VisionFive 2 版本测试报告
+# Debian VisionFive 2 Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：Debian bookworm (starfive-jh7110-202403-SD-minimal-desktop-wayland.img.bz2)
-- 下载链接：https://debian.starfivetech.com/
-- 参考安装文档：https://gitee.com/openeuler/RISC-V/blob/master/release/openEuler-23.03/Installation_Book/Visionfive2/README.md
+- System Version: Debian bookworm (starfive-jh7110-202403-SD-minimal-desktop-wayland.img.bz2)
+- Download Link: https://debian.starfivetech.com/
+- Reference Installation Document: https://gitee.com/openeuler/RISC-V/blob/master/release/openEuler-23.03/Installation_Book/Visionfive2/README.md
 
-### 硬件信息
+### Hardware Information
 
 - StarFive VisionFive 2
-- USB 电源适配器一个
-- USB-A to C 或 C to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
+- A USB power adapter
+- A USB-A to C or C to C cable
+- A microSD card
+- A USB to UART debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three Dupont wires
 
-## 安装步骤
+## Installation Steps
 
-### 解压并刷写镜像到 microSD 卡
+### Decompress and Flash Image to microSD Card
 
-假定 `/dev/sdc` 为存储卡。
+Assuming `/dev/sdc` is the storage card.
 
 ```bash
 bzip2 -dk starfive-jh7110-202403-SD-minimal-desktop-wayland.img.bz2
 sudo dd if=starfive-jh7110-202403-SD-minimal-desktop-wayland.img of=/dev/sdc bs=1M status=progress
 ```
 
-### 引导模式选择
+### Boot Mode Selection
 
-StarFive VisionFive 2 提供了多种引导模式，可在上电前通过板载拨码开关进行配置；开发板本体上亦有丝印标注。
+StarFive VisionFive 2 offers multiple boot modes, configurable via onboard DIP switches before powering on. The board itself also has silk-screen labels.
 
-为了启动原厂 Debian 镜像，可以选择 1-bit QSPI Nor Flash 模式（即：`RGPIO_0 = 0`, `RGPIO_1 = 0`）。注意，此模式可能需要提前更新 Flash 内的固件，若您启动不成功，请参考官方文档进行固件升级：[更新 SPL 和 U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
+To boot the original Debian image, select the 1-bit QSPI Nor Flash mode (i.e., `RGPIO_0 = 0`, `RGPIO_1 = 0`). Note that this mode may require updating the firmware in the Flash beforehand. If the boot is unsuccessful, please refer to the official documentation for firmware upgrade details: [Updating SPL and U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
 
-若不更新固件，请选择 microSD 卡引导（即：`RGPIO_0 = 1`, `RGPIO_1 = 0`）。
+If not updating the firmware, choose the microSD card boot mode (i.e., `RGPIO_0 = 1`, `RGPIO_1 = 0`).
 
-> 注意，此模式下有小概率出现启动失败的情况，如遇到启动失败，串口输出类似如下信息：
+> Note: There is a slight chance that the system may fail to boot in this mode. If boot failure occurs, the serial output might resemble the following:
 >
 >```log
 >dwmci_s: Response Timeout.                                                                                            
@@ -44,24 +44,24 @@ StarFive VisionFive 2 提供了多种引导模式，可在上电前通过板载�
 >BOOT fail,Error is 0xffffffff
 >```
 >
-> 您可以尝试重新给开发板上电，或点按一下 USB Type-C 供电接口附近的按钮。通常这可以解决无法启动的问题。
+> You can try repowering the development board or pressing the button near the USB Type-C power port. This usually resolves the boot issue.
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Log into the system via the serial port.
 
-默认用户名：`user`
-默认密码：`starfive`
+Default username: `user`
+Default password: `starfive`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口登录。
+The system should boot up normally and allow login via the serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过串口登录。
+The system booted up successfully, and login via the serial port was successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 user@starfive:~$ uname -a                                                                                             
@@ -78,16 +78,16 @@ BUILD_ID=7
 user@starfive:~$
 ```
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing the image to system login):
 
 [![asciicast](https://asciinema.org/a/CCoYSyfdX7TWoiXM8Kct8nTVF.svg)](https://asciinema.org/a/CCoYSyfdX7TWoiXM8Kct8nTVF)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

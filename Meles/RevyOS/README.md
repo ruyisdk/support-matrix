@@ -1,43 +1,43 @@
-# RevyOS Meles 版本测试报告
+# RevyOS Meles Version Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 系统版本：root-meles-20231210_134926.ext4.tar.gz
-- 下载链接：https://github.com/milkv-meles/meles-images/releases
-- 参考安装文档：https://milkv.io/zh/docs/meles/getting-started/boot
+- System Version: root-meles-20231210_134926.ext4.tar.gz
+- Download Link: https://github.com/milkv-meles/meles-images/releases
+- Reference Installation Document: https://milkv.io/zh/docs/meles/getting-started/boot
 
-### 硬件信息
+### Hardware Information
 
 - Milk-V Meles 4GB/8GB
-- eMMC 模组 > 16GB
-- USB A to C 线缆一条
-- 可选：USB-TTL 调试器一个
-- 可选：键盘、显示器、鼠标（测试图形界面）
+- eMMC module > 16GB
+- A USB A to C cable
+- Optional: A USB-TTL Debugger
+- Optional: Keyboard, monitor, mouse (for graphical interface testing)
 
-## 安装步骤
+## Installation Steps
 
-### 使用 `fastboot` 刷写镜像至开发板
+### Flashing Image using `fastboot` onto the Development Board
 
-从 [GitHub release](https://github.com/milkv-meles/meles-images/releases) 下载系统镜像和 U-Boot SPL。
+Download the system image and U-Boot SPL from [GitHub release](https://github.com/milkv-meles/meles-images/releases).
 
-u-boot-with-spl 版本选择：
-- 4GB 版本 -> u-boot-with-spl-**single**rank.bin
-- 8GB 版本 -> u-boot-with-spl-**dual**rank.bin
+U-Boot with SPL version selection:
+- 4GB Version -> u-boot-with-spl-**single**rank.bin
+- 8GB Version -> u-boot-with-spl-**dual**rank.bin
 
-按住开发板 GPIO 接口附近的下载按钮并将开发板连接至计算机。
+Press and hold the download button near the GPIO interface on the development board and connect the board to the computer.
 
-检查连接状态：
+Check connection status:
 
 ```shell
 $ lsusb | grep T-HEAD
 Bus 001 Device 045: ID 2345:7654 T-HEAD USB download gadget
 ```
 
-接下来使用 `fastboot` 刷写镜像。
+Next, use `fastboot` to flash the image.
 
-如果出现 `fastboot` 不识别设备、无法刷写等情况，请检查设备连接，并尝试以特权用户身份（`sudo`）执行 `fastboot`。
+If `fastboot` doesn't recognize the device or you encounter flashing issues, check the device connection and try running `fastboot` as a privileged user (`sudo`).
 
 ```shell
 fastboot flash ram u-boot-with-spl-dualrank.bin
@@ -48,31 +48,31 @@ tar xvf root-meles-20231210_134926.ext4.tar.gz
 fastboot flash root root-meles-20231210_134926.ext4
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口或图形界面登录系统。
+Logging into the system via serial port or graphical interface.
 
-默认用户名：`debian`
-默认密码：`debian`
+Default Username: `debian`
+Default Password: `debian`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口登录。
+The system should boot up normally and allow login through the serial port.
 
-## 实际结果
-
-系统正常启动，成功通过串口登录。
-
-### 启动信息
+## Actual Results
 
 CFT
 
-## 测试判定标准
+### Boot Information
 
-测试成功：实际结果与预期结果相符。
+CFT
 
-测试失败：实际结果与预期结果不符。
+## Test Criteria
 
-## 测试结论
+Successful: The actual result matches the expected result.
+
+Failed: The actual result does not match the expected result.
+
+## Test Conclusion
 
 CFT

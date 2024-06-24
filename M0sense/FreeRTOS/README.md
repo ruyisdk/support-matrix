@@ -1,28 +1,28 @@
-# FreeRTOS Demo M0sense 测试报告
+# FreeRTOS Demo M0sense Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 构建系统：Arch Linux
-- 源码链接：https://gitee.com/Sipeed/M0sense_BL702_example
-- 参考安装文档：https://wiki.sipeed.com/hardware/zh/maixzero/sense/start.html
-- 工具链：https://gitee.com/bouffalolab/toolchain_gcc_sifive_linux
+- Build System: Arch Linux
+- Source Code Link: [https://gitee.com/Sipeed/M0sense_BL702_example](https://gitee.com/Sipeed/M0sense_BL702_example)
+- Reference Installation Document: [https://wiki.sipeed.com/hardware/zh/maixzero/sense/start.html](https://wiki.sipeed.com/hardware/zh/maixzero/sense/start.html)
+- Toolchain: [https://gitee.com/bouffalolab/toolchain_gcc_sifive_linux](https://gitee.com/bouffalolab/toolchain_gcc_sifive_linux)
 
-### 硬件信息
+### Hardware Information
 
 - Sipeed M0sense (BL702)
-- USB A to C 或 C to C 线缆一根
+- A USB A to C or C to C cable
 
-## 安装步骤
+## Installation Steps
 
-### 准备构建环境
+### Setting Up the Build Environment
 
 ```shell
 sudo pacman -S gcc git base-devel
 ```
 
-### 构建 FreeRTOS Demo
+### Building FreeRTOS Demo
 
 ```shell
 git clone https://gitee.com/Sipeed/M0sense_BL702_example.git
@@ -35,7 +35,7 @@ gcc -I libs/uf2_format misc/utils/uf2_conv.c -o uf2_convert
 ./build.sh m0sense_apps/rtos_demos/single_button_control
 ```
 
-构建结束后，在 `uf2_demos` 目录下会生成 uf2 格式的固件。
+Upon completion, the `uf2_demos` directory will contain the firmware in uf2 format.
 
 ```log
 mx @ archlinux in ~/M0sense_BL702_example/uf2_demos |17:40:05  |main U:3 ?:2 ✗| 
@@ -43,50 +43,50 @@ $ ls
 audio_recording.uf2  blink_baremetal.uf2  blink_rtos.uf2  hello_world.uf2  imu.uf2  lcd_flush.uf2  single_button_control.uf2
 ```
 
-### 烧录镜像
+### Flashing the Image
 
-按住开发板上的 BOOT 键后按下 RESET 键，会在电脑上显示为 USB 移动存储设备。将前一步中编译得到的 `single_button_control.uf2` 复制进来。
+Press and hold the BOOT button on the development board, then press the RESET button. It will appear as a USB mass storage device on your computer. Copy the `single_button_control.uf2` file generated in the previous step onto it.
 
-复制完成后，开发板会自动重启以加载新固件。
+After the upload is complete, the development board will automatically reboot to load the new firmware.
 
-#### 若未出现 USB 存储设备
+#### If the USB Storage Device Does Not Appear
 
-请参照 [此处](https://wiki.sipeed.com/hardware/zh/maixzero/sense/start.html#%E7%83%A7%E5%BD%95-bin-%E6%96%87%E4%BB%B6) 烧录固件。
+Refer to [this guide](https://wiki.sipeed.com/hardware/zh/maixzero/sense/start.html#%E7%83%A7%E5%BD%95-bin-%E6%96%87%E4%BB%B6) on how to flash the firmware.
 
-1. 前往博流[官网](https://dev.bouffalolab.com/download)下载烧录光盘工具。
-2. 根据系统不同，运行 `BLDevCube`、 `BLDevCube-macos` 或 `BLDevCube-ubuntu`。
-3. 短接开发板 `3V` 和 `BOOT` 引脚，然后再将开发板连接至计算机。
-4. 打开 `BLDevCube` 软件，选择 `BL702`，选择 `MCU` 模式。
-5. 点击 `Refresh`，选择唯一的串口（如果看到的不是唯一串口，重新短接 `boot` 引脚和 `3.3v` 引脚后再上电使 M0sense 进入下载模式），设置波特率 `2000000`，点击`Create & Download`。
-6. 重新插拔 USB 使新固件生效。
-7. 现在可以可以参照上面的方式，直接拖放 `.uf2` 固件到开发板完成烧录了。
+1. Download the flashing tool from Bouffalo's [official website](https://dev.bouffalolab.com/download).
+2. Depending on your OS, run `BLDevCube`, `BLDevCube-macos`, or `BLDevCube-ubuntu`.
+3. Short-circuit the `3V` and `BOOT` pins on the development board, then connect it to the computer.
+4. Open the `BLDevCube` software, select `BL702`, and choose `MCU` mode.
+5. Click `Refresh` and select the single available serial port (if no unique port is visible, reconnect the boot pin and the 3.3V pin and power cycle the M0sense to enter download mode), set the baud rate to `2000000`, and click `Create & Download`.
+6. Reconnect the USB to activate the new firmware.
+7. Now you can directly drag and drop the `.uf2` firmware to the development board as described above.
 
-### 连接开发板
+### Connecting the Development Board
 
-通过 USB 连接开发板。计算机上会出现一个串口。
+Connect the development board via USB. A serial port will appear on your computer.
 
-波特率：115200
+Baud Rate: 115200
 
-数据位：8
+Data Bits: 8
 
-## 预期结果
+## Expected Results
 
-构建成功，按住开发板 BOOT 按钮，开发板自带 LED 变色。串口打印 LED 颜色信息。
+Build successful, and upon pressing the BOOT button on the development board, the onboard LED changes color. The serial port outputs the LED color information.
 
-## 实际结果
+## Actual Results
 
-构建成功，按住开发板 BOOT 按钮，开发板自带 LED 变色。串口打印 LED 颜色信息。
+Build successful, and pressing the BOOT button on the development board causes the onboard LED to change color. The serial port outputs the LED color information.
 
 [![asciicast](https://asciinema.org/a/MjevQgMAxbPcjP0Uj1RJdEdQl.svg)](https://asciinema.org/a/MjevQgMAxbPcjP0Uj1RJdEdQl)
 
-### 启动信息
+### Boot Log
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

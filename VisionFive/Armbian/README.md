@@ -1,45 +1,41 @@
-# Armbian VisionFive 测试报告
+# Armbian VisionFive Test Report
 
-## 测试环境
+## Test Environment
 
-### 系统信息
+### System Information
 
-- 系统版本：openKylin 0.9.5
-- 下载链接：[https://www.armbian.com/vision-five/](https://www.armbian.com/vision-five/)
-- 参考安装文档：[https://docs.armbian.com/User-Guide_Getting-Started/](https://docs.armbian.com/User-Guide_Getting-Started/)
+- System Version: openKylin 0.9.5
+- Download Link: [https://www.armbian.com/vision-five/](https://www.armbian.com/vision-five/)
+- Reference Installation Document: [https://docs.armbian.com/User-Guide_Getting-Started/](https://docs.armbian.com/User-Guide_Getting-Started/)
 
-### 硬件信息
+### Hardware Information
 
 - StarFive VisionFive
-- 电源适配器
-- microSD 卡一张
-- USB to UART 调试器一个
+- Power Adapter
+- A microSD Card
+- A USB to UART Debugger
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像
+### Flashing Image
 
-使用 `unxz` 解压镜像。
-使用 `dd` 将镜像写入 microSD 卡。
+Use `unxz` to decompress the image.
+Use `dd` to write the image to the microSD card.
 
 ```bash
 unxz /path/to/Armbian_community.img.xz
 sudo dd if=/path/to/Armbian_community.img of=/dev/your-device bs=1M status=progress
 ```
 
-### 更新/引导 boot
+### Updating/Booting u-boot
 
+If u-boot fails to boot and enters the command line, you need to update u-boot (see: (pr 31) [https://github.com/starfive-tech/u-boot/pull/31]):
 
-### 更新/引导 boot
+Official Documentation: [https://starfivetech.com/uploads/VisionFive%20Single%20Board%20Computer%20Quick%20Start%20Guide.pdf](https://starfivetech.com/uploads/VisionFive%20Single%20Board%20Computer%20Quick%20Start%20Guide.pdf)
 
+u-boot Download: https://github.com/starfive-tech/Fedora_on_StarFive/releases
 
-若 u-boot 无法引导而是进入了命令行，需要更新 u-boot（详见：（pr 31）[https://github.com/starfive-tech/u-boot/pull/31]）：
-
-官方文档：[https://starfivetech.com/uploads/VisionFive%20Single%20Board%20Computer%20Quick%20Start%20Guide.pdf](https://starfivetech.com/uploads/VisionFive%20Single%20Board%20Computer%20Quick%20Start%20Guide.pdf)
-
-u-boot 下载：https://github.com/starfive-tech/Fedora_on_StarFive/releases
-
-或者，手动输入以下命令以引导系统：
+Alternatively, manually enter the following commands to boot the system:
 
 ```u-boot
 ext4load mmc 0:1 0x84000000 /boot/Image
@@ -48,22 +44,23 @@ setenv bootargs "root=/dev/mmcblk0p1 console=ttyS0,115200n8 console=tty0 earlyco
 booti 0x84000000 - 0x88000000
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-首次登录需要强制设置账户和密码。
+On the first login, you will be prompted to set up a user and password.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot up normally and allow login through the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
-### 启动信息
+The system booted up normally, and login via the onboard serial port was successful.
 
-屏幕录像（从刷写镜像到登录系统）：
+### Boot Log
+
+Screen recording (From flashing the image to logging into the system):
 
 [![asciicast](https://asciinema.org/a/EJJCRPhcPoMqp4OlMjUD9eOej.svg)](https://asciinema.org/a/EJJCRPhcPoMqp4OlMjUD9eOej)
 
@@ -310,12 +307,12 @@ root@visionfive:~#
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试部分成功。
+Test partially successful.

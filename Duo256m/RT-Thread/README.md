@@ -1,37 +1,37 @@
-# RT-Thread Milk-V Duo 256M 测试报告
+# RT-Thread Milk-V Duo 256M Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 源码链接：https://github.com/RT-Thread/rt-thread
-- 参考安装文档：https://github.com/RT-Thread/rt-thread/tree/master/bsp/cvitek/cv18xx_risc-v
-   - 工具链：https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1705395512373/Xuantie-900-gcc-elf-newlib-x86_64-V2.8.1-20240115.tar.gz
+- Source Code Link: https://github.com/RT-Thread/rt-thread
+- Reference Installation Document: https://github.com/RT-Thread/rt-thread/tree/master/bsp/cvitek/cv18xx_risc-v
+   - Toolchain: https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1705395512373/Xuantie-900-gcc-elf-newlib-x86_64-V2.8.1-20240115.tar.gz
 
-### 硬件信息
+### Hardware Information
 
 - Milk-V Duo 256M
-- USB-A to C 或 USB C to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
+- A USB-A to C or USB C to C Cable
+- A microSD Card
+- A USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
 
-## 构建步骤
+## Installation Steps
 
-### 拉取源码并编译固件
+### Fetch Source Code and Compile Firmware
 
-获取工具链并配置：
+Obtain the toolchain and configure it:
 ```bash
 wget https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1705395512373/Xuantie-900-gcc-elf-newlib-x86_64-V2.8.1-20240115.tar.gz
 tar -xzvf Xuantie-900-gcc-elf-newlib-x86_64-V2.8.1-20240115.tar.gz
 ```
 
-自行更改以下路径：
+Update the following paths as needed:
 ```bash
 export RTT_CC_PREFIX=riscv64-unknown-elf-
 export RTT_EXEC_PATH=/opt/Xuantie-900-gcc-elf-newlib-x86_64-V2.8.1/bin
 ```
 
-获取依赖：
+Fetch dependencies:
 ```bash
 sudo apt install -y scons libncurses5-dev device-tree-compiler
 ```
@@ -49,29 +49,29 @@ cd ../
 ./combine-fip.sh $(pwd)/cv18xx_risc-v Image
 ```
 
-请选择 256m 版本
+Please select the 256m version.
 
-执行结束后，会在 `output` 目录下生成 boot.sd 和 fip.bin 两个文件。
+After completion, `boot.sd` and `fip.bin` files will be generated in the `output` directory.
 
-### 准备 microSD 卡
+### Prepare microSD Card
 
-清空 microSD 卡（可使用 `wipefs -af /path/to/your-card`），并创建一个 FAT32 分区。
+Clear the microSD card (you can use `wipefs -af /path/to/your-card`), and create a FAT32 partition.
 
-将构建出的 boot.sd 和 fip.bin 复制进 microSD 卡。至此，存储卡已经可用来在 Duo 上启动 RT-Thread。
+Copy the generated `boot.sd` and `fip.bin` files onto the microSD card. The storage card is now ready to boot RT-Thread on the Duo.
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Log into the system via the serial port.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口登录。
+The system boots up normally and allows login through the serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过串口登录。
+The system boots up normally and login through the serial port is successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 Starting kernel ...
@@ -89,15 +89,15 @@ msh />
 
 ```
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from image flashing to system login):
 [![asciicast](https://asciinema.org/a/3zKnnFwIlQLKPek64gfsjmaqK.svg)](https://asciinema.org/a/3zKnnFwIlQLKPek64gfsjmaqK)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-成功
+Test successful.

@@ -1,39 +1,39 @@
-# FreeRTOS CH32V307 测试报告
+# FreeRTOS CH32V307 Test Report
 
-## 测试环境
+## Test Environment
 
-### 操作系统信息
+### Operating System Information
 
-- 源码链接：https://github.com/Community-PIO-CH32V/ch32-pio-projects
-- 参考文档：
-    - PlatformIO Core：https://docs.platformio.org/en/latest/core/installation/index.html
-    - PlatformIO ch32v：https://pio-ch32v.readthedocs.io/en/latest/installation.html
+- Source Code Link: [https://github.com/Community-PIO-CH32V/ch32-pio-projects](https://github.com/Community-PIO-CH32V/ch32-pio-projects)
+- Reference Installation Document:
+    - PlatformIO Core: [https://docs.platformio.org/en/latest/core/installation/index.html](https://docs.platformio.org/en/latest/core/installation/index.html)
+    - PlatformIO CH32V: [https://pio-ch32v.readthedocs.io/en/latest/installation.html](https://pio-ch32v.readthedocs.io/en/latest/installation.html)
 
-### 硬件信息
+### Hardware Information
 
 - CH32V307V-EVT-R2-1v1
-- USB to UART 调试器一个
-- WCH-Link(E) 一个
+- A USB to UART Debugger
+- A WCH-Link(E)
 
-## 安装步骤
+## Installation Steps
 
-### 安装 PlatformIO Core
+### Install PlatformIO Core
 
-可以先尝试包管理器中是否带有如 [platformio-core](https://archlinux.org/packages/?name=platformio-core) 包。若无可采用安装脚本安装：
+You can first check if the package manager includes a package like [platformio-core](https://archlinux.org/packages/?name=platformio-core). If not, you can install it using the installation script:
 
 ```bash
 curl -fsSL -o get-platformio.py https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
 python3 get-platformio.py
 ```
 
-### 配置 PlatformIO 环境
+### PlatformIO Environment Configuration
 
-安装 ch32v 开发环境：
+Install CH32V development environment:
 ```bash
 pio pkg install -g -p https://github.com/Community-PIO-CH32V/platform-ch32v.git
 ```
 
-添加 udev 规则并应用（根据发行版不同可能需要更改 GROUP）：
+Add udev rules and apply (may need to change GROUP according to the distribution):
 ```bash
 curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/system/99-platformio-udev.rules | sudo tee /etc/udev/rules.d/99-platformio-udev.rules
 cat << EOF | sudo tee -a /etc/udev/rules.d/99-platformio-udev.rules
@@ -45,69 +45,68 @@ sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
 
-添加用户组：
-- Debian 系：
+Add user groups:
+- For Debian-based systems:
 ```bash
 sudo usermod -a -G dialout $USER
 sudo usermod -a -G plugdev $USER
 ```
-- Arch 系：
+- For Arch-based systems:
 ```bash
 sudo usermod -a -G uucp $USER
 sudo usermod -a -G lock $USER
 ```
 
-### 准备工程仓库
+### Prepare Project Repository
 
-clone 相关仓库：
+Clone the relevant repositories:
 ```bash
 git clone https://github.com/Community-PIO-CH32V/platform-ch32v.git
 ```
 
-### 编译代码
+### Code Compilation
 
-使用 pio 编译代码：
+Compile the code using pio:
 ```bash
 cd platform-ch32v/examples/blinky-freertos
 pio run
 ```
 
-### 烧写镜像
+### Flashing Image
 
-确认 WCH-Link(E) 连接到 SWD 调试口后，使用 pio 手动指定开发板后烧录：
+After confirming the connection of WCH-Link(E) to the SWD debug port, manually specify the development board using pio and burn the image:
 ```bash
 pio run -e your_board --target upload
 ```
 
-#### 常见问题
+#### Common Issues
 
-- Error: error writing to flash at address 0x00000000 at offset 0x00000000
-    - 这是由于 WCH-Link 固件版本过低造成的。（见[important-notices](https://github.com/Community-PIO-CH32V/platform-ch32v?tab=readme-ov-file#important-notices)）。
-    - 请使用[WCH-Link 工具链](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html)连接一次 W2 有 CH-Link 即可自动更新。**该工具目前仅有 Windows 版本**
-- Error: Read-Protect Status Currently Enabled
-    - 这是由于芯片开启了写保护导致的。Winodws 下我们可以使用 [WCH-Link 工具链](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html)解保护，Linux 下可以使用 OpenOCD 解保护：
+- **Error: error writing to flash at address 0x00000000 at offset 0x00000000**
+    - This is due to the low firmware version of WCH-Link. (See [important-notices](https://github.com/Community-PIO-CH32V/platform-ch32v?tab=readme-ov-file#important-notices)).
+    - Please use [WCH-Link Utility](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html) to connect once with W2 and CH-Link to update automatically. **This tool currently only has a Windows version.**
+- **Error: Read-Protect Status Currently Enabled**
+    - This is caused by the write protection enabled on the chip. On Windows, we can use [WCH-Link Utility](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html) to remove the protection, and on Linux, OpenOCD can be used:
 ```bash
 cd ~/.platformio/packages/tool-openocd-riscv-wch/bin
 ./openocd -f wch-riscv.cfg -c init -c halt -c "flash protect wch_riscv 0 last  off " -c exit
-cd - # 别忘了回到工作目录
+cd -
 ```
 
+### Logging into the System
 
-### 登录系统
+Connect to the development board via serial port.
 
-通过串口连接开发板。
+## Expected Results
 
-## 预期结果
+The system starts normally, and information can be viewed via the onboard serial port.
 
-系统正常启动，能够通过板载串口查看信息。
+## Actual Results
 
-## 实际结果
+The system starts normally, and information can be viewed via the onboard serial port.
 
-系统正常启动，能够通过板载串口查看信息。
+### Boot Log
 
-### 启动信息
-
-屏幕录像（从编译到启动）：
+Screen recording (from compilation to startup):
 [![asciicast](https://asciinema.org/a/NZ9udm2pNnA11dERnWfv0Nld9.svg)](https://asciinema.org/a/NZ9udm2pNnA11dERnWfv0Nld9)
 
 ```log
@@ -126,12 +125,12 @@ task1 entry
 task2 entry
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功
+Test successful.

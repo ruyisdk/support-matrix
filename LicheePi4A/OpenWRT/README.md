@@ -1,42 +1,42 @@
-# OpenWRT LPi4A 测试报告
+# OpenWRT LPi4A Test Report
 
-## 测试环境
+## Test Environment
 
-### 系统信息
+### System Information
 
-- 系统版本：OpenWRT
-- 下载链接：[https://github.com/chainsx/openwrt-th1520/releases](https://github.com/chainsx/openwrt-th1520/releases)
-- 参考安装文档：[https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
-- fastboot 链接：
+- System Version: OpenWRT
+- Download Link: [https://github.com/chainsx/openwrt-th1520/releases](https://github.com/chainsx/openwrt-th1520/releases)
+- Reference Installation Document: [https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
+- fastboot Links:
     - [https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ](https://pan.baidu.com/e/1xH56ZlewB6UOMlke5BrKWQ)
     - [https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA](https://mega.nz/folder/phoQlBTZ#cZeQ3qZ__pDvP94PT3_bGA)
 
-### 硬件信息
+### Hardware Information
 
-- Lichee Pi 4A (8G RAM + 64G eMMC)
-- 电源适配器
-- microSD 卡一张
-- USB to UART 调试器一个
+- Lichee Pi 4A (8GB RAM + 64GB eMMC)
+- Power Adapter
+- A microSD card
+- A USB to UART debugger
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像
+### Flashing Image
 
-使用 `gzip` 解压镜像。
-使用 `dd` 将镜像写入 microSD 卡。
+Use `gzip` to extract the image.
+Use `dd` to flash the image to the microSD card.
 
 ```bash
 gzip -d /path/to/openwrt.img.xz
 sudo dd if=/path/to/openwrt.img of=/dev/your_device bs=1M status=progress
 ```
 
-### 刷写 bootloader
+### Flashing Bootloader
 
-进入 fastboot。
-- 正式版确认 boot 拨码开关为 eMMC。
-- 按动 BOOT 同时上电。
-- （详见官方教程）
-使用 fastboot 按命令烧录 u-boot。
+Enter fastboot mode.
+- Confirm the boot switch is set to eMMC for the official version.
+- Press the BOOT button while powering up.
+- (Refer to the official tutorial)
+Use fastboot to flash the u-boot with the following commands.
 
 ```bash
 sudo ./fastboot flash ram ./path/to/your/lpi4a-$(ram_size)-u-boot-with-spl.bin
@@ -45,23 +45,23 @@ sleep 10
 sudo ./fastboot flash uboot ./path/to/your/lpi4a-$(ram_size)-u-boot-with-spl.bin
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via serial port.
 
-初次启动自动进入 root 用户。
+Upon initial boot, it will automatically log in as the root user.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot up properly and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system boots up successfully and allows login via the onboard serial port.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flash the image to logging into the system):
 
 [![asciicast](https://asciinema.org/a/DNRiqiUpdDxlAWHnSkQTvqsNt.svg)](https://asciinema.org/a/DNRiqiUpdDxlAWHnSkQTvqsNt)
 
@@ -89,12 +89,12 @@ root@OpenWrt:/#
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

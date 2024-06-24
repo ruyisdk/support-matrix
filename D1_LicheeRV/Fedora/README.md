@@ -1,27 +1,27 @@
-# Fedora 36 D1 测试报告
+# Fedora 36 D1 Test Report
 
-## 测试环境
+## Test Environment
 
-### 系统信息
+### Operating System Information
 
-- 系统版本：Fedora 36
-- 下载链接：[https://openkoji.iscas.ac.cn/pub/dl/riscv/Allwinner/Nezha_D1/images-release/Fedora/](https://openkoji.iscas.ac.cn/pub/dl/riscv/Allwinner/Nezha_D1/images-release/Fedora/)
-- 参考安装文档：[https://fedoraproject.org/wiki/Architectures/RISC-V/Allwinner/zh-cn](https://fedoraproject.org/wiki/Architectures/RISC-V/Allwinner/zh-cn)
+- System Version: Fedora 36
+- Download Link: [https://openkoji.iscas.ac.cn/pub/dl/riscv/Allwinner/Nezha_D1/images-release/Fedora/](https://openkoji.iscas.ac.cn/pub/dl/riscv/Allwinner/Nezha_D1/images-release/Fedora/)
+- Reference Installation Document: [https://fedoraproject.org/wiki/Architectures/RISC-V/Allwinner/zh-cn](https://fedoraproject.org/wiki/Architectures/RISC-V/Allwinner/zh-cn)
 
-### 硬件信息
+### Hardware Information
 
 - AWOL Nezha D1 / Sipeed Lichee RV Dock
-- 电源适配器
-- microSD 卡一张
-- USB to UART 调试器一个
+- Power Adapter
+- A microSD Card
+- A USB to UART Debugger
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像
+### Flashing Image
 
-使用 `unzstd` 解压镜像。
-清空你的 sd 卡。
-使用 `dd` 将镜像写入 microSD 卡。
+Use `unzstd` to decompress the image.
+Clear your sd card.
+Use `dd` to flash the image to the microSD card.
 
 ```bash
 unzstd /path/to/fedora.raw.zst
@@ -29,30 +29,30 @@ sudo wipefs -a /dev/your_device
 sudo dd if=/path/to/fedora.raw of=/dev/your_device bs=1M status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-*系统启动较为缓慢。*
+*System startup is relatively slow.*
 
-通过串口登录系统。
+Logging into to the system through the serial port.
 
-默认用户名： `root`
-默认密码： `riscv`
+Default Username: `root`
+Default Password: `riscv`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。能进入桌面。
+The system booted normally, successfully logged in via the onboard serial port, and was able to enter the desktop.
 
-### 启动信息
+### Boot Log
 
-屏幕录像（刷写镜像）：
+Screen recording (flashing image):
 
 [![asciicast](https://asciinema.org/a/yAMbaiYvBPLsyUPujOFey6zU3.svg)](https://asciinema.org/a/yAMbaiYvBPLsyUPujOFey6zU3)
 
-屏幕录像（启动系统）：
+Screen recording (system startup):
 
 [![asciicast](https://asciinema.org/a/Evalgi6VgUvxs4gUmCtzC8n7j.svg)](https://asciinema.org/a/Evalgi6VgUvxs4gUmCtzC8n7j)
 
@@ -101,12 +101,12 @@ cccccccc;.:odl:.;cccccccccccccc:,.
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.
