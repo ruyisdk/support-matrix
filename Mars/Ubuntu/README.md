@@ -1,10 +1,10 @@
-# Ubuntu on Milk-V Mars Test Report
+# Ubuntu 24.04 LTS on Milk-V Mars Test Report
 
 ## Test Environment
 
 ### Operating System Information
 
-- Ubuntu
+- Ubuntu 24.04 LTS
   - Download Link: https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-preinstalled-server-riscv64+milkvmars.img.xz
   - Reference Installation Document: https://milkv.io/zh/docs/mars/getting-started/boot
 
