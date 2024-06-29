@@ -4,15 +4,14 @@
 
 ### System Information
 
-- System Version: openEuler 23.09 RISC-V preview
-- Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/lpi4a/
-- Reference Installation Document: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/lpi4a/README.lpi4a.txt
+- System Version: openEuler 24.03 RISC-V preview
+- Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/2403LTS-test/v1/lpi4a/
+- Reference Installation Document: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
 
 ### Hardware Information
 
-- Lichee Pi 4A (16G RAM + 128G eMMC)
+- Lichee Pi 4A (8G RAM + 128G eMMC)
 - USB-C Power Adapter / DC Power Supply
-- A microSD card (Sandisk Extreme Pro 64G UHS-I)
 - A USB-UART Debugger
 
 ## Installation Steps
@@ -41,74 +40,64 @@ The system boots up without issues, and both serial console and SSH login are su
 ### Boot Log
 
 ```log
-System load:    1.47                                                                                                                                                         
-Processes:      130                                                                                                                                                          
-Memory used:    .6%                                                                                                                                                          
-Swap used:      0.0%                                                                                                                                                         
-Usage On:       2%                                                                                                                                                           
-IP address:     10.0.0.8                                                                                                                                                     
-Users online:   1                                                                                                                                                            
-To execute a command as the administrator (user "root"), use "sudo <command>".                                                                                                         
+Welcome to 6.6.0
+
+System information as of time:  Thu Jan  1 08:00:22 AM CST 1970
+
+System load:    2.07
+Processes:      191
+Memory used:    3.0%
+Swap used:      0.0%
+Usage On:       13%
+Users online:   1
 
 [openeuler@openeuler-riscv64 ~]$ cat /etc/os-release                                                                                                                         
-NAME="openEuler"                                                                                                                                                             
-VERSION="23.09"                                                                                                                                                              
-ID="openEuler"                                                                                                                                                               
-VERSION_ID="23.09"                                                                                                                                                           
-PRETTY_NAME="openEuler 23.09"                                                                                                                                                
-ANSI_COLOR="0;31"                                                                                                                                                            
+NAME="openEuler"
+VERSION="24.03 (LTS)"
+ID="openEuler"
+VERSION_ID="24.03"
+PRETTY_NAME="openEuler 24.03 (LTS)"
+ANSI_COLOR="0;31"
                                                                                                                                                                              
-[openeuler@openeuler-riscv64 ~]$ uname -a                                                                                                                                    
-Linux openeuler-riscv64 5.10.113 #1 SMP PREEMPT Wed Nov 22 16:04:58 UTC 2023 riscv64 riscv64 riscv64 GNU/Linux
+[openeuler@openeuler-riscv64 ~]$ uname -a
+Linux openeuler-riscv64 6.6.0 #1 SMP Tue Apr  9 02:46:40 UTC 2024 riscv64 riscv64 riscv64 GNU/Linux
 
-[openeuler@openeuler-riscv64 ~]$ cat /proc/cpuinfo                                                                                                                           
-processor       : 0                                                                                                                                                          
-hart            : 0                                                                                                                                                          
-isa             : rv64imafdcvsu                                                                                                                                              
-mmu             : sv39                                                                                                                                                       
-cpu-freq        : 1.848Ghz                                                                                                                                                   
-cpu-icache      : 64KB                                                                                                                                                       
-cpu-dcache      : 64KB                                                                                                                                                       
-cpu-l2cache     : 1MB                                                                                                                                                        
-cpu-tlb         : 1024 4-ways                                                                                                                                                
-cpu-cacheline   : 64Bytes                                                                                                                                                    
-cpu-vector      : 0.7.1                                                                                                                                                      
+[openeuler@openeuler-riscv64 ~]$ cat /proc/cpuinfo
+processor       : 0
+hart            : 1
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
 
-processor       : 1                                                                                                                                                          
-hart            : 1                                                                                                                                                          
-isa             : rv64imafdcvsu                                                                                                                                              
-mmu             : sv39                                                                                                                                                       
-cpu-freq        : 1.848Ghz                                                                                                                                                   
-cpu-icache      : 64KB                                                                                                                                                       
-cpu-dcache      : 64KB                                                                                                                                                       
-cpu-l2cache     : 1MB                                                                                                                                                        
-cpu-tlb         : 1024 4-ways                                                                                                                                                
-cpu-cacheline   : 64Bytes                                                                                                                                                    
-cpu-vector      : 0.7.1                                                                                                                                                      
+processor       : 1
+hart            : 0
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
 
-processor       : 2                                                                                                                                                          
-hart            : 2                                                                                                                                                          
-isa             : rv64imafdcvsu                                                                                                                                              
-mmu             : sv39                                                                                                                                                       
-cpu-freq        : 1.848Ghz                                                                                                                                                   
-cpu-icache      : 64KB                                                                                                                                                       
-cpu-dcache      : 64KB                                                                                                                                                       
-cpu-l2cache     : 1MB                                                                                                                                                        
-cpu-tlb         : 1024 4-ways                                                                                                                                                
-cpu-cacheline   : 64Bytes                                                                                                                                                    
-cpu-vector      : 0.7.1                                                                                                                                                      
+processor       : 2
+hart            : 2
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
 
-processor       : 3                                                                                                                                                          
-hart            : 3                                                                                                                                                          
-isa             : rv64imafdcvsu                                                                                                                                              
-mmu             : sv39                                                                                                                                                       
-cpu-freq        : 1.848Ghz                                                                                                                                                   
-cpu-icache      : 64KB                                                                                                                                                       
-cpu-dcache      : 64KB                                                                                                                                                       
-cpu-l2cache     : 1MB                                                                                                                                                        
-cpu-tlb         : 1024 4-ways                                                                                                                                                
-cpu-cacheline   : 64Bytes                                                                                                                                                    
-cpu-vector      : 0.7.1                                                                                                                                                      
+processor       : 3
+hart            : 3
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
 ```
 
 Screen recording (from flashing image to logging into system):
