@@ -4,8 +4,8 @@
 
 ### Operating System Information
 
-- System Version: Ubuntu 23.10
-- Download Link: [https://ubuntu.com/download/risc-v](https://ubuntu.com/download/risc-v)
+- System Version: Ubuntu 24.04
+- Download Link: [https://ubuntu.com/download/risc-v](https://ubuntu.com/download/risc-v) | [TUNA mirror](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.04-preinstalled-server-riscv64+unmatched.img.xz)
 - Reference Installation Document: [https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched](https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched)
 
 ### Hardware Information
@@ -19,13 +19,17 @@
 
 ### Boot Device Selection
 
-Ensure the dip switch is set to boot from the microSD card. If you haven't changed it, the factory default setting is to boot from the microSD card.
+Ensure the DIP switch is set to boot from the microSD card. If you haven't changed it, the factory default setting is to boot from the microSD card.
 
 The dip switch should be set as follows: `MSEL[3:0]=1011`
 
-### Flashing the Image to the microSD Card Using `ruyi` CLI
+### Flashing the Image to the microSD Card Using `dd`
 
-Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the prompts.
+Download the image, decompress it, and flash it to the microSD card.
+
+```shell
+xzcat ubuntu-24.04-preinstalled-server-riscv64+unmatched.img.xz | sudo dd of=/dev/sdc bs=4M iflag=fullblock status=progress 
+```
 
 ### Logging into the System
 
@@ -47,17 +51,35 @@ The system booted successfully, and login via the onboard serial port was also s
 ### Boot Log
 
 ```log
-ubuntu@ubuntu:~$ cat /proc/cpuinfo 
-processor       : 0
-hart            : 1
-isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
-mmu             : sv39
-uarch           : sifive,u74-mc
-mvendorid       : 0x489
-marchid         : 0x8000000000000007
-mimpid          : 0x20181004
+Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic riscv64)
 
-processor       : 1
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information disabled due to load higher than 1.0
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@ubuntu:~$ cat /proc/cpuinfo
+processor       : 0
 hart            : 2
 isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
 mmu             : sv39
@@ -65,6 +87,17 @@ uarch           : sifive,u74-mc
 mvendorid       : 0x489
 marchid         : 0x8000000000000007
 mimpid          : 0x20181004
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+
+processor       : 1
+hart            : 1
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x20181004
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
 
 processor       : 2
 hart            : 3
@@ -74,6 +107,7 @@ uarch           : sifive,u74-mc
 mvendorid       : 0x489
 marchid         : 0x8000000000000007
 mimpid          : 0x20181004
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
 
 processor       : 3
 hart            : 4
@@ -83,29 +117,30 @@ uarch           : sifive,u74-mc
 mvendorid       : 0x489
 marchid         : 0x8000000000000007
 mimpid          : 0x20181004
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
 
 ubuntu@ubuntu:~$ uname -a
-Linux ubuntu 6.5.0-9-generic #9.1-Ubuntu SMP Sat Oct  7 17:18:31 UTC 2023 riscv64 riscv64 riscv64 GNU/Linux
-ubuntu@ubuntu:~$ cat /etc/os-release 
-PRETTY_NAME="Ubuntu 23.10"
+Linux ubuntu 6.8.0-31-generic #31.1-Ubuntu SMP PREEMPT_DYNAMIC Sun Apr 21 01:12:53 UTC 2024 riscv64 riscv64 riscv64 GNU/Linux
+ubuntu@ubuntu:~$ cat /etc/os-release
+PRETTY_NAME="Ubuntu 24.04 LTS"
 NAME="Ubuntu"
-VERSION_ID="23.10"
-VERSION="23.10 (Mantic Minotaur)"
-VERSION_CODENAME=mantic
+VERSION_ID="24.04"
+VERSION="24.04 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
 ID=ubuntu
 ID_LIKE=debian
 HOME_URL="https://www.ubuntu.com/"
 SUPPORT_URL="https://help.ubuntu.com/"
 BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-UBUNTU_CODENAME=mantic
+UBUNTU_CODENAME=noble
 LOGO=ubuntu-logo
 ubuntu@ubuntu:~$
 ```
 
-Screen recording (from flashing the image to logging into the system):
+Screen recording:
 
-[![asciicast](https://asciinema.org/a/Rh773h5eOalKZlzjQRFrQDnjY.svg)](https://asciinema.org/a/Rh773h5eOalKZlzjQRFrQDnjY)
+[![asciicast](https://asciinema.org/a/gAA0BN4Xo1fR6gBNDaCud8pPY.svg)](https://asciinema.org/a/gAA0BN4Xo1fR6gBNDaCud8pPY)
 
 ## Test Criteria
 

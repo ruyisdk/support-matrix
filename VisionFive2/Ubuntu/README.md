@@ -24,8 +24,8 @@
 Assume `/dev/sdc` as the storage card.
 
 ```bash
-xz -d openKylin-1.0.1-visionfive2-riscv64.img.xz 
-sudo dd if=openKylin-1.0.1-visionfive2-riscv64.img of=/dev/sdc bs=1M status=progress
+xz -dk ubuntu-24.04-preinstalled-server-riscv64+visionfive2.img.xz
+sudo dd if=./ubuntu-24.04-preinstalled-server-riscv64+visionfive2.img of=/dev/sdc bs=1M status=progress
 ```
 
 ### Boot Mode Selection
