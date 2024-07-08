@@ -55,7 +55,7 @@
 
 [oERVDL]: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/D1/
 [oERV]: ./openEuler/README.md
-[TinaNezha]: https://d1.docs.aw-ol.com/study/study_1tina/
+[TinaNezha]: ./TinaLinux/README.md
 [Ubuntu]: ./Ubuntu/README.md
 [OpenWrt]: ./OpenWrt/README.md
 [Debian]: ./Debian/README.md
