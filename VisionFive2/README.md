@@ -58,7 +58,7 @@
 | BuildRoot Image         | N/A              | [Successful][BuildRoot] (Official StarFive Image) |
 | Arch Linux Image        | N/A              | [Successful][Arch]                         |
 | Gentoo Image            | N/A              | [Successful][Gentoo]                       |
-| openSUSE Image          | N/A              | [Successful][SUSE] (Official Support)       |
+| openSUSE Image          | N/A              | [Successful][openSUSE] (Official Support)       |
 | OpenBSD Image           | N/A              | [Successful][OpenBSD]                      |
 | Armbian/Minimal Image   | N/A              | [Successful][Armbian]                      |
 | Armbian/Xfce Image      | Xfce             | [Successful][Armbian]                      |

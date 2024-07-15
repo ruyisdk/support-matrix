@@ -58,7 +58,7 @@
 | BuildRoot 镜像启动       | N/A      | [成功][BuildRoot]（StarFive 厂商镜像） |
 | Arch Linux 镜像启动      | N/A      | [成功][Arch]                         |
 | Gentoo 镜像启动          | N/A      | [成功][Gentoo]                       |
-| openSUSE 镜像启动        | N/A      | [成功][SUSE]（官方支持）               |
+| openSUSE 镜像启动        | N/A      | [成功][openSUSE]（官方支持）               |
 | OpenBSD 镜像启动         | N/A      | [成功][OpenBSD]                      |
 | Armbian/Minimal 镜像启动 | N/A      | [成功][Armbian]                      |
 | Armbian/Xfce 镜像启动    | Xfce     | [成功][Armbian]                      |
