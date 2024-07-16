@@ -33,6 +33,9 @@
 - Buildroot
     - Source Code Link: https://buildroot.org/download.html
     - Reference Installation Document: https://gitlab.com/buildroot.org/buildroot/-/tree/master/board/visionfive?ref_type=heads
+- Deepin
+    - Download Link: https://cdimage.deepin.com/RISC-V/VisionFive-v1-image/deepin-visionfive.7z
+    - Reference Installation Document: https://cdimage.deepin.com/RISC-V/VisionFive-v1-image/README.txt
 
 ### Hardware Information
 
@@ -52,6 +55,7 @@
 | OpenWRT Image Boot             | N/A          | [Successful][OpenWRT]                   |
 | OpenBSD Image Boot             | N/A          | [Successful][OpenBSD]                   |
 | Buildroot Image Build and Boot | N/A          | [Successful][Buildroot]                 |
+| Deepin  Image Boot             | N/A          | [Successful][Deepin]                    |
 
 [oERVBase]: ./openEuler/README.md
 [oERVXfce]: ./openEuler/README.md
@@ -63,3 +67,4 @@
 [OpenWRT]: ./OpenWRT/README.md
 [OpenBSD]: ./OpenBSD/README.md
 [Buildroot]: ./BuildRoot/README.md
+[Deepin]: ./Deepin/README.md

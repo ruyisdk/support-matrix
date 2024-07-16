@@ -33,6 +33,9 @@
 - Buildroot
   - 源码链接：https://buildroot.org/download.html
   - 参考安装文档：https://gitlab.com/buildroot.org/buildroot/-/tree/master/board/visionfive?ref_type=heads
+- Deepin
+  - 下载链接：https://cdimage.deepin.com/RISC-V/VisionFive-v1-image/deepin-visionfive.7z
+  - 参考安装文档：https://cdimage.deepin.com/RISC-V/VisionFive-v1-image/README.txt
 
 ### 硬件开发板信息
 
@@ -51,7 +54,8 @@
 | Armbian 镜像启动         | N/A      | [成功][Armbian]          |
 | OpenWRT 镜像启动         | N/A      | [成功][OpenWRT]          |
 | OpenBSD 镜像启动         | N/A      | [成功][OpenBSD]          |
-| Buildroot 镜像构建及启动 | N/A      | [成功][Buildroot]        |
+| Buildroot 镜像构建及启动  | N/A      | [成功][Buildroot]        |
+| Deepin 镜像启动          | N/A      | [成功][Deepin]           |
 
 [oERVBase]: ./openEuler/README_zh.md
 [oERVXfce]: ./openEuler/README_zh.md
@@ -63,3 +67,4 @@
 [OpenWRT]: ./OpenWRT/README_zh.md
 [OpenBSD]: ./OpenBSD/README_zh.md
 [Buildroot]: ./BuildRoot/README_zh.md
+[Deepin]: ./Deepin/README_zh.md

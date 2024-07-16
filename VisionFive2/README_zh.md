@@ -41,6 +41,10 @@
     - 参考安装文档：https://doc.rvspace.org/VisionFive2/Application_Notes/RT-Thread/index.html
 - Zephyr
     - 参考安装文档：https://docs.zephyrproject.org/latest/boards/starfive/visionfive2/doc/index.html
+- Deepin
+    - 下载链接：https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-visionfive2-20240613-125619.tar.xz
+    - 参考安装文档：https://cdimage.deepin.com/RISC-V/VisionFive-v2-image/README.txt
+
 
 ### 硬件开发板信息
 
@@ -66,6 +70,7 @@
 | RT-Thread 镜像构建及启动  | N/A      | [成功][RT-Thread]（官方支持）          |
 | Zephyr 镜像构建及启动     | N/A      | [失败][Zephyr]                       |
 | NuttX 镜像构建及启动      | N/A      | [成功][NuttX]                        |
+| Deepin 镜像启动          | N/A              | [Successful][Deepin]                       |
 
 [oERV]: ./openEuler/README_zh.md
 [Debian]: ./Debian/README_zh.md
@@ -81,3 +86,4 @@
 [RT-Thread]: ./RT-Thread/README_zh.md
 [Zephyr]: ./Zephyr/README_zh.md
 [NuttX]: ./NuttX/README_zh.md
+[Deepin]: ./Deepin/README_zh.md

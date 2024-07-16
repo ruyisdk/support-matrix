@@ -41,6 +41,9 @@
     - Reference Installation Document: https://doc.rvspace.org/VisionFive2/Application_Notes/RT-Thread/index.html
 - Zephyr
     - Reference Installation Document: https://docs.zephyrproject.org/latest/boards/starfive/visionfive2/doc/index.html
+- Deepin
+    - Download Link: https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-visionfive2-20240613-125619.tar.xz
+    - Reference Installation Document: https://cdimage.deepin.com/RISC-V/VisionFive-v2-image/README.txt
 
 ### Hardware Information
 
@@ -66,6 +69,7 @@
 | RT-Thread Image         | N/A              | [Successful][RT-Thread] (Official Support)  |
 | Zephyr Image            | N/A              | [Failure][Zephyr]                       |
 | NuttX Image             | N/A              | [Successful][NuttX]                        |
+| Deepin Image            | N/A              | [Successful][Deepin]                       |
 
 [oERV]: ./openEuler/README.md
 [Debian]: ./Debian/README.md
@@ -81,3 +85,4 @@
 [RT-Thread]: ./RT-Thread/README.md
 [Zephyr]: ./Zephyr/README.md
 [NuttX]: ./NuttX/README.md
+[Deepin]: ./Deepin/README.md
