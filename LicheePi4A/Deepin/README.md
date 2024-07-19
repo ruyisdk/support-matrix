@@ -10,7 +10,7 @@
 
 ### Hardware Information
 
-- Lichee Pi 4A (8GB RAM + 64GB eMMC)
+- Lichee Pi 4A (8GB RAM + 32GB eMMC)
 - Power Adapter
 - A USB to UART Debugger
 
