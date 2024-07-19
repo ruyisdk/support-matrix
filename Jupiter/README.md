@@ -5,9 +5,9 @@
 ### Operating System Information
 
 - Bianbu
-  - Download Link (official/empty repo for now): https://github.com/milkv-jupiter/jupiter-bianbu-build/releases
+  - Download Link: https://github.com/milkv-jupiter/jupiter-bianbu-build/releases
 - Ubuntu 23.10
-  - Download Link (official/empty repo for now): https://github.com/milkv-jupiter/jupiter-ubuntu-build
+  - Download Link: https://github.com/milkv-jupiter/jupiter-ubuntu-build
 - Fedora 41
   - Download Link: https://openkoji.iscas.ac.cn/pub/dist-repos/dl/Milk-V/Jupiter/images/
 - Reference Installation Document: https://milkv.io/zh/docs/jupiter/getting-started/boot

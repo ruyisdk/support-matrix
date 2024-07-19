@@ -5,9 +5,9 @@
 ### 操作系统信息
 
 - Bianbu
-  - 下载链接（官方仓库，目前为空）：https://github.com/milkv-jupiter/jupiter-bianbu-build/releases
+  - 下载链接：https://github.com/milkv-jupiter/jupiter-bianbu-build/releases
 - Ubuntu 23.10
-  - 下载链接（官方仓库，目前为空）：https://github.com/milkv-jupiter/jupiter-ubuntu-build
+  - 下载链接：https://github.com/milkv-jupiter/jupiter-ubuntu-build
 - Fedora 41
   - 下载链接：https://openkoji.iscas.ac.cn/pub/dist-repos/dl/Milk-V/Jupiter/images/
 - 参考安装文档：https://milkv.io/zh/docs/jupiter/getting-started/boot
