@@ -23,7 +23,7 @@
 ### Hardware Information
 
 - Lichee Pi 4A 16GB RAM + 128GB eMMC
-- Lichee Pi 4A 8GB RAM + 64GB eMMC
+- Lichee Pi 4A 8GB RAM + 32GB eMMC
 
 ## Test Results
 
