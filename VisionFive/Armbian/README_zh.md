@@ -4,7 +4,7 @@
 
 ### 系统信息
 
-- 系统版本：openKylin 0.9.5
+- 系统版本：Armbian
 - 下载链接：[https://www.armbian.com/vision-five/](https://www.armbian.com/vision-five/)
 - 参考安装文档：[https://docs.armbian.com/User-Guide_Getting-Started/](https://docs.armbian.com/User-Guide_Getting-Started/)
 
