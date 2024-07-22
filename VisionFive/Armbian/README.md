@@ -4,7 +4,7 @@
 
 ### System Information
 
-- System Version: openKylin 0.9.5
+- System Version: Armbian
 - Download Link: [https://www.armbian.com/vision-five/](https://www.armbian.com/vision-five/)
 - Reference Installation Document: [https://docs.armbian.com/User-Guide_Getting-Started/](https://docs.armbian.com/User-Guide_Getting-Started/)
 

@@ -1,13 +1,12 @@
-# openKylin 1.0.1 VisionFive 2 Test Report
+# openKylin 2.0-RC VisionFive 2 Test Report
 
 ## Test Environment
 
 ### Operating System Information
 
-- System Version: openKylin 1.0.1 
-- Download Link: https://www.openkylin.top/downloads/index-cn.html 
-- Reference Installation Document: https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
-
+- System Version: openKylin 2.0-RC
+- Download Link: [https://www.openkylin.top/downloads/index-cn.html ](https://mirror.iscas.ac.cn/openkylin-cdimage/2.0-RC/openKylin-2.0-rc-visionfive2-riscv64.img.xz)
+- Reference Installation Document: https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8VisionFive2%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 ### Hardware Information
 
 - StarFive VisionFive 2
@@ -24,8 +23,8 @@
 Assume `/dev/sdc` is the storage card.
 
 ```bash
-xz -d openKylin-1.0.1-visionfive2-riscv64.img.xz 
-sudo dd if=openKylin-1.0.1-visionfive2-riscv64.img of=/dev/sdc bs=1M status=progress
+xz -d openKylin-2.0-rc-visionfive2-riscv64.img.xz
+sudo dd if=openKylin-2.0-rc-visionfive2-riscv64.img of=/dev/sdc bs=1M status=progress
 ```
 
 ### Boot Mode Selection
@@ -39,7 +38,7 @@ To boot the openKylin image, select the 1-bit QSPI Nor Flash mode (i.e., `RGPIO_
 Logging into the system via the serial port.
 
 Default username: `openkylin` 
-Default password: `openkylin$`
+Default password: `openkylin`
 
 ## Expected Results
 
@@ -52,53 +51,34 @@ The system booted successfully and login through the graphical interface was suc
 ### Boot Log
 
 Screen recording (from flashing image to system login):
+[![asciicast](https://asciinema.org/a/Z8aZ2CJ7loP9PE6KKpUc2cvwd.svg)](https://asciinema.org/a/Z8aZ2CJ7loP9PE6KKpUc2cvwd)
 
 ```log
-openkylin@openkylin:~$ cat /proc/cpuinfo 
-processor       : 0
-hart            : 1
-isa             : rv64imafdc
-mmu             : sv39
-isa-ext         : 
-uarch           : sifive,u74-mc
-
-processor       : 1
-hart            : 2
-isa             : rv64imafdc
-mmu             : sv39
-isa-ext         : 
-uarch           : sifive,u74-mc
-
-processor       : 2
-hart            : 3
-isa             : rv64imafdc
-mmu             : sv39
-isa-ext         : 
-uarch           : sifive,u74-mc
-
-processor       : 3
-hart            : 4
-isa             : rv64imafdc
-mmu             : sv39
-isa-ext         : 
-uarch           : sifive,u74-mc
-
 openkylin@openkylin:~$ uname -a
-Linux openkylin 5.15.0 #1 SMP Fri Sep 1 11:22:00 CST 2023 riscv64 riscv64 riscv64 GNU/Linux
+Linux openkylin 6.6.20+ #1 SMP Thu May  9 22:49:32 CST 2024 riscv64 riscv64 riscv64 GNU/Linux
 openkylin@openkylin:~$ cat /etc/os-release 
 NAME="openKylin"
 FULL_NAME="openKylin"
-VERSION="1.0.1 (yangtze)"
-VERSION_US="1.0.1 (yangtze)"
+VERSION="2.0 (nile)"
+VERSION_US="2.0 (nile)"
 ID=openkylin
-PRETTY_NAME="openKylin 1.0.1"
-VERSION_ID="1.0.1"
+PRETTY_NAME="openKylin 2.0"
+VERSION_ID="2.0"
 HOME_URL="https://www.openkylin.top/"
-VERSION_CODENAME=yangtze
+VERSION_CODENAME=nile
 PRODUCT_FEATURES=3
-openkylin@openkylin:~$
+openkylin@openkylin:~$ 
+
 ```
 
-Screen recording (from flashing to boot):
+![login](./image.png)
 
-[![asciicast](https://asciinema.org/a/qoDqBWFEJlBPhIBva66HFGzd9.svg)](https://asciinema.org/a/qoDqBWFEJlBPhIBva66HFGzd9)
+## Test Criteria
+
+Successful: The actual result matches the expected result.
+
+Failed: The actual result does not match the expected result.
+
+## Test Conclusion
+
+Test Successful.
