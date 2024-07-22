@@ -10,7 +10,7 @@
 
 ### 硬件信息
 
-- Lichee Pi 4A (8G RAM + 128G eMMC)
+- Lichee Pi 4A (8G RAM + 32G eMMC)
 - USB-C 电源适配器 / DC 电源一个
 - USB-UART 调试器一个
 
