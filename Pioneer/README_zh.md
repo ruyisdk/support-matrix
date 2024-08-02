@@ -24,13 +24,15 @@
 ## 测试结果
 
 | 软件分类                      | 软件包名 | 测试结果（测试报告）                |
-|-----------------------------|----------|-----------------------------|
+|-----------------------------|----------|--------------------------------|
 | openEuler (Image 镜像，Legacy) | N/A      | [成功][oERV]（官方支持）            |
 | RevyOS 镜像启动               | N/A      | [成功][RevyOS]（官方支持）          |
 | openKylin 镜像启动            | N/A      | [成功][oK]（官方支持）              |
 | Fedora 镜像启动               | N/A      | [成功][Fedora]（官方支持&出厂预装） |
+| Deepin 镜像启动               | N/A      | [成功][Deepin]（仅 CLI）            |
 
 [oERV]: ./openEuler/README_zh.md
 [RevyOS]: ./RevyOS/README_zh.md
 [oK]: ./openKylin/README_zh.md
 [Fedora]: ./Fedora/README_zh.md
+[Deepin]: ./Deepin/README_zh.md

@@ -30,9 +30,10 @@
 | RevyOS Image Boot              | N/A          | [Success][RevyOS] (Official support)                         |
 | openKylin Image Boot           | N/A          | [Success][oK] (Official support)                             |
 | Fedora Image Boot              | N/A          | [Success][Fedora] (Official support & Factory pre-installed) |
+| Deepin                         | N/A          | [Success][Deepin], CLI only                                  |
 
 [oERV]: ./openEuler/README.md
 [RevyOS]: ./RevyOS/README.md
 [oK]: ./openKylin/README.md
 [Fedora]: ./Fedora/README.md
-
+[Deepin]: ./Deepin/README.md
