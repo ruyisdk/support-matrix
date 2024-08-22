@@ -4,7 +4,7 @@
 
 ### 操作系统信息
 
-- openEuler RISC-V 23.09 Preview
+- openEuler RISC-V 24.03 LTS
     - 下载链接：https://www.openeuler.org/zh/download/archive/detail/?version=openEuler%2024.03%20LTS
     - 参考安装文档：https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-Pioneer1.3.html
 - RevyOS
