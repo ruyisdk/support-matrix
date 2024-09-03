@@ -1,4 +1,4 @@
-# openEuler RISC-V 23.09 LPi4A 版本测试报告
+# openEuler RISC-V 24.03 LPi4A 版本测试报告
 
 ## 测试环境
 

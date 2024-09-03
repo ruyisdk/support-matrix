@@ -10,7 +10,7 @@
 ### Hardware Information
 
 - Microchip Polarfire SoC FPGA Icicle Kit Development Board
-- Original 12V 5A DC 5.5*2.1mm Power Adapter (The provided cable is standard for the US, an adapter or a new cable is needed for use in mainland China)
+- Original 12V 5A DC 5.5*2.1mm Power Adapter (The provided cable is standard for the US, an adapter or a new cable is needed for use in Chinese mainland)
 - Two micro-USB to USB-A cables (included), for connecting USB-UART, updating FPGA/HSS, and flashing an image to the onboard eMMC
 - (Optional) An SD card (Using a microSD card with an adapter is not recommended as it may not be recognized; ensure the storage card is not write-protected)
 
