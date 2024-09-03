@@ -4,9 +4,9 @@
 
 ### System Information
 
-- openEuler RISC-V 23.09 Preview
-    - Download link: [openEuler-RISC-V](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/lpi4a/)
-    - Reference Installation Document: [Installation Guide](https://gitee.com/yunxiangluo/openEuler-RISC-V-23.09-independent/blob/master/lpi4a/Install.md)
+- openEuler RISC-V 24.03 Preview
+    - Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/2403LTS-test/v1/lpi4a/
+    - Reference Installation Document: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
 - RevyOS
     - Download link: [RevyOS Images](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
     - Reference Installation Document: [RevyOS Documentation](https://docs.revyos.dev/)
