@@ -4,21 +4,44 @@
 
 ### System Information
 
-- System Version: openEuler 24.03 RISC-V preview
-- Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/2403LTS-test/v1/lpi4a/
-- Reference Installation Document: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
+- System Version: openEuler 24.03 LTS RISC-V
+- Download Link: https://www.openeuler.org/en/download/?version=openEuler%2024.03%20LTS
+- Reference Installation Document: https://docs.openeuler.org/en/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
 
 ### Hardware Information
 
-- Lichee Pi 4A (8G RAM + 32G eMMC)
+- Lichee Pi 4A (16G RAM + 128G eMMC)
 - USB-C Power Adapter / DC Power Supply
 - A USB-UART Debugger
 
 ## Installation Steps
 
-### Using the `ruyi` CLI to Flash Image to Onboard eMMC
+### Download and decompress image
 
-Install [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, then run `ruyi device provision` and follow the prompts.
+Download the image from official website: https://www.openeuler.org/en/download/?version=openEuler%2024.03%20LTS
+
+Choose `RISC-V -> Embedded -> lpi4a`.
+
+### Flash to onboard eMMC via `fastboot`
+
+By default the USB VID/PID of LPi4A are't in the udev rules, you might need to use `sudo` while using `fastboot`.
+
+Hold the **BOOT** button, then connect the USB-C cable (to your PC on the other side) to enter USB burning mode.
+
+In Windows using device manager, you'll see a device named `USB download gadget`.
+
+In Linux using `lsusb` you'll see a device like: `ID 2345:7654 T-HEAD USB download gadget`.
+
+Use the following commands to flash the image.
+
+```shell
+fastboot flash ram u-boot-with-spl-lpi4a-16g.bin
+fastboot reboot
+# Wait a few seconds until the board reboots and reconnects to your PC
+fastboot flash uboot u-boot-with-spl-lpi4a-16g.bin
+fastboot flash boot openEuler-24.03-LTS-riscv64-lpi4a-base-boot.ext4
+fastboot flash root openEuler-24.03-LTS-riscv64-lpi4a-base-root.ext4
+```
 
 ### Logging into the System
 
@@ -40,70 +63,32 @@ The system boots up without issues, and both serial console and SSH login are su
 ### Boot Log
 
 ```log
-Welcome to 6.6.0
-
-System information as of time:  Thu Jan  1 08:00:22 AM CST 1970
-
-System load:    2.07
-Processes:      191
-Memory used:    3.0%
-Swap used:      0.0%
-Usage On:       13%
-Users online:   1
-
-[openeuler@openeuler-riscv64 ~]$ cat /etc/os-release                                                                                                                         
-NAME="openEuler"
-VERSION="24.03 (LTS)"
-ID="openEuler"
-VERSION_ID="24.03"
-PRETTY_NAME="openEuler 24.03 (LTS)"
-ANSI_COLOR="0;31"
-                                                                                                                                                                             
-[openeuler@openeuler-riscv64 ~]$ uname -a
-Linux openeuler-riscv64 6.6.0 #1 SMP Tue Apr  9 02:46:40 UTC 2024 riscv64 riscv64 riscv64 GNU/Linux
-
-[openeuler@openeuler-riscv64 ~]$ cat /proc/cpuinfo
-processor       : 0
-hart            : 1
-isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
-mmu             : sv39
-uarch           : thead,c910
-mvendorid       : 0x5b7
-marchid         : 0x0
-mimpid          : 0x0
-
-processor       : 1
-hart            : 0
-isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
-mmu             : sv39
-uarch           : thead,c910
-mvendorid       : 0x5b7
-marchid         : 0x0
-mimpid          : 0x0
-
-processor       : 2
-hart            : 2
-isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
-mmu             : sv39
-uarch           : thead,c910
-mvendorid       : 0x5b7
-marchid         : 0x0
-mimpid          : 0x0
-
-processor       : 3
-hart            : 3
-isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
-mmu             : sv39
-uarch           : thead,c910
-mvendorid       : 0x5b7
-marchid         : 0x0
-mimpid          : 0x0
+Welcome to 6.6.0-27.0.0.31.oe2403.riscv64                                                                               
+                                                                                                                        
+System information as of time:  Thu Sep  5 18:03:57 CST 2024                                                            
+                                                                                                                        
+System load:    2.50                                                                                                    
+Memory used:    1.2%                                                                                                    
+Swap used:      0.0%                                                                                                    
+Usage On:       2%                                                                                                      
+IP address:     10.0.0.8                                                                                                
+Users online:   1                                                                                                       
+To run a command as administrator(user "root"),use "sudo <command>".                                                    
+[openeuler@openeuler-riscv64 ~]$ cat /etc/os-release                                                                    
+NAME="openEuler"                                                                                                        
+VERSION="24.03 (LTS)"                                                                                                   
+ID="openEuler"                                                                                                          
+VERSION_ID="24.03"                                                                                                      
+PRETTY_NAME="openEuler 24.03 (LTS)"                                                                                     
+ANSI_COLOR="0;31"                                                                                                       
+                                                                                                                        
+[openeuler@openeuler-riscv64 ~]$ uname -a                                                                               
+Linux openeuler-riscv64 6.6.0-27.0.0.31.oe2403.riscv64 #1 SMP Fri May 24 21:52:58 CST 2024 riscv64 riscv64 riscv64 GNU/Linux
 ```
 
 Screen recording (from flashing image to logging into system):
 
-[![asciicast](https://asciinema.org/a/oXGHqeiBmb0n5zIKHnbGnnRb2.svg)](https://asciinema.org/a/oXGHqeiBmb0n5zIKHnbGnnRb2)
-
+[![asciicast](https://asciinema.org/a/Jo6gwkRgaOBAeXgbwIuK4OWel.svg)](https://asciinema.org/a/Jo6gwkRgaOBAeXgbwIuK4OWel)
 
 ## Test Criteria
 
