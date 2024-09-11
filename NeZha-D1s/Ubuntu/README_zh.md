@@ -1,4 +1,4 @@
-# Ubuntu 23.10 VisionFive 2 版本测试报告
+# Ubuntu 24.04 VisionFive 2 版本测试报告
 
 ## 测试环境
 

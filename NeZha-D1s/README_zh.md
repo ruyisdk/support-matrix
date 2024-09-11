@@ -10,7 +10,7 @@
 - RT-Thread:
   - 下载链接：https://github.com/RT-Thread/rt-thread
   - 参考安装文档：https://github.com/RT-Thread/rt-thread/blob/master/bsp/allwinner/d1s/README-M7_zh.md
-  - Ubuntu:
+- Ubuntu 24.04:
   - 下载链接：https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04-preinstalled-server-riscv64+nezha.img.xz?
   - 参考安装文档：https://wiki.ubuntu.com/RISC-V/Nezha%20D1?
 ### 硬件开发板信息
