@@ -4,7 +4,7 @@
 
 ### Operating System Information
 
-- Ubuntu 24.04
+- Ubuntu 24.04.1
     - Download Link: https://cdimage.ubuntu.com/releases/24.04/release/
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/Microchip%20PIC64GX1000%20Curiosity%20Kit
 - OpenEmbedded / Yocto
