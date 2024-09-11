@@ -1,4 +1,4 @@
-# Ubuntu 23.10 HiFive Unmatched 测试报告
+# Ubuntu 24.04 HiFive Unmatched 测试报告
 
 ## 测试环境
 

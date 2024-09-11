@@ -12,8 +12,8 @@
 - openKylin
     - 下载链接：https://www.openkylin.top/downloads
     - 参考安装文档：https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
-- Ubuntu 23.10
-    - 下载链接：https://cdimage.ubuntu.com/releases/23.10/release/
+- Ubuntu 24.04
+    - 下载链接：https://cdimage.ubuntu.com/releases/24.04/release/
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
 - BuildRoot (VisionFive 2 SDK)
     - 下载链接：https://github.com/starfive-tech/VisionFive2/releases

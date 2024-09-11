@@ -10,7 +10,7 @@
 - RT-Thread:
   - Download Link: https://github.com/RT-Thread/rt-thread
   - Reference Installation Document: https://github.com/RT-Thread/rt-thread/blob/master/bsp/allwinner/d1s/README-M7.md
-  - Ubuntu:
+- Ubuntu 24.04:
   - Download Link: https://cdimage.ubuntu.com/releases/noble/release/ubuntu-24.04-preinstalled-server-riscv64+nezha.img.xz?
   - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/Nezha%20D1?
 
