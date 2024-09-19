@@ -4,12 +4,8 @@
 
 ### 系统信息
 
-- 下载链接：
-  - 百度网盘：https://pan.baidu.com/s/15owwUEjIU_i26cI1iigAew?pwd=8888 (pincode: 8888)
-  - 谷歌网盘：https://drive.google.com/drive/folders/1LQoioz6N5YQpSOxY47OmetnPX4yggtT0?usp=sharing
-- 下载链接 (桌面版)：
-  - 百度网盘：https://pan.baidu.com/s/1zvFkX92f5gpZdKjP-vGJvA?pwd=8888 (pincode: 8888)
-  - 谷歌网盘：https://drive.google.com/drive/folders/1kCHiMwjnhvZaRBy5vkj6UlPeAlpRQ14P?usp=sharing
+- 系统版本：v2.0rc1
+- 下载链接：https://archive.spacemit.com/image/k1/version/bianbu/v2.0rc1/
 - 参考安装文档：https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 
 ### 硬件信息
@@ -28,8 +24,8 @@
 下载并解压镜像后，使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
-unzip Bianbu-23.10-desktop-k1-v1.0rc1-release-20240429194149.img
-sudo dd if=/path/to/Bianbu-23.10-desktop-k1-v1.0rc1-release-20240429194149.img of=/dev/your-device bs=1M status=progress
+unzip bianbu-24.04-desktop-k1-v2.0rc1-release-20240909135447.img.zip
+sudo dd if=/path/to/bianbu-24.04-desktop-k1-v2.0rc1-release-20240909135447.img of=/dev/your-device bs=1M status=progress
 ```
 
 ### 登录系统
@@ -50,16 +46,13 @@ sudo dd if=/path/to/Bianbu-23.10-desktop-k1-v1.0rc1-release-20240429194149.img o
 ### 启动信息
 
 屏幕录像（从刷写镜像到登录系统）：
-[![asciicast](https://asciinema.org/a/TFRjqFjOEIHc38Wha93bw0ti8.svg)](https://asciinema.org/a/TFRjqFjOEIHc38Wha93bw0ti8)
+[![asciicast](https://asciinema.org/a/sAccZbGletHEuqNUrHYeCZkLa.svg)](https://asciinema.org/a/sAccZbGletHEuqNUrHYeCZkLa)
 
 ```log
-Bianbu 1.0rc1 k1 ttyS0k1 login: root
-密码： 
-Welcome to Bianbu 1.0rc1 (GNU/Linux 6.1.15 riscv64)
+Welcome to Bianbu 2.0rc1 (GNU/Linux 6.6.36 riscv64)
 
- * Documentation:  coming soon
- * Management:     coming soon
- * Support:        coming soon
+ * Documentation:  https://bianbu.spacemit.com
+ * Support:        https://ticket.spacemit.com
 
 0 updates can be applied immediately.
 
@@ -71,24 +64,103 @@ individual files in /usr/share/doc/*/copyright.
 Bianbu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-root@k1:~# cat /etc/os-release 
-PRETTY_NAME="Bianbu 1.0rc1"
+uname -a && echo mBxJad47 
+res =root@k1:~# uname -a && echo mBxJad47 
+res =
+Linux k1 6.6.36 #2.0~rc6.2 SMP PREEMPT Mon Sep  9 04:47:40 UTC 2024 riscv64 riscv64 riscv64 GNU/Linux
+mBxJad47
+res =root@k1:~# cat /etc/os-release && echo 88L1MpXg 
+res =
+PRETTY_NAME="Bianbu 2.0rc1"
 NAME="Bianbu"
-VERSION_ID="1.0rc1"
-VERSION="1.0rc1 (Mantic Minotaur)"
-VERSION_CODENAME=mantic
+VERSION_ID="2.0rc1"
+VERSION="2.0rc1 (Noble Numbat)"
+VERSION_CODENAME=noble
 ID=bianbu
 ID_LIKE=debian
-HOME_URL="coming soon"
-SUPPORT_URL="coming soon"
-BUG_REPORT_URL="coming soon"
-PRIVACY_POLICY_URL="coming soon"
-UBUNTU_CODENAME=mantic
+HOME_URL="https://bianbu.spacemit.com"
+SUPPORT_URL="https://bianbu.spacemit.com"
+BUG_REPORT_URL="https://ticket.spacemit.com"
+PRIVACY_POLICY_URL="https://www.spacemit.com/privacy-policy"
+UBUNTU_CODENAME=noble
 LOGO=ubuntu-logo
-root@k1:~# uname -a
-Linux k1 6.1.15 #1.0~rc1 SMP PREEMPT Mon Apr 29 09:05:59 UTC 2024 riscv64 riscv64 riscv64 GNU/Linux
-root@k1:~# 
+88L1MpXg
+res =root@k1:~# cat /proc/cpuinfo && echo E6oYZaZI 
+res =
+processor	: 0
+hart		: 0
+model name	: Spacemit(R) X60
+isa		: rv64imafdcv_zicbom_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zfhmin_zca_zcd_zba_zbb_zbc_zbs_zkt_zve32f_zve32x_zve64d_zve64f_zve64x_zvfh_zvfhmin_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt
+mmu		: sv39
+mvendorid	: 0x710
+marchid		: 0x8000000058000001
+mimpid		: 0x1000000049772200
 
+processor	: 1
+hart		: 1
+model name	: Spacemit(R) X60
+isa		: rv64imafdcv_zicbom_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zfhmin_zca_zcd_zba_zbb_zbc_zbs_zkt_zve32f_zve32x_zve64d_zve64f_zve64x_zvfh_zvfhmin_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt
+mmu		: sv39
+mvendorid	: 0x710
+marchid		: 0x8000000058000001
+mimpid		: 0x1000000049772200
+
+processor	: 2
+hart		: 2
+model name	: Spacemit(R) X60
+isa		: rv64imafdcv_zicbom_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zfhmin_zca_zcd_zba_zbb_zbc_zbs_zkt_zve32f_zve32x_zve64d_zve64f_zve64x_zvfh_zvfhmin_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt
+mmu		: sv39
+mvendorid	: 0x710
+marchid		: 0x8000000058000001
+mimpid		: 0x1000000049772200
+
+processor	: 3
+hart		: 3
+model name	: Spacemit(R) X60
+isa		: rv64imafdcv_zicbom_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zfhmin_zca_zcd_zba_zbb_zbc_zbs_zkt_zve32f_zve32x_zve64d_zve64f_zve64x_zvfh_zvfhmin_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt
+mmu		: sv39
+mvendorid	: 0x710
+marchid		: 0x8000000058000001
+mimpid		: 0x1000000049772200
+
+processor	: 4
+hart		: 4
+model name	: Spacemit(R) X60
+isa		: rv64imafdcv_zicbom_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zfhmin_zca_zcd_zba_zbb_zbc_zbs_zkt_zve32f_zve32x_zve64d_zve64f_zve64x_zvfh_zvfhmin_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt
+mmu		: sv39
+mvendorid	: 0x710
+marchid		: 0x8000000058000001
+mimpid		: 0x1000000049772200
+
+processor	: 5
+hart		: 5
+model name	: Spacemit(R) X60
+isa		: rv64imafdcv_zicbom_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zfhmin_zca_zcd_zba_zbb_zbc_zbs_zkt_zve32f_zve32x_zve64d_zve64f_zve64x_zvfh_zvfhmin_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt
+mmu		: sv39
+mvendorid	: 0x710
+marchid		: 0x8000000058000001
+mimpid		: 0x1000000049772200
+
+processor	: 6
+hart		: 6
+model name	: Spacemit(R) X60
+isa		: rv64imafdcv_zicbom_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zfhmin_zca_zcd_zba_zbb_zbc_zbs_zkt_zve32f_zve32x_zve64d_zve64f_zve64x_zvfh_zvfhmin_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt
+mmu		: sv39
+mvendorid	: 0x710
+marchid		: 0x8000000058000001
+mimpid		: 0x1000000049772200
+
+processor	: 7
+hart		: 7
+model name	: Spacemit(R) X60
+isa		: rv64imafdcv_zicbom_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zfhmin_zca_zcd_zba_zbb_zbc_zbs_zkt_zve32f_zve32x_zve64d_zve64f_zve64x_zvfh_zvfhmin_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt
+mmu		: sv39
+mvendorid	: 0x710
+marchid		: 0x8000000058000001
+mimpid		: 0x1000000049772200
+
+E6oYZaZI
+res =root@k1:~# 
 ```
 
 ## 测试判定标准
