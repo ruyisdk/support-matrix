@@ -5,14 +5,7 @@
 ### Operating System Information
 
 - Bianbu
-  - Download Links:
-    - Baidu Netdisk: https://pan.baidu.com/s/15owwUEjIU_i26cI1iigAew?pwd=8888 (pincode: 8888)
-    - Google Drive: https://drive.google.com/drive/folders/1LQoioz6N5YQpSOxY47OmetnPX4yggtT0?usp=sharing
-  - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
-- Bianbu (Desktop Edition)
-  - Download Links:
-    - Baidu Netdisk: https://pan.baidu.com/s/1zvFkX92f5gpZdKjP-vGJvA?pwd=8888 (pincode: 8888)
-    - Google Drive: https://drive.google.com/drive/folders/1kCHiMwjnhvZaRBy5vkj6UlPeAlpRQ14P?usp=sharing
+  - Download Links: https://archive.spacemit.com/image/k1/version/bianbu/v2.0rc1/
   - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 - Armbian
   - Download Links:
