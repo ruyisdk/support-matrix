@@ -20,10 +20,10 @@
 ## 测试结果
 
 | 软件分类                    | 软件包名 | 测试结果（测试报告）      |
-|-----------------------------|----------|-------------------------|
+| --------------------------- | -------- | ------------------------- |
 | Ubuntu Image Boot           | N/A      | [CFT][Ubuntu]（官方支持） |
-| Yocto Image Build and Boot  | N/A      | [CFT][Yocto]            |
-| Zephyr Image Build and Boot | N/A      | [CFT][Zephyr]           |
+| Yocto Image Build and Boot  | N/A      | [CFT][Yocto]              |
+| Zephyr Image Build and Boot | N/A      | [CFT][Zephyr]             |
 
 [Ubuntu]: ./Ubuntu/README_zh.md
 [Yocto]: ./Yocto/README_zh.md

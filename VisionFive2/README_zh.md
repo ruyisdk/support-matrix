@@ -7,9 +7,9 @@
 - openEuler RISC-V 23.09 Preview
     - 下载链接：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/Visionfive2/
     - 参考安装文档：https://gitee.com/openeuler/RISC-V/blob/master/release/openEuler-23.03/Installation_Book/Visionfive2/README_zh.md
-- Debian（官方提供）
+- Debian bookworm（官方提供）
     - 下载链接：https://debian.starfivetech.com/
-- openKylin
+- openKylin 2.0-RC
     - 下载链接：https://www.openkylin.top/downloads
     - 参考安装文档：https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 - Ubuntu 24.04
@@ -24,7 +24,7 @@
 - Gentoo
     - 下载链接：https://drive.google.com/file/d/10TDsk2FwZDJv3yJvDAfCam5Wf9ibS6Eg/view?usp=sharing
     - 参考安装文档：https://forum.rvspace.org/t/experimental-gentoo-image/1807
-- openSUSE
+- openSUSE Tumbleweed
     - 下载链接：https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/StarFive:/VisionFive2/images/
     - 参考安装文档：https://en.opensuse.org/HCL:VisionFive2
 - OpenBSD
@@ -41,7 +41,7 @@
     - 参考安装文档：https://doc.rvspace.org/VisionFive2/Application_Notes/RT-Thread/index.html
 - Zephyr
     - 参考安装文档：https://docs.zephyrproject.org/latest/boards/starfive/visionfive2/doc/index.html
-- Deepin
+- Deepin 23 preview
     - 下载链接：https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-visionfive2-20240613-125619.tar.xz
     - 参考安装文档：https://cdimage.deepin.com/RISC-V/VisionFive-v2-image/README.txt
 
@@ -53,24 +53,24 @@
 ## 测试结果
 
 | 软件分类                 | 软件包名 | 测试结果（测试报告）                   |
-|----------------------|----------|------------------------------------|
-| openEuler/Base 镜像启动  | N/A      | [成功][oERV]                         |
-| openEuler/Xfce 镜像启动  | Xfce     | [成功][oERV]                         |
+| ------------------------ | -------- | -------------------------------------- |
+| openEuler/Base 镜像启动  | N/A      | [成功][oERV]                           |
+| openEuler/Xfce 镜像启动  | Xfce     | [成功][oERV]                           |
 | Debian 镜像启动          | N/A      | [成功][Debian]（StarFive 厂商镜像）    |
 | openKylin 镜像启动       | N/A      | [成功][oK]（官方支持）                 |
 | Ubuntu 镜像启动          | N/A      | [成功][Ubuntu]（官方支持）             |
 | BuildRoot 镜像启动       | N/A      | [成功][BuildRoot]（StarFive 厂商镜像） |
-| Arch Linux 镜像启动      | N/A      | [成功][Arch]                         |
-| Gentoo 镜像启动          | N/A      | [成功][Gentoo]                       |
-| openSUSE 镜像启动        | N/A      | [成功][openSUSE]（官方支持）               |
-| OpenBSD 镜像启动         | N/A      | [成功][OpenBSD]                      |
-| Armbian/Minimal 镜像启动 | N/A      | [成功][Armbian]                      |
-| Armbian/Xfce 镜像启动    | Xfce     | [成功][Armbian]                      |
-| OpenWrt 镜像启动         | N/A      | [成功][OpenWrt]                      |
-| RT-Thread 镜像构建及启动  | N/A      | [成功][RT-Thread]（官方支持）          |
-| Zephyr 镜像构建及启动     | N/A      | [失败][Zephyr]                       |
-| NuttX 镜像构建及启动      | N/A      | [成功][NuttX]                        |
-| Deepin 镜像启动          | N/A              | [Successful][Deepin]                       |
+| Arch Linux 镜像启动      | N/A      | [成功][Arch]                           |
+| Gentoo 镜像启动          | N/A      | [成功][Gentoo]                         |
+| openSUSE 镜像启动        | N/A      | [成功][openSUSE]（官方支持）           |
+| OpenBSD 镜像启动         | N/A      | [成功][OpenBSD]                        |
+| Armbian/Minimal 镜像启动 | N/A      | [成功][Armbian]                        |
+| Armbian/Xfce 镜像启动    | Xfce     | [成功][Armbian]                        |
+| OpenWrt 镜像启动         | N/A      | [成功][OpenWrt]                        |
+| RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]（官方支持）          |
+| Zephyr 镜像构建及启动    | N/A      | [失败][Zephyr]                         |
+| NuttX 镜像构建及启动     | N/A      | [成功][NuttX]                          |
+| Deepin 镜像启动          | N/A      | [Successful][Deepin]                   |
 
 [oERV]: ./openEuler/README_zh.md
 [Debian]: ./Debian/README_zh.md
