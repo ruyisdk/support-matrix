@@ -55,8 +55,8 @@
 | OpenBSD Image Boot        | N/A          | [Successful][OpenBSD] (Official Support) |
 | Zephyr Boot               | N/A          | [Successful][Zephyr] (Official Support)  |
 | OpenWrt Boot              | N/A          | [Successful][OpenWrt] (Official Support) |
-| Fedora 启动               | N/A          | [Successful][Fedora]（Official Support） |
-| Deepin 启动               | N/A          | [CFT][Deepin]（Official Support）        |
+| Fedora Boot               | N/A          | [Successful][Fedora]（Official Support） |
+| Deepin Boot               | N/A          | [CFT][Deepin]（Official Support）        |
 
 [Debian]: ./Debian/README.md
 [oERV]: ./openEuler/README.md

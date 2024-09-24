@@ -19,7 +19,7 @@
 - Armbian (Ubuntu 20.04 LTS)
     - 下载链接：https://github.com/chainsx/armbian-riscv-build/tree/main
     - 参考安装文档：https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide_ch.md
-- ArchLinux
+- Arch Linux
     - 下载链接：[https://mirror.iscas.ac.cn/archriscv/images/](https://mirror.iscas.ac.cn/archriscv/images/)
     - 参考安装文档：[ArchWiki](https://wiki.archlinux.org/title/General_recommendations)
 - Deepin preview 20240603
@@ -41,7 +41,7 @@
 | openKylin 桌面镜像启动    | N/A      | [成功][openKylin]（官方支持） |
 | Armbian (Ubuntu) 镜像启动 | N/A      | [成功][Armbian]               |
 | OpenWRT 镜像启动          | N/A      | [成功][OpenWRT]               |
-| ArchLinux 桌面镜像启动    | N/A      | [成功][ArchLinux]             |
+| Arch Linux 桌面镜像启动   | N/A      | [成功][ArchLinux]             |
 | Deepin 桌面镜像启动       | N/A      | [成功][Deepin]                |
 
 [oERV]: ./openEuler/README_zh.md

@@ -164,7 +164,7 @@ The system boots up normally and allows login through the serial port.
 
 The system boots up normally and login through the serial port is successful.
 
-### 启动信息
+### Boot Information
 
 Screencast (from compilation to boot): 
 [![asciicast](https://asciinema.org/a/l8UeZmW5Q6xRS2wBAdL4GFlXp.svg)](https://asciinema.org/a/l8UeZmW5Q6xRS2wBAdL4GFlXp)
