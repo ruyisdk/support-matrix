@@ -17,8 +17,8 @@
   - Download Link: https://github.com/kendryte/k230_sdk/releases/tag/v1.4
   - Reference Installation Document: https://github.com/kendryte/k230_docs/blob/main/zh/01_software/board/K230_SDK_%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md
 - NuttX
-  - Download Link：https://github.com/apache/nuttx
-  - Reference Installation Document：https://nuttx.apache.org/docs/latest/platforms/risc-v/k230/boards/canmv230/index.html
+  - Download Link: https://github.com/apache/nuttx
+  - Reference Installation Document: https://nuttx.apache.org/docs/latest/platforms/risc-v/k230/boards/canmv230/index.html
 
 ### Hardware Information
 

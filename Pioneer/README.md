@@ -18,10 +18,10 @@
     - Download link: https://www.openkylin.top/downloads
     - Reference Installation Document: https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 - Deepin 23 preview-20240517
-    - Download link：
-        - OS image：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/deepin-sg2042-riscv64-stable-desktop-installer.tar.xz
-        - Firmware：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/sophgo-bootloader-multi-sg2042-dev.zip
-    - Reference installation manual：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
+    - Download link: 
+        - OS image: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/deepin-sg2042-riscv64-stable-desktop-installer.tar.xz
+        - Firmware: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/sophgo-bootloader-multi-sg2042-dev.zip
+    - Reference installation manual: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
 
 ### Hardware Information
 

@@ -11,8 +11,8 @@
     - Download Link: https://cdimage.ubuntu.com/releases/24.04/release/ubuntu-24.04-preinstalled-server-riscv64+milkvmars.img.xz
     - Reference Installation Document: https://milkv.io/zh/docs/mars/getting-started/boot
 - Deepin
-    - Download Link：https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-milkv-mars-20240613-123442.tar.xz
-    - Reference Installation Document：https://milkv.io/zh/docs/mars/getting-started/boot
+    - Download Link: https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-milkv-mars-20240613-123442.tar.xz
+    - Reference Installation Document: https://milkv.io/zh/docs/mars/getting-started/boot
 
 ### Hardware Information
 

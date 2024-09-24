@@ -31,11 +31,11 @@
     - Download link: https://download.opensuse.org/repositories/home:/Andreas_Schwab:/riscv:/unmatched/images/openSUSE-Tumbleweed-RISC-V-JeOS-hifiveunmatched.riscv64-2024.03.15-Build1.7.raw.xz
     - Reference Installation Document: https://en.opensuse.org/HCL:HiFive_Unmatched
 - Fedora 38
-    - Download link：https://dl.fedoraproject.org/pub/alt/risc-v/disk_images/Fedora-Developer-38-20230519.n.0.SiFive.Unmatched.and.QEMU/Fedora-Developer-38-20230519.n.0-mmc.raw.img.xz
-    - Reference Installation Document：https://dl.fedoraproject.org/pub/alt/risc-v/disk_images/Fedora-Developer-38-20230519.n.0.SiFive.Unmatched.and.QEMU/README_zh.md
+    - Download link: https://dl.fedoraproject.org/pub/alt/risc-v/disk_images/Fedora-Developer-38-20230519.n.0.SiFive.Unmatched.and.QEMU/Fedora-Developer-38-20230519.n.0-mmc.raw.img.xz
+    - Reference Installation Document: https://dl.fedoraproject.org/pub/alt/risc-v/disk_images/Fedora-Developer-38-20230519.n.0.SiFive.Unmatched.and.QEMU/README_zh.md
 - Deepin
-    - Download link：https://cdimage.deepin.com/RISC-V/Unmatched-image/deepin-sifive.7z
-    - Reference Installation Document：https://cdimage.deepin.com/RISC-V/Unmatched-image/README.txt
+    - Download link: https://cdimage.deepin.com/RISC-V/Unmatched-image/deepin-sifive.7z
+    - Reference Installation Document: https://cdimage.deepin.com/RISC-V/Unmatched-image/README.txt
 
 ### Hardware Information
 

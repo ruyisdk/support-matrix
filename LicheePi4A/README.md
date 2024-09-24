@@ -20,12 +20,12 @@
     - Download link: [Armbian Images](https://github.com/chainsx/armbian-riscv-build/tree/main)
     - Reference Installation Document: [Armbian Installation Guide](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
 - ArchLinux
-    - Download link：[https://mirror.iscas.ac.cn/archriscv/images/](https://mirror.iscas.ac.cn/archriscv/images/)
-    - Reference Installation Document：
+    - Download link: [https://mirror.iscas.ac.cn/archriscv/images/](https://mirror.iscas.ac.cn/archriscv/images/)
+    - Reference Installation Document: 
     - [ArchWiki](https://wiki.archlinux.org/title/General_recommendations)
 - Deepin preview 20240603
-    - Download link：https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-lpi4a-20240613-122949.tar.xz
-    - Reference Installation Document：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/
+    - Download link: https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-lpi4a-20240613-122949.tar.xz
+    - Reference Installation Document: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/
 
 ### Hardware Information
 

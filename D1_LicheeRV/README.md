@@ -34,8 +34,8 @@
 - Arch Linux
   - Packaging script: https://github.com/sehraf/d1-riscv-arch-image-builder
 - openSUSE Tumbleweed
-  - Download link：[https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/](https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/)
-  - Reference Installation Document：[https://en.opensuse.org/HCL:Nezha](https://en.opensuse.org/HCL:Nezha)
+  - Download link: [https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/](https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/)
+  - Reference Installation Document: [https://en.opensuse.org/HCL:Nezha](https://en.opensuse.org/HCL:Nezha)
 
 ### Hardware Information
 

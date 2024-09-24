@@ -10,15 +10,15 @@
   - Reference Installation Document: https://github.com/milkv-duo/duo-buildroot-sdk
 - Apache NuttX RTOS
   - Source Code Links
-    - NuttX: https://github.com/lupyuen2/wip-nuttx/tree/sg2000
+    - NuttX: https://github.com/lupyuen2/wip-nuttx: /tree/sg2000
     - NuttX Apps: https://github.com/lupyuen2/wip-nuttx-apps/tree/sg2000
   - Reference Installation Document: https://github.com/lupyuen/nuttx-sg2000
 - Debian
-  - Download Link：https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/tag/v1.4.0
-  - Reference Installation Document：https://github.com/Fishwaldo/sophgo-sg200x-debia
+  - Download Link: https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/tag/v1.4.0
+  - Reference Installation Document: https://github.com/Fishwaldo/sophgo-sg200x-debia
 - Zephyr
-  - Source Code Link：https://github.com/zephyrproject-rtos/zephyr/tree/main
-  - Reference Installation Document：
+  - Source Code Link: https://github.com/zephyrproject-rtos/zephyr/tree/main
+  - Reference Installation Document: 
       - https://docs.zephyrproject.org/latest/develop/getting_started/index.html
       - https://github.com/milkv-duo/duo-buildroot-sdk
 
