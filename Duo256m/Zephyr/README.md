@@ -166,7 +166,7 @@ The system boots up normally and login through the serial port is successful.
 
 ### 启动信息
 
-屏幕录像（从编译到启动）：
+Screencast (from compilation to boot): 
 [![asciicast](https://asciinema.org/a/l8UeZmW5Q6xRS2wBAdL4GFlXp.svg)](https://asciinema.org/a/l8UeZmW5Q6xRS2wBAdL4GFlXp)
 
 ```log

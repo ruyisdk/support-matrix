@@ -7,18 +7,18 @@
 - Fedora
     - Download Link: https://fedora.starfivetech.com/pub/downloads/VisionFive-release/Fedora-riscv64-jh7100-developer-xfce-Rawhide-20211226-214100.n.0-sda.raw.zst
     - Reference Installation Document: https://doc.rvspace.org/VisionFive/PDF/VisionFive_Quick_Start_Guide.pdf
-- openEuler
+- openEuler 23.09 RISC-V preview
     - Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/Visionfive/
     - Reference Installation Document: https://gitee.com/openeuler/RISC-V/tree/master/release/openEuler-23.03/Installation_Book/Visionfive
     - Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/Visionfive/
     - Reference Installation Document: https://gitee.com/openeuler/RISC-V/tree/master/release/openEuler-23.03/Installation_Book/Visionfive
-- Ubuntu
+- Ubuntu 23.10
     - Download Link: https://ubuntu.com/download/risc-v
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive
-- openKylin
+- openKylin 0.9.5
     - Download Link: https://www.openkylin.top/downloads/old_releases.html
     - Reference Installation Document: https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
-- openSUSE
+- openSUSE Tumbleweed
     - Download Link: https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/StarFive/images/
     - Reference Installation Document: https://en.opensuse.org/HCL:VisionFive
 - Armbian

@@ -30,6 +30,12 @@
 - OpenSUSE Tumbleweed
     - Download link: https://download.opensuse.org/repositories/home:/Andreas_Schwab:/riscv:/unmatched/images/openSUSE-Tumbleweed-RISC-V-JeOS-hifiveunmatched.riscv64-2024.03.15-Build1.7.raw.xz
     - Reference Installation Document: https://en.opensuse.org/HCL:HiFive_Unmatched
+- Fedora 38
+    - Download link: https://dl.fedoraproject.org/pub/alt/risc-v/disk_images/Fedora-Developer-38-20230519.n.0.SiFive.Unmatched.and.QEMU/Fedora-Developer-38-20230519.n.0-mmc.raw.img.xz
+    - Reference Installation Document: https://dl.fedoraproject.org/pub/alt/risc-v/disk_images/Fedora-Developer-38-20230519.n.0.SiFive.Unmatched.and.QEMU/README_zh.md
+- Deepin
+    - Download link: https://cdimage.deepin.com/RISC-V/Unmatched-image/deepin-sifive.7z
+    - Reference Installation Document: https://cdimage.deepin.com/RISC-V/Unmatched-image/README.txt
 
 ### Hardware Information
 
@@ -37,18 +43,20 @@
 
 ## Test Results
 
-| Software Category       | Package Name | Test Results (Test Report)          |
-|-------------------------|--------------|-------------------------------------|
-| Debian Image Boot       | N/A          | [Successful][Debian]                |
-| openEuler/Base Image Boot | N/A        | [Successful][oERV]                  |
-| openEuler/Xfce Image Boot| N/A         | [Successful][oERV]                  |
-| openKylin Image Boot    | N/A          | [Successful][oK] (Official Support) |
-| OpenSUSE Image Boot     | N/A          | [Successful][SUSE]                  |
-| Ubuntu Image Boot       | N/A          | [Successful][Ubuntu] (Official Support) |
-| FreeBSD Image Boot      | N/A          | [Successful][FreeBSD] (Official Support) |
-| OpenBSD Image Boot      | N/A          | [Successful][OpenBSD] (Official Support) |
-| Zephyr Boot             | N/A          | [Successful][Zephyr] (Official Support) |
-| OpenWrt Boot            | N/A          | [Successful][OpenWrt] (Official Support) |
+| Software Category         | Package Name | Test Results (Test Report)               |
+| ------------------------- | ------------ | ---------------------------------------- |
+| Debian Image Boot         | N/A          | [Successful][Debian]                     |
+| openEuler/Base Image Boot | N/A          | [Successful][oERV]                       |
+| openEuler/Xfce Image Boot | N/A          | [Successful][oERV]                       |
+| openKylin Image Boot      | N/A          | [Successful][oK] (Official Support)      |
+| OpenSUSE Image Boot       | N/A          | [Successful][SUSE]                       |
+| Ubuntu Image Boot         | N/A          | [Successful][Ubuntu] (Official Support)  |
+| FreeBSD Image Boot        | N/A          | [Successful][FreeBSD] (Official Support) |
+| OpenBSD Image Boot        | N/A          | [Successful][OpenBSD] (Official Support) |
+| Zephyr Boot               | N/A          | [Successful][Zephyr] (Official Support)  |
+| OpenWrt Boot              | N/A          | [Successful][OpenWrt] (Official Support) |
+| Fedora 启动               | N/A          | [Successful][Fedora]（Official Support） |
+| Deepin 启动               | N/A          | [CFT][Deepin]（Official Support）        |
 
 [Debian]: ./Debian/README.md
 [oERV]: ./openEuler/README.md
@@ -59,3 +67,5 @@
 [OpenBSD]: ./OpenBSD/README.md
 [Zephyr]: ./Zephyr/README.md
 [OpenWrt]: ./OpenWrt/README.md
+[Fedora]: ./Fedora/README.md
+[Deepin]: ./Deepin/README.md

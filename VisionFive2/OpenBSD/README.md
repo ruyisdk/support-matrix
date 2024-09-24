@@ -4,7 +4,7 @@
 
 ### System Information
 
-- System Version: OpenWRT SnapShot
+- System Version: OpenBSD SnapShot
 - Download Link: [https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/](https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/)
     - dtb File: https://marc.info/?l=openbsd-misc&m=169046816826966&w=2
 - Reference Installation Document: [https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64](https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64)

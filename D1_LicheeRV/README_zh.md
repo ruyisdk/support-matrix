@@ -20,7 +20,7 @@
   - 参考安装文档：
     - Nezha D1: https://wiki.ubuntu.com/RISC-V/Nezha%20D1
     - Sipeed Lichee RV Dock: https://wiki.ubuntu.com/RISC-V/LicheeRV
-- OpenWrt
+- OpenWrt 23.05.2
   - 下载链接（OpenWrt Firmware Selector）：
     - Nezha D1: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=nezha
     - Sipeed Lichee RV Dock: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
@@ -28,11 +28,14 @@
 - Debian
   - 下载链接：http://www.perfxlab.cn:8080/rvboards/
   - 参考安装文档：https://d1.docs.aw-ol.com/strong/strong_4debian/#v041
-- Fedora
+- Fedora 36
   - 下载链接：https://openkoji.iscas.ac.cn/pub/dl/riscv/Allwinner/Nezha_D1/images-release/Fedora/
   - 参考安装文档：https://fedoraproject.org/wiki/Architectures/RISC-V/Allwinner/zh-cn
 - Arch Linux
   - 打包脚本：https://github.com/sehraf/d1-riscv-arch-image-builder
+- openSUSE Tumbleweed
+  - 下载链接：[https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/](https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/)
+  - 参考安装文档：[https://en.opensuse.org/HCL:Nezha](https://en.opensuse.org/HCL:Nezha)
 
 ### 硬件开发板信息
 
@@ -42,16 +45,16 @@
 ## 测试结果
 
 | 软件分类                       | 软件包名     | 测试结果（测试报告）          |
-|----------------------------|--------------|---------------------------|
-| openEuler/Base 镜像启动        | N/A          | [成功][oERV]                |
-| openEuler/Xfce 镜像启动        | Xfce Desktop | [成功][oERV]                |
+| ------------------------------ | ------------ | ----------------------------- |
+| openEuler/Base 镜像启动        | N/A          | [成功][oERV]                  |
+| openEuler/Xfce 镜像启动        | Xfce Desktop | [成功][oERV]                  |
 | Tina-Linux 镜像启动 - Nezha D1 | N/A          | [成功][TinaNezha]（官方支持） |
 | Ubuntu 镜像启动                | N/A          | [成功][Ubuntu]（官方支持）    |
 | OpenWrt 镜像启动               | N/A          | [成功][OpenWrt]（官方支持）   |
-| Debian 镜像启动                | N/A          | [成功][Debian]              |
-| Fedora 镜像启动                | N/A          | [成功][Fedora]              |
-| openSUSE 镜像启动              | N/A          | [成功][openSUSE]            |
-| Arch Linux 镜像启动            | N/A          | [成功][Arch]                |
+| Debian 镜像启动                | N/A          | [成功][Debian]                |
+| Fedora 镜像启动                | N/A          | [成功][Fedora]                |
+| openSUSE 镜像启动              | N/A          | [成功][openSUSE]              |
+| Arch Linux 镜像启动            | N/A          | [成功][Arch]                  |
 
 [oERVDL]: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/D1/
 [oERV]: ./openEuler/README_zh.md

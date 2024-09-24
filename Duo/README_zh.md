@@ -20,6 +20,14 @@
 - RT-Thread 5.1.0
   - 源码链接：https://github.com/RT-Thread/rt-thread
   - 参考安装文档：https://github.com/RT-Thread/rt-thread/tree/master/bsp/cvitek/cv1800b
+- ThreadX
+  - 源码链接: https://github.com/saicogn/ThreadX-to-RISC-V64
+  - 参考安装文档: https://github.com/saicogn/ThreadX-to-RISC-V64/blob/main/README.md
+- Zephyr
+  - 源码链接: https://github.com/zephyrproject-rtos/zephyr/tree/main
+  - 参考安装文档:
+      - https://docs.zephyrproject.org/latest/develop/getting_started/index.html
+      - https://github.com/milkv-duo/duo-buildroot-sdk
 - openEuler 23.03 riscv64
   - 下载链接：
     - buildroot: https://github.com/milkv-duo/duo-buildroot-sdk.git
@@ -33,16 +41,16 @@
 ## 测试结果
 
 | 软件分类                 | 软件包名 | 测试结果（测试报告）                          |
-|--------------------------|----------|-------------------------------------------|
+| ------------------------ | -------- | --------------------------------------------- |
 | BuildRoot 镜像启动       | N/A      | [成功][Duo]（通过 `ruyi` CLI 刷写）           |
 | FreeRTOS 启动            | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内） |
-| Arch Linux 镜像启动      | N/A      | [成功][Arch]                                |
-| Debian 镜像启动          | N/A      | [成功][Debian]                              |
-| RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]                           |
-| Fedora 镜像启动          | N/A      | [失败][Fedora]                              |
-| openEuler                | N/A      | [成功][oE]                                  |
-| ThreadX 镜像构建及启动   | N/A      | [成功][ThreadX]                             |
-| Zephyr  镜像构建及启动   | N/A      | [成功][Zephyr]                             |
+| Arch Linux 镜像启动      | N/A      | [成功][Arch]                                  |
+| Debian 镜像启动          | N/A      | [成功][Debian]                                |
+| RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]                             |
+| Fedora 镜像启动          | N/A      | [失败][Fedora]                                |
+| openEuler                | N/A      | [成功][oE]                                    |
+| ThreadX 镜像构建及启动   | N/A      | [成功][ThreadX]                               |
+| Zephyr  镜像构建及启动   | N/A      | [成功][Zephyr]                                |
 
 [Duo]: ./BuildRoot/README_zh.md
 [Arch]: ./ArchLinux/README_zh.md

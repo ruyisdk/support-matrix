@@ -16,13 +16,13 @@
 - RevyOS
     - 下载链接：https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
     - 参考安装文档：https://docs.revyos.dev/
-- openKylin
+- openKylin 2.0 alpha
     - 下载链接：https://www.openkylin.top/downloads/index-cn.html
     - 参考安装文档：https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
-- Fedora
+- Fedora 38
     - 下载链接：https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/
     - 参考安装文档：https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head
-- Armbian
+- Armbian (Ubuntu 20.04 LTS)
     - 下载链接：https://github.com/chainsx/armbian-riscv-build/tree/main
     - 参考安装文档：https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide_zh.md
 - OpenWRT
@@ -44,7 +44,7 @@
 | openEuler/Xfce 镜像启动          | Xfce     | [成功][oERV]                          |
 | openKylin 镜像启动               | N/A      | [成功][oK]                            |
 | Fedora 桌面镜像启动              | N/A      | [成功][Fedora]                        |
-| Armbian 镜像启动                 | N/A      | [成功][Armbian]                       |
+| Armbian (Ubuntu) 镜像启动        | N/A      | [成功][Armbian]                       |
 | OpenWRT 镜像启动                 | N/A      | [成功][OpenWRT]                       |
 
 [RevySipeed]: ./RevyOS/README_Sipeed_zh.md

@@ -78,8 +78,6 @@ sudo ./fastboot flash boot boot-lpi4a-20231210_134926.ext4
 
 ```bash
 sudo ./fastboot flash root rootfs.ext4
-```
-
 ### 登录系统
 
 通过串口登录系统。

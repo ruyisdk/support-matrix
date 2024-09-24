@@ -1,4 +1,4 @@
-# openEuler RISC-V 24.03 lts Pioneer Test Report
+# openEuler RISC-V 24.03 LTS Pioneer Test Report
 
 ## Test Environment
 

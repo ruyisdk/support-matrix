@@ -20,6 +20,14 @@
 - RT-Thread 5.1.0
   - Source code link: https://github.com/RT-Thread/rt-thread
   - Reference Installation Document: https://github.com/RT-Thread/rt-thread/tree/master/bsp/cvitek/cv1800b
+- ThreadX
+  - Source code link: https://github.com/saicogn/ThreadX-to-RISC-V64
+  - Reference Installation Document: https://github.com/saicogn/ThreadX-to-RISC-V64/blob/main/README.md
+- Zephyr
+  - Source code link: https://github.com/zephyrproject-rtos/zephyr/tree/main
+  - Reference Installation Document:
+      - https://docs.zephyrproject.org/latest/develop/getting_started/index.html
+      - https://github.com/milkv-duo/duo-buildroot-sdk
 - openEuler 23.03 riscv64
   - Download links:
     - buildroot: https://github.com/milkv-duo/duo-buildroot-sdk.git

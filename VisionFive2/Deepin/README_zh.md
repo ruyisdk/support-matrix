@@ -4,7 +4,7 @@
 
 ### 操作系统信息
 
-- 系统版本：Deepin preview
+- 系统版本：Deepin 23 preview
 - 下载链接：https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-visionfive2-20240613-125619.tar.xz
 - 参考安装文档：https://cdimage.deepin.com/RISC-V/VisionFive-v2-image/README.txt
 

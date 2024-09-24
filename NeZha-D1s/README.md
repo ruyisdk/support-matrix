@@ -20,11 +20,11 @@
 
 ## Test Results
 
-| Software Category      | Package Name | Test Results (Test Report) |
-| ---------------------- | ------------ | -------------------------- |
-| Tina-Linux Image Boot  | N/A          | [CFT][Tina]                |
-| RT-Thread Image Boot   | N/A          | [CFT][RT-Thread]           |
-| Ubuntu Image Boot      | N/A          | [CFT][Ubuntu]              |
+| Software Category     | Package Name | Test Results (Test Report) |
+| --------------------- | ------------ | -------------------------- |
+| Tina-Linux Image Boot | N/A          | [CFT][Tina]                |
+| RT-Thread Image Boot  | N/A          | [CFT][RT-Thread]           |
+| Ubuntu Image Boot     | N/A          | [Success][Ubuntu]          |
 
 [Tina]: ./TinaLinux/README.md
 [RT-Thread]: ./RT-Thread/README.md
