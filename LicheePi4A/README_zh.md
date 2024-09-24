@@ -21,8 +21,7 @@
     - 参考安装文档：https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide_ch.md
 - ArchLinux
     - 下载链接：[https://mirror.iscas.ac.cn/archriscv/images/](https://mirror.iscas.ac.cn/archriscv/images/)
-    - 参考安装文档：
-    - [ArchWiki](https://wiki.archlinux.org/title/General_recommendations)
+    - 参考安装文档：[ArchWiki](https://wiki.archlinux.org/title/General_recommendations)
 - Deepin preview 20240603
     - 下载链接：https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-lpi4a-20240613-122949.tar.xz
     - 参考安装文档：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md

@@ -77,7 +77,7 @@ sudo ./fastboot flash boot boot-lpi4a-20231210_134926.ext4
 将 root 分区刷入 eMMC 中。
 
 ```bash
-sudo ./fastboot flash root rootfs.ext4Ubuntu 20.04 LTS 
+sudo ./fastboot flash root rootfs.ext4
 ### 登录系统
 
 通过串口登录系统。

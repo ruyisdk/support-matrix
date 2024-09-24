@@ -43,10 +43,9 @@
 | openKylin Desktop Image Boot | N/A              | [Success][openKylin] (Official Support) |
 | Armbian (Ubuntu) Image Boot  | N/A              | [Success][Armbian]                      |
 | OpenWRT Image Boot           | N/A              | [Success][OpenWRT]                      |
-| ArchLinux Desktop Image Boot | N/A              | [成功][ArchLinux]                       |
-| Deepin Desktop Image Boot    | N/A              | [成功][Deepin]                          |
-[ArchLinux]: ./ArchLinux/README_zh.md
-[Deepin]: ./Deepin/README_zh.md
+| ArchLinux Desktop Image Boot | N/A              | [Success][ArchLinux]                    |
+| Deepin Desktop Image Boot    | N/A              | [Success][Deepin]                       |
+
 [oERV]: ./openEuler/README.md
 [RevyOS]: ./RevyOS/README.md
 [Fedora]: ./Fedora/README.md

@@ -70,7 +70,7 @@
 | RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]（官方支持）          |
 | Zephyr 镜像构建及启动    | N/A      | [失败][Zephyr]                         |
 | NuttX 镜像构建及启动     | N/A      | [成功][NuttX]                          |
-| Deepin 镜像启动          | N/A      | [Successful][Deepin]                   |
+| Deepin 镜像启动          | N/A      | [成功][Deepin]                         |
 
 [oERV]: ./openEuler/README_zh.md
 [Debian]: ./Debian/README_zh.md

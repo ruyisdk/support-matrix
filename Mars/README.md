@@ -30,4 +30,4 @@
 [Debian]: ./Debian/README.md
 [BuildRoot]: ./BuildRoot/README.md
 [Ubuntu]: ./Ubuntu/README.md
-[Deepin]: ./Deepin/README_zh.md
+[Deepin]: ./Deepin/README.md
