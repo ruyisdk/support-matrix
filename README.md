@@ -64,6 +64,9 @@
 | MPFS250T          | SiFive U54 + SiFive E51                    | [PolarFire FPGA SoC Icicle Kit][Icicle] | CFT      | -         | CFT    | -       | CFT   | -     |
 | U740              | SiFive U74 + SiFive S7                     | [HiFive Unmatched][Unmatched]           | -        | -         | Basic  | -       | -     | -     |
 | K230              | XuanTie C908                               | [CanMV K230][K230]                      | -        | Basic     | -      | -       | Basic | -     |
+| D1 (D1-H)         | XuanTie C906                               | [LicheeRV/AWOL Nezha][C906]             | -        | CFT       | -      | -       | -     |       |
+| D1 (D1-H)         | XuanTie C906                               | [DongshanPI-Nezha STU][DongshanPI-STU]  | -        | CFT       | -      | -       | -     |       |
+| D1 (D1-H)         | XuanTie C906                               | [MangoPi MQ Pro][mangopi_mq_pro]        | -        | CFT       | -      | -       | -     |       |
 | D1s               | XuanTie C906                               | [DongShanPI D1s][DongShanPI-D1s]        | -        | CFT       | -      | -       | -     |       |
 | D1s               | XuanTie C906                               | [Mangopi MQ][mangopi_mq]                | -        | CFT       | -      | -       | -     | -     |
 | D1s               | XuanTie C906                               | [D1s NeZha][NeZha-D1s]                  | -        | CFT       | -      | -       | -     | -     |
