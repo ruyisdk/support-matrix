@@ -17,6 +17,7 @@
     - Sipeed Lichee RV: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
 - Ubuntu
   - 下载链接：https://ubuntu.com/download/risc-v
+    - 镜像源： [Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz) | [Lichee RV](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Blicheerv.img.xz)
   - 参考安装文档：
     - Nezha D1: https://wiki.ubuntu.com/RISC-V/Nezha%20D1
     - Sipeed Lichee RV Dock: https://wiki.ubuntu.com/RISC-V/LicheeRV
