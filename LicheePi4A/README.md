@@ -19,7 +19,7 @@
 - Armbian (Ubuntu 20.04 LTS)
     - Download link: [Armbian Images](https://github.com/chainsx/armbian-riscv-build/tree/main)
     - Reference Installation Document: [Armbian Installation Guide](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
-- ArchLinux
+- Arch Linux
     - Download link: [https://mirror.iscas.ac.cn/archriscv/images/](https://mirror.iscas.ac.cn/archriscv/images/)
     - Reference Installation Document: 
     - [ArchWiki](https://wiki.archlinux.org/title/General_recommendations)
@@ -34,17 +34,17 @@
 
 ## Test Results
 
-| Software Category            | Software Package | Test Results (Test Report)              |
-| ---------------------------- | ---------------- | --------------------------------------- |
-| openEuler/Base Image Boot    | N/A              | [Success][oERV]                         |
-| openEuler/Xfce Image Boot    | Xfce             | [Success][oERV]                         |
-| RevyOS Desktop Image Boot    | N/A              | [Success][RevyOS] (Official Support)    |
-| Fedora Desktop Image Boot    | N/A              | [Success][Fedora] (Official Support)    |
-| openKylin Desktop Image Boot | N/A              | [Success][openKylin] (Official Support) |
-| Armbian (Ubuntu) Image Boot  | N/A              | [Success][Armbian]                      |
-| OpenWRT Image Boot           | N/A              | [Success][OpenWRT]                      |
-| ArchLinux Desktop Image Boot | N/A              | [Success][ArchLinux]                    |
-| Deepin Desktop Image Boot    | N/A              | [Success][Deepin]                       |
+| Software Category             | Software Package | Test Results (Test Report)              |
+| ----------------------------- | ---------------- | --------------------------------------- |
+| openEuler/Base Image Boot     | N/A              | [Success][oERV]                         |
+| openEuler/Xfce Image Boot     | Xfce             | [Success][oERV]                         |
+| RevyOS Desktop Image Boot     | N/A              | [Success][RevyOS] (Official Support)    |
+| Fedora Desktop Image Boot     | N/A              | [Success][Fedora] (Official Support)    |
+| openKylin Desktop Image Boot  | N/A              | [Success][openKylin] (Official Support) |
+| Armbian (Ubuntu) Image Boot   | N/A              | [Success][Armbian]                      |
+| OpenWRT Image Boot            | N/A              | [Success][OpenWRT]                      |
+| Arch Linux Desktop Image Boot | N/A              | [Success][ArchLinux]                    |
+| Deepin Desktop Image Boot     | N/A              | [Success][Deepin]                       |
 
 [oERV]: ./openEuler/README.md
 [RevyOS]: ./RevyOS/README.md
