@@ -4,8 +4,10 @@
 
 ### Operating System Information
 
-- System Version: Initial Release
-- Packaging Script: https://github.com/sehraf/d1-riscv-arch-image-builder
+- Base Image: Ubuntu 24.10 Beta: [ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz) 
+  - Or any arbitrary image for D1
+- Rootfs: [archriscv-20220727.tar.zst](https://archriscv.felixc.at/images/archriscv-20220727.tar.zst)
+- Reference Installation Document: https://github.com/felixonmars/archriscv-packages/wiki/RV64-%E6%9D%BF%E5%AD%90%E6%9B%B4%E6%8D%A2-rootfs-%E6%8C%87%E5%8D%97
 
 ### Hardware Information
 
@@ -16,50 +18,56 @@
 
 ## Installation Steps
 
-### Using the Packaging Script
+### Maintain images and rootfs
 
-Install dependencies on Arch Linux as follows:
-```bash
-pacman -Sy riscv64-linux-gnu-gcc swig cpio python3 python-setuptools base-devel bc arch-install-scripts qemu-user-static qemu-user-static-binfmt
-```
+Get the base images and rootfs. You can use arbitrary any images for D1 as the base images.
 
-The community has created an automated script for packaging Arch Linux. If you would like to use it, you can skip all the following installation steps.
-
-Clone the corresponding repository:
-```bash
-git clone https://github.com/sehraf/d1-riscv-arch-image-builder.git
-cd d1-riscv-arch-image-builder
-```
-
-Modify `DEVICE_TREE` in `consts.sh` according to your specific board, for example, the Lichee RV:
-```diff
-diff --git a/consts.sh b/consts.sh
-index 11e51cd..0b990ad 100644
---- a/consts.sh
-+++ b/consts.sh
-@@ -25,7 +25,7 @@ export KERNEL='defconfig'
- # sun20i-d1-lichee-rv
- # sun20i-d1-mangopi-mq-pro
- # sun20i-d1-nezha
--export DEVICE_TREE=sun20i-d1-lichee-rv-dock
-+export DEVICE_TREE=sun20i-d1-lichee-rv
- 
- # folder to mount rootfs
- export MNT="${PWD}/mnt"
-
-```
-
-Run `1_compile.sh` to compile the image;
-Run `2_create_sd.sh /dev/your/device` to burn it to the SD card.
-
-Note: If you want to auto-configure the rootfs, you need: `arch-install-scripts`, `qemu-user-static-bin (AUR)`, `binfmt-qemu-static (AUR)`. If this step is not required, set `USE_CHROOT` in `consts.sh` to 0.
+We have used Debian images and Ubuntu images and know that they work well. Below we uses the Ubuntu images as an example.
 
 ```bash
-./1_compile.sh
-./2_create_sd.sh /dev/your/device
+wget https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz
+wget https://archriscv.felixc.at/images/archriscv-20220727.tar.zst
+xz -kd ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz
+mkdir rfs
+tar -xf archriscv-20220727.tar.zst -C rfs
+mndir mnt
 ```
 
-**If USE_CHROOT is enabled (default is enabled), it will automatically chroot into the image for configuration. It is recommended to install basic applications like vim during this step.**
+### Replace the rootfs
+
+Replace the rootfs with the one from the Ubuntu image. Change the following mount points to the correct rootfs for your image.
+
+```bash
+sudo losetup -f
+sudo losetup -P /dev/loopx ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img
+sudo mount /dev/loopxp1 mnt
+cd mnt
+sudo mkdir old
+sudo mv etc home media mnt opt root srv var usr old/
+sudo cp -r ../rfs/{etc,home,mnt,opt,root,srv,var,usr} .
+sudo cp -r old/usr/lib/firmware usr/lib/
+sudo cp -r old/usr/lib/modules/ usr/lib/
+rm etc/fstab
+sudo rm etc/fstab
+sudo cp -r old/etc/fstab etc/fstab
+```
+
+Don't forget to clean up the files.
+
+```bash
+cd ..
+sudo umount mnt
+sudo losetup -d /dev/loopx
+```
+
+### Flash the image
+
+Flash the image to the SD card.
+
+```bash
+sudo wipefs -a /dev/sdX
+sudo dd if=ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img of=/dev/sdX bs=4M status=progress
+```
 
 ### Logging into the System
 
@@ -79,35 +87,34 @@ The system booted successfully and login via the onboard serial port was also su
 ### Boot Log
 
 Screen recording (from flashing the image to logging into the system):
-[![asciicast](https://asciinema.org/a/D86o9kqp6phQBswrEEBt4rwyv.svg)](https://asciinema.org/a/D86o9kqp6phQBswrEEBt4rwyv)
+[![asciicast](https://asciinema.org/a/G3j3MjoOZ8rcTD28kfMLDao6a.svg)](https://asciinema.org/a/G3j3MjoOZ8rcTD28kfMLDao6a)
 
 ```log
-Arch Linux 6.8.0 (ttyS0)
+[root@archlinux ~]# cat /etc/os-release
+NAME="Arch Linux"
+PRETTY_NAME="Arch Linux"
+ID=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+HOME_URL="https://archlinux.org/"
+DOCUMENTATION_URL="https://wiki.archlinux.org/"
+SUPPORT_URL="https://bbs.archlinux.org/"
+BUG_REPORT_URL="https://gitlab.archlinux.org/groups/archlinux/-/issues"
+PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
+LOGO=archlinux-logo
+[root@archlinux ~]# uname -a
+Linux archlinux 6.8.0-31-generic #31.1-Ubuntu SMP PREEMPT_DYNAMIC Sun Apr 21 01:12:53 UTC 2024 riscv64 GNU/Linux
+[root@archlinux ~]# cat /proc/cpuinfo 
+processor       : 0
+hart            : 0
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : thead,c906
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
 
-licheerv login: root
-Password: 
-[root@licheerv ~]# neofetch
-                   -`                                                                                                      
-                  .o+`                   ------------- 
-                 `ooo/                   OS: Arch Linux riscv64 
-                `+oooo:                  Host: Allwinner D1 Nezha 
-               `+oooooo:                 Kernel: 6.8.0 
-               -+oooooo+:                Uptime: 1 min 
-             `/:-:++oooo+:               Packages: 119 (pacman) 
-            `/++++/+++++++:              Shell: bash 5.2.26 
-           `/++++++++++++++:             Terminal: /dev/ttyS0 
-          `/+++ooooooooooooo/`           CPU: (1) 
-         ./ooosssso++osssssso+`          Memory: 55MiB / 970MiB 
-        .oossssso-````/ossssss+`
-       -osssssso.      :ssssssso.                                
-      :osssssss/        osssso+++.                               
-     /ossssssss/        +ssssooo/-
-   `/ossssso+/:-        -:/+osssso+-
-  `+sso+:-`                 `.-/+oso:
- `++:.                           `-/+/
- .`                                 `/
-
-[root@licheerv ~]# 
 
 ```
 
