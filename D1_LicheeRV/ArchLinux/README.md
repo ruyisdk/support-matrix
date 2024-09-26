@@ -18,11 +18,11 @@
 
 ## Installation Steps
 
-### Maintain images and rootfs
+### Obtain images and rootfs
 
 Get the base images and rootfs. You can use arbitrary any images for D1 as the base images.
 
-We have used Debian images and Ubuntu images and know that they work well. Below we uses the Ubuntu images as an example.
+We have used Debian images and Ubuntu images and know that they work well. Below we use the Ubuntu images as an example.
 
 ```bash
 wget https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz
