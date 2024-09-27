@@ -4,8 +4,11 @@
 
 ### 操作系统信息
 
-- 系统版本：Initial Release
-- 打包脚本：https://github.com/sehraf/d1-riscv-arch-image-builder
+- 基础镜像：Ubuntu 24.10 Beta: [ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz) 
+  - 或任意 D1 的镜像
+- Rootfs：[archriscv-20220727.tar.zst](https://archriscv.felixc.at/images/archriscv-20220727.tar.zst)
+- 参考安装文档：https://github.com/felixonmars/archriscv-packages/wiki/RV64-%E6%9D%BF%E5%AD%90%E6%9B%B4%E6%8D%A2-rootfs-%E6%8C%87%E5%8D%97
+h
 
 ### 硬件信息
 
@@ -16,51 +19,57 @@
 
 ## 安装步骤
 
-### 使用打包脚本
+### 获取镜像和 rootfs
 
-使用 Arch Linux 安装依赖如下：
-```bash
-pacman -Sy riscv64-linux-gnu-gcc swig cpio python3 python-setuptools base-devel bc arch-install-scripts qemu-user-static qemu-user-static-binfmt
-```
+下载基础镜像和 rootfs。任何 D1 的镜像都可以作为基础镜像。
 
-
-社区创建了自动打包 Arch Linux 的脚本。您若想使用，可直接跳过以下所有安装过程。
-
-clone 对应仓库：
-```bash
-git clone https://github.com/sehraf/d1-riscv-arch-image-builder.git
-cd d1-riscv-arch-image-builder
-```
-
-根据具体的板子，修改 `consts.sh` 中的 `DEVICE_TREE`，如以下是 Lichee RV 的：
-```diff
-diff --git a/consts.sh b/consts.sh
-index 11e51cd..0b990ad 100644
---- a/consts.sh
-+++ b/consts.sh
-@@ -25,7 +25,7 @@ export KERNEL='defconfig'
- # sun20i-d1-lichee-rv
- # sun20i-d1-mangopi-mq-pro
- # sun20i-d1-nezha
--export DEVICE_TREE=sun20i-d1-lichee-rv-dock
-+export DEVICE_TREE=sun20i-d1-lichee-rv
- 
- # folder to mount rootfs
- export MNT="${PWD}/mnt"
-
-```
-
-运行 `1_compile.sh` 编译镜像；
-运行 `2_create_sd.sh /dev/your/device` 烧写到 SD 卡。
-
-注：若其自动配置 rootfs，需要：`arch-install-scripts`, `qemu-user-static-bin (AUR)`, `binfmt-qemu-static (AUR)`。不需要此环节可以将 `consts.sh` 中的 `USE_CHROOT` 设为 0。
+Debian 镜像和 Ubuntu 镜像曾被验证过能工作。接下来以 Ubuntu 镜像为例。
 
 ```bash
-./1_compile.sh
-./2_create_sd.sh /dev/your/device
+wget https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz
+wget https://archriscv.felixc.at/images/archriscv-20220727.tar.zst
+xz -kd ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz
+mkdir rfs
+tar -xf archriscv-20220727.tar.zst -C rfs
+mndir mnt
 ```
 
-**若开启了 USE_CHROOT（默认开启），其会之后自动 chroot 进镜像等待配置。建议这步安装如 vim 等基本应用。**
+### 替换 rootfs
+
+用 Arch Linux 的 rootfs 替换 Ubuntu 镜像中的 rootfs。将下面的分区更改为正确的 rootfs 分区。
+
+```bash
+sudo losetup -f
+sudo losetup -P /dev/loopx ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img
+sudo mount /dev/loopxp1 mnt
+cd mnt
+sudo mkdir old
+sudo mv etc home media mnt opt root srv var usr old/
+sudo cp -r ../rfs/{etc,home,mnt,opt,root,srv,var,usr} .
+sudo cp -r old/usr/lib/firmware usr/lib/
+sudo cp -r old/usr/lib/modules/ usr/lib/
+rm etc/fstab
+sudo rm etc/fstab
+sudo cp -r old/etc/fstab etc/fstab
+```
+
+清理工作。
+
+```bash
+cd ..
+sudo umount mnt
+sudo losetup -d /dev/loopx
+```
+
+### 刷写镜像
+
+将镜像刷写到 SD 卡。
+
+```bash
+sudo wipefs -a /dev/sdX
+sudo dd if=ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img of=/dev/sdX bs=4M status=progress
+```
+
 
 ### 登录系统
 
@@ -80,37 +89,37 @@ index 11e51cd..0b990ad 100644
 ### 启动信息
 
 屏幕录像（从刷写镜像到登录系统）：
-[![asciicast](https://asciinema.org/a/D86o9kqp6phQBswrEEBt4rwyv.svg)](https://asciinema.org/a/D86o9kqp6phQBswrEEBt4rwyv)
+[![asciicast](https://asciinema.org/a/G3j3MjoOZ8rcTD28kfMLDao6a.svg)](https://asciinema.org/a/G3j3MjoOZ8rcTD28kfMLDao6a)
 
 ```log
-Arch Linux 6.8.0 (ttyS0)
+[root@archlinux ~]# cat /etc/os-release
+NAME="Arch Linux"
+PRETTY_NAME="Arch Linux"
+ID=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+HOME_URL="https://archlinux.org/"
+DOCUMENTATION_URL="https://wiki.archlinux.org/"
+SUPPORT_URL="https://bbs.archlinux.org/"
+BUG_REPORT_URL="https://gitlab.archlinux.org/groups/archlinux/-/issues"
+PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
+LOGO=archlinux-logo
+[root@archlinux ~]# uname -a
+Linux archlinux 6.8.0-31-generic #31.1-Ubuntu SMP PREEMPT_DYNAMIC Sun Apr 21 01:12:53 UTC 2024 riscv64 GNU/Linux
+[root@archlinux ~]# cat /proc/cpuinfo 
+processor       : 0
+hart            : 0
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : thead,c906
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
 
-licheerv login: root
-Password: 
-[root@licheerv ~]# neofetch
-                   -`                                                                                                      
-                  .o+`                   ------------- 
-                 `ooo/                   OS: Arch Linux riscv64 
-                `+oooo:                  Host: Allwinner D1 Nezha 
-               `+oooooo:                 Kernel: 6.8.0 
-               -+oooooo+:                Uptime: 1 min 
-             `/:-:++oooo+:               Packages: 119 (pacman) 
-            `/++++/+++++++:              Shell: bash 5.2.26 
-           `/++++++++++++++:             Terminal: /dev/ttyS0 
-          `/+++ooooooooooooo/`           CPU: (1) 
-         ./ooosssso++osssssso+`          Memory: 55MiB / 970MiB 
-        .oossssso-````/ossssss+`
-       -osssssso.      :ssssssso.                                
-      :osssssss/        osssso+++.                               
-     /ossssssss/        +ssssooo/-
-   `/ossssso+/:-        -:/+osssso+-
-  `+sso+:-`                 `.-/+oso:
- `++:.                           `-/+/
- .`                                 `/
-
-[root@licheerv ~]# 
 
 ```
+
 
 ## 测试判定标准
 
