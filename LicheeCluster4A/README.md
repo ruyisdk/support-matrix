@@ -16,13 +16,13 @@
 - RevyOS
     - Download link: [here](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
     - Reference Installation Document: [here](https://docs.revyos.dev/)
-- openKylin
+- openKylin 2.0 alpha
     - Download link: [here](https://www.openkylin.top/downloads/index-cn.html)
     - Reference Installation Document: [here](https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
-- Fedora
+- Fedora 38
     - Download link: [here](https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/)
     - Reference Installation Document: [here](https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head)
-- Armbian
+- Armbian (Ubuntu 20.04 LTS)
     - Download link: [here](https://github.com/chainsx/armbian-riscv-build/tree/main)
     - Reference Installation Document: [here](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
 - OpenWRT
@@ -36,17 +36,16 @@
 ## Test Results
 
 
-| Software Category                | Package Name | Test Results (Test Report)                     |
-| -------------------------------- | ------------ | ---------------------------------------------- |
-| RevyOS (Sipeed Manufacturer Image)| N/A          | [Success][RevySipeed] (Sipeed Manufacturer Image)|
-| RevyOS (LPi4a Image) Image Boot  | N/A          | [Success][RevyLPi]                             |
-| RevyOS (mainline Image) Image Boot| N/A         | [Success][RevyOS] (Official Support)           |
-| openEuler/Base Image Boot        | N/A          | [Success][oERV]                                |
-| openEuler/Xfce Image Boot        | Xfce         | [Success][oERV]                                |
-| openKylin Image Boot             | N/A          | [Success][oK]                                  |
-| Fedora Desktop Image Boot        | N/A          | [Success][Fedora]                              |
-| Armbian Image Boot               | N/A          | [Success][Armbian]                             |
-| OpenWRT Image Boot               | N/A          | [Success][OpenWRT]                             |
+| Software Category                  | Package Name | Test Results (Test Report)                        |
+| ---------------------------------- | ------------ | ------------------------------------------------- |
+| RevyOS (Sipeed Manufacturer Image) | N/A          | [Success][RevySipeed] (Sipeed Manufacturer Image) |
+| RevyOS (LPi4a Image) Image Boot    | N/A          | [Success][RevyLPi]                                |
+| RevyOS (mainline Image) Image Boot | N/A          | [Success][RevyOS] (Official Support)              |
+| openEuler/Base Image Boot          | N/A          | [Success][oERV]                                   |
+| openKylin Image Boot               | N/A          | [Success][oK]                                     |
+| Fedora Desktop Image Boot          | N/A          | [Success][Fedora]                                 |
+| Armbian (Ubuntu) Image Boot        | N/A          | [Success][Armbian]                                |
+| OpenWRT Image Boot                 | N/A          | [Success][OpenWRT]                                |
 
 [RevySipeed]: ./RevyOS/README_Sipeed.md
 [RevyLPi]: ./RevyOS/README_lpi4a.md

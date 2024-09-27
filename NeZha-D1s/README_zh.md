@@ -19,11 +19,11 @@
 
 ## 测试结果
 
-| 软件分类            | 软件包名 | 测试结果（测试报告）       |
-| --------------- | ---- | ---------------- |
-| Tina-Linux 镜像启动 | N/A  | [CFT][Tina]      |
-| RT-Thread 镜像启动  | N/A  | [CFT][RT-Thread] |
-| Ubuntu 镜像启动     | N/A  | [CFT][Ubuntu]    |
+| 软件分类            | 软件包名 | 测试结果（测试报告） |
+| ------------------- | -------- | -------------------- |
+| Tina-Linux 镜像启动 | N/A      | [CFT][Tina]          |
+| RT-Thread 镜像启动  | N/A      | [CFT][RT-Thread]     |
+| Ubuntu 镜像启动     | N/A      | [成功][Ubuntu]       |
 
 [Tina]: ./TinaLinux/README_zh.md
 [RT-Thread]: ./RT-Thread/README_zh.md

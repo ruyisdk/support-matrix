@@ -4,7 +4,7 @@
 
 ### 系统信息
 
-- 系统版本：OpenWRT SnapShot
+- 系统版本：OpenBSD SnapShot
 - 下载链接：[https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/](https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/)
     - 官方 Fedora 镜像（用于提取 dtb 文件）：https://fedora.starfivetech.com/pub/downloads/VisionFive-release/Fedora-riscv64-jh7100-developer-xfce-Rawhide-20211226-214100.n.0-sda.raw.zst
 - 参考安装文档：[https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64](https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64)

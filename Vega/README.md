@@ -16,6 +16,6 @@
 
 | Software Category        | Package Name | Test Result (Test Report) |
 | ------------------------ | ------------ | ------------------------- |
-| BuildRoot Build and Boot | N/A          | [Failed][BuildRoot]       |
+| BuildRoot Build and Boot | N/A          | [Basic/CFH][BuildRoot]    |
 
 [BuildRoot]: ./BuildRoot/README.md

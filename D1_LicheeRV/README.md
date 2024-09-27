@@ -17,10 +17,11 @@
     - Sipeed Lichee RV: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
 - Ubuntu
   - Download link: https://ubuntu.com/download/risc-v
+    - Mirror: [Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz) | [Lichee RV](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Blicheerv.img.xz)
   - Reference Installation Document:
     - Nezha D1: https://wiki.ubuntu.com/RISC-V/Nezha%20D1
     - Sipeed Lichee RV Dock: https://wiki.ubuntu.com/RISC-V/LicheeRV
-- OpenWrt
+- OpenWrt 23.05.2
   - Download links (OpenWrt Firmware Selector):
     - Nezha D1: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=nezha
     - Sipeed Lichee RV Dock: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
@@ -28,11 +29,17 @@
 - Debian
   - Download link: http://www.perfxlab.cn:8080/rvboards/
   - Reference Installation Document: https://d1.docs.aw-ol.com/strong/strong_4debian/#v041
-- Fedora
+- Fedora 36
   - Download link: https://openkoji.iscas.ac.cn/pub/dl/riscv/Allwinner/Nezha_D1/images-release/Fedora/
   - Reference Installation Document: https://fedoraproject.org/wiki/Architectures/RISC-V/Allwinner/zh-cn
 - Arch Linux
-  - Packaging script: https://github.com/sehraf/d1-riscv-arch-image-builder
+  - Base Image: Ubuntu 24.10 Beta: [ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz) 
+    - Or any arbitrary image for D1
+  - Rootfs: [archriscv-20220727.tar.zst](https://archriscv.felixc.at/images/archriscv-20220727.tar.zst)
+  - Reference Installation Document: https://github.com/felixonmars/archriscv-packages/wiki/RV64-%E6%9D%BF%E5%AD%90%E6%9B%B4%E6%8D%A2-rootfs-%E6%8C%87%E5%8D%97
+- openSUSE Tumbleweed
+  - Download link: [https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/](https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/)
+  - Reference Installation Document: [https://en.opensuse.org/HCL:Nezha](https://en.opensuse.org/HCL:Nezha)
 
 ### Hardware Information
 
@@ -41,8 +48,8 @@
 
 ## Test Results
 
-| Software Category                | Package Name | Test Result (Test Report)               |
-| -------------------------------- | ------------ | --------------------------------------- |
+| Software Category                | Package Name | Test Result (Test Report)                  |
+| -------------------------------- | ------------ | ------------------------------------------ |
 | openEuler/Base Image Boot        | N/A          | [Successful][oERV]                         |
 | openEuler/Xfce Image Boot        | Xfce Desktop | [Successful][oERV]                         |
 | Tina-Linux Image Boot - Nezha D1 | N/A          | [Successful][TinaNezha] (Official Support) |

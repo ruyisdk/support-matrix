@@ -4,7 +4,7 @@
 
 ### 系统信息
 
-- 系统版本：OpenWRT SnapShot
+- 系统版本：OpenBSD SnapShot
 - 下载链接：[https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/](https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/)
     - dtb 文件：https://marc.info/?l=openbsd-misc&m=169046816826966&w=2
 - 参考安装文档：[https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64](https://cdn.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64)

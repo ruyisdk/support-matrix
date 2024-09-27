@@ -11,9 +11,18 @@
 - Debian
   - 下载链接：https://github.com/Fishwaldo/sophgo-sg200x-debian
   - 参考安装文档：https://github.com/Fishwaldo/sophgo-sg200x-debian
+- FreeRTOS
+  - 下载链接: https://github.com/milkv-duo/duo-buildroot-sdk/releases
+  - 参考安装文档: https://github.com/milkv-duo/duo-buildroot-sdk
+      - FreeRTOS: https://milkv.io/zh/docs/duo/getting-started/rtoscore
 - RT-Thread
   - 源码链接：https://github.com/RT-Thread/rt-thread
   - 参考安装文档：https://github.com/RT-Thread/rt-thread/blob/6101f1fd29374ac69c107e3cfeadfa06b0c901f9/bsp/cvitek/cv18xx_risc-v/README_zh.md
+- Zephyr
+  - 源码链接: https://github.com/zephyrproject-rtos/zephyr/tree/main
+  - 参考安装文档:
+      - https://docs.zephyrproject.org/latest/develop/getting_started/index.html
+      - https://github.com/milkv-duo/duo-buildroot-sdk
 
 ### 硬件开发板信息
 
@@ -22,12 +31,12 @@
 ## 测试结果
 
 | 软件分类                 | 软件包名 | 测试结果（测试报告）                          |
-|--------------------------|----------|-------------------------------------------|
-| BuildRoot 镜像启动       | N/A      | [成功][BuildRoot]                           |
+| ------------------------ | -------- | --------------------------------------------- |
+| BuildRoot 镜像启动       | N/A      | [成功][BuildRoot]                             |
 | FreeRTOS 启动            | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内） |
-| Debian 镜像启动          | N/A      | [成功][Debian]                              |
-| RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]                           |
-| Zephyr 镜像构建及启动     | N/A      | [成功][Zephyr]                             |
+| Debian 镜像启动          | N/A      | [成功][Debian]                                |
+| RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]                             |
+| Zephyr 镜像构建及启动    | N/A      | [成功][Zephyr]                                |
   
 [BuildRoot]: ./BuildRoot/README_zh.md
 [Debian]: ./Debian/README_zh.md
