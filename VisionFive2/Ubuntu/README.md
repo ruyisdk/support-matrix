@@ -1,3 +1,12 @@
+---
+sys: ubuntu
+sys_ver: 24.04
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # Ubuntu 24.04 VisionFive 2 Version Test Report
 
 ## Test Environment

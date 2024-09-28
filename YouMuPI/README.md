@@ -1,3 +1,9 @@
+---
+product: YuzukiHD-Lizard
+cpu: V851s
+cpu_core: XuanTie E907 + ARM Cortex-A7
+---
+
 # Yuzuki PI-Lizard
 
 ## Test Environment

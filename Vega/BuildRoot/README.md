@@ -1,3 +1,12 @@
+---
+sys: buildroot
+sys_ver: null
+sys_var: null
+
+status: cfh
+last_update: 2024-06-21
+---
+
 # Milk-V Vega BuildRoot Build Test Report
 
 ## Test Environment

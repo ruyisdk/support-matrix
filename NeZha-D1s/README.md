@@ -1,3 +1,9 @@
+---
+product: D1s NeZha
+cpu: D1s
+cpu_core: XuanTie C906
+---
+
 # D1s NeZha
 
 ## Test Environment

@@ -1,3 +1,9 @@
+---
+product: Lichee Cluster 4A
+cpu: TH1520
+cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
+---
+
 # Lichee Cluster 4A
 
 ## Test Environment

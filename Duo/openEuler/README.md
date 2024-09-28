@@ -1,3 +1,12 @@
+---
+sys: openeuler
+sys_ver: 23.03
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # openEuler 23.03 riscv64 Milk-V Duo Test Report
 
 ## Test Environment

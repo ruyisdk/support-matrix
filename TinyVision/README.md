@@ -1,3 +1,9 @@
+---
+product: TinyVision
+cpu: V851se
+cpu_core: XuanTie E907 + ARM Cortex-A7
+---
+
 # TinyVision
 
 ## Test Environment

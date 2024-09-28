@@ -1,3 +1,12 @@
+---
+sys: ubuntu
+sys_ver: 23.02
+sys_var: null
+
+status: CFT
+last_update: 2024-06-21
+---
+
 # Ubuntu BeagleV-Ahead Test Report
 
 ## Test Environment

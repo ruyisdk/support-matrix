@@ -1,3 +1,9 @@
+---
+product: Milk-V Mars
+cpu: JH7110
+cpu_core: SiFive U74 + SiFive S7 + SiFive E24
+---
+
 # Milk-V Mars
 
 ## Test Environment

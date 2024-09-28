@@ -1,3 +1,9 @@
+---
+product: CH32V103-EVT
+cpu: CH32V103
+cpu_core: QingKe V3A
+---
+
 # CH32V103C
 
 ## Test Environment

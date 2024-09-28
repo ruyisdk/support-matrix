@@ -1,3 +1,9 @@
+---
+product: Sipeed M1s Dock
+cpu: BL808
+cpu_core: XuanTie C906 + XuanTie E907 + XuanTie E902
+---
+
 # Sipeed M1s
 
 ## Test Environment

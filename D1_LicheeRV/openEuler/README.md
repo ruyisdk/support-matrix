@@ -1,3 +1,12 @@
+---
+sys: openeuler
+sys_ver: 23.03
+sys_var: null
+
+status: good
+last_update: 2024-06-21
+---
+
 # openEuler RISC-V 23.03 D1 Version Test Report
 
 ## Test Environment

@@ -1,3 +1,9 @@
+---
+product: BananaPi BPI-F3
+cpu: Keystone K1
+cpu_core: SpacemiT X60
+---
+
 # Banana Pi BPI-F3
 
 ## Test Environment

@@ -1,3 +1,12 @@
+---
+sys: debian
+sys_ver: 11
+sys_var: null
+
+status: good
+last_update: 2024-06-21
+---
+
 # Debian 11 D1 Test Report
 
 ## Test Environment
