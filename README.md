@@ -107,7 +107,7 @@
 
 
 | CPU         | IP Core                                    | Product/Model                          | Android | OpenHarmony |
-|-------------|--------------------------------------------|----------------------------------------|---------|-------------|
+| ----------- | ------------------------------------------ | -------------------------------------- | ------- | ----------- |
 | JH7100      | SiFive U74 + SiFive E24                    | [VisionFive][VF1]                      | WIP     | WIP         |
 | JH7110      | SiFive U74 + SiFive S7 + SiFive E24        | [VisionFive 2][VF2]                    | WIP     | WIP         |
 | D1-H        | XuanTie C906                               | [LicheeRV/AWOL Nezha][C906]            | -       | CFT         |
@@ -140,7 +140,7 @@
 [C906]: ./D1_LicheeRV/README.md
 [Unmatched]: ./Unmatched/README.md
 [DuoS]: ./Duo_S/README.md
-[Mars]: ./Mars/README.mdJupiter
+[Mars]: ./Mars/README.md
 [Vega]: ./Vega/README.md
 [Meles]: ./Meles/README.md
 [MaixBit]: ./Maix-I_K210/README.md
