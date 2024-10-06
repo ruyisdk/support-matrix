@@ -61,7 +61,7 @@ The system booted successfully and login via the onboard serial port was also su
 
 ### Boot Log
 
-```bash
+```log
 login: root
 Oct  2 21:59:19 riscv64 login: ROOT LOGIN (root) on tty constty
 Last login: Wed Oct  2 21:23:53 2024 on constty

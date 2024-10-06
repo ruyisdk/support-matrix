@@ -58,7 +58,7 @@ saveenv
 
 ### 启动信息
 
-```bash
+```log
 login: root
 Oct  2 21:59:19 riscv64 login: ROOT LOGIN (root) on tty constty
 Last login: Wed Oct  2 21:23:53 2024 on constty
