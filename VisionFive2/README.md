@@ -45,7 +45,7 @@
     - Download Link: https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-visionfive2-20240613-125619.tar.xz
     - Reference Installation Document: https://cdimage.deepin.com/RISC-V/VisionFive-v2-image/README.txt
 - NetBSD
-    - Download Link:https://nyftp.netbsd.org/pub/NetBSD-daily/HEAD/latest/riscv-riscv64/binary/gzimg/
+    - Download Link: https://nyftp.netbsd.org/pub/NetBSD-daily/HEAD/latest/riscv-riscv64/binary/gzimg/
 
 ### Hardware Information
 
