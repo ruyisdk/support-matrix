@@ -44,6 +44,8 @@
 - Deepin 23 preview
     - Download Link: https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-visionfive2-20240613-125619.tar.xz
     - Reference Installation Document: https://cdimage.deepin.com/RISC-V/VisionFive-v2-image/README.txt
+- NetBSD
+    - Download Link:https://nyftp.netbsd.org/pub/NetBSD-daily/HEAD/latest/riscv-riscv64/binary/gzimg/
 
 ### Hardware Information
 
@@ -52,7 +54,7 @@
 ## Test Results
 
 | Software Category     | Software Package | Test Results (Test Report)                        |
-| --------------------- | ---------------- | ------------------------------------------------- |
+|-----------------------|------------------|---------------------------------------------------|
 | openEuler/Base Image  | N/A              | [Successful][oERV]                                |
 | openEuler/Xfce Image  | Xfce             | [Successful][oERV]                                |
 | Debian Image          | N/A              | [Successful][Debian] (Official StarFive Image)    |
@@ -70,6 +72,7 @@
 | Zephyr Image          | N/A              | [Failure][Zephyr]                                 |
 | NuttX Image           | N/A              | [Successful][NuttX]                               |
 | Deepin Image          | N/A              | [Successful][Deepin]                              |
+| NetBSD Image          | N/A              | [Successful][NetBSD]                              |
 
 [oERV]: ./openEuler/README.md
 [Debian]: ./Debian/README.md
@@ -86,3 +89,4 @@
 [Zephyr]: ./Zephyr/README.md
 [NuttX]: ./NuttX/README.md
 [Deepin]: ./Deepin/README.md
+[NetBSD]: ./NetBSD/README.md
