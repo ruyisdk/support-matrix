@@ -31,6 +31,7 @@
 | SG2002            | XuanTie C906 + ARM Cortex-A53              | [LicheeRV Nano][LicheeRVNano]           | -          | Basic         | -      | -      | -          | -           | -         | -         | -        | -      | -          | -       | Basic     | -       | -      | -      | -     | -      |
 | BL808             | XuanTie C906 + XuanTie E907 + XuanTie E902 | [Sipeed M1s Dock][SipeedM1s]            | -          | -             | -      | -      | -          | -           | -         | -         | -        | -      | -          | -       | Basic     | -       | -      | -      | -     | -      |
 | Keystone K1       | SpacemiT X60                               | [BananaPi BPI-F3][BPI-F3]               | -          | -             | -      | -      | -          | -           | -         | -         | -        | -      | -          | Basic   | -         | -       | Basic  | -      | -     | -      |
+| Keystone K1       | SpacemiT X60                               | [Milk-V Jupiter][Jupiter]               | -          | -             | CFT    | -      | -          | -           | -         | -         | -        | CFT    | -          | -       | -         | -       | CFT    | -      | -     | -      |
 | TH1520            | XuanTie C910 + XuanTie C906 + XuanTie E902 | [BeagleV-Ahead]                         | -          | -             | -      | -      | -          | -           | -         | -         | -        | CFT    | -          | -       | -         | -       | -      | -      | CFT   | -      |
 | MPFS025T          | SiFive U54 + SiFive E51                    | [BeagleV-Fire]                          | -          | -             | -      | -      | -          | -           | -         | -         | -        | CFT    | -          | -       | -         | -       | -      | -      | -     | -      |
 | JH7110            | SiFive U74 + SiFive S7 + SiFive E24        | [Star64]                                | CFT        | CFT           | -      | CFT    | -          | -           | CFT       | CFT       | CFT      | CFT    | -          | CFT     | CFT       | CFT     | -      | CFT    | CFT   | -      |
@@ -106,7 +107,7 @@
 
 
 | CPU         | IP Core                                    | Product/Model                          | Android | OpenHarmony |
-|-------------|--------------------------------------------|----------------------------------------|---------|-------------|
+| ----------- | ------------------------------------------ | -------------------------------------- | ------- | ----------- |
 | JH7100      | SiFive U74 + SiFive E24                    | [VisionFive][VF1]                      | WIP     | WIP         |
 | JH7110      | SiFive U74 + SiFive S7 + SiFive E24        | [VisionFive 2][VF2]                    | WIP     | WIP         |
 | D1-H        | XuanTie C906                               | [LicheeRV/AWOL Nezha][C906]            | -       | CFT         |
@@ -174,6 +175,7 @@
 [mangopi_mq]: ./mangopi_mq/README.md
 [NeZha-D1s]: ./NeZha-D1s/README.md
 [BPI-F3]: ./BPI-F3/README.md
+[Jupiter]: ./Jupiter/README.md
 [BeagleV-Ahead]: ./BeagleV-Ahead/README.md
 [BeagleV-Fire]: ./BeagleV-Fire/README.md
 [STAR64]: ./STAR64/README.md

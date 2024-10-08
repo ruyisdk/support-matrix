@@ -13,15 +13,15 @@
 
 ### 硬件开发板信息
 
-- Milk-V Duo S (256M, SG2002)
+- LicheeRV Nano (SG2002)
 
 ## 测试结果
 
 | 软件分类           | 软件包名 | 测试结果（测试报告） |
-|------------------|----------|--------------------|
-| BuildRoot 镜像启动 | N/A      | [Basic][BuildRoot] |
-| FreeRTOS 启动      | N/A      | [Basic][FreeRTOS]  |
-| Debian 镜像启动    | N/A      | [Basic][Debian]    |
+| ------------------ | -------- | -------------------- |
+| BuildRoot 镜像启动 | N/A      | [Basic][BuildRoot]   |
+| FreeRTOS 启动      | N/A      | [Basic][FreeRTOS]    |
+| Debian 镜像启动    | N/A      | [Basic][Debian]      |
 
 [BuildRoot]: ./BuildRoot/README_zh.md
 [FreeRTOS]: ./FreeRTOS/README_zh.md
