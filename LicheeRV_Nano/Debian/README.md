@@ -1,4 +1,4 @@
-# BuildRoot LicheeRV Nano Test Report
+# Debian LicheeRV Nano Test Report
 
 ## Test Environment
 
