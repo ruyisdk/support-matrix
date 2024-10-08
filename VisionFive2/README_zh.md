@@ -44,6 +44,8 @@
 - Deepin 23 preview
     - 下载链接：https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-visionfive2-20240613-125619.tar.xz
     - 参考安装文档：https://cdimage.deepin.com/RISC-V/VisionFive-v2-image/README.txt
+- NetBSD
+    - 下载链接：https://nyftp.netbsd.org/pub/NetBSD-daily/HEAD/latest/riscv-riscv64/binary/gzimg/
 
 
 ### 硬件开发板信息
@@ -53,7 +55,7 @@
 ## 测试结果
 
 | 软件分类                 | 软件包名 | 测试结果（测试报告）                   |
-| ------------------------ | -------- | -------------------------------------- |
+|--------------------------|----------|----------------------------------------|
 | openEuler/Base 镜像启动  | N/A      | [成功][oERV]                           |
 | openEuler/Xfce 镜像启动  | Xfce     | [成功][oERV]                           |
 | Debian 镜像启动          | N/A      | [成功][Debian]（StarFive 厂商镜像）    |
@@ -71,6 +73,7 @@
 | Zephyr 镜像构建及启动    | N/A      | [失败][Zephyr]                         |
 | NuttX 镜像构建及启动     | N/A      | [成功][NuttX]                          |
 | Deepin 镜像启动          | N/A      | [成功][Deepin]                         |
+| NetBSD 镜像启动          | N/A      | [成功][NetBSD]                         |
 
 [oERV]: ./openEuler/README_zh.md
 [Debian]: ./Debian/README_zh.md
@@ -87,3 +90,4 @@
 [Zephyr]: ./Zephyr/README_zh.md
 [NuttX]: ./NuttX/README_zh.md
 [Deepin]: ./Deepin/README_zh.md
+[NetBSD]: ./NetBSD/README_zh.md
