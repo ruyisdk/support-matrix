@@ -1,4 +1,4 @@
-# BuildRoot Milk-V Duo 测试报告
+# FreeRTOS Milk-V Duo 测试报告
 
 ## 测试环境
 
