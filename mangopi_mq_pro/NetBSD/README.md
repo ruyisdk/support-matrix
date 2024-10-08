@@ -28,7 +28,7 @@ sudo dd if=riscv64.img of=/dev/<your-device> bs=1M status=progress
 
 Logging into the system via the serial port.
 
-Default username: `root`,without password.
+Default username: `root`, without password.
 
 ## Expected Results
 

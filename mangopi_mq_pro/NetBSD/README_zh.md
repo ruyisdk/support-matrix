@@ -28,7 +28,7 @@ sudo dd if=riscv64.img of=/dev/<your-device> bs=1M status=progress
 
 通过串口登录系统。
 
-默认用户名：`root`,无须密码
+默认用户名：`root`, 无须密码
 
 ## 预期结果
 

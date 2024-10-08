@@ -35,7 +35,7 @@
   - Download Link: [Ubuntu Image](https://cdimage.ubuntu.com/releases/23.10/release/ubuntu-23.10-preinstalled-server-riscv64+nezha.img.xz)
   - Reference Installation Document: [MangoPi MQ Pro Installation Guide](https://mangopi.org/mqpro)
 - NetBSD
-    - Download Link: https://nyftp.netbsd.org/pub/NetBSD-daily/HEAD/latest/riscv-riscv64/binary/gzimg/
+  - Download Link: https://nyftp.netbsd.org/pub/NetBSD-daily/HEAD/latest/riscv-riscv64/binary/gzimg/
 
 ### Hardware Information
 
