@@ -34,6 +34,9 @@
 - Ubuntu
   - 下载链接：https://cdimage.ubuntu.com/releases/23.10/release/ubuntu-23.10-preinstalled-server-riscv64+nezha.img.xz
   - 参考安装文档：https://mangopi.org/mqpro
+- NetBSD
+  - 下载链接：https://nyftp.netbsd.org/pub/NetBSD-daily/HEAD/latest/riscv-riscv64/binary/gzimg/
+
 
 ### 硬件开发板信息
 
@@ -41,17 +44,18 @@
 
 ## 测试结果
 
-| 软件分类                       | 软件包名     | 测试结果（测试报告）        |
-|----------------------------|--------------|---------------------------|
-| Tina-Linux 镜像启动            | N/A          | [CFT][Tina]            |
-| OpenWrt 镜像启动               | N/A          | [CFT][OpenWrt]         |
-| Armbian 镜像启动               | N/A          | [CFT][Armbian]         |
-| Debian 镜像启动                | N/A          | [CFT][Debian]          |
-| Arch Linux 镜像启动            | N/A          | [CFT][Archlinux]       |
-| Fedora 镜像启动                | N/A          | [CFT][Fedora]          |
-| FreeBSD 镜像启动               | N/A          | [CFT][FreeBSD]         |
-| openSUSE 镜像启动              | N/A          | [CFT][openSUSE]        |
-| Ubuntu 镜像启动                | N/A          | [CFT][Ubuntu]          |
+| 软件分类            | 软件包名 | 测试结果（测试报告） |
+|---------------------|----------|----------------------|
+| Tina-Linux 镜像启动 | N/A      | [CFT][Tina]          |
+| OpenWrt 镜像启动    | N/A      | [CFT][OpenWrt]       |
+| Armbian 镜像启动    | N/A      | [CFT][Armbian]       |
+| Debian 镜像启动     | N/A      | [CFT][Debian]        |
+| Arch Linux 镜像启动 | N/A      | [CFT][Archlinux]     |
+| Fedora 镜像启动     | N/A      | [CFT][Fedora]        |
+| FreeBSD 镜像启动    | N/A      | [CFT][FreeBSD]       |
+| openSUSE 镜像启动   | N/A      | [CFT][openSUSE]      |
+| Ubuntu 镜像启动     | N/A      | [CFT][Ubuntu]        |
+| NetBSD 镜像启动     | N/A      | [CFT][NetBSD]        |
 
 [Tina]: ./TinaLinux/README_zh.md
 [OpenWrt]: ./OpenWrt/README_zh.md
@@ -62,3 +66,4 @@
 [FreeBSD]: ./FreeBSD/README_zh.md
 [openSUSE]: ./openSUSE/README_zh.md
 [Ubuntu]: ./Ubuntu/README_zh.md
+[NetBSD]: ./NetBSD/README_zh.md

@@ -49,7 +49,7 @@
 | JH7110   | SiFive U74 + SiFive S7 + SiFive E24 | [VisionFive 2][VF2]                     | WIP     | Basic   | Basic  |
 | U740     | SiFive U74 + SiFive S7              | [HiFive Unmatched][Unmatched]           | Basic   | Basic   | -      |
 | D1-H     | XuanTie C906                        | [DongshanPI-Nezha STU][DongshanPI-STU]  | CFT     | -       | -      |
-| D1-H     | XuanTie C906                        | [MangoPi MQ Pro][mangopi_mq_pro]        | CFT     | -       | -      |
+| D1-H     | XuanTie C906                        | [MangoPi MQ Pro][mangopi_mq_pro]        | CFT     | -       | CFT    |
 | MPFS250T | SiFive U54 + SiFive E51             | [PolarFire FPGA SoC Icicle Kit][Icicle] | -       | CFT     | -      |
 
 ---

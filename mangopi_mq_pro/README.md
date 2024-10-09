@@ -34,6 +34,8 @@
 - Ubuntu
   - Download Link: [Ubuntu Image](https://cdimage.ubuntu.com/releases/23.10/release/ubuntu-23.10-preinstalled-server-riscv64+nezha.img.xz)
   - Reference Installation Document: [MangoPi MQ Pro Installation Guide](https://mangopi.org/mqpro)
+- NetBSD
+  - Download Link: https://nyftp.netbsd.org/pub/NetBSD-daily/HEAD/latest/riscv-riscv64/binary/gzimg/
 
 ### Hardware Information
 
@@ -41,17 +43,18 @@
 
 ## Test Results
 
-| Software Category            | Package Name | Test Result (Test Report)   |
-|----------------------------|--------------|---------------------------|
-| Tina-Linux Image Boot       | N/A          | [CFT][Tina]           |
-| OpenWrt Image Boot          | N/A          | [CFT][OpenWrt]        |
-| Armbian Image Boot          | N/A          | [CFT][Armbian]        |
-| Debian Image Boot           | N/A          | [CFT][Debian]         |
-| Arch Linux Image Boot       | N/A          | [CFT][Archlinux]      |
-| Fedora Image Boot           | N/A          | [CFT][Fedora]         |
-| FreeBSD Image Boot          | N/A          | [CFT][FreeBSD]        |
-| openSUSE Image Boot         | N/A          | [CFT][openSUSE]       |
-| Ubuntu Image Boot           | N/A          | [CFT][Ubuntu]         |
+| Software Category     | Package Name | Test Result (Test Report) |
+|-----------------------|--------------|---------------------------|
+| Tina-Linux Image Boot | N/A          | [CFT][Tina]               |
+| OpenWrt Image Boot    | N/A          | [CFT][OpenWrt]            |
+| Armbian Image Boot    | N/A          | [CFT][Armbian]            |
+| Debian Image Boot     | N/A          | [CFT][Debian]             |
+| Arch Linux Image Boot | N/A          | [CFT][Archlinux]          |
+| Fedora Image Boot     | N/A          | [CFT][Fedora]             |
+| FreeBSD Image Boot    | N/A          | [CFT][FreeBSD]            |
+| openSUSE Image Boot   | N/A          | [CFT][openSUSE]           |
+| Ubuntu Image Boot     | N/A          | [CFT][Ubuntu]             |
+| NetBSD Image Boot     | N/A          | [CFT][NetBSD]             |
 
 [Tina]: ./TinaLinux/README.md
 [OpenWrt]: ./OpenWrt/README.md
@@ -62,3 +65,4 @@
 [FreeBSD]: ./FreeBSD/README.md
 [openSUSE]: ./openSUSE/README.md
 [Ubuntu]: ./Ubuntu/README.md
+[NetBSD]: ./NetBSD/README.md

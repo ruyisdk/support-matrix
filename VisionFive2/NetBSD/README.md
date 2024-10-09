@@ -58,6 +58,7 @@ The system should boot normally and allow login via the onboard serial port.
 ## Actual Results
 
 The system booted successfully and login via the onboard serial port was also successful.
+But can't connect ethernet.
 
 ### Boot Log
 
