@@ -1,3 +1,12 @@
+---
+sys: revyos
+sys_ver: 12
+sys_var: null
+
+status: good
+last_update: 2024-06-21
+---
+
 # RevyOS Lichee Console 4A Version Testing Report
 
 ## Test Environment

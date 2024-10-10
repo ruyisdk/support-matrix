@@ -1,3 +1,12 @@
+---
+sys: armbian
+sys_ver: 24.5.0
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # Armbian Banana Pi BPI-F3 Test Report
 
 ## Test Environment

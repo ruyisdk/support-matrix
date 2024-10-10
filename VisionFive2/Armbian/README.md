@@ -1,3 +1,12 @@
+---
+sys: armbian
+sys_ver: 24.5.0
+sys_var: null
+
+status: good
+last_update: 2024-06-21
+---
+
 # Armbian VisionFive 2 Test Report
 
 ## Test Environment

@@ -1,3 +1,12 @@
+---
+sys: archlinux
+sys_ver: null
+sys_var: null
+
+status: good
+last_update: 2024-06-21
+---
+
 # Arch Linux LPi4A Test Report
 
 ## Test Environment

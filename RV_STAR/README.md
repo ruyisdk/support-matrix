@@ -1,3 +1,9 @@
+---
+product: RV-STAR
+cpu: GD32VF103
+cpu_core: Nuclei Bumblebee
+---
+
 # RV-STAR
 
 ## Test Environment

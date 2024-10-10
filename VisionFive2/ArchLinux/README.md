@@ -1,3 +1,12 @@
+---
+sys: archlinux
+sys_ver: null
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # Arch Linux VisionFive 2 Version Test Report
 
 ## Test Environment

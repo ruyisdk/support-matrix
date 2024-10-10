@@ -1,3 +1,12 @@
+---
+sys: armbian
+sys_ver: 6.1.15
+sys_var: noble
+
+status: basic
+last_update: 2024-09-13
+---
+
 # Armbian Banana Pi BPI-F3 Test Report
 
 ## Test Environment

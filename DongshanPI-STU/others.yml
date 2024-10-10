@@ -1,0 +1,12 @@
+- sys: freebsd
+  sys_ver: null
+  sys_var: null
+  status: cft
+- sys: rtthread
+  sys_ver: null
+  sys_var: null
+  status: cft
+- sys: openharmony
+  sys_ver: null
+  sys_var: null
+  status: cft

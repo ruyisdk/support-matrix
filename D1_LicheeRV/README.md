@@ -1,3 +1,9 @@
+---
+product: LicheeRV/AWOL Nezha
+cpu: D1 (D1-H)
+cpu_core: XuanTie C906
+---
+
 # LicheeRV / AWOL Nezha D1
 
 ## Test Environment

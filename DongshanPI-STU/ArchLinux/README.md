@@ -1,3 +1,12 @@
+---
+sys: archlinux
+sys_ver: null
+sys_var: null
+
+status: cft
+last_update: 2024-06-21
+---
+
 # Arch Linux DongshanPI-Nezha STU Test Report
 
 ## Test Environment

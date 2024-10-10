@@ -1,3 +1,12 @@
+---
+sys: openbsd
+sys_ver: 7.5
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # OpenBSD 7.5 VisionFive 2 Test Report
 
 ## Test Environment

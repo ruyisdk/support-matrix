@@ -1,3 +1,9 @@
+---
+product: MangoPi MQ Pro
+cpu: D1 (D1-H)
+cpu_core: XuanTie C906
+---
+
 # MangoPi MQ Pro
 
 ## Test Environment

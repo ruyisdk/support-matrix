@@ -1,4 +1,13 @@
-# BuildRoot Milk-V Duo 256M Test Report
+---
+sys: freertos
+sys_ver: null
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
+# FreeRTOS Milk-V Duo 256M Test Report
 
 ## Test Environment
 

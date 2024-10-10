@@ -1,3 +1,12 @@
+---
+sys: armbian
+sys_ver: 24.5.0
+sys_var: null
+
+status: cft
+last_update: 2024-06-21
+---
+
 # Armbian Star64 Test Report
 
 ## Test Environment

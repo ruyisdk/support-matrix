@@ -1,3 +1,12 @@
+---
+sys: gentoo
+sys_ver: 2.13
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # Gentoo VisionFive 2 Test Report
 
 ## Test Environment

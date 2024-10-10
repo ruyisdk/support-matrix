@@ -1,3 +1,12 @@
+---
+sys: ubuntu
+sys_ver: 23.10
+sys_var: null
+
+status: cft
+last_update: 2024-06-21
+---
+
 # Ubuntu MangoPi MQ Pro Test Report
 
 ## Test Environment

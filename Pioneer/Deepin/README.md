@@ -1,3 +1,12 @@
+---
+sys: deepin
+sys_ver: 23
+sys_var: null
+
+status: good
+last_update: 2024-06-21
+---
+
 # Deepin RISC-V preview Pioneer test report
 
 ## Test environment

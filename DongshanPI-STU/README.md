@@ -1,3 +1,9 @@
+---
+product: DongshanPI-Nezha STU
+cpu: D1 (D1-H)
+cpu_core: XuanTie C906
+---
+
 # DongshanPI-Nezha STU
 
 ## Test Environment

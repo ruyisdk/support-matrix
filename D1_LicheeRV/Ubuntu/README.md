@@ -1,3 +1,12 @@
+---
+sys: ubuntu
+sys_ver: 24.10-beta
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # Ubuntu 24.10-beta D1 Test Report
 
 ## Test Environment

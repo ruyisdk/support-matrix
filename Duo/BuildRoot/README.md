@@ -1,3 +1,12 @@
+---
+sys: buildroot
+sys_ver: null
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # BuildRoot Milk-V Duo Test Report
 
 ## Test Environment

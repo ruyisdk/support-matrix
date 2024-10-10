@@ -1,3 +1,12 @@
+---
+sys: ubuntu
+sys_ver: 23.10
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # Ubuntu VisionFive Test Report
 
 ## Test Environment

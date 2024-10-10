@@ -1,3 +1,12 @@
+---
+sys: armbian
+sys_ver: 22.08.0
+sys_var: null
+
+status: cft
+last_update: 2024-06-21
+---
+
 # Armbian MangoPi MQ Pro Test Report
 
 ## Test Environment

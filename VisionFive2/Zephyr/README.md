@@ -1,3 +1,12 @@
+---
+sys: zephyr
+sys_ver: null
+sys_var: null
+
+status: cfh
+last_update: 2024-06-21
+---
+
 # Zephyr VisionFive 2 Test Report
 
 ## Test Environment

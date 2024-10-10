@@ -1,3 +1,9 @@
+---
+product: CM32M433R-START
+cpu: CM32M433R
+cpu_core: Nuclei N308
+---
+
 # CM32M433R-START
 
 ## Test Environment

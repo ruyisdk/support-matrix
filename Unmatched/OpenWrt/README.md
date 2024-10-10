@@ -1,3 +1,12 @@
+---
+sys: openwrt
+sys_ver: 23.05.2
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # OpenWrt 23.05.2 HiFive Unmatched Test Report
 
 ## Test Environment

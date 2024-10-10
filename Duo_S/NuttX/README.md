@@ -1,3 +1,12 @@
+---
+sys: nuttx
+sys_ver: null
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # NuttX on Milk-V Duo S Test Report
 
 ## Test Environment

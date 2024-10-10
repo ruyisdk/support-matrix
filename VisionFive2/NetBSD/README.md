@@ -1,3 +1,12 @@
+---
+sys: netbsd
+sys_ver: 10.99.12
+sys_var: null
+
+status: basic
+last_update: 2024-10-07
+---
+
 # NetBSD VisionFive 2 Test Report
 
 ## Test Environment

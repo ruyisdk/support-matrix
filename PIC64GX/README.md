@@ -1,3 +1,9 @@
+---
+product: PIC64GX Curiosity Kit
+cpu: PIC64GX1000-V/FCS
+cpu_core: SiFive U54 + SiFive E51
+---
+
 # Microchip PIC64GX Curiosity Kit
 
 ## Test Environment

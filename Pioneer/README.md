@@ -1,3 +1,9 @@
+---
+product: Pioneer Box
+cpu: SG2042
+cpu_core: XuanTie C920
+---
+
 
 # Milk-V Pioneer
 

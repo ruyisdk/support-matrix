@@ -1,3 +1,12 @@
+---
+sys: rtthread
+sys_ver: null
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # RT-Thread CH592X Official  Test Report
 
 ## Test Environment

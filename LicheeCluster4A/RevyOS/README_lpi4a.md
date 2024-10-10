@@ -1,3 +1,12 @@
+---
+sys: revyos
+sys_ver: 12
+sys_var: lpi4a
+
+status: basic
+last_update: 2024-06-21
+---
+
 # RevyOS Lichee Cluster 4A Version Testing Report
 
 ## Test Environment

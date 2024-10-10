@@ -1,3 +1,12 @@
+---
+sys: deepin
+sys_ver: 23
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # Deepin VisionFive Test Report
 
 ## Test Environment

@@ -1,3 +1,9 @@
+---
+product: Milk-V Duo S
+cpu: SG2000
+cpu_core: XuanTie C906 + ARM Cortex-A53
+---
+
 # Milk-V Duo S
 
 ## Test Environment

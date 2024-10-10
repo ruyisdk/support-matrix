@@ -1,3 +1,12 @@
+---
+sys: fedora
+sys_ver: 38
+sys_var: null
+
+status: cft
+last_update: 2024-06-21
+---
+
 # Fedora MangoPi MQ Pro Test Report
 
 ## Test Environment

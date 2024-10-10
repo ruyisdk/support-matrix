@@ -1,3 +1,12 @@
+---
+sys: archlinux
+sys_ver: null
+sys_var: null
+
+status: basic
+last_update: 2024-10-09
+---
+
 # Arch Linux Milk-V Duo 256M Test Report
 
 ## Test Environment

@@ -1,3 +1,12 @@
+---
+sys: openwrt
+sys_ver: 23.05.2
+sys_var: null
+
+status: cft
+last_update: 2024-06-21
+---
+
 # OpenWrt 23.05.2 DongshanPI-Nezha STU Test Report
 
 ## Test Environment

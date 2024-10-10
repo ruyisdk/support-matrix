@@ -1,3 +1,11 @@
+---
+sys: yocto
+sys_ver: 1.1.2
+sys_var: null
+
+status: CFT
+last_update: 2024-06-21
+---
 
 # Yocto BeagleV-Ahead Test Report
 

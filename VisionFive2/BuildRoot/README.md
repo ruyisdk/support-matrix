@@ -1,3 +1,12 @@
+---
+sys: buildroot
+sys_ver: 5.11.3
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # BuildRoot VisionFive 2 Test Report
 
 ## Test Environment

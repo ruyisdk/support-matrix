@@ -1,3 +1,9 @@
+---
+product: Milk-V Vega
+cpu: FSL1030M
+cpu_core: Nuclei UX608
+---
+
 # Milk-V Vega
 
 ## Test Environment

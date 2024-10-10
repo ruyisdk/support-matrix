@@ -1,3 +1,12 @@
+---
+sys: alpine
+sys_ver: null
+sys_var: null
+
+status: wip
+last_update: 2024-09-29
+---
+
 # Alpine Linux Milk-V Duo 256M Test Report
 
 ## Test Environment

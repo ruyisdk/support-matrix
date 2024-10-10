@@ -1,3 +1,11 @@
+---
+sys: openwrt
+sys_ver: null
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
 
 # OpenWRT Lichee Cluster 4A Test Report
 

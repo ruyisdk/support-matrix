@@ -1,3 +1,9 @@
+---
+product: CH32V303-EVT
+cpu: CH32V303
+cpu_core: QingKe V4F
+---
+
 
 # CH32V303
 
