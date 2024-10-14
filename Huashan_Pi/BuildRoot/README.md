@@ -10,7 +10,7 @@
 
 ### Hardware Information
 
-- DongshanPI-Nezha STU
+- Huashan Pi
 - A microSD card
 - A USB to UART Debugger 
 
