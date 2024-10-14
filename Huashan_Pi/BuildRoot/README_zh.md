@@ -1,4 +1,4 @@
-# BuildRoot DongshanPI-哪吒 STU 测试报告
+# BuildRoot 华山派 测试报告
 
 ## 测试环境
 
@@ -12,7 +12,7 @@
 
 - 华山派
 - microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
+- USB to UART 调试器一个
 
 ## 安装步骤
 
@@ -23,7 +23,7 @@
 sudo apt-get update
 sudo apt-get install -y build-essential ninja-build automake autoconf libtool wget curl git gcc libssl-dev bc slib squashfs-tools android-sdk-libsparse-utils android-sdk-ext4-utils jq cmake python3-distutils tclsh scons parallel ssh-client tree python3-dev python3-pip device-tree-compiler ssh cpio fakeroot libncurses5 flex bison
 
-git clone https://github.com/sophgo/sophpi-huashan.git
+git clone https://github.com/zuoyi001/zue_sophpi-huashan.git
 cd sophpi-huashan
 ```
 
@@ -42,7 +42,7 @@ build_all
 sudo mkfs.vfat -F 32 /dev/<your-device>
 ```
 
-将烧写档案放入 SD 卡中:
+将烧写档案复制到 SD 卡中:
 ```
 .
 ├── fip.bin
@@ -53,7 +53,11 @@ sudo mkfs.vfat -F 32 /dev/<your-device>
 └── fw_payload_uboot.bin (bootloader + uboot)
 ``` 
 
-插卡上电开机后，会自动进入升级，升级完成后，会停留在 uboot,拔掉 SD 卡，输入 re 重启进入系统
+插卡上电开机后，会自动进入升级，升级完成后，会停留在 uboot,且出现
+```
+Saving Environment to MMC... Writing to MMC(0)... OK
+```
+拔掉 SD 卡，输入 re 重启进入系统
 
 ### 登录系统
 
