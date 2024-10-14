@@ -6,7 +6,7 @@
 
 
 | CPU               | IP Core                                    | Product/Model                           | Arch Linux | Debian/RevyOS | Fedora | Gentoo | openAnolis | openCloudOS | openEuler | openKylin | openSUSE | Ubuntu | Tina-Linux | Armbian | BuildRoot | OpenWRT | Bianbu | Deepin | Yocto | Alpine |
-| ----------------- | ------------------------------------------ | --------------------------------------- | ---------- | :------------ | ------ | ------ | ---------- | ----------- | --------- | --------- | -------- | ------ | ---------- | ------- | --------- | ------- | ------ | ------ | ----- | ------ |
+|-------------------|--------------------------------------------|-----------------------------------------|------------|:--------------|--------|--------|------------|-------------|-----------|-----------|----------|--------|------------|---------|-----------|---------|--------|--------|-------|--------|
 | SG2042            | XuanTie C920                               | [Pioneer Box][Pioneer]                  | -          | Good          | Good   | -      | -          | WIP         | Good      | Good      | -        | -      | -          | -       | -         | -       | -      | Basic  | -     | -      |
 | CV1800B           | XuanTie C906                               | [Milk-V Duo (64M)][Duo]                 | Basic      | Basic         | -      | -      | -          | -           | Basic     | -         | -        | -      | -          | -       | Basic     | WIP     | -      | -      | -     | -      |
 | SG2002            | XuanTie C906 + ARM Cortex-A53              | [Milk-V Duo (256M)][Duo256m]            | -          | Basic         | -      | -      | -          | -           | -         | -         | -        | -      | -          | -       | Basic     | -       | -      | -      | -     | WIP    |
@@ -37,6 +37,7 @@
 | JH7110            | SiFive U74 + SiFive S7 + SiFive E24        | [Star64]                                | CFT        | CFT           | -      | CFT    | -          | -           | CFT       | CFT       | CFT      | CFT    | -          | CFT     | CFT       | CFT     | -      | CFT    | CFT   | -      |
 | MPFS250T          | SiFive U54 + SiFive E51                    | [PolarFire FPGA SoC Icicle Kit][Icicle] | CFT        | -             | -      | -      | -          | -           | -         | -         | -        | Basic  | -          | -       | Basic     | -       | -      | -      | Basic | -      |
 | PIC64GX1000-V/FCS | SiFive U54 + SiFive E51                    | [PIC64GX Curiosity Kit][PIC64GX]        | -          | -             | -      | -      | -          | -           | -         | -         | -        | CFT    | -          | -       | -         | -       | -      | -      | CFT   | -      |
+| Huashan Pi        | XuanTie C906                               | [Huashan_Pi]                            | -          | -             | -      | -      | -          | -           | -         | -         | -        | -      | -          | -       | CFT       | -       | -      | -      | -     | -      |
 
 ---
 
@@ -183,3 +184,4 @@
 [PIC64GX]: ./PIC64GX/README.md
 [CM32M433R]: ./CM32M433R/README_zh.md
 [R128-EVT]: ./R128-EVT/README_zh.md
+[Huashan_Pi]: ./Huashan_Pi/README.md
