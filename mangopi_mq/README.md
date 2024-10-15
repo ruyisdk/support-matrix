@@ -1,3 +1,9 @@
+---
+product: Mangopi MQ
+cpu: D1s
+cpu_core: XuanTie C906
+---
+
 # Mangopi MQ
 
 ## Test Environment

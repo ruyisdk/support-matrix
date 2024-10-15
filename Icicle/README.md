@@ -1,3 +1,9 @@
+---
+product: PolarFire FPGA SoC Icicle Kit
+cpu: MPFS250T
+cpu_core: SiFive U54 + SiFive E51
+---
+
 # Microchip Polarfire SoC FPGA Icicle Kit
 
 ## Test Environment

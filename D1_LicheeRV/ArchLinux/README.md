@@ -1,3 +1,12 @@
+---
+sys: archlinux
+sys_ver: null
+sys_var: null
+
+status: basic
+last_update: 2024-09-26
+---
+
 # Arch Linux LicheeRV / AWOL Nezha D1 Test Report
 
 ## Test Environment

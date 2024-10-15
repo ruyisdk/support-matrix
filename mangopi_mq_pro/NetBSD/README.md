@@ -1,3 +1,12 @@
+---
+sys: netbsd
+sys_ver: null
+sys_var: null
+
+status: cft
+last_update: 2024-10-08
+---
+
 # NetBSD MangoPi MQ Pro Test Report
 
 ## Test Environment

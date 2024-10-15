@@ -1,3 +1,12 @@
+---
+sys: bianbu
+sys_ver: null
+sys_var: null
+
+status: cft
+last_update: 2024-07-19
+---
+
 # Milk-V Jupiter Bianbu Test report
 
 ## Test Environment

@@ -1,3 +1,9 @@
+---
+product: CH32V203-EVT
+cpu: CH32V203
+cpu_core: QingKe V4B
+---
+
 
 # CH32V203
 

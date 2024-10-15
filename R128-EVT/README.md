@@ -1,3 +1,9 @@
+---
+product: R128-EVT
+cpu: R128-S2
+cpu_core: XuanTie C906
+---
+
 # R128 EVT Development Kit
 
 ## Test Environment

@@ -1,3 +1,12 @@
+---
+sys: fedora
+sys_ver: 38
+sys_var: null
+
+status: cfh
+last_update: 2024-06-21
+---
+
 # Fedora 38 Milk-V Duo Test Report
 
 ## Test Environment

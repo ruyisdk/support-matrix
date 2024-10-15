@@ -1,3 +1,12 @@
+---
+sys: buildroot
+sys_ver: 2020.02.11
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # BuildRoot K510 Test Report
 
 ## Test Environment

@@ -1,3 +1,9 @@
+---
+product: Milk-V Jupiter
+cpu: SPACEMIT K1/M1
+cpu_core: SpacemiT X60
+---
+
 # Milk-V Jupiter
 
 ## Test Environment

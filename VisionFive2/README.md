@@ -1,3 +1,9 @@
+---
+product: VisionFive 2
+cpu: JH7110
+cpu_core: SiFive U74 + SiFive S7 + SiFive E24
+---
+
 # StarFive VisionFive 2
 
 ## Test Environment

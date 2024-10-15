@@ -1,3 +1,9 @@
+---
+product: CH582F-EVT
+cpu: CH582F
+cpu_core: QingKe V4A
+---
+
 
 # CH582F
 ## Test Environment

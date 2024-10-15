@@ -1,3 +1,12 @@
+---
+sys: ubuntu
+sys_ver: null
+sys_var: null
+
+status: basic
+last_update: 2024-06-23
+---
+
 # Ubuntu on Microchip Polarfire SoC FPGA Icicle Kit
 
 ## Test Environment
