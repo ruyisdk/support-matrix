@@ -1,6 +1,6 @@
 ---
 product: BananaPi BPI-F3
-cpu: Keystone K1
+cpu: Key Stone K1
 cpu_core: SpacemiT X60
 ---
 
