@@ -1,3 +1,12 @@
+---
+sys: armbian
+sys_ver: 20.04
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # Armbian Lichee Cluster 4A Test Report
 
 ## Test Environment

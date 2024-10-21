@@ -1,3 +1,12 @@
+---
+sys: bianbu
+sys_ver: 2.0rc1
+sys_var: null
+
+status: basic
+last_update: 2024-09-20
+---
+
 # Bianbu Banana Pi BPI-F3 Test Report
 
 ## Test Environment

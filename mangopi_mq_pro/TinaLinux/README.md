@@ -1,3 +1,12 @@
+---
+sys: tina
+sys_ver: null
+sys_var: null
+
+status: cft
+last_update: 2024-06-21
+---
+
 # Tina Linux MangoPi MQ Pro Test Report
 
 ## Test Environment

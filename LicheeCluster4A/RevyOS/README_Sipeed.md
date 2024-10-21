@@ -1,3 +1,12 @@
+---
+sys: revyos
+sys_ver: 12
+sys_var: sipeed
+
+status: basic
+last_update: 2024-06-21
+---
+
 # RevyOS Sipeed Manufacturer Image Lichee Cluster 4A Test Report
 
 ## Test Environment

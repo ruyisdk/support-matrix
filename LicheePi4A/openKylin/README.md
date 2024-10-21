@@ -1,3 +1,12 @@
+---
+sys: openkylin
+sys_ver: 2.0-alpha
+sys_var: null
+
+status: good
+last_update: 2024-06-21
+---
+
 # openKylin 2.0 Alpha LPi4A Test Report
 
 ## Test Environment

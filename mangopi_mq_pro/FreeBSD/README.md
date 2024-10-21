@@ -1,3 +1,12 @@
+---
+sys: freebsd
+sys_ver: null
+sys_var: null
+
+status: cft
+last_update: 2024-06-21
+---
+
 # FreeBSD MangoPi MQ Pro Test Report
 
 ## Test Environment

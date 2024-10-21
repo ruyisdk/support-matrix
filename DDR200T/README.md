@@ -1,3 +1,9 @@
+---
+product: Nuclei DDR200T
+cpu: GD32VF103
+cpu_core: Nuclei Bumblebee
+---
+
 # Nuclei DDR200T
 
 ## Test Environment

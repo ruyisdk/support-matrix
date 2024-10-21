@@ -1,3 +1,12 @@
+---
+sys: opensuse
+sys_ver: 20240115
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # openSUSE Tumbleweed D1 Test Report
 
 ## Test Environment

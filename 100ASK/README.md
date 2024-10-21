@@ -1,3 +1,9 @@
+---
+product: 100ASK-V853-PRO
+cpu: V853
+cpu_core: XuanTie E907 + ARM Cortex-A7
+---
+
 # 100ASK-V853-PRO
 
 ## Test Environment

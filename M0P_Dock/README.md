@@ -1,3 +1,9 @@
+---
+product: Sipeed M0P Dock
+cpu: BL618
+cpu_core: XuanTie E907
+---
+
 # Sipeed M0P Dock
 
 ## Test Environment

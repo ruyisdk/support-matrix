@@ -1,3 +1,12 @@
+---
+sys: debian
+sys_ver: null
+sys_var: null
+
+status: cft
+last_update: 2024-06-21
+---
+
 # Debian DongshanPI-Nezha STU Test Report
 
 ## Test Environment

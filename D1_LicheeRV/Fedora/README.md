@@ -1,3 +1,12 @@
+---
+sys: fedora
+sys_ver: 36
+sys_var: null
+
+status: good
+last_update: 2024-06-21
+---
+
 # Fedora 36 D1 Test Report
 
 ## Test Environment

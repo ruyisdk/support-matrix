@@ -1,3 +1,12 @@
+---
+sys: buildroot
+sys_ver: null
+sys_var: null
+
+status: cft
+last_update: 2024-10-15
+---
+
 # BuildRoot Huashan Pi Test Report
 
 ## Test Environment

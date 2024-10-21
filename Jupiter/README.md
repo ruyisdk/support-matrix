@@ -1,3 +1,9 @@
+---
+product: Milk-V Jupiter
+cpu: Key Stone K1/M1
+cpu_core: SpacemiT X60
+---
+
 # Milk-V Jupiter
 
 ## Test Environment
@@ -20,7 +26,7 @@
 
 | Software Category    | Package Name | Test Results (Test Report) |
 |----------------------|--------------|----------------------------|
-| Bianbu Image Boot    | N/A          | CFT                        |
+| Bianbu Image Boot    | N/A          | Good                       |
 | Ubuntu Image Boot    | N/A          | CFT                        |
 | Fedora 41 Image Boot | N/A          | CFT                        |
 

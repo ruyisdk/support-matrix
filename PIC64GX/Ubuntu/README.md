@@ -1,3 +1,12 @@
+---
+sys: ubuntu
+sys_ver: 24.04.1
+sys_var: null
+
+status: cft
+last_update: 2024-06-21
+---
+
 # Ubuntu on Microchip PIC64GX Curiosity Kit
 
 ## Test environment

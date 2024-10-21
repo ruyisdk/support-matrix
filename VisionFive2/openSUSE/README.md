@@ -1,3 +1,12 @@
+---
+sys: opensuse
+sys_ver: null
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # openSUSE Tumbleweed VisionFive 2 Test Report
 
 ## Test Environment

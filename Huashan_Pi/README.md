@@ -1,3 +1,9 @@
+---
+product: Huashan Pi
+cpu: CV1812H
+cpu_core: XuanTie C906
+---
+
 # Huashan Pi
 
 ## Test Environment

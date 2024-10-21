@@ -1,3 +1,12 @@
+---
+sys: tina
+sys_ver: 20210804
+sys_var: null
+
+status: basic
+last_update: 2024-06-21
+---
+
 # Tina Linux D1 Test Report
 
 ## Test Environment

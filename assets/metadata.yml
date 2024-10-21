@@ -1,0 +1,69 @@
+# id: pretty name
+
+linux:
+  - archlinux: Arch Linux
+  - debian: Debian/RevyOS
+  # - revyos: RevyOS # This is special case with Debian
+  - fedora: Fedora
+  - gentoo: Gentoo
+  - openanlios: openAnolis
+  - opencloudos: openCloudOS
+  - openeuler: openEuler
+  - openkylin: openKylin
+  - opensuse: openSUSE
+  - ubuntu: Ubuntu
+  - tina: Tina-Linux
+  - armbian: Armbian
+  - buildroot: BuildRoot
+  - openwrt: OpenWRT
+  - bianbu: Bianbu
+  - deepin: Deepin
+  - yocto: Yocto
+  - alpine: Alpine
+
+bsd:
+  - freebsd: FreeBSD
+  - openbsd: OpenBSD
+  - netbsd: NetBSD
+
+rtos:
+  - freertos: FreeRTOS
+  - rtthread: RT-Thread
+  - zephyr: Zephyr
+  - threadx: ThreadX
+  - nuttx: NuttX
+  - melis: Melis
+
+others:
+  - android: Android
+  - openharmony: OpenHarmony
+
+### END ###
+
+# Definations for README metadata
+definitions:
+  status_enum:
+    type: string
+    enum: &STATUS_ENUM
+      - none
+      - wip
+      - cft
+      - cfh
+      - cfi
+      - partial
+      - basic
+      - good
+
+# General info
+sys: string        # System name, should be one of key in linux/bsd/rtos/others
+sys_ver: string    # System version
+sys_var: string?   # System variant
+
+# Doc info
+status: *STATUS_ENUM
+last_updated: timestamp   # Last update
+
+# Definition for board metadata
+product: string     # Product name
+cpu: string         # CPU model
+cpu_core: string   # CPU core
