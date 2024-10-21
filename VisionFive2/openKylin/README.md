@@ -1,21 +1,21 @@
 ---
 sys: openkylin
-sys_ver: 2.0-rc
+sys_ver: 2.0
 sys_var: null
 
 status: good
-last_update: 2024-06-21
+last_update: 2024-10-21
 ---
 
-# openKylin 2.0-RC VisionFive 2 Test Report
+# openKylin 2.0 VisionFive 2 Test Report
 
 ## Test Environment
 
 ### Operating System Information
 
-- System Version: openKylin 2.0-RC
-- Download Link: [https://www.openkylin.top/downloads/index-cn.html ](https://mirror.iscas.ac.cn/openkylin-cdimage/2.0-RC/openKylin-2.0-rc-visionfive2-riscv64.img.xz)
-- Reference Installation Document: https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8VisionFive2%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+- System Version: openKylin 2.0
+- Download Link: https://mirror.iscas.ac.cn/openkylin-cdimage/2.0/openKylin-Embedded-V2.0-Release-visionfive2-riscv64.img.xz
+- Reference Installation Document: https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8VisionFive2%E4%B8%8A%E5%AE%89%E8%A3%85openKylin (Chinese)
 ### Hardware Information
 
 - StarFive VisionFive 2
@@ -32,8 +32,8 @@ last_update: 2024-06-21
 Assume `/dev/sdc` is the storage card.
 
 ```bash
-xz -d openKylin-2.0-rc-visionfive2-riscv64.img.xz
-sudo dd if=openKylin-2.0-rc-visionfive2-riscv64.img of=/dev/sdc bs=1M status=progress
+xz -d openKylin-Embedded-V2.0-Release-visionfive2-riscv64.img.xz
+sudo dd if=openKylin-Embedded-V2.0-Release-visionfive2-riscv64.img of=/dev/sdc bs=1M status=progress
 ```
 
 ### Boot Mode Selection
@@ -59,12 +59,25 @@ The system booted successfully and login through the graphical interface was suc
 
 ### Boot Log
 
-Screen recording (from flashing image to system login):
-[![asciicast](https://asciinema.org/a/Z8aZ2CJ7loP9PE6KKpUc2cvwd.svg)](https://asciinema.org/a/Z8aZ2CJ7loP9PE6KKpUc2cvwd)
-
 ```log
-openkylin@openkylin:~$ uname -a
-Linux openkylin 6.6.20+ #1 SMP Thu May  9 22:49:32 CST 2024 riscv64 riscv64 riscv64 GNU/Linux
+
+openkylin login: openkylin
+密码： 
+Welcome to openKylin 2.0 (GNU/Linux 6.6.20 riscv64)
+
+ * Support:        https://openkylin.top
+
+The programs included with the openKylin system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+openKylin comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+You do not have any new mail.
+load environment: GTK_MODULES=gail:atk-bridge
+load environment: QT_ACCESSIBILITY=1
+load environment: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 openkylin@openkylin:~$ cat /etc/os-release 
 NAME="openKylin"
 FULL_NAME="openKylin"
@@ -76,6 +89,8 @@ VERSION_ID="2.0"
 HOME_URL="https://www.openkylin.top/"
 VERSION_CODENAME=nile
 PRODUCT_FEATURES=3
+openkylin@openkylin:~$ uname -a
+Linux openkylin 6.6.20 #1 SMP Tue May 28 14:19:33 CST 2024 riscv64 riscv64 riscv64 GNU/Linux
 openkylin@openkylin:~$ 
 
 ```

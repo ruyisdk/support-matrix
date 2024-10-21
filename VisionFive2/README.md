@@ -15,9 +15,9 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
     - Reference Installation Document: https://gitee.com/openeuler/RISC-V/blob/master/release/openEuler-23.03/Installation_Book/Visionfive2/README.md
 - Debian bookworm (officially provided)
     - Download Link: https://debian.starfivetech.com/
-- openKylin 2.0-RC
+- openKylin 2.0
     - Download Link: https://www.openkylin.top/downloads
-    - Reference Installation Document: https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+    - Reference Installation Document：https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8VisionFive2%E4%B8%8A%E5%AE%89%E8%A3%85openKylin (Chinese)
 - Ubuntu 24.10 & 24.04.1 LTS
     - Download Link: https://ubuntu.com/download/risc-v
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
