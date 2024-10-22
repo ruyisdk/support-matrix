@@ -46,6 +46,9 @@
     - 参考安装文档：https://cdimage.deepin.com/RISC-V/VisionFive-v2-image/README.txt
 - NetBSD
     - 下载链接：https://nyftp.netbsd.org/pub/NetBSD-daily/HEAD/latest/riscv-riscv64/binary/gzimg/
+- Alpine
+    - 下载链接：https://dev.alpinelinux.org/~mps/riscv64/visionfive-v2-mmc.img.xz
+    - 参考安装文档：https://arvanta.net/alpine/alpine-on-visionfive/
 
 
 ### 硬件开发板信息
@@ -74,6 +77,8 @@
 | NuttX 镜像构建及启动     | N/A      | [成功][NuttX]                          |
 | Deepin 镜像启动          | N/A      | [成功][Deepin]                         |
 | NetBSD 镜像启动          | N/A      | [成功][NetBSD]                         |
+| Alpine 镜像启动          | N/A      | [成功][Alpine]                         |
+
 
 [oERV]: ./openEuler/README_zh.md
 [Debian]: ./Debian/README_zh.md
@@ -91,3 +96,4 @@
 [NuttX]: ./NuttX/README_zh.md
 [Deepin]: ./Deepin/README_zh.md
 [NetBSD]: ./NetBSD/README_zh.md
+[Alpine]: ./Alpine/README_zh.md
