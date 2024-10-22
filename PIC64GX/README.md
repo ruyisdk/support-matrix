@@ -30,11 +30,11 @@ cpu_core: SiFive U54 + SiFive E51
 
 | Software Category           | Package Name | Test Results (Test Report)       |
 |-----------------------------|--------------|----------------------------------|
-| Ubuntu Image Boot           | N/A          | [CFT][Ubuntu][Ubuntu LTS] (Official Support) |
+| Ubuntu Image Boot           | N/A          | [CFT][Ubuntu][Ubuntu-LTS] (Official Support) |
 | Yocto Image Build and Boot  | N/A          | [CFT][Yocto]                     |
 | Zephyr Image Build and Boot | N/A          | [CFT][Zephyr]                    |
 
 [Ubuntu]: ./Ubuntu/README.md
-[Ubuntu LTS]: ./Ubuntu-LTS/README.md
+[Ubuntu-LTS]: ./Ubuntu/README_LTS.md
 [Yocto]: ./Yocto/README.md
 [Zephyr]: ./Zephyr/README.md
