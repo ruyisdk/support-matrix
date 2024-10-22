@@ -10,7 +10,10 @@ cpu_core: SiFive U54 + SiFive E51
 
 ### Operating System Information
 
-- Ubuntu 24.04.1
+- Ubuntu 24.10
+    - Download Link: https://cdimage.ubuntu.com/releases/24.10/release/
+    - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/Microchip%20PIC64GX1000%20Curiosity%20Kit
+- Ubuntu 24.04.1 LTS
     - Download Link: https://cdimage.ubuntu.com/releases/24.04/release/
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/Microchip%20PIC64GX1000%20Curiosity%20Kit
 - OpenEmbedded / Yocto
@@ -27,10 +30,11 @@ cpu_core: SiFive U54 + SiFive E51
 
 | Software Category           | Package Name | Test Results (Test Report)       |
 |-----------------------------|--------------|----------------------------------|
-| Ubuntu Image Boot           | N/A          | [CFT][Ubuntu] (Official Support) |
+| Ubuntu Image Boot           | N/A          | [CFT][Ubuntu][Ubuntu LTS] (Official Support) |
 | Yocto Image Build and Boot  | N/A          | [CFT][Yocto]                     |
 | Zephyr Image Build and Boot | N/A          | [CFT][Zephyr]                    |
 
 [Ubuntu]: ./Ubuntu/README.md
+[Ubuntu LTS]: ./Ubuntu-LTS/README.md
 [Yocto]: ./Yocto/README.md
 [Zephyr]: ./Zephyr/README.md
