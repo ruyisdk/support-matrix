@@ -35,6 +35,9 @@ jobs:
       #   uses: actions/configure-pages@v5
       - name: Generate Images
         run: |
+          sudo apt-get update
+          sudo apt-get install -y ninja-build
+          sudo pip3 install --upgrade meson
           pip install -r assets/scripts/requirements.txt
           mkdir assets/output
           python assets/scripts/main.py -p . -o assets/output --html https://${{ github.repository_owner }}.github.io/support-matrix | tee build.log
