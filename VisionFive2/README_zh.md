@@ -9,9 +9,9 @@
     - 参考安装文档：https://gitee.com/openeuler/RISC-V/blob/master/release/openEuler-23.03/Installation_Book/Visionfive2/README_zh.md
 - Debian bookworm（官方提供）
     - 下载链接：https://debian.starfivetech.com/
-- openKylin 2.0-RC
+- openKylin 2.0
     - 下载链接：https://www.openkylin.top/downloads
-    - 参考安装文档：https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+- 参考安装文档：https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8VisionFive2%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 - Ubuntu 24.10 & 24.04.1 LTS
     - 下载链接：https://ubuntu.com/download/risc-v
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
@@ -46,6 +46,9 @@
     - 参考安装文档：https://cdimage.deepin.com/RISC-V/VisionFive-v2-image/README.txt
 - NetBSD
     - 下载链接：https://nyftp.netbsd.org/pub/NetBSD-daily/HEAD/latest/riscv-riscv64/binary/gzimg/
+- Alpine
+    - 下载链接：https://dev.alpinelinux.org/~mps/riscv64/visionfive-v2-mmc.img.xz
+    - 参考安装文档：https://arvanta.net/alpine/alpine-on-visionfive/
 
 
 ### 硬件开发板信息
@@ -74,6 +77,8 @@
 | NuttX 镜像构建及启动     | N/A      | [成功][NuttX]                          |
 | Deepin 镜像启动          | N/A      | [成功][Deepin]                         |
 | NetBSD 镜像启动          | N/A      | [成功][NetBSD]                         |
+| Alpine 镜像启动          | N/A      | [成功][Alpine]                         |
+
 
 [oERV]: ./openEuler/README_zh.md
 [Debian]: ./Debian/README_zh.md
@@ -91,3 +96,4 @@
 [NuttX]: ./NuttX/README_zh.md
 [Deepin]: ./Deepin/README_zh.md
 [NetBSD]: ./NetBSD/README_zh.md
+[Alpine]: ./Alpine/README_zh.md
