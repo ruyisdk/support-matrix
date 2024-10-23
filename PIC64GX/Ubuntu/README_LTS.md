@@ -1,10 +1,10 @@
 ---
 sys: ubuntu
-sys_ver: 24.10
+sys_ver: 24.04.1
 sys_var: null
 
 status: cft
-last_update: 2024-10-22
+last_update: 2024-06-21
 ---
 
 # Ubuntu on Microchip PIC64GX Curiosity Kit
@@ -19,8 +19,8 @@ last_update: 2024-10-22
 
 ### OS info
 
-- Ubuntu 24.10
-    - Link: https://cdimage.ubuntu.com/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64+pic64gx.img.xz
+- Ubuntu 24.04.1
+    - Link: https://cdimage.ubuntu.com/releases/24.04.1/release/ubuntu-24.04.1-preinstalled-server-riscv64+pic64gx.img.xz
     - Docs: https://wiki.ubuntu.com/RISC-V/Microchip%20PIC64GX1000%20Curiosity%20Kit
 
 ### Other info
@@ -44,7 +44,7 @@ You can obtain the latest HSS source code from MicroChip's official repo: https:
 Use Rufus/Win32DiskImager/dd or any thing you like to write the image to microSD card.
 
 ```shell
-xzcat ubuntu-24.10-preinstalled-server-riscv64+pic64gx.img.xz | sudo dd bs=1M conv=fsync status=progress of=/dev/sdX
+xzcat ubuntu-24.04.1-preinstalled-server-riscv64+pic64gx.img.xz | sudo dd bs=1M conv=fsync status=progress of=/dev/sdX
 ```
 
 ## Powering up the board
