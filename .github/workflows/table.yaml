@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy Tables to Pages
+name: Generate Tables
 
 on:
   # Runs on pushes targeting the default branch
@@ -68,14 +68,14 @@ jobs:
         run: |
           cp assets/output/* res/
           cd res
+          echo "diff=$(git diff | wc -m)" >> "$GITHUB_OUTPUT"
+      - name: Push to assets
+        working-directory: res/
+        if: ${{ steps.diffcheck.outputs.diff != '0' }}
+        run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git add .
-          echo "diff=$(git diff)" >> "$GITHUB_OUTPUT"
-      - name: Push to assets
-        working-directory: res/
-        if: ${{ steps.diffcheck.outputs.diff != '' }}
-        run: |
           git commit -m "Auto update images: ${{ steps.truecommit.outputs.shortid }}"
           git push
       - name: Output Success Summary
