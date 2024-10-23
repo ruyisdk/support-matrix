@@ -1,0 +1,106 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy Tables to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# permissions:
+#   contents: read
+#   pages: write
+#   id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    # environment:
+    #   name: github-pages
+    #   url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # - name: Setup Pages
+      #   uses: actions/configure-pages@v5
+      - name: Generate Images
+        run: |
+          pip install -r assets/scripts/requirements.txt
+          mkdir assets/output
+          python assets/scripts/main.py -p . -o assets/output --html https://${{ github.repository_owner }}.github.io/support-matrix | tee build.log
+      # - name: Upload to Pages
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     # Upload entire repository
+      #     path: 'assets/output'
+      - name: Check Commit ID
+        id: truecommit
+        run: |
+          echo "shortid=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
+          echo "longid=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "$(git log -1)" >> ${{ github.workspace }}/message.log
+      - name: Generate Hash
+        id: hash
+        working-directory: ${{ github.workspace }}/assets/output/
+        run: echo "$(sha256sum *)" >> ${{ github.workspace }}/assets/output/result.sha256
+      - name: Upload Table
+        uses: actions/upload-artifact@main
+        with:
+          name: support-matrix-${{ github.run_id }}
+          path: 'assets/output'
+      - name: Clone assets Branch
+        uses: actions/checkout@v4
+        with:
+          ref: assets
+          path: res
+      - name: Add Images to assets
+        id: diffcheck
+        run: |
+          cp assets/output/* res/
+          cd res
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          echo "diff=$(git diff)" >> "$GITHUB_OUTPUT"
+      - name: Push to assets
+        working-directory: res/
+        if: ${{ steps.diffcheck.outputs.diff != '' }}
+        run: |
+          git commit -m "Auto update images: ${{ steps.truecommit.outputs.shortid }}"
+          git push
+      - name: Output Success Summary
+        run: |
+          echo "# Support Matrix Table Generate Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "[CI #${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) powered by [${{ github.repository }}](${{ github.server_url }}/${{ github.repository }}) has successfully generate tables." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Commit Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "CI has built on commit [${{ steps.truecommit.outputs.shortid }}](${{ github.server_url }}/${{ github.repository }}/commit/${{ steps.truecommit.outputs.longid }}). The commit message is shown below." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
+          cat ${{ github.workspace }}/message.log >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Artifacts Hash" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
+          cat ${{ github.workspace }}/assets/output/result.sha256 >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Build Log" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
+          cat ${{ github.workspace }}/build.log >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
