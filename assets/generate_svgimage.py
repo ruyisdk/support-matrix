@@ -5,10 +5,10 @@ main
 import argparse
 import os
 from urllib.parse import urljoin
-from svg_gen import SvgConf, SvgNode, SvgXml, gen_html, putconf, SvgRectContainer
-from svg_gen import SvgText, SvgTextCenter, SvgMoveTo, SvgCR, SvgLF, SvgGroup
-from svg_gen import SvgAdvancer, SvgSvg, SvgLine, SvgLink
-from matrix_parser import Systems, status_map
+from src.svg_gen import SvgConf, SvgNode, SvgXml, gen_html, putconf, SvgRectContainer
+from src.svg_gen import SvgText, SvgTextCenter, SvgMoveTo, SvgCR, SvgLF, SvgGroup
+from src.svg_gen import SvgAdvancer, SvgSvg, SvgLine, SvgLink
+from src.matrix_parser import Systems, status_map
 
 
 def gen_color(_, col, content):

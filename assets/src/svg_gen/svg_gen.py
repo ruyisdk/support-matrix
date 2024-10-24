@@ -602,7 +602,7 @@ def gen_html(svg: SvgNode, path: str) -> str:
     mp = PicMap("svg_map", "svg_map")
     for i in svg.walk():
         if isinstance(i, SvgLink):
-            href = i.begin_content.split('"')[1]
+            href = i.href
             name = href.split('/')[-1]
             mp.add_child(RectNode(i.x1, i.y1, i.x2, i.y2, name, href))
     map_str = str(mp)
