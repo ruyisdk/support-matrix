@@ -1,6 +1,6 @@
 ---
 sys: ubuntu
-sys_ver: 24.10
+sys_ver: 24.04.1
 sys_var: null
 
 status: basic
@@ -20,9 +20,9 @@ last_update: 2024-10-25
 
 ### Operating System Information
 
-- Ubuntu 24.10
-    - Download link: https://cdimage.ubuntu.com/releases/24.10/release/
-        - TUNA Mirror: https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/oracular/release/ubuntu-24.10-preinstalled-server-riscv64+icicle.img.xz
+- Ubuntu 24.04.1 LTS
+    - Download link: https://cdimage.ubuntu.com/releases/24.04.1/release/
+        - TUNA Mirror: https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.04.1-preinstalled-server-riscv64+icicle.img.xz
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
 
 ### Other Information
@@ -130,7 +130,7 @@ After writing the image, press Ctrl+C in the HSS console to exit USB storage mod
 Directly use Rufus/Win32DiskImager/dd and other tools to write the image to the SD card.
 
 ```shell
-xzcat ubuntu-24.10-preinstalled-server-riscv64+icicle.img.xz | sudo dd of=/dev/sdX bs=4M iflag=fullblock status=progress 
+xzcat ubuntu-24.04.1-preinstalled-server-riscv64+icicle.img.xz | sudo dd of=/dev/sdX bs=4M iflag=fullblock status=progress 
 ```
 
 ## Booting the Development Board
