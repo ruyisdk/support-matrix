@@ -10,8 +10,11 @@
 - openKylin 1.0
     - 下载链接：https://www.openkylin.top/downloads
     - 参考安装文档：https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
-- Ubuntu 24.04
-    - 下载链接：https://cdimage.ubuntu.com/releases/24.04/release/
+- Ubuntu 24.10
+    - 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/
+    - 参考安装文档：https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched
+- Ubuntu 24.04.1 LTS
+    - 下载链接：https://cdimage.ubuntu.com/releases/24.04.1/release/
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched
 - FreeBSD 14.0
     - 下载链接：https://mirrors.ustc.edu.cn/freebsd/releases/riscv/riscv64/ISO-IMAGES/14.0/FreeBSD-14.0-RELEASE-riscv-riscv64-mini-memstick.img.xz
@@ -50,7 +53,7 @@
 | openEuler/Xfce 镜像启动 | N/A      | [成功][oERV]                |
 | openKylin 镜像启动      | N/A      | [成功][oK]（官方支持）      |
 | OpenSUSE 镜像启动       | N/A      | [成功][SUSE]                |
-| Ubuntu 镜像启动         | N/A      | [成功][Ubuntu]（官方支持）  |
+| Ubuntu 镜像启动         | N/A      | [成功][Ubuntu][Ubuntu-LTS]（官方支持）  |
 | FreeBSD 镜像启动        | N/A      | [成功][FreeBSD]（官方支持） |
 | OpenBSD 镜像启动        | N/A      | [成功][OpenBSD]（官方支持） |
 | Zephyr 启动             | N/A      | [成功][Zephyr]（官方支持）  |
@@ -63,6 +66,7 @@
 [oK]: ./openKylin/README_zh.md
 [SUSE]: ./OpenSUSE/README_zh.md
 [Ubuntu]: ./Ubuntu/README_zh.md
+[Ubuntu-LTS]: ./Ubuntu/README_LTS_zh.md
 [FreeBSD]: ./FreeBSD/README_zh.md
 [OpenBSD]: ./OpenBSD/README_zh.md
 [Zephyr]: ./Zephyr/README_zh.md

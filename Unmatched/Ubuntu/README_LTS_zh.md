@@ -1,11 +1,11 @@
-# Ubuntu 24.10 HiFive Unmatched 测试报告
+# Ubuntu 24.04.1 LTS HiFive Unmatched 测试报告
 
 ## 测试环境
 
 ### 操作系统信息
 
-- 系统版本：Ubuntu 24.10 LTS
-- 下载链接：https://ubuntu.com/download/risc-v | [TUNA 镜像站](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.10-preinstalled-server-riscv64+unmatched.img.xz)
+- 系统版本：Ubuntu 24.04.1 LTS
+- 下载链接：https://ubuntu.com/download/risc-v | [TUNA 镜像站](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.04.1-preinstalled-server-riscv64+unmatched.img.xz)
 - 参考安装文档：https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched
 
 ### 硬件信息
@@ -28,7 +28,7 @@
 下载并解压镜像。使用 `dd` 刷写至 microSD 卡。
 
 ```shell
-xzcat ubuntu-24.10-preinstalled-server-riscv64+unmatched.img.xz | sudo dd of=/dev/sdc bs=4M iflag=fullblock status=progress 
+xzcat ubuntu-24.04.1-preinstalled-server-riscv64+unmatched.img.xz | sudo dd of=/dev/sdc bs=4M iflag=fullblock status=progress 
 ```
 
 ### 登录系统

@@ -1,55 +1,64 @@
-# Ubuntu 24.10 HiFive Unmatched 测试报告
+---
+sys: ubuntu
+sys_ver: 24.04.1
+sys_var: null
 
-## 测试环境
+status: basic
+last_update: 2024-10-25
+---
 
-### 操作系统信息
+# Ubuntu 24.04.1 LTS HiFive Unmatched Test Report
 
-- 系统版本：Ubuntu 24.10 LTS
-- 下载链接：https://ubuntu.com/download/risc-v | [TUNA 镜像站](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.10-preinstalled-server-riscv64+unmatched.img.xz)
-- 参考安装文档：https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched
+## Test Environment
 
-### 硬件信息
+### Operating System Information
+
+- System Version: Ubuntu 24.04.1 LTS
+- Download Link: [https://ubuntu.com/download/risc-v](https://ubuntu.com/download/risc-v) | [TUNA mirror](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.04.1-preinstalled-server-riscv64+unmatched.img.xz)
+- Reference Installation Document: [https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched](https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched)
+
+### Hardware Information
 
 - HiFive Unmatched Rev A
-- microUSB 线缆一条（随 HiFive Unmatched 附赠）
-- ATX 电源一个
-- microSD 卡一张（Sandisk Extreme Pro 64G UHS-I）
+- A microUSB cable (provided with HiFive Unmatched)
+- An ATX power supply
+- A 64GB Sandisk Extreme Pro microSD card (UHS-I)
 
-## 安装步骤
+## Installation Steps
 
-### 引导设备选择
+### Boot Device Selection
 
-确保拨码开关已调整为从 microSD 卡引导。若您未更改，出厂默认即为从 microSD 卡引导。
+Ensure the DIP switch is set to boot from the microSD card. If you haven't changed it, the factory default setting is to boot from the microSD card.
 
-拨码开关应如下设置：`MSEL[3:0]=1011`
+The dip switch should be set as follows: `MSEL[3:0]=1011`
 
-### 使用 `dd` 刷写镜像到 microSD 卡
+### Flashing the Image to the microSD Card Using `dd`
 
-下载并解压镜像。使用 `dd` 刷写至 microSD 卡。
+Download the image, decompress it, and flash it to the microSD card.
 
 ```shell
-xzcat ubuntu-24.10-preinstalled-server-riscv64+unmatched.img.xz | sudo dd of=/dev/sdc bs=4M iflag=fullblock status=progress 
+xzcat ubuntu-24.04.1-preinstalled-server-riscv64+unmatched.img.xz | sudo dd of=/dev/sdc bs=4M iflag=fullblock status=progress 
 ```
 
-### 登录系统
+### Logging into the System
 
-通过板载串口（使用 microUSB 线缆连接至其他计算机）登录系统。
+Logging into the system via the onboard serial port (connect using a microUSB cable to another computer).
 
-默认用户名：`ubuntu`
-默认密码：`ubuntu`
+Default username: `ubuntu`
+Default password: `ubuntu`
 
-初次登录时，系统会提示更改密码。
+On initial login, the system will prompt you to change the password.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 <details>
-<summary>结果已过时（24.04）</summary>
-系统正常启动，成功通过板载串口登录。
+<summary>result is outdated(24.04)</summary>
+The system booted successfully, and login via the onboard serial port was also successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic riscv64)
@@ -139,17 +148,17 @@ LOGO=ubuntu-logo
 ubuntu@ubuntu:~$
 ```
 
-屏幕录像：
+Screen recording:
 
-[![asciicast](https://asciinema.org/a/Rh773h5eOalKZlzjQRFrQDnjY.svg)](https://asciinema.org/a/Rh773h5eOalKZlzjQRFrQDnjY)
+[![asciicast](https://asciinema.org/a/gAA0BN4Xo1fR6gBNDaCud8pPY.svg)](https://asciinema.org/a/gAA0BN4Xo1fR6gBNDaCud8pPY)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.
 </details>
