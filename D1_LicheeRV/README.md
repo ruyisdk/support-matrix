@@ -22,8 +22,10 @@ cpu_core: XuanTie C906
     - Nezha D1: https://d1.docs.aw-ol.com/study/study_1tina/
     - Sipeed Lichee RV: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
 - Ubuntu
-  - Download link: https://ubuntu.com/download/risc-v
-    - Mirror: [Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz) | [Lichee RV](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Blicheerv.img.xz)
+  - 24.10 Download link: https://ubuntu.com/download/risc-v
+    - Mirror: [Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64%2Bnezha.img.xz) | [Lichee RV](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64%2Blicheerv.img.xz)
+  - 24.04.1 LTS Download link: https://ubuntu.com/download/risc-v
+    - Mirror: [Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.04.1/release/ubuntu-24.04.1-preinstalled-server-riscv64%2Bnezha.img.xz) | [Lichee RV](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.04.1/release/ubuntu-24.04.1-preinstalled-server-riscv64%2Blicheerv.img.xz)
   - Reference Installation Document:
     - Nezha D1: https://wiki.ubuntu.com/RISC-V/Nezha%20D1
     - Sipeed Lichee RV Dock: https://wiki.ubuntu.com/RISC-V/LicheeRV
@@ -59,7 +61,7 @@ cpu_core: XuanTie C906
 | openEuler/Base Image Boot        | N/A          | [Successful][oERV]                         |
 | openEuler/Xfce Image Boot        | Xfce Desktop | [Successful][oERV]                         |
 | Tina-Linux Image Boot - Nezha D1 | N/A          | [Successful][TinaNezha] (Official Support) |
-| Ubuntu Image Boot                | N/A          | [Successful][Ubuntu] (Official Support)    |
+| Ubuntu Image Boot                | N/A          | [Successful][Ubuntu][Ubuntu-LTS] (Official Support)    |
 | OpenWrt Image Boot               | N/A          | [Successful][OpenWrt] (Official Support)   |
 | Debian Image Boot                | N/A          | [Successful][Debian]                       |
 | Fedora Image Boot                | N/A          | [Successful][Fedora]                       |
@@ -70,6 +72,7 @@ cpu_core: XuanTie C906
 [oERV]: ./openEuler/README.md
 [TinaNezha]: ./TinaLinux/README.md
 [Ubuntu]: ./Ubuntu/README.md
+[Ubuntu-LTS]: ./Ubuntu/README_LTS.md
 [OpenWrt]: ./OpenWrt/README.md
 [Debian]: ./Debian/README.md
 [Fedora]: ./Fedora/README.md

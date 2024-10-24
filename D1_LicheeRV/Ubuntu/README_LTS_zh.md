@@ -1,10 +1,10 @@
-# Ubuntu 24.10 D1 测试报告
+# Ubuntu 24.04.1 LTS D1 测试报告
 
 ## 测试环境
 
 ### 操作系统信息
 
-- 系统版本：Ubuntu 24.10
+- 系统版本：Ubuntu 24.04.1 LTS
 - 下载链接：https://ubuntu.com/download/risc-v
     - 或者镜像站：[Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.04.1/release/ubuntu-24.04.1-preinstalled-server-riscv64%2Bnezha.img.xz) | [Lichee RV](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.04.1/release/ubuntu-24.04.1-preinstalled-server-riscv64%2Blicheerv.img.xz)
 
@@ -122,7 +122,7 @@ ubuntu@ubuntu:~$
 测试成功：实际结果与预期结果相符。
 
 测试失败：实际结果与预期结果不符。
-
+10
 ## 测试结论
 
 测试成功。
