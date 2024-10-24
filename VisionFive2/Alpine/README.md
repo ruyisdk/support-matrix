@@ -28,7 +28,7 @@ last_update: 2024-10-22
 
 ### Flashing the Installation Image
 
-Use `gzip` to decompress the image.
+Use `xz` to decompress the image.
 Use `dd` or `balenaEtcher` to flash the image to the microSD card.
 
 ```bash

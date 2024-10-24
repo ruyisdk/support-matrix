@@ -19,7 +19,7 @@
 
 ### 刷写镜像
 
-使用 `gzip` 解压镜像。
+使用 `xz` 解压镜像。
 使用 `dd` 或`balenaEtcher`等工具将镜像写入 microSD 卡
 
 ```bash
