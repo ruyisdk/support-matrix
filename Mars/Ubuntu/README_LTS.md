@@ -1,37 +1,46 @@
-# Ubuntu 24.10 on Milk-V Mars
+---
+sys: ubuntu
+sys_ver: 24.04.1
+sys_var: null
 
-## 测试环境
+status: basic
+last_update: 2024-10-25
+---
 
-### 操作系统信息
+# Ubuntu 24.04.1 LTS on Milk-V Mars Test Report
 
-- Ubuntu 24.10
-  - 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64+milkvmars.img.xz
-  - 参考安装文档：https://milkv.io/zh/docs/mars/getting-started/boot
+## Test Environment
 
-### 硬件开发板信息
+### Operating System Information
+
+- Ubuntu 24.04.1 LTS
+  - Download Link: https://cdimage.ubuntu.com/releases/24.04.1/release/ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img.xz
+  - Reference Installation Document: https://milkv.io/zh/docs/mars/getting-started/boot
+
+### Hardware Information
 
 - Milk-V Mars
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像
+### Flashing the Image
 
-使用 `unxz` 解压镜像。
-使用 `dd` 将镜像写入 microSD 卡。
+Use `unxz` to decompress the image. 
+Use `dd` to flash the image to the microSD card.
 
-其中，`/dev/sdc` 为存储卡对应设备。
+Here, `/dev/sdc` corresponds to the storage device.
 
 ```bash
-unxz -d ubuntu-24.10-preinstalled-server-riscv64+milkvmars.img.xz
-sudo dd if=ubuntu-24.10-preinstalled-server-riscv64+milkvmars.img of=/dev/sdc bs=1M status=progress
+unxz -d ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img.xz
+sudo dd if=ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img of=/dev/sdc bs=1M status=progress
 ```
 
-### 更新 U-Boot
+### Updating U-Boot
 
-**若出现启动时 Kernel Panic，需要更新 U-Boot**
+**If a Kernel Panic occurs during startup, U-Boot update is required**
 
-插入烧好镜像的 SD 卡，在串口终端中出现 Hit any key to stop autoboot 时迅速按下回车键，进入 U-boot 命令行终端。
-进入 U-Boot 控制台后，依次输入：
+Insert the flashed SD card and quickly press Enter when "Hit any key to stop autoboot" appears on the serial terminal to enter the U-Boot command line interface.
+After entering the U-Boot console, input the following commands in sequence:
 ```bash
 sf probe
 load mmc 1:1 $kernel_addr_r /usr/lib/u-boot/starfive_visionfive2/u-boot-spl.bin.normal.out
@@ -40,25 +49,25 @@ load mmc 1:1 $kernel_addr_r /usr/lib/u-boot/starfive_visionfive2/u-boot.itb
 sf update $kernel_addr_r 0x100000 $filesize
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-默认用户名： `ubuntu`
-默认密码： `ubuntu`
+Default username: `ubuntu`
+Default password: `ubuntu`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。能进入安装向导。
+The system should boot normally, allowing login via the onboard serial port, and should enter the installation wizard.
 
-## 实际结果
+## Actual Results
 <details>
-<summary>结果已过时（24.04）</summary>
-系统正常启动，成功通过串口查看输出。
+<summary>result is outdated(24.04)</summary>
+The system booted successfully, and the output was successfully viewed via the serial port.
 
-### 启动信息
+### Boot Information
 
-屏幕录像：
+Screen recording:
 [![asciicast](https://asciinema.org/a/a3DgDMfhYPQgWhUjTTScbJ04n.svg)](https://asciinema.org/a/a3DgDMfhYPQgWhUjTTScbJ04n)
 
 ```log
@@ -105,20 +114,20 @@ BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
 UBUNTU_CODENAME=noble
 LOGO=ubuntu-logo
-ubuntu@ubuntu:~$ uname -aMars/Ubuntu/README_zh.md Mars/Ubuntu/README.md
+ubuntu@ubuntu:~$ uname -a
 Linux ubuntu 6.8.0-31-generic #31.1-Ubuntu SMP PREEMPT_DYNAMIC Sun Apr 21 01:12:53 UTC 2024 riscv64 riscv64 riscv64 GNU/Lix
 ubuntu@ubuntu:~$ 
  
 
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-成功
+Test successful.
 </details>
