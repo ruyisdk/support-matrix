@@ -5,7 +5,7 @@
 ### 操作系统信息
 
 - 系统版本：Ubuntu 24.10 LTS
-- 下载链接：https://ubuntu.com/download/risc-v | [TUNA 镜像站](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.10-preinstalled-server-riscv64+unmatched.img.xz)
+- 下载链接：https://ubuntu.com/download/risc-v | [TUNA 镜像站](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/oracular/release/ubuntu-24.10-preinstalled-server-riscv64+unmatched.img.xz)
 - 参考安装文档：https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched
 
 ### 硬件信息

@@ -14,7 +14,7 @@ last_update: 2024-10-25
 ### Operating System Information
 
 - System Version: Ubuntu 24.10
-- Download Link: [https://ubuntu.com/download/risc-v](https://ubuntu.com/download/risc-v) | [TUNA mirror](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.10-preinstalled-server-riscv64+unmatched.img.xz)
+- Download Link: [https://ubuntu.com/download/risc-v](https://ubuntu.com/download/risc-v) | [TUNA mirror](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/oracular/release/ubuntu-24.10-preinstalled-server-riscv64+unmatched.img.xz)
 - Reference Installation Document: [https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched](https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched)
 
 ### Hardware Information
