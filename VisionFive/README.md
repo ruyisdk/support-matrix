@@ -42,6 +42,9 @@ cpu_core: SiFive U74 + SiFive E24
 - Deepin
     - Download Link: https://cdimage.deepin.com/RISC-V/VisionFive-v1-image/deepin-visionfive.7z
     - Reference Installation Document: https://cdimage.deepin.com/RISC-V/VisionFive-v1-image/README.txt
+- Alpine
+    - Download Link: https://dev.alpinelinux.org/~mps/riscv64/visionfive-v1-mmc.img.xz
+    - Reference Installation Document: https://arvanta.net/alpine/alpine-on-visionfive/
 
 ### Hardware Information
 
@@ -50,7 +53,7 @@ cpu_core: SiFive U74 + SiFive E24
 ## Test Results
 
 | Software Category              | Package Name | Test Result (Test Report)               |
-| ------------------------------ | ------------ | --------------------------------------- |
+|--------------------------------|--------------|-----------------------------------------|
 | openEuler/Base Image Boot      | N/A          | [Successful][oERVBase]                  |
 | openEuler/Xfce Image Boot      | N/A          | [Successful][oERVXfce]                  |
 | Fedora Image Boot              | N/A          | [Successful][Fedora] (official support) |
@@ -62,6 +65,7 @@ cpu_core: SiFive U74 + SiFive E24
 | OpenBSD Image Boot             | N/A          | [Successful][OpenBSD]                   |
 | Buildroot Image Build and Boot | N/A          | [Successful][Buildroot]                 |
 | Deepin  Image Boot             | N/A          | [Successful][Deepin]                    |
+| Alpine Image Boot              | N/A          | [Successful][Alpine]                    |
 
 [oERVBase]: ./openEuler/README.md
 [oERVXfce]: ./openEuler/README.md
@@ -74,3 +78,4 @@ cpu_core: SiFive U74 + SiFive E24
 [OpenBSD]: ./OpenBSD/README.md
 [Buildroot]: ./BuildRoot/README.md
 [Deepin]: ./Deepin/README.md
+[Alpine]: ./Alpine/README.md

@@ -36,7 +36,10 @@
 - Deepin
   - 下载链接：https://cdimage.deepin.com/RISC-V/VisionFive-v1-image/deepin-visionfive.7z
   - 参考安装文档：https://cdimage.deepin.com/RISC-V/VisionFive-v1-image/README.txt
-
+- Alpine
+  - 下载连接: https://dev.alpinelinux.org/~mps/riscv64/visionfive-v1-mmc.img.xz
+  - 参考安装文档：https://arvanta.net/alpine/alpine-on-visionfive/
+  
 ### 硬件开发板信息
 
 - StarFive VisionFive
@@ -44,7 +47,7 @@
 ## 测试结果
 
 | 软件分类                 | 软件包名 | 测试结果（测试报告）       |
-| ------------------------ | -------- | -------------------------- |
+|--------------------------|----------|----------------------------|
 | openEuler/Base 镜像启动  | N/A      | [成功][oERVBase]           |
 | openEuler/Xfce 镜像启动  | N/A      | [成功][oERVXfce]           |
 | Fedora 镜像启动          | N/A      | [成功][Fedora]（官方支持） |
@@ -56,6 +59,7 @@
 | OpenBSD 镜像启动         | N/A      | [成功][OpenBSD]            |
 | Buildroot 镜像构建及启动 | N/A      | [成功][Buildroot]          |
 | Deepin 镜像启动          | N/A      | [成功][Deepin]             |
+| Alpine 镜像启动          | N/A      | [成功][Alpine]             |
 
 [oERVBase]: ./openEuler/README_zh.md
 [oERVXfce]: ./openEuler/README_zh.md
@@ -68,3 +72,4 @@
 [OpenBSD]: ./OpenBSD/README_zh.md
 [Buildroot]: ./BuildRoot/README_zh.md
 [Deepin]: ./Deepin/README_zh.md
+[Alpine]: ./Alpine/README_zh.md
