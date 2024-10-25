@@ -1,19 +1,19 @@
 ---
 sys: openkylin
-sys_ver: 2.0-alpha
+sys_ver: 2.0
 sys_var: null
 
 status: good
-last_update: 2024-06-21
+last_update: 2024-10-25
 ---
 
-# openKylin 2.0 Alpha LPi4A Test Report
+# openKylin 2.0 LPi4A Test Report
 
 ## Test Environment
 
 ### System Information
 
-- System Version: openKylin 2.0 Alpha
+- System Version: openKylin 2.0
 - Download Link: [https://www.openkylin.top/downloads/index-cn.html](https://www.openkylin.top/downloads/index-cn.html)
 - Reference Installation Document: [https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin](https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
 
@@ -32,12 +32,12 @@ Navigate to the fastboot tool directory.
 Flash the u-boot and boot.
 
 ```bash
-tar -xvf openKylin-2.0-alpha-licheepi4a.tar.xz
-cd openkylin-2.0-alpha-licheepi4a/fastboot/linux
-sudo ./fastboot flash ram ../../images/$(ram_size)/u-boot-nonsec-2020.10-r0-noswap.bin
-sudo ./fastboot reboot
-sudo ./fastboot flash uboot ../../images/$(ram_size)/u-boot-nonsec-2020.10-r0-noswap.bin
-sudo ./fastboot flash boot ../../images/$(ram_size)/boot.ext4
+tar -xvf openKylin-Embedded-V2.0-Release-licheepi4a-riscv64.tar.xz
+cd openKylin-Embedded-V2.0-Release-licheepi4a-riscv64/
+sudo fastboot flash ram u-boot-with-spl-lpi4a(-16g).bin
+sudo fastboot reboot
+sudo fastboot flash uboot u-boot-with-spl-lpi4a(-16g).bin
+sudo fastboot flash boot boot-lpi4a-20240720_171951.ext4
 ```
 
 ### Flashing the Image
@@ -45,7 +45,7 @@ sudo ./fastboot flash boot ../../images/$(ram_size)/boot.ext4
 Flash the root partition into the eMMC.
 
 ```bash
-sudo ./fastboot flash root ../../images/openkylin-2.0-alpha-licheepi4a-riscv64.ext4
+sudo fastboot flash root openKylin-2.0-licheepi4a-riscv64.img
 ```
 
 ### Logging into the System
@@ -67,14 +67,14 @@ The system booted up correctly, and login via the onboard serial console was suc
 
 Screen recording (from flashing the image to system login):
 
-[![asciicast](https://asciinema.org/a/ewHfNb9rFIHqHfqznJgiDHapM.svg)](https://asciinema.org/a/ewHfNb9rFIHqHfqznJgiDHapM)
+[![asciicast](https://asciinema.org/a/YNXhBNMce237qsn8OLNzfQ6uE.svg)](https://asciinema.org/a/YNXhBNMce237qsn8OLNzfQ6uE)
 
 ```log
 openKylin 2.0 openkylin ttyS0
 
 openkylin login: openkylin
-输入密码
-Welcome to openKylin 2.0 (GNU/Linux 5.10.113-yocto-standard riscv64)
+密码： 
+Welcome to openKylin 2.0 (GNU/Linux 5.10.113-th1520 riscv64)
 
  * Support:        https://openkylin.top
 
@@ -85,8 +85,12 @@ individual files in /usr/share/doc/*/copyright.
 openKylin comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
+You do not have any new mail.
+load environment: GTK_MODULES=gail:atk-bridge
+load environment: QT_ACCESSIBILITY=1
+load environment: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 openkylin@openkylin:~$ uname -a
-Linux openkylin 5.10.113-yocto-standard #1 SMP PREEMPT Tue Dec 26 12:49:40 UTC 2023 riscv64 riscv64 riscv64 GNU/Linux
+Linux openkylin 5.10.113-th1520 #2024.07.20.13.28+d8f77de53 SMP PREEMPT Sat Jul 20 13:29:42 UTC  riscv64 riscv64 riscv64 Gx
 openkylin@openkylin:~$ cat /etc/os-release 
 NAME="openKylin"
 FULL_NAME="openKylin"
@@ -98,11 +102,60 @@ VERSION_ID="2.0"
 HOME_URL="https://www.openkylin.top/"
 VERSION_CODENAME=nile
 PRODUCT_FEATURES=3
+openkylin@openkylin:~$ cat /proc/cpuinfo 
+processor       : 0
+hart            : 0
+isa             : rv64imafdcvsu
+mmu             : sv39
+cpu-freq        : 1.848Ghz
+cpu-icache      : 64KB
+cpu-dcache      : 64KB
+cpu-l2cache     : 1MB
+cpu-tlb         : 1024 4-ways
+cpu-cacheline   : 64Bytes
+cpu-vector      : 0.7.1
+
+processor       : 1
+hart            : 1
+isa             : rv64imafdcvsu
+mmu             : sv39
+cpu-freq        : 1.848Ghz
+cpu-icache      : 64KB
+cpu-dcache      : 64KB
+cpu-l2cache     : 1MB
+cpu-tlb         : 1024 4-ways
+cpu-cacheline   : 64Bytes
+cpu-vector      : 0.7.1
+
+processor       : 2
+hart            : 2
+isa             : rv64imafdcvsu
+mmu             : sv39
+cpu-freq        : 1.848Ghz
+cpu-icache      : 64KB
+cpu-dcache      : 64KB
+cpu-l2cache     : 1MB
+cpu-tlb         : 1024 4-ways
+cpu-cacheline   : 64Bytes
+cpu-vector      : 0.7.1
+
+processor       : 3
+hart            : 3
+isa             : rv64imafdcvsu
+mmu             : sv39
+cpu-freq        : 1.848Ghz
+cpu-icache      : 64KB
+cpu-dcache      : 64KB
+cpu-l2cache     : 1MB
+cpu-tlb         : 1024 4-ways
+cpu-cacheline   : 64Bytes
+cpu-vector      : 0.7.1
+
 openkylin@openkylin:~$ 
 
 ```
 
-![neofetch](./neofetch.png)
+![login](./login.png)
 
 ### Common Issue
 
