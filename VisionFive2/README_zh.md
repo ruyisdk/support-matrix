@@ -19,7 +19,7 @@
     - 下载链接：https://github.com/starfive-tech/VisionFive2/releases
     - 参考安装文档：https://github.com/starfive-tech/VisionFive2
 - Arch Linux
-    - 下载链接：https://github.com/cwt-vf2/archlinux-image-vf2/releases/tag/cwt21.1
+    - 下载链接：https://github.com/cwt-vf2/archlinux-image-vf2/releases/tag/cwt23
     - 参考安装文档：https://forum.rvspace.org/t/arch-linux-image-for-visionfive-2/1459
 - Gentoo
     - 下载链接：https://drive.google.com/file/d/10TDsk2FwZDJv3yJvDAfCam5Wf9ibS6Eg/view?usp=sharing

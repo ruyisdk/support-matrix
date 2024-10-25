@@ -4,8 +4,8 @@
 
 ### 操作系统信息
 
-- 系统版本：ArchLinux-VF2_6.6_v5.12.0-cwt22.1
-- 下载链接：https://github.com/cwt-vf2/archlinux-image-vf2/releases/tag/cwt22.1
+- 系统版本：ArchLinux-VF2_6.6_v5.13.1-cwt23
+- 下载链接：https://github.com/cwt-vf2/archlinux-image-vf2/releases/tag/cwt23
 - 参考安装文档：https://forum.rvspace.org/t/arch-linux-image-for-visionfive-2/1459
 
 > 此镜像为社区开发者提供，非官方镜像。Arch Linux RISC-V 目前仅提供 `rootfs`。
@@ -26,8 +26,8 @@
 假定 `/dev/sdc` 为存储卡。
 
 ```bash
-zstd -d ArchLinux-VF2_6.6_v5.12.0-cwt22.1.img.zst
-sudo dd if=ArchLinux-VF2_6.6_v5.12.0-cwt22.1.img of=/dev/sdc bs=4M status=progress
+zstd -d ArchLinux-VF2_6.6_v5.13.1-cwt23.img.zst
+sudo dd if=ArchLinux-VF2_6.6_v5.13.1-cwt23.img of=/dev/sdc bs=4M status=progress
 ```
 
 ### 引导模式选择
@@ -60,12 +60,13 @@ StarFive VisionFive 2 提供了多种引导模式，可在上电前通过板载�
 ### 启动信息
 
 ```log
-uname -a && echo QACqtjl2 
+Arch Linux 6.6.32-cwt-5.13.1-1 (ttyS0)
 
-Linux ArchVF2 6.6.20-cwt-5.12.0-3 #1 SMP PREEMPT_DYNAMIC Mon May 27 18:59:29 +07 2024 riscv64 GNU/Linux
-QACqtjl2
-[user@ArchVF2 ~]$ cat /etc/os-release && echo 0lCHCvsR 
-
+ArchVF2 login: root
+Password: 
+[root@ArchVF2 ~]# uname -a
+Linux ArchVF2 6.6.32-cwt-5.13.1-1 #1 SMP PREEMPT_DYNAMIC Mon Sep 30 16:40:34 +07 2024 riscv64 GNU/Linux
+[root@ArchVF2 ~]# cat /etc/os-release 
 NAME="Arch Linux"
 PRETTY_NAME="Arch Linux"
 ID=arch
@@ -77,9 +78,7 @@ SUPPORT_URL="https://bbs.archlinux.org/"
 BUG_REPORT_URL="https://gitlab.archlinux.org/groups/archlinux/-/issues"
 PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
 LOGO=archlinux-logo
-0lCHCvsR
-[user@ArchVF2 ~]$ cat /proc/cpuinfo && echo 6i5lPI7z 
-
+[root@ArchVF2 ~]# cat /proc/cpuinfo 
 processor	: 0
 hart		: 2
 isa		: rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
@@ -116,8 +115,7 @@ mvendorid	: 0x489
 marchid		: 0x8000000000000007
 mimpid		: 0x4210427
 
-6i5lPI7z
-[user@ArchVF2 ~]$ 
+[root@ArchVF2 ~]# 
 ```
 
 屏幕录像（从刷写镜像到登录系统）：
