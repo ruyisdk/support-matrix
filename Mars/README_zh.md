@@ -26,7 +26,7 @@
 | -------------------- | -------- | --------------------------------- |
 | Debian 镜像启动      | N/A      | [成功][Debian]（Milk-V 厂商镜像） |
 | BuildRoot 构建及启动 | N/A      | [成功][BuildRoot]                 |
-| Ubuntu 镜像启动      | N/A      | [成功][Ubuntu][Ubuntu-LTS]                    |
+| Ubuntu 镜像启动      | N/A      | [CFT][Ubuntu] [CFT][Ubuntu-LTS]                    |
 | Deepin 镜像启动      | N/A      | [CFT][Deepin]                     |
 
 [Debian]: ./Debian/README_zh.md
