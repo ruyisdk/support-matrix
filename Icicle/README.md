@@ -43,7 +43,7 @@ cpu_core: SiFive U54 + SiFive E51
 
 | Software Category        | Package Name | Test Results (Test Report) |
 |----------------------|--------------|---------------------------|
-| Ubuntu Image Boot    | N/A          | [Basic][Ubuntu][Ubuntu-LTS] (Official Support) |
+| Ubuntu Image Boot    | N/A          | [CFT][Ubuntu] [CFT][Ubuntu-LTS] (Official Support) |
 | Yocto Image Build and Boot | N/A      | [Basic][Yocto]            |
 | BuildRoot Image Boot | N/A          | [Basic][BuildRoot]        |
 | Arch Linux Boot      | N/A          | [CFT][Arch]               |
