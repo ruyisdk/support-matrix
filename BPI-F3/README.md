@@ -11,7 +11,7 @@ cpu_core: SpacemiT X60
 ### Operating System Information
 
 - Bianbu
-  - Download Links: https://archive.spacemit.com/image/k1/version/bianbu/v2.0rc1/
+  - Download Links: https://archive.spacemit.com/image/k1/version/bianbu/v2.0/
   - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 - Armbian
   - Download Links:

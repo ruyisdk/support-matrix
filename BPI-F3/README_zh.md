@@ -5,7 +5,7 @@
 ### 操作系统信息
 
 - Bianbu
-  - 下载链接：https://archive.spacemit.com/image/k1/version/bianbu/v2.0rc1/
+  - 下载链接：https://archive.spacemit.com/image/k1/version/bianbu/v2.0/
   - 参考安装文档：https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 - Armbian
   - 下载链接：
