@@ -4,25 +4,25 @@
 
 ## Linux Distributions
 
-![Linux](./linux.svg)
+![Linux](https://ruyisdk.github.io/support-matrix/linux.svg)
 
 ---
 
 ## *BSD
 
-![BSD](./bsd.svg)
+![BSD](https://ruyisdk.github.io/support-matrix/bsd.svg)
 
 ---
 
 ## RTOS / Real-Time Operating Systems
 
-![RTOS](./rtos.svg)
+![RTOS](https://ruyisdk.github.io/support-matrix/rtos.svg)
 
 ---
 
 ## Others
 
-![Others](./others.svg)
+![Others](https://ruyisdk.github.io/support-matrix/others.svg)
 
 ---
 
