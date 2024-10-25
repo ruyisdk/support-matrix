@@ -65,7 +65,7 @@ cpu_core: SiFive U74 + SiFive E24
 | OpenBSD Image Boot             | N/A          | [Successful][OpenBSD]                   |
 | Buildroot Image Build and Boot | N/A          | [Successful][Buildroot]                 |
 | Deepin  Image Boot             | N/A          | [Successful][Deepin]                    |
-| Alpine Image Boot              | N/A          | [Successful][Alpine]                    |
+| Alpine Image Boot              | N/A          | [CFT][Alpine]                    |
 
 [oERVBase]: ./openEuler/README.md
 [oERVXfce]: ./openEuler/README.md
