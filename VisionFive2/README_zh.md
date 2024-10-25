@@ -49,6 +49,9 @@
 - Alpine
     - 下载链接：https://dev.alpinelinux.org/~mps/riscv64/visionfive-v2-mmc.img.xz
     - 参考安装文档：https://arvanta.net/alpine/alpine-on-visionfive/
+- DietPi
+    - 下载链接：https://dietpi.com/downloads/images/testing/DietPi_VisionFive2-RISC-V-Sid.img.xz
+    - 参考安装文档：https://dietpi.com/blog/?p=2629
 
 
 ### 硬件开发板信息
@@ -78,6 +81,7 @@
 | Deepin 镜像启动          | N/A      | [成功][Deepin]                         |
 | NetBSD 镜像启动          | N/A      | [成功][NetBSD]                         |
 | Alpine 镜像启动          | N/A      | [成功][Alpine]                         |
+| DietPi 镜像启动          | N/A      | [成功][DietPi]                         |
 
 
 [oERV]: ./openEuler/README_zh.md
@@ -97,3 +101,4 @@
 [Deepin]: ./Deepin/README_zh.md
 [NetBSD]: ./NetBSD/README_zh.md
 [Alpine]: ./Alpine/README_zh.md
+[DietPi]: ./DietPi/README_zh.md

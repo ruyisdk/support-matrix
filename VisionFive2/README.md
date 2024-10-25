@@ -55,6 +55,9 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 - Alpine
     - Download Link: https://dev.alpinelinux.org/~mps/riscv64/visionfive-v2-mmc.img.xz
     - Reference INstallation Document: https://arvanta.net/alpine/alpine-on-visionfive/
+- DietPi
+    - Download Link: https://dietpi.com/downloads/images/testing/DietPi_VisionFive2-RISC-V-Sid.img.xz
+    - Reference Installation Document: https://dietpi.com/blog/?p=2629
 
 
 ### Hardware Information
@@ -84,6 +87,7 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 | Deepin Image          | N/A              | [Successful][Deepin]                              |
 | NetBSD Image          | N/A              | [Successful][NetBSD]                              |
 | Alpine Image          | N/A              | [Successful][Alpine]                              |
+| DietPi Image          | N/A              | [Successful][DietPi]                              |
 
 [oERV]: ./openEuler/README.md
 [Debian]: ./Debian/README.md
@@ -102,3 +106,4 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 [Deepin]: ./Deepin/README.md
 [NetBSD]: ./NetBSD/README.md
 [Alpine]: ./Alpine/README.md
+[DietPi]: ./DietPi/README.md
