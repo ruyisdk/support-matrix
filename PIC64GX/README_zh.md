@@ -24,7 +24,7 @@
 
 | 软件分类                    | 软件包名 | 测试结果（测试报告）      |
 | --------------------------- | -------- | ------------------------- |
-| Ubuntu Image Boot           | N/A      | [CFT][Ubuntu][Ubuntu-LTS]（官方支持） |
+| Ubuntu Image Boot           | N/A      | [CFT][Ubuntu] [CFT][Ubuntu-LTS]（官方支持） |
 | Yocto Image Build and Boot  | N/A      | [CFT][Yocto]              |
 | Zephyr Image Build and Boot | N/A      | [CFT][Zephyr]             |
 
