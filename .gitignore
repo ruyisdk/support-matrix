@@ -1,2 +1,4 @@
 __pycache__
 assets/output/
+.env
+.venv

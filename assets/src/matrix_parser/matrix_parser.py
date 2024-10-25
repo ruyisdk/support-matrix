@@ -1,18 +1,35 @@
-#!/usr/bin/env python3
 """
 Parse metadata of systems and boards
 """
 import os
-import argparse
 import yaml
 import frontmatter
 
-from csv2svg import gen_html, SvgConf, gen_svg_table
+LANG = [
+    'zh'
+]
 
-check_success = True
 
-class System:
+def status_map(status: str):
     """
+    map status to pretty string
+    """
+    if status == 'wip':
+        return 'WIP'
+    if status == 'cft':
+        return 'CFT'
+    if status == 'cfh':
+        return 'CFH'
+    if status == 'basic':
+        return 'Basic'
+    if status == 'good':
+        return 'Good'
+    return status
+
+
+class SystemVar:
+    """
+    This is for a system varient, like normal Ubuntu/ Ubuntu LTS / Ubuntu with desktop and so on.
     eg:
     ---
     sys: deepin
@@ -28,7 +45,7 @@ class System:
     sys_var: str | None
     status: str
     last_update: str
-    link: str | None
+    link: list[str] | None
 
     def strip(self):
         """
@@ -42,14 +59,16 @@ class System:
     def __len__(self):
         return len(status_map(self.status))
 
-    def __init_by_file(self, path, base_link=""):
-        base_name = os.path.basename(path)
-        self.link = os.path.join(base_link, base_name)
-        meta_path = os.path.join(path, 'README.md')
+    def __init_by_file(self, meta_path, link: list[str]):
+        self.link = link
         if not os.path.exists(meta_path):
             raise FileNotFoundError(f"{meta_path} not found")
         with open(meta_path, 'r', encoding="utf-8") as file:
-            post = frontmatter.load(file)
+            try:
+                post = frontmatter.load(file)
+            except Exception as _:
+                raise FileNotFoundError(
+                    f"{meta_path} has no frontmatter") from _
             if 'sys' not in post.keys():
                 raise FileNotFoundError(f"{meta_path} has no frontmatter")
             if post['sys'] == 'revyos':
@@ -73,21 +92,67 @@ class System:
             self.__init_by_file(*args, **kwargs)
 
 
-def status_map(status: str):
+class System:
     """
-    map status to pretty string
+    This is for a type of system, like Ubuntu
     """
-    if status == 'wip':
-        return 'WIP'
-    if status == 'cft':
-        return 'CFT'
-    if status == 'cfh':
-        return 'CFH'
-    if status == 'basic':
-        return 'Basic'
-    if status == 'good':
-        return 'Good'
-    return status
+    sys: str
+    variant: list[SystemVar]
+
+    def __len__(self):
+        return len(self.variant)
+
+    def is_md(self, s: str):
+        """
+        If a file name be like `xxx.md`, then it should be markdown file
+        """
+        return s.endswith('.md')
+
+    def is_tranlate(self, s: str):
+        """
+        If a file name be like `xxx_lang.md`, then it should be translated
+        """
+        if 'blink' in s:
+            return True  # Temporary fix for blink.md, this file is not a system-board test, need migrate to other place
+        for lang in LANG:
+            if f'_{lang}.md' in s:
+                return True
+        return False
+
+    def __init_by_folder(self, folder: str, base_link=""):
+        # walk through every file in the folder
+        check_success = True
+        self.variant = []
+        for file in os.listdir(folder):
+            if os.path.isdir(os.path.join(folder, file)):
+                continue
+            if not self.is_md(file):
+                continue
+            if self.is_tranlate(file):
+                continue
+            try:
+                path = os.path.join(folder, file)
+                link = [base_link, os.path.basename(folder), file]
+                system_var = SystemVar(path, link)
+                self.variant.append(system_var)
+            except FileNotFoundError as e:
+                check_success = False
+                print(f"Error: {e}")
+                continue
+        if not check_success:
+            raise FileNotFoundError(
+                f"Some metadata not found for system: {os.path.basename(folder)}")
+
+    def __init__(self, *args, **kwargs):
+        self.variant = []
+        if len(kwargs) > 0:
+            var = SystemVar(*args, **kwargs)
+            self.variant.append(var)
+        else:
+            self.__init_by_folder(*args, **kwargs)
+        if len(self.variant) == 0:
+            raise FileNotFoundError("No metadata found")
+        self.sys = self.variant[0].sys
 
 
 class Board:
@@ -152,6 +217,7 @@ class Board:
         return len(self.product)
 
     def __init__(self, path: str):
+        check_success = True
         base_name = os.path.basename(path)
         self.link = base_name
         readme_path = os.path.join(path, 'README.md')
@@ -165,11 +231,11 @@ class Board:
         self.systems = []
 
         for folder in os.listdir(path):
-            if os.path.isdir(os.path.join(path, folder)):
+            f = os.path.join(path, folder)
+            if os.path.isdir(f):
                 try:
-                    system = System(os.path.join(path, folder), self.link)
+                    system = System(f, self.link)
                 except FileNotFoundError as e:
-                    global check_success
                     check_success = False
                     print(f"Error: {e}")
                     continue
@@ -189,6 +255,9 @@ class Board:
                     link=None
                 )
                 self.append_system(system)
+        if not check_success:
+            raise FileNotFoundError(
+                f"Some metadata not found for board: {self.product}")
 
 
 class Systems:
@@ -206,11 +275,22 @@ class Systems:
         '.git',
         '.vscode',
         '__pycache__',
-        '.github'
     ]
+
+    def should_exclude(self, path):
+        """
+        check if the path should be excluded
+        """
+        for name in self.exclude_dir:
+            if name in path:
+                return True
+        if path[0] == '.':
+            return True
+        return False
     boards: list[Board]
 
     def __init__(self, path):
+        check_success = True
         meta_path = os.path.join(path, 'assets', 'metadata.yml')
         with open(meta_path, 'r', encoding="utf-8") as file:
             def mp(x):
@@ -226,7 +306,7 @@ class Systems:
             self.others = mp(data['others'])
         self.boards = []
         for folder in os.listdir(path):
-            if folder in self.exclude_dir:
+            if self.should_exclude(folder):
                 continue
             p = os.path.join(path, folder)
             if not os.path.isdir(p):
@@ -235,112 +315,10 @@ class Systems:
                 board = Board(p)
                 self.boards.append(board)
             except FileNotFoundError as e:
-                global check_success
                 check_success = False
                 print(f"Error: {e}")
                 continue
-
-
-def gen_color(_, col, content):
-    """
-    gen svg color
-    """
-    white = (255, 255, 255)
-    gray = (220, 220, 220)
-    green = (203, 255, 203)
-    yellow = (255, 255, 203)
-    red = (255, 203, 203)
-    if col < 3:
-        return white
-    if "Good" == str(content) or "Basic" == str(content):
-        return green
-    if "CFT" == str(content):
-        return yellow
-    if "WIP" == str(content) or "CFH" == str(content):
-        return red
-    return gray
-
-
-def gen_link(_, __, content):
-    """
-    gen link
-    """
-    if hasattr(content, 'link') and content.link is not None:
-        return f"https://github.com/ruyisdk/support-matrix/tree/main/{content.link}"
-    return None
-
-
-def proc_onesys(system_arr: dict[str], system: System):
-    """
-    process one type of system
-    """
-    head = ['CPU', 'IP Core', 'link', 'Product/Model']
-    for _, v in system_arr.items():
-        head.append(v)
-    data = []
-    for board in system.boards:
-        row = board.gen_row(system_arr)
-        if row is not None:
-            data.append(row)
-    data = sorted(data, key=lambda x: str(x[2]).strip())
-
-    svg_head = head[:2] + head[3:]
-    svg_data = [row[:2] + row[3:] for row in data]
-    conf = SvgConf(
-        color_gen_func=gen_color,
-        link_gen_func=gen_link,
-    )
-    res = gen_svg_table(conf, svg_head, svg_data)
-
-    return res
-
-def main():
-    """
-    main
-    """
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-p', '--path', dest="path",
-                        help="support matrix path", type=str, default='.')
-    parser.add_argument('-o', '--output', dest="output",
-                        help="output path", type=str, default='.')
-    parser.add_argument('--html', dest="html",
-                        help="output html, with svg assets at arg", type=str, default=None)
-
-    args = parser.parse_args()
-
-    p = args.path
-    systems = Systems(p)
-
-    html_path = args.html
-    svg = proc_onesys(systems.linux, systems)
-    with open(os.path.join(args.output, 'linux.svg'), 'w', encoding="utf-8") as f:
-        f.write(str(svg))
-    if html_path:
-        with open(os.path.join(args.output, 'linux.html'), 'w', encoding="utf-8") as f:
-            f.write(gen_html(svg, os.path.join(html_path, 'linux.svg')))
-    svg = proc_onesys(systems.bsd, systems)
-    with open(os.path.join(args.output, 'bsd.svg'), 'w', encoding="utf-8") as f:
-        f.write(str(svg))
-    if html_path:
-        with open(os.path.join(args.output, 'bsd.html'), 'w', encoding="utf-8") as f:
-            f.write(gen_html(svg, os.path.join(html_path, 'bsd.svg')))
-    svg = proc_onesys(systems.rtos, systems)
-    with open(os.path.join(args.output, 'rtos.svg'), 'w', encoding="utf-8") as f:
-        f.write(str(svg))
-    if html_path:
-        with open(os.path.join(args.output, 'rtos.html'), 'w', encoding="utf-8") as f:
-            f.write(gen_html(svg, os.path.join(html_path, 'rtos.svg')))
-    svg = proc_onesys(systems.others, systems)
-    with open(os.path.join(args.output, 'others.svg'), 'w', encoding="utf-8") as f:
-        f.write(str(svg))
-    if html_path:
-        with open(os.path.join(args.output, 'others.html'), 'w', encoding="utf-8") as f:
-            f.write(gen_html(svg, os.path.join(html_path, 'others.svg')))
-
-
-if __name__ == "__main__":
-    main()
-    if not check_success:
-        print("Error: some metadata not found")
-        import sys
-        sys.exit(-1)
+        if not check_success:
+            raise FileNotFoundError("Some metadata not found")
+        # Sort boards by product name
+        self.boards.sort(key=lambda x: x.product)
