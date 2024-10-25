@@ -33,7 +33,7 @@ cpu_core: XuanTie C906
 | --------------------- | ------------ | ---------------------------- |
 | Tina-Linux Image Boot | N/A          | [CFT][Tina]                  |
 | RT-Thread Image Boot  | N/A          | [CFT][RT-Thread]             |
-| Ubuntu Image Boot     | N/A          | [Success][Ubuntu][Ubuntu LTS]|
+| Ubuntu Image Boot     | N/A          | [CFT][Ubuntu] [CFT][Ubuntu LTS]|
 
 [Tina]: ./TinaLinux/README.md
 [RT-Thread]: ./RT-Thread/README.md

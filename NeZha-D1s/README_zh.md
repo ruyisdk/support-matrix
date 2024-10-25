@@ -26,7 +26,7 @@
 | ------------------- | -------- | -------------------- |
 | Tina-Linux 镜像启动 | N/A      | [CFT][Tina]          |
 | RT-Thread 镜像启动  | N/A      | [CFT][RT-Thread]     |
-| Ubuntu 镜像启动     | N/A      | [成功][Ubuntu][Ubuntu LTS]       |
+| Ubuntu 镜像启动     | N/A      | [CFT][Ubuntu] [CFT][Ubuntu LTS]       |
 
 [Tina]: ./TinaLinux/README_zh.md
 [RT-Thread]: ./RT-Thread/README_zh.md
