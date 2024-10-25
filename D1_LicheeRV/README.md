@@ -61,7 +61,7 @@ cpu_core: XuanTie C906
 | openEuler/Base Image Boot        | N/A          | [Successful][oERV]                         |
 | openEuler/Xfce Image Boot        | Xfce Desktop | [Successful][oERV]                         |
 | Tina-Linux Image Boot - Nezha D1 | N/A          | [Successful][TinaNezha] (Official Support) |
-| Ubuntu Image Boot                | N/A          | [Successful][Ubuntu][Ubuntu-LTS] (Official Support)    |
+| Ubuntu Image Boot                | N/A          | [Successful][Ubuntu] [CFT][Ubuntu-LTS] (Official Support)    |
 | OpenWrt Image Boot               | N/A          | [Successful][OpenWrt] (Official Support)   |
 | Debian Image Boot                | N/A          | [Successful][Debian]                       |
 | Fedora Image Boot                | N/A          | [Successful][Fedora]                       |
