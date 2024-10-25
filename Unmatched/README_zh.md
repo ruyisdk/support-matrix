@@ -53,7 +53,7 @@
 | openEuler/Xfce 镜像启动 | N/A      | [成功][oERV]                |
 | openKylin 镜像启动      | N/A      | [成功][oK]（官方支持）      |
 | OpenSUSE 镜像启动       | N/A      | [成功][SUSE]                |
-| Ubuntu 镜像启动         | N/A      | [成功][Ubuntu][Ubuntu-LTS]（官方支持）  |
+| Ubuntu 镜像启动         | N/A      | [CFT][Ubuntu] [CFT][Ubuntu-LTS]（官方支持）  |
 | FreeBSD 镜像启动        | N/A      | [成功][FreeBSD]（官方支持） |
 | OpenBSD 镜像启动        | N/A      | [成功][OpenBSD]（官方支持） |
 | Zephyr 启动             | N/A      | [成功][Zephyr]（官方支持）  |

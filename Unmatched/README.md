@@ -59,7 +59,7 @@ cpu_core: SiFive U74 + SiFive S7
 | openEuler/Xfce Image Boot | N/A          | [Successful][oERV]                       |
 | openKylin Image Boot      | N/A          | [Successful][oK] (Official Support)      |
 | OpenSUSE Image Boot       | N/A          | [Successful][SUSE]                       |
-| Ubuntu Image Boot         | N/A          | [Successful][Ubuntu][Ubuntu-LTS] (Official Support)  |
+| Ubuntu Image Boot         | N/A          | [CFT][Ubuntu] [CFT][Ubuntu-LTS] (Official Support)  |
 | FreeBSD Image Boot        | N/A          | [Successful][FreeBSD] (Official Support) |
 | OpenBSD Image Boot        | N/A          | [Successful][OpenBSD] (Official Support) |
 | Zephyr Boot               | N/A          | [Successful][Zephyr] (Official Support)  |
