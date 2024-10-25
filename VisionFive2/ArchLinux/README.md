@@ -4,7 +4,7 @@ sys_ver: null
 sys_var: null
 
 status: basic
-last_update: 2024-06-21
+last_update: 2024-10-25
 ---
 
 # Arch Linux VisionFive 2 Version Test Report
@@ -13,8 +13,8 @@ last_update: 2024-06-21
 
 ### Operating System Information
 
-- System Version: ArchLinux-VF2_6.6_v5.12.0-cwt22.1
-- Download Link: https://github.com/cwt-vf2/archlinux-image-vf2/releases/tag/cwt21.1
+- System Version: ArchLinux-VF2_6.6_v5.13.1-cwt23
+- Download Link: https://github.com/cwt-vf2/archlinux-image-vf2/releases/tag/cwt23
 - Reference Installation Document: https://forum.rvspace.org/t/arch-linux-image-for-visionfive-2/1459
 
 > This image is provided by community developers and is not an official image. Arch Linux RISC-V currently only offers `rootfs`.
@@ -35,8 +35,8 @@ last_update: 2024-06-21
 Assume `/dev/sdc` is the storage card.
 
 ```bash
-zstd -d ArchLinux-VF2_6.6_v5.12.0-cwt22.1.img.zst
-sudo dd if=ArchLinux-VF2_6.6_v5.12.0-cwt22.1.img of=/dev/sdc bs=4M status=progress
+zstd -d ArchLinux-VF2_6.6_v5.13.1-cwt23.img.zst
+sudo dd if=ArchLinux-VF2_6.6_v5.13.1-cwt23.img of=/dev/sdc bs=4M status=progress
 ```
 
 ### Boot Mode Selection
@@ -68,12 +68,13 @@ The system booted normally and login via the serial port was successful.
 ### Boot Log
 
 ```log
-uname -a && echo QACqtjl2 
+Arch Linux 6.6.32-cwt-5.13.1-1 (ttyS0)
 
-Linux ArchVF2 6.6.20-cwt-5.12.0-3 #1 SMP PREEMPT_DYNAMIC Mon May 27 18:59:29 +07 2024 riscv64 GNU/Linux
-QACqtjl2
-[user@ArchVF2 ~]$ cat /etc/os-release && echo 0lCHCvsR 
-
+ArchVF2 login: root
+Password: 
+[root@ArchVF2 ~]# uname -a
+Linux ArchVF2 6.6.32-cwt-5.13.1-1 #1 SMP PREEMPT_DYNAMIC Mon Sep 30 16:40:34 +07 2024 riscv64 GNU/Linux
+[root@ArchVF2 ~]# cat /etc/os-release 
 NAME="Arch Linux"
 PRETTY_NAME="Arch Linux"
 ID=arch
@@ -85,9 +86,7 @@ SUPPORT_URL="https://bbs.archlinux.org/"
 BUG_REPORT_URL="https://gitlab.archlinux.org/groups/archlinux/-/issues"
 PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
 LOGO=archlinux-logo
-0lCHCvsR
-[user@ArchVF2 ~]$ cat /proc/cpuinfo && echo 6i5lPI7z 
-
+[root@ArchVF2 ~]# cat /proc/cpuinfo 
 processor	: 0
 hart		: 2
 isa		: rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
@@ -124,8 +123,7 @@ mvendorid	: 0x489
 marchid		: 0x8000000000000007
 mimpid		: 0x4210427
 
-6i5lPI7z
-[user@ArchVF2 ~]$ 
+[root@ArchVF2 ~]# 
 ```
 
 Screen recording (from flashing the image to logging into the system):

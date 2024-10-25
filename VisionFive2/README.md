@@ -25,7 +25,7 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
     - Download Link: https://github.com/starfive-tech/VisionFive2/releases
     - Reference Installation Document: https://github.com/starfive-tech/VisionFive2
 - Arch Linux
-    - Download Link: https://github.com/cwt-vf2/archlinux-image-vf2/releases/tag/cwt21.1
+    - Download Link: https://github.com/cwt-vf2/archlinux-image-vf2/releases/tag/cwt23
     - Reference Installation Document: https://forum.rvspace.org/t/arch-linux-image-for-visionfive-2/1459
 - Gentoo
     - Download Link: https://drive.google.com/file/d/10TDsk2FwZDJv3yJvDAfCam5Wf9ibS6Eg/view?usp=sharing
