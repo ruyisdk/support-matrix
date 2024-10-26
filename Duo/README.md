@@ -39,6 +39,9 @@ cpu_core: XuanTie C906
     - buildroot: https://github.com/milkv-duo/duo-buildroot-sdk.git
     - rootfs: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/openeuler-rootfs.tar.gz
   - Reference Installation Document: https://blog.inuyasha.love/linuxeveryday/33.html
+- UniProton
+  - Download links: https://share.weiyun.com/0gIkzesF
+  - Reference Installation Document: https://github.com/openeuler-riscv/duo-buildroot-sdk/blob/develop/uni_pedestal/WORK.md
 
 ### Hardware Information
 
@@ -58,6 +61,7 @@ cpu_core: XuanTie C906
 | openEuler                      | N/A          | [Success][oE]                                     |
 | ThreadX Image Build and Boot   | N/A          | [Success][ThreadX]                                |
 | Zephyr Image Build and Boot    | N/A          | [Success][Zephyr]                                 |
+| UniProton Boot                 | N/A          | [Success][UniProton]                              |
 
 [Duo]: ./BuildRoot/README.md
 [Arch]: ./ArchLinux/README.md
@@ -68,4 +72,4 @@ cpu_core: XuanTie C906
 [oE]: ./openEuler/README.md
 [ThreadX]: ./ThreadX/README.md
 [Zephyr]: ./Zephyr/README.md
-
+[UniProton]: ./UniProton/README.md
