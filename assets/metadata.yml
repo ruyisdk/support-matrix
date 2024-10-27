@@ -33,6 +33,7 @@ rtos:
   - threadx: ThreadX
   - nuttx: NuttX
   - melis: Melis
+  - uniproton: UniProton
 
 others:
   - android: Android
