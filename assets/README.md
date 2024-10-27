@@ -1,9 +1,8 @@
-# support-matrix 支持工具及脚本
+# support-matrix Tools and Scripts
 
-## 简介
+This directory contains tools and scripts to support the entire project operation, including but not limited to:
 
-该目录下存放了用于支持整个 support-matrix 运作的工具和脚本，包括但不限于：
-- Metadata 解析工具
-- SVG 生成工具
+- Metadata parsing tool
+- SVG generation tool
 
-这些脚本被用于该项目的日常维护和更新。
+These scripts are used for daily maintenance and updates of the project.

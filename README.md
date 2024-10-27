@@ -2,29 +2,38 @@
 
 [English](./README.md) / [中文](./README_zh.md)
 
-## Linux Distributions
+## Support Matrix Table
+
+### Linux Distributions
 
 ![Linux](https://ruyisdk.github.io/support-matrix/linux.svg)
 
 ---
 
-## *BSD
+### *BSD
 
 ![BSD](https://ruyisdk.github.io/support-matrix/bsd.svg)
 
 ---
 
-## RTOS / Real-Time Operating Systems
+### RTOS / Real-Time Operating Systems
 
 ![RTOS](https://ruyisdk.github.io/support-matrix/rtos.svg)
 
 ---
 
-## Others
+### Others
 
 ![Others](https://ruyisdk.github.io/support-matrix/others.svg)
 
 ---
+
+## Tools
+
+Currently [assets](assets) contains tools and scripts to support the project operation, including but not limited to:
+
+- Metadata parsing tool
+- SVG generation tool
 
 ## Notes
 
