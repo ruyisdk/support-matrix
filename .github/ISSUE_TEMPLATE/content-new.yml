@@ -1,0 +1,56 @@
+name: Request New Page
+description: Request New Page
+title: "[Page Content] "
+labels: ["Content Request / 页面内容请求", "help wanted / 需要帮助"]
+
+body:
+- type: markdown
+  attributes:
+    value: We welcome you to give us new ideas! Please fill in the following form.
+- type: checkboxes
+  id: confirm
+  attributes:
+    label: Please Choose
+    options:
+    - label: I'm working on fixing this issue.
+      required: false
+    - label: I confirmed that there is no similar issue.
+      required: true
+- type: input
+  id: product
+  attributes:
+    label: Product Name
+    description: Please give the product name.
+    placeholder: BananaPi BPI-F3
+  validations:
+    required: true
+- type: input
+  id: cpu
+  attributes:
+    label: CPU
+    description: Please give the processor information.
+    placeholder: Key Stone K1
+  validations:
+    required: false
+- type: input
+  id: cpu_core
+  attributes:
+    label: CPU Core
+    description: Please give the core information.
+    placeholder: SpacemiT X60
+  validations:
+    required: false
+- type: input
+  id: source
+  attributes:
+    label: I found new information here.
+    description: Please cite the source of the new version or information.
+    placeholder: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
+  validations:
+    required: false
+- type: textarea
+  id: notes
+  attributes:
+    label: Give out some notes.
+  validations:
+    required: false
