@@ -56,7 +56,8 @@
 | openEuler/Base 镜像启动        | N/A          | [成功][oERV]                  |
 | openEuler/Xfce 镜像启动        | Xfce Desktop | [成功][oERV]                  |
 | Tina-Linux 镜像启动 - Nezha D1 | N/A          | [成功][TinaNezha]（官方支持） |
-| Ubuntu 镜像启动                | N/A          | [CFT][Ubuntu] [CFT][Ubuntu-LTS]（官方支持）    |
+| Ubuntu 镜像启动                | N/A          | [CFT][Ubuntu]（官方支持）     |
+| Ubuntu LTS 镜像启动            | N/A          | [CFT][Ubuntu LTS]（官方支持） |
 | OpenWrt 镜像启动               | N/A          | [成功][OpenWrt]（官方支持）   |
 | Debian 镜像启动                | N/A          | [成功][Debian]                |
 | Fedora 镜像启动                | N/A          | [成功][Fedora]                |
