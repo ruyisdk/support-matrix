@@ -1,0 +1,38 @@
+name: Outdated Page Content
+description: Point out outdated pages
+title: "[Page Content] "
+labels: ["Content Outdated / 页面内容过期", "help wanted / 需要帮助"]
+
+body:
+- type: markdown
+  attributes:
+    value: We welcome you to point out content errors to us! Please fill in the following form.
+- type: checkboxes
+  id: confirm
+  attributes:
+    label: Please Choose
+    options:
+    - label: I'm working on fixing this issue.
+      required: false
+    - label: I confirmed that there is no similar issue.
+      required: true
+- type: input
+  id: page
+  attributes:
+    label: I am visiting this page
+    description: It is recommended to bring a link to better locate the problem.
+  validations:
+    required: true
+- type: input
+  id: source
+  attributes:
+    label: I found new information here.
+    description: Please cite the source of the new version or information.
+  validations:
+    required: true
+- type: textarea
+  id: notes
+  attributes:
+    label: Give out some notes.
+  validations:
+    required: false

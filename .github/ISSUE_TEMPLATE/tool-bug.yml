@@ -1,0 +1,24 @@
+name: Tool Bug
+description: Point out problems with the tools
+title: "[Bug] "
+labels: ["Tool Bug / 工具问题", "help wanted / 需要帮助"]
+
+body:
+- type: markdown
+  attributes:
+    value: We welcome you to point out content errors to us! Please fill in the following form.
+- type: checkboxes
+  id: confirm
+  attributes:
+    label: Please Choose
+    options:
+    - label: I'm working on fixing this issue.
+      required: false
+    - label: I confirmed that there is no similar issue.
+      required: true
+- type: textarea
+  id: problem
+  attributes:
+    label: I found this problem on the page
+  validations:
+    required: true
