@@ -107,7 +107,7 @@ def gen_svg_table(conf: SvgConf, systems: Systems, need_systems: dict[str]) -> S
                 board_group.append(var_g)
                 break
             if not flag:
-                sys_t = SvgText("N/A", False)
+                sys_t = SvgText("-", False)
                 board_group.append(sys_t)
         table.append(board_group)
 

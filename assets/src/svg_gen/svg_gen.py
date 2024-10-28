@@ -7,6 +7,8 @@ If you want to use the original version, see: wychlw/plct/misc
 Generate svg table from csv file
 """
 from abc import ABC, abstractmethod
+import tempfile
+import os
 from numbers import Number
 from math import sqrt
 import cairo
@@ -35,12 +37,15 @@ class SvgConf:
         """
         Get the width of the text
         """
-        surface = cairo.SVGSurface('/tmp/t.svg', 1280, 200)
+        f =  tempfile.mktemp()
+        surface = cairo.SVGSurface(f, 1280, 200)
         cr = cairo.Context(surface)
         cr.select_font_face(self.font_family, cairo.FONT_SLANT_NORMAL,
                             cairo.FONT_WEIGHT_BOLD if blod else cairo.FONT_WEIGHT_NORMAL)
         cr.set_font_size(self.font_size)
         _, _, width, _, _, _ = cr.text_extents(text)
+        surface.finish()
+        os.remove(f)
         return width * 1.5
         # return len(text) * self.font_size * (0.7 if blod else 0.65)
 
