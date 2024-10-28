@@ -73,6 +73,7 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 | Debian Image          | N/A              | [Successful][Debian] (Official StarFive Image)    |
 | openKylin Image       | N/A              | [Successful][oK] (Official Support)               |
 | Ubuntu Image          | N/A              | [Successful][Ubuntu] (Official Support)           |
+| Ubuntu LTS Image      | N/A              | [Successful][Ubuntu-LTS] (Official Support)           |
 | BuildRoot Image       | N/A              | [Successful][BuildRoot] (Official StarFive Image) |
 | Arch Linux Image      | N/A              | [Successful][Arch]                                |
 | Gentoo Image          | N/A              | [Successful][Gentoo]                              |
@@ -93,6 +94,7 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 [Debian]: ./Debian/README.md
 [oK]: ./openKylin/README.md
 [Ubuntu]: ./Ubuntu/README.md
+[Ubuntu-LTS]: ./Ubuntu/Ubuntu_LTS.md
 [BuildRoot]: ./BuildRoot/README.md
 [Arch]: ./ArchLinux/README.md
 [Gentoo]: ./Gentoo/README.md

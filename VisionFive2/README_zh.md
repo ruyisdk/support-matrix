@@ -67,6 +67,7 @@
 | Debian 镜像启动          | N/A      | [成功][Debian]（StarFive 厂商镜像）    |
 | openKylin 镜像启动       | N/A      | [成功][oK]（官方支持）                 |
 | Ubuntu 镜像启动          | N/A      | [成功][Ubuntu]（官方支持）             |
+| Ubuntu LTS 镜像启动      | N/A      | [成功][Ubuntu-LTS]（官方支持）             |
 | BuildRoot 镜像启动       | N/A      | [成功][BuildRoot]（StarFive 厂商镜像） |
 | Arch Linux 镜像启动      | N/A      | [成功][Arch]                           |
 | Gentoo 镜像启动          | N/A      | [成功][Gentoo]                         |
@@ -88,6 +89,7 @@
 [Debian]: ./Debian/README_zh.md
 [oK]: ./openKylin/README_zh.md
 [Ubuntu]: ./Ubuntu/README_zh.md
+[Ubuntu-LTS]: ./Ubuntu/Ubuntu_LTS_zh.md
 [BuildRoot]: ./BuildRoot/README_zh.md
 [Arch]: ./ArchLinux/README_zh.md
 [Gentoo]: ./Gentoo/README_zh.md
