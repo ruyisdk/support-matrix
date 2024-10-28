@@ -41,16 +41,17 @@ cpu_core: SiFive U54 + SiFive E51
 
 ## Test Results
 
-| Software Category        | Package Name | Test Results (Test Report) |
-|----------------------|--------------|---------------------------|
-| Ubuntu Image Boot    | N/A          | [CFT][Ubuntu] [CFT][Ubuntu-LTS] (Official Support) |
-| Yocto Image Build and Boot | N/A      | [Basic][Yocto]            |
-| BuildRoot Image Boot | N/A          | [Basic][BuildRoot]        |
-| Arch Linux Boot      | N/A          | [CFT][Arch]               |
-| OpenBSD Image Boot   | N/A          | [CFT][OpenBSD]            |
-| FreeRTOS Image Build and Boot | N/A  | [CFT][FreeRTOS]           |
-| Zephyr Image Build and Boot | N/A    | [CFT][Zephyr]             |
-| NuttX Image Build and Boot | N/A     | [CFT][NuttX]              |
+| Software Category             | Package Name | Test Results (Test Report)           |
+|-------------------------------|--------------|--------------------------------------|
+| Ubuntu Image Boot             | N/A          | [CFT][Ubuntu] (Official Support)     |
+| Ubuntu LTS Image Boot         | N/A          | [CFT][Ubuntu LTS] (Official Support) |
+| Yocto Image Build and Boot    | N/A          | [Basic][Yocto]                       |
+| BuildRoot Image Boot          | N/A          | [Basic][BuildRoot]                   |
+| Arch Linux Boot               | N/A          | [CFT][Arch]                          |
+| OpenBSD Image Boot            | N/A          | [CFT][OpenBSD]                       |
+| FreeRTOS Image Build and Boot | N/A          | [CFT][FreeRTOS]                      |
+| Zephyr Image Build and Boot   | N/A          | [CFT][Zephyr]                        |
+| NuttX Image Build and Boot    | N/A          | [CFT][NuttX]                         |
 
 
 [Ubuntu]: ./Ubuntu/README.md

@@ -37,7 +37,8 @@
 
 | 软件分类                | 软件包名 | 测试结果（测试报告）        |
 |-----------------------|----------|---------------------------|
-| Ubuntu 镜像启动         | N/A      | [CFT][Ubuntu] [CFT][Ubuntu-LTS]（官方支持） |
+| Ubuntu 镜像启动         | N/A      | [CFT][Ubuntu]（官方支持）   |
+| Ubuntu LTS 镜像启动     | N/A      | [CFT][Ubuntu LTS]（官方支持） |
 | Yocto 镜像构建及启动    | N/A      | [Basic][Yocto]            |
 | BuildRoot 镜像启动      | N/A      | [Basic][BuildRoot]        |
 | Arch Linux 启动         | N/A      | [CFT][Arch]               |
