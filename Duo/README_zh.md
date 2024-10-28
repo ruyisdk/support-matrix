@@ -33,6 +33,9 @@
     - buildroot: https://github.com/milkv-duo/duo-buildroot-sdk.git
     - rootfs: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/openeuler-rootfs.tar.gz
   - 参考安装文档：https://blog.inuyasha.love/linuxeveryday/33.html
+- UniProton
+  - 下载链接: https://share.weiyun.com/0gIkzesF
+  - 参考安装文档: https://github.com/openeuler-riscv/duo-buildroot-sdk/blob/develop/uni_pedestal/WORK.md
 
 ### 硬件开发板信息
 
@@ -51,6 +54,7 @@
 | openEuler                | N/A      | [成功][oE]                                    |
 | ThreadX 镜像构建及启动   | N/A      | [成功][ThreadX]                               |
 | Zephyr  镜像构建及启动   | N/A      | [成功][Zephyr]                                |
+| UniProton 启动           | N/A      | [成功][UniProton]                             |
 
 [Duo]: ./BuildRoot/README_zh.md
 [Arch]: ./ArchLinux/README_zh.md
@@ -61,3 +65,4 @@
 [oE]: ./openEuler/README_zh.md
 [ThreadX]: ./ThreadX/README_zh.md
 [Zephyr]: ./Zephyr/README_zh.md
+[UniProton]: ./UniProton/README.md
