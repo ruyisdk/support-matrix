@@ -59,20 +59,21 @@ cpu_core: SiFive U74 + SiFive S7
 | openEuler/Xfce Image Boot | N/A          | [Successful][oERV]                       |
 | openKylin Image Boot      | N/A          | [Successful][oK] (Official Support)      |
 | OpenSUSE Image Boot       | N/A          | [Successful][SUSE]                       |
-| Ubuntu Image Boot         | N/A          | [CFT][Ubuntu] [CFT][Ubuntu-LTS] (Official Support)  |
+| Ubuntu Image Boot         | N/A          | [CFT][Ubuntu] (Official Support)         |
+| Ubuntu LTS Image Boot     | N/A          | [CFT][Ubuntu LTS] (Official Support)     |
 | FreeBSD Image Boot        | N/A          | [Successful][FreeBSD] (Official Support) |
 | OpenBSD Image Boot        | N/A          | [Successful][OpenBSD] (Official Support) |
 | Zephyr Boot               | N/A          | [Successful][Zephyr] (Official Support)  |
 | OpenWrt Boot              | N/A          | [Successful][OpenWrt] (Official Support) |
-| Fedora Boot               | N/A          | [Successful][Fedora]（Official Support） |
-| Deepin Boot               | N/A          | [CFT][Deepin]（Official Support）        |
+| Fedora Boot               | N/A          | [Successful][Fedora](Official Support)   |
+| Deepin Boot               | N/A          | [CFT][Deepin](Official Support)          |
 
 [Debian]: ./Debian/README.md
 [oERV]: ./openEuler/README.md
 [oK]: ./openKylin/README.md
 [SUSE]: ./OpenSUSE/README.md
 [Ubuntu]: ./Ubuntu/README.md
-[Ubuntu-LTS]: ./Ubuntu/README_LTS.md
+[Ubuntu LTS]: ./Ubuntu/README_LTS.md
 [FreeBSD]: ./FreeBSD/README.md
 [OpenBSD]: ./OpenBSD/README.md
 [Zephyr]: ./Zephyr/README.md
