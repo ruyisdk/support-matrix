@@ -2,31 +2,40 @@
 
 [English](./README_zh.md) | [中文](./README_zh.md)
 
-## Linux 发行版
+## 支持矩阵表
+
+### Linux 发行版
 
 ![Linux](https://ruyisdk.github.io/support-matrix/linux.svg)
 
 ---
 
-## *BSD
+### *BSD
 
 ![BSD](https://ruyisdk.github.io/support-matrix/bsd.svg)
 
 ---
 
-## RTOS / 实时操作系统
+### RTOS / 实时操作系统
 
 ![RTOS](https://ruyisdk.github.io/support-matrix/rtos.svg)
 
 ---
 
-## 其它
+### 其它
 
 ![Others](https://ruyisdk.github.io/support-matrix/others.svg)
 
 ---
 
-#### 说明
+## 工具
+
+目前 [assets](assets) 包含支持项目运行的工具和脚本，包括但不限于：
+
+- 元数据解析工具
+- SVG 生成工具
+
+## 说明
 
 * Good：支持图形界面
 * Basic：能启动运行
