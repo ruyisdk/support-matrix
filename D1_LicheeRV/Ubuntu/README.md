@@ -1,21 +1,21 @@
 ---
 sys: ubuntu
-sys_ver: 24.10-beta
+sys_ver: 24.10
 sys_var: null
 
 status: basic
-last_update: 2024-06-21
+last_update: 2024-10-25
 ---
 
-# Ubuntu 24.10-beta D1 Test Report
+# Ubuntu 24.10 D1 Test Report
 
 ## Test Environment
 
 ### Operating System Information
 
-- System Version: Ubuntu 24.10 beta
+- System Version: Ubuntu 24.10
 - Download Link: https://ubuntu.com/download/risc-v
-    - Or from mirror sites: [Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz) | [Lichee RV](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Blicheerv.img.xz)
+    - Or from mirror sites: [Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64%2Bnezha.img.xz) | [Lichee RV](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64%2Blicheerv.img.xz)
 - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/LicheeRV
 
 ### Hardware Information
@@ -47,7 +47,8 @@ On first login, the system will prompt you to change the password.
 The system should boot normally and allow login via the onboard serial port.
 
 ## Actual Results
-
+<details>
+<summary>result is outdated(beta version)</summary>
 The system booted successfully and login via the onboard serial port was also successful.
 
 ### Boot Log
@@ -133,3 +134,4 @@ Failed: The actual result does not match the expected result.
 ## Test Conclusion
 
 Test successful.
+</details>
