@@ -29,11 +29,13 @@ cpu_core: XuanTie C906
 
 ## Test Results
 
-| Software Category     | Package Name | Test Results (Test Report)   |
-| --------------------- | ------------ | ---------------------------- |
-| Tina-Linux Image Boot | N/A          | [CFT][Tina]                  |
-| RT-Thread Image Boot  | N/A          | [CFT][RT-Thread]             |
-| Ubuntu Image Boot     | N/A          | [CFT][Ubuntu] [CFT][Ubuntu LTS]|
+
+| Software Category     | Package Name | Test Results (Test Report) |
+| --------------------- | ------------ | -------------------------- |
+| Tina-Linux Image Boot | N/A          | [CFT][Tina]                |
+| RT-Thread Image Boot  | N/A          | [CFT][RT-Thread]           |
+| Ubuntu Image Boot     | N/A          | [CFT][Ubuntu]              |
+| Ubuntu LTS Image Boot | N/A          | [CFT][Ubuntu LTS]          |
 
 [Tina]: ./TinaLinux/README.md
 [RT-Thread]: ./RT-Thread/README.md
