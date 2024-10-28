@@ -4,7 +4,7 @@ sys_ver: null
 sys_var: null
 
 status: basic
-last_update: 2024-06-21
+last_update: 2024-10-25
 ---
 
 # openSUSE Tumbleweed VisionFive 2 Test Report
@@ -13,7 +13,7 @@ last_update: 2024-06-21
 
 ### Operating System Information
 
-- System Version: openSUSE-Tumbleweed-RISC-V-JeOS-starfivevisionfive2.riscv64-2024.03.15-Build23.14.raw.xz
+- System Version: 20241024
 - Download Link: https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/StarFive:/VisionFive2/images/
 - Reference Installation Document: https://en.opensuse.org/HCL:VisionFive2
 
@@ -33,7 +33,7 @@ last_update: 2024-06-21
 Assuming `/dev/sdc` is the storage card.
 
 ```bash
-xzcat openSUSE-Tumbleweed-RISC-V-JeOS-starfivevisionfive2.riscv64-2024.03.15-Build23.14.raw.xz | sudo dd of=/dev/sdc iflag=fullblock status=progress bs=4M
+xzcat openSUSE-Tumbleweed-RISC-V-JeOS-starfivevisionfive2.riscv64-2024.10.14-Build1.20.raw.xz | sudo dd of=/dev/sdc iflag=fullblock status=progress bs=4M
 ```
 
 ### Boot Mode Selection
@@ -70,35 +70,34 @@ The system booted successfully and login via the serial port was successful.
 ### Boot Log
 
 ```log
-Welcome to openSUSE Tumbleweed 20240322 - Kernel 6.8.1-85-default (ttyS0).                                                          
-                                                                                                                                    
-end0:  fe80::ecba:cd3:320d:39f8                                                                                                     
-end1:                                                                                                                               
-                                                                                                                                    
-                                                                                                                                    
+Welcome to openSUSE Tumbleweed 20241024 - Kernel 6.12.0-rc4-103-default (ttyS0).
 
-localhost login: root                                                                                                               
-Password:                                                                                                                           
-Have a lot of fun...                                                                                                                
-localhost:~ # uname -a                                                                                                              
-Linux localhost.localdomain 6.8.1-85-default #1 SMP PREEMPT_DYNAMIC Fri Mar 22 07:05:00 UTC 2024 (c838682) riscv64 riscv64 riscv64 x
-localhost:~ # cat /etc/os-release                                                                                                   
-NAME="openSUSE Tumbleweed"                                                                                                          
-# VERSION="20240322"                                                                                                                
-ID="opensuse-tumbleweed"                                                                                                            
-ID_LIKE="opensuse suse"                                                                                                             
-VERSION_ID="20240322"                                                                                                               
-PRETTY_NAME="openSUSE Tumbleweed"                                                                                                   
-ANSI_COLOR="0;32"                                                                                                                   
-# CPE 2.3 format, boo#1217921                                                                                                       
-CPE_NAME="cpe:2.3:o:opensuse:tumbleweed:20240322:*:*:*:*:*:*:*"                                                                     
-#CPE 2.2 format                                                                                                                     
-#CPE_NAME="cpe:/o:opensuse:tumbleweed:20240322"                                                                                     
-BUG_REPORT_URL="https://bugzilla.opensuse.org"                                                                                      
-SUPPORT_URL="https://bugs.opensuse.org"                                                                                             
-HOME_URL="https://www.opensuse.org"                                                                                                 
-DOCUMENTATION_URL="https://en.opensuse.org/Portal:Tumbleweed"                                                                       
-LOGO="distributor-logo-Tumbleweed"                                                                                                  
+end0: 192.168.31.87 fe80::4fd8:4211:1862:b059
+end1:  
+
+
+localhost login: root
+Password: 
+Have a lot of fun...
+localhost:~ # uname -a
+Linux localhost.localdomain 6.12.0-rc4-103-default #1 SMP PREEMPT_DYNAMIC Wed Oct 23 21:57:24 UTC 2024 (a082c88) riscv64 riscv64 riscv64 GNU/Linux
+localhost:~ # cat /etc/os-release 
+NAME="openSUSE Tumbleweed"
+# VERSION="20241024"
+ID="opensuse-tumbleweed"
+ID_LIKE="opensuse suse"
+VERSION_ID="20241024"
+PRETTY_NAME="openSUSE Tumbleweed"
+ANSI_COLOR="0;32"
+# CPE 2.3 format, boo#1217921
+CPE_NAME="cpe:2.3:o:opensuse:tumbleweed:20241024:*:*:*:*:*:*:*"
+#CPE 2.2 format
+#CPE_NAME="cpe:/o:opensuse:tumbleweed:20241024"
+BUG_REPORT_URL="https://bugzilla.opensuse.org"
+SUPPORT_URL="https://bugs.opensuse.org"
+HOME_URL="https://www.opensuse.org"
+DOCUMENTATION_URL="https://en.opensuse.org/Portal:Tumbleweed"
+LOGO="distributor-logo-Tumbleweed"
 localhost:~ # 
 ```
 
