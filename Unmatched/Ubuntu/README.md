@@ -1,20 +1,20 @@
 ---
 sys: ubuntu
-sys_ver: 24.04
+sys_ver: 24.10
 sys_var: null
 
 status: basic
-last_update: 2024-06-21
+last_update: 2024-10-25
 ---
 
-# Ubuntu 24.04 HiFive Unmatched Test Report
+# Ubuntu 24.10 HiFive Unmatched Test Report
 
 ## Test Environment
 
 ### Operating System Information
 
-- System Version: Ubuntu 24.04
-- Download Link: [https://ubuntu.com/download/risc-v](https://ubuntu.com/download/risc-v) | [TUNA mirror](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.04-preinstalled-server-riscv64+unmatched.img.xz)
+- System Version: Ubuntu 24.10
+- Download Link: [https://ubuntu.com/download/risc-v](https://ubuntu.com/download/risc-v) | [TUNA mirror](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/oracular/release/ubuntu-24.10-preinstalled-server-riscv64+unmatched.img.xz)
 - Reference Installation Document: [https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched](https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched)
 
 ### Hardware Information
@@ -37,7 +37,7 @@ The dip switch should be set as follows: `MSEL[3:0]=1011`
 Download the image, decompress it, and flash it to the microSD card.
 
 ```shell
-xzcat ubuntu-24.04-preinstalled-server-riscv64+unmatched.img.xz | sudo dd of=/dev/sdc bs=4M iflag=fullblock status=progress 
+xzcat ubuntu-24.10-preinstalled-server-riscv64+unmatched.img.xz | sudo dd of=/dev/sdc bs=4M iflag=fullblock status=progress 
 ```
 
 ### Logging into the System
@@ -54,7 +54,8 @@ On initial login, the system will prompt you to change the password.
 The system should boot normally and allow login via the onboard serial port.
 
 ## Actual Results
-
+<details>
+<summary>result is outdated(24.04)</summary>
 The system booted successfully, and login via the onboard serial port was also successful.
 
 ### Boot Log
@@ -160,3 +161,4 @@ Failed: The actual result does not match the expected result.
 ## Test Conclusion
 
 Test successful.
+</details>

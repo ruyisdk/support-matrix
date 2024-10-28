@@ -16,8 +16,11 @@ cpu_core: SiFive U74 + SiFive S7
 - openKylin
     - Download link: https://www.openkylin.top/downloads
     - Reference Installation Document: https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
-- Ubuntu 24.04
-    - Download link: https://cdimage.ubuntu.com/releases/24.04/release/
+- Ubuntu 24.10
+    - Download link: https://cdimage.ubuntu.com/releases/24.10/release/
+    - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched
+- Ubuntu 24.04.1 LTS
+    - Download link: https://cdimage.ubuntu.com/releases/24.04.1/release/
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched
 - FreeBSD 14.0
     - Download link: https://mirrors.ustc.edu.cn/freebsd/releases/riscv/riscv64/ISO-IMAGES/14.0/FreeBSD-14.0-RELEASE-riscv-riscv64-mini-memstick.img.xz
@@ -56,19 +59,21 @@ cpu_core: SiFive U74 + SiFive S7
 | openEuler/Xfce Image Boot | N/A          | [Successful][oERV]                       |
 | openKylin Image Boot      | N/A          | [Successful][oK] (Official Support)      |
 | OpenSUSE Image Boot       | N/A          | [Successful][SUSE]                       |
-| Ubuntu Image Boot         | N/A          | [Successful][Ubuntu] (Official Support)  |
+| Ubuntu Image Boot         | N/A          | [CFT][Ubuntu] (Official Support)         |
+| Ubuntu LTS Image Boot     | N/A          | [CFT][Ubuntu LTS] (Official Support)     |
 | FreeBSD Image Boot        | N/A          | [Successful][FreeBSD] (Official Support) |
 | OpenBSD Image Boot        | N/A          | [Successful][OpenBSD] (Official Support) |
 | Zephyr Boot               | N/A          | [Successful][Zephyr] (Official Support)  |
 | OpenWrt Boot              | N/A          | [Successful][OpenWrt] (Official Support) |
-| Fedora Boot               | N/A          | [Successful][Fedora]（Official Support） |
-| Deepin Boot               | N/A          | [CFT][Deepin]（Official Support）        |
+| Fedora Boot               | N/A          | [Successful][Fedora](Official Support)   |
+| Deepin Boot               | N/A          | [CFT][Deepin](Official Support)          |
 
 [Debian]: ./Debian/README.md
 [oERV]: ./openEuler/README.md
 [oK]: ./openKylin/README.md
 [SUSE]: ./OpenSUSE/README.md
 [Ubuntu]: ./Ubuntu/README.md
+[Ubuntu LTS]: ./Ubuntu/README_LTS.md
 [FreeBSD]: ./FreeBSD/README.md
 [OpenBSD]: ./OpenBSD/README.md
 [Zephyr]: ./Zephyr/README.md
