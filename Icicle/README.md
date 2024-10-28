@@ -10,8 +10,11 @@ cpu_core: SiFive U54 + SiFive E51
 
 ### Operating System Information
 
-- Ubuntu 24.04
-    - Download Link: https://cdimage.ubuntu.com/releases/24.04/release/
+- Ubuntu 24.10
+    - Download Link: https://cdimage.ubuntu.com/releases/24.10/release/
+    - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
+- Ubuntu 24.04.1 LTS
+    - Download Link: https://cdimage.ubuntu.com/releases/24.04.1/release/
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
 - BuildRoot 24.02.2
     - Source Code Download Link: https://buildroot.org/downloads/buildroot-2024.02.2.tar.gz
@@ -38,19 +41,21 @@ cpu_core: SiFive U54 + SiFive E51
 
 ## Test Results
 
-| Software Category        | Package Name | Test Results (Test Report) |
-|----------------------|--------------|---------------------------|
-| Ubuntu Image Boot    | N/A          | [Basic][Ubuntu] (Official Support) |
-| Yocto Image Build and Boot | N/A      | [Basic][Yocto]            |
-| BuildRoot Image Boot | N/A          | [Basic][BuildRoot]        |
-| Arch Linux Boot      | N/A          | [CFT][Arch]               |
-| OpenBSD Image Boot   | N/A          | [CFT][OpenBSD]            |
-| FreeRTOS Image Build and Boot | N/A  | [CFT][FreeRTOS]           |
-| Zephyr Image Build and Boot | N/A    | [CFT][Zephyr]             |
-| NuttX Image Build and Boot | N/A     | [CFT][NuttX]              |
+| Software Category             | Package Name | Test Results (Test Report)           |
+|-------------------------------|--------------|--------------------------------------|
+| Ubuntu Image Boot             | N/A          | [CFT][Ubuntu] (Official Support)     |
+| Ubuntu LTS Image Boot         | N/A          | [CFT][Ubuntu LTS] (Official Support) |
+| Yocto Image Build and Boot    | N/A          | [Basic][Yocto]                       |
+| BuildRoot Image Boot          | N/A          | [Basic][BuildRoot]                   |
+| Arch Linux Boot               | N/A          | [CFT][Arch]                          |
+| OpenBSD Image Boot            | N/A          | [CFT][OpenBSD]                       |
+| FreeRTOS Image Build and Boot | N/A          | [CFT][FreeRTOS]                      |
+| Zephyr Image Build and Boot   | N/A          | [CFT][Zephyr]                        |
+| NuttX Image Build and Boot    | N/A          | [CFT][NuttX]                         |
 
 
 [Ubuntu]: ./Ubuntu/README.md
+[Ubuntu-LTS]: ./Ubuntu/README_LTS.md
 [BuildRoot]: ./BuildRoot/README.md
 [Yocto]: ./Yocto/README.md
 [Arch]: ./ArchLinux/README.md

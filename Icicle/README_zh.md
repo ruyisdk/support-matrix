@@ -4,8 +4,11 @@
 
 ### 操作系统信息
 
-- Ubuntu 24.04
-    - 下载链接：https://cdimage.ubuntu.com/releases/24.04/release/
+- Ubuntu 24.10
+    - 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/
+    - 参考安装文档：https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
+- Ubuntu 24.04.1 LTS
+    - 下载链接：https://cdimage.ubuntu.com/releases/24.04.1/release/
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
 - BuildRoot 24.02.2
     - 源码下载链接：https://buildroot.org/downloads/buildroot-2024.02.2.tar.gz
@@ -34,7 +37,8 @@
 
 | 软件分类                | 软件包名 | 测试结果（测试报告）        |
 |-----------------------|----------|---------------------------|
-| Ubuntu 镜像启动         | N/A      | [Basic][Ubuntu]（官方支持） |
+| Ubuntu 镜像启动         | N/A      | [CFT][Ubuntu]（官方支持）   |
+| Ubuntu LTS 镜像启动     | N/A      | [CFT][Ubuntu LTS]（官方支持） |
 | Yocto 镜像构建及启动    | N/A      | [Basic][Yocto]            |
 | BuildRoot 镜像启动      | N/A      | [Basic][BuildRoot]        |
 | Arch Linux 启动         | N/A      | [CFT][Arch]               |
@@ -45,6 +49,7 @@
 
 
 [Ubuntu]: ./Ubuntu/README_zh.md
+[Ubuntu-LTS]: ./Ubuntu/README_LTS_zh.md
 [BuildRoot]: ./BuildRoot/README_zh.md
 [Yocto]: ./Yocto/README_zh.md
 [Arch]: ./ArchLinux/README_zh.md
