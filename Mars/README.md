@@ -32,11 +32,12 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 | ---------------------- | ------------ | -------------------------------------------- |
 | Debian Image Boot      | N/A          | [Successful][Debian] (Milk-V Official Image) |
 | BuildRoot Build & Boot | N/A          | [Successful][BuildRoot]                      |
-| Ubuntu Image Boot      | N/A          | [CTF][Ubuntu] [CFT][Ubuntu-LTS]                         |
+| Ubuntu Image Boot      | N/A          | [CFT][Ubuntu]                                |
+| Ubuntu LTS Image Boot  | N/A          | [CFT][Ubuntu LTS]                            |
 | Deepin Image Boot      | N/A          | [CFT][Deepin]                                |
 
 [Debian]: ./Debian/README.md
 [BuildRoot]: ./BuildRoot/README.md
 [Ubuntu]: ./Ubuntu/README.md
-[Ubuntu-LTS]: ./Ubuntu/README_LTS.md
+[Ubuntu LTS]: ./Ubuntu/README_LTS.md
 [Deepin]: ./Deepin/README.md
