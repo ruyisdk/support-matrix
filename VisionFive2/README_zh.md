@@ -49,6 +49,9 @@
 - Alpine
     - 下载链接：https://dev.alpinelinux.org/~mps/riscv64/visionfive-v2-mmc.img.xz
     - 参考安装文档：https://arvanta.net/alpine/alpine-on-visionfive/
+- DietPi
+    - 下载链接：https://dietpi.com/downloads/images/testing/DietPi_VisionFive2-RISC-V-Sid.img.xz
+    - 参考安装文档：https://dietpi.com/blog/?p=2629
 
 
 ### 硬件开发板信息
@@ -64,6 +67,7 @@
 | Debian 镜像启动          | N/A      | [成功][Debian]（StarFive 厂商镜像）    |
 | openKylin 镜像启动       | N/A      | [成功][oK]（官方支持）                 |
 | Ubuntu 镜像启动          | N/A      | [成功][Ubuntu]（官方支持）             |
+| Ubuntu LTS 镜像启动      | N/A      | [成功][Ubuntu-LTS]（官方支持）             |
 | BuildRoot 镜像启动       | N/A      | [成功][BuildRoot]（StarFive 厂商镜像） |
 | Arch Linux 镜像启动      | N/A      | [成功][Arch]                           |
 | Gentoo 镜像启动          | N/A      | [成功][Gentoo]                         |
@@ -78,12 +82,14 @@
 | Deepin 镜像启动          | N/A      | [成功][Deepin]                         |
 | NetBSD 镜像启动          | N/A      | [成功][NetBSD]                         |
 | Alpine 镜像启动          | N/A      | [成功][Alpine]                         |
+| DietPi 镜像启动          | N/A      | [成功][DietPi]                         |
 
 
 [oERV]: ./openEuler/README_zh.md
 [Debian]: ./Debian/README_zh.md
 [oK]: ./openKylin/README_zh.md
 [Ubuntu]: ./Ubuntu/README_zh.md
+[Ubuntu-LTS]: ./Ubuntu/Ubuntu_LTS_zh.md
 [BuildRoot]: ./BuildRoot/README_zh.md
 [Arch]: ./ArchLinux/README_zh.md
 [Gentoo]: ./Gentoo/README_zh.md
@@ -97,3 +103,4 @@
 [Deepin]: ./Deepin/README_zh.md
 [NetBSD]: ./NetBSD/README_zh.md
 [Alpine]: ./Alpine/README_zh.md
+[DietPi]: ./DietPi/README_zh.md
