@@ -2,6 +2,7 @@
 Parse metadata of systems and boards
 """
 import os
+from typing import Any
 import yaml
 import frontmatter
 
@@ -47,6 +48,8 @@ class SystemVar:
     last_update: str
     link: list[str] | None
 
+    raw_data: Any # Store the raw data of the readed metadata
+
     def strip(self):
         """
         dummy for strip the system
@@ -71,6 +74,7 @@ class SystemVar:
                     f"{meta_path} has no frontmatter") from _
             if 'sys' not in post.keys():
                 raise FileNotFoundError(f"{meta_path} has no frontmatter")
+            self.raw_data = post
             if post['sys'] == 'revyos':
                 self.sys = 'debian'
             else:
@@ -164,11 +168,14 @@ class Board:
     cpu_core: SiFive U74 + SiFive S7 + SiFive E24
     ---
     """
+    vendor: str | None
     product: str
     cpu: str
     link: str
     cpu_core: str
     systems: list[System]
+
+    raw_data: Any # Store the raw data of the readed metadata
 
     def append_system(self, system: System):
         """
@@ -225,6 +232,8 @@ class Board:
             raise FileNotFoundError(f"{readme_path} not found")
         with open(readme_path, 'r', encoding="utf-8") as file:
             post = frontmatter.load(file)
+            self.raw_data = post
+            self.vendor = post.get('vendor', None)
             self.product = post['product']
             self.cpu = post['cpu']
             self.cpu_core = post['cpu_core']
