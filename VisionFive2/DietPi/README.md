@@ -1,6 +1,6 @@
 ---
 sys: dietpi
-sys_ver: null
+sys_ver: v9.7.1 (MichaIng/master)
 sys_var: null
 
 status: basic
