@@ -1,6 +1,6 @@
 ---
 sys: ubuntu
-sys_ver: 24.10
+sys_ver: 24.04.1
 sys_var: null
 
 status: basic
@@ -13,8 +13,8 @@ last_update: 2024-10-24
 
 ### Operating System Information
 
-- System Version: Ubuntu 24.10
-- Download Link: https://cdimage.ubuntu.com/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64+nezha.img.xz
+- System Version: Ubuntu 24.04.1
+- Download Link: https://cdimage.ubuntu.com/releases/24.04.1/release/ubuntu-24.04.1-preinstalled-server-riscv64+nezha.img.xz
 - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/Nezha%20D1
 
 ### Hardware Information
@@ -32,8 +32,8 @@ last_update: 2024-10-24
 Assume `/dev/sdc` is the storage card.
 
 ```bash
-xz -d ubuntu-24.10-preinstalled-server-riscv64+nezha.img.xz
-sudo dd if=ubuntu-24.10-preinstalled-server-riscv64+nezha.img of=/dev/sdc bs=1m status=progress
+xz -d ubuntu-24.04.1-preinstalled-server-riscv64+nezha.img.xz
+sudo dd if=ubuntu-24.04.1-preinstalled-server-riscv64+nezha.img of=/dev/sdc bs=1m status=progress
 ```
 
 ### Logging into the System
