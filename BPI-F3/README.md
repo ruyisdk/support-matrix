@@ -22,6 +22,12 @@ cpu_core: SpacemiT X60
   - Download Links: https://mirrors.tuna.tsinghua.edu.cn/armbian-releases/bananapif3/archive/Armbian_24.8.1_Bananapif3_noble_legacy_6.1.15_minimal.img.xz
   - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 
+- Fedora
+  - Download Links:
+    - Baidu Netdisk: https://pan.baidu.com/s/1EFcLInWYxLi032gmhueiWw?pwd=8888
+    - Google Drive: https://drive.google.com/file/d/1v-nHZA3AyFLaLRs6bt22XjIh7OVczI9d/view?usp=sharing
+  - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
+
 ### Hardware Information
 
 - Banana Pi BPI-F3
@@ -33,7 +39,9 @@ cpu_core: SpacemiT X60
 | Bianbu Image Boot           | N/A          | [Successful][Bianbu]        |
 | Armbian Image Boot          | N/A          | [Successful][Armbian]       |
 | Armbian Image Boot  (noble) | N/A          | [Successful][Armbian_noble] |
+| Fedora Image Boot           | N/A          | [Successful][Fedora]       |
 
 [Bianbu]: ./Bianbu/README.md
 [Armbian_noble]: ./Armbian/README_noble.md
 [Armbian]: ./Armbian/README.md
+[Fedora]: ./Fedora/README.md
