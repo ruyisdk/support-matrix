@@ -28,6 +28,10 @@ cpu_core: SpacemiT X60
     - Google Drive: https://drive.google.com/file/d/1v-nHZA3AyFLaLRs6bt22XjIh7OVczI9d/view?usp=sharing
   - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 
+- OpenWrt
+  - Download Links: https://archive.spacemit.com/openwrt/releases/bl-v2.0.y/targets/spacemit/DEVICE_debX/
+  - Reference Installation Document: https://bianbu-linux.spacemit.com/openwrt-docs/
+
 ### Hardware Information
 
 - Banana Pi BPI-F3
@@ -39,9 +43,11 @@ cpu_core: SpacemiT X60
 | Bianbu Image Boot           | N/A          | [Successful][Bianbu]        |
 | Armbian Image Boot          | N/A          | [Successful][Armbian]       |
 | Armbian Image Boot  (noble) | N/A          | [Successful][Armbian_noble] |
-| Fedora Image Boot           | N/A          | [Successful][Fedora]       |
+| Fedora Image Boot           | N/A          | [Successful][Fedora]        |
+| OpenWrt Image Boot          | N/A          | [Successful][OpenWrt]       |
 
 [Bianbu]: ./Bianbu/README.md
 [Armbian_noble]: ./Armbian/README_noble.md
 [Armbian]: ./Armbian/README.md
 [Fedora]: ./Fedora/README.md
+[OpenWrt]: ./OpenWrt/README.md
