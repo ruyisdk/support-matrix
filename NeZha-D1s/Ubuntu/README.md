@@ -3,7 +3,7 @@ sys: ubuntu
 sys_ver: 24.10
 sys_var: null
 
-status: basic
+status: CFT
 last_update: 2024-10-24
 ---
 
