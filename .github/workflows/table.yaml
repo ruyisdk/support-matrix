@@ -42,6 +42,7 @@ jobs:
           pip install -r assets/requirements.txt
           mkdir assets/output
           python assets/generate_svgimage.py -p . -o assets/output --html https://${{ github.repository_owner }}.github.io/support-matrix | tee build.log
+          python assets/generate_svgimage.py -p . -o assets/output --html https://${{ github.repository_owner }}.github.io/support-matrix -l zh | tee -a build.log
       - name: Check Commit ID
         id: truecommit
         run: |
