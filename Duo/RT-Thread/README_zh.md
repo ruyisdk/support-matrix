@@ -3,12 +3,10 @@
 ## 测试环境
 
 ### 操作系统信息
-
-- 构建系统版本：Ubuntu 20.04 LTS x86_64
-- 系统版本：RT-Thread 5.1.0, commit [3ff4fe5](https://github.com/RT-Thread/rt-thread/commit/3ff4fe5395516eb734b2cead9cc50f35e54f6511)
 - 源码链接：https://github.com/RT-Thread/rt-thread
-- 参考安装文档：https://github.com/RT-Thread/rt-thread/tree/master/bsp/cvitek/cv1800b
-
+- 参考安装文档：https://github.com/RT-Thread/rt-thread/blob/master/bsp/cvitek/README.md
+- 工具链：https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1705395512373/Xuantie-900-gcc-elf-newlib-x86_64-V2.8.1-20240115.tar.gz
+- 
 ### 硬件信息
 
 - Milk-V Duo 64M
@@ -23,42 +21,48 @@
 
 ### 准备系统环境
 
-注意，请使用 Ubuntu 20.04，已知在更新版本的系统上可能出现构建失败。
+获取工具链并配置：
+```bash
+wget https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1705395512373/Xuantie-900-gcc-elf-newlib-x86_64-V2.8.1-20240115.tar.gz
 
-可以使用 Docker 等容器环境进行构建。
-
-安装依赖包：
-
-```shell
-sudo apt update && sudo apt install -y git gcc build-essential scons libncurses5-dev python3 python3-requests curl
+tar -xzvf Xuantie-900-gcc-elf-newlib-x86_64-V2.8.1-20240115.tar.gz
 ```
 
-获取工具链：
+自行更改以下路径：
+```bash
+export RTT_CC_PREFIX=riscv64-unknown-elf-
+export RTT_EXEC_PATH=/opt/Xuantie-900-gcc-elf-newlib-x86_64-V2.8.1/bin
+```
 
-```shell
-curl -LO https://github.com/RT-Thread/toolchains-ci/releases/download/v1.7/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu_latest.tar.bz2
-tar xvf riscv64-linux-musleabi_for_x86_64-pc-linux-gnu_latest.tar.bz2
-export RTT_EXEC_PATH=~/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin
+获取依赖：
+```bash
+sudo apt install -y scons libncurses5-dev device-tree-compiler
 ```
 
 ### 拉取源码并编译固件
 
 ```shell
 git clone --depth=1 https://github.com/RT-Thread/rt-thread
-cd rt-thread/bsp/cvitek/cv1800b
+cd rt-thread/bsp/cvitek/cv18xx_risc-v
 # 生成配置文件
 scons --menuconfig
 source ~/.env/env.sh
+pkgs --update
 scons -j$(nproc) --verbose
 cd ../
-bash combine-fip.sh
+./combine-fip.sh $(pwd)/cv18xx_risc-v Image
 ```
+menuconfig 中的 Board Type 请选择 `milkv-duo`。
 
-执行结束后，会在 `cvitek` 目录下生成 boot.sd 和 fip.bin 两个文件。
+执行结束后，会在 `cvitek/output/milkv-duo` 目录下生成 boot.sd 和 fip.bin 两个文件。
 
 ### 准备 microSD 卡
 
-清空 microSD 卡（可使用 `wipefs -af /path/to/your-card`），并创建一个 FAT32 分区。
+清空 microSD 卡，并创建一个 FAT32 分区：
+```shell
+wipefs -af /path/to/your-card
+mkfs.fat /path/to/your-card
+```
 
 将构建出的 boot.sd 和 fip.bin 复制进 microSD 卡。至此，存储卡已经可用来在 Duo 上启动 RT-Thread。
 
@@ -77,38 +81,40 @@ bash combine-fip.sh
 ### 启动信息
 
 ```log
-Boot from SD ...                                                                                                                    
-switch to partitions #0, OK                                                                                                         
-mmc0 is current device                                                                                                              
-173704 bytes read in 10 ms (16.6 MiB/s)                                                                                             
-## Loading kernel from FIT Image at 81400000 ...                                                                                    
-   Using 'config-cv1800b_milkv_duo_sd' configuration                                                                                
-   Trying 'kernel-1' kernel subimage                                                                                                
-   Verifying Hash Integrity ... crc32+ OK                                                                                           
-## Loading fdt from FIT Image at 81400000 ...                                                                                       
-   Using 'config-cv1800b_milkv_duo_sd' configuration                                                                                
-   Trying 'fdt-cv1800b_milkv_duo_sd' fdt subimage                                                                                   
-   Verifying Hash Integrity ... sha256+ OK                                                                                          
-   Booting using the fdt blob at 0x814255c4                                                                                         
-   Uncompressing Kernel Image                                                                                                       
-   Decompressing 424720 bytes used 58ms                                                                                             
-   Loading Device Tree to 0000000081be5000, end 0000000081becb60 ... OK                                                             
-                                                                                                                                    
-Starting kernel ...                                                                                                                 
-                                                                                                                                    
-heap: [0x8029be68 - 0x8129be68]                                                                                                     
-                                                                                                                                    
- \ | /                                                                                                                              
-- RT -     Thread Smart Operating System                                                                                            
- / | \     5.1.0 build Mar 26 2024 05:52:37                                                                                         
- 2006 - 2024 Copyright by RT-Thread team                                                                                            
-Hello RT-Smart!                                                                                                                     
-msh />  
+Boot from SD ...
+switch to partitions #0, OK
+mmc0 is current device
+147784 bytes read in 8 ms (17.6 MiB/s)
+## Loading kernel from FIT Image at 81400000 ...
+   Using 'config-cv1800b_milkv_duo_sd' configuration
+   Trying 'kernel-1' kernel subimage
+   Verifying Hash Integrity ... crc32+ OK
+## Loading fdt from FIT Image at 81400000 ...
+   Using 'config-cv1800b_milkv_duo_sd' configuration
+   Trying 'fdt-cv1800b_milkv_duo_sd' fdt subimage
+   Verifying Hash Integrity ... sha256+ OK
+   Booting using the fdt blob at 0x8141f084
+   Uncompressing Kernel Image
+   Decompressing 365360 bytes used 49ms
+   Loading Device Tree to 0000000081bdd000, end 0000000081be4b60 ... OK
+
+Starting kernel ...
+
+[I/drv.pinmux] Pin Name = "UART0_RX", Func Type = 281, selected Func [0]
+
+[I/drv.pinmux] Pin Name = "UART0_TX", Func Type = 282, selected Func [0]
+
+heap: [0x8028a780 - 0x81200000]
+
+ \ | /
+- RT -     Thread Operating System
+ / | \     5.2.0 build Nov  1 2024 20:34:41
+ 2006 - 2024 Copyright by RT-Thread team
+lwIP-2.1.2 initialized!
+[I/sal.skt] Socket Abstraction Layer initialize success.
+Hello RISC-V!
+msh />
 ```
-
-屏幕录像（从刷写镜像到登录系统）：
-
-[![asciicast](https://asciinema.org/a/gbDJeUr3mdHNxd3mXev7UpBGl.svg)](https://asciinema.org/a/gbDJeUr3mdHNxd3mXev7UpBGl)
 
 ## 测试判定标准
 

@@ -15,9 +15,9 @@
   - 下载链接: https://github.com/milkv-duo/duo-buildroot-sdk/releases
   - 参考安装文档: https://github.com/milkv-duo/duo-buildroot-sdk
       - FreeRTOS: https://milkv.io/zh/docs/duo/getting-started/rtoscore
-- RT-Thread
+- RT-Thread / RT-Thread Smart
   - 源码链接：https://github.com/RT-Thread/rt-thread
-  - 参考安装文档：https://github.com/RT-Thread/rt-thread/blob/6101f1fd29374ac69c107e3cfeadfa06b0c901f9/bsp/cvitek/cv18xx_risc-v/README_zh.md
+  - 参考安装文档：https://github.com/RT-Thread/rt-thread/blob/master/bsp/cvitek/README.md
 - Zephyr
   - 源码链接: https://github.com/zephyrproject-rtos/zephyr/tree/main
   - 参考安装文档:
@@ -36,18 +36,20 @@
 
 ## 测试结果
 
-| 软件分类                 | 软件包名 | 测试结果（测试报告）                          |
-| ------------------------ | -------- | --------------------------------------------- |
-| BuildRoot 镜像启动       | N/A      | [成功][BuildRoot]                             |
-| FreeRTOS 启动            | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内） |
-| Debian 镜像启动          | N/A      | [成功][Debian]                                |
-| RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]                             |
-| Zephyr 镜像构建及启动    | N/A      | [成功][Zephyr]                                |
-| Alpine Linux 启动        | N/A      | [WIP/CFH][Alpine] （需手工构建 rootfs）       |
+| 软件分类                       | 软件包名 | 测试结果（测试报告）                          |
+| ------------------------------ | -------- | --------------------------------------------- |
+| BuildRoot 镜像启动             | N/A      | [成功][BuildRoot]                             |
+| FreeRTOS 启动                  | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内） |
+| Debian 镜像启动                | N/A      | [成功][Debian]                                |
+| RT-Thread 镜像构建及启动       | N/A      | [成功][RT-Thread]                             |
+| RT-Thread Smart 镜像构建及启动 | N/A      | [CFH][RT-Thread]                              |
+| Zephyr 镜像构建及启动          | N/A      | [成功][Zephyr]                                |
+| Alpine Linux 启动              | N/A      | [WIP/CFH][Alpine] （需手工构建 rootfs）       |
 
 [BuildRoot]: ./BuildRoot/README_zh.md
 [Debian]: ./Debian/README_zh.md
 [RT-Thread]: ./RT-Thread/README_zh.md
+[RT-Smart]: ./RT-Thread/README_RTSmart_zh.md
 [FreeRTOS]: ./FreeRTOS/README_zh.md
 [Zephyr]: ./Zephyr/README_zh.md
 [Alpine]: ./Alpine/README_zh.md

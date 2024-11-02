@@ -23,9 +23,9 @@ cpu_core: XuanTie C906
 - Fedora 38
   - Download link: https://github.com/chainsx/fedora-riscv-builder/releases/download/20230719-1650/Fedora-38-Minimal-MilkV-Duo-riscv64.img.xz
   - Reference Installation Document: https://github.com/chainsx/fedora-riscv-builder
-- RT-Thread 5.1.0
-  - Source code link: https://github.com/RT-Thread/rt-thread
-  - Reference Installation Document: https://github.com/RT-Thread/rt-thread/tree/master/bsp/cvitek/cv1800b
+- RT-Thread / RT-Thread Smart
+  - Source Code Link: https://github.com/RT-Thread/rt-thread
+  - Reference Installation Document: https://github.com/RT-Thread/rt-thread/blob/master/bsp/cvitek/README.md
 - ThreadX
   - Source code link: https://github.com/saicogn/ThreadX-to-RISC-V64
   - Reference Installation Document: https://github.com/saicogn/ThreadX-to-RISC-V64/blob/main/README.md
@@ -50,24 +50,26 @@ cpu_core: XuanTie C906
 ## Test Results
 
 
-| Software Category              | Package Name | Test Results (Test Report)                        |
-| ------------------------------ | ------------ | ------------------------------------------------- |
-| BuildRoot Image Boot           | N/A          | [Success][Duo] (flashed via `ruyi` CLI)           |
-| FreeRTOS Boot                  | N/A          | [Success][FreeRTOS] (included in BuildRoot image) |
-| Arch Linux Image Boot          | N/A          | [Success][Arch]                                   |
-| Debian Image Boot              | N/A          | [Success][Debian]                                 |
-| RT-Thread Image Build and Boot | N/A          | [Success][RT-Thread]                              |
-| Fedora Image Boot              | N/A          | [Failed][Fedora]                                  |
-| openEuler                      | N/A          | [Success][oE]                                     |
-| ThreadX Image Build and Boot   | N/A          | [Success][ThreadX]                                |
-| Zephyr Image Build and Boot    | N/A          | [Success][Zephyr]                                 |
-| UniProton Boot                 | N/A          | [Success][UniProton]                              |
+| Software Category                    | Package Name | Test Results (Test Report)                        |
+| ------------------------------------ | ------------ | ------------------------------------------------- |
+| BuildRoot Image Boot                 | N/A          | [Success][Duo] (flashed via `ruyi` CLI)           |
+| FreeRTOS Boot                        | N/A          | [Success][FreeRTOS] (included in BuildRoot image) |
+| Arch Linux Image Boot                | N/A          | [Success][Arch]                                   |
+| Debian Image Boot                    | N/A          | [Success][Debian]                                 |
+| RT-Thread Image Build and Boot       | N/A          | [Success][RT-Thread]                              |
+| RT-Thread Smart Image Build and Boot | N/A          | [Success][RT-Smart]                               |
+| Fedora Image Boot                    | N/A          | [Failed][Fedora]                                  |
+| openEuler                            | N/A          | [Success][oE]                                     |
+| ThreadX Image Build and Boot         | N/A          | [Success][ThreadX]                                |
+| Zephyr Image Build and Boot          | N/A          | [Success][Zephyr]                                 |
+| UniProton Boot                       | N/A          | [Success][UniProton]                              |
 
 [Duo]: ./BuildRoot/README.md
 [Arch]: ./ArchLinux/README.md
 [Debian]: ./Debian/README.md
 [Fedora]: ./Fedora/README.md
 [RT-Thread]: ./RT-Thread/README.md
+[RT-Smart]: ./RT-Smart/README_RTSmart.md
 [FreeRTOS]: ./FreeRTOS/README.md
 [oE]: ./openEuler/README.md
 [ThreadX]: ./ThreadX/README.md

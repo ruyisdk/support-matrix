@@ -1,10 +1,10 @@
 ---
 sys: rtthread
 sys_ver: null
-sys_var: null
+sys_var: standard
 
 status: basic
-last_update: 2024-06-21
+last_update: 2024-11-02
 ---
 
 # RT-Thread Milk-V Duo 256M Test Report
@@ -14,8 +14,8 @@ last_update: 2024-06-21
 ### Operating System Information
 
 - Source Code Link: https://github.com/RT-Thread/rt-thread
-- Reference Installation Document: https://github.com/RT-Thread/rt-thread/tree/master/bsp/cvitek/cv18xx_risc-v
-   - Toolchain: https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1705395512373/Xuantie-900-gcc-elf-newlib-x86_64-V2.8.1-20240115.tar.gz
+- Reference Installation Document: https://github.com/RT-Thread/rt-thread/tree/master/bsp/cvitek
+- Toolchain: https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1705395512373/Xuantie-900-gcc-elf-newlib-x86_64-V2.8.1-20240115.tar.gz
 
 ### Hardware Information
 
@@ -31,6 +31,7 @@ last_update: 2024-06-21
 Obtain the toolchain and configure it:
 ```bash
 wget https://occ-oss-prod.oss-cn-hangzhou.aliyuncs.com/resource//1705395512373/Xuantie-900-gcc-elf-newlib-x86_64-V2.8.1-20240115.tar.gz
+
 tar -xzvf Xuantie-900-gcc-elf-newlib-x86_64-V2.8.1-20240115.tar.gz
 ```
 
@@ -47,9 +48,8 @@ sudo apt install -y scons libncurses5-dev device-tree-compiler
 
 ```shell
 git clone --depth=1 https://github.com/RT-Thread/rt-thread
-cd rt-thread/bsp/cvitek/
-cd cv18xx_risc-v
-# 生成配置文件
+cd rt-thread/bsp/cvitek/cv18xx_risc-v
+# Generate configuration
 scons --menuconfig
 source ~/.env/env.sh
 pkgs --update
@@ -58,15 +58,19 @@ cd ../
 ./combine-fip.sh $(pwd)/cv18xx_risc-v Image
 ```
 
-Please select the 256m version.
+Please select `milkv-duo256m` under the `Board Type` option in menuconfig.
 
-After completion, `boot.sd` and `fip.bin` files will be generated in the `output` directory.
+`boot.sd` and `fip.bin` files will be generated in the `cvitek/output/milkv-duo256m` directory upon completion.
 
 ### Prepare microSD Card
 
-Clear the microSD card (you can use `wipefs -af /path/to/your-card`), and create a FAT32 partition.
+Clear the microSD card and create a FAT32 partition:
+```shell
+wipefs -af /path/to/your-card
+mkfs.fat /path/to/your-card
+```
 
-Copy the generated `boot.sd` and `fip.bin` files onto the microSD card. The storage card is now ready to boot RT-Thread on the Duo.
+Copy the generated `boot.sd` and `fip.bin` files onto the microSD card. The storage card is now ready to boot RT-Thread on the Duo 256M.
 
 ### Logging into the System
 
@@ -83,13 +87,53 @@ The system boots up normally and login through the serial port is successful.
 ### Boot Log
 
 ```log
+Boot from SD ...
+switch to partitions #0, OK
+mmc0 is current device
+177764 bytes read in 11 ms (15.4 MiB/s)
+## Loading kernel from FIT Image at 81800000 ...
+   Using 'config-cv1812cp_milkv_duo256m_sd' configuration
+   Trying 'kernel-1' kernel subimage
+     Description:  cvitek kernel
+     Type:         Kernel Image
+     Compression:  lzma compressed
+     Data Start:   0x818000d8
+     Data Size:    151272 Bytes = 147.7 KiB
+     Architecture: RISC-V
+     OS:           Linux
+     Load Address: 0x80200000
+     Entry Point:  0x80200000
+     Hash algo:    crc32
+     Hash value:   aa58e975
+   Verifying Hash Integrity ... crc32+ OK
+## Loading fdt from FIT Image at 81800000 ...
+   Using 'config-cv1812cp_milkv_duo256m_sd' configuration
+   Trying 'fdt-cv1812cp_milkv_duo256m_sd' fdt subimage
+     Description:  cvitek device tree - cv1812cp_milkv_duo256m_sd
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x818250dc
+     Data Size:    24599 Bytes = 24 KiB
+     Architecture: RISC-V
+     Hash algo:    sha256
+     Hash value:   fca09bd9678df89606a7d31d37d033745f23ef47701ba482f4637fc0ddbb0715
+   Verifying Hash Integrity ... sha256+ OK
+   Booting using the fdt blob at 0x818250dc
+   Uncompressing Kernel Image
+   Decompressing 423684 bytes used 47ms
+   Loading Device Tree to 000000008a777000, end 000000008a780016 ... OK
+
 Starting kernel ...
 
-heap: [0x8028c410 - 0x8128c410]
+[I/drv.pinmux] Pin Name = "UART0_RX", Func Type = 281, selected Func [0]
+
+[I/drv.pinmux] Pin Name = "UART0_TX", Func Type = 282, selected Func [0]
+
+heap: [0x8029af58 - 0x81200000]
 
  \ | /
 - RT -     Thread Operating System
- / | \     5.2.0 build May 28 2024 12:05:25
+ / | \     5.2.0 build Nov  2 2024 20:34:48
  2006 - 2024 Copyright by RT-Thread team
 lwIP-2.1.2 initialized!
 [I/sal.skt] Socket Abstraction Layer initialize success.
@@ -97,9 +141,6 @@ Hello RISC-V!
 msh />
 
 ```
-
-Screen recording (from image flashing to system login):
-[![asciicast](https://asciinema.org/a/3zKnnFwIlQLKPek64gfsjmaqK.svg)](https://asciinema.org/a/3zKnnFwIlQLKPek64gfsjmaqK)
 
 ## Test Criteria
 
