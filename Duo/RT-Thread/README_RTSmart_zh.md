@@ -80,33 +80,33 @@ mkfs.fat /path/to/your-card
 ### 启动信息
 
 ```log
-Boot from SD ...                                                                                                                    
-switch to partitions #0, OK                                                                                                         
-mmc0 is current device                                                                                                              
-173704 bytes read in 10 ms (16.6 MiB/s)                                                                                             
-## Loading kernel from FIT Image at 81400000 ...                                                                                    
-   Using 'config-cv1800b_milkv_duo_sd' configuration                                                                                
-   Trying 'kernel-1' kernel subimage                                                                                                
-   Verifying Hash Integrity ... crc32+ OK                                                                                           
-## Loading fdt from FIT Image at 81400000 ...                                                                                       
-   Using 'config-cv1800b_milkv_duo_sd' configuration                                                                                
-   Trying 'fdt-cv1800b_milkv_duo_sd' fdt subimage                                                                                   
-   Verifying Hash Integrity ... sha256+ OK                                                                                          
-   Booting using the fdt blob at 0x814255c4                                                                                         
-   Uncompressing Kernel Image                                                                                                       
-   Decompressing 424720 bytes used 58ms                                                                                             
-   Loading Device Tree to 0000000081be5000, end 0000000081becb60 ... OK                                                             
-                                                                                                                                    
-Starting kernel ...                                                                                                                 
-                                                                                                                                    
-heap: [0x8029be68 - 0x8129be68]                                                                                                     
-                                                                                                                                    
- \ | /                                                                                                                              
-- RT -     Thread Smart Operating System                                                                                            
- / | \     5.1.0 build Mar 26 2024 05:52:37                                                                                         
- 2006 - 2024 Copyright by RT-Thread team                                                                                            
-Hello RT-Smart!                                                                                                                     
-msh />  
+Boot from SD ...
+switch to partitions #0, OK
+mmc0 is current device
+184124 bytes read in 11 ms (16 MiB/s)
+## Loading kernel from FIT Image at 81400000 ...
+   Using 'config-cv1800b_milkv_duo_sd' configuration
+   Trying 'kernel-1' kernel subimage
+   Verifying Hash Integrity ... crc32+ OK
+## Loading fdt from FIT Image at 81400000 ...
+   Using 'config-cv1800b_milkv_duo_sd' configuration
+   Trying 'fdt-cv1800b_milkv_duo_sd' fdt subimage
+   Verifying Hash Integrity ... sha256+ OK
+   Booting using the fdt blob at 0x81427e78
+   Uncompressing Kernel Image
+   Decompressing 475312 bytes used 63ms
+   Loading Device Tree to 0000000081bdd000, end 0000000081be4b60 ... OK
+
+Starting kernel ...
+
+heap: [0x802aa328 - 0x812aa328]
+
+ \ | /
+- RT -     Thread Smart Operating System
+ / | \     5.1.0 build Nov  3 2024 12:31:40
+ 2006 - 2024 Copyright by RT-Thread team
+Hello RT-Smart!
+msh />
 ```
 
 屏幕录像（从刷写镜像到登录系统）：
