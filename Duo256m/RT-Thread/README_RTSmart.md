@@ -28,6 +28,8 @@ last_update: 2024-11-02
 
 ## Installation Steps
 
+The following steps are tested on Arch Linux, but should be applicable to all major Linux distributions.
+
 ### Fetch Source Code and Compile Firmware
 
 Obtain the toolchain and configure it:
@@ -46,6 +48,7 @@ export RTT_EXEC_PATH=/opt/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin
 Fetch dependencies:
 ```bash
 sudo apt install -y scons libncurses5-dev device-tree-compiler
+# or on Arch Linux: sudo pacman -S scons dtc ncurses 
 ```
 
 ```bash

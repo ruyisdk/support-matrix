@@ -28,12 +28,15 @@ last_update: 2024-11-02
 
 ## Installation Steps
 
+The following steps are tested on Arch Linux, but should be applicable to all major Linux distributions.
+
 ### Preparing the System Environment
 
 Install the required packages:
 
 ```shell
 sudo apt install -y scons libncurses5-dev device-tree-compiler
+# or on Arch Linux: sudo pacman -S scons dtc ncurses 
 ```
 
 Get the toolchain:

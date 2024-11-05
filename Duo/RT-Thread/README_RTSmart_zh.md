@@ -18,6 +18,8 @@
 
 ## 构建步骤
 
+以下步骤在 Arch Linux 上测试通过，但应适用各大主流 Linux 发行版。
+
 ### 准备系统环境
 
 获取工具链：
@@ -37,6 +39,7 @@ export RTT_EXEC_PATH=/opt/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu/bin
 获取依赖：
 ```bash
 sudo apt install -y scons libncurses5-dev device-tree-compiler
+# 在 Arch Linux 上为：sudo pacman -S scons dtc ncurses 
 ```
 
 ### 拉取源码并编译固件
