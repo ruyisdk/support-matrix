@@ -21,9 +21,9 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
   - Download link: https://github.com/milkv-duo/duo-buildroot-sdk/releases
   - Reference Installation Document: https://github.com/milkv-duo/duo-buildroot-sdk
       - FreeRTOS: https://milkv.io/zh/docs/duo/getting-started/rtoscore
-- RT-Thread
+- RT-Thread / RT-Thread Smart
   - Source code link: [https://github.com/RT-Thread/rt-thread](https://github.com/RT-Thread/rt-thread)
-  - Reference Installation Document: [https://github.com/RT-Thread/rt-thread/blob/6101f1fd29374ac69c107e3cfeadfa06b0c901f9/bsp/cvitek/cv18xx_risc-v/README.md](https://github.com/RT-Thread/rt-thread/blob/6101f1fd29374ac69c107e3cfeadfa06b0c901f9/bsp/cvitek/cv18xx_risc-v/README.md)
+  - Reference Installation Document: [https://github.com/RT-Thread/rt-thread/blob/master/bsp/cvitek/README.md](https://github.com/RT-Thread/rt-thread/blob/master/bsp/cvitek/README.md)
 - Zephyr
   - Source code link: https://github.com/zephyrproject-rtos/zephyr/tree/main
   - Reference Installation Document:
@@ -42,18 +42,20 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 
 ## Test Results
 
-| Software Category            | Package Name | Test Result (Report)                                  |
-| ---------------------------- | ------------ | ----------------------------------------------------- |
-| BuildRoot Image Boot         | N/A          | [Success][BuildRoot]                                  |
-| FreeRTOS Boot                | N/A          | [Success][FreeRTOS] (Included in BuildRoot image)     |
-| Debian Image Boot            | N/A          | [Success][Debian]                                     |
-| RT-Thread Image Build & Boot | N/A          | [Success][RT-Thread]                                  |
-| Zephyr Image Build & Boot    | N/A          | [Success][Zephyr]                                     |
-| Alpine Linux Boot            | N/A          | [WIP/CFH][Alpine] (requires manually building rootfs) |
+| Software Category                  | Package Name | Test Result (Report)                                  |
+| ---------------------------------- | ------------ | ----------------------------------------------------- |
+| BuildRoot Image Boot               | N/A          | [Success][BuildRoot]                                  |
+| FreeRTOS Boot                      | N/A          | [Success][FreeRTOS] (Included in BuildRoot image)     |
+| Debian Image Boot                  | N/A          | [Success][Debian]                                     |
+| RT-Thread Image Build & Boot       | N/A          | [Success][RT-Thread]                                  |
+| RT-Thread Smart Image Build & Boot | N/A          | [CFH][RT-Smart]                                       |
+| Zephyr Image Build & Boot          | N/A          | [Success][Zephyr]                                     |
+| Alpine Linux Boot                  | N/A          | [WIP/CFH][Alpine] (requires manually building rootfs) |
 
 [BuildRoot]: ./BuildRoot/README.md
 [Debian]: ./Debian/README.md
 [RT-Thread]: ./RT-Thread/README.md
+[RT-Smart]: ./RT-Thread/README_RTSmart.md
 [FreeRTOS]: ./FreeRTOS/README.md
 [Zephyr]: ./Zephyr/README.md
 [Alpine]: ./Alpine/README.md

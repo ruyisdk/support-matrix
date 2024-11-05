@@ -17,9 +17,9 @@
 - Fedora 38
   - 下载链接：https://github.com/chainsx/fedora-riscv-builder/releases/download/20230719-1650/Fedora-38-Minimal-MilkV-Duo-riscv64.img.xz
   - 参考安装文档：https://github.com/chainsx/fedora-riscv-builder
-- RT-Thread 5.1.0
+- RT-Thread / RT-Thread Smart
   - 源码链接：https://github.com/RT-Thread/rt-thread
-  - 参考安装文档：https://github.com/RT-Thread/rt-thread/tree/master/bsp/cvitek/cv1800b
+  - 参考安装文档：https://github.com/RT-Thread/rt-thread/blob/master/bsp/cvitek/README.md
 - ThreadX
   - 源码链接: https://github.com/saicogn/ThreadX-to-RISC-V64
   - 参考安装文档: https://github.com/saicogn/ThreadX-to-RISC-V64/blob/main/README.md
@@ -43,24 +43,26 @@
 
 ## 测试结果
 
-| 软件分类                 | 软件包名 | 测试结果（测试报告）                          |
-| ------------------------ | -------- | --------------------------------------------- |
-| BuildRoot 镜像启动       | N/A      | [成功][Duo]（通过 `ruyi` CLI 刷写）           |
-| FreeRTOS 启动            | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内） |
-| Arch Linux 镜像启动      | N/A      | [成功][Arch]                                  |
-| Debian 镜像启动          | N/A      | [成功][Debian]                                |
-| RT-Thread 镜像构建及启动 | N/A      | [成功][RT-Thread]                             |
-| Fedora 镜像启动          | N/A      | [失败][Fedora]                                |
-| openEuler                | N/A      | [成功][oE]                                    |
-| ThreadX 镜像构建及启动   | N/A      | [成功][ThreadX]                               |
-| Zephyr  镜像构建及启动   | N/A      | [成功][Zephyr]                                |
-| UniProton 启动           | N/A      | [成功][UniProton]                             |
+| 软件分类                       | 软件包名 | 测试结果（测试报告）                          |
+| ------------------------------ | -------- | --------------------------------------------- |
+| BuildRoot 镜像启动             | N/A      | [成功][Duo]（通过 `ruyi` CLI 刷写）           |
+| FreeRTOS 启动                  | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内） |
+| Arch Linux 镜像启动            | N/A      | [成功][Arch]                                  |
+| Debian 镜像启动                | N/A      | [成功][Debian]                                |
+| RT-Thread 镜像构建及启动       | N/A      | [成功][RT-Thread]                             |
+| RT-Thread Smart 镜像构建及启动 | N/A      | [成功][RT-Smart]                              |
+| Fedora 镜像启动                | N/A      | [失败][Fedora]                                |
+| openEuler                      | N/A      | [成功][oE]                                    |
+| ThreadX 镜像构建及启动         | N/A      | [成功][ThreadX]                               |
+| Zephyr  镜像构建及启动         | N/A      | [成功][Zephyr]                                |
+| UniProton 启动                 | N/A      | [成功][UniProton]                             |
 
 [Duo]: ./BuildRoot/README_zh.md
 [Arch]: ./ArchLinux/README_zh.md
 [Debian]: ./Debian/README_zh.md
 [Fedora]: ./Fedora/README_zh.md
 [RT-Thread]: ./RT-Thread/README_zh.md
+[RT-Smart]: ./RT-Smart/README_RTSmart_zh.md
 [FreeRTOS]: ./FreeRTOS/README_zh.md
 [oE]: ./openEuler/README_zh.md
 [ThreadX]: ./ThreadX/README_zh.md
