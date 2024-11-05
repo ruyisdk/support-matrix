@@ -23,8 +23,12 @@
   - 参考安装文档:
       - https://docs.zephyrproject.org/latest/develop/getting_started/index.html
       - https://github.com/milkv-duo/duo-buildroot-sdk
-- Alpine Linux 3.20.3 riscv64
+- Alpine Linux 3.20.3/edge riscv64
   - 下载链接：
+    - https://drive.google.com/file/d/1zhhB6AdgvjjuzBWjY6TchdX5b0uNWzP-/view
+  
+    或者
+    
     - Alpine minirootfs: [https://alpinelinux.org/downloads/](https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz)
     - 最新的 Duo 256M Debian 镜像 (用于提取内核及其模块): [https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/](https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/download/v1.4.0/duo256_sd.img.lz4)
   - 参考安装文档：
@@ -36,15 +40,15 @@
 
 ## 测试结果
 
-| 软件分类                       | 软件包名 | 测试结果（测试报告）                          |
-| ------------------------------ | -------- | --------------------------------------------- |
-| BuildRoot 镜像启动             | N/A      | [成功][BuildRoot]                             |
-| FreeRTOS 启动                  | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内） |
-| Debian 镜像启动                | N/A      | [成功][Debian]                                |
-| RT-Thread 镜像构建及启动       | N/A      | [成功][RT-Thread]                             |
-| RT-Thread Smart 镜像构建及启动 | N/A      | [CFH][RT-Thread]                              |
-| Zephyr 镜像构建及启动          | N/A      | [成功][Zephyr]                                |
-| Alpine Linux 启动              | N/A      | [WIP/CFH][Alpine] （需手工构建 rootfs）       |
+| 软件分类                       | 软件包名 | 测试结果（测试报告）                              |
+| ------------------------------ | -------- | ------------------------------------------------- |
+| BuildRoot 镜像启动             | N/A      | [成功][BuildRoot]                                 |
+| FreeRTOS 启动                  | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内）     |
+| Debian 镜像启动                | N/A      | [成功][Debian]                                    |
+| RT-Thread 镜像构建及启动       | N/A      | [成功][RT-Thread]                                 |
+| RT-Thread Smart 镜像构建及启动 | N/A      | [CFH][RT-Thread]                                  |
+| Zephyr 镜像构建及启动          | N/A      | [成功][Zephyr]                                    |
+| Alpine Linux 启动              | N/A      | [CFH][Alpine] （可使用社区镜像或手工构建 rootfs） |
 
 [BuildRoot]: ./BuildRoot/README_zh.md
 [Debian]: ./Debian/README_zh.md

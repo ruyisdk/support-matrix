@@ -3,8 +3,8 @@ sys: alpine
 sys_ver: null
 sys_var: null
 
-status: wip
-last_update: 2024-09-29
+status: cfh
+last_update: 2024-11-05
 ---
 
 # Alpine Linux Milk-V Duo 256M Test Report
@@ -13,8 +13,12 @@ last_update: 2024-09-29
 
 ### Operating System Information
 
-- System Version: 3.20.3 riscv64
+- System Version: 3.20.3/edge riscv64
 - Download Link: 
+  - https://drive.google.com/file/d/1zhhB6AdgvjjuzBWjY6TchdX5b0uNWzP-/view
+  > Note: This image is provided by community developers and is not an official image.
+
+  (Alternatively):
   - Alpine minirootfs: [https://alpinelinux.org/downloads/](https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz)
   - Latest Duo 256M Debian image (for the kernel and its modules): [https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/](https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/download/v1.4.0/duo256_sd.img.lz4)
 - Reference Installation Document: 
@@ -32,7 +36,20 @@ last_update: 2024-09-29
 
 ## Installation Steps
 
-### Download Alpine minirootfs and Debian image
+### Method A: Flash community image
+
+Download the prebuilt community image: https://drive.google.com/file/d/1zhhB6AdgvjjuzBWjY6TchdX5b0uNWzP-/view
+Then flash it with
+```shell
+unzip milkv-duo-256m-alpinelinux-cwt-2023-10-28.img.zip
+sudo dd if=milkv-duo-256m-alpinelinux-cwt-2023-10-28.img of=/dev/your/device bs=1M status=progress
+```
+
+### Method B: Build and flash your own rootfs
+
+Alternatively, you can also build your own image by replacing relevant content in existing images for the Duo 256M with Alpine's official rootfs.
+
+#### Download Alpine minirootfs and Debian image
 
 We will use the kernel and kernel modules from Fishwaldo's Duo 256M Debian image.
 
@@ -43,15 +60,15 @@ wget https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/download/v1.4.0/
 lz4 -d duo256_sd.img.lz4
 ```
 
-### Prepare rootfs
+#### Prepare rootfs
 Note that the obtained Alpine system is only a "minirootfs" without system packages such as OpenRC. We need to install Alpine's base packages using `apk` inside the rootfs in order to make it bootable.
 
-#### Install Alpine's package manager `apk`
+##### Install Alpine's package manager `apk`
 Skip this step if using Alpine-based distributions on host. Otherwise install `apk-tools` on your distribution (e.g. on Arch Linux: `sudo pacman -S apk-tools`).
 
 run `apk --help` to verify installation.
 
-#### Install Alpine's base package `alpine-base` inside minirootfs
+##### Install Alpine's base package `alpine-base` inside minirootfs
 
 (`chroot` is NOT required)
 
@@ -60,7 +77,7 @@ cd alpine-minirootfs-3.20.3-riscv64
 sudo apk add -p . --initdb -U --arch riscv64 --allow-untrusted alpine-base
 ```
 
-#### Extra setups
+##### Extra setups
 
 1. Edit `./etc/inittab` and add the following line (or uncomment) to enable serial access on `/dev/ttyS0`:
     ```
@@ -73,7 +90,7 @@ sudo apk add -p . --initdb -U --arch riscv64 --allow-untrusted alpine-base
 
     (Alternatively, edit `/etc/shadow` and remove the `*` in `root:*::0:::::`). 
 
-### Flash Debian image (to install the kernel and its modules)
+#### Flash Debian image (to install the kernel and its modules)
 
 ```bash
 cd ..
@@ -89,14 +106,14 @@ cd /path/to/your/mnt/root
 mv lib/modules /path/to/your/backup
 ```
 
-### Replace root on SD card with Alpine rootfs
+#### Replace root on SD card with Alpine rootfs
 ```bash
 rm -rf /path/to/your/mnt/root/*
 cp -r /path/to/your/alpine-minirootfs-3.20.3-riscv64/* /path/to/your/mnt/root/
 mv /path/to/your/backup/lib/modules /path/to/your/mnt/root/lib/
 ```
 
-### Booting and Logging into the System
+#### Booting and Logging into the System
 
 Insert SD card onto the board and boot.
 Login into the system via serial port at `/dev/ttyUSB0`, baudrate 115200.
@@ -104,7 +121,7 @@ Login into the system via serial port at `/dev/ttyUSB0`, baudrate 115200.
 Default username: `root`
 Default password: none
 
-#### Optional post-installation setups
+##### Optional post-installation setups
 Setup the password and hostname with `passwd` and `hostname` after login. 
 
 Setup the system time with `date -s`, then install `cronyd`:
@@ -135,9 +152,39 @@ The system should boot normally and allow login through the onboard serial port.
 
 The system booted successfully, and login through the onboard serial port was also successful.
 
+### Boot Log
+
+#### Method A example
+
+```log
+[   16.793673] random: dnsmasq: uninitialized urandom read (128 bytes read)
+[   16.800797] random: dnsmasq: uninitialized urandom read (48 bytes read)
+ * Starting dnsmasq ...[   16.832746] random: dnsmasq: uninitialized urandom read (128 bytes read)
+ [ ok ]
+
+Welcome to Alpine!
+
+The Alpine Wiki contains a large amount of how-to guides and general
+information about administrating Alpine systems.
+See <https://wiki.alpinelinux.org/>.
+
+You can setup the system with the command: setup-alpine
+
+You may change this message by editing /etc/motd.
+
+login[872]: root login on 'console'
+milkv-duo:~# [   21.712522] bm-dwmac 4070000.ethernet eth0: Link is Up - 100Mbps/Full - flow control rx/tx
+
+milkv-duo:~# uname -a
+Linux milkv-duo 5.10.4-tag- #1 PREEMPT Sun Dec 31 12:38:36 UTC 2023 riscv64 Linux
+milkv-duo:~# 
+```
+
+#### Method B example
+
 Example `minicom` screenshot:
 ![](alpine_duo256m_firstboot.webp)
-### Boot Log
+
 ```log
 Retrieving file: /vmlinuz-5.10.4-20240527-2+
 5084068 bytes read in 227 ms (21.4 MiB/s)
@@ -443,4 +490,4 @@ Failed: The actual result does not match the expected result.
 
 ## Test Conclusion
 
-WIP/CFH (As there are no prebuilt images available yet).
+CFH
