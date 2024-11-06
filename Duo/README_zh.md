@@ -14,10 +14,10 @@
 - Debian trixie/sid
   - 下载链接：https://drive.google.com/file/d/1TqMuFsRo5Es2Y6-qAyxV8jnFdAkcCp4v/view?usp=sharing
   - 参考安装文档：https://github.com/hongwenjun/riscv64/tree/main/milkv-duo
-- Fedora 38
-  - 下载链接：https://github.com/chainsx/fedora-riscv-builder/releases/download/20230719-1650/Fedora-38-Minimal-MilkV-Duo-riscv64.img.xz
-  - 参考安装文档：https://github.com/chainsx/fedora-riscv-builder
-- RT-Thread / RT-Thread Smart
+- Fedora 41
+  - 下载链接：https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/Duo/images/latest/milkv-duo-fedora-minimal.img.gz
+  - 参考安装文档：https://fedoraproject.org/wiki/Architectures/RISC-V/Installing
+- RT-Thread / RT-Thread Smart失败
   - 源码链接：https://github.com/RT-Thread/rt-thread
   - 参考安装文档：https://github.com/RT-Thread/rt-thread/blob/master/bsp/cvitek/README.md
 - ThreadX
@@ -51,7 +51,7 @@
 | Debian 镜像启动                | N/A      | [成功][Debian]                                |
 | RT-Thread 镜像构建及启动       | N/A      | [成功][RT-Thread]                             |
 | RT-Thread Smart 镜像构建及启动 | N/A      | [成功][RT-Smart]                              |
-| Fedora 镜像启动                | N/A      | [失败][Fedora]                                |
+| Fedora 镜像启动                | N/A      | [成功][Fedora]                                |
 | openEuler                      | N/A      | [成功][oE]                                    |
 | ThreadX 镜像构建及启动         | N/A      | [成功][ThreadX]                               |
 | Zephyr  镜像构建及启动         | N/A      | [成功][Zephyr]                                |

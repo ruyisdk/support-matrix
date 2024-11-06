@@ -20,9 +20,9 @@ cpu_core: XuanTie C906
 - Debian trixie/sid
   - Download link: https://drive.google.com/file/d/1TqMuFsRo5Es2Y6-qAyxV8jnFdAkcCp4v/view?usp=sharing
   - Reference Installation Document: https://github.com/hongwenjun/riscv64/tree/main/milkv-duo
-- Fedora 38
-  - Download link: https://github.com/chainsx/fedora-riscv-builder/releases/download/20230719-1650/Fedora-38-Minimal-MilkV-Duo-riscv64.img.xz
-  - Reference Installation Document: https://github.com/chainsx/fedora-riscv-builder
+- Fedora 41
+  - Download link: https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/Duo/images/latest/milkv-duo-fedora-minimal.img.gz
+  - Reference Installation Document: https://fedoraproject.org/wiki/Architectures/RISC-V/Installing
 - RT-Thread / RT-Thread Smart
   - Source Code Link: https://github.com/RT-Thread/rt-thread
   - Reference Installation Document: https://github.com/RT-Thread/rt-thread/blob/master/bsp/cvitek/README.md
@@ -58,7 +58,7 @@ cpu_core: XuanTie C906
 | Debian Image Boot                    | N/A          | [Success][Debian]                                 |
 | RT-Thread Image Build and Boot       | N/A          | [Success][RT-Thread]                              |
 | RT-Thread Smart Image Build and Boot | N/A          | [Success][RT-Smart]                               |
-| Fedora Image Boot                    | N/A          | [Failed][Fedora]                                  |
+| Fedora Image Boot                    | N/A          | [Success][Fedora]                                 |
 | openEuler                            | N/A          | [Success][oE]                                     |
 | ThreadX Image Build and Boot         | N/A          | [Success][ThreadX]                                |
 | Zephyr Image Build and Boot          | N/A          | [Success][Zephyr]                                 |
