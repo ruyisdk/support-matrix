@@ -88,7 +88,7 @@ cd ..
 sudo dd if=milkv-duo-sd-v1.1.3-2024-0930.img of=/dev/your/device bs=4M status=progress
 ```
 
-Your device should now be able to detect the `root` and `boot` partitions on the SD card. Mount only the `root` partition.
+Your device should now be able to detect the `rootfs` and `boot` partitions on the SD card. Mount only the `rootfs` partition.
 
 ### Replace root on SD card with Alpine rootfs
 ```bash

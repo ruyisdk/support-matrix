@@ -76,7 +76,7 @@ cd ..
 sudo dd if=milkv-duo-sd-v1.1.3-2024-0930.img of=/dev/your/device bs=4M status=progress
 ```
 
-你的设备应该能识别到 SD 卡上的 `root` 和 `boot` 两个分区。挂载 `root` 分区。
+你的设备应该能识别到 SD 卡上的 `rootfs` 和 `boot` 两个分区。挂载 `rootfs` 分区。
 
 ### 替换 SD 卡上根目录为 Alpine rootfs
 ```bash
