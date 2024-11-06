@@ -28,10 +28,10 @@
   - 参考安装文档:
       - https://docs.zephyrproject.org/latest/develop/getting_started/index.html
       - https://github.com/milkv-duo/duo-buildroot-sdk
-- openEuler 23.03 riscv64
+- openEuler 23.09 riscv64
   - 下载链接：
     - buildroot: https://github.com/milkv-duo/duo-buildroot-sdk.git
-    - rootfs: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/openeuler-rootfs.tar.gz
+    - rootfs: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/openeuler-rootfs.tar.gz
   - 参考安装文档：https://blog.inuyasha.love/linuxeveryday/33.html
 - UniProton
   - 下载链接: https://share.weiyun.com/0gIkzesF
