@@ -46,7 +46,7 @@ sudo dd if=milkv-duo-256m-alpinelinux-cwt-2023-10-28.img of=/dev/your/device bs=
 
 ```bash
 wget https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz
-tar -xvf alpine-minirootfs-3.20.3-riscv64.tar.gz
+tar -xvf alpine-minirootfs-3.20.3-riscv64.tar.gz --one-top-level
 wget https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/download/v1.4.0/duo256_sd.img.lz4
 lz4 -d duo256_sd.img.lz4
 ```

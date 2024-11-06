@@ -55,7 +55,7 @@ We will use the kernel and kernel modules from Fishwaldo's Duo 256M Debian image
 
 ```bash
 wget https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz
-tar -xvf alpine-minirootfs-3.20.3-riscv64.tar.gz
+tar -xvf alpine-minirootfs-3.20.3-riscv64.tar.gz --one-top-level
 wget https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/download/v1.4.0/duo256_sd.img.lz4
 lz4 -d duo256_sd.img.lz4
 ```
