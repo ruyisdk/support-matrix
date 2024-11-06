@@ -17,6 +17,9 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 - Debian
   - Download link: [https://github.com/Fishwaldo/sophgo-sg200x-debian](https://github.com/Fishwaldo/sophgo-sg200x-debian)
   - Reference Installation Document: [https://github.com/Fishwaldo/sophgo-sg200x-debian](https://github.com/Fishwaldo/sophgo-sg200x-debian)
+- Fedora 41
+  - Download Link: https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/Duo256M/images/latest/milkv-duo-256m-fedora-minimal.img.gz
+  - Reference Installation Document: https://github.com/chainsx/fedora-riscv-builder
 - FreeRTOS
   - Download link: https://github.com/milkv-duo/duo-buildroot-sdk/releases
   - Reference Installation Document: https://github.com/milkv-duo/duo-buildroot-sdk
@@ -51,6 +54,7 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 | BuildRoot Image Boot               | N/A          | [Success][BuildRoot]                                         |
 | FreeRTOS Boot                      | N/A          | [Success][FreeRTOS] (Included in BuildRoot image)            |
 | Debian Image Boot                  | N/A          | [Success][Debian]                                            |
+| Fedora Image Boot                  | N/A          | [Success][Fedora]                                            |
 | RT-Thread Image Build & Boot       | N/A          | [Success][RT-Thread]                                         |
 | RT-Thread Smart Image Build & Boot | N/A          | [CFH][RT-Smart]                                              |
 | Zephyr Image Build & Boot          | N/A          | [Success][Zephyr]                                            |
@@ -58,6 +62,7 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 
 [BuildRoot]: ./BuildRoot/README.md
 [Debian]: ./Debian/README.md
+[Fedora]: ./Fedora/README.md
 [RT-Thread]: ./RT-Thread/README.md
 [RT-Smart]: ./RT-Thread/README_RTSmart.md
 [FreeRTOS]: ./FreeRTOS/README.md

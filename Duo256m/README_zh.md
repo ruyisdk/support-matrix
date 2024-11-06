@@ -11,6 +11,9 @@
 - Debian
   - 下载链接：https://github.com/Fishwaldo/sophgo-sg200x-debian
   - 参考安装文档：https://github.com/Fishwaldo/sophgo-sg200x-debian
+- Fedora 41
+  - 下载链接：https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/Duo256M/images/latest/milkv-duo-256m-fedora-minimal.img.gz
+  - 参考安装文档：https://github.com/chainsx/fedora-riscv-builder
 - FreeRTOS
   - 下载链接: https://github.com/milkv-duo/duo-buildroot-sdk/releases
   - 参考安装文档: https://github.com/milkv-duo/duo-buildroot-sdk
@@ -45,6 +48,7 @@
 | BuildRoot 镜像启动             | N/A      | [成功][BuildRoot]                                 |
 | FreeRTOS 启动                  | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内）     |
 | Debian 镜像启动                | N/A      | [成功][Debian]                                    |
+| Fedora 镜像启动                | N/A      | [成功][Fedora]                                    |
 | RT-Thread 镜像构建及启动       | N/A      | [成功][RT-Thread]                                 |
 | RT-Thread Smart 镜像构建及启动 | N/A      | [CFH][RT-Thread]                                  |
 | Zephyr 镜像构建及启动          | N/A      | [成功][Zephyr]                                    |
@@ -55,5 +59,6 @@
 [RT-Thread]: ./RT-Thread/README_zh.md
 [RT-Smart]: ./RT-Thread/README_RTSmart_zh.md
 [FreeRTOS]: ./FreeRTOS/README_zh.md
+[Fedora]: ./Fedora/README_zh.md
 [Zephyr]: ./Zephyr/README_zh.md
 [Alpine]: ./Alpine/README_zh.md
