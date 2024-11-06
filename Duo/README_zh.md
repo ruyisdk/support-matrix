@@ -11,6 +11,13 @@
 - Arch Linux
   - 下载链接：https://drive.google.com/file/d/1Qf8ioR29KCsvt2MIWre168Um9Q8ot_z5/view?usp=sharing
   - 参考安装文档：https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/#ArchLinux_Disk_Image
+- Alpine Linux 3.20.3 riscv64
+  - 下载链接：
+    - Alpine minirootfs: [https://alpinelinux.org/downloads/](https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz)
+    - 官方 Buildroot 镜像: [https://github.com/milkv-duo/duo-buildroot-sdk/releases](https://github.com/milkv-duo/duo-buildroot-sdk/releases/download/v1.1.3/milkv-duo-sd-v1.1.3-2024-0930.img.zip)
+  - 参考安装文档：
+    - [Alpine Wiki (Installation)](https://wiki.alpinelinux.org/wiki/Installation)
+    - [Alpine Wiki (How to make a cross architecture chroot)](https://wiki.alpinelinux.org/wiki/How_to_make_a_cross_architecture_chroot)
 - Debian trixie/sid
   - 下载链接：https://drive.google.com/file/d/1TqMuFsRo5Es2Y6-qAyxV8jnFdAkcCp4v/view?usp=sharing
   - 参考安装文档：https://github.com/hongwenjun/riscv64/tree/main/milkv-duo
@@ -48,6 +55,7 @@
 | BuildRoot 镜像启动             | N/A      | [成功][Duo]（通过 `ruyi` CLI 刷写）           |
 | FreeRTOS 启动                  | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内） |
 | Arch Linux 镜像启动            | N/A      | [成功][Arch]                                  |
+| Alpine Linux 启动              | N/A      | [成功][Alpine] （需手工构建 rootfs）          |
 | Debian 镜像启动                | N/A      | [成功][Debian]                                |
 | RT-Thread 镜像构建及启动       | N/A      | [成功][RT-Thread]                             |
 | RT-Thread Smart 镜像构建及启动 | N/A      | [成功][RT-Smart]                              |
@@ -59,6 +67,7 @@
 
 [Duo]: ./BuildRoot/README_zh.md
 [Arch]: ./ArchLinux/README_zh.md
+[Alpine]: ./Alpine/README_zh.md
 [Debian]: ./Debian/README_zh.md
 [Fedora]: ./Fedora/README_zh.md
 [RT-Thread]: ./RT-Thread/README_zh.md
