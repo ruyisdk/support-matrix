@@ -4,6 +4,7 @@ main
 
 import argparse
 import os
+from typing import Callable, Any
 from urllib.parse import urljoin
 from src.svg_gen import SvgConf, SvgNode, SvgXml, gen_html, putconf, SvgRectContainer
 from src.svg_gen import SvgText, SvgTextCenter, SvgMoveTo, SvgCR, SvgLF, SvgGroup
@@ -11,39 +12,9 @@ from src.svg_gen import SvgAdvancer, SvgSvg, SvgLine, SvgLink
 from src.matrix_parser import Systems, status_map
 
 
-def gen_color(_, col, content):
-    """
-    gen svg color
-    """
-    white = 'rgb(255, 255, 255)'
-    gray = 'rgb(220, 220, 220)'
-    green = 'rgb(203, 255, 203)'
-    yellow = 'rgb(255, 255, 203)'
-    red = 'rgb(255, 203, 203)'
-    if col < 3:
-        return white
-    if "Good" in content or "Basic" in content:
-        return green
-    if "CFT" in content:
-        return yellow
-    if "WIP" in content or "CFH" in content:
-        return red
-    return gray
-
-
-def gen_link(_, __, content):
-    """
-    gen link
-    """
-    if hasattr(content, 'link') and content.link is not None:
-        url = "https://github.com/ruyisdk/support-matrix/tree/main/"
-        for i in content.link:
-            url = urljoin(url + '/', i)
-        return url
-    return None
-
-
-def gen_svg_table(conf: SvgConf, systems: Systems, need_systems: dict[str]) -> SvgNode:
+def gen_svg_table(conf: SvgConf, systems: Systems, need_systems: dict[str],
+                  link_func: Callable[[Any, Any, object], str],
+                  color_func: Callable[[Any, Any, object], str]) -> SvgNode:
     """
     Generate a svg table with the given systems
     """
@@ -182,13 +153,13 @@ def gen_svg_table(conf: SvgConf, systems: Systems, need_systems: dict[str]) -> S
 
                 for jdx, j in enumerate(i):
 
-                    link = gen_link(None, None, j)
+                    link = link_func(None, None, j)
                     if link is not None:
                         t_lk = SvgLink(link)
                     else:
                         t_lk = SvgGroup()
 
-                    t_bg = SvgRectContainer(gen_color(None, idx, j.text))
+                    t_bg = SvgRectContainer(color_func(None, idx, j.text))
                     t = SvgTextCenter(j.text, col_width[idx], 0, False)
 
                     t_bg.add_child(t)
@@ -212,14 +183,14 @@ def gen_svg_table(conf: SvgConf, systems: Systems, need_systems: dict[str]) -> S
 
                 g.add_child(var_g)
             else:
-                link = gen_link(None, None, i)
+                link = link_func(None, None, i)
 
                 if link is not None:
                     t_lk = SvgLink(link)
                 else:
                     t_lk = SvgGroup()
 
-                color = gen_color(None, idx, i.text)
+                color = color_func(None, idx, i.text)
                 t_bg = SvgRectContainer(color)
                 t = SvgTextCenter(
                     i.text, col_width[idx], row_height[rdx + 1], False)
@@ -254,16 +225,56 @@ def gen_svg_table(conf: SvgConf, systems: Systems, need_systems: dict[str]) -> S
     return doc
 
 
-def proc_onesys(system_arr: dict[str], system: Systems):
+def proc_onesys(system_arr: dict[str], system: Systems,
+                link_func: Callable[[Any, Any, object], str],
+                color_func: Callable[[Any, Any, object], str]):
     """
     process one type of system
     """
 
     conf = SvgConf()
 
-    res = gen_svg_table(conf, system, system_arr)
+    res = gen_svg_table(conf, system, system_arr, link_func, color_func)
 
     return res
+
+
+def gen_color(_, col, content):
+    """
+    gen svg color
+    """
+    white = 'rgb(255, 255, 255)'
+    gray = 'rgb(220, 220, 220)'
+    green = 'rgb(203, 255, 203)'
+    yellow = 'rgb(255, 255, 203)'
+    red = 'rgb(255, 203, 203)'
+    if col < 3:
+        return white
+    if "Good" in content or "Basic" in content:
+        return green
+    if "CFT" in content:
+        return yellow
+    if "WIP" in content or "CFH" in content:
+        return red
+    return gray
+
+
+def gen_gen_link(lang: str):
+    """
+    gen gen_link
+    """
+    lang_end = ".md" if lang == "en" else f"_{lang}.md"
+
+    def gen_link(_, __, content):
+        if hasattr(content, 'link') and content.link is not None:
+            url = "https://github.com/ruyisdk/support-matrix/tree/main/"
+            for i in content.link:
+                if i.endswith('.md'):
+                    i = i[:-3] + lang_end
+                url = urljoin(url + '/', i)
+            return url
+        return None
+    return gen_link
 
 
 def main():
@@ -275,6 +286,8 @@ def main():
                         help="support matrix path", type=str, default='.')
     parser.add_argument('-o', '--output', dest="output",
                         help="output path", type=str, default='.')
+    parser.add_argument('-l', '--lang', dest="lang",
+                        help="language", type=str, default='en')
     parser.add_argument('--html', dest="html",
                         help="output html, with svg assets at arg", type=str, default=None)
 
@@ -283,31 +296,47 @@ def main():
     p = args.path
     systems = Systems(p)
 
+    color_func = gen_color
+    link_func = gen_gen_link(args.lang)
+
+    file_suffix = "" if args.lang == "en" else f"_{args.lang}"
+
     html_path = args.html
-    svg = proc_onesys(systems.linux, systems)
-    with open(os.path.join(args.output, 'linux.svg'), 'w', encoding="utf-8") as f:
+    svg = proc_onesys(systems.linux, systems, link_func, color_func)
+    with open(os.path.join(args.output, f'linux{file_suffix}.svg'), 'w', encoding="utf-8") as f:
         f.write(str(svg))
     if html_path:
-        with open(os.path.join(args.output, 'linux.html'), 'w', encoding="utf-8") as f:
-            f.write(gen_html(svg, os.path.join(html_path, 'linux.svg')))
-    svg = proc_onesys(systems.bsd, systems)
-    with open(os.path.join(args.output, 'bsd.svg'), 'w', encoding="utf-8") as f:
+        with open(os.path.join(args.output,
+                               f'linux{file_suffix}.html'), 'w', encoding="utf-8") as f:
+            f.write(gen_html(svg, os.path.join(
+                html_path, f'linux{file_suffix}.svg')))
+
+    svg = proc_onesys(systems.bsd, systems, link_func, color_func)
+    with open(os.path.join(args.output, f'bsd{file_suffix}.svg'), 'w', encoding="utf-8") as f:
         f.write(str(svg))
     if html_path:
-        with open(os.path.join(args.output, 'bsd.html'), 'w', encoding="utf-8") as f:
-            f.write(gen_html(svg, os.path.join(html_path, 'bsd.svg')))
-    svg = proc_onesys(systems.rtos, systems)
-    with open(os.path.join(args.output, 'rtos.svg'), 'w', encoding="utf-8") as f:
+        with open(os.path.join(args.output,
+                               f'bsd{file_suffix}.html'), 'w', encoding="utf-8") as f:
+            f.write(gen_html(svg, os.path.join(
+                html_path, f'bsd{file_suffix}.svg')))
+
+    svg = proc_onesys(systems.rtos, systems, link_func, color_func)
+    with open(os.path.join(args.output, f'rtos{file_suffix}.svg'), 'w', encoding="utf-8") as f:
         f.write(str(svg))
     if html_path:
-        with open(os.path.join(args.output, 'rtos.html'), 'w', encoding="utf-8") as f:
-            f.write(gen_html(svg, os.path.join(html_path, 'rtos.svg')))
-    svg = proc_onesys(systems.others, systems)
-    with open(os.path.join(args.output, 'others.svg'), 'w', encoding="utf-8") as f:
+        with open(os.path.join(args.output,
+                               f'rtos{file_suffix}.html'), 'w', encoding="utf-8") as f:
+            f.write(gen_html(svg, os.path.join(
+                html_path, f'rtos{file_suffix}.svg')))
+
+    svg = proc_onesys(systems.others, systems, link_func, color_func)
+    with open(os.path.join(args.output, f'others{file_suffix}.svg'), 'w', encoding="utf-8") as f:
         f.write(str(svg))
     if html_path:
-        with open(os.path.join(args.output, 'others.html'), 'w', encoding="utf-8") as f:
-            f.write(gen_html(svg, os.path.join(html_path, 'others.svg')))
+        with open(os.path.join(args.output,
+                               f'others{file_suffix}.html'), 'w', encoding="utf-8") as f:
+            f.write(gen_html(svg, os.path.join(
+                html_path, f'others{file_suffix}.svg')))
 
 
 if __name__ == "__main__":
@@ -315,4 +344,5 @@ if __name__ == "__main__":
         main()
     except Exception as e:
         print("Raise:", e)
-        exit(1)
+        import sys as __sys
+        __sys.exit(1)

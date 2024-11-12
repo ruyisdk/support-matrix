@@ -4,19 +4,15 @@
 
 ### 操作系统信息
 
-- 系统版本：Duo-V1.0.7
+- 系统版本：Duo-V1.1.3
 - 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk/releases
 - 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk
 
 ### 硬件信息
 
 - Milk-V Duo 64M
-- USB 电源适配器一个
 - USB-A to C 或 USB C to C 线缆一条
 - microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
-- Milk-V Duo 本体上预先焊接好调试所需的排针
 
 ## 安装步骤
 
@@ -39,20 +35,18 @@
 ### 启动信息
 
 ```log
-[root@milkv-duo]~# uname -a                                                                                                                                             
-Linux milkv-duo 5.10.4-tag- #1 PREEMPT Sat Dec 23 12:29:13 CST 2023 riscv64 GNU/Linux                                                                                   
-[root@milkv-duo]~# cat /proc/cpuinfo                                                                                                                                    
-processor       : 0                                                                                                                                                     
-hart            : 0                                                                                                                                                     
-isa             : rv64imafdvcsu                                                                                                                                         
-mmu             : sv39                                                                                                                                                  
-                                                                                                                                                                        
-[root@milkv-duo]~# 
+[root@milkv-duo]~# uname -a
+Linux milkv-duo 5.10.4-tag- #1 PREEMPT Thu Aug 1 13:44:06 CST 2024 riscv64 GNU/Linux
+[root@milkv-duo]~# cat /proc/cpuinfo 
+processor	: 0
+hart		: 0
+isa		: rv64imafdvcsu
+mmu		: sv39
 ```
 
 屏幕录像（从刷写镜像到登录系统）：
 
-[![asciicast](https://asciinema.org/a/rsenSOJwdlmUXcJ8sQwubPgtr.svg)](https://asciinema.org/a/rsenSOJwdlmUXcJ8sQwubPgtr)
+[![asciicast](https://asciinema.org/a/1Vp9JeYdRiyORXXGFlx5F9JY0.svg)](https://asciinema.org/a/1Vp9JeYdRiyORXXGFlx5F9JY0)
 
 ## 测试判定标准
 
