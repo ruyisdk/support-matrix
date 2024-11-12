@@ -17,7 +17,7 @@
 - Fedora 41
   - 下载链接：https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/Duo/images/latest/milkv-duo-fedora-minimal.img.gz
   - 参考安装文档：https://fedoraproject.org/wiki/Architectures/RISC-V/Installing
-- RT-Thread / RT-Thread Smart失败
+- RT-Thread / RT-Thread Smart
   - 源码链接：https://github.com/RT-Thread/rt-thread
   - 参考安装文档：https://github.com/RT-Thread/rt-thread/blob/master/bsp/cvitek/README.md
 - ThreadX
