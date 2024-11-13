@@ -53,6 +53,11 @@ cpu_core: XuanTie C906
 - UniProton
   - Download links: https://share.weiyun.com/0gIkzesF
   - Reference Installation Document: https://github.com/openeuler-riscv/duo-buildroot-sdk/blob/develop/uni_pedestal/WORK.md
+- Ubuntu 22.04
+  - Download Link: https://drive.google.com/file/d/1y1NQamzUDzot_kVT2yKkbusoJmtvH5tD/view?usp=sharing
+  - Reference Installation Document:
+    - https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/#Ubuntu_Disk_Image
+    - https://github.com/bassusteur/milkv-duo-ubuntu
 
 ### Hardware Information
 
@@ -69,11 +74,12 @@ cpu_core: XuanTie C906
 | Debian Image Boot                    | N/A          | [Success][Debian]                                                |
 | RT-Thread Image Build and Boot       | N/A          | [Success][RT-Thread]                                             |
 | RT-Thread Smart Image Build and Boot | N/A          | [Success][RT-Smart]                                              |
-| Fedora Image Boot                    | N/A          | [Success][Fedora]                                                 |
+| Fedora Image Boot                    | N/A          | [Success][Fedora]                                                |
 | openEuler                            | N/A          | [Success][oE]                                                    |
 | ThreadX Image Build and Boot         | N/A          | [Success][ThreadX]                                               |
 | Zephyr Image Build and Boot          | N/A          | [Success][Zephyr]                                                |
 | UniProton Boot                       | N/A          | [Success][UniProton]                                             |
+| Ubuntu Boot                          | N/A          | [Success][Ubuntu]                                                |
 
 [Duo]: ./BuildRoot/README.md
 [Arch]: ./ArchLinux/README.md
@@ -87,3 +93,4 @@ cpu_core: XuanTie C906
 [ThreadX]: ./ThreadX/README.md
 [Zephyr]: ./Zephyr/README.md
 [UniProton]: ./UniProton/README.md
+[Ubuntu]: ./Ubuntu/README.md

@@ -1,4 +1,4 @@
-# Milk-V Duo 256m
+# Milk-V Duo 256M
 
 ## 测试环境
 
@@ -37,6 +37,10 @@
   - 参考安装文档：
     - [Alpine Wiki (Installation)](https://wiki.alpinelinux.org/wiki/Installation)
     - [Alpine Wiki (How to make a cross architecture chroot)](https://wiki.alpinelinux.org/wiki/How_to_make_a_cross_architecture_chroot)
+- Ubuntu 22.04
+  - 下载链接：https://drive.google.com/file/d/1mkzLhvtjJup3GbgWKZdwL80PZMMXg7n1/view?usp=drive_link
+  - 参考安装文档：https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/#Ubuntu_Disk_Image
+
 ### 硬件开发板信息
 
 - Milk-V Duo (256M, SG2002)
@@ -53,6 +57,7 @@
 | RT-Thread Smart 镜像构建及启动 | N/A      | [CFH][RT-Thread]                                  |
 | Zephyr 镜像构建及启动          | N/A      | [成功][Zephyr]                                    |
 | Alpine Linux 启动              | N/A      | [CFH][Alpine] （可使用社区镜像或手工构建 rootfs） |
+| Ubuntu 启动                    | N/A      | [成功][Ubuntu]                                    |
 
 [BuildRoot]: ./BuildRoot/README_zh.md
 [Debian]: ./Debian/README_zh.md
@@ -62,3 +67,4 @@
 [Fedora]: ./Fedora/README_zh.md
 [Zephyr]: ./Zephyr/README_zh.md
 [Alpine]: ./Alpine/README_zh.md
+[Ubuntu]: ./Ubuntu/README_zh.md

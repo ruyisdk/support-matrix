@@ -47,6 +47,11 @@
 - UniProton
   - 下载链接: https://share.weiyun.com/0gIkzesF
   - 参考安装文档: https://github.com/openeuler-riscv/duo-buildroot-sdk/blob/develop/uni_pedestal/WORK.md
+- Ubuntu 22.04
+  - 下载链接：https://drive.google.com/file/d/1y1NQamzUDzot_kVT2yKkbusoJmtvH5tD/view?usp=sharing
+  - 参考安装文档：
+    - https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/#Ubuntu_Disk_Image
+    - https://github.com/bassusteur/milkv-duo-ubuntu
 
 ### 硬件开发板信息
 
@@ -68,6 +73,7 @@
 | ThreadX 镜像构建及启动         | N/A      | [成功][ThreadX]                                    |
 | Zephyr  镜像构建及启动         | N/A      | [成功][Zephyr]                                     |
 | UniProton 启动                 | N/A      | [成功][UniProton]                                  |
+| Ubuntu 启动                    | N/A      | [成功][Ubuntu]                                     |
 
 [Duo]: ./BuildRoot/README_zh.md
 [Arch]: ./ArchLinux/README_zh.md
@@ -80,4 +86,5 @@
 [oE]: ./openEuler/README_zh.md
 [ThreadX]: ./ThreadX/README_zh.md
 [Zephyr]: ./Zephyr/README_zh.md
-[UniProton]: ./UniProton/README.md
+[UniProton]: ./UniProton/README_zh.md
+[Ubuntu]: ./Ubuntu/README_zh.md

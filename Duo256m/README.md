@@ -43,22 +43,27 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
   - Reference Installation Document: 
     - [Alpine Wiki (Installation)](https://wiki.alpinelinux.org/wiki/Installation)
     - [Alpine Wiki (How to make a cross architecture chroot)](https://wiki.alpinelinux.org/wiki/How_to_make_a_cross_architecture_chroot)
+- Ubuntu 22.04
+  - Download Link: https://drive.google.com/file/d/1mkzLhvtjJup3GbgWKZdwL80PZMMXg7n1/view?usp=drive_link
+  - Reference Installation Document: https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/#Ubuntu_Disk_Image
+
 ### Hardware Information
 
 - Milk-V Duo (256M, SG2002)
 
 ## Test Results
 
-| Software Category                  | Package Name | Test Result (Report)                                         |
-| ---------------------------------- | ------------ | ------------------------------------------------------------ |
-| BuildRoot Image Boot               | N/A          | [Success][BuildRoot]                                         |
-| FreeRTOS Boot                      | N/A          | [Success][FreeRTOS] (Included in BuildRoot image)            |
-| Debian Image Boot                  | N/A          | [Success][Debian]                                            |
-| Fedora Image Boot                  | N/A          | [Success][Fedora]                                            |
-| RT-Thread Image Build & Boot       | N/A          | [Success][RT-Thread]                                         |
-| RT-Thread Smart Image Build & Boot | N/A          | [CFH][RT-Smart]                                              |
-| Zephyr Image Build & Boot          | N/A          | [Success][Zephyr]                                            |
-| Alpine Linux Boot                  | N/A          | [CFH][Alpine] (use community image or build rootfs manually) |
+| Software Category                  | Package Name | Test Result (Report)                                             |
+| ---------------------------------- | ------------ | ---------------------------------------------------------------- |
+| BuildRoot Image Boot               | N/A          | [Success][BuildRoot]                                             |
+| FreeRTOS Boot                      | N/A          | [Success][FreeRTOS] (Included in BuildRoot image)                |
+| Debian Image Boot                  | N/A          | [Success][Debian]                                                |
+| Fedora Image Boot                  | N/A          | [Success][Fedora]                                                |
+| RT-Thread Image Build & Boot       | N/A          | [Success][RT-Thread]                                             |
+| RT-Thread Smart Image Build & Boot | N/A          | [CFH][RT-Smart]                                                  |
+| Zephyr Image Build & Boot          | N/A          | [Success][Zephyr]                                                |
+| Alpine Linux Boot                  | N/A          | [CFH][Alpine] (use community image or build rootfs manually)     |
+| Ubuntu Boot                        | N/A          | [Success][Alpine] (use community image or build rootfs manually) |
 
 [BuildRoot]: ./BuildRoot/README.md
 [Debian]: ./Debian/README.md
@@ -68,3 +73,4 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 [FreeRTOS]: ./FreeRTOS/README.md
 [Zephyr]: ./Zephyr/README.md
 [Alpine]: ./Alpine/README.md
+[Ubuntu]: ./Ubuntu/README.md
