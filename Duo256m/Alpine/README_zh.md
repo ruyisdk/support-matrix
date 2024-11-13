@@ -4,13 +4,18 @@
 
 ### 操作系统信息
 
-- 系统版本：3.20.3 riscv64
+- 系统版本：3.20.3/edge riscv64
 - 下载链接：
+  - https://drive.google.com/file/d/1zhhB6AdgvjjuzBWjY6TchdX5b0uNWzP-/view
+  > Note: 此镜像为社区开发者提供，非官方镜像。
+
+  或者
   - Alpine minirootfs: [https://alpinelinux.org/downloads/](https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz)
   - 最新的 Duo 256M Debian 镜像 (用于提取内核及其模块): [https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/](https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/download/v1.4.0/duo256_sd.img.lz4)
 - 参考安装文档：
   - [Alpine Wiki (Installation)](https://wiki.alpinelinux.org/wiki/Installation)
   - [Alpine Wiki (How to make a cross architecture chroot)](https://wiki.alpinelinux.org/wiki/How_to_make_a_cross_architecture_chroot)
+  - https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/#AlpineLinux_Disk_Image
 
 ### 硬件信息
 
@@ -23,25 +28,38 @@
 
 ## 安装步骤
 
-### 下载 Alpine minirootfs 和 Debian 镜像
+### 方式一：刷写社区镜像
+
+下载镜像：https://drive.google.com/file/d/1zhhB6AdgvjjuzBWjY6TchdX5b0uNWzP-/view
+
+之后使用如下命令刷入
+```shell
+unzip milkv-duo-256m-alpinelinux-cwt-2023-10-28.img.zip
+sudo dd if=milkv-duo-256m-alpinelinux-cwt-2023-10-28.img of=/dev/your/device bs=1M status=progress
+```
+
+### 方式二：自行制作 rootfs 刷入
+如不能使用上述镜像，也可以自行参考如下步骤通过使用官方 rootfs 替换 buildroot 或其他发行版镜像中对应内容的方式启动。
+
+#### 下载 Alpine minirootfs 和 Debian 镜像
 
 我们将从 Fishwaldo 提供的 Duo 256M Debian 镜像中提取所需的内核及其模块。
 
 ```bash
 wget https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz
-tar -xvf alpine-minirootfs-3.20.3-riscv64.tar.gz
+tar -xvf alpine-minirootfs-3.20.3-riscv64.tar.gz --one-top-level
 wget https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/download/v1.4.0/duo256_sd.img.lz4
 lz4 -d duo256_sd.img.lz4
 ```
 
-### 准备 rootfs
+#### 准备 rootfs
 Alpine 官方提供的 riscv64 发行仅是一个 "minirootfs", 缺少 OpenRC 等必要的系统组件。要在实体硬件上启动，我们需要使用 `apk` 在该 minirootfs中安装 Alpine 基础包。 
 
-#### 安装 Alpine 包管理器 `apk`
+##### 安装 Alpine 包管理器 `apk`
 （如果宿主机已经在使用 Alpine 系发行版则跳过此步）
 安装 `apk-tools` （如在 Arch Linux 上： `sudo pacman -S apk-tools`），并运行 `apk --help` 确认安装。
 
-#### 在 minirootfs 中安装 Alpine 基础包 `alpine-base`
+##### 在 minirootfs 中安装 Alpine 基础包 `alpine-base`
 
 (注：无需 `chroot`)
 
@@ -50,7 +68,7 @@ cd alpine-minirootfs-3.20.3-riscv64
 sudo apk add -p . --initdb -U --arch riscv64 --allow-untrusted alpine-base
 ```
 
-#### 额外设置
+##### 额外设置
 
 1. 编辑 `./etc/inittab`，加入或取消注释下面一行以启用 `/dev/ttyS0` 上的串口访问：
     ```
@@ -63,7 +81,7 @@ sudo apk add -p . --initdb -U --arch riscv64 --allow-untrusted alpine-base
 
     （也可以编辑  `/etc/shadow` 并去掉 `root:*::0:::::` 一行中的 `*`）。
 
-### 刷入 Debian 镜像（安装内核及其模块）
+#### 刷入 Debian 镜像（安装内核及其模块）
 
 ```bash
 cd ..
@@ -79,14 +97,14 @@ cd /path/to/your/mnt/root
 mv lib/modules /path/to/your/backup
 ```
 
-### 替换 SD 卡上根目录为 Alpine rootfs
+#### 替换 SD 卡上根目录为 Alpine rootfs
 ```bash
 rm -rf /path/to/your/mnt/root/*
 cp -r /path/to/your/alpine-minirootfs-3.20.3-riscv64/* /path/to/your/mnt/root/
 mv /path/to/your/backup/lib/modules /path/to/your/mnt/root/lib/
 ```
 
-### 启动并登录系统
+#### 启动并登录系统
 
 将 SD 卡插入开发板并启动。
 通过 `/dev/ttyUSB0` 上的串口登录系统 （baudrate 115200）。
@@ -94,7 +112,7 @@ mv /path/to/your/backup/lib/modules /path/to/your/mnt/root/lib/
 用户名: `root`
 密码: 无
 
-#### 安装后设置
+##### 安装后设置
 登录后分别使用 `passwd` 和 `hostname` 设置密码和主机名。
 
 使用 `date -s` 设置系统时间，再安装 `cronyd`:
@@ -126,10 +144,37 @@ rc-update add savecache shutdown
 
 系统正常启动，成功通过串口登录。
 
+### 启动信息
+#### 方式一启动示例
+
+```log
+[   16.793673] random: dnsmasq: uninitialized urandom read (128 bytes read)
+[   16.800797] random: dnsmasq: uninitialized urandom read (48 bytes read)
+ * Starting dnsmasq ...[   16.832746] random: dnsmasq: uninitialized urandom read (128 bytes read)
+ [ ok ]
+
+Welcome to Alpine!
+
+The Alpine Wiki contains a large amount of how-to guides and general
+information about administrating Alpine systems.
+See <https://wiki.alpinelinux.org/>.
+
+You can setup the system with the command: setup-alpine
+
+You may change this message by editing /etc/motd.
+
+login[872]: root login on 'console'
+milkv-duo:~# [   21.712522] bm-dwmac 4070000.ethernet eth0: Link is Up - 100Mbps/Full - flow control rx/tx
+
+milkv-duo:~# uname -a
+Linux milkv-duo 5.10.4-tag- #1 PREEMPT Sun Dec 31 12:38:36 UTC 2023 riscv64 Linux
+milkv-duo:~# 
+```
+
+#### 方式二启动示例
 `minicom` 运行截图:
 ![](alpine_duo256m_firstboot.webp)
 
-### 启动信息
 ```log
 Retrieving file: /vmlinuz-5.10.4-20240527-2+
 5084068 bytes read in 227 ms (21.4 MiB/s)
@@ -435,4 +480,4 @@ duo256-alpine:~#
 
 ## 测试结论
 
-WIP/CFH (因暂无可直接刷入的可用镜像)
+CFH

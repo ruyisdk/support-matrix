@@ -5,7 +5,7 @@
 ### 操作系统信息
 
 - 构建系统：Ubuntu 22.04.3 LTS x86_64
-- 系统版本：Duo-V1.0.9
+- 系统版本：Duo-V1.1.3
 - 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk/releases
 - 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk
     - FreeRTOS: https://milkv.io/zh/docs/duo/getting-started/rtoscore
@@ -48,25 +48,32 @@ sudo losetup -f
 
 ```shell
 $ sudo losetup -f
-/dev/loop16
+/dev/loop0
+```
+
+下载官方 Buildroot 镜像：
+
+```shell
+wget https://github.com/milkv-duo/duo-buildroot-sdk/releases/download/v1.1.3/milkv-duo-sd-v1.1.3-2024-0930.img.zip
+unzip milkv-duo-sd-v1.1.3-2024-0930.img.zip
 ```
 
 接下来将下载好的镜像挂载，并将刚刚编译好的二进制复制进镜像：
 
 ```shell
-sudo losetup /dev/loop16 milkv-duo-v1.0.9-2024-0226.img
-sudo kpartx -av /dev/loop16
-sudo mount /dev/mapper/loop16p2 /mnt
+sudo losetup /dev/loop0 milkv-duo-sd-v1.1.3-2024-0930.img
+sudo kpartx -av /dev/loop0
+sudo mount /dev/mapper/loop0p2 /mnt
 cp ~/duo-examples/mailbox-test/mailbox_test /mnt/root/
 sudo umount /mnt
-sudo kpartx -d /dev/loop1
-sudo losetup -d /dev/loop16 
+sudo kpartx -d /dev/loop0
+sudo losetup -d /dev/loop0
 ```
 
 接下来刷入修改后的镜像：
 
 ```shell
-sudo dd if=milkv-duo-v1.0.9-2024-0226.img of=/dev/sdc bs=4M status=progress oflag=direct
+sudo dd if=milkv-duo-sd-v1.1.3-2024-0930.img of=/dev/your/device bs=4M status=progress
 ```
 
 至此，存储卡准备完成。插入开发板，准备启动。
@@ -88,33 +95,34 @@ sudo dd if=milkv-duo-v1.0.9-2024-0226.img of=/dev/sdc bs=4M status=progress ofla
 ### 启动信息
 
 ```log
-[    7.841103] sync_task_init:177(): sync_task_init vi_pipe 1
-[    7.847065] sync_task_init:177(): sync_task_init vi_pipe 2
-[    7.853504] vi_core_probe:252(): isp registered as cvi-vi
-[    7.907831] cvi_dwa_probe:487(): done with rc(0).
-[    7.937525] cv180x-cooling cv180x_cooling: elems of dev-freqs=6
-[    7.943796] cv180x-cooling cv180x_cooling: dev_freqs[0]: 850000000 500000000
-[    7.951586] cv180x-cooling cv180x_cooling: dev_freqs[1]: 425000000 375000000
-[    7.959250] cv180x-cooling cv180x_cooling: dev_freqs[2]: 425000000 300000000
-[    7.966985] cv180x-cooling cv180x_cooling: Cooling device registered: cv180x_cooling
-[    8.002672] jpu ctrl reg pa = 0xb030000, va = (____ptrval____), size = 256
-[    8.010370] end jpu_init result = 0x0
-[    8.132269] cvi_vc_drv_init result = 0x0
-[    8.147188] sh (166): drop_caches: 3
+[    2.629875] sync_task_init:177(): sync_task_init vi_pipe 0
+[    2.635850] sync_task_init:177(): sync_task_init vi_pipe 1
+[    2.641810] sync_task_init:177(): sync_task_init vi_pipe 2
+[    2.648237] vi_core_probe:252(): isp registered as cvi-vi
+[    2.701678] cvi_dwa_probe:487(): done with rc(0).
+[    2.731805] cv180x-cooling cv180x_cooling: elems of dev-freqs=6
+[    2.738146] cv180x-cooling cv180x_cooling: dev_freqs[0]: 850000000 500000000
+[    2.745950] cv180x-cooling cv180x_cooling: dev_freqs[1]: 425000000 375000000
+[    2.753585] cv180x-cooling cv180x_cooling: dev_freqs[2]: 425000000 300000000
+[    2.761332] cv180x-cooling cv180x_cooling: Cooling device registered: cv180x_cooling
+[    2.795351] jpu ctrl reg pa = 0xb030000, va = (____ptrval____), size = 256
+[    2.803013] end jpu_init result = 0x0
+[    2.928217] cvi_vc_drv_init result = 0x0
+[    2.943974] sh (165): drop_caches: 3
 Starting app...
 
 [root@milkv-duo]~# ls
 mailbox_test
 [root@milkv-duo]~# ./mailbox_test 
-RT: [30.619843]prvQueueISR
-RT: [30.622192]recv cmd(19) from C906B, param_ptr [0x00000002]
-RT: [30.627922]recv cmd(19) from C906B...send [0x00000004] to C906B
+RT: [44.439088]prvQueueISR
+RT: [44.441435]recv cmd(19) from C906B, param_ptr [0x00000002]
+RT: [44.447166]recv cmd(19) from C906B...send [0x00000004] to C906B
 C906B: cmd.param_ptr = 0x4
-RT: [34.634965]prvQueueISR
-RT: [34.637311]recv cmd(19) from C906B, param_ptr [0x00000003]
-RT: [34.643042]recv cmd(19) from C906B...send [0x00000004] to C906B
+RT: [48.454192]prvQueueISR
+RT: [48.456537]recv cmd(19) from C906B, param_ptr [0x00000003]
+RT: [48.462270]recv cmd(19) from C906B...send [0x00000004] to C906B
 C906B: cmd.param_ptr = 0x3
-[root@milkv-duo]~#
+[root@milkv-duo]~# 
 ```
 
 屏幕录像：
