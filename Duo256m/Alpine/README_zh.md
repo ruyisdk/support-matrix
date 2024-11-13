@@ -15,6 +15,7 @@
 - 参考安装文档：
   - [Alpine Wiki (Installation)](https://wiki.alpinelinux.org/wiki/Installation)
   - [Alpine Wiki (How to make a cross architecture chroot)](https://wiki.alpinelinux.org/wiki/How_to_make_a_cross_architecture_chroot)
+  - https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/#AlpineLinux_Disk_Image
 
 ### 硬件信息
 
