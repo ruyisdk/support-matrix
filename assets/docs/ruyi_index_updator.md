@@ -6,9 +6,9 @@
 
 你需要设置环境变量 `GITHUB_TOKEN`，并且该 token 需要有对应仓库的读写权限和 pr 权限。或者你可以同时允许 fork 仓库的权限，让工具自动 fork 仓库。
 
-**注意！**你直接从设置中获取到的 token 都是 personal token，但是向组织仓库进行 pr 时，该 token 是会被拒绝的。你需要使用一个 OAuth app token。最简单的辨别方法是，personal token 的格式是 `ghp_` 开头，OAuth app token 的格式是 `gho` 开头。若你不知道如何获取 OAuth app token，可以通过 `gh` 命令行工具来获取一个。 **请注意不要泄漏**
+**注意！**你直接从设置中获取到的 token 都是 personal token，但是向组织仓库进行 pr 时，该 token 是会被拒绝的。你需要使用一个 OAuth app token。最简单的辨别方法是，personal token 的格式是 `ghp` 开头，OAuth app token 的格式是 `gho` 开头。若你不知道如何获取 OAuth app token，可以通过 `gh` 命令行工具来获取一个。 **请注意不要泄漏，从 `gh` 工具获得的 token 具有您账号的全部权限。**
 
-默认工具会在临时文件夹中运行，每次可能会下载一大堆镜像文件。你可以设置环境变量 `$CACHE_DIR` 来指定缓存目录，这样工具会将所有的东西都缓存到这个目录中。
+默认工具会在临时文件夹中运行，每次可能会下载一大堆镜像文件。你可以设置环境变量 `CACHE_DIR` 来指定缓存目录，这样工具会将所有的东西都缓存到这个目录中。
 
 renew_ruyi_index.py 里面封装了所有的操作，你可以直接运行这个脚本。各个参数的含义如下：
 - `-c` 或 `--config`：配置文件的路径，可以与 nvchecker 共用。主要是要它的 `[vendor-system-variance]` 这个字段。
@@ -18,7 +18,7 @@ renew_ruyi_index.py 里面封装了所有的操作，你可以直接运行这个
 
 ### 插件开发说明
 
-由于镜像映射情况较为复杂（一份报告对应多个文件乃至于对歌 index），且 ruyi index 那边没定好每个镜像如何映射，现阶段为每个镜像写一些插件是必需的。后续可能可以考虑通用插件的开发。
+由于镜像映射情况较为复杂（一份报告对应多个文件乃至于多个 index），且版本号存在需要自行处理的问题，现阶段为每个镜像写一些插件是必需的。后续可能可以考虑通用插件的开发。
 
 新增一个插件，即在 `ruyi_index_updator/upload_plugin` 中新建一个文件即可。你可以直接引入当前文件夹下的 `prelude` 来获取一些 typing。
 
