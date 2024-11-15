@@ -7,3 +7,18 @@ user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Ge
 source = "regex"
 url = "https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/"
 regex = '<a href="(\d{8})/" title="\1">\1/</a>'
+
+[milkv_duo-buildroot-null]
+source = "github"
+github = "milkv-duo/duo-buildroot-sdk"
+use_latest_release = true
+
+[milkv_duo256m-buildroot-null]
+source = "github"
+github = "milkv-duo/duo-buildroot-sdk"
+use_latest_release = true
+
+[milkv_duos-buildroot-null]
+source = "github"
+github = "milkv-duo/duo-buildroot-sdk"
+use_latest_release = true
