@@ -1,29 +1,27 @@
-# NuttX on Milk-V Duo S
+# NuttX on Milk-V Duo S 测试报告
 
 ## 测试环境
 
 ### 操作系统信息
 
-- Debian Linux 镜像 + U-Boot：https://github.com/Fishwaldo/sophgo-sg200x-debian/releases
-- 工具链：xPack https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases
-- dtb 文件：https://github.com/lupyuen2/wip-nuttx/releases/download/sg2000-1/cv181x_milkv_duos_sd.dtb
-- 参考安装文档：https://nuttx.apache.org/docs/latest/quickstart/install.html
+- Debian Linux Image + U-Boot: https://github.com/Fishwaldo/sophgo-sg200x-debian/releases
+- Toolchain: xPack https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases
+- dtb file: https://github.com/lupyuen2/wip-nuttx/releases/download/sg2000-1/cv181x_milkv_duos_sd.dtb
+- Reference Installation Document: https://nuttx.apache.org/docs/latest/quickstart/install.html
 
 ### 硬件信息
 
 - Milk-V Duo S (512M, SG2000)
-- USB 电源适配器一个
 - USB-A to C 或 USB C to C 线缆一条，用于给开发板供电
-- microSD 卡一张
-- USB 读卡器一个
-- USB to UART 调试器一个（如：CP2102, FT2232 等，注意不可使用 CH340/341 系列，会出现乱码）
-- 杜邦线三根
-- 以太网接入，用于 TFTP Boot
+- microSD 卡一张，用于启动
+- USB 读卡器一个，用于为microSD烧录
+- USB to UART 调试器一个（如：CP2102, FT2232 等，使用 CH340/341 系列开始会出现乱码，属于预期现象）
+- 杜邦线三根，用于uart接口
+- 网线一根，用于以太网接入（TFTP Boot 无法使用USB网络）
 
 ## 安装步骤
 
 ### 构建依赖安装
-
 
 Debian based:
 ```bash
@@ -77,11 +75,11 @@ git clone https://github.com/apache/nuttx-apps apps
 
 Nuttx 需要使用 xPack 工具链进行编译，首先获取工具链，从 Github 下载，自行改变版本以匹配你的系统：
 ```bash
-wget https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v11.5.0-1/xpack-riscv-none-elf-gcc-13.3.0-1-linux-x64.tar.gz
-tar -xvzf xpack-riscv-none-elf-gcc-13.3.0-1-linux-x64.tar.gz
+wget https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/download/v14.2.0-2/xpack-riscv-none-elf-gcc-14.2.0-2-linux-x64.tar.gz
+tar -xvzf xpack-riscv-none-elf-gcc-14.2.0-2-linux-x64.tar.gz
 ```
 
-将其添加到你的 PATH 中：
+/*建议将tar解压到/opt*/并将其添加到你的 PATH 中：
 ```bash
 export PATH=/path/to/toolchain/you/untar:$PATH
 ```
@@ -92,7 +90,9 @@ cd nuttx
 tools/configure.sh milkv_duos:nsh
 make -j$(nproc)
 ```
-
+构建过程中如果遇到文件丢失，可以通过menuconfig配置选项
+- 在(Top) → Library Routines → Select math library 选择是否使用数学库，及其路径
+- 在(Top) → Library Routines → Builtin libclang_rt.profile选择是否启用llvm
 
 接下来构建文件系统：
 ```bash
@@ -139,7 +139,7 @@ cp Image-sg2000 /path/to/tftp/folder
 cp cv181x_milkv_duos_sd.dtb /path/to/tftp/folder
 ```
 
-接上 UART 调试线，给开发板上电，在提示 `Hit any key to stop autoboot` 时按任意键打断 U-Boot，并手动配置 U-Boot 以从 TFTP 启动 NuttX：
+接上 UART 调试线，给开发板上电，同时需要为开发板提供网络，在提示 `Hit any key to stop autoboot` 时按任意键打断 U-Boot，并手动配置 U-Boot 以从 TFTP 启动 NuttX：
 
 若是 dhcp 方式获取 ip，需要先运行`dhcp`而后打断。
 
@@ -195,11 +195,8 @@ nsh>
 
 屏幕录像：
 
-Part 1:
-[![asciicast](https://asciinema.org/a/8wvErVrySR04Ri18rPJ99qai9.svg)](https://asciinema.org/a/8wvErVrySR04Ri18rPJ99qai9)
+[!bilibili](https://www.bilibili.com/video/BV1RMUeYjELe/?spm_id_from=333.999.0.0)
 
-Part 2:
-[![asciicast](https://asciinema.org/a/loBvsK69TBtZmicjdzqHX2B9z.svg)](https://asciinema.org/a/loBvsK69TBtZmicjdzqHX2B9z)
 
 ## 测试判定标准
 
@@ -210,3 +207,5 @@ Part 2:
 ## 测试结论
 
 测试通过。
+
+

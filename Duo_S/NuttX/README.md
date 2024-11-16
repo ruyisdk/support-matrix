@@ -22,13 +22,14 @@ last_update: 2024-06-21
 ### Hardware Information
 
 - Milk-V Duo S (512M, SG2000)
-- A USB Power Adapter
-- A USB-A to C or USB C to C cable for powering the development board
-- A microSD card
-- A USB card reader
-- A USB to UART Debugger (e.g., CP2102, FT2232, etc. Be aware that WCH CH340/341 series will cause garbled text output, DO NOT USE)
-- Three DuPont wires
-- Ethernet access for TFTP Boot
+- A USB-A to C or USB C to C cable to power the development board
+- A microSD card for booting
+- A USB card reader for microSD burning
+- A USB to UART debugger (such as: CP2102, FT2232, etc., garbled characters will appear when using the CH340/341 series, which is an expected phenomenon)
+- Three Dupont lines for uart interface
+- Network cabling for optical fiber access (TFTP Boot cannot use USB network)
+
+
 
 ## Installation Steps
 
@@ -102,6 +103,10 @@ cd nuttx
 tools/configure.sh milkv_duos:nsh
 make -j$(nproc)
 ```
+
+If you encounter file loss during the build process, you can configure options through menuconfig
+- Select whether to use the math library and its path in (Top) → Library Routines → Select math library
+- Select whether to enable llvm in (Top) → Library Routines → Builtin libclang_rt.profile
 
 Then, build the file system:
 ```bash
@@ -207,11 +212,7 @@ nsh>
 
 Screen recording:
 
-Part 1:
-[![asciicast](https://asciinema.org/a/8wvErVrySR04Ri18rPJ99qai9.svg)](https://asciinema.org/a/8wvErVrySR04Ri18rPJ99qai9)
-
-Part 2:
-[![asciicast](https://asciinema.org/a/loBvsK69TBtZmicjdzqHX2B9z.svg)](https://asciinema.org/a/loBvsK69TBtZmicjdzqHX2B9z)
+[!bilibili](https://www.bilibili.com/video/BV1RMUeYjELe/?spm_id_from=333.999.0.0)
 
 ## Test Criteria
 
