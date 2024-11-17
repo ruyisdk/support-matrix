@@ -4,7 +4,7 @@ sys_ver: null
 sys_var: null
 
 status: basic
-last_update: 2024-06-21
+last_update: 2024-11-17
 ---
 
 # BuildRoot Milk-V Duo S Test Report
@@ -13,7 +13,7 @@ last_update: 2024-06-21
 
 ### Operating System Information
 
-- System Version: Duo-V1.1.0
+- System Version: Duo-V1.1.3
 - Download Link: https://github.com/milkv-duo/duo-buildroot-sdk/releases
 - Reference Installation Document: https://github.com/milkv-duo/duo-buildroot-sdk
 
@@ -32,17 +32,20 @@ last_update: 2024-06-21
 
 Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the prompts.
 
+### using `balenaEtcher` to Flash Image to microSD Card
+Install[`balennaEtcher`],use open source tool balenaEtcher for flashing
+
 ### Logging into the System
 
 Log into the system via the serial port.
 
 ## Expected Results
 
-The system should boot normally and allow login via the onboard serial port.
+The system should boot normally and allow login via the onboard serial port and ssh.
 
 ## Actual Results
 
-The system booted successfully and login via the onboard serial port was also successful.
+The system booted successfully and login via the onboard serial port and ssh was also successful.
 
 ### Boot Information
 
@@ -75,7 +78,7 @@ PRETTY_NAME="Buildroot 2021.05"
 
 Screen recording (From flashing image to login):
 
-[![asciicast](https://asciinema.org/a/Zbt8azPsJFYLWOYCKgPNrt9S7.svg)](https://asciinema.org/a/Zbt8azPsJFYLWOYCKgPNrt9S7)
+[!bilibili](https://www.bilibili.com/video/BV1kCU6Y1ECg/?vd_source=1291fcfaefa3ea5589519340cf2ed80c)(https://www.bilibili.com/video/BV1kCU6Y1ECg/?vd_source=1291fcfaefa3ea5589519340cf2ed80c)
 
 ## Test Criteria
 
