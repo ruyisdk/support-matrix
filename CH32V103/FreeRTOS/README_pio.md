@@ -1,5 +1,5 @@
 ---
-sys: reertos
+sys: freertos
 sys_ver: null
 sys_var: pio
 
