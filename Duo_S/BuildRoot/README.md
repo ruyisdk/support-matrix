@@ -32,8 +32,8 @@ last_update: 2024-11-17
 
 Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the prompts.
 
-### using `balenaEtcher` to Flash Image to microSD Card
-Install[`balennaEtcher`],use open source tool balenaEtcher for flashing
+### Using `balenaEtcher` to flash image to microSD Card
+Install `balennaEtcher`, the open source tool for flashing.
 
 ### Logging into the System
 

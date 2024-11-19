@@ -15,7 +15,7 @@
 - USB-A to C 或 USB C to C 线缆一条，用于给开发板供电
 - microSD 卡一张，用于启动
 - USB 读卡器一个，用于为microSD烧录
-- USB to UART 调试器一个（如：CP2102, FT2232 等，使用 CH340/341 系列开始会出现乱码，属于预期现象）
+- USB to UART 调试器一个（如：CP2102, FT2232 等，注意不可使用 CH340/341 系列，会出现乱码）
 - 杜邦线三根，用于uart接口
 - 网线一根，用于以太网接入（TFTP Boot 无法使用USB网络）
 
@@ -79,7 +79,7 @@ wget https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/downlo
 tar -xvzf xpack-riscv-none-elf-gcc-14.2.0-2-linux-x64.tar.gz
 ```
 
-/*建议将tar解压到/opt*/并将其添加到你的 PATH 中：
+建议将tar解压到/opt 并将其添加到你的 PATH 中：
 ```bash
 export PATH=/path/to/toolchain/you/untar:$PATH
 ```
@@ -90,9 +90,9 @@ cd nuttx
 tools/configure.sh milkv_duos:nsh
 make -j$(nproc)
 ```
-构建过程中如果遇到文件丢失，可以通过menuconfig配置选项
-- 在(Top) → Library Routines → Select math library 选择是否使用数学库，及其路径
-- 在(Top) → Library Routines → Builtin libclang_rt.profile选择是否启用llvm
+构建过程中如果遇到文件丢失，可以通过 menuconfig 配置选项
+- 在 (Top) → Library Routines → Select math library 选择是否使用数学库，及其路径
+- 在 (Top) → Library Routines → Builtin libclang_rt.profile 选择是否启用llvm
 
 接下来构建文件系统：
 ```bash

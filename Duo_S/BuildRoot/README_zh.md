@@ -20,12 +20,12 @@
 
 ## 安装步骤
 
-### 1 使用 `ruyi` CLI 刷写镜像到 microSD 卡
+###  使用 `ruyi` CLI 刷写镜像到 microSD 卡
 
 安装 [`ruyi`](https://github.com/ruyisdk/ruyi) 包管理器，运行 `ruyi device provision` 并按提示操作。
 
-### 2 使用 `balenaEtcher` 刷写镜像到 microSD 卡
-安装[`balennaEtcher`] 使用开源跨平台工具 balenaEtcher 进行刷写
+###  使用 `balenaEtcher` 刷写镜像到 microSD 卡
+安装开源跨平台工具 `balenaEtcher` 进行刷写。
 
 ### 登录系统
 

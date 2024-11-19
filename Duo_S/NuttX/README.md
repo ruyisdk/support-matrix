@@ -21,13 +21,17 @@ last_update: 2024-11-16
 
 ### Hardware Information
 
+Hardware Information
+
 - Milk-V Duo S (512M, SG2000)
-- A USB-A to C or USB C to C cable to power the development board
-- A microSD card for booting
-- A USB card reader for microSD burning
-- A USB to UART debugger (such as: CP2102, FT2232, etc., garbled characters will appear when using the CH340/341 series, which is an expected phenomenon)
-- Three Dupont lines for uart interface
-- Network cabling for optical fiber access (TFTP Boot cannot use USB network)
+- A USB Power Adapter
+- A USB-A to C or USB C to C cable for powering the development board
+- A microSD card
+- A USB card reader
+- A USB to UART Debugger (e.g., CP2102, FT2232, etc. Be aware that WCH CH340/341 series will cause garbled text output, DO NOT USE)
+- Three DuPont wires
+- Ethernet access for TFTP Boot
+
 
 
 
