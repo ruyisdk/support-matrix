@@ -59,7 +59,7 @@ sf update $kernel_addr_r 0x100000 $filesize
 ### 启动信息
 
 屏幕录像：
-[![asciicast](https://asciinema.org/a/a3DgDMfhYPQgWhUjTTScbJ04n.svg)](https://asciinema.org/a/a3DgDMfhYPQgWhUjTTScbJ04n)
+[![asciicast](https://asciinema.org/a/S4BWlczAOVA6r3HmBrdtjP7Ul)](https://asciinema.org/a/S4BWlczAOVA6r3HmBrdtjP7Ul)
 
 ```log
 Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic riscv64)

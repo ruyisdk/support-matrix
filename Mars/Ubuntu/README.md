@@ -4,7 +4,7 @@ sys_ver: 24.10
 sys_var: null
 
 status: CFT
-last_update: 2024-10-25
+last_update: 2024-11-24
 ---
 
 # Ubuntu 24.10 on Milk-V Mars Test Report
@@ -68,7 +68,7 @@ The system booted successfully, and the output was successfully viewed via the s
 ### Boot Information
 
 Screen recording:
-[![asciicast](https://asciMars/Ubuntu/README_zh.md Mars/Ubuntu/README.md
+[![asciicast](https://asciinema.org/a/S4BWlczAOVA6r3HmBrdtjP7Ul)(https://asciinema.org/a/S4BWlczAOVA6r3HmBrdtjP7Ul)
  System information disabled due to load higher than 1.0
 
 Expanded Security Maintenance for Applications is not enabled.

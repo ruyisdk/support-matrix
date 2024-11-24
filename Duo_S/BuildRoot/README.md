@@ -78,7 +78,7 @@ PRETTY_NAME="Buildroot 2021.05"
 
 Screen recording (From flashing image to login):
 
-[!bilibili](https://www.bilibili.com/video/BV1kCU6Y1ECg/?vd_source=1291fcfaefa3ea5589519340cf2ed80c)(https://www.bilibili.com/video/BV1kCU6Y1ECg/?vd_source=1291fcfaefa3ea5589519340cf2ed80c)
+[!asciinema](https://asciinema.org/a/y74COq4Da80mjhqZygoL7i97x)(https://asciinema.org/a/y74COq4Da80mjhqZygoL7i97x)
 
 ## Test Criteria
 
