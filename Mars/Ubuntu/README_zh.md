@@ -6,7 +6,7 @@
 
 - Ubuntu 24.10
   - 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64+milkvmars.img.xz
-  - 参考安装文档：https://milkv.io/zh/docs/mars/getting-started/boot
+  - 参考安装文档：https://milkv.iso/zh/docs/mars/getting-started/boot
 
 ### 硬件开发板信息
 

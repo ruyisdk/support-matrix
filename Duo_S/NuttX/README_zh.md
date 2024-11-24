@@ -195,7 +195,7 @@ nsh>
 
 屏幕录像：
 
-[!bilibili](https://www.bilibili.com/video/BV1RMUeYjELe/?spm_id_from=333.999.0.0)
+[!asciinema](https://asciinema.org/a/Eai0QwU5y9USbr3FsYq7L1Mxf)(https://asciinema.org/a/Eai0QwU5y9USbr3FsYq7L1Mxf)
 
 
 ## 测试判定标准
