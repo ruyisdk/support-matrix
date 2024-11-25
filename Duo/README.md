@@ -58,6 +58,9 @@ cpu_core: XuanTie C906
   - Reference Installation Document:
     - https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/#Ubuntu_Disk_Image
     - https://github.com/bassusteur/milkv-duo-ubuntu
+- Yocto
+  - Source Code Link: https://github.com/kinsamanka/meta-milkv
+  - Reference Installation Document: https://github.com/kinsamanka/meta-milkv/blob/master/README.md
 
 ### Hardware Information
 
@@ -80,7 +83,7 @@ cpu_core: XuanTie C906
 | Zephyr Image Build and Boot          | N/A          | [Success][Zephyr]                                                |
 | UniProton Boot                       | N/A          | [Success][UniProton]                                             |
 | Ubuntu Boot                          | N/A          | [Success][Ubuntu]                                                |
-
+| Yocto Image Build and Boot           | N/A          | [Success][Yocto]                                                 |
 [Duo]: ./BuildRoot/README.md
 [Arch]: ./ArchLinux/README.md
 [Alpine]: ./Alpine/README.md
@@ -94,3 +97,4 @@ cpu_core: XuanTie C906
 [Zephyr]: ./Zephyr/README.md
 [UniProton]: ./UniProton/README.md
 [Ubuntu]: ./Ubuntu/README.md
+[Yocto]: ./Yocto/README.md
