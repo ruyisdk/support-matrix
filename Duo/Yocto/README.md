@@ -43,7 +43,7 @@ sudo apt install kas
 Set the board image to be built:
 
 ```shell
-export KAS_MACHINE=milkv-duo256
+export KAS_MACHINE=milkv-duo
 ```
 
 Fetch source code:

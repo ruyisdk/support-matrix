@@ -35,7 +35,7 @@ sudo apt install kas
 设置目标开发板类型：
 
 ```shell
-export KAS_MACHINE=milkv-duo256
+export KAS_MACHINE=milkv-duo
 ```
 
 拉取源码：

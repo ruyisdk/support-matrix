@@ -84,6 +84,7 @@ cpu_core: XuanTie C906
 | UniProton Boot                       | N/A          | [Success][UniProton]                                             |
 | Ubuntu Boot                          | N/A          | [Success][Ubuntu]                                                |
 | Yocto Image Build and Boot           | N/A          | [Success][Yocto]                                                 |
+
 [Duo]: ./BuildRoot/README.md
 [Arch]: ./ArchLinux/README.md
 [Alpine]: ./Alpine/README.md
