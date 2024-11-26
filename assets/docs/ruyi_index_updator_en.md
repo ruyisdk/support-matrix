@@ -6,7 +6,9 @@ This tool automatically updates the index file for mirrors in the ruyi tool, syn
 
 You need to set the environment variable `GITHUB_TOKEN`, and this token must have read, write, and PR permissions for the relevant repository. Alternatively, you can enable permissions to allow the tool to fork the repository automatically.
 
-**Note!** Tokens get directly from Github settings are personal tokens, which will be rejected when making PRs to organization repositories. You need to use an OAuth app token. The easiest way to distinguish them is by format: personal tokens start with `ghp`, while OAuth app tokens start with `gho`. If you're unsure how to obtain an OAuth app token, you can use the `gh` command-line tool to get one. **Be careful not to leak the token, it has all permission of your account if you get it from `gh` tool.**
+**Note!** Tokens get directly from Github settings are personal tokens, which will be rejected when making PRs to organization repositories. You need to use an OAuth app token. The easiest way to distinguish them is by format: personal tokens start with `ghp`, while OAuth app tokens start with `gho`. 
+
+If want to test only, you can use the `gh` command-line tool to get one. **Be careful not to leak the token, it has all permission of your account if you get it from `gh` tool.**; Create an OAuth app and use it as described below.
 
 By default, the tool operates in a temporary directory, which might involve downloading many mirror files each time. You can set the environment variable `CACHE_DIR` to specify a cache directory, and the tool will store everything there.
 
@@ -32,3 +34,38 @@ In the `UploadPluginBase` class, you need to implement the following methods:
 - `handle_report`: Uses the current report to generate a new image index for the ruyi index.
 
 You can review the provided helper functions as needed. An example plugin is provided for the LPI4A system in ruyi, which includes RevyOS and two U-Boot mirrors. The RevyOS mirror contains multiple files, making it a good representation of all scenarios.
+
+## How to Use an OAuth APP
+
+The following explains how to use an OAuth APP and obtain a token.
+
+### Confirm the Type of Account You Want to Use
+
+Due to Github's permission limitation, all permissions are **bound to users** (including organizations). This means you cannot have a token for an organization but only for your user account. Therefore, for the Github account you authorize, make sure it is a user account, not an organization account.
+
+If you do not want to use your main account, feel free to create a new account. Github provides a special exception for bot accounts, which does not violate the one account per person policy:
+> User accounts are intended for humans, but you can create accounts to automate activity on GitHub. This type of account is called a machine user. For example, you can create a machine user account to automate continuous integration (CI) workflows.
+
+### Create an OAuth APP
+
+Open your account settings and find Developer settings:
+![1](img/1.png)
+
+Enter and select OAuth Apps:
+![2](img/2.png)
+
+Click New OAuth App:
+![3](img/3.png)
+
+Fill in the information as needed. The Authorization callback URL can be anything, such as `http://127.0.0.1:12345`. **Be sure to check Enable Device Flow**:
+![4](img/4.png)
+
+Register the APP, get the Client ID:
+![5](img/5.png)
+
+### Use the OAuth APP
+
+In `src/ruyi_index_updator/github_auth.py` is a separate script that is used to obtain a token. Simply run it and follow the prompts to input the required information.
+```python
+python assets/src/ruyi_index_updator/github_auth.py
+```
