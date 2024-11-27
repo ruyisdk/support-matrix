@@ -84,7 +84,7 @@ class BoardImageWrapper:
         Generate the hash of the new index, used to identify the pr
         """
         h = hashlib.sha224(
-            self.new_index_toml().encode("utf-8")
+            self.new_index_toml().encode("utf-8") + self.new_index_name().encode("utf-8")
         )
         return h.hexdigest()
 

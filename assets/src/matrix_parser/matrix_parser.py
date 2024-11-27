@@ -284,6 +284,7 @@ class Systems:
         '.git',
         '.vscode',
         '__pycache__',
+        '~', # ?
     ]
 
     def should_exclude(self, path):
