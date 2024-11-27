@@ -171,10 +171,8 @@ class BoardImages:
     @property
     def version(self) -> str:
         """
-        return the version, following bot identifier
+        return the version
         """
-        if self.is_bot_created:
-            return f"{self.raw_version}-matrix.bot"
         return self.raw_version
 
     @version.setter
