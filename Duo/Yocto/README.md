@@ -54,18 +54,6 @@ cd yocto
 git clone https://github.com/kinsamanka/meta-milkv
 ```
 
-Apply patch from [this PR](https://github.com/kinsamanka/meta-milkv/pull/8). Specifically, change line 699 of `meta-milkv/recipes-kernel/linux/linux-milkv-duo-dev/0002-dts-fix-cells-sizes.patch` from 
-
-```diff
-+			    <425000<425000000 300000000>;
-```
-
-to
-
-```diff
-+			    <425000000 300000000>;
-```
-
 Then build with `kas`:
 
 ```shell

@@ -47,18 +47,6 @@ git clone https://github.com/kinsamanka/meta-milkv
 
 ```
 
-参照 [此 PR](https://github.com/kinsamanka/meta-milkv/pull/8)，修改 `meta-milkv/recipes-kernel/linux/linux-milkv-duo-dev/0002-dts-fix-cells-sizes.patch` 文件中第 699 行
-
-```diff
-+			    <425000<425000000 300000000>;
-```
-
-为
-
-```diff
-+			    <425000000 300000000>;
-```
-
 使用 `kas` 构建:
 
 ```shell
@@ -90,8 +78,6 @@ zcat build/tmp-musl/deploy/images/milkv-duo/core-image-minimal-milkv-duo.rootfs.
 系统正常启动，成功通过板载串口登录。
 
 ### 启动信息
-
-屏幕录像（从刷写镜像到登录系统）：
 
 ```log
 Starting kernel ...
