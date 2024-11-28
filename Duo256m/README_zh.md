@@ -40,6 +40,9 @@
 - Ubuntu 22.04
   - 下载链接：https://drive.google.com/file/d/1mkzLhvtjJup3GbgWKZdwL80PZMMXg7n1/view?usp=drive_link
   - 参考安装文档：https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/#Ubuntu_Disk_Image
+- Yocto
+  - 源码链接：https://github.com/kinsamanka/meta-milkv
+  - 参考安装文档：https://github.com/kinsamanka/meta-milkv/blob/master/README.md
 
 ### 硬件开发板信息
 
@@ -58,6 +61,7 @@
 | Zephyr 镜像构建及启动          | N/A      | [成功][Zephyr]                                    |
 | Alpine Linux 启动              | N/A      | [CFH][Alpine] （可使用社区镜像或手工构建 rootfs） |
 | Ubuntu 启动                    | N/A      | [成功][Ubuntu]                                    |
+| Yocto  镜像构建及启动          | N/A      | [成功][Ubuntu]                                    |
 
 [BuildRoot]: ./BuildRoot/README_zh.md
 [Debian]: ./Debian/README_zh.md
@@ -68,3 +72,4 @@
 [Zephyr]: ./Zephyr/README_zh.md
 [Alpine]: ./Alpine/README_zh.md
 [Ubuntu]: ./Ubuntu/README_zh.md
+[Yocto]: ./Yocto/README_zh.md
