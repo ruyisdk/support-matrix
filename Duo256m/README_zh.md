@@ -50,18 +50,18 @@
 
 ## 测试结果
 
-| 软件分类                       | 软件包名 | 测试结果（测试报告）                              |
-| ------------------------------ | -------- | ------------------------------------------------- |
-| BuildRoot 镜像启动             | N/A      | [成功][BuildRoot]                                 |
-| FreeRTOS 启动                  | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内）     |
-| Debian 镜像启动                | N/A      | [成功][Debian]                                    |
-| Fedora 镜像启动                | N/A      | [成功][Fedora]                                    |
-| RT-Thread 镜像构建及启动       | N/A      | [成功][RT-Thread]                                 |
-| RT-Thread Smart 镜像构建及启动 | N/A      | [CFH][RT-Thread]                                  |
-| Zephyr 镜像构建及启动          | N/A      | [成功][Zephyr]                                    |
-| Alpine Linux 启动              | N/A      | [CFH][Alpine] （可使用社区镜像或手工构建 rootfs） |
-| Ubuntu 启动                    | N/A      | [成功][Ubuntu]                                    |
-| Yocto  镜像构建及启动          | N/A      | [成功][Ubuntu]                                    |
+| 软件分类                       | 软件包名 | 测试结果（测试报告）                               |
+| ------------------------------ | -------- | -------------------------------------------------- |
+| BuildRoot 镜像启动             | N/A      | [成功][BuildRoot]                                  |
+| FreeRTOS 启动                  | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内）      |
+| Debian 镜像启动                | N/A      | [成功][Debian]                                     |
+| Fedora 镜像启动                | N/A      | [成功][Fedora]                                     |
+| RT-Thread 镜像构建及启动       | N/A      | [成功][RT-Thread]                                  |
+| RT-Thread Smart 镜像构建及启动 | N/A      | [成功][RT-Thread]                                  |
+| Zephyr 镜像构建及启动          | N/A      | [成功][Zephyr]                                     |
+| Alpine Linux 启动              | N/A      | [成功][Alpine] （可使用社区镜像或手工构建 rootfs） |
+| Ubuntu 启动                    | N/A      | [成功][Ubuntu]                                     |
+| Yocto  镜像构建及启动          | N/A      | [成功][Ubuntu]                                     |
 
 [BuildRoot]: ./BuildRoot/README_zh.md
 [Debian]: ./Debian/README_zh.md

@@ -63,9 +63,9 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 | Debian Image Boot                  | N/A          | [Success][Debian]                                                |
 | Fedora Image Boot                  | N/A          | [Success][Fedora]                                                |
 | RT-Thread Image Build & Boot       | N/A          | [Success][RT-Thread]                                             |
-| RT-Thread Smart Image Build & Boot | N/A          | [CFH][RT-Smart]                                                  |
+| RT-Thread Smart Image Build & Boot | N/A          | [Success][RT-Smart]                                              |
 | Zephyr Image Build & Boot          | N/A          | [Success][Zephyr]                                                |
-| Alpine Linux Boot                  | N/A          | [CFH][Alpine] (use community image or build rootfs manually)     |
+| Alpine Linux Boot                  | N/A          | [Success][Alpine] (use community image or build rootfs manually) |
 | Ubuntu Boot                        | N/A          | [Success][Alpine] (use community image or build rootfs manually) |
 | Yocto Image Build and Boot         | N/A          | [Success][Yocto]                                                 |
 

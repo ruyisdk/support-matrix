@@ -3,8 +3,8 @@ sys: rtthread
 sys_ver: null
 sys_var: smart
 
-status: cfh
-last_update: 2024-11-02
+status: basic
+last_update: 2024-11-29
 ---
 
 # RT-Thread Milk-V Duo 256M Test Report
@@ -15,7 +15,7 @@ last_update: 2024-11-02
 
 - Source Code Link:
   - https://github.com/RT-Thread/rt-thread
-  - https://github.com/RT-Thread/userapps
+  - Userapps: https://github.com/RT-Thread/userapps
 - Reference Installation Document: https://github.com/RT-Thread/rt-thread/tree/master/bsp/cvitek
    - Toolchain: https://github.com/RT-Thread/toolchains-ci/releases/download/v1.7/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu_latest.tar.bz2
 
@@ -114,7 +114,7 @@ The system boots up normally and allows login through the serial port.
 
 ## Actual Results
 
-The value of the `The virtural address of kernel start (KERNEL_VADDR_START)` option in menuconfig needs to be set to `0xffffffc000200000` in order to make a compile-time assert happy. The kernel in the resulting image, however, fails to boot:
+The system boots up normally and login through the serial port is successful.
 
 ### Boot Log
 
@@ -123,48 +123,21 @@ Starting kernel ...
 
 [I/drv.pinmux] Pin Name = "UART0_RX", Func Type = 281, selected Func [0]
 
-Unhandled Exception 13:Load Page Fault
-[E/libcpu.trap] 
--------- [SEVER ERROR] --------
-[E/libcpu.trap] Nested trap detected
-[E/libcpu.trap] scause:0x000000000000000d,stval:0x0000000000000170,sepc:0xffffffc0002797f8
+[I/drv.pinmux] Pin Name = "UART0_TX", Func Type = 282, selected Func [0]
 
---------------Dump Registers-----------------
-Function Registers:                                                                   
-        ra(x1) = 0xffffffc0002797f0     user_sp = 0xffffffc0002a6bc0                  
-        gp(x3) = 0xffffffc0002a5a18     tp(x4) = 0x0000000000000000                   
-Temporary Registers:                                                                  
-        t0(x5) = 0x8000000000000005     t1(x6) = 0x0000000000000008                   
-        t2(x7) = 0x0000000000000000
-        t3(x28) = 0x0000000000000000    t4(x29) = 0x0000000000000000
-        t5(x30) = 0x0000000000000000    t6(x31) = 0x0000000000000000
-Saved Registers:
-        s0/fp(x8) = 0xffffffc0002a6bf0  s1(x9) = 0x0000000000000000
-        s2(x18) = 0x0000000000000000    s3(x19) = 0x0000000000000000
-        s4(x20) = 0x0000000000000000    s5(x21) = 0x0000000000000000
-        s6(x22) = 0x0000000000000000    s7(x23) = 0x0000000000000000
-        s8(x24) = 0x0000000000000000    s9(x25) = 0x0000000000000000
-        s10(x26) = 0x0000000000000000   s11(x27) = 0x0000000000000000
-Function Arguments Registers:
-        a0(x10) = 0xffffffc0002ea208    a1(x11) = 0x0000000000000000
-        a2(x12) = 0xffffffc0002631ac    a3(x13) = 0xffffffc0002a6c70
-        a4(x14) = 0x0000000000000001    a5(x15) = 0x0000000000000000
-        a6(x16) = 0x0000000000000000    a7(x17) = 0x0000000000000001
-sstatus = 0x8000000201844100
-        Supervisor Interrupt Disabled
-        Last Time Supervisor Interrupt Disabled
-        Last Privilege is Supervisor Mode
-        Permit to Access User Page
-        Not Permit to Read Executable-only Page
-satp = 0x80000000000802e6
-        Current Page Table(Physical) = 0x00000000802e6000
-        Current ASID = 0x0000000000000000
-        Mode = Page-based 39-bit Virtual Addressing Mode
------------------Dump OK---------------------
-shutdown...
+heap: [0x0xffffffc0002fb110 - 0x0xffffffc000afb110]
+
+ \ | /
+- RT -     Thread Smart Operating System
+ / | \     5.2.0 build Nov 29 2024 12:03:11
+ 2006 - 2024 Copyright by RT-Thread team
+lwIP-2.1.2 initialized!
+[I/sal.skt] Socket Abstraction Layer initialize success.
+[I/drivers.serial] Using /dev/ttyS0 as default console
+Hello RT-Smart!
+msh />
+
 ```
-
-It may be necessary to revert a specific commit in the RT-Thread repository to resolve this issue. See [RT-Thread/rt-thread#9608](https://github.com/RT-Thread/rt-thread/issues/9608) for more details.
 
 ## Test Criteria
 
@@ -174,4 +147,4 @@ Failed: The actual result does not match the expected result.
 
 ## Test Conclusion
 
-CFH
+Test successful.
