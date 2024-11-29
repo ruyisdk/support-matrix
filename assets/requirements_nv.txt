@@ -1,0 +1,9 @@
+awesomeversion==24.6.0
+lxml==5.3.0
+nvchecker==2.15.1
+platformdirs==4.3.6
+pycurl==7.45.3
+pytoml==0.1.21
+structlog==24.4.0
+toml==0.10.2
+tornado==6.4.1
