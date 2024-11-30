@@ -4,10 +4,10 @@
 
 ### 操作系统信息
 
-- Debian Linux 镜像 + U-Boot:https：//github.com/Fishwaldo/sophgo-sg200x-debian/releases
-- 工具链:xPack https：//github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases
-- dtb 文件：https：//github.com/lupyuen2/wip-nuttx/releases/download/sg2000-1/cv181x_milkv_duos_sd.dtb
-- 参考安装文档: https：//nuttx.apache.org/docs/latest/quickstart/install.html
+- Debian Linux 镜像 + U-Boot:https://github.com/Fishwaldo/sophgo-sg200x-debian/releases
+- 工具链:xPack https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases
+- dtb 文件：https://github.com/lupyuen2/wip-nuttx/releases/download/sg2000-1/cv181x_milkv_duos_sd.dtb
+- 参考安装文档: https://nuttx.apache.org/docs/latest/quickstart/install.html
 
 ### 硬件信息
 

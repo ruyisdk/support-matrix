@@ -78,4 +78,4 @@ Failed: The actual result does not match the expected result.
 
 ## Test Conclusion
 
-CFT
+Test successful.
