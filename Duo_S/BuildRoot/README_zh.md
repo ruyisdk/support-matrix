@@ -70,7 +70,7 @@ PRETTY_NAME="Buildroot 2021.05"
 
 屏幕录像（从刷写镜像到登录系统）：
 
-[!asciinema](https://asciinema.org/a/y74COq4Da80mjhqZygoL7i97x)(https://asciinema.org/a/y74COq4Da80mjhqZygoL7i97x)
+[![asciinema](https://asciinema.org/a/y74COq4Da80mjhqZygoL7i97x)](https://asciinema.org/a/y74COq4Da80mjhqZygoL7i97x)
 
 ## 测试判定标准
 

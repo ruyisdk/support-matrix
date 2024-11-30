@@ -195,7 +195,7 @@ nsh>
 
 屏幕录像：
 
-[!asciinema](https://asciinema.org/a/Eai0QwU5y9USbr3FsYq7L1Mxf)(https://asciinema.org/a/Eai0QwU5y9USbr3FsYq7L1Mxf)
+[![asciinema](https://asciinema.org/a/Eai0QwU5y9USbr3FsYq7L1Mxf)](https://asciinema.org/a/Eai0QwU5y9USbr3FsYq7L1Mxf)
 
 
 ## 测试判定标准

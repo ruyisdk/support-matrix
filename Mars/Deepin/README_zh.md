@@ -44,16 +44,24 @@ sudo dd if=deepin-milkv-mars-riscv64-stable-desktop-installer.img of=/dev/sda bs
 
 ## 实际结果
 
-CFT
+系统正常启动，成功通过串口查看输出。
 
 ### 启动信息
 
 ```log
-
+root@deepin-riscv64-jh7110:/etc# cat /etc/os-release                            
+PRETTY_NAME="Deepin 23"                                                         
+NAME="Deepin"                                                                
+VERSION_ID="23"                                                                 
+VERSION="23"                                                                    
+ID=deepin                                                                       
+HOME_URL="https://www.deepin.org/"                                              
+BUG_REPORT_URL="https://bbs.deepin.org"                                         
+VERSION_CODENAME=beige   
 ```
 
 屏幕录像（从刷写镜像到登录系统）：
-
+[![asciinema](https://asciinema.org/a/47e6PqDygxjmg19rxBMepkECt)](https://asciinema.org/a/47e6PqDygxjmg19rxBMepkECt)
 ## 测试判定标准
 
 测试成功：实际结果与预期结果相符。

@@ -52,8 +52,7 @@ sf update $kernel_addr_r 0x100000 $filesize
 系统正常启动，能够通过板载串口登录。能进入安装向导。
 
 ## 实际结果
-<details>
-<summary>结果已过时（24.04）</summary>
+
 系统正常启动，成功通过串口查看输出。
 
 ### 启动信息

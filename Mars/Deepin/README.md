@@ -3,8 +3,8 @@ sys: deepin
 sys_ver: null
 sys_var: null
 
-status: cft
-last_update: 2024-06-21
+status: basic
+last_update: 2024-11-24
 ---
 
 # Deepin Milk-V Mars Test Report
@@ -51,16 +51,24 @@ The system should boot up normally and allow login via the serial port.
 
 ## Actual Results
 
-CFT
+The system starts normally and the output is successfully viewed through the serial port.
 
 ### Boot Log
 
 ```log
-
+root@deepin-riscv64-jh7110:/etc# cat /etc/os-release                            
+PRETTY_NAME="Deepin 23"                                                         
+NAME="Deepin"                                                                   
+VERSION_ID="23"                                                                 
+VERSION="23"                                                                    
+ID=deepin                                                                       
+HOME_URL="https://www.deepin.org/"                                              
+BUG_REPORT_URL="https://bbs.deepin.org"                                         
+VERSION_CODENAME=beige   
 ```
 
 Screen recording (from flashing the image to system login):
-
+[![asciinema](https://asciinema.org/a/EIM84vEQbB0JNug7ufjqykMOa)](https://asciinema.org/a/EIM84vEQbB0JNug7ufjqykMOa)
 
 ## Test Criteria
 
