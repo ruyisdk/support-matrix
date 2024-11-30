@@ -6,7 +6,7 @@
 
 - Ubuntu 24.10
   - 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64+milkvmars.img.xz
-  - 参考安装文档：https://milkv.io/zh/docs/mars/getting-started/boot
+  - 参考安装文档：https://milkv.iso/zh/docs/mars/getting-started/boot
 
 ### 硬件开发板信息
 
@@ -52,14 +52,13 @@ sf update $kernel_addr_r 0x100000 $filesize
 系统正常启动，能够通过板载串口登录。能进入安装向导。
 
 ## 实际结果
-<details>
-<summary>结果已过时（24.04）</summary>
+
 系统正常启动，成功通过串口查看输出。
 
 ### 启动信息
 
 屏幕录像：
-[![asciicast](https://asciinema.org/a/a3DgDMfhYPQgWhUjTTScbJ04n.svg)](https://asciinema.org/a/a3DgDMfhYPQgWhUjTTScbJ04n)
+[![asciicast](https://asciinema.org/a/S4BWlczAOVA6r3HmBrdtjP7Ul)](https://asciinema.org/a/S4BWlczAOVA6r3HmBrdtjP7Ul)
 
 ```log
 Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic riscv64)
@@ -121,4 +120,4 @@ ubuntu@ubuntu:~$
 ## 测试结论
 
 成功
-</details>
+

@@ -4,7 +4,7 @@ sys_ver: null
 sys_var: null
 
 status: basic
-last_update: 2024-06-21
+last_update: 2024-11-16
 ---
 
 # NuttX on Milk-V Duo S Test Report
@@ -21,6 +21,8 @@ last_update: 2024-06-21
 
 ### Hardware Information
 
+Hardware Information
+
 - Milk-V Duo S (512M, SG2000)
 - A USB Power Adapter
 - A USB-A to C or USB C to C cable for powering the development board
@@ -29,6 +31,9 @@ last_update: 2024-06-21
 - A USB to UART Debugger (e.g., CP2102, FT2232, etc. Be aware that WCH CH340/341 series will cause garbled text output, DO NOT USE)
 - Three DuPont wires
 - Ethernet access for TFTP Boot
+
+
+
 
 ## Installation Steps
 
@@ -102,6 +107,10 @@ cd nuttx
 tools/configure.sh milkv_duos:nsh
 make -j$(nproc)
 ```
+
+If you encounter file loss during the build process, you can configure options through menuconfig
+- Select whether to use the math library and its path in (Top) → Library Routines → Select math library
+- Select whether to enable llvm in (Top) → Library Routines → Builtin libclang_rt.profile
 
 Then, build the file system:
 ```bash
@@ -207,11 +216,7 @@ nsh>
 
 Screen recording:
 
-Part 1:
-[![asciicast](https://asciinema.org/a/8wvErVrySR04Ri18rPJ99qai9.svg)](https://asciinema.org/a/8wvErVrySR04Ri18rPJ99qai9)
-
-Part 2:
-[![asciicast](https://asciinema.org/a/loBvsK69TBtZmicjdzqHX2B9z.svg)](https://asciinema.org/a/loBvsK69TBtZmicjdzqHX2B9z)
+[![asciinema](https://asciinema.org/a/Eai0QwU5y9USbr3FsYq7L1Mxf)](https://asciinema.org/a/Eai0QwU5y9USbr3FsYq7L1Mxf)
 
 ## Test Criteria
 
