@@ -1,5 +1,5 @@
 ---
-sys: freertos
+sys: threadx
 sys_ver: null
 sys_var: null
 
@@ -7,7 +7,7 @@ status: basic
 last_update: 2024-12-03
 ---
 
-# FreeRTOS Longan Nano Test Report
+# ThreadX Longan Nano Test Report
 
 ## Test Environment
 
@@ -31,9 +31,9 @@ last_update: 2024-12-03
 
 ## Installation Steps
 
-### Configure Environment
+### Environment Setup
 
-Download and extract the toolchain and OpenOCD, then set the toolchain directory:
+Download and extract the toolchain and OpenOCD, then set up the toolchain directory:
 ```bash
 wget https://download.nucleisys.com/upload/files/toolchain/gcc/nuclei_riscv_newlibc_prebuilt_linux64_nuclei-2024.tar.bz2
 tar -xjvf nuclei_riscv_newlibc_prebuilt_linux64_nuclei-2024.tar.bz2
@@ -47,20 +47,19 @@ Download the SDK:
 git clone https://github.com/Nuclei-Software/nuclei-sdk.git
 cd nuclei-sdk
 echo "NUCLEI_TOOL_ROOT=$(echo $NUCLEI_TOOL_ROOT)" > setup_config.sh
-
 source setup.sh
 ```
 
-### Compile Code
+### Compiling the Code
 
-Compile FreeRTOS:
+Compile ThreadX:
 ```bash
-cd application/freertos/demo/
+cd application/threadx/demo
 make SOC=gd32vf103 BOARD=gd32vf103c_longan_nano clean
 make SOC=gd32vf103 BOARD=gd32vf103c_longan_nano all
 ```
 
-### Flash Image
+### Flashing the Image
 
 Connect to the development board via your JTAG debugger. Note that the board should be powered on while flashing.
 
@@ -114,14 +113,13 @@ When all set, flash the binary with:
 ```bash
 make SOC=gd32vf103 BOARD=gd32vf103c_longan_nano upload
 ```
+### System Startup
 
-### Start System
-
-Connect to the development board via serial port.
+Connect to the development board via the serial port.
 
 ## Expected Results
 
-The system should boot normally and provide information via the onboard serial port.
+The system should boot up normally, and information should be viewable via the onboard serial port.
 
 ## Actual Results
 
@@ -133,43 +131,56 @@ The system booted up normally, and information are viewable via the onboard seri
 Nuclei SDK Build Time: Dec  3 2024, 23:12:51
 Download Mode: FLASHXIP
 CPU Frequency 108000000 Hz
-Before StartScheduler
-Enter to task_1
-task1 is running 0.....
-Enter to task_2
-task2 is running 0.....
-task1 is running 1.....
-task2 is running 1.....
-task1 is running 2.....
-task2 is running 2.....
-task1 is running 3.....
-task2 is running 3.....
-task1 is running 4.....
-task2 is running 4.....
-timers Callback 0
-task1 is running 5.....
-task2 is running 5.....
-task1 is running 6.....
-task2 is running 6.....
-task1 is running 7.....
-task2 is running 7.....
-task1 is running 8.....
-task2 is running 8.....
-task1 is running 9.....
-task2 is running 9.....
-timers Callback 1
-task1 is running 10.....
-task2 is running 10.....
-task1 is running 11.....
-task2 is running 11.....
-task1 is running 12.....
-task2 is running 12.....
-task1 is running 13.....
-task2 is running 13.....
-task1 is running 14.....
-task2 is running 14.....
+thread 6_7 is running, current is 6, thread 6 counter 1, thread 7 counter 1
+thread 6_7 is running, current is 7, thread 6 counter 2, thread 7 counter 1
+thread 6_7 is running, current is 6, thread 6 counter 2, thread 7 counter 2
+thread 6_7 is running, current is 7, thread 6 counter 3, thread 7 counter 2
+thread 6_7 is running, current is 6, thread 6 counter 3, thread 7 counter 3
+thread 6_7 is running, current is 7, thread 6 counter 4, thread 7 counter 3
+thread 6_7 is running, current is 6, thread 6 counter 4, thread 7 counter 4
+thread 6_7 is running, current is 7, thread 6 counter 5, thread 7 counter 4
+thread 6_7 is running, current is 6, thread 6 counter 5, thread 7 counter 5
+thread 6_7 is running, current is 7, thread 6 counter 6, thread 7 counter 5
+thread 6_7 is running, current is 6, thread 6 counter 6, thread 7 counter 6
+thread 6_7 is running, current is 7, thread 6 counter 7, thread 7 counter 6
+thread 6_7 is running, current is 6, thread 6 counter 7, thread 7 counter 7
+thread 6_7 is running, current is 7, thread 6 counter 8, thread 7 counter 7
+thread 6_7 is running, current is 6, thread 6 counter 8, thread 7 counter 8
+thread 6_7 is running, current is 7, thread 6 counter 9, thread 7 counter 8
+thread 6_7 is running, current is 6, thread 6 counter 9, thread 7 counter 9
+thread 6_7 is running, current is 7, thread 6 counter 10, thread 7 counter 9
+thread 6_7 is running, current is 6, thread 6 counter 10, thread 7 counter 10
+thread 6_7 is running, current is 7, thread 6 counter 11, thread 7 counter 10
+thread 6_7 is running, current is 6, thread 6 counter 11, thread 7 counter 11
+thread 6_7 is running, current is 7, thread 6 counter 12, thread 7 counter 11
+thread 6_7 is running, current is 6, thread 6 counter 12, thread 7 counter 12
+thread 6_7 is running, current is 7, thread 6 counter 13, thread 7 counter 12
+thread 6_7 is running, current is 6, thread 6 counter 13, thread 7 counter 13
+thread 6_7 is running, current is 7, thread 6 counter 14, thread 7 counter 13
+thread 6_7 is running, current is 6, thread 6 counter 14, thread 7 counter 14
+thread 6_7 is running, current is 7, thread 6 counter 15, thread 7 counter 14
+thread 6_7 is running, current is 6, thread 6 counter 15, thread 7 counter 15
+thread 6_7 is running, current is 7, thread 6 counter 16, thread 7 counter 15
+thread 6_7 is running, current is 6, thread 6 counter 16, thread 7 counter 16
+thread 6_7 is running, current is 7, thread 6 counter 17, thread 7 counter 16
+thread 6_7 is running, current is 6, thread 6 counter 17, thread 7 counter 17
+thread 6_7 is running, current is 7, thread 6 counter 18, thread 7 counter 17
+thread 6_7 is running, current is 6, thread 6 counter 18, thread 7 counter 18
+thread 6_7 is running, current is 7, thread 6 counter 19, thread 7 counter 18
+thread 6_7 is running, current is 6, thread 6 counter 19, thread 7 counter 19
+thread 6_7 is running, current is 7, thread 6 counter 20, thread 7 counter 19
+thread 6_7 is running, current is 6, thread 6 counter 20, thread 7 counter 20
+thread 6_7 is running, current is 7, thread 6 counter 21, thread 7 counter 20
+thread 6_7 is running, current is 6, thread 6 counter 21, thread 7 counter 21
+thread 6_7 is running, current is 7, thread 6 counter 22, thread 7 counter 21
+thread 6_7 is running, current is 6, thread 6 counter 22, thread 7 counter 22
+thread 6_7 is running, current is 7, thread 6 counter 23, thread 7 counter 22
+thread 6_7 is running, current is 6, thread 6 counter 23, thread 7 counter 23
+thread 6_7 is running, current is 7, thread 6 counter 24, thread 7 counter 23
+thread 6_7 is running, current is 6, thread 6 counter 24, thread 7 counter 24
+thread 6_7 is running, current is 7, thread 6 counter 25, thread 7 counter 24
+... (truncated)
 
-(truncated)
 ```
 
 ## Test Criteria
@@ -181,3 +192,4 @@ Failed: The actual result does not match the expected result.
 ## Test Conclusion
 
 Test successful.
+
