@@ -4,7 +4,7 @@ sys_ver: 24.04.1
 sys_var: LTS
 
 status: good
-last_update: 2024-10-25
+last_update: 2024-12-04
 ---
 
 # Ubuntu 24.04.1 LTS D1 Test Report
@@ -53,8 +53,6 @@ The system booted successfully and login via the onboard serial port was also su
 ### Boot Log
 
 ```log
-[  200.724186] cloud-init[1041]: Cloud-init v. 24.1.3-0ubuntu3.3 finished at Thu, 08 Aug 2024 14:54:13 +0000. Datasource DataSourceNoCloud [seed=/var/lib/cloud/seed/nocloud-net][dsmode=net].  Up 200.60 seconds
-
 ubuntu login: ubuntu
 Password: 
 You are required to change your password immediately (administrator enforced).
