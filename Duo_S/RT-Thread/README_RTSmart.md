@@ -1,13 +1,13 @@
 ---
 sys: rtthread
-sys_ver: null
+sys_ver: 5.2.0
 sys_var: smart
 
 status: basic
-last_update: 2024-11-29
+last_update: 2024-11-28
 ---
 
-# RT-Thread Milk-V Duo 256M Test Report
+# RT-Thread Milk-V DuoS Test Report
 
 ## Test Environment
 
@@ -15,13 +15,13 @@ last_update: 2024-11-29
 
 - Source Code Link:
   - https://github.com/RT-Thread/rt-thread
-  - Userapps: https://github.com/RT-Thread/userapps
+  - https://github.com/RT-Thread/userapps
 - Reference Installation Document: https://github.com/RT-Thread/rt-thread/tree/master/bsp/cvitek
    - Toolchain: https://github.com/RT-Thread/toolchains-ci/releases/download/v1.7/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu_latest.tar.bz2
 
 ### Hardware Information
 
-- Milk-V Duo 256M
+- Milk-V DuoS
 - A USB-A to C or USB C to C Cable
 - A microSD Card
 - A USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
@@ -58,7 +58,7 @@ cd rt-thread/bsp/cvitek/cv18xx_risc-v
 scons --menuconfig
 ```
 
-In menuconfig, please select `milkv-duo256m` under the `Board Type` option. Enter `RT-Thread Kernel` submenu ---> Select `Enable RT-Thread Smart (microkernel on kernel/userland)` to enable the RT-Smart kernel.
+In menuconfig, please select `milkv-duos` under the `Board Type` option. Enter `RT-Thread Kernel` submenu ---> Select `Enable RT-Thread Smart (microkernel on kernel/userland)` to enable the RT-Smart kernel.
 
 ```bash
 source ~/.env/env.sh
@@ -68,7 +68,7 @@ cd ../
 ./combine-fip.sh $(pwd)/cv18xx_risc-v Image
 ```
 
-`boot.sd` and `fip.bin` files will be generated in the `cvitek/output/milkv-duo256m` directory upon completion.
+`boot.sd` and `fip.bin` files will be generated in the `cvitek/output/milkv-duos-sd` directory upon completion.
 
 ### Fetch Source Code and Compile RT-Smart userapps
 
@@ -102,7 +102,7 @@ wipefs -af /path/to/your-card
 mkfs.fat /path/to/your-card
 ```
 
-Copy the generated `boot.sd` and `fip.bin` files onto the microSD card. The storage card is now ready to boot RT-Thread on the Duo 256M.
+Copy the generated `boot.sd` and `fip.bin` files onto the microSD card. The storage card is now ready to boot RT-Smart on the DuoS.
 
 ### Logging into the System
 
@@ -110,13 +110,16 @@ Log into the system via the serial port.
 
 ## Expected Results
 
-The system boots up normally and allows login through the serial port.
+The system boots up normally and allows access through the serial port.
 
 ## Actual Results
 
-The system boots up normally and login through the serial port is successful.
+The system boots up normally and allows access through the serial port.
 
 ### Boot Log
+
+Screencast (from compile to boot): 
+[![asciicast](https://asciinema.org/a/WF4Ves2YpwbHHUMLnmQPtPtBb.svg)](https://asciinema.org/a/WF4Ves2YpwbHHUMLnmQPtPtBb)
 
 ```log
 Starting kernel ...
@@ -129,13 +132,12 @@ heap: [0x0xffffffc0002fb110 - 0x0xffffffc000afb110]
 
  \ | /
 - RT -     Thread Smart Operating System
- / | \     5.2.0 build Nov 29 2024 12:03:11
+ / | \     5.2.0 build Nov 28 2024 11:29:57
  2006 - 2024 Copyright by RT-Thread team
 lwIP-2.1.2 initialized!
 [I/sal.skt] Socket Abstraction Layer initialize success.
 [I/drivers.serial] Using /dev/ttyS0 as default console
 Hello RT-Smart!
-msh />
 
 ```
 

@@ -3,8 +3,8 @@ sys: ubuntu
 sys_ver: 24.10
 sys_var: null
 
-status: CFT
-last_update: 2024-10-25
+status: basic
+last_update: 2024-11-24
 ---
 
 # Ubuntu 24.10 on Milk-V Mars Test Report
@@ -61,14 +61,21 @@ Default password: `ubuntu`
 The system should boot normally, allowing login via the onboard serial port, and should enter the installation wizard.
 
 ## Actual Results
-<details>
-<summary>result is outdated(24.04)</summary>
-The system booted successfully, and the output was successfully viewed via the serial port.
+
+The system starts normally and the output is successfully viewed through the serial port.
 
 ### Boot Information
 
 Screen recording:
-[![asciicast](https://asciMars/Ubuntu/README_zh.md Mars/Ubuntu/README.md
+[![asciicast](https://asciinema.org/a/S4BWlczAOVA6r3HmBrdtjP7Ul)](https://asciinema.org/a/S4BWlczAOVA6r3HmBrdtjP7Ul)
+
+```log
+Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic riscv64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
  System information disabled due to load higher than 1.0
 
 Expanded Security Maintenance for Applications is not enabled.
@@ -106,7 +113,7 @@ BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
 UBUNTU_CODENAME=noble
 LOGO=ubuntu-logo
-ubuntu@ubuntu:~$ uname -a
+ubuntu@ubuntu:~$ uname -aMars/Ubuntu/README_zh.md Mars/Ubuntu/README.md
 Linux ubuntu 6.8.0-31-generic #31.1-Ubuntu SMP PREEMPT_DYNAMIC Sun Apr 21 01:12:53 UTC 2024 riscv64 riscv64 riscv64 GNU/Lix
 ubuntu@ubuntu:~$ 
  
@@ -122,4 +129,4 @@ Failed: The actual result does not match the expected result.
 ## Test Conclusion
 
 Test successful.
-</details>
+

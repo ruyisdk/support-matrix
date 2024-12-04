@@ -1,4 +1,4 @@
-# RT-Thread Smart Milk-V Duo 256M 测试报告
+# RT-Thread Smart Milk-V DuoS 测试报告
 
 ## 测试环境
 
@@ -6,13 +6,13 @@
 
 - 源码链接：
   - https://github.com/RT-Thread/rt-thread
-  - 用户态应用：https://github.com/RT-Thread/userapps
+  - https://github.com/RT-Thread/userapps
 - 参考安装文档：https://github.com/RT-Thread/rt-thread/tree/master/bsp/cvitek
    - 工具链：https://github.com/RT-Thread/toolchains-ci/releases/download/v1.7/riscv64-linux-musleabi_for_x86_64-pc-linux-gnu_latest.tar.bz2
 
 ### 硬件信息
 
-- Milk-V Duo 256M
+- Milk-V DuoS
 - USB-A to C 或 USB C to C 线缆一条
 - microSD 卡一张
 - USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
@@ -49,7 +49,7 @@ cd rt-thread/bsp/cvitek/cv18xx_risc-v
 scons --menuconfig
 ```
 
-在 `menuconfig` 中，Board Type 请选择 `milkv-duo256m`。进入 `RT-Thread Kernel` 菜单 ---> 选中 `Enable RT-Thread Smart (microkernel on kernel/userland)` 选项以启用 RT-Smart 内核。
+在 `menuconfig` 中，Board Type 请选择 `milkv-duos`。进入 `RT-Thread Kernel` 菜单 ---> 选中 `Enable RT-Thread Smart (microkernel on kernel/userland)` 选项以启用 RT-Smart 内核。
 
 
 ```bash
@@ -60,7 +60,7 @@ cd ../
 ./combine-fip.sh $(pwd)/cv18xx_risc-v Image
 ```
 
-执行结束后，会在 `cvitek/output/milkv-duo256m` 目录下生成 boot.sd 和 fip.bin 两个文件。
+执行结束后，会在 `cvitek/output/milkv-duos-sd` 目录下生成 boot.sd 和 fip.bin 两个文件。
 
 ### 拉取源码并编译 RT-Smart 用户态应用
 
@@ -93,7 +93,7 @@ xmake smart-image -f ext4
 wipefs -af /path/to/your-card
 mkfs.fat /path/to/your-card
 ```
-将构建出的 boot.sd 和 fip.bin 复制进 microSD 卡。至此，存储卡已经可用来在 Duo 256M 上启动 RT-Thread。
+将构建出的 boot.sd 和 fip.bin 复制进 microSD 卡。至此，存储卡已经可用来在 DuoS 上启动 RT-Smart。
 
 ### 登录系统
 
@@ -101,13 +101,17 @@ mkfs.fat /path/to/your-card
 
 ## 预期结果
 
-系统正常启动，能够通过串口登录。
+系统正常启动，能够通过串口访问。
 
 ## 实际结果
 
-系统正常启动，能够通过串口登录。
+系统正常启动，能够通过串口访问。
 
 ### 启动信息
+
+屏幕录像（从编译到启动）：
+[![asciicast](https://asciinema.org/a/WF4Ves2YpwbHHUMLnmQPtPtBb.svg)](https://asciinema.org/a/WF4Ves2YpwbHHUMLnmQPtPtBb)
+
 
 ```log
 Starting kernel ...
@@ -120,13 +124,13 @@ heap: [0x0xffffffc0002fb110 - 0x0xffffffc000afb110]
 
  \ | /
 - RT -     Thread Smart Operating System
- / | \     5.2.0 build Nov 29 2024 12:03:11
+ / | \     5.2.0 build Nov 28 2024 11:29:57
  2006 - 2024 Copyright by RT-Thread team
 lwIP-2.1.2 initialized!
 [I/sal.skt] Socket Abstraction Layer initialize success.
 [I/drivers.serial] Using /dev/ttyS0 as default console
 Hello RT-Smart!
-msh />
+```
 
 ## 测试判定标准
 
@@ -136,4 +140,4 @@ msh />
 
 ## 测试结论
 
-测试成功。
+测试成功

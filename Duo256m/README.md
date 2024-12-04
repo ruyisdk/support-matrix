@@ -46,6 +46,9 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 - Ubuntu 22.04
   - Download Link: https://drive.google.com/file/d/1mkzLhvtjJup3GbgWKZdwL80PZMMXg7n1/view?usp=drive_link
   - Reference Installation Document: https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/#Ubuntu_Disk_Image
+- Yocto
+  - Source Code Link: https://github.com/kinsamanka/meta-milkv
+  - Reference Installation Document: https://github.com/kinsamanka/meta-milkv/blob/master/README.md
 
 ### Hardware Information
 
@@ -60,10 +63,11 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 | Debian Image Boot                  | N/A          | [Success][Debian]                                                |
 | Fedora Image Boot                  | N/A          | [Success][Fedora]                                                |
 | RT-Thread Image Build & Boot       | N/A          | [Success][RT-Thread]                                             |
-| RT-Thread Smart Image Build & Boot | N/A          | [CFH][RT-Smart]                                                  |
+| RT-Thread Smart Image Build & Boot | N/A          | [Success][RT-Smart]                                              |
 | Zephyr Image Build & Boot          | N/A          | [Success][Zephyr]                                                |
-| Alpine Linux Boot                  | N/A          | [CFH][Alpine] (use community image or build rootfs manually)     |
+| Alpine Linux Boot                  | N/A          | [Success][Alpine] (use community image or build rootfs manually) |
 | Ubuntu Boot                        | N/A          | [Success][Alpine] (use community image or build rootfs manually) |
+| Yocto Image Build and Boot         | N/A          | [Success][Yocto]                                                 |
 
 [BuildRoot]: ./BuildRoot/README.md
 [Debian]: ./Debian/README.md
@@ -74,3 +78,4 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 [Zephyr]: ./Zephyr/README.md
 [Alpine]: ./Alpine/README.md
 [Ubuntu]: ./Ubuntu/README.md
+[Yocto]: ./Yocto/README.md

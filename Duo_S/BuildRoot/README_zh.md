@@ -4,7 +4,7 @@
 
 ### 操作系统信息
 
-- 系统版本：Duo-V1.1.0
+- 系统版本：Duo-V1.1.3
 - 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk/releases
 - 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk
 
@@ -20,9 +20,12 @@
 
 ## 安装步骤
 
-### 使用 `ruyi` CLI 刷写镜像到 microSD 卡
+###  使用 `ruyi` CLI 刷写镜像到 microSD 卡
 
 安装 [`ruyi`](https://github.com/ruyisdk/ruyi) 包管理器，运行 `ruyi device provision` 并按提示操作。
+
+###  使用 `balenaEtcher` 刷写镜像到 microSD 卡
+安装开源跨平台工具 `balenaEtcher` 进行刷写。
 
 ### 登录系统
 
@@ -30,11 +33,11 @@
 
 ## 预期结果
 
-系统正常启动，能够通过板载串口登录。
+系统正常启动，能够通过板载串口和ssh登录。
 
 ## 实际结果
 
-系统正常启动，成功通过板载串口登录。
+系统正常启动，成功通过板载串口与ssh登录。
 
 ### 启动信息
 
@@ -67,7 +70,7 @@ PRETTY_NAME="Buildroot 2021.05"
 
 屏幕录像（从刷写镜像到登录系统）：
 
-[![asciicast](https://asciinema.org/a/Zbt8azPsJFYLWOYCKgPNrt9S7.svg)](https://asciinema.org/a/Zbt8azPsJFYLWOYCKgPNrt9S7)
+[![asciinema](https://asciinema.org/a/y74COq4Da80mjhqZygoL7i97x)](https://asciinema.org/a/y74COq4Da80mjhqZygoL7i97x)
 
 ## 测试判定标准
 
