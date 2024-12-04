@@ -4,7 +4,7 @@ sys_ver: 24.10
 sys_var: null
 
 status: good
-last_update: 2024-10-25
+last_update: 2024-12-04
 ---
 
 # Ubuntu 24.10 D1 Test Report
