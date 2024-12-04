@@ -14,12 +14,12 @@ last_update: 2024-06-21
 ### Operating System Information
 
 - System Version: openSUSE Tumbleweed
-- Download Link: [https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/](https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/)
+- Download Link: [openSUSE-Tumbleweed-RISC-V-JeOS-licheervdock.riscv64.raw.xz](https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/)
 - Reference Installation Document: [https://en.opensuse.org/HCL:Nezha](https://en.opensuse.org/HCL:Nezha)
 
 ### Hardware Information
 
-- AWOL Nezha D1 / Sipeed Lichee RV Dock
+- Sipeed Lichee RV Dock
 - Power Adapter
 - A microSD card
 - A USB to UART Debugger
@@ -32,8 +32,8 @@ Use `unxz` to decompress the image.
 Use `dd` to flash the image to the microSD card.
 
 ```bash
-unxz /path/to/openSUSE.raw.xz
-sudo dd if=/path/to/openSUSE.raw of=/dev/your-device bs=1M status=progress
+unxz /path/to/openSUSE-Tumbleweed-RISC-V-JeOS-licheervdock.riscv64.raw.xz.raw.xz
+sudo dd if=/path/to/openSUSE-Tumbleweed-RISC-V-JeOS-licheervdock.riscv64.raw.xz.raw of=/dev/your-device bs=1M status=progress
 ```
 
 ### Logging into the System

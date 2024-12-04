@@ -1,4 +1,4 @@
-# Arch Linux LicheeRV / AWOL Nezha D1 测试报告
+# Arch Linux Lichee RV Dock 测试报告
 
 ## 测试环境
 
@@ -12,7 +12,7 @@ h
 
 ### 硬件信息
 
-- Nezha D1/LicheeRV 
+- Lichee RV Dock
 - Type-C 电源线一根
 - UART 转 USB 调试器一个
 - SD 卡
@@ -26,9 +26,9 @@ h
 Debian 镜像和 Ubuntu 镜像曾被验证过能工作。接下来以 Ubuntu 镜像为例。
 
 ```bash
-wget https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz
+wget https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64%2Blicheerv.img.xz
 wget https://archriscv.felixc.at/images/archriscv-2024-09-22.tar.zst
-xz -kd ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz
+xz -kd ubuntu-24.10-preinstalled-server-riscv64+licheerv.img.xz
 mkdir rfs
 tar -xf archriscv-2024-09-22.tar.zst -C rfs
 mkdir mnt
@@ -40,7 +40,7 @@ mkdir mnt
 
 ```bash
 sudo losetup -f
-sudo losetup -P /dev/loopX ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img
+sudo losetup -P /dev/loopX ubuntu-24.10-preinstalled-server-riscv64+licheerv.img
 sudo mount /dev/loopXp1 mnt
 cd mnt
 sudo mkdir old
@@ -66,7 +66,7 @@ sudo losetup -d /dev/loopX
 
 ```bash
 sudo wipefs -a /dev/sdX
-sudo dd if=ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img of=/dev/sdX bs=4M status=progress
+sudo dd if=ubuntu-24.10-preinstalled-server-riscv64+licheerv.img.xz of=/dev/sdX bs=4M status=progress
 ```
 
 

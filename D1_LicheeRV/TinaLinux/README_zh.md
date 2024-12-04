@@ -1,18 +1,16 @@
-# Tina Linux D1 测试报告
+# Tina Linux LicheeRV Dock 测试报告
 
 ## 测试环境
 
 ### 操作系统信息
 
 - 系统版本：D1-H 哪吒 HDMI 测试固件 20210804
-- 下载链接：
-    - Nezha D1: https://d1.docs.aw-ol.com/source/3_getimg/
-- 参考安装文档：
-    - Nezha D1: https://d1.docs.aw-ol.com/study/study_1tina/
+- 下载链接：https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA
+- 参考安装文档：https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html#%E7%83%A7%E5%BD%95%E9%95%9C%E5%83%8F
 
 ### 硬件信息
 
-- AWOL Nezha D1
+- LicheeRV Dock
 - USB-A 电源一个
 - USB-A to C 线缆一条
 - microSD 卡一张
@@ -26,7 +24,7 @@
 使用 `dd` 刷入镜像到 microSD 卡。
 
 ```bash
-sudo dd if=D1-H哪吒HDMI测试固件20210804（开机HDMI就有小企鹅启动logo）.img of=/dev/sdc status=progress 
+sudo dd if=LicheeRV_Tina_hdmi_8723ds.img of=/dev/sdc status=progress 
 ```
 
 ### 登录系统

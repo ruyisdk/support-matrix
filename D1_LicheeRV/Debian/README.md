@@ -20,7 +20,7 @@ last_update: 2024-06-21
 
 ### Hardware Information
 
-- AWOL Nezha D1 / Sipeed Lichee RV Dock
+- Sipeed Lichee RV Dock
 - Power Adapter
 - A microSD card
 - A USB to UART Debugger

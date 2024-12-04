@@ -15,7 +15,6 @@ last_update: 2024-06-21
 
 - System Version: OpenWrt 23.05.2
 - Download Links (OpenWrt Firmware Selector):
-  - Nezha D1: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=nezha
   - Sipeed Lichee RV Dock: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
 - Reference Installation Document: https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1
 
@@ -23,7 +22,7 @@ last_update: 2024-06-21
 
 ### Hardware Information
 
-- AWOL Nezha D1 / Sipeed Lichee RV Dock
+- Sipeed Lichee RV Dock
 - A USB-A power adapter
 - A USB-A to C cable
 - A microSD card

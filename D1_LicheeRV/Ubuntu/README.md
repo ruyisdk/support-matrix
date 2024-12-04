@@ -15,12 +15,11 @@ last_update: 2024-12-04
 
 - System Version: Ubuntu 24.10
 - Download Link: https://ubuntu.com/download/risc-v
-    - Or from mirror sites: [Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64%2Bnezha.img.xz) | [Lichee RV](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64%2Blicheerv.img.xz)
 - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/LicheeRV
 
 ### Hardware Information
 
-- AWOL Nezha D1 / Sipeed Lichee RV Dock
+- Sipeed Lichee RV Dock
 - A USB-A Power Adapter
 - A USB-A to C Cable
 - A microSD Card

@@ -11,7 +11,7 @@
 
 ### 硬件信息
 
-- AWOL Nezha D1 / Sipeed Lichee RV Dock
+- Sipeed Lichee RV Dock
 - 电源适配器
 - microSD 卡一张
 - USB to UART 调试器一个
