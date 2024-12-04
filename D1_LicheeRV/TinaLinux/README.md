@@ -7,21 +7,19 @@ status: basic
 last_update: 2024-06-21
 ---
 
-# Tina Linux D1 Test Report
+# Tina Linux LicheeRV Dock Test Report
 
 ## Test Environment
 
 ### Operating System Information
 
 - System Version: D1-H Nezha HDMI Test Firmware 20210804
-- Download Link:
-    - Nezha D1: https://d1.docs.aw-ol.com/source/3_getimg/
-- Reference Installation Document:
-    - Nezha D1: https://d1.docs.aw-ol.com/study/study_1tina/
+- Download Link: https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA
+- Reference Installation Document: https://wiki.sipeed.com/hardware/en/lichee/RV/flash.html
 
 ### Hardware Information
 
-- AWOL Nezha D1
+- LicheeRV Dock 
 - USB-A power adapter
 - A USB-A to C cable
 - A microSD card
@@ -35,7 +33,7 @@ last_update: 2024-06-21
 Use `dd` to flash the image to the microSD card.
 
 ```bash
-sudo dd if=D1-H哪吒HDMI测试固件20210804（开机HDMI就有小企鹅启动logo）.img of=/dev/sdc status=progress 
+sudo dd if=LicheeRV_Tina_hdmi_8723ds.img of=/dev/sdc status=progress 
 ```
 
 ### Logging into the System

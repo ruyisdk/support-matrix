@@ -6,7 +6,6 @@
 
 - 系统版本：OpenWrt 23.05.2
 - 下载链接（OpenWrt Firmware Selector）：
-  - Nezha D1: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=nezha
   - Sipeed Lichee RV Dock: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
 - 参考安装文档：https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1
 
@@ -14,7 +13,7 @@
 
 ### 硬件信息
 
-- AWOL Nezha D1 / Sipeed Lichee RV Dock
+- Sipeed Lichee RV Dock
 - USB-A 电源一个
 - USB-A to C 线缆一条
 - microSD 卡一张

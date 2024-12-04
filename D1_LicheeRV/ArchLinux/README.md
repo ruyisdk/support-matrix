@@ -7,7 +7,7 @@ status: basic
 last_update: 2024-12-04
 ---
 
-# Arch Linux LicheeRV / AWOL Nezha D1 Test Report
+# Arch Linux Lichee RV Dock Test Report
 
 ## Test Environment
 
@@ -20,7 +20,7 @@ last_update: 2024-12-04
 
 ### Hardware Information
 
-- Nezha D1/LicheeRV 
+- Lichee RV Dock
 - A Type-C Power Cable
 - A UART to USB Debugger
 - SD Card
@@ -34,9 +34,9 @@ Get the base images and rootfs. You can use arbitrary any images for D1 as the b
 We have used Debian images and Ubuntu images and know that they work well. Below we use the Ubuntu images as an example.
 
 ```bash
-wget https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/beta/ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz
+wget https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64%2Blicheerv.img.xz
 wget https://archriscv.felixc.at/images/archriscv-2024-09-22.tar.zst
-xz -kd ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img.xz
+xz -kd ubuntu-24.10-preinstalled-server-riscv64+licheerv.img.xz
 mkdir rfs
 tar -xf archriscv-20220727.tar.zst -C rfs
 mkdir mnt
@@ -48,7 +48,7 @@ Replace the rootfs with the one from the Ubuntu image. Change the following moun
 
 ```bash
 sudo losetup -f
-sudo losetup -P /dev/loopX ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img
+sudo losetup -P /dev/loopX ubuntu-24.10-preinstalled-server-riscv64+licheerv.img
 sudo mount /dev/loopXp1 mnt
 cd mnt
 sudo mkdir old
@@ -75,7 +75,7 @@ Flash the image to the SD card.
 
 ```bash
 sudo wipefs -a /dev/sdX
-sudo dd if=ubuntu-24.10-beta-preinstalled-server-riscv64%2Bnezha.img of=/dev/sdX bs=4M status=progress
+sudo dd if=ubuntu-24.10-preinstalled-server-riscv64+licheerv.img.xz of=/dev/sdX bs=4M status=progress
 ```
 
 ### Logging into the System

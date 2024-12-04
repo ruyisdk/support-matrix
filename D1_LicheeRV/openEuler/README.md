@@ -19,7 +19,7 @@ last_update: 2024-06-21
 
 ### Hardware Information
 
-- AWOL Nezha D1 / Sipeed Lichee RV Dock
+- Sipeed Lichee RV Dock
 - A USB-A power adapter
 - A USB-A to C cable
 - A microSD card
