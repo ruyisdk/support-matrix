@@ -2,6 +2,7 @@
 Automatically check the index of ruyi and renew it.
 """
 
+import os
 import shutil
 import argparse
 import tempfile
@@ -10,14 +11,6 @@ import colorlog
 
 from src.matrix_parser import Systems
 from src.ruyi_index_updator import RuyiDiff, RuyiGitRepo
-
-handler = colorlog.StreamHandler()
-handler.setFormatter(colorlog.ColoredFormatter(
-    '%(log_color)s[%(relativeCreated)d %(levelname)s]%(reset)s: %(message)s'))
-
-logging.basicConfig(level=logging.INFO, handlers=[handler])
-
-logger = logging.getLogger(__name__)
 
 
 def main():
@@ -36,7 +29,39 @@ def main():
     arg.add_argument(
         '--pr', help='create a PR for the update', action='store_true'
     )
+    arg.add_argument(
+        '--log', help='output the log to the file', default=None
+    )
+    arg.add_argument(
+        '--warn', help='output the warn to the file', default=None
+    )
     args = arg.parse_args()
+
+    handler = colorlog.StreamHandler()
+    handler.setFormatter(colorlog.ColoredFormatter(
+        '%(log_color)s[%(relativeCreated)d %(levelname)s]%(reset)s: %(message)s'))
+
+    handlers = [handler]
+
+    if args.log is not None:
+        p = os.path.abspath(args.log)
+        log_handler = logging.FileHandler(p)
+        log_handler.setFormatter(logging.Formatter(
+            '%(relativeCreated)d %(levelname)s: %(message)s'))
+        log_handler.setLevel(logging.INFO)
+        handlers.append(log_handler)
+
+    if args.warn is not None:
+        p = os.path.abspath(args.warn)
+        warn_handler = logging.FileHandler(p)
+        warn_handler.setFormatter(logging.Formatter(
+            '%(relativeCreated)d %(levelname)s: %(message)s'))
+        warn_handler.setLevel(logging.WARNING)
+        handlers.append(warn_handler)
+
+    logging.basicConfig(level=logging.INFO, handlers=handlers)
+
+    logger = logging.getLogger()
 
     index_path = args.index
     if index_path is None:
@@ -51,15 +76,7 @@ def main():
         if pr is None:
             continue
         if not args.pr:
-            logger.info("""\
-PR info:
-    Title: %s
-
-    Body: 
-%s
-    <Body End>
-    Branch: %s -> upstream/%s
-""", pr.title, pr.body, pr.self_branch, pr.upstream_branch)
+            logger.info("%s", repr(pr))
             continue
         repo.create_wrapped_pr(pr)
 
