@@ -3,7 +3,7 @@ sys: ubuntu
 sys_ver: 24.04.1
 sys_var: LTS
 
-status: good
+status: basic
 last_update: 2024-12-04
 ---
 
