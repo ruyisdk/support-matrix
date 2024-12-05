@@ -3,7 +3,7 @@ sys: openeuler
 sys_ver: 23.03
 sys_var: null
 
-status: good
+status: basic
 last_update: 2024-06-21
 ---
 

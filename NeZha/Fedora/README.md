@@ -3,7 +3,7 @@ sys: fedora
 sys_ver: 36
 sys_var: null
 
-status: good
+status: basic
 last_update: 2024-06-21
 ---
 
