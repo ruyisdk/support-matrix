@@ -24,7 +24,7 @@
 
 ```bash
 unxz /path/to/openSUSE-Tumbleweed-RISC-V-JeOS-licheervdock.riscv64.raw.xz.raw.xz
-sudo dd if=/path/to/openSUSE-Tumbleweed-RISC-V-JeOS-licheervdock.riscv64.raw.xz.raw of=/dev/your-device bs=1M status=progress
+sudo dd if=/path/to/openSUSE-Tumbleweed-RISC-V-JeOS-licheervdock.riscv64.raw of=/dev/your-device bs=1M status=progress
 ```
 
 ### 登录系统
