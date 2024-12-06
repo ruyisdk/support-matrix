@@ -1,4 +1,4 @@
-# RT-Thread Longan Nano 测试报告
+# ThreadX Longan Nano 测试报告
 
 ## 测试环境
 
@@ -43,9 +43,9 @@ source setup.sh
 
 ### 编译代码
 
-编译 RT-Thread:
+编译 ThreadX:
 ```bash
-cd application/rtthread/msh
+cd application/threadx/demo
 make SOC=gd32vf103 BOARD=gd32vf103c_longan_nano clean
 make SOC=gd32vf103 BOARD=gd32vf103c_longan_nano all
 ```
@@ -120,34 +120,58 @@ make SOC=gd32vf103 BOARD=gd32vf103c_longan_nano upload
 ### 启动信息
 
 ```log
-msh >
-msh >help
-RT-Thread shell commands:
-list_timer       - list timer in system
-list_mailbox     - list mail box in system
-list_sem         - list semaphore in system
-list_thread      - list thread
-version          - show RT-Thread version information
-ps               - List threads in the system.
-help             - RT-Thread shell help.
-nsdk             - msh nuclei sdk demo
-
-msh >version
-
- \ | /
-- RT -     Thread Operating System
- / | \     3.1.5 build Dec  3 2024
- 2006 - 2020 Copyright by rt-thread team
-msh >ps
-thread   pri  status      sp     stack size max used left tick  error
--------- ---  ------- ---------- ----------  ------  ---------- ---
-tshell     6  ready   0x000000d8 0x00001000    09%   0x00000004 000
-tidle      7  ready   0x00000078 0x00000200    23%   0x00000020 000
-main       2  suspend 0x000000b8 0x00000400    17%   0x00000013 000
-msh >nsdk
-Hello Nuclei SDK!
-msh >
-
+Nuclei SDK Build Time: Dec  3 2024, 23:12:51
+Download Mode: FLASHXIP
+CPU Frequency 108000000 Hz
+thread 6_7 is running, current is 6, thread 6 counter 1, thread 7 counter 1
+thread 6_7 is running, current is 7, thread 6 counter 2, thread 7 counter 1
+thread 6_7 is running, current is 6, thread 6 counter 2, thread 7 counter 2
+thread 6_7 is running, current is 7, thread 6 counter 3, thread 7 counter 2
+thread 6_7 is running, current is 6, thread 6 counter 3, thread 7 counter 3
+thread 6_7 is running, current is 7, thread 6 counter 4, thread 7 counter 3
+thread 6_7 is running, current is 6, thread 6 counter 4, thread 7 counter 4
+thread 6_7 is running, current is 7, thread 6 counter 5, thread 7 counter 4
+thread 6_7 is running, current is 6, thread 6 counter 5, thread 7 counter 5
+thread 6_7 is running, current is 7, thread 6 counter 6, thread 7 counter 5
+thread 6_7 is running, current is 6, thread 6 counter 6, thread 7 counter 6
+thread 6_7 is running, current is 7, thread 6 counter 7, thread 7 counter 6
+thread 6_7 is running, current is 6, thread 6 counter 7, thread 7 counter 7
+thread 6_7 is running, current is 7, thread 6 counter 8, thread 7 counter 7
+thread 6_7 is running, current is 6, thread 6 counter 8, thread 7 counter 8
+thread 6_7 is running, current is 7, thread 6 counter 9, thread 7 counter 8
+thread 6_7 is running, current is 6, thread 6 counter 9, thread 7 counter 9
+thread 6_7 is running, current is 7, thread 6 counter 10, thread 7 counter 9
+thread 6_7 is running, current is 6, thread 6 counter 10, thread 7 counter 10
+thread 6_7 is running, current is 7, thread 6 counter 11, thread 7 counter 10
+thread 6_7 is running, current is 6, thread 6 counter 11, thread 7 counter 11
+thread 6_7 is running, current is 7, thread 6 counter 12, thread 7 counter 11
+thread 6_7 is running, current is 6, thread 6 counter 12, thread 7 counter 12
+thread 6_7 is running, current is 7, thread 6 counter 13, thread 7 counter 12
+thread 6_7 is running, current is 6, thread 6 counter 13, thread 7 counter 13
+thread 6_7 is running, current is 7, thread 6 counter 14, thread 7 counter 13
+thread 6_7 is running, current is 6, thread 6 counter 14, thread 7 counter 14
+thread 6_7 is running, current is 7, thread 6 counter 15, thread 7 counter 14
+thread 6_7 is running, current is 6, thread 6 counter 15, thread 7 counter 15
+thread 6_7 is running, current is 7, thread 6 counter 16, thread 7 counter 15
+thread 6_7 is running, current is 6, thread 6 counter 16, thread 7 counter 16
+thread 6_7 is running, current is 7, thread 6 counter 17, thread 7 counter 16
+thread 6_7 is running, current is 6, thread 6 counter 17, thread 7 counter 17
+thread 6_7 is running, current is 7, thread 6 counter 18, thread 7 counter 17
+thread 6_7 is running, current is 6, thread 6 counter 18, thread 7 counter 18
+thread 6_7 is running, current is 7, thread 6 counter 19, thread 7 counter 18
+thread 6_7 is running, current is 6, thread 6 counter 19, thread 7 counter 19
+thread 6_7 is running, current is 7, thread 6 counter 20, thread 7 counter 19
+thread 6_7 is running, current is 6, thread 6 counter 20, thread 7 counter 20
+thread 6_7 is running, current is 7, thread 6 counter 21, thread 7 counter 20
+thread 6_7 is running, current is 6, thread 6 counter 21, thread 7 counter 21
+thread 6_7 is running, current is 7, thread 6 counter 22, thread 7 counter 21
+thread 6_7 is running, current is 6, thread 6 counter 22, thread 7 counter 22
+thread 6_7 is running, current is 7, thread 6 counter 23, thread 7 counter 22
+thread 6_7 is running, current is 6, thread 6 counter 23, thread 7 counter 23
+thread 6_7 is running, current is 7, thread 6 counter 24, thread 7 counter 23
+thread 6_7 is running, current is 6, thread 6 counter 24, thread 7 counter 24
+thread 6_7 is running, current is 7, thread 6 counter 25, thread 7 counter 24
+... (truncated)
 
 ```
 

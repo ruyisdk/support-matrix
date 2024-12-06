@@ -4,7 +4,7 @@
 
 ### 操作系统信息
 
-- FreeRTOS/RT-Thread
+- FreeRTOS/RT-Thread/ThreadX
     - 源码链接：https://github.com/Nuclei-Software/nuclei-sdk
     - 参考文档：https://doc.nucleisys.com/nuclei_sdk/quickstart.html#build-run-and-debug-sample-application
         - https://doc.nucleisys.com/nuclei_sdk/design/board/gd32vf103c_longan_nano.html
@@ -14,16 +14,18 @@
 
 ### 硬件开发板信息
 
-- Longan Nano
+- Longan Nano (GD32VF103CBT6)
 
 ## 测试结果
 
-| 软件分类      | 软件包名      | 测试结果（测试报告） |
-|--------------|-------------|------------------|
-| FreeRTOS     | N/A         | [CFT][FreeRTOS]  |
-| RT-Thread    | N/A         | [CFT][RT-Thread] |
-| Zephyr       | N/A         | [成功][Zephyr]    |
+| 软件分类  | 软件包名 | 测试结果（测试报告） |
+| --------- | -------- | -------------------- |
+| FreeRTOS  | N/A      | [成功][FreeRTOS]     |
+| RT-Thread | N/A      | [成功][RT-Thread]    |
+| ThreadX   | N/A      | [成功][RT-Thread]    |
+| Zephyr    | N/A      | [成功][Zephyr]       |
 
 [FreeRTOS]: ./FreeRTOS/README_zh.md
 [RT-Thread]: ./RT-Thread/README_zh.md
+[ThreadX]: ./ThreadX/README_zh.md
 [Zephyr]: ./Zephyr/README_zh.md
