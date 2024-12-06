@@ -4,7 +4,7 @@ sys_ver: 11
 sys_var: null
 
 status: good
-last_update: 2024-06-21
+last_update: 2024-12-06
 ---
 
 # Debian 11 D1 Test Report
@@ -14,9 +14,8 @@ last_update: 2024-06-21
 ### Operating System Information
 
 - System Version: Debian
-- Download Link: [http://www.perfxlab.cn:8080/rvboards/](http://www.perfxlab.cn:8080/rvboards/)
-    - Web Disk: [https://pan.baidu.com/s/1leAXR2VPHvTqkaDqfeY9ag](https://pan.baidu.com/s/1leAXR2VPHvTqkaDqfeY9ag) Access Code: 3o5v
-- Reference Installation Document: [https://d1.docs.aw-ol.com/strong/strong_4debian/#v041](https://d1.docs.aw-ol.com/strong/strong_4debian/#v041)
+- Download Link: [MEGA](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
+- Reference Installation Document: https://wiki.sipeed.com/hardware/en/lichee/RV/flash.html
 
 ### Hardware Information
 
@@ -29,22 +28,17 @@ last_update: 2024-06-21
 
 ### Flashing Image
 
-Use `unzip` to decompress the image.
-Clear your SD card.
-Use `dd` to write the image to the microSD card.
-
-```bash
-unzip /path/to/RVBoards_D1_Debian_lxde_img_linux.img.zip
-sudo wipefs -a /dev/your_device
-sudo dd if=/path/to/RVBoards_D1_Debian_lxde_img_linux.img of=/dev/your_device bs=1M status=progress
-```
+1. Run [PhoenixCard](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/tool),Click Image marked to choose your target firmware
+2. We choose `Startup` marked
+3. Click `Burn` marked to burn your target firmware into tf card
+4. From Status bar marked to see your progress;If it's red when finishing this means it fails burning, then we should rerun `SD Card Formatter` to format the TF card to increase its success possibility.
 
 ### Logging into the System
 
 Log into the system via the serial port.
 
 Default Username: `root`
-Default Password: `rvboards`
+Default Password: `licheepi`
 
 ## Expected Results
 
@@ -56,20 +50,12 @@ The system booted successfully and login via the onboard serial port was also su
 
 ### Boot Log
 
-Screen recording (From flashing image to login):
-
-[![asciicast](https://asciinema.org/a/7osW4u2FvkucqlfODK4nEBMQm.svg)](https://asciinema.org/a/7osW4u2FvkucqlfODK4nEBMQm)
-
 ```log
-Debian GNU/Linux 11 RVBoards ttyS0
+Debian GNU/Linux 11 sipeed ttyS0
 
-RVBoards login: root
+sipeed login: root
 Password: 
-
-Login incorrect
-RVBoards login: root
-Password: 
-Linux RVBoards 5.4.61 #12 PREEMPT Thu Jun 3 08:39:01 UTC 2021 riscv64
+Linux sipeed 5.4.61 #217 PREEMPT Thu Dec 30 06:50:31 UTC 2021 riscv64
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -77,10 +63,14 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-Last login: Wed May 19 18:39:24 CST 2021 on ttyS0
-root@RVBoards:~# uname -a
-Linux RVBoards 5.4.61 #12 PREEMPT Thu Jun 3 08:39:01 UTC 2021 riscv64 GNU/Linux
-root@RVBoards:~# cat /etc/os-release 
+Last login: Mon May 24 06:56:42 UTC 2021 on ttyS0
+root@sipeed:~# uname 
+Message from syslogd@sipeed at May 24 06:57:35 ...
+ kernel:[  102.178091] Oops [#6]
+
+root@sipeed:~# uname -a
+Linux sipeed 5.4.61 #217 PREEMPT Thu Dec 30 06:50:31 UTC 2021 riscv64 GNU/Linux
+root@sipeed:~# cat /etc/os-release 
 PRETTY_NAME="Debian GNU/Linux 11 (bullseye)"
 NAME="Debian GNU/Linux"
 VERSION_ID="11"
@@ -90,8 +80,17 @@ ID=debian
 HOME_URL="https://www.debian.org/"
 SUPPORT_URL="https://www.debian.org/support"
 BUG_REPORT_URL="https://bugs.debian.org/"
-root@RVBoards:~# 
+root@sipeed:~# 
+Message from syslogd@sipeed at May 24 06:58:00 ...
+ kernel:[  127.198571] Oops [#7]
 
+root@sipeed:~# cat /proc/cpuinfo 
+processor       : 0
+hart            : 0
+isa             : rv64imafdcvu
+mmu             : sv39
+
+root@sipeed:~# 
 ```
 
 ## Test Criteria

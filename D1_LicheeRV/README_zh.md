@@ -24,7 +24,7 @@
   - 参考安装文档：https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1
 - Debian
   - 下载链接：https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA
-  - 参考安装文档：https://d1.docs.aw-ol.com/strong/strong_4debian/#v041
+  - 参考安装文档：https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
 - Arch Linux
   - 基础镜像：Ubuntu 24.10: [ubuntu-24.10](https://ubuntu.com/download/risc-v) 
     - 或任意 D1 的镜像

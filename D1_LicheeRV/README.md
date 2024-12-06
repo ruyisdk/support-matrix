@@ -30,7 +30,7 @@ cpu_core: XuanTie C906
   - Reference Installation Document: https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1
 - Debian
   - Download link: https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA
-  - Reference Installation Document: https://d1.docs.aw-ol.com/strong/strong_4debian/#v041
+  - Reference Installation Document: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
 - Arch Linux
   - Base Image: Ubuntu 24.10: [ubuntu-24.10](https://ubuntu.com/download/risc-v)
     - Or any arbitrary image for D1
