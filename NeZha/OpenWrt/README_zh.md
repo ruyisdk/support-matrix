@@ -1,4 +1,4 @@
-# OpenWrt 23.05.2 D1 测试报告
+# OpenWrt 23.05.2 AWOL Nezha D1 测试报告
 
 ## 测试环境
 

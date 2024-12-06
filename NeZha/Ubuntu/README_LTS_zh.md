@@ -6,9 +6,7 @@
 
 - 系统版本：Ubuntu 24.04.1 LTS
 - 下载链接：https://ubuntu.com/download/risc-v
-    - 或者镜像站：[Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.04.1/release/ubuntu-24.04.1-preinstalled-server-riscv64%2Bnezha.img.xz) 
-
-- 参考安装文档：https://wiki.ubuntu.com/RISC-V/LicheeRV
+- 参考安装文档：https://wiki.ubuntu.com/RISC-V/Nezha%20D1
 
 ### 硬件信息
 

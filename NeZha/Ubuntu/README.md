@@ -7,7 +7,7 @@ status: basic
 last_update: 2024-12-04
 ---
 
-# Ubuntu 24.10 D1 Test Report
+# Ubuntu 24.10 AWOL Nezha D1 Test Report
 
 ## Test Environment
 

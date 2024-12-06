@@ -15,8 +15,7 @@ last_update: 2024-12-04
 
 - System Version: Ubuntu 24.04.1 LTS
 - Download Link: https://ubuntu.com/download/risc-v
-    - Or from mirror sites: [Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.04.1/release/ubuntu-24.04.1-preinstalled-server-riscv64%2Bnezha.img.xz) 
-- Reference Installation Document: https://wiki.ubuntu.com/RISC-V/LicheeRV
+- Reference Installation Document: https://wiki.ubuntu.com/RISC-V/Nezha%20D1
 
 ### Hardware Information
 

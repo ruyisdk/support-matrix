@@ -7,7 +7,7 @@ status: basic
 last_update: 2024-12-04
 ---
 
-# Arch Linux AWOL Nezha D1 Test Report
+# Archlinux AWOL Nezha D1 Test Report
 
 ## Test Environment
 

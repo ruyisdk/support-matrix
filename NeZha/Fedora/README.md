@@ -7,7 +7,7 @@ status: basic
 last_update: 2024-06-21
 ---
 
-# Fedora 36 D1 Test Report
+# Fedora 36 AWOL Nezha D1 Test Report
 
 ## Test Environment
 
