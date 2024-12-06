@@ -1,4 +1,4 @@
-# openEuler RISC-V 23.03 D1 版本测试报告
+# openEuler RISC-V 23.03 AWOL Nezha D1 版本测试报告
 
 ## 测试环境
 

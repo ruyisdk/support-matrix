@@ -7,7 +7,7 @@ status: good
 last_update: 2024-06-21
 ---
 
-# Debian 11 D1 Test Report
+# Debian 11 AWOL Nezha D1 Test Report
 
 ## Test Environment
 

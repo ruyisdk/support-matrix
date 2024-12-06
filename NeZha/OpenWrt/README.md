@@ -7,7 +7,7 @@ status: basic
 last_update: 2024-06-21
 ---
 
-# OpenWrt 23.05.2 D1 Test Report
+# OpenWrt 23.05.2 AWOL Nezha D1 Test Report
 
 ## Test Environment
 

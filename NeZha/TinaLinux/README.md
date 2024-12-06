@@ -7,7 +7,7 @@ status: basic
 last_update: 2024-06-21
 ---
 
-# Tina Linux D1 Test Report
+# Tina Linux AWOL Nezha D1 Test Report
 
 ## Test Environment
 
@@ -35,7 +35,7 @@ last_update: 2024-06-21
 Use `dd` to flash the image to the microSD card.
 
 ```bash
-sudo dd if=D1-H哪吒HDMI测试固件20210804（开机HDMI就有小企鹅启动logo）.img of=/dev/sdc status=progress 
+sudo dd if=D1-H 哪吒 HDMI 测试固件 20210804（开机 HDMI 就有小企鹅启动 logo）.img of=/dev/sdc status=progress 
 ```
 
 ### Logging into the System
