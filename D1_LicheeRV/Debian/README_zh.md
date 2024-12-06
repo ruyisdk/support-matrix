@@ -5,9 +5,8 @@
 ### 操作系统信息
 
 - 系统版本：Debian
-- 下载链接：[http://www.perfxlab.cn:8080/rvboards/](http://www.perfxlab.cn:8080/rvboards/)
-    - 网盘：[https://pan.baidu.com/s/1leAXR2VPHvTqkaDqfeY9ag](https://pan.baidu.com/s/1leAXR2VPHvTqkaDqfeY9ag) 提取码：3o5v
-- 参考安装文档：[https://d1.docs.aw-ol.com/strong/strong_4debian/#v041](https://d1.docs.aw-ol.com/strong/strong_4debian/#v041)
+- 下载链接：[MEGA](https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA)
+- 参考安装文档：https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
 
 ### 硬件信息
 
@@ -20,22 +19,18 @@
 
 ### 刷写镜像
 
-使用 `unzip` 解压镜像。
-清空你的 sd 卡。
-使用 `dd` 将镜像写入 microSD 卡。
-
-```bash
-unzip /path/to/RVBoards_D1_Debian_lxde_img_linux.img.zip
-sudo wipefs -a /dev/your_device
-sudo dd if=/path/to/RVBoards_D1_Debian_lxde_img_linux.img of=/dev/your_device bs=1M status=progress
-```
+1. 打开烧录软件 [PhoenixCard](https://dl.sipeed.com/shareURL/LICHEE/D1/Lichee_RV/tool)，选择烧录的固件，将内存卡通过读卡器插入电脑中
+2. 选择 `启动卡` 选项
+3. 选择正确的盘符
+4. 点击 `烧卡`
+5. 根据状态栏的颜色可以判断烧录结果：红色的话说明烧录失败，建议使用 `SD card Formatter` 格式化后再重新烧录一次
 
 ### 登录系统
 
 通过串口登录系统。
 
 默认用户名：`root`
-默认密码：`rvboards`
+默认密码：`licheepi`
 
 ## 预期结果
 
@@ -81,7 +76,46 @@ ID=debian
 HOME_URL="https://www.debian.org/"
 SUPPORT_URL="https://www.debian.org/support"
 BUG_REPORT_URL="https://bugs.debian.org/"
-root@RVBoards:~# 
+root@RVBoards:~# Debian GNU/Linux 11 sipeed ttyS0
+
+sipeed login: root
+Password: 
+Linux sipeed 5.4.61 #217 PREEMPT Thu Dec 30 06:50:31 UTC 2021 riscv64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Mon May 24 06:56:42 UTC 2021 on ttyS0
+root@sipeed:~# uname 
+Message from syslogd@sipeed at May 24 06:57:35 ...
+ kernel:[  102.178091] Oops [#6]
+
+root@sipeed:~# uname -a
+Linux sipeed 5.4.61 #217 PREEMPT Thu Dec 30 06:50:31 UTC 2021 riscv64 GNU/Linux
+root@sipeed:~# cat /etc/os-release 
+PRETTY_NAME="Debian GNU/Linux 11 (bullseye)"
+NAME="Debian GNU/Linux"
+VERSION_ID="11"
+VERSION="11 (bullseye)"
+VERSION_CODENAME=bullseye
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+root@sipeed:~# 
+Message from syslogd@sipeed at May 24 06:58:00 ...
+ kernel:[  127.198571] Oops [#7]
+
+root@sipeed:~# cat /proc/cpuinfo 
+processor       : 0
+hart            : 0
+isa             : rv64imafdcvu
+mmu             : sv39
+
+root@sipeed:~# 
 
 ```
 
