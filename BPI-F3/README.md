@@ -21,16 +21,18 @@ cpu_core: SpacemiT X60
 - Armbian(noble, desktopless)
   - Download Links: https://mirrors.tuna.tsinghua.edu.cn/armbian-releases/bananapif3/archive/Armbian_24.8.1_Bananapif3_noble_legacy_6.1.15_minimal.img.xz
   - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
-
 - Fedora
   - Download Links:
     - Baidu Netdisk: https://pan.baidu.com/s/1EFcLInWYxLi032gmhueiWw?pwd=8888
     - Google Drive: https://drive.google.com/file/d/1v-nHZA3AyFLaLRs6bt22XjIh7OVczI9d/view?usp=sharing
   - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
-
 - OpenWrt
   - Download Links: https://archive.spacemit.com/openwrt/releases/bl-v2.0.y/targets/spacemit/DEVICE_debX/
   - Reference Installation Document: https://bianbu-linux.spacemit.com/openwrt-docs/
+- Alpine
+  - Download Link: https://dev.alpinelinux.org/~mps/riscv64/
+  - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
+
 
 ### Hardware Information
 
@@ -45,9 +47,11 @@ cpu_core: SpacemiT X60
 | Armbian Image Boot  (noble) | N/A          | [Successful][Armbian_noble] |
 | Fedora Image Boot           | N/A          | [Successful][Fedora]        |
 | OpenWrt Image Boot          | N/A          | [Successful][OpenWrt]       |
+| Alpine Image Boot           | N/A          | [Successful][Alpine]        |
 
 [Bianbu]: ./Bianbu/README.md
 [Armbian_noble]: ./Armbian/README_noble.md
 [Armbian]: ./Armbian/README.md
 [Fedora]: ./Fedora/README.md
 [OpenWrt]: ./OpenWrt/README.md
+[Alpine]: ./Alpine/README.md
