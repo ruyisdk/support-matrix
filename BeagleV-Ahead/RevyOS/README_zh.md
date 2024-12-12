@@ -41,8 +41,8 @@ sudo fastboot reboot
 
 通过串口登录系统。
 
-默认用户名： `root`
-默认密码：无密码
+默认用户名： `debian`
+默认密码： `debian`
 
 ## 预期结果
 

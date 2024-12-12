@@ -50,8 +50,8 @@ sudo fastboot reboot
 
 Logging into the system via serial port.
 
-Default username: `root`
-Default password: No password
+Default username: `debian`
+Default password: `debian`
 
 ## Expected Results
 
