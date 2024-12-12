@@ -1,3 +1,7 @@
+- sys: openSUSE
+  sys_ver: null
+  sys_var: null
+  status: cft
 - sys: android
   sys_ver: null
   sys_var: null
