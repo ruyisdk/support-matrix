@@ -1,9 +1,9 @@
 ---
 sys: buildroot
-sys_ver: null
+sys_ver: "20241129"
 sys_var: null
 
-status: basic
+status: cft
 last_update: 2024-06-21
 ---
 
@@ -13,7 +13,7 @@ last_update: 2024-06-21
 
 ### Operating System Information
 
-- System Version: 20240401
+- System Version: 20241129
 - Download Link: [https://github.com/sipeed/LicheeRV-Nano-Build/releases](https://github.com/sipeed/LicheeRV-Nano-Build/releases)
 - Reference Installation Documentation: [https://github.com/sipeed/LicheeRV-Nano-Build/releases](https://github.com/sipeed/LicheeRV-Nano-Build/releases)
 
@@ -30,8 +30,8 @@ last_update: 2024-06-21
 Download the image, then decompress and flash it:
 
 ```shell
-gzip -kd c906-2024-04-10-14-19-16d76b.img.gz
-sudo dd if=c906-2024-04-10-14-19-16d76b.img of=/dev/your_device bs=1M status=progress
+gzip -kd 2024-11-29-11-46-540e94.img.xz
+sudo dd if=2024-11-29-11-46-540e94.img of=/dev/your_device bs=1M status=progress
 
 ```
 
@@ -54,23 +54,8 @@ The system booted successfully and login via the onboard serial port was also su
 
 Screen recording (from flashing image to login):
 
-[![asciicast](https://asciinema.org/a/yNDWWKvYyXReaexbXm1t5dLxi.svg)](https://asciinema.org/a/yNDWWKvYyXReaexbXm1t5dLxi)
 
 ```log
-Welcome to Linux
-licheervnano-b6c0 login: root
-licheervnano-b6c0 login: root
-Password: 
-# cat /etc/os-release 
-NAME=Buildroot
-VERSION=-g16d76badf-dirty
-ID=buildroot
-VERSION_ID=2023.11.2
-PRETTY_NAME="Buildroot 2023.11.2"
-# uname -a
-Linux licheervnano-b6c0 5.10.4-tag- #1 PREEMPT Wed Apr 10 14:12:37 HKT 2024 riscv64 GNU/Linux
-# 
- 
 ```
 
 ## Test Criteria
@@ -81,5 +66,4 @@ Failed: The actual result does not match the expected result.
 
 ## Test Conclusion
 
-Test successful.
-
+CFT

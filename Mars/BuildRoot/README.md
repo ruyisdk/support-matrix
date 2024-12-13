@@ -1,6 +1,6 @@
 ---
 sys: buildroot
-sys_ver: null
+sys_ver: "1.0.6"
 sys_var: null
 
 status: basic

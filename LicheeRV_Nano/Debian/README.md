@@ -1,10 +1,10 @@
 ---
 sys: debian
-sys_ver: null
+sys_ver: "v1.4.0"
 sys_var: null
 
-status: basic
-last_update: 2024-06-21
+status: cft
+last_update: 2024-12-12
 ---
 
 # Debian LicheeRV Nano Test Report
@@ -54,6 +54,8 @@ The system booted up successfully, and login through the serial port was success
 
 ### Boot Log
 
+Below are v1.0.0 test results:
+
 Screen recording (from flashing the image to login):
 
 [![asciicast](https://asciinema.org/a/d6uwAengdlXVbMj0KAdVbPhMX.svg)](https://asciinema.org/a/d6uwAengdlXVbMj0KAdVbPhMX)
@@ -98,5 +100,5 @@ Failed: The actual result does not match the expected result.
 
 ## Test Conclusion
 
-Test successful.
+Test successful. / CFT
 

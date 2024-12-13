@@ -45,6 +45,8 @@ sudo dd if=licheervnano_sd.img of=/dev/your_device bs=1M status=progress
 
 ### 启动信息
 
+以下为 v1.0.0 测试结果：
+
 屏幕录像（从刷写镜像到登录系统）：
 
 [![asciicast](https://asciinema.org/a/d6uwAengdlXVbMj0KAdVbPhMX.svg)](https://asciinema.org/a/d6uwAengdlXVbMj0KAdVbPhMX)

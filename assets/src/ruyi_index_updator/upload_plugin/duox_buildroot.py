@@ -73,18 +73,12 @@ class DuoxBuildRoot(UploadPluginBase):
         img_file = self.download_file(img_path, assest["browser_download_url"])
         img_dist = self.gen_distfile(img_file, assest["browser_download_url"])
 
-        desc = desc = f"Official Buildroot SDK image for Milk-V Duo (64M RAM) {assest['name']}"
-        res = self.copy.copy(last_index[-1])
-        res.is_bot_created = True
-        res.version = self.handle_version(vinfo)
-        res.info.metadata.desc = desc
-        res.info.distfiles = [img_dist]
-        res.info.blob.distfiles = [
-            img_dist.name
-        ]
-        res.info.provisionable.partition_map = {
-            "disk": img_dist.name[:-4]
-        }
+        desc = f"Official Buildroot SDK image for Milk-V Duo (64M RAM) {assest['name']}"
+        res = self.autoupdate_index(
+            last_index[-1], vinfo, desc, {
+                "disk": img_dist
+            }
+        )
         return res
 
 
