@@ -57,7 +57,8 @@ class UploadPluginBase(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def handle_report(self, vinfo: VInfo, index: str, last_index: list[BoardImages]) -> BoardImages | None:
+    def handle_report(self, vinfo: VInfo,
+                      index: str, last_index: list[BoardImages]) -> BoardImages | None:
         """
         Handle the report data from the system.
         """
@@ -130,6 +131,7 @@ class UploadPluginBase(ABC):
                 "sha512": self.sha512sum(file),
             }
         })
+
 
 def register() -> UploadPluginBase | None:
     """

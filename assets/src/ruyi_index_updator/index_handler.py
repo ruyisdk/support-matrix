@@ -11,9 +11,13 @@ from .version_diff import BoardImageWrapper
 
 logger = logging.getLogger(__name__)
 
-PACKAGE_INDEX_OWNER = "ruyisdk"
+PACKAGE_INDEX_OWNER = os.getenv("PACKAGE_INDEX_OWNER", "ruyisdk")
+if len(PACKAGE_INDEX_OWNER) == 0 or PACKAGE_INDEX_OWNER is None:
+    PACKAGE_INDEX_OWNER = "ruyisdk"
 PACKAGE_INDEX_REPO = "packages-index"
 
+CI_RUN_ID = os.getenv("CI_RUN_ID", None)
+CI_RUN_URL = os.getenv("CI_RUN_URL", None)
 
 class PrWrapper:
     """
@@ -33,6 +37,7 @@ PR:
     Body: 
 {self.body} 
 
+<Body End>
     From: {self.self_branch}
     To: {self.upstream_branch}
 """
@@ -68,13 +73,33 @@ class RuyiGitRepo:
                 return True
         return False
 
+    def check_pr_updated(self, head: str, base: str) -> bool:
+        """
+        Check if the PR with head and base exist.
+        Different from check_pr_exist, this senerio is for the PR is already exist,
+        but identifier is not the same.
+        Maybe the PR is manually created, or something went wrong.
+        Neverthless, manual interraction is needed.
+        """
+        prs = self.upstream.get_pulls(state="open")
+        for pr in prs:
+            if pr.head.ref == head and pr.base.ref == base:
+                return True
+        return False
+
     def __create_pr(self, wrapper: PrWrapper):
         """
         Create a pull request.
         """
         head = f"{self.user.login}:{wrapper.self_branch}"
+        base = wrapper.upstream_branch
+        if self.check_pr_updated(head, base):
+            logger.error(
+                "PR already exist for %s -> %s, please check manually", head, base)
+            logger.error("New PR info: %s", repr(wrapper))
+            return
         pr = self.upstream.create_pull(
-            title=wrapper.title, body=wrapper.body, head=head, base=wrapper.upstream_branch)
+            title=wrapper.title, body=wrapper.body, head=head, base=base)
         logger.info("PR created: %s at %s", pr.title, pr.html_url)
 
     def create_wrapped_pr(self, wrapper: PrWrapper):
@@ -91,11 +116,38 @@ class RuyiGitRepo:
             title, body, self_branch, upstream_branch))
 
     def __reset_to_upstream(self):
-        self.local_repo.remote().set_url(self.upstream.ssh_url)
-        self.local_repo.remote().fetch()
+        # self.local_repo.remote().set_url(self.upstream.ssh_url)
+        # self.local_repo.remote().fetch()
 
-        self.local_repo.remote().refs['main'].checkout()
-        self.local_repo.remote().set_url(self.repo.ssh_url)
+        # self.local_repo.remote().refs['main'].checkout()
+        # self.local_repo.remote().set_url(self.repo.ssh_url)
+        flag = False
+        for ref in self.local_repo.remotes:
+            if ref.name == "upstream":
+                flag = True
+                break
+        if not flag:
+            self.local_repo.git.execute(
+                ["git", "remote", "add", "upstream", self.upstream.ssh_url]
+            )
+
+        self.local_repo.git.execute(
+            ["git", "remote", "set-url", "upstream", self.upstream.ssh_url]
+        )
+        self.local_repo.git.execute(
+            ["git", "fetch", "upstream"]
+        )
+        self.local_repo.git.execute(
+            ["git", "reset", "--hard", "upstream/main"]
+        )
+        self.local_repo.git.execute(
+            ["git", "clean", "-xdf"]
+        )
+
+    def __clean(self):
+        self.local_repo.git.execute(
+            ["git", "clean", "-xdf"]
+        )
 
     def __init__(self, repo_dir: str) -> None:
         github_token = os.getenv('GITHUB_TOKEN', None)
@@ -133,6 +185,7 @@ class RuyiGitRepo:
         self.__reset_to_upstream()
         head = self.local_repo.create_head(branch)
         head.checkout()
+        self.__clean()
         logger.info("Checkout to %s", branch)
 
     def local_commit(self, message: str):
@@ -158,17 +211,28 @@ class RuyiGitRepo:
         """
         Add a image index to the repo.
         """
-        index_name = image.new_index_name()
+        file_name = image.new_index_name()
         index_file = os.path.join(
             self.local_repo.working_dir,
             "manifests",
             "board-image",
-            index_name
+            image.index_name,
+            file_name
         )
         with open(index_file, "w", encoding="utf-8") as f:
             f.write(image.new_index_toml())
-        self.local_repo.index.add([index_file])
-        logger.info("Add %s", index_name)
+            if image.index.is_bot_created and CI_RUN_ID is None:
+                f.write("\n# This file is created by program renew_ruyi_index in support-matrix\n")
+                f.write("# Run: In local\n")
+            elif image.index.is_bot_created:
+                f.write("\n# This file is created by CI Sync Package Index inside support-matrix\n")
+                f.write(f"# Run ID: {CI_RUN_ID}\n")
+                f.write(f"# Run URL: {CI_RUN_URL}\n")
+        # self.local_repo.index.add([index_file])
+        self.local_repo.git.execute(
+            ["git", "add", index_file]
+        )
+        logger.info("Add %s", file_name)
 
     def upload_image(self, image: BoardImageWrapper):
         """
