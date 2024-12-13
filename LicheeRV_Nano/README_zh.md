@@ -10,19 +10,26 @@
   - 参考安装文档：https://github.com/sipeed/LicheeRV-Nano-Build
 - Debian
   - 下载链接：https://github.com/Fishwaldo/sophgo-sg200x-debian
-
+- Alpine Linux 3.20.3 riscv64
+  - 下载链接：
+    - Alpine minirootfs: [https://alpinelinux.org/downloads/](https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz)
+  - 参考安装文档：
+    - [Alpine Wiki (Installation)](https://wiki.alpinelinux.org/wiki/Installation)
+    - [Alpine Wiki (How to make a cross architecture chroot)](https://wiki.alpinelinux.org/wiki/How_to_make_a_cross_architecture_chroot)
 ### 硬件开发板信息
 
 - LicheeRV Nano (SG2002)
 
 ## 测试结果
 
-| 软件分类           | 软件包名 | 测试结果（测试报告） |
-| ------------------ | -------- | -------------------- |
-| BuildRoot 镜像启动 | N/A      | [Basic][BuildRoot]   |
-| FreeRTOS 启动      | N/A      | [Basic][FreeRTOS]    |
-| Debian 镜像启动    | N/A      | [Basic][Debian]      |
+| 软件分类           | 软件包名 | 测试结果（测试报告）                  |
+| ------------------ | -------- | ------------------------------------- |
+| BuildRoot 镜像启动 | N/A      | [Basic][BuildRoot]                    |
+| FreeRTOS 启动      | N/A      | [Basic][FreeRTOS]                     |
+| Debian 镜像启动    | N/A      | [Basic][Debian]                       |
+| Alpine Linux 启动  | N/A      | [Basic][Alpine] （需手工构建 rootfs） |
 
 [BuildRoot]: ./BuildRoot/README_zh.md
 [FreeRTOS]: ./FreeRTOS/README_zh.md
 [Debian]: ./Debian/README_zh.md
+[Alpine]: ./Alpine/README_zh.md
