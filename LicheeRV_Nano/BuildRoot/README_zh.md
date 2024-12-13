@@ -45,23 +45,7 @@ sudo dd if=c906-2024-04-10-14-19-16d76b.img of=/dev/your_device bs=1M status=pro
 
 屏幕录像（从刷写镜像到登录系统）：
 
-[![asciicast](https://asciinema.org/a/yNDWWKvYyXReaexbXm1t5dLxi.svg)](https://asciinema.org/a/yNDWWKvYyXReaexbXm1t5dLxi)
-
 ```log
-Welcome to Linux
-licheervnano-b6c0 login: root
-licheervnano-b6c0 login: root
-Password: 
-# cat /etc/os-release 
-NAME=Buildroot
-VERSION=-g16d76badf-dirty
-ID=buildroot
-VERSION_ID=2023.11.2
-PRETTY_NAME="Buildroot 2023.11.2"
-# uname -a
-Linux licheervnano-b6c0 5.10.4-tag- #1 PREEMPT Wed Apr 10 14:12:37 HKT 2024 riscv64 GNU/Linux
-# 
- 
 ```
 
 ## 测试判定标准
@@ -72,4 +56,4 @@ Linux licheervnano-b6c0 5.10.4-tag- #1 PREEMPT Wed Apr 10 14:12:37 HKT 2024 risc
 
 ## 测试结论
 
-测试成功。
+CFT

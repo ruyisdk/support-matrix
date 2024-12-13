@@ -7,3 +7,50 @@ user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Ge
 source = "regex"
 url = "https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/"
 regex = '<a href="(\d{8})/" title="\1">\1/</a>'
+
+[sipeed_licheecluster4a-debian-null] # RevyOS is seen as Debian
+source = "regex"
+url = "https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/"
+regex = '<a href="(\d{8})/" title="\1">\1/</a>'
+
+[sipeed_licheeconsole4a-debian-null]
+source = "github"
+github = "0x754C/sipeed-th1520-laptop-extra"
+use_latest_release = true
+
+[milkv_duo-buildroot-null]
+source = "github"
+github = "milkv-duo/duo-buildroot-sdk"
+use_latest_release = true
+
+[milkv_duo256m-buildroot-null]
+source = "github"
+github = "milkv-duo/duo-buildroot-sdk"
+use_latest_release = true
+
+[milkv_duos-buildroot-null]
+source = "github"
+github = "milkv-duo/duo-buildroot-sdk"
+use_latest_release = true
+
+[pine64_star64-armbian-null]
+source = "github"
+github = "armbian/community"
+use_latest_release = true
+
+[sipeed_licheervnano-buildroot-null]
+source = "github"
+github = "sipeed/LicheeRV-Nano-Build"
+use_latest_release = true
+
+[sipeed_licheervnano-debian-null]
+source = "github"
+github = "Fishwaldo/sophgo-sg200x-debian"
+use_latest_release = true
+
+[milkv_mars-buildroot-null]
+source = "github"
+github = "milkv-mars/mars-buildroot-sdk"
+use_latest_release = true
+
+

@@ -84,7 +84,7 @@ class BoardImageWrapper:
         Generate the hash of the new index, used to identify the pr
         """
         h = hashlib.sha224(
-            self.new_index_toml().encode("utf-8")
+            self.new_index_toml().encode("utf-8") + self.new_index_name().encode("utf-8")
         )
         return h.hexdigest()
 
@@ -114,7 +114,10 @@ class RuyiDiff:
         for index_name, index in self.index.items():
             if not plug.is_mapped_ruyi_index(vinfo, index_name):
                 continue
-            newest_index = index[-1]
+            newest_index = index[0]
+            for i in index:
+                if cmp_version(i.version, newest_index.version) > 0:
+                    newest_index = i
             matrix_version = plug.handle_version(vinfo)
             if newest_index.version < matrix_version:
                 logger.info(
@@ -122,7 +125,7 @@ class RuyiDiff:
                     index_name, newest_index.version, matrix_version)
                 yield BoardImageWrapper(vinfo, plug, index_name, index)
 
-    def gen_diff(self):
+    def gen_diff(self, filter_plugins: list[str] = None):
         """
         Yield the system that needs to be updated
         """
@@ -130,6 +133,9 @@ class RuyiDiff:
             # Find the plugin that can handle the system
             plugin = find_plugin(v)
             if plugin is None:
+                continue
+            if filter_plugins is not None and len(filter_plugins) > 0 and \
+                    plugin.get_name() not in filter_plugins:
                 continue
 
             # Please notice:

@@ -57,7 +57,8 @@ class UploadPluginBase(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def handle_report(self, vinfo: VInfo, index: str, last_index: list[BoardImages]) -> BoardImages | None:
+    def handle_report(self, vinfo: VInfo,
+                      index: str, last_index: list[BoardImages]) -> BoardImages | None:
         """
         Handle the report data from the system.
         """
@@ -130,6 +131,25 @@ class UploadPluginBase(ABC):
                 "sha512": self.sha512sum(file),
             }
         })
+
+    def autoupdate_index(self, last_index: BoardImages, vinfo: VInfo,
+                         desc: str, distfiles: dict[str, BoardIndexDistfiles]) -> BoardImages:
+        """
+        Auto update the index.
+        """
+        res = self.copy.copy(last_index)
+        res.is_bot_created = True
+        res.version = self.handle_version(vinfo)
+        res.info.metadata.desc = desc
+        res.info.distfiles = distfiles.values()
+        res.info.blob.distfiles = [
+            dist.name for dist in distfiles.values()
+        ]
+        res.info.provisionable.partition_map = {
+            k: ".".join(v.name.split(".")[:-1]) for k, v in distfiles.items()
+        }
+        return res
+
 
 def register() -> UploadPluginBase | None:
     """
