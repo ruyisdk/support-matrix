@@ -22,9 +22,9 @@
 ## 测试结果
 
 | 软件分类           | 软件包名    | 测试结果（测试报告） |
-|------------------|-------------|------------------|
-| BuildRoot 镜像启动 | N/A        | [成功][BuildRoot] |
-| FreeRTOS 启动     | hello_world | [成功][BuildRoot]|
-
+| ------------------ | ----------- | -------------------- |
+| BuildRoot 镜像启动 | N/A         | [成功][BuildRoot]    |
+| FreeRTOS 启动      | hello_world | [成功][BuildRoot]    |
+ 
 [BuildRoot]: ./BuildRoot/README_zh.md
 [FreeRTOS]: ./FreeRTOS/README_zh.md
