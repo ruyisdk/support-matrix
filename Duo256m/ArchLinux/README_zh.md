@@ -1,4 +1,4 @@
-# Arch Linux Milk-V Duo S 测试报告
+# Arch Linux Milk-V Duo 256M 测试报告
 
 ## 测试环境
 
