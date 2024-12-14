@@ -1,4 +1,4 @@
-# openEuler Milk-V Duo S 测试报告
+# openEuler Milk-V Duo 256M 测试报告
 
 ## 测试环境
 
