@@ -1,4 +1,4 @@
-# Fedora 36 D1 测试报告
+# Fedora 36 AWOL Nezha D1 测试报告
 
 ## 测试环境
 
@@ -10,7 +10,7 @@
 
 ### 硬件信息
 
-- AWOL Nezha D1 / Sipeed Lichee RV Dock
+- AWOL Nezha D1 
 - 电源适配器
 - microSD 卡一张
 - USB to UART 调试器一个

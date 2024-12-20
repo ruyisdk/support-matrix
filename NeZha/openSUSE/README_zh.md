@@ -1,16 +1,16 @@
-# openSUSE Tumbleweed D1 测试报告
+# openSUSE Tumbleweed AWOL Nezha D1 测试报告
 
 ## 测试环境
 
 ### 系统信息
 
 - 系统版本：openSUSE Tumbleweed
-- 下载链接：[openSUSE-Tumbleweed-RISC-V-JeOS-licheervdock.riscv64.raw.xz](https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/)
+- 下载链接：[openSUSE-Tumbleweed-RISC-V-JeOS-nezha.riscv64.raw.xz](https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/)
 - 参考安装文档：[https://en.opensuse.org/HCL:Nezha](https://en.opensuse.org/HCL:Nezha)
 
 ### 硬件信息
 
-- Sipeed Lichee RV Dock
+- AWOL Nezha D1 
 - 电源适配器
 - microSD 卡一张
 - USB to UART 调试器一个
@@ -23,8 +23,8 @@
 使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
-unxz /path/to/openSUSE-Tumbleweed-RISC-V-JeOS-licheervdock.riscv64.raw.xz.raw.xz
-sudo dd if=/path/to/openSUSE-Tumbleweed-RISC-V-JeOS-licheervdock.riscv64.raw of=/dev/your-device bs=1M status=progress
+unxz /path/to/openSUSE.raw.xz
+sudo dd if=/path/to/openSUSE.raw of=/dev/your-device bs=1M status=progress
 ```
 
 ### 登录系统

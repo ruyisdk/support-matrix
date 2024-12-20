@@ -15,11 +15,11 @@ last_update: 2024-12-04
 
 - System Version: Ubuntu 24.04.1 LTS
 - Download Link: https://ubuntu.com/download/risc-v
-- Reference Installation Document: https://wiki.ubuntu.com/RISC-V/LicheeRV
+- Reference Installation Document: https://wiki.ubuntu.com/RISC-V/Nezha%20D1
 
 ### Hardware Information
 
-- Sipeed Lichee RV Dock
+- AWOL Nezha D1 
 - A USB-A Power Adapter
 - A USB-A to C Cable
 - A microSD Card

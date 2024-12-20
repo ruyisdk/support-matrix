@@ -3,11 +3,11 @@ sys: fedora
 sys_ver: 36
 sys_var: null
 
-status: good
+status: basic
 last_update: 2024-06-21
 ---
 
-# Fedora 36 D1 Test Report
+# Fedora 36 AWOL Nezha D1 Test Report
 
 ## Test Environment
 
@@ -19,7 +19,7 @@ last_update: 2024-06-21
 
 ### Hardware Information
 
-- AWOL Nezha D1 / Sipeed Lichee RV Dock
+- AWOL Nezha D1 
 - Power Adapter
 - A microSD Card
 - A USB to UART Debugger

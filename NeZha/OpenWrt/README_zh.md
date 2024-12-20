@@ -1,4 +1,4 @@
-# OpenWrt 23.05.2 D1 测试报告
+# OpenWrt 23.05.2 AWOL Nezha D1 测试报告
 
 ## 测试环境
 
@@ -6,14 +6,14 @@
 
 - 系统版本：OpenWrt 23.05.2
 - 下载链接（OpenWrt Firmware Selector）：
-  - Sipeed Lichee RV Dock: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
+  - Nezha D1: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=nezha
 - 参考安装文档：https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1
 
 > 在 OpenWrt Firmware Selector 中可以在线定制构建系统镜像，添加用户所需要的预装软件包。本次测试使用的为**未经修改**的原版镜像。
 
 ### 硬件信息
 
-- Sipeed Lichee RV Dock
+- AWOL Nezha D1 
 - USB-A 电源一个
 - USB-A to C 线缆一条
 - microSD 卡一张
@@ -27,8 +27,8 @@
 使用 `dd` 刷入镜像到 microSD 卡。
 
 ```bash
-xz -dkv openwrt-d1-lichee_rv_dock-squashfs-sdcard.img.gz
-sudo dd if=openwrt-d1-lichee_rv_dock-squashfs-sdcard.img of=/dev/sdc status=progress
+xz -dkv openwrt-d1-generic-nezha-squashfs-sdcard.img.gz
+sudo dd if=openwrt-d1-generic-nezha-squashfs-sdcard.img of=/dev/sdc status=progress
 ```
 
 ### 登录系统

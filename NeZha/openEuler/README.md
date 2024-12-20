@@ -7,7 +7,7 @@ status: basic
 last_update: 2024-06-21
 ---
 
-# openEuler RISC-V 23.03 D1 Version Test Report
+# openEuler RISC-V 23.03 AWOL Nezha D1 Version Test Report
 
 ## Test Environment
 
@@ -19,7 +19,7 @@ last_update: 2024-06-21
 
 ### Hardware Information
 
-- Sipeed Lichee RV Dock
+- AWOL Nezha D1 
 - A USB-A power adapter
 - A USB-A to C cable
 - A microSD card
