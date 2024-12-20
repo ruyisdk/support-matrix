@@ -21,7 +21,7 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
   - Reference Installation Document: https://github.com/lupyuen/nuttx-sg2000
 - Debian
   - Download Link: https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/tag/v1.4.0
-  - Reference Installation Document: https://github.com/Fishwaldo/sophgo-sg200x-debia
+  - Reference Installation Document: https://github.com/Fishwaldo/sophgo-sg200x-debian
 - Zephyr
   - Source Code Link: https://github.com/zephyrproject-rtos/zephyr/tree/main
   - Reference Installation Document: 
