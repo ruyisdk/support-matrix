@@ -15,7 +15,7 @@
   - 参考安装文档；https://github.com/lupyuen/nuttx-sg2000
 - Debian
   - 下载链接：https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/tag/v1.4.0
-  - 参考安装文档：https://github.com/Fishwaldo/sophgo-sg200x-debia
+  - 参考安装文档：https://github.com/Fishwaldo/sophgo-sg200x-debian
 - Zephyr
   - 源码链接：https://github.com/zephyrproject-rtos/zephyr/tree/main
   - 参考文档：
