@@ -39,6 +39,9 @@ cpu_core: XuanTie C906
 - openSUSE Tumbleweed
   - Download link: [https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/](https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/)
   - Reference Installation Document: [https://en.opensuse.org/HCL:Nezha](https://en.opensuse.org/HCL:Nezha)
+- NixOS
+  - Download link: https://github.com/chuangzhu/nixos-sun20iw1p1/releases
+  - Reference Installation Document: https://github.com/chuangzhu/nixos-sun20iw1p1
 
 ### Hardware Information
 
@@ -57,6 +60,7 @@ cpu_core: XuanTie C906
 | Debian Image Boot         | N/A          | [Successful][Debian]                       |
 | openSUSE Image Boot       | N/A          | [Successful][openSUSE]                     |
 | Arch Linux Image Boot     | N/A          | [Successful][Arch]                         |
+| NixOS Image Boot          | N/A          | [Successful][NixOS]                        |
 
 [oERVDL]: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/D1/
 [oERV]: ./openEuler/README.md
@@ -67,3 +71,4 @@ cpu_core: XuanTie C906
 [Debian]: ./Debian/README.md
 [openSUSE]: ./openSUSE/README.md
 [Arch]: ./ArchLinux/README.md
+[NixOS]: ./NixOS/README.md
