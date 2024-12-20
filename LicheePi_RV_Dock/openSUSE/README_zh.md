@@ -1,4 +1,4 @@
-# openSUSE Tumbleweed D1 测试报告
+# openSUSE Tumbleweed LicheePi RV Dock 测试报告
 
 ## 测试环境
 
@@ -10,7 +10,7 @@
 
 ### 硬件信息
 
-- Sipeed Lichee RV Dock
+- Sipeed LicheePi RV Dock
 - 电源适配器
 - microSD 卡一张
 - USB to UART 调试器一个

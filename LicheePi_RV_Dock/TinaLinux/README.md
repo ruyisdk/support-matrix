@@ -7,7 +7,7 @@ status: basic
 last_update: 2024-12-06
 ---
 
-# Tina Linux LicheeRV Dock Test Report
+# Tina Linux LicheePi RV Dock Test Report
 
 ## Test Environment
 
@@ -19,7 +19,7 @@ last_update: 2024-12-06
 
 ### Hardware Information
 
-- LicheeRV Dock 
+- LicheePi RV Dock
 - USB-A power adapter
 - A USB-A to C cable
 - A microSD card

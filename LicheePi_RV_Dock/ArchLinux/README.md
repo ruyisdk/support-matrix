@@ -1,42 +1,50 @@
-# Arch Linux Lichee RV Dock 测试报告
+---
+sys: archlinux
+sys_ver: null
+sys_var: null
 
-## 测试环境
+status: basic
+last_update: 2024-12-04
+---
 
-### 操作系统信息
+# Arch Linux LicheePi RV Dock Test Report
 
-- 基础镜像：Ubuntu 24.10: [ubuntu-24.10](https://ubuntu.com/download/risc-v) 
-  - 或任意 D1 的镜像
+## Test Environment
+
+### Operating System Information
+
+- Base Image: Ubuntu 24.10: [ubuntu-24.10](https://ubuntu.com/download/risc-v)
+  - Or any arbitrary image for D1
 - Rootfs：[archriscv-2024-09-22.tar.zst](https://archriscv.felixc.at/images/archriscv-2024-09-22.tar.zst)
-- 参考安装文档：https://github.com/felixonmars/archriscv-packages/wiki/RV64-%E6%9D%BF%E5%AD%90%E6%9B%B4%E6%8D%A2-rootfs-%E6%8C%87%E5%8D%97
-h
+- Reference Installation Document: https://github.com/felixonmars/archriscv-packages/wiki/RV64-%E6%9D%BF%E5%AD%90%E6%9B%B4%E6%8D%A2-rootfs-%E6%8C%87%E5%8D%97
 
-### 硬件信息
+### Hardware Information
 
-- Lichee RV Dock
-- Type-C 电源线一根
-- UART 转 USB 调试器一个
-- SD 卡
+- LicheePi RV Dock
+- A Type-C Power Cable
+- A UART to USB Debugger
+- SD Card
 
-## 安装步骤
+## Installation Steps
 
-### 获取镜像和 rootfs
+### Obtain images and rootfs
 
-下载基础镜像和 rootfs。任何 D1 的镜像都可以作为基础镜像。
+Get the base images and rootfs. You can use arbitrary any images for D1 as the base images.
 
-Debian 镜像和 Ubuntu 镜像曾被验证过能工作。接下来以 Ubuntu 镜像为例。
+We have used Debian images and Ubuntu images and know that they work well. Below we use the Ubuntu images as an example.
 
 ```bash
 wget https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64%2Blicheerv.img.xz
 wget https://archriscv.felixc.at/images/archriscv-2024-09-22.tar.zst
 xz -kd ubuntu-24.10-preinstalled-server-riscv64+licheerv.img.xz
 mkdir rfs
-tar -xf archriscv-2024-09-22.tar.zst -C rfs
+tar -xf archriscv-20220727.tar.zst -C rfs
 mkdir mnt
 ```
 
-### 替换 rootfs
+### Replace the rootfs
 
-用 Arch Linux 的 rootfs 替换 Ubuntu 镜像中的 rootfs。将下面的分区更改为正确的 rootfs 分区。
+Replace the rootfs with the one from the Ubuntu image. Change the following mount points to the correct rootfs for your image.
 
 ```bash
 sudo losetup -f
@@ -48,11 +56,12 @@ sudo mv etc home media mnt opt root srv var usr old/
 sudo cp -r ../rfs/{etc,home,mnt,opt,root,srv,var,usr} .
 sudo cp -r old/usr/lib/firmware usr/lib/
 sudo cp -r old/usr/lib/modules/ usr/lib/
+rm etc/fstab
 sudo rm etc/fstab
 sudo cp -r old/etc/fstab etc/fstab
 ```
 
-清理工作。
+Don't forget to clean up the files.
 
 ```bash
 cd ..
@@ -60,34 +69,33 @@ sudo umount mnt
 sudo losetup -d /dev/loopX
 ```
 
-### 刷写镜像
+### Flash the image
 
-将镜像刷写到 SD 卡。
+Flash the image to the SD card.
 
 ```bash
 sudo wipefs -a /dev/sdX
 sudo dd if=ubuntu-24.10-preinstalled-server-riscv64+licheerv.img.xz of=/dev/sdX bs=4M status=progress
 ```
 
+### Logging into the System
 
-### 登录系统
+Logging into the system via the serial port.
 
-通过串口登录系统。
+Default Username: `root`
+Default Password: `archriscv`
 
-默认用户名：`root`
-默认密码：`archriscv`
+## Expected Results
 
-## 预期结果
+The system should boot normally and allow login via the onboard serial port.
 
-系统正常启动，能够通过板载串口登录。
+## Actual Results
 
-## 实际结果
+The system booted successfully and login via the onboard serial port was also successful.
 
-系统正常启动，成功通过板载串口登录。
+### Boot Log
 
-### 启动信息
-
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (from flashing the image to logging into the system):
 [![asciicast](https://asciinema.org/a/G3j3MjoOZ8rcTD28kfMLDao6a.svg)](https://asciinema.org/a/G3j3MjoOZ8rcTD28kfMLDao6a)
 
 ```log
@@ -117,16 +125,14 @@ mvendorid       : 0x5b7
 marchid         : 0x0
 mimpid          : 0x0
 hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
-
 ```
 
+## Test Criteria
 
-## 测试判定标准
+Successful: The actual result matches the expected result.
 
-测试成功：实际结果与预期结果相符。
+Failed: The actual result does not match the expected result.
 
-测试失败：实际结果与预期结果不符。
+## Test Conclusion
 
-## 测试结论
-
-成功
+Test successful

@@ -1,55 +1,46 @@
----
-sys: ubuntu
-sys_ver: 24.10
-sys_var: null
+# Ubuntu 24.10 LicheePi RV Dock 测试报告
 
-status: basic
-last_update: 2024-12-04
----
+## 测试环境
 
-# Ubuntu 24.10 D1 Test Report
+### 操作系统信息
 
-## Test Environment
+- 系统版本：Ubuntu 24.10
+- 下载链接：https://ubuntu.com/download/risc-v
+- 参考安装文档：https://wiki.ubuntu.com/RISC-V/LicheeRV
 
-### Operating System Information
+### 硬件信息
 
-- System Version: Ubuntu 24.10
-- Download Link: https://ubuntu.com/download/risc-v
-- Reference Installation Document: https://wiki.ubuntu.com/RISC-V/LicheeRV
+- Sipeed LicheePi RV Dock
+- USB-A 电源一个
+- USB-A to C 线缆一条
+- microSD 卡一张
+- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
+- 杜邦线三根
 
-### Hardware Information
+## 安装步骤
 
-- Sipeed Lichee RV Dock
-- A USB-A Power Adapter
-- A USB-A to C Cable
-- A microSD Card
-- A USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
-- Three DuPont Wires
+### 刷写镜像到 microSD 卡
 
-## Installation Steps
+使用 `dd` 将镜像写入至 microSD 卡。
 
-### Flashing Image to microSD Card
+### 登录系统
 
-Use `dd` to flash the image to the microSD card.
+通过串口登录系统。
 
-### Logging into the System
+默认用户名：`ubuntu`
+默认密码：`ubuntu`
 
-Logging into the system via the serial port.
+初次登录时，系统会提示更改密码。
 
-Default Username: `ubuntu`
-Default Password: `ubuntu`
+## 预期结果
 
-On first login, the system will prompt you to change the password.
+系统正常启动，能够通过板载串口登录。
 
-## Expected Results
+## 实际结果
 
-The system should boot normally and allow login via the onboard serial port.
+系统正常启动，成功通过板载串口登录。
 
-## Actual Results
-
-The system booted successfully and login via the onboard serial port was also successful.
-
-### Boot Log
+### 启动信息
 
 ```log
 Welcome to Ubuntu 24.10 (GNU/Linux 6.11.0-8-generic riscv64)
@@ -109,12 +100,12 @@ hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
 ubuntu@ubuntu:~$ 
 ```
 
-## Test Criteria
+## 测试判定标准
 
-Successful: The actual result matches the expected result.
+测试成功：实际结果与预期结果相符。
 
-Failed: The actual result does not match the expected result.
+测试失败：实际结果与预期结果不符。
 
-## Test Conclusion
+## 测试结论
 
-Test successful.
+测试成功。

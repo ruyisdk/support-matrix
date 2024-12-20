@@ -7,7 +7,7 @@ status: basic
 last_update: 2024-06-21
 ---
 
-# openSUSE Tumbleweed D1 Test Report
+# openSUSE Tumbleweed LicheePi RV Dock Test Report
 
 ## Test Environment
 
@@ -19,7 +19,7 @@ last_update: 2024-06-21
 
 ### Hardware Information
 
-- Sipeed Lichee RV Dock
+- Sipeed LicheePi RV Dock
 - Power Adapter
 - A microSD card
 - A USB to UART Debugger

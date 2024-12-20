@@ -1,42 +1,51 @@
-# NixOS LicheeRV 测试报告
+---
+sys: NixOS
+sys_ver: null
+sys_var: null
 
-## 测试环境
+status: basic
+last_update: 2024-12-20
+---
 
-### 操作系统信息
+# Nixos LicheePi RV Dock Test Report
 
-- 下载链接: https://github.com/chuangzhu/nixos-sun20iw1p1/releases
-- 参考安装文档: https://github.com/chuangzhu/nixos-sun20iw1p1
+## Test Environment
 
-### 硬件信息
+### Operating System Information
 
-- Sipeed Lichee RV Dock
-- USB-A 电源一个
-- USB-A to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
+- Download link: https://github.com/chuangzhu/nixos-sun20iw1p1/releases
+- Reference Installation Document: https://github.com/chuangzhu/nixos-sun20iw1p1
 
-## 安装步骤
+### Hardware Information
 
-### 刷写镜像到 microSD 卡
+- Sipeed LicheePi RV Dock
+- A USB-A Power Adapter
+- A USB-A to C Cable
+- A microSD Card
+- A USB to UART Debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three DuPont Wires
 
-使用 `dd` 将镜像写入至 microSD 卡。
+## Installation Steps
 
-### 登录系统
+### Flashing Image to microSD Card
 
-通过串口登录系统。
+Use `dd` to flash the image to the microSD card.
 
-无密码,初次登录时，系统会提示更改密码。
+### Logging into the System
 
-## 预期结果
+Logging into the system via the serial port.
 
-系统正常启动，能够通过板载串口登录。
+No passwd. On first login, the system will prompt you to change the password.
 
-## 实际结果
+## Expected Results
 
-系统正常启动，成功通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-### 启动信息
+## Actual Results
+
+The system booted successfully and login via the onboard serial port was also successful.
+
+### Boot Log
 
 ```log
 <<< Welme to NixOS 22.11come to NixOS 22..11.20221014.4428e23 (riscv64) - ttyS0 >>>
@@ -98,12 +107,12 @@ mmu             : sv39
 uarch           : thead,c906
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

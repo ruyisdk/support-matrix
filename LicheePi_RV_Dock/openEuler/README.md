@@ -1,44 +1,53 @@
-# openEuler RISC-V 23.03 D1 版本测试报告
+---
+sys: openeuler
+sys_ver: 23.03
+sys_var: null
 
-## 测试环境
+status: basic
+last_update: 2024-06-21
+---
 
-### 操作系统信息
+# openEuler RISC-V 23.03 LicheePi RV Dock Test Report
 
-- 系统版本：openEuler 23.03 RISC-V preview
-- 下载链接：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/D1/
-- 参考安装文档：https://gitee.com/openeuler/RISC-V/tree/master/release/openEuler-23.03/Installation_Book/D1_and_Licheerv
+## Test Environment
 
-### 硬件信息
+### Operating System Information
 
-- Sipeed Lichee RV Dock
-- USB-A 电源一个
-- USB-A to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
+- System Version: openEuler 23.03 RISC-V preview
+- Download Link: [Download Link](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/D1/)
+- Reference Installation Document: [Installation Document](https://gitee.com/openeuler/RISC-V/tree/master/release/openEuler-23.03/Installation_Book/D1_and_Licheerv)
 
-## 安装步骤
+### Hardware Information
 
-### 使用 `ruyi` CLI 刷写镜像到 microSD 卡
+- Sipeed LicheePi RV Dock
+- A USB-A power adapter
+- A USB-A to C cable
+- A microSD card
+- A USB to UART debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three Dupont wires
 
-安装 [`ruyi`](https://github.com/ruyisdk/ruyi) 包管理器，运行 `ruyi device provision` 并按提示操作。
+## Installation Steps
 
-### 登录系统
+### Using `ruyi` CLI to Flash the Image to the microSD Card
 
-通过串口登录系统。
+Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager and run `ruyi device provision`, following the prompts.
 
-默认用户名：`openeuler` 或 `root`
-默认密码：`openEuler12#$`
+### Logging into the System
 
-## 预期结果
+Logging to the system via the serial port.
 
-系统正常启动，能够通过板载串口登录。
+Default username: `openeuler` or `root`
+Default password: `openEuler12#$`
 
-## 实际结果
+## Expected Results
 
-系统正常启动，成功通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-### 启动信息
+## Actual Results
+
+The system booted successfully and login via the onboard serial port was also successful.
+
+### Boot Log
 
 ```log
 openEuler 23.03                                                                                                                                   
@@ -76,16 +85,16 @@ mimpid          : 0x0
 [root@openeuler-riscv64 ~]#
 ```
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (From flashing image to login):
 
 [![asciicast](https://asciinema.org/a/dJV431qjqOPT6iR7hzieM3G41.svg)](https://asciinema.org/a/dJV431qjqOPT6iR7hzieM3G41)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

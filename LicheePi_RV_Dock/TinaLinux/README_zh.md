@@ -1,4 +1,4 @@
-# Tina Linux LicheeRV Dock 测试报告
+# Tina Linux LicheePi RV Dock 测试报告
 
 ## 测试环境
 
@@ -10,7 +10,7 @@
 
 ### 硬件信息
 
-- LicheeRV Dock
+- LicheePi RV Dock
 - USB-A 电源一个
 - USB-A to C 线缆一条
 - microSD 卡一张

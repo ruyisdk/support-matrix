@@ -1,4 +1,4 @@
-# Ubuntu 24.04.1 LTS D1 测试报告
+# Ubuntu 24.04.1 LTS LicheePi RV Dock 测试报告
 
 ## 测试环境
 
@@ -10,7 +10,7 @@
 
 ### 硬件信息
 
-- Sipeed Lichee RV Dock
+- Sipeed LicheePi RV Dock
 - USB-A 电源一个
 - USB-A to C 线缆一条
 - microSD 卡一张

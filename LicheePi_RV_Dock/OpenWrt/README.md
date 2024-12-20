@@ -1,49 +1,58 @@
-# OpenWrt 23.05.2 D1 测试报告
+---
+sys: openwrt
+sys_ver: 23.05.2
+sys_var: null
 
-## 测试环境
+status: basic
+last_update: 2024-06-21
+---
 
-### 操作系统信息
+# OpenWrt 23.05.2 LicheePi RV Dock Test Report
 
-- 系统版本：OpenWrt 23.05.2
-- 下载链接（OpenWrt Firmware Selector）：
+## Test Environment
+
+### Operating System Information
+
+- System Version: OpenWrt 23.05.2
+- Download Links (OpenWrt Firmware Selector):
   - Sipeed Lichee RV Dock: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
-- 参考安装文档：https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1
+- Reference Installation Document: https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1
 
-> 在 OpenWrt Firmware Selector 中可以在线定制构建系统镜像，添加用户所需要的预装软件包。本次测试使用的为**未经修改**的原版镜像。
+> In the OpenWrt Firmware Selector, you can custom-build the system image online, adding the pre-installed packages you need. For this test, we used the **unmodified** original image.
 
-### 硬件信息
+### Hardware Information
 
-- Sipeed Lichee RV Dock
-- USB-A 电源一个
-- USB-A to C 线缆一条
-- microSD 卡一张
-- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- 杜邦线三根
+- Sipeed LicheePi RV Dock
+- A USB-A power adapter
+- A USB-A to C cable
+- A microSD card
+- A USB to UART debugger (e.g., CH340, CH341, FT2232, etc.)
+- Three DuPont wires
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像到 microSD 卡
+### Flashing Image to microSD Card
 
-使用 `dd` 刷入镜像到 microSD 卡。
+Use `dd` to flash the image to the microSD card.
 
 ```bash
 xz -dkv openwrt-d1-lichee_rv_dock-squashfs-sdcard.img.gz
 sudo dd if=openwrt-d1-lichee_rv_dock-squashfs-sdcard.img of=/dev/sdc status=progress
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Log into the system via the serial port.
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过板载串口登录。
+The system should boot normally and allow login via the onboard serial port.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过板载串口登录。
+The system booted successfully and login via the onboard serial port was also successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 BusyBox v1.36.1 (2024-03-13 22:51:23 UTC) built-in shell (ash)
@@ -74,16 +83,16 @@ marchid         : 0x0
 mimpid          : 0x0
 ```
 
-屏幕录像（从刷写镜像到登录系统）：
+Screen recording (From flashing image to logging into the system):
 
 [![asciicast](https://asciinema.org/a/FtuRf4hQ7gWi0lTR4JkBxXJMw.svg)](https://asciinema.org/a/FtuRf4hQ7gWi0lTR4JkBxXJMw)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.

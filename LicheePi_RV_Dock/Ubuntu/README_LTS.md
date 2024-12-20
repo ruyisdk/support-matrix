@@ -7,7 +7,7 @@ status: basic
 last_update: 2024-12-04
 ---
 
-# Ubuntu 24.04.1 LTS D1 Test Report
+# Ubuntu 24.04.1 LTS LicheePi RV Dock Test Report
 
 ## Test Environment
 
@@ -19,7 +19,7 @@ last_update: 2024-12-04
 
 ### Hardware Information
 
-- Sipeed Lichee RV Dock
+- Sipeed LicheePi RV Dock
 - A USB-A Power Adapter
 - A USB-A to C Cable
 - A microSD Card

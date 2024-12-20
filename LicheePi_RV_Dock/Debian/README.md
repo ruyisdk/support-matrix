@@ -7,7 +7,7 @@ status: good
 last_update: 2024-12-06
 ---
 
-# Debian 11 D1 Test Report
+# Debian 11 LicheePi RV Dock Test Report
 
 ## Test Environment
 
@@ -19,7 +19,7 @@ last_update: 2024-12-06
 
 ### Hardware Information
 
-- Sipeed Lichee RV Dock
+- Sipeed LicheePi RV Dock
 - Power Adapter
 - A microSD card
 - A USB to UART Debugger

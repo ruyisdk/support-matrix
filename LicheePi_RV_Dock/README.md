@@ -1,10 +1,10 @@
 ---
-product: Lichee RV Dock
+product: LicheePi RV Dock
 cpu: D1 (D1-H)
 cpu_core: XuanTie C906
 ---
 
-# Lichee RV Dock 
+# LicheePi RV Dock
 
 ## Test Environment
 
@@ -45,7 +45,7 @@ cpu_core: XuanTie C906
 
 ### Hardware Information
 
-- Sipeed Lichee RV Dock
+- Sipeed LicheePi RV Dock
 
 ## Test Results
 

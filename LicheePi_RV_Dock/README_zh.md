@@ -1,4 +1,4 @@
-# Lichee RV Dock
+# LicheePi RV Dock
 
 ## 测试环境
 
@@ -39,7 +39,7 @@
 
 ### 硬件开发板信息
 
-- Sipeed Lichee RV Dock
+- Sipeed LicheePi RV Dock
 
 ## 测试结果
 
