@@ -14,8 +14,7 @@ last_update: 2024-06-21
 ### Operating System Information
 
 - System Version: OpenWrt 23.05.2
-- Download Links (OpenWrt Firmware Selector):
-  - Sipeed Lichee RV Dock: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
+- Download Links (OpenWrt Firmware Selector):  https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
 - Reference Installation Document: https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1
 
 > In the OpenWrt Firmware Selector, you can custom-build the system image online, adding the pre-installed packages you need. For this test, we used the **unmodified** original image.

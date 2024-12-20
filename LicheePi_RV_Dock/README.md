@@ -15,18 +15,14 @@ cpu_core: XuanTie C906
     - Options available for images with Xfce desktop or command-line only Base images
   - Reference Installation Document: [openEuler/RISC-V][oERVXfce]
 - Tina Linux
-  - Download links:
-    - Sipeed Lichee RV: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
-  - Reference Installation Document:
-    - Sipeed Lichee RV: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
+  - Download links: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
+  - Reference Installation Document: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
 - Ubuntu
   - 24.10 Download link: https://ubuntu.com/download/risc-v
   - 24.04.1 LTS Download link: https://ubuntu.com/download/risc-v
-  - Reference Installation Document:
-      - Sipeed Lichee RV Dock: https://wiki.ubuntu.com/RISC-V/LicheeRV
+  - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/LicheeRV
 - OpenWrt 23.05.2
-  - Download links (OpenWrt Firmware Selector):
-    - Sipeed Lichee RV Dock: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
+  - Download links (OpenWrt Firmware Selector): https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
   - Reference Installation Document: https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1
 - Debian
   - Download link: https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA

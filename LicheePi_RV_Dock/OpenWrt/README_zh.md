@@ -5,8 +5,7 @@
 ### 操作系统信息
 
 - 系统版本：OpenWrt 23.05.2
-- 下载链接（OpenWrt Firmware Selector）：
-  - Sipeed Lichee RV Dock: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
+- 下载链接（OpenWrt Firmware Selector）：https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
 - 参考安装文档：https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1
 
 > 在 OpenWrt Firmware Selector 中可以在线定制构建系统镜像，添加用户所需要的预装软件包。本次测试使用的为**未经修改**的原版镜像。

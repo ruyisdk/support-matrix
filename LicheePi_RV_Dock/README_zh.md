@@ -9,18 +9,14 @@
     - 可选包含 Xfce 桌面的镜像或者仅提供命令行的 Base 镜像
   - 参考安装文档：[openEuler/RISC-V][oERVXfce]
 - Tina Linux
-  - 下载链接：
-    - Sipeed Lichee RV: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
-  - 参考安装文档：
-    - Sipeed Lichee RV: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
+  - 下载链接：https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
+  - 参考安装文档：https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
 - Ubuntu 
   - 24.10 下载链接: https://ubuntu.com/download/risc-v
   - 24.04.1 LTS 下载链接: https://ubuntu.com/download/risc-v
-  - 参考安装文档：
-    - Sipeed Lichee RV Dock: https://wiki.ubuntu.com/RISC-V/LicheeRV
+  - 参考安装文档：https://wiki.ubuntu.com/RISC-V/LicheeRV
 - OpenWrt 23.05.2
-  - 下载链接（OpenWrt Firmware Selector）：
-    - Sipeed Lichee RV Dock: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
+  - 下载链接（OpenWrt Firmware Selector）：https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
   - 参考安装文档：https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1
 - Debian
   - 下载链接：https://mega.nz/folder/lx4CyZBA#PiFhY7oSVQ3gp2ZZ_AnwYA
