@@ -31,7 +31,7 @@ Install fastboot:
 sudo apt-get install android-sdk-platform-tools
 ```
 
-Unpack the installation package. Run the automatic flashing script:
+Unpack the installation package. Run the following commands:
 
 ```bash
 zstd -d boot-ahead-20231210_134926.ext4.zst -o boot.ext4
