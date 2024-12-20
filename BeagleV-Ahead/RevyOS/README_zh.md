@@ -22,7 +22,7 @@
 sudo apt-get install android-sdk-platform-tools
 ```
 
-解压安装套件。运行自动刷写脚本：
+解压安装套件。运行如下指令：
 
 ```bash
 zstd -d boot-ahead-20231210_134926.ext4.zst -o boot.ext4
