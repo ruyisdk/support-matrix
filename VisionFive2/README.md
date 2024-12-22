@@ -44,7 +44,8 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
     - Reference Installation Document: https://doc.rvspace.org/VisionFive2/Application_Notes/VisionFive2_OpenWrt/VisionFive_2/openwrt/compile.html
 - RT-Thread
     - Source Code Link: https://github.com/starfive-tech/VisionFive2
-    - Reference Installation Document: https://doc.rvspace.org/VisionFive2/Application_Notes/RT-Thread/index.html
+    - Reference Installation Docum- Source code link: https://github.com/NickCao/nixos-riscv
+- Reference Installation Document: https://github.com/NickCao/nixos-riscv/README.mdent: https://doc.rvspace.org/VisionFive2/Application_Notes/RT-Thread/index.html
 - Zephyr
     - Reference Installation Document: https://docs.zephyrproject.org/latest/boards/starfive/visionfive2/doc/index.html
 - Deepin 23 preview
@@ -58,8 +59,9 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 - DietPi
     - Download Link: https://dietpi.com/downloads/images/testing/DietPi_VisionFive2-RISC-V-Sid.img.xz
     - Reference Installation Document: https://dietpi.com/blog/?p=2629
-
-
+- NixOS
+    - Source code link: https://github.com/NickCao/nixos-riscv
+    - Reference Installation Document: https://github.com/NickCao/nixos-riscv/README.md
 ### Hardware Information
 
 - StarFive VisionFive 2
@@ -67,13 +69,13 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 ## Test Results
 
 | Software Category     | Software Package | Test Results (Test Report)                        |
-|-----------------------|------------------|---------------------------------------------------|
+| --------------------- | ---------------- | ------------------------------------------------- |
 | openEuler/Base Image  | N/A              | [Successful][oERV]                                |
 | openEuler/Xfce Image  | Xfce             | [Successful][oERV]                                |
 | Debian Image          | N/A              | [Successful][Debian] (Official StarFive Image)    |
 | openKylin Image       | N/A              | [Successful][oK] (Official Support)               |
 | Ubuntu Image          | N/A              | [Successful][Ubuntu] (Official Support)           |
-| Ubuntu LTS Image      | N/A              | [Successful][Ubuntu-LTS] (Official Support)           |
+| Ubuntu LTS Image      | N/A              | [Successful][Ubuntu-LTS] (Official Support)       |
 | BuildRoot Image       | N/A              | [Successful][BuildRoot] (Official StarFive Image) |
 | Arch Linux Image      | N/A              | [Successful][Arch]                                |
 | Gentoo Image          | N/A              | [Successful][Gentoo]                              |
@@ -89,6 +91,7 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 | NetBSD Image          | N/A              | [Successful][NetBSD]                              |
 | Alpine Image          | N/A              | [Successful][Alpine]                              |
 | DietPi Image          | N/A              | [Successful][DietPi]                              |
+| NixOS Image           | N/A              | [Successful][NixOS]                               |
 
 [oERV]: ./openEuler/README.md
 [Debian]: ./Debian/README.md
@@ -109,3 +112,4 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 [NetBSD]: ./NetBSD/README.md
 [Alpine]: ./Alpine/README.md
 [DietPi]: ./DietPi/README.md
+[NixOS]: ./NixOS/README.md

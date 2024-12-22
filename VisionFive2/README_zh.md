@@ -52,7 +52,9 @@
 - DietPi
     - 下载链接：https://dietpi.com/downloads/images/testing/DietPi_VisionFive2-RISC-V-Sid.img.xz
     - 参考安装文档：https://dietpi.com/blog/?p=2629
-
+- NixOS
+    - 源码链接: https://github.com/NickCao/nixos-riscv
+    - 参考安装文档: https://github.com/NickCao/nixos-riscv/README.md
 
 ### 硬件开发板信息
 
@@ -61,13 +63,13 @@
 ## 测试结果
 
 | 软件分类                 | 软件包名 | 测试结果（测试报告）                   |
-|--------------------------|----------|----------------------------------------|
+| ------------------------ | -------- | -------------------------------------- |
 | openEuler/Base 镜像启动  | N/A      | [成功][oERV]                           |
 | openEuler/Xfce 镜像启动  | Xfce     | [成功][oERV]                           |
 | Debian 镜像启动          | N/A      | [成功][Debian]（StarFive 厂商镜像）    |
 | openKylin 镜像启动       | N/A      | [成功][oK]（官方支持）                 |
 | Ubuntu 镜像启动          | N/A      | [成功][Ubuntu]（官方支持）             |
-| Ubuntu LTS 镜像启动      | N/A      | [成功][Ubuntu-LTS]（官方支持）             |
+| Ubuntu LTS 镜像启动      | N/A      | [成功][Ubuntu-LTS]（官方支持）         |
 | BuildRoot 镜像启动       | N/A      | [成功][BuildRoot]（StarFive 厂商镜像） |
 | Arch Linux 镜像启动      | N/A      | [成功][Arch]                           |
 | Gentoo 镜像启动          | N/A      | [成功][Gentoo]                         |
@@ -83,7 +85,7 @@
 | NetBSD 镜像启动          | N/A      | [成功][NetBSD]                         |
 | Alpine 镜像启动          | N/A      | [成功][Alpine]                         |
 | DietPi 镜像启动          | N/A      | [成功][DietPi]                         |
-
+| NixOS 镜像构建及启动     | N/A      | [成功][NixOS]                          |
 
 [oERV]: ./openEuler/README_zh.md
 [Debian]: ./Debian/README_zh.md
@@ -104,3 +106,4 @@
 [NetBSD]: ./NetBSD/README_zh.md
 [Alpine]: ./Alpine/README_zh.md
 [DietPi]: ./DietPi/README_zh.md
+[NixOS]: ./NixOS/README_zh.md
