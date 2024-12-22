@@ -9,7 +9,7 @@ from urllib.parse import urljoin
 from src.svg_gen import SvgConf, SvgNode, SvgXml, gen_html, putconf, SvgRectContainer
 from src.svg_gen import SvgText, SvgTextCenter, SvgMoveTo, SvgCR, SvgLF, SvgGroup
 from src.svg_gen import SvgAdvancer, SvgSvg, SvgLine, SvgLink
-from src.matrix_parser import Systems, status_map
+from src.matrix_parser import Systems
 
 
 def gen_svg_table(conf: SvgConf, systems: Systems, need_systems: dict[str],
@@ -61,8 +61,8 @@ def gen_svg_table(conf: SvgConf, systems: Systems, need_systems: dict[str],
                     continue
                 flag = True
                 if len(system.variant) == 1:
-                    sys_t = SvgText(status_map(
-                        system.variant[0].status), False)
+                    sys_t = SvgText(
+                        str(system.variant[0].status), False)
                     # Use python's dynamic feature to add link without modifying the class
                     sys_t.link = system.variant[0].link
                     board_group.append(sys_t)
@@ -71,7 +71,7 @@ def gen_svg_table(conf: SvgConf, systems: Systems, need_systems: dict[str],
                 for var in system.variant:
                     sys_var = var.sys_var if var.sys_var is not None else "main"
                     sys_t = SvgText(sys_var + ': ' +
-                                    status_map(var.status), False)
+                                    str(var.status), False)
                     # Same as above
                     sys_t.link = var.link
                     var_g.append(sys_t)

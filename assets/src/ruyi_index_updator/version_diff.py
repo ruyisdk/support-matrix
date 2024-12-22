@@ -13,7 +13,7 @@ from awesomeversion import AwesomeVersion
 
 from ..ruyi_index_parser import PackageIndexProc, clone_package_index, BoardImages
 from ..version_checker import gen_oldver
-from ..matrix_parser import Systems
+from ..matrix_parser import Systems, ImageStatus
 from ..version_checker import VInfo
 from .plugin_handler import find_plugin
 from .upload_plugin_base import UploadPluginBase
@@ -125,7 +125,7 @@ class RuyiDiff:
                     index_name, newest_index.version, matrix_version)
                 yield BoardImageWrapper(vinfo, plug, index_name, index)
 
-    def gen_diff(self, filter_plugins: list[str] = None):
+    def gen_diff(self, filter_plugins: list[str] = None, threadhold = ImageStatus("basic")):
         """
         Yield the system that needs to be updated
         """
@@ -136,6 +136,9 @@ class RuyiDiff:
                 continue
             if filter_plugins is not None and len(filter_plugins) > 0 and \
                     plugin.get_name() not in filter_plugins:
+                continue
+
+            if v.raw_data.status < threadhold:
                 continue
 
             # Please notice:

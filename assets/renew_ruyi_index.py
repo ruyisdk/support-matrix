@@ -9,7 +9,7 @@ import tempfile
 import logging
 import colorlog
 
-from src.matrix_parser import Systems
+from src.matrix_parser import Systems, ImageStatus
 from src.ruyi_index_updator import RuyiDiff, RuyiGitRepo
 
 
@@ -34,6 +34,9 @@ def main():
     )
     arg.add_argument(
         '--warn', help='output the warn to the file', default=None
+    )
+    arg.add_argument(
+        '--threadhold', help='the status threadhold can be synced', default='basic'
     )
     arg.add_argument(
         'plugin_names', help='the plugins to run, default to all', nargs='*'
@@ -74,7 +77,8 @@ def main():
     diffs = RuyiDiff(matrix, args.config)
     repo = RuyiGitRepo(index_path)
 
-    for diff in diffs.gen_diff(args.plugin_names):
+    threadhold = ImageStatus(args.threadhold)
+    for diff in diffs.gen_diff(args.plugin_names, threadhold):
         pr = repo.upload_image(diff)
         if pr is None:
             continue

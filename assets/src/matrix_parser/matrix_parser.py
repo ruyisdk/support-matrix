@@ -3,6 +3,7 @@ Parse metadata of systems and boards
 """
 import os
 from typing import Any
+from functools import total_ordering
 import yaml
 import frontmatter
 
@@ -10,23 +11,34 @@ LANG = [
     'zh'
 ]
 
+@total_ordering
+class ImageStatus:
 
-def status_map(status: str):
-    """
-    map status to pretty string
-    """
-    if status == 'wip':
-        return 'WIP'
-    if status == 'cft':
-        return 'CFT'
-    if status == 'cfh':
-        return 'CFH'
-    if status == 'basic':
-        return 'Basic'
-    if status == 'good':
-        return 'Good'
-    return status
+    MAPPER = {
+        'wip': ('WIP', 1),
+        'cfh': ('CFH', 2),
+        'cft': ('CFT', 3),
+        'basic': ('Basic', 4),
+        'good': ('Good', 5),
+    }
 
+    def __init__(self, status: str):
+        self.status = status.lower()
+
+    def __str__(self):
+        return self.MAPPER[self.status][0]
+    
+    def __len__(self):
+        return len(self.MAPPER[self.status][0])
+    
+    def __repr__(self):
+        return self.MAPPER[self.status][0]
+    
+    def __eq__(self, other):
+        return self.MAPPER[self.status][1] == self.MAPPER[other.status][1]
+    
+    def __lt__(self, other):
+        return self.MAPPER[self.status][1] < self.MAPPER[other.status][1]
 
 class SystemVar:
     """
@@ -44,23 +56,11 @@ class SystemVar:
     sys: str
     sys_ver: str | None
     sys_var: str | None
-    status: str
+    status: ImageStatus
     last_update: str
     link: list[str] | None
 
     raw_data: Any  # Store the raw data of the readed metadata
-
-    def strip(self):
-        """
-        dummy for strip the system
-        """
-        return self
-
-    def __str__(self):
-        return status_map(self.status)
-
-    def __len__(self):
-        return len(status_map(self.status))
 
     def __init_by_file(self, meta_path, link: list[str]):
         self.link = link
@@ -81,7 +81,7 @@ class SystemVar:
                 self.sys = post['sys']
             self.sys_ver = post['sys_ver']
             self.sys_var = post['sys_var']
-            self.status = post['status']
+            self.status = ImageStatus(post['status'])
             self.last_update = post['last_update']
 
     def __init__(self, *args, **kwargs):
@@ -89,7 +89,7 @@ class SystemVar:
             self.sys = kwargs['sys']
             self.sys_ver = kwargs['sys_ver']
             self.sys_var = kwargs['sys_var']
-            self.status = kwargs['status']
+            self.status = ImageStatus(kwargs['status'])
             self.last_update = kwargs['last_update']
             self.link = kwargs['link']
         else:
