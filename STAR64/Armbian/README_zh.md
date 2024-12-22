@@ -4,7 +4,7 @@
 
 ### 操作系统信息
 
-- 下载链接：https://www.armbian.com/star64/
+- 下载链接：https://github.com/armbian/community/releases/download/25.2.0-trunk.86/Armbian_community_25.2.0-trunk.86_Star64_noble_edge_5.15.0_xfce_desktop.img.xz
 - 参考安装文档：https://www.hackster.io/lupyuen/rtos-on-a-risc-v-sbc-star64-jh7110-apache-nuttx-2a7429
 
 ### 硬件信息
@@ -19,8 +19,8 @@
 
 下载后，解压并烧写镜像（以下以 xfce 版为例）：
 ```bash
-unxz -k Armbian_community_24.5.0-trunk.667_Star64_jammy_edge_5.15.0_xfce_desktop.img.xz
-sudo dd if=Armbian_community_24.5.0-trunk.667_Star64_jammy_edge_5.15.0_xfce_desktop.img of=/dev/your/sdcard bs=1M status=progress
+unxz -k Armbian_community_25.2.0-trunk.86_Star64_noble_edge_5.15.0_xfce_desktop.img.xz
+sudo dd if=Armbian_community_25.2.0-trunk.86_Star64_noble_edge_5.15.0_xfce_desktop.img of=/dev/your/sdcard bs=1M status=progress
 ```
 
 ### 登录系统
