@@ -132,6 +132,24 @@ class UploadPluginBase(ABC):
             }
         })
 
+    def autoupdate_index(self, last_index: BoardImages, vinfo: VInfo,
+                         desc: str, distfiles: dict[str, BoardIndexDistfiles]) -> BoardImages:
+        """
+        Auto update the index.
+        """
+        res = self.copy.copy(last_index)
+        res.is_bot_created = True
+        res.version = self.handle_version(vinfo)
+        res.info.metadata.desc = desc
+        res.info.distfiles = distfiles.values()
+        res.info.blob.distfiles = [
+            dist.name for dist in distfiles.values()
+        ]
+        res.info.provisionable.partition_map = {
+            k: ".".join(v.name.split(".")[:-1]) for k, v in distfiles.items()
+        }
+        return res
+
 
 def register() -> UploadPluginBase | None:
     """
