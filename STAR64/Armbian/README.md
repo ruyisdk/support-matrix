@@ -1,10 +1,13 @@
 ---
 sys: armbian
-sys_ver: 24.5.0
+sys_ver: 25.2.0-trunk.86
 sys_var: null
 
 status: cft
-last_update: 2024-06-21
+last_update: 2024-12-12
+
+# Due to the complexcity in armbian mirror naming, we needs to provide the download link for sync tools in the metadata.
+link: https://github.com/armbian/community/releases/download/25.2.0-trunk.86/Armbian_community_25.2.0-trunk.86_Star64_noble_edge_5.15.0_xfce_desktop.img.xz
 ---
 
 # Armbian Star64 Test Report
@@ -13,7 +16,7 @@ last_update: 2024-06-21
 
 ### Operating System Information
 
-- Download Link: https://www.armbian.com/star64/
+- Download Link: https://github.com/armbian/community/releases/download/25.2.0-trunk.86/Armbian_community_25.2.0-trunk.86_Star64_noble_edge_5.15.0_xfce_desktop.img.xz
 - Reference Installation Document: https://www.hackster.io/lupyuen/rtos-on-a-risc-v-sbc-star64-jh7110-apache-nuttx-2a7429
 
 ### Hardware Information
@@ -28,8 +31,8 @@ last_update: 2024-06-21
 
 After downloading, unzip and flash the image (using the xfce version as an example):
 ```bash
-unxz -k Armbian_community_24.5.0-trunk.667_Star64_jammy_edge_5.15.0_xfce_desktop.img.xz
-sudo dd if=Armbian_community_24.5.0-trunk.667_Star64_jammy_edge_5.15.0_xfce_desktop.img of=/dev/your/sdcard bs=1M status=progress
+unxz -k Armbian_community_25.2.0-trunk.86_Star64_noble_edge_5.15.0_xfce_desktop.img.xz
+sudo dd if=Armbian_community_25.2.0-trunk.86_Star64_noble_edge_5.15.0_xfce_desktop.img of=/dev/your/sdcard bs=1M status=progress
 ```
 
 ### Logging into the System
