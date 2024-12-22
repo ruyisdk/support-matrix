@@ -21,8 +21,11 @@ class Lm4aRevy(UploadPluginBase):
 
     can_handle_tup = {
         "revyos-sipeed-lpi4a": ("sipeed_licheepi4a", "debian", "null"),
+        "revyos-sipeed-lc4a": ("sipeed_licheecluster4a", "debian", "null"),
         "uboot-revyos-sipeed-lpi4a-16g": ("sipeed_licheepi4a", "debian", "null"),
         "uboot-revyos-sipeed-lpi4a-8g": ("sipeed_licheepi4a", "debian", "null"),
+        "uboot-revyos-sipeed-lc4a-16g": ("sipeed_licheecluster4a", "debian", "null"),
+        "uboot-revyos-sipeed-lc4a-8g": ("sipeed_licheecluster4a", "debian", "null"),
     }
 
     def can_handle(self, vinfo: VInfo) -> bool:
@@ -41,19 +44,25 @@ class Lm4aRevy(UploadPluginBase):
 
     def handle_report(self, vinfo: VInfo,
                       index: str, last_index: list[BoardImages]) -> BoardImages:
-        if index == "revyos-sipeed-lpi4a":
+        if index == "revyos-sipeed-lpi4a" or index == "revyos-sipeed-lc4a":
             return self.handle_report_image(vinfo, index, last_index)
-        if index == "uboot-revyos-sipeed-lpi4a-8g":
+        if index == "uboot-revyos-sipeed-lpi4a-8g" or index == "uboot-revyos-sipeed-lc4a-8g":
             return self.handle_report_uboot_8g(vinfo, index, last_index)
-        if index == "uboot-revyos-sipeed-lpi4a-16g":
+        if index == "uboot-revyos-sipeed-lpi4a-16g" or index == "uboot-revyos-sipeed-lc4a-16g":
             return self.handle_report_uboot_16g(vinfo, index, last_index)
         raise ValueError(f"Unknown index {index}")
 
     def handle_report_image(self, vinfo: VInfo,
                             index: str, last_index: list[BoardImages]) -> BoardImages | None:
-        if index != "revyos-sipeed-lpi4a":
+        if index == "revyos-sipeed-lpi4a":
+            base_url = f"https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/{
+                vinfo.version}/"
+        elif index == "revyos-sipeed-lc4a":
+            base_url = f"https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/{
+                vinfo.version}/"
+        else:
             return None
-        base_url = f"https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/{vinfo.version}/"
+
         html = self.requests.get(base_url, timeout=90).text
 
         soup = self.bs4.BeautifulSoup(html, "html5lib")
@@ -64,14 +73,14 @@ class Lm4aRevy(UploadPluginBase):
         boot_dist = None
 
         for link in soup.select(selector):
-            if 'root-lpi4a' in link.contents[0]:
+            if 'root-' in link.contents[0]:
                 root_url = self.urllib.parse.urljoin(
                     base_url, str(link["href"]))
                 root_path = self.os.path.join(
                     self.__tmppath__, link.contents[0])
                 root_file = self.download_file(root_path, root_url)
                 root_dist = self.gen_distfile(root_file, root_url)
-            elif 'boot-lpi4a' in link.contents[0]:
+            elif 'boot-' in link.contents[0]:
                 boot_url = self.urllib.parse.urljoin(
                     base_url, str(link["href"]))
                 boot_path = self.os.path.join(
@@ -79,7 +88,12 @@ class Lm4aRevy(UploadPluginBase):
                 boot_file = self.download_file(boot_path, boot_url)
                 boot_dist = self.gen_distfile(boot_file, boot_url)
 
-        desc = f"RevyOS {vinfo.version} image for Sipeed LicheePi 4A"
+        if index == "revyos-sipeed-lpi4a":
+            desc = f"RevyOS {vinfo.version} image for Sipeed LicheePi 4A"
+        elif index == "revyos-sipeed-lc4a":
+            desc = f"RevyOS {vinfo.version} image for Sipeed LicheeCluster 4A"
+        else:  # unreachable
+            raise ValueError(f"Unknown index {index}")
         res = self.copy.copy(last_index[-1])
         res.is_bot_created = True
         res.version = self.handle_version(vinfo)
@@ -97,9 +111,15 @@ class Lm4aRevy(UploadPluginBase):
 
     def handle_report_uboot_8g(self, vinfo: VInfo,
                                index: str, last_index: list[BoardImages]) -> BoardImages | None:
-        if index != "uboot-revyos-sipeed-lpi4a-8g":
+        if index == "uboot-revyos-sipeed-lpi4a-8g":
+            base_url = f"https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/{
+                vinfo.version}/"
+        elif index == "uboot-revyos-sipeed-lc4a-8g":
+            base_url = f"https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/{
+                vinfo.version}/"
+        else:
             return None
-        base_url = f"https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/{vinfo.version}/"
+
         html = self.requests.get(base_url, timeout=90).text
 
         soup = self.bs4.BeautifulSoup(html, "html5lib")
@@ -108,17 +128,32 @@ class Lm4aRevy(UploadPluginBase):
 
         uboot_dist = None
 
+        if index == "uboot-revyos-sipeed-lpi4a-8g":
+            bname = "u-boot-with-spl-lpi4a"
+        elif index == "uboot-revyos-sipeed-lc4a-8g":
+            bname = "u-boot-with-spl-lc4a-main"
+        else:  # unreachable
+            raise ValueError(f"Unknown index {index}")
+
         for link in soup.select(selector):
-            if link.contents[0] == "u-boot-with-spl-lpi4a.bin":
+            if link.contents[0] == f"{bname}.bin":
                 uboot_url = self.urllib.parse.urljoin(
                     base_url, str(link["href"]))
                 uboot_path = self.os.path.join(
                     self.__tmppath__, link.contents[0])
                 uboot_file = self.download_file(uboot_path, uboot_url)
                 uboot_dist = self.gen_distfile(uboot_file, uboot_url)
-                uboot_dist.name = f"u-boot-with-spl-lpi4a-8g.{vinfo.version}.bin"
+                uboot_dist.name = f"{bname}.{
+                    vinfo.version}.bin"
 
-        desc = f"U-Boot image for LicheePi 4A (8G RAM) and RevyOS {vinfo.version}"
+        if index == "uboot-revyos-sipeed-lpi4a-8g":
+            desc = f"U-Boot image for LicheePi 4A (8G RAM) and RevyOS {
+                vinfo.version}"
+        elif index == "uboot-revyos-sipeed-lc4a-8g":
+            desc = f"U-Boot image for LicheeCluster 4A (8G RAM) and RevyOS {
+                vinfo.version}"
+        else:  # unreachable
+            raise ValueError(f"Unknown index {index}")
         res = self.copy.copy(last_index[-1])
         res.is_bot_created = True
         res.version = self.handle_version(vinfo)
@@ -134,9 +169,14 @@ class Lm4aRevy(UploadPluginBase):
 
     def handle_report_uboot_16g(self, vinfo: VInfo,
                                 index: str, last_index: list[BoardImages]) -> BoardImages | None:
-        if index != "uboot-revyos-sipeed-lpi4a-16g":
+        if index == "uboot-revyos-sipeed-lpi4a-16g":
+            base_url = f"https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/{
+            vinfo.version}/"
+        elif index == "uboot-revyos-sipeed-lc4a-16g":
+            base_url = f"https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/{
+            vinfo.version}/"
+        else:
             return None
-        base_url = f"https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/{vinfo.version}/"
         html = self.requests.get(base_url, timeout=90).text
 
         soup = self.bs4.BeautifulSoup(html, "html5lib")
@@ -145,18 +185,32 @@ class Lm4aRevy(UploadPluginBase):
 
         uboot_dist = None
 
+        if index == "uboot-revyos-sipeed-lpi4a-16g":
+            bname = "u-boot-with-spl-lpi4a-16g"
+        elif index == "uboot-revyos-sipeed-lc4a-16g":
+            bname = "u-boot-with-spl-lc4a-16g-main"
+        else:  # unreachable
+            raise ValueError(f"Unknown index {index}")
+
         for link in soup.select(selector):
-            if 'u-boot' in link.contents[0]\
-                    and '16g' in link.contents[0]:
+            if link.contents[0] == f"{bname}.bin":
                 uboot_url = self.urllib.parse.urljoin(
                     base_url, str(link["href"]))
                 uboot_path = self.os.path.join(
                     self.__tmppath__, link.contents[0])
                 uboot_file = self.download_file(uboot_path, uboot_url)
                 uboot_dist = self.gen_distfile(uboot_file, uboot_url)
-                uboot_dist.name = f"u-boot-with-spl-lpi4a-16g.{vinfo.version}.bin"
+                uboot_dist.name = f"{bname}.{
+                    vinfo.version}.bin"
 
-        desc = f"U-Boot image for LicheePi 4A (16G RAM) and RevyOS {vinfo.version}"
+        if index == "uboot-revyos-sipeed-lpi4a-16g":
+            desc = f"U-Boot image for LicheePi 4A (16G RAM) and RevyOS {
+                vinfo.version}"
+        elif index == "uboot-revyos-sipeed-lc4a-16g":
+            desc = f"U-Boot image for LicheeCluster 4A (16G RAM) and RevyOS {
+                vinfo.version}"
+        else:  # unreachable
+            raise ValueError(f"Unknown index {index}")
         res = self.copy.copy(last_index[-1])
         res.is_bot_created = True
         res.version = self.handle_version(vinfo)

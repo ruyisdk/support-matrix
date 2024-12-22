@@ -48,7 +48,7 @@ class SystemVar:
     last_update: str
     link: list[str] | None
 
-    raw_data: Any # Store the raw data of the readed metadata
+    raw_data: Any  # Store the raw data of the readed metadata
 
     def strip(self):
         """
@@ -117,7 +117,9 @@ class System:
         If a file name be like `xxx_lang.md`, then it should be translated
         """
         if 'blink' in s:
-            return True  # Temporary fix for blink.md, this file is not a system-board test, need migrate to other place
+            # Temporary fix for blink.md,
+            # this file is not a system-board test, need migrate to other place
+            return True
         for lang in LANG:
             if f'_{lang}.md' in s:
                 return True
@@ -175,7 +177,7 @@ class Board:
     cpu_core: str
     systems: list[System]
 
-    raw_data: Any # Store the raw data of the readed metadata
+    raw_data: Any  # Store the raw data of the readed metadata
 
     def append_system(self, system: System):
         """

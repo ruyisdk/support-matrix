@@ -35,6 +35,9 @@ def main():
     arg.add_argument(
         '--warn', help='output the warn to the file', default=None
     )
+    arg.add_argument(
+        'plugin_names', help='the plugins to run, default to all', nargs='*'
+    )
     args = arg.parse_args()
 
     handler = colorlog.StreamHandler()
@@ -71,7 +74,7 @@ def main():
     diffs = RuyiDiff(matrix, args.config)
     repo = RuyiGitRepo(index_path)
 
-    for diff in diffs.gen_diff():
+    for diff in diffs.gen_diff(args.plugin_names):
         pr = repo.upload_image(diff)
         if pr is None:
             continue
