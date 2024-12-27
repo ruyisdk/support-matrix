@@ -25,7 +25,7 @@
 如果主机运行 NixOS, 使用 `nix build ".#hydraJobs.visionfive2"` 编译镜像即可。
 对于其他发行版，不建议直接安装并使用 `nix` 包管理器，推荐使用 Nix 的官方 Docker 镜像： 
 ```shell
-docker run -ti -v .:/work ghcr.io/nixos/nix
+docker run -ti -v $(pwd):/work ghcr.io/nixos/nix
 ```
 
 在 Docker 容器中：
@@ -47,7 +47,7 @@ nix build ".#hydraJobs.visionfive2" --extra-experimental-features nix-command --
 
 通过串口登录系统。
 
-无密码,初次登录时，系统会提示更改密码。
+默认为无密码且自动登录。
 
 ## 预期结果
 

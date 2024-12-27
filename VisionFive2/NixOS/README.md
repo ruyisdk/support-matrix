@@ -35,7 +35,7 @@ Run `nix build ".#hydraJobs.visionfive2"` if you happen to be using NixOS on you
 
 It is not recommended to install and use the `nix` package manager on other distributions. Try using e.g. the official Docker image instead:
 ```shell
-docker run -ti -v .:/work ghcr.io/nixos/nix
+docker run -ti -v $(pwd):/work ghcr.io/nixos/nix
 ```
 
 Inside the Docker container:
@@ -57,7 +57,7 @@ Use `dd` to flash the image to the microSD card.
 
 Logging into the system via the serial port.
 
-No passwd. On first login, the system will prompt you to change the password.
+No password are set and will automatically login by default.
 
 ## Expected Results
 
