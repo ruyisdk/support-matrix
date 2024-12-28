@@ -4,8 +4,8 @@
 
 ### 系统信息
 
-- 系统版本：v2.0
-- 下载链接：https://archive.spacemit.com/image/k1/version/bianbu/v2.0/
+- 系统版本：v2.0.4
+- 下载链接：https://archive.spacemit.com/image/k1/version/bianbu/v2.0.4/
 - 参考安装文档：https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 
 ### 硬件信息
@@ -24,8 +24,8 @@
 下载并解压镜像后，使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
-unzip bianbu-24.04-desktop-k1-v2.0-release-20241021195251.img.zip
-sudo dd if=/path/to/bianbu-24.04-desktop-k1-v2.0-release-20241021195251.img of=/dev/your-device bs=1M status=progress
+unzip bianbu-24.04-minimal-k1-v2.0.4-release-20241205234138.img.zip
+sudo dd if=/path/to/bianbu-24.04-minimal-k1-v2.0.4-release-20241205234138.img of=/dev/your-device bs=1M status=progress
 ```
 
 ### 登录系统
@@ -46,22 +46,22 @@ sudo dd if=/path/to/bianbu-24.04-desktop-k1-v2.0-release-20241021195251.img of=/
 ### 启动信息
 
 屏幕录像（从刷写镜像到登录系统）：
-[![asciicast](https://asciinema.org/a/0MjtXy8ravCQeDd6ThYHHGIqL.svg)](https://asciinema.org/a/0MjtXy8ravCQeDd6ThYHHGIqL)
+[![asciicast](https://asciinema.org/a/6A0cxWuJLx4MNh7AtRdLJHFpu.svg)](https://asciinema.org/a/6A0cxWuJLx4MNh7AtRdLJHFpu)
 
 ```log
-Welcome to Bianbu 2.0 (GNU/Linux 6.6.36 riscv64)
+Welcome to Bianbu 2.0.4 (GNU/Linux 6.6.36 riscv64)
 
  * Documentation:  https://bianbu.spacemit.com
  * Support:        https://ticket.spacemit.com
 
 root@k1:~# uname -a
-Linux k1 6.6.36 #2.0.0.2 SMP PREEMPT Mon Oct 21 10:33:52 UTC 2024 riscv64 riscv64 riscv64 GNU/Linux
+Linux k1 6.6.36 #2.0.4.2 SMP PREEMPT Thu Dec  5 15:02:13 UTC 2024 riscv64 riscv64 riscv64 GNU/Linux
 
 root@k1:~# cat /etc/os-release
-PRETTY_NAME="Bianbu 2.0"
+PRETTY_NAME="Bianbu 2.0.4"
 NAME="Bianbu"
-VERSION_ID="2.0"
-VERSION="2.0 (Noble Numbat)"
+VERSION_ID="2.0.4"
+VERSION="2.0.4 (Noble Numbat)"
 VERSION_CODENAME=noble
 ID=bianbu
 ID_LIKE=debian
