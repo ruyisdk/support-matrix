@@ -13,9 +13,15 @@ last_update: 2025-01-08
 
 ### Operating System Information
 
+<<<<<<< HEAD
 - System Version: Duo-V2.0.0
 - Download Link: https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases
 - Reference Installation Document: https://github.com/milkv-duo/duo-buildroot-sdk-v2
+=======
+- System Version: Duo-V1.1.4
+- Download Link: https://github.com/milkv-duo/duo-buildroot-sdk/releases
+- Reference Installation Document: https://github.com/milkv-duo/duo-buildroot-sdk
+>>>>>>> fc083e5 (Duo/Buildroot: Bump to v1.1.4)
 
 ### Hardware Information
 
@@ -25,6 +31,7 @@ last_update: 2025-01-08
 
 ## Installation Steps
 
+<<<<<<< HEAD
 ### Using `dd` to Flash the Image to the microSD Card
 
 ```shell
@@ -32,12 +39,28 @@ sudo dd if=milkv-duo-musl-riscv64-sd_v2.0.0.img  of=/path/to/your/device bs=4M s
 ```
 
 ### Using `ruyi` CLI to Flash the Image to the microSD Card
+=======
+### Download Duo Image
+>>>>>>> fc083e5 (Duo/Buildroot: Bump to v1.1.4)
 
-Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the prompts.
+```bash
+wget https://github.com/milkv-duo/duo-buildroot-sdk/releases/download/v1.1.4/milkv-duo-sd-v1.1.4.img.zip
+unzip milkv-duo-sd-v1.1.4.img.zip
+```
+
+### Flashing the Image
+
+Use `dd` to flash the image to the SD card:
+```bash
+sudo dd if=milkv-duo-sd-v1.1.4.img of=/dev/your/device bs=1M status=progress
+```
 
 ### Logging into the System
 
-Logging into the system via the serial port.
+Logging into the system via serial port or SSH.
+
+Default username: `root`
+Default password: `milkv`
 
 ## Expected Results
 
@@ -50,6 +73,7 @@ The system booted successfully and login via the onboard serial port was also su
 ### Boot Log
 
 ```log
+<<<<<<< HEAD
 [    2.892411] vi_core_probe:206(): irq(33) for isp get from platform driver.
 [    2.901240] sync_task_init:177(): sync_task_init vi_pipe 0
 [    2.906979] sync_task_init:177(): sync_task_init vi_pipe 1
@@ -83,6 +107,24 @@ PRETTY_NAME="Buildroot 2024.02.3"
 [root@milkv-duo]~# 
 ```
 
+=======
+Starting app...
+
+[root@milkv-duo]~# uname -a
+Linux milkv-duo 5.10.4-tag- #1 PREEMPT Fri Nov 22 11:31:04 CST 2024 riscv64 GNU/Linux
+[root@milkv-duo]~# cat /etc/os-release 
+NAME=Buildroot
+VERSION=20241122-1139
+ID=buildroot
+VERSION_ID=2021.05
+PRETTY_NAME="Buildroot 2021.05"
+```
+
+Screen recording (from flashing the image to system login):
+
+[![asciicast](https://asciinema.org/a/pendFyzvbk51Sf8uaeozKjYRb.svg)](https://asciinema.org/a/pendFyzvbk51Sf8uaeozKjYRb)
+
+>>>>>>> fc083e5 (Duo/Buildroot: Bump to v1.1.4)
 ## Test Criteria
 
 Successful: The actual result matches the expected result.
