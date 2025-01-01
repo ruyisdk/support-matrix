@@ -1,10 +1,10 @@
 ---
 sys: buildroot
-sys_ver: v1.1.3
+sys_ver: v1.1.4
 sys_var: null
 
 status: basic
-last_update: 2024-11-4
+last_update: 2025-1-1
 ---
 
 # BuildRoot Milk-V Duo Test Report
@@ -13,7 +13,7 @@ last_update: 2024-11-4
 
 ### Operating System Information
 
-- System Version: Duo-V1.1.3
+- System Version: Duo-V1.1.4
 - Download Link: https://github.com/milkv-duo/duo-buildroot-sdk/releases
 - Reference Installation Document: https://github.com/milkv-duo/duo-buildroot-sdk
 
@@ -25,13 +25,26 @@ last_update: 2024-11-4
 
 ## Installation Steps
 
-### Using `ruyi` CLI to Flash the Image to the microSD Card
+### Download Duo Image
 
-Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the prompts.
+```bash
+wget https://github.com/milkv-duo/duo-buildroot-sdk/releases/download/v1.1.4/milkv-duo-sd-v1.1.4.img.zip
+unzip milkv-duo-sd-v1.1.4.img.zip
+```
+
+### Flashing the Image
+
+Use `dd` to flash the image to the SD card:
+```bash
+sudo dd if=milkv-duo-sd-v1.1.4.img of=/dev/your/device bs=1M status=progress
+```
 
 ### Logging into the System
 
-Logging into the system via the serial port.
+Logging into the system via serial port or SSH.
+
+Default username: `root`
+Default password: `milkv`
 
 ## Expected Results
 
@@ -44,18 +57,21 @@ The system booted successfully and login via the onboard serial port was also su
 ### Boot Log
 
 ```log
+Starting app...
+
 [root@milkv-duo]~# uname -a
-Linux milkv-duo 5.10.4-tag- #1 PREEMPT Thu Aug 1 13:44:06 CST 2024 riscv64 GNU/Linux
-[root@milkv-duo]~# cat /proc/cpuinfo 
-processor	: 0
-hart		: 0
-isa		: rv64imafdvcsu
-mmu		: sv39
+Linux milkv-duo 5.10.4-tag- #1 PREEMPT Fri Nov 22 11:31:04 CST 2024 riscv64 GNU/Linux
+[root@milkv-duo]~# cat /etc/os-release 
+NAME=Buildroot
+VERSION=20241122-1139
+ID=buildroot
+VERSION_ID=2021.05
+PRETTY_NAME="Buildroot 2021.05"
 ```
 
 Screen recording (from flashing the image to system login):
 
-[![asciicast](https://asciinema.org/a/1Vp9JeYdRiyORXXGFlx5F9JY0.svg)](https://asciinema.org/a/1Vp9JeYdRiyORXXGFlx5F9JY0)
+[![asciicast](https://asciinema.org/a/pendFyzvbk51Sf8uaeozKjYRb.svg)](https://asciinema.org/a/pendFyzvbk51Sf8uaeozKjYRb)
 
 ## Test Criteria
 
