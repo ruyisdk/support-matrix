@@ -12,8 +12,6 @@ from .version_diff import BoardImageWrapper
 logger = logging.getLogger(__name__)
 
 PACKAGE_INDEX_OWNER = os.getenv("PACKAGE_INDEX_OWNER", "ruyisdk")
-if len(PACKAGE_INDEX_OWNER) == 0 or PACKAGE_INDEX_OWNER is None:
-    PACKAGE_INDEX_OWNER = "ruyisdk"
 PACKAGE_INDEX_REPO = "packages-index"
 
 CI_RUN_ID = os.getenv("CI_RUN_ID", None)

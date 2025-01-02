@@ -1,4 +1,5 @@
 ---
+vendor: milkv_mars
 product: Milk-V Mars
 cpu: JH7110
 cpu_core: SiFive U74 + SiFive S7 + SiFive E24
