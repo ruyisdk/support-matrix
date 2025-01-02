@@ -20,6 +20,8 @@ linux:
   - deepin: Deepin
   - yocto: Yocto
   - alpine: Alpine
+  - nixos: NixOS
+  - dietpi: DietPi
 
 bsd:
   - freebsd: FreeBSD
@@ -67,4 +69,4 @@ last_updated: timestamp   # Last update
 # Definition for board metadata
 product: string     # Product name
 cpu: string         # CPU model
-cpu_core: string   # CPU core
+cpu_core: string    # CPU core
