@@ -4,7 +4,7 @@
 
 ### 操作系统信息
 
-- 系统版本：Duo-V1.1.3
+- 系统版本：Duo-V1.1.4
 - 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk/releases
 - 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk
 
@@ -16,13 +16,23 @@
 
 ## 安装步骤
 
-### 使用 `ruyi` CLI 刷写镜像到 microSD 卡
+### 下载 Duo 的镜像
 
-安装 [`ruyi`](https://github.com/ruyisdk/ruyi) 包管理器，运行 `ruyi device provision` 并按提示操作。
+```bash
+wget https://github.com/milkv-duo/duo-buildroot-sdk/releases/download/v1.1.4/milkv-duo-sd-v1.1.4.img.zip
+unzip milkv-duo-sd-v1.1.4.img.zip
+```
+
+### 刷写镜像
+
+用 dd 刷写镜像到 sd 卡：
+```bash
+sudo dd if=milkv-duo-sd-v1.1.4.img of=/dev/your/device bs=1M status=progress
+```
 
 ### 登录系统
 
-通过串口登录系统。
+通过串口或 ssh 登录系统。
 
 ## 预期结果
 
