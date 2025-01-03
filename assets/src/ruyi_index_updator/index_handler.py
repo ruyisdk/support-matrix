@@ -156,8 +156,16 @@ class RuyiGitRepo:
         self.github = Github(auth=auth)
         self.user = self.github.get_user()
 
-        self.upstream = self.github.get_repo(
-            f"{PACKAGE_INDEX_OWNER}/{PACKAGE_INDEX_REPO}")
+        global PACKAGE_INDEX_OWNER
+        try:
+            self.upstream = self.github.get_repo(
+                f"{PACKAGE_INDEX_OWNER}/{PACKAGE_INDEX_REPO}")
+        except Exception as e:
+            logger.warning("Get upstream repo %s/%s error, fallback to ruyisdk repo",
+                        PACKAGE_INDEX_OWNER, PACKAGE_INDEX_REPO)
+            PACKAGE_INDEX_OWNER = "ruyisdk"
+            self.upstream = self.github.get_repo(
+                f"ruyisdk/{PACKAGE_INDEX_REPO}")
 
         self.repo = self.__get_or_fork_repo()
 
