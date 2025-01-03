@@ -85,13 +85,13 @@ class RuyiGitRepo:
                 return True
         return False
 
-    def __create_pr(self, wrapper: PrWrapper):
+    def __create_pr(self, wrapper: PrWrapper, force: bool = False):
         """
         Create a pull request.
         """
         head = f"{self.user.login}:{wrapper.self_branch}"
         base = wrapper.upstream_branch
-        if self.check_pr_updated(head, base):
+        if not force and self.check_pr_updated(head, base):
             logger.error(
                 "PR already exist for %s -> %s, please check manually", head, base)
             logger.error("New PR info: %s", repr(wrapper))
@@ -100,18 +100,18 @@ class RuyiGitRepo:
             title=wrapper.title, body=wrapper.body, head=head, base=base)
         logger.info("PR created: %s at %s", pr.title, pr.html_url)
 
-    def create_wrapped_pr(self, wrapper: PrWrapper):
+    def create_wrapped_pr(self, wrapper: PrWrapper, force: bool = False):
         """
         Create a pull request.
         """
-        self.__create_pr(wrapper)
+        self.__create_pr(wrapper, force)
 
-    def create_pr(self, title: str, body: str, self_branch: str, upstream_branch: str):
+    def create_pr(self, title: str, body: str, self_branch: str, upstream_branch: str, force: bool = False):
         """
         Create a pull request.
         """
         self.__create_pr(PrWrapper(
-            title, body, self_branch, upstream_branch))
+            title, body, self_branch, upstream_branch), force)
 
     def __reset_to_upstream(self):
         # self.local_repo.remote().set_url(self.upstream.ssh_url)
@@ -156,8 +156,16 @@ class RuyiGitRepo:
         self.github = Github(auth=auth)
         self.user = self.github.get_user()
 
-        self.upstream = self.github.get_repo(
-            f"{PACKAGE_INDEX_OWNER}/{PACKAGE_INDEX_REPO}")
+        global PACKAGE_INDEX_OWNER
+        try:
+            self.upstream = self.github.get_repo(
+                f"{PACKAGE_INDEX_OWNER}/{PACKAGE_INDEX_REPO}")
+        except Exception as e:
+            logger.warning("Get upstream repo %s/%s error, fallback to ruyisdk repo",
+                        PACKAGE_INDEX_OWNER, PACKAGE_INDEX_REPO)
+            PACKAGE_INDEX_OWNER = "ruyisdk"
+            self.upstream = self.github.get_repo(
+                f"ruyisdk/{PACKAGE_INDEX_REPO}")
 
         self.repo = self.__get_or_fork_repo()
 
