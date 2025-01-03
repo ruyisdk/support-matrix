@@ -17,6 +17,7 @@ PACKAGE_INDEX_REPO = "packages-index"
 CI_RUN_ID = os.getenv("CI_RUN_ID", None)
 CI_RUN_URL = os.getenv("CI_RUN_URL", None)
 
+
 class PrWrapper:
     """
     A wrapper for pull request info.
@@ -32,8 +33,8 @@ class PrWrapper:
         return f"""\
 PR:
     Title: {self.title}
-    Body: 
-{self.body} 
+    Body:
+{self.body}
 
 <Body End>
     From: {self.self_branch}
@@ -85,13 +86,13 @@ class RuyiGitRepo:
                 return True
         return False
 
-    def __create_pr(self, wrapper: PrWrapper):
+    def __create_pr(self, wrapper: PrWrapper, force: bool = False):
         """
         Create a pull request.
         """
         head = f"{self.user.login}:{wrapper.self_branch}"
         base = wrapper.upstream_branch
-        if self.check_pr_updated(head, base):
+        if not force and self.check_pr_updated(head, base):
             logger.error(
                 "PR already exist for %s -> %s, please check manually", head, base)
             logger.error("New PR info: %s", repr(wrapper))
@@ -100,18 +101,18 @@ class RuyiGitRepo:
             title=wrapper.title, body=wrapper.body, head=head, base=base)
         logger.info("PR created: %s at %s", pr.title, pr.html_url)
 
-    def create_wrapped_pr(self, wrapper: PrWrapper):
+    def create_wrapped_pr(self, wrapper: PrWrapper, force: bool = False):
         """
         Create a pull request.
         """
-        self.__create_pr(wrapper)
+        self.__create_pr(wrapper, force)
 
-    def create_pr(self, title: str, body: str, self_branch: str, upstream_branch: str):
+    def create_pr(self, title: str, body: str, self_branch: str, upstream_branch: str, force: bool = False):
         """
         Create a pull request.
         """
         self.__create_pr(PrWrapper(
-            title, body, self_branch, upstream_branch))
+            title, body, self_branch, upstream_branch), force)
 
     def __reset_to_upstream(self):
         # self.local_repo.remote().set_url(self.upstream.ssh_url)
@@ -220,10 +221,12 @@ class RuyiGitRepo:
         with open(index_file, "w", encoding="utf-8") as f:
             f.write(image.new_index_toml())
             if image.index.is_bot_created and CI_RUN_ID is None:
-                f.write("\n# This file is created by program renew_ruyi_index in support-matrix\n")
+                f.write(
+                    "\n# This file is created by program renew_ruyi_index in support-matrix\n")
                 f.write("# Run: In local\n")
             elif image.index.is_bot_created:
-                f.write("\n# This file is created by CI Sync Package Index inside support-matrix\n")
+                f.write(
+                    "\n# This file is created by CI Sync Package Index inside support-matrix\n")
                 f.write(f"# Run ID: {CI_RUN_ID}\n")
                 f.write(f"# Run URL: {CI_RUN_URL}\n")
         # self.local_repo.index.add([index_file])
