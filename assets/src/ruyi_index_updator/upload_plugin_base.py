@@ -129,7 +129,8 @@ class UploadPluginBase(ABC):
             "checksums": {
                 "sha256": self.sha256sum(file),
                 "sha512": self.sha512sum(file),
-            }
+            },
+            "restrict": ["mirror"],
         })
 
     def autoupdate_index(self, last_index: BoardImages, vinfo: VInfo,
