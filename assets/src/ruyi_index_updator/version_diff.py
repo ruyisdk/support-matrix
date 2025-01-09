@@ -125,7 +125,7 @@ class RuyiDiff:
                     index_name, newest_index.version, matrix_version)
                 yield BoardImageWrapper(vinfo, plug, index_name, index)
 
-    def gen_diff(self, filter_plugins: list[str] = None, threadhold = ImageStatus("basic")):
+    def gen_diff(self, filter_plugins: list[str] = None, threadhold=ImageStatus("basic")):
         """
         Yield the system that needs to be updated
         """
@@ -144,7 +144,13 @@ class RuyiDiff:
             # Please notice:
             # One system may have multiple ruyi_index, we need to handle them all
             # So, we need to iterate the index
-            yield from self.__yield_one_sys(v, plugin)
+
+            try:
+                yield from self.__yield_one_sys(v, plugin)
+            except Exception as e:
+                logger.error("Error occurs when handling system %s:%s:%s-%s",
+                             v.vendor, v.system, v.variant, v.version)
+                logger.error("Error: %s", e)
 
     def __init__(self, matrix: Systems, conf: str):
         self.__get_tmp_path()
