@@ -3,7 +3,7 @@ name: Sync Package Index
 # Below is the configuration and variables that you need to set up.
 # 1. A environment named `ruyi-sync` is required.
 # 2. Some variables are required to be set in the environments:
-# - GHO_TOKEN: is described in [docs](https://github.com/ruyisdk/support-matrix/blob/main/assets/docs/ruyi_index_updator.md) as GITHUB_TOKEN (rename due to a same name default var in CI env)
+# - GHO_TOKEN: is described in [docs](https://github.com/ruyisdk/support-matrix/blob/main/assets/docs/ruyi_index_updater.md) as GITHUB_TOKEN (rename due to a same name default var in CI env)
 # - PACKAGE_INDEX_OWNER: decide where the pr goes: blank defaults to `ruyisdk`
 # - SSH_PRIVATE: A private SSH key of the bot account
 
