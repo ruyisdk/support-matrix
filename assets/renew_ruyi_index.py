@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Automatically check the index of ruyi and renew it.
 """
