@@ -147,6 +147,25 @@ mvendorid       : 0x5b7
 marchid         : 0x0
 mimpid          : 0x0
 
+debian@revyos-lpi4a:~$ neofetch
+       _,met$$$$$gg.          debian@revyos-lpi4a 
+    ,g$$$$$$$$$$$$$$$P.       ------------------- 
+  ,g$$P"     """Y$$.".        OS: Debian GNU/Linux trixie/sid riscv64 
+ ,$$P'              `$$$.     Host: Sipeed Lichee Pi 4A 16G 
+',$$P       ,ggs.     `$$b:   Kernel: 6.6.66-th1520 
+`d$$'     ,$P"'   .    $$$    Uptime: 7 mins 
+ $$P      d$'     ,    $$P    Packages: 1223 (dpkg) 
+ $$:      $$.   -    ,d$$'    Shell: bash 5.2.32 
+ $$;      Y$b._   _,d$P'      Resolution: 3840x2160 
+ Y$$.    `.`"Y$$$$P"'         Terminal: /dev/pts/0 
+ `$$b      "-.__              CPU: (4) @ 1.848GHz 
+  `Y$$                        Memory: 357MiB / 15814MiB 
+   `Y$$.
+     `$$b.                                            
+       `Y$$b.                                         
+          `"Y$b._
+              `"""
+
 debian@revyos-lpi4a:~$  
 ```
 
