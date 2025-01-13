@@ -87,6 +87,8 @@ Screen recording (from flashing image to logging into system):
 
 [![asciicast](https://asciinema.org/a/4kw9rznzmMGsEdD2lSqJOSm3h.svg)](https://asciinema.org/a/4kw9rznzmMGsEdD2lSqJOSm3h)
 
+![](image.png)
+
 ```log
 
    ____              _ ____  ____  _  __

@@ -79,6 +79,8 @@ sudo fastboot flash root root-lpi4a-20250110_151339.ext4
 屏幕录制（从刷写镜像到登录系统）：
 [![asciicast](https://asciinema.org/a/4kw9rznzmMGsEdD2lSqJOSm3h.svg)](https://asciinema.org/a/4kw9rznzmMGsEdD2lSqJOSm3h)
 
+![](image.png)
+
 ```log
 
    ____              _ ____  ____  _  __
