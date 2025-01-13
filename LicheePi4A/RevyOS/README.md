@@ -109,7 +109,9 @@ Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
 Last login: Mon Sep  2 05:03:30 2024
 debian@revyos-lpi4a:~$ uname -a
-Linux revyos-lpi4a 6.6.66-th1520 #2025.01.10.02.53+1c6721ec2 SMP Fri Jan 10 03:09:24 UTC 2025 riscv64 GNU/Linux
+Linux revyos-lpi4a 6.6.66-th1520 #2025.01.10.02.5
+
+debian@revyos-lpi4a:~$ 3+1c6721ec2 SMP Fri Jan 10 03:09:24 UTC 2025 riscv64 GNU/Linux
 debian@revyos-lpi4a:~$ cat /etc/os-release 
 PRETTY_NAME="Debian GNU/Linux trixie/sid"
 NAME="Debian GNU/Linux"
@@ -146,6 +148,8 @@ mvendorid       : 0x5b7
 marchid         : 0x0
 mimpid          : 0x0
 
+debian@revyos-lpi4a:~$ 
+
 processor       : 3
 hart            : 3
 isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
@@ -154,6 +158,25 @@ uarch           : thead,c910
 mvendorid       : 0x5b7
 marchid         : 0x0
 mimpid          : 0x0
+
+debian@revyos-lpi4a:~$ neofetch
+       _,met$$$$$gg.          debian@revyos-lpi4a 
+    ,g$$$$$$$$$$$$$$$P.       ------------------- 
+  ,g$$P"     """Y$$.".        OS: Debian GNU/Linux trixie/sid riscv64 
+ ,$$P'              `$$$.     Host: Sipeed Lichee Pi 4A 16G 
+',$$P       ,ggs.     `$$b:   Kernel: 6.6.66-th1520 
+`d$$'     ,$P"'   .    $$$    Uptime: 7 mins 
+ $$P      d$'     ,    $$P    Packages: 1223 (dpkg) 
+ $$:      $$.   -    ,d$$'    Shell: bash 5.2.32 
+ $$;      Y$b._   _,d$P'      Resolution: 3840x2160 
+ Y$$.    `.`"Y$$$$P"'         Terminal: /dev/pts/0 
+ `$$b      "-.__              CPU: (4) @ 1.848GHz 
+  `Y$$                        Memory: 357MiB / 15814MiB 
+   `Y$$.
+     `$$b.                                            
+       `Y$$b.                                         
+          `"Y$b._
+              `"""
 
 debian@revyos-lpi4a:~$ 
 ```
