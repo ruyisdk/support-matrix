@@ -4,7 +4,7 @@
 
 ### 操作系统信息
 
-- 系统版本：RevyOS 20241229
+- 系统版本：RevyOS 20250110
 - 下载链接：[ISCAS mirror](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 - 参考安装文档：https://revyos.github.io/docs/
 
@@ -21,12 +21,11 @@
 下载镜像，使用 `zstd` 解压镜像：
 
 ```shell
-wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20241229/boot-lpi4a-20241229_032148.ext4.zst
-wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20241229/u-boot-with-spl-lpi4a-16g-main.bin
-wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20241229/root-lpi4a-20241229_032148.ext4.zst
-zstd -d boot-lpi4a-20241229_032148.ext4.zst
-zstd -d root-lpi4a-20241229_032148.ext4.zst
-
+wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250110/boot-lpi4a-20250110_151339.ext4.zst
+wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250110/u-boot-with-spl-lpi4a-16g-main.bin
+wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250110/root-lpi4a-20250110_151339.ext4.zst
+zstd -d boot-lpi4a-20250110_151339.ext4.zst
+zstd -d root-lpi4a-20250110_151339.ext4.zst
 ```
 
 ### 通过 `fastboot` 刷写到板载 eMMC
@@ -56,9 +55,8 @@ sudo fastboot devices
 sudo fastboot flash ram u-boot-with-spl-lpi4a-16g-main.bin
 sudo fastboot reboot
 sudo fastboot flash uboot u-boot-with-spl-lpi4a-16g-main.bin
-sudo fastboot flash boot boot-lpi4a-20241229_032148.ext4
-sudo fastboot flash root root-lpi4a-20241229_032148.ext4
-
+sudo fastboot flash boot boot-lpi4a-20250110_151339.ext4
+sudo fastboot flash root root-lpi4a-20250110_151339.ext4
 ```
 
 ### 登录系统
@@ -79,13 +77,11 @@ sudo fastboot flash root root-lpi4a-20241229_032148.ext4
 ### 启动信息
 
 屏幕录制（从刷写镜像到登录系统）：
-[![asciicast](https://asciinema.org/a/GLrnMuapSQwQ1DufMCtaRYnkY.svg)](https://asciinema.org/a/GLrnMuapSQwQ1DufMCtaRYnkY)
+[![asciicast](https://asciinema.org/a/4kw9rznzmMGsEdD2lSqJOSm3h.svg)](https://asciinema.org/a/4kw9rznzmMGsEdD2lSqJOSm3h)
+
+![](image.png)
 
 ```log
-Debian GNU/Linux trixie/sid revyos-lpi4a ttyS0
-
-revyos-lpi4a login: debian
-Password: 
 
    ____              _ ____  ____  _  __
   |  _ \ _   _ _   _(_) ___||  _ \| |/ /
@@ -97,7 +93,7 @@ Password:
 
   Debian GNU/Linux trixie/sid (kernel 6.6.66-th1520)
 
-Linux revyos-lpi4a 6.6.66-th1520 #2024.12.27.03.30+e7d4a2564 SMP Fri Dec 27 03:58:38 UTC 2024 riscv64
+Linux revyos-lpi4a 6.6.66-th1520 #2025.01.10.02.53+1c6721ec2 SMP Fri Jan 10 03:09:24 UTC 2025 riscv64
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -105,9 +101,9 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-Last login: Tue Jan  7 15:23:23 CST 2025 on ttyS0
+Last login: Mon Sep  2 05:03:30 2024
 debian@revyos-lpi4a:~$ uname -a
-Linux revyos-lpi4a 6.6.66-th1520 #2024.12.27.03.30+e7d4a2564 SMP Fri Dec 27 03:58:38 UTC 2024 riscv64 GNU/Linux
+Linux revyos-lpi4a 6.6.66-th1520 #2025.01.10.02.53+1c6721ec2 SMP Fri Jan 10 03:09:24 UTC 2025 riscv64 GNU/Linux
 debian@revyos-lpi4a:~$ cat /etc/os-release 
 PRETTY_NAME="Debian GNU/Linux trixie/sid"
 NAME="Debian GNU/Linux"
@@ -153,26 +149,26 @@ mvendorid       : 0x5b7
 marchid         : 0x0
 mimpid          : 0x0
 
-debian@revyos-lpi4a:~$ neofetch 
+debian@revyos-lpi4a:~$ neofetch
        _,met$$$$$gg.          debian@revyos-lpi4a 
     ,g$$$$$$$$$$$$$$$P.       ------------------- 
   ,g$$P"     """Y$$.".        OS: Debian GNU/Linux trixie/sid riscv64 
  ,$$P'              `$$$.     Host: Sipeed Lichee Pi 4A 16G 
 ',$$P       ,ggs.     `$$b:   Kernel: 6.6.66-th1520 
-`d$$'     ,$P"'   .    $$$    Uptime: 5 mins 
- $$P      d$'     ,    $$P    Packages: 1225 (dpkg) 
+`d$$'     ,$P"'   .    $$$    Uptime: 7 mins 
+ $$P      d$'     ,    $$P    Packages: 1223 (dpkg) 
  $$:      $$.   -    ,d$$'    Shell: bash 5.2.32 
- $$;      Y$b._   _,d$P'      Terminal: /dev/ttyS0 
- Y$$.    `.`"Y$$$$P"'         CPU: (4) @ 1.848GHz 
- `$$b      "-.__              Memory: 252MiB / 15814MiB 
-  `Y$$
-   `Y$$.                                              
+ $$;      Y$b._   _,d$P'      Resolution: 3840x2160 
+ Y$$.    `.`"Y$$$$P"'         Terminal: /dev/pts/0 
+ `$$b      "-.__              CPU: (4) @ 1.848GHz 
+  `Y$$                        Memory: 357MiB / 15814MiB 
+   `Y$$.
      `$$b.                                            
-       `Y$$b.
+       `Y$$b.                                         
           `"Y$b._
               `"""
 
-debian@revyos-lpi4a:~$ 
+debian@revyos-lpi4a:~$  
 ```
 
 ## 测试判定标准
