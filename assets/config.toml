@@ -20,17 +20,17 @@ use_latest_release = true
 
 [milkv_duo-buildroot-null]
 source = "github"
-github = "milkv-duo/duo-buildroot-sdk"
+github = "milkv-duo/duo-buildroot-sdk-v2"
 use_latest_release = true
 
 [milkv_duo256m-buildroot-null]
 source = "github"
-github = "milkv-duo/duo-buildroot-sdk"
+github = "milkv-duo/duo-buildroot-sdk-v2"
 use_latest_release = true
 
 [milkv_duos-buildroot-null]
 source = "github"
-github = "milkv-duo/duo-buildroot-sdk"
+github = "milkv-duo/duo-buildroot-sdk-v2"
 use_latest_release = true
 
 [pine64_star64-armbian-null]

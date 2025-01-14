@@ -34,7 +34,7 @@ class DuoxBuildRoot(UploadPluginBase):
         return vinfo.version[1:]
 
     def fetch_release(self, vinfo: VInfo) -> dict:
-        api_url = 'https://api.github.com/repos/milkv-duo/duo-buildroot-sdk/releases'
+        api_url = 'https://api.github.com/repos/milkv-duo/duo-buildroot-sdk-v2/releases'
         headers = {
             "Accept": "application/vnd.github.v3+json",
             "X-Github-API-Version": "2022-11-28",
@@ -54,7 +54,7 @@ class DuoxBuildRoot(UploadPluginBase):
         assets = gh_release["assets"]
         for asset in assets:
             if asset["name"].startswith(f"milkv-{vinfo.vendor[6:]}-") \
-                    and "sd" in asset["name"]:
+                    and "sd" in asset["name"] and "riscv64" in asset["name"]:
                 return asset
         raise ValueError("No download url found in release")
 
