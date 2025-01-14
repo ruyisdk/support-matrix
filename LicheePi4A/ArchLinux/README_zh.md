@@ -4,17 +4,16 @@
 
 ### 系统信息
 
-- 下载链接：[https://mirror.iscas.ac.cn/archriscv/images/](https://mirror.iscas.ac.cn/archriscv/images/)
-- u-boot 与 boot 下载（采用 revyos 的）：[https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20231210/](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
-- fastboot 下载：[https://gitee.com/thead-yocto/light_deploy_images](https://gitee.com/thead-yocto/light_deploy_images)
-- 参考安装文档：
-    - [ArchWiki](https://wiki.archlinux.org/title/General_recommendations)
+- 下载链接：https://mirror.iscas.ac.cn/archriscv/images/
+- u-boot 与 boot 下载（采用 revyos 的）：https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
 
 ### 硬件信息
 
-- Lichee Pi 4A (8G RAM + 32G eMMC)
-- 电源适配器
-- USB to UART 调试器一个
+- Lichee Pi 4A (16G RAM + 128G eMMC)
+- USB 电源适配器一个
+- USB-A to C 或 C to C 线缆一条
+- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
+- 杜邦线三根
 
 ## 安装步骤
 
@@ -24,7 +23,7 @@
 
 - 创建块设备，并创建文件系统
 ```bash
-sudo dd if=/dev/zero of=rootfs.ext4 bs=1M count=6144 # 创建 6g 的rootfs
+sudo dd if=/dev/zero of=rootfs.ext4 bs=1M count=6144 # 创建 6GB rootfs
 sudo mkfs.ext4 rootfs.ext4
 mkdir mnt
 sudo mount ./rootfs.ext4 ./mnt
@@ -32,7 +31,7 @@ sudo mount ./rootfs.ext4 ./mnt
 
 - 将 rootfs 解压到根目录中
 ```bash
-sudo tar -I zstd -xvf archriscv-2023-12-13.tar.zst -C mnt/
+sudo tar -I zstd -xvf archriscv-2024-09-22.tar.zst -C mnt/
 ```
 
 - 获取该 fs 的 UUID
@@ -47,8 +46,8 @@ sudo systemd-nspawn -D ./mnt --machine=archriscv
 # 接下来是在 rootfs 中进行的
 pacman -Syu
 # 在此处安装你需要的包，如 vim 等。
-echo "UUID=$UUID /  ext4  defaults  1  1 " >> /etc/fstab # 此处的 $UUID 是之前获得的
-passwd # 请设置你的root密码！！
+echo "UUID=<UUID> /  ext4  defaults  1  1 " >> /etc/fstab # 此处的 <UUID> 是之前获得的
+passwd # 请设置你的 root 密码！
 exit
 ```
 
@@ -65,11 +64,11 @@ sudo umount ./mnt
 *根据你的硬件版本选择是否需要 16g*
 
 ```bash
-zstd -d boot-lpi4a-20231210_134926.ext4.zst
-sudo ./fastboot flash ram ./path/to/u-boot-with-spl-lpi4a.bin
-sudo ./fastboot reboot
-sudo ./fastboot flash uboot ./path/to/u-boot-with-spl-lpi4a.bin
-sudo ./fastboot flash boot boot-lpi4a-20231210_134926.ext4
+zstd -d boot-lpi4a-20250110_151339.ext4.zst 
+sudo fastboot flash ram u-boot-with-spl-lpi4a-16g-main.bin 
+sudo fastboot reboot
+sudo fastboot flash uboot u-boot-with-spl-lpi4a-16g-main.bin
+sudo fastboot flash boot boot-lpi4a-20250110_151339.ext4
 ```
 
 ### 刷写镜像
@@ -77,7 +76,7 @@ sudo ./fastboot flash boot boot-lpi4a-20231210_134926.ext4
 将 root 分区刷入 eMMC 中。
 
 ```bash
-sudo ./fastboot flash root rootfs.ext4
+sudo fastboot flash root rootfs.ext4
 ```
 
 ### 登录系统
@@ -104,31 +103,81 @@ sudo ./fastboot flash root rootfs.ext4
 [![asciicast](https://asciinema.org/a/7Ywwvlg1kdyAyTa9hiUOnv4yN.svg)](https://asciinema.org/a/7Ywwvlg1kdyAyTa9hiUOnv4yN)
 
 ```log
-Arch Linux 5.10.113-yocto-standard (ttyS0)
+Arch Linux 6.6.66-th1520 (ttyS0)
 
 archlinux login: root
 Password: 
-Last login: Sat Mar  9 10:04:36 on ttyS0
-[root@archlinux ~]# neofetch 
-                   -`                                                                                                           
-                  .o+`                   -------------- 
-                 `ooo/                   OS: Arch Linux riscv64 
-                `+oooo:                  Host: T-HEAD Light Lichee Pi 4A configuration for 8GB DDR board 
-               `+oooooo:                 Kernel: 5.10.113-lpi4a 
-               -+oooooo+:                Uptime: 3 mins 
-             `/:-:++oooo+:               Packages: 283 (pacman) 
-            `/++++/+++++++:              Shell: bash 5.2.26 
-           `/++++++++++++++:             Resolution: 1920x1080 
-          `/+++ooooooooooooo/`           Terminal: /dev/ttyS0 
-         ./ooosssso++osssssso+`          CPU: (4) @ 1.848GHz 
-        .oossssso-````/ossssss+`         Memory: 84MiB / 7687MiB 
-       -osssssso.      :ssssssso.
-      :osssssss/        osssso+++.                               
-     /ossssssss/        +ssssooo/-                               
-   `/ossssso+/:-        -:/+osssso+-
-  `+sso+:-`                 `.-/+oso:
- `++:.                           `-/+/
- .`                                 `/
+Last login: Thu Jan  9 03:54:09 on ttyS0
+[root@archlinux ~]# uname -a
+Linux archlinux 6.6.66-th1520 #2025.01.10.02.53+1c6721ec2 SMP Fri Jan 10 03:09:24 UTC 2025 riscv64 GNU/Linux
+[root@archlinux ~]# cat /etc/os-release 
+NAME="Arch Linux"
+PRETTY_NAME="Arch Linux"
+ID=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+HOME_URL="https://archlinux.org/"
+DOCUMENTATION_URL="https://wiki.archlinux.org/"
+SUPPORT_URL="https://bbs.archlinux.org/"
+BUG_REPORT_URL="https://gitlab.archlinux.org/groups/archlinux/-/issues"
+PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
+LOGO=archlinux-logo
+[root@archlinux ~]# cat /proc/cpuinfo 
+processor       : 0
+hart            : 0
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+
+processor       : 1
+hart            : 1
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+
+processor       : 2
+hart            : 2
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+
+processor       : 3
+hart            : 3
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+[root@archlinux ~]# fastfetch 
+                  -`                     root@archlinux
+                 .o+`                    --------------
+                `ooo/                    OS: Arch Linux riscv64
+               `+oooo:                   Host: Sipeed Lichee Pi 4A 16G
+              `+oooooo:                  Kernel: Linux 6.6.66-th1520
+              -+oooooo+:                 Uptime: 12 mins
+            `/:-:++oooo+:                Packages: 131 (pacman)
+           `/++++/+++++++:               Shell: bash 5.2.37
+          `/++++++++++++++:              Terminal: vt220
+         `/+++ooooooooooooo/`            CPU: thead,c910 rv64gc (4) @ 1.85 GHz
+        ./ooosssso++osssssso+`           Memory: 232.95 MiB / 15.44 GiB (1%)
+       .oossssso-````/ossssss+`          Swap: 0 B / 4.00 GiB (0%)
+      -osssssso.      :ssssssso.         Disk (/): 999.02 MiB / 5.82 GiB (17%) - ext4
+     :osssssss/        osssso+++.        Locale: C.UTF-8
+    /ossssssss/        +ssssooo/-
+  `/ossssso+/:-        -:/+osssso+-                              
+ `+sso+:-`                 `.-/+oso:                             
+`++:.                           `-/+/
+.`                                 `/
 ```
 
 ## 测试判定标准
