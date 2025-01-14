@@ -4,8 +4,8 @@
 
 ### 操作系统信息
 
-- 系统版本：openKylin 2.0
-- 下载链接：https://mirror.iscas.ac.cn/openkylin-cdimage/2.0/openKylin-Embedded-V2.0-Release-visionfive2-riscv64.img.xz
+- 系统版本：openKylin 2.0 SP1
+- 下载链接：https://www.openkylin.top/downloads/index-en.html
 - 参考安装文档：https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8VisionFive2%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 
 ### 硬件信息
@@ -24,8 +24,8 @@
 假定 `/dev/sdc` 为存储卡。
 
 ```bash
-xz -d openKylin-Embedded-V2.0-Release-visionfive2-riscv64.img.xz
-sudo dd if=openKylin-Embedded-V2.0-Release-visionfive2-riscv64.img of=/dev/sdc bs=1M status=progress
+xz -d openKylin-Embedded-V2.0-SP1-visionfive2-riscv64.img.xz
+sudo dd if=openKylin-Embedded-V2.0-SP1-visionfive2-riscv64.img of=/dev/sdc bs=1M status=progress
 ```
 
 ### 引导模式选择
@@ -52,38 +52,6 @@ StarFive VisionFive 2 提供了多种引导模式，可在上电前通过板载�
 ### 启动信息
 
 ```log
-
-openkylin login: openkylin
-密码： 
-Welcome to openKylin 2.0 (GNU/Linux 6.6.20 riscv64)
-
- * Support:        https://openkylin.top
-
-The programs included with the openKylin system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-openKylin comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-applicable law.
-
-You do not have any new mail.
-load environment: GTK_MODULES=gail:atk-bridge
-load environment: QT_ACCESSIBILITY=1
-load environment: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-openkylin@openkylin:~$ cat /etc/os-release 
-NAME="openKylin"
-FULL_NAME="openKylin"
-VERSION="2.0 (nile)"
-VERSION_US="2.0 (nile)"
-ID=openkylin
-PRETTY_NAME="openKylin 2.0"
-VERSION_ID="2.0"
-HOME_URL="https://www.openkylin.top/"
-VERSION_CODENAME=nile
-PRODUCT_FEATURES=3
-openkylin@openkylin:~$ uname -a
-Linux openkylin 6.6.20 #1 SMP Tue May 28 14:19:33 CST 2024 riscv64 riscv64 riscv64 GNU/Linux
-openkylin@openkylin:~$ 
 
 ```
 
