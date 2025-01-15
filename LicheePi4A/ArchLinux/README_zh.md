@@ -92,7 +92,7 @@ sudo fastboot flash root rootfs.ext4
 
 ```
 pacman -S xorg xfce4 ligthdm lightdm-gtk-greeter
-systemctl enable --now ligthdm.server
+systemctl enable --now ligthdm
 ```
 
 
