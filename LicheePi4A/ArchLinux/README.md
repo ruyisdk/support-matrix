@@ -71,7 +71,7 @@ sudo umount ./mnt
 Extract the installation suite.
 Flash u-boot and boot.
 
-*Select whether you need 16GB version according to your hardware version*
+*Select whether you need 8GB version u-boot according to your hardware version*
 
 ```bash
 zstd -d boot-lpi4a-20250110_151339.ext4.zst 
@@ -95,6 +95,15 @@ Access the system via serial port.
 
 Default username: `root`
 Default password: the password you set earlier or use default `archriscv`.
+
+### Install Desktop Environment
+
+Take the example of installing xfce:
+
+```
+pacman -S xorg xfce4 ligthdm lightdm-gtk-greeter
+systemctl enable --now ligthdm.server
+```
 
 ## Expected Results
 

@@ -61,7 +61,7 @@ sudo umount ./mnt
 解压安装套件。
 刷入 u-boot 与 boot。
 
-*根据你的硬件版本选择是否需要 16g*
+*根据你的硬件版本选择是否需要 8g u-boot*
 
 ```bash
 zstd -d boot-lpi4a-20250110_151339.ext4.zst 
@@ -84,7 +84,17 @@ sudo fastboot flash root rootfs.ext4
 通过串口登录系统。
 
 默认用户名： `root`
-默认密码：此处为你之前自行设置的密码。
+默认密码：此处为你之前自行设置的密码或使用默认密码 `archriscv`。
+
+### 安装图形环境
+
+以 xfce 为例:
+
+```
+pacman -S xorg xfce4 ligthdm lightdm-gtk-greeter
+systemctl enable --now ligthdm.server
+```
+
 
 ## 预期结果
 
