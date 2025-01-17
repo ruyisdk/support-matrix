@@ -24,6 +24,11 @@
 
 根据 ram 大小自行选择是否需要 16g 的版本。
 
+如果使用 8GB 版本的 LicheePi 4A，请使用 `light_lpi4a/u-boot-with-spl.bin`
+
+如果使用 16GB 版本的 LicheePi 4A，请使用 `light_lpi4a_16g/u-boot-with-spl.bin`
+
+
 ### 刷写 bootloader
 
 解压安装套件。
@@ -64,29 +69,20 @@ AON 固件不正常，无法启动。
 
 从 RevyOS 借个 AON 固件，扔进 boot 分区，然后刷入就工作了。
 
+你可以从此处获取到aon固件： [https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20240720/boot-lpi4a-20240720_171951.ext4.zst](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20240720/boot-lpi4a-20240720_171951.ext4.zst)
+
 ```bash
 sudo losetup -P boot-lpi4a-20240720_171951.ext4
 sudo losetup boot-lpi4a-20240720_171951.ext4
 sudo losetup -f boot-lpi4a-20240720_171951.ext4
-ls
-ls /dev/loop
-ls /dev/loop0
-sudo fdisk
 sudo fdisk -l
 mkdir mnt
 sudo mount /dev/loop0 mnt
-ls
-ls nt
 ls mnt
 cp mnt/light_aon_fpga.bin .
-ls
-sudo umount 
 sudo umount mnt
 sudo losetup -f deepin-th1520-riscv64-stable-desktop-installer.boot.ext4
 sudo mount /dev/loop1 mnt
-ls mnt
-sha256sum mnt/light_aon_fpga.bin
-sha256sum light_aon_fpga.bin
 sudo rm mnt/light_aon_fpga.bin
 sudo cp light_aon_fpga.bin mnt/
 sudo umount mnt
