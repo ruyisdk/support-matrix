@@ -71,6 +71,20 @@ class UploadPluginBase(ABC):
     from tqdm import tqdm
     import hashlib
     import copy
+    from awesomeversion import AwesomeVersion
+
+    def cmp_version(self, v1: str, v2: str) -> int:
+        """
+        Compare the version of two strings
+        Though this function is in version_diff.py, as plugins runs in a seprate env, we need to rewrite it here.
+        """
+        av1 = self.AwesomeVersion(v1)
+        av2 = self.AwesomeVersion(v2)
+        if av1 > av2:
+            return 1
+        if av1 < av2:
+            return -1
+        return 0
 
     def download_file(self, file: str, url: str) -> str:
         """

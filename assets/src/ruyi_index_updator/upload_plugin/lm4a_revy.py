@@ -128,8 +128,12 @@ class Lm4aRevy(UploadPluginBase):
 
         uboot_dist = None
 
-        if index == "uboot-revyos-sipeed-lpi4a-8g":
+        if index == "uboot-revyos-sipeed-lpi4a-8g"  \
+                and self.cmp_version(vinfo.version, "20240720") <= 0:
             bname = "u-boot-with-spl-lpi4a"
+        elif index == "uboot-revyos-sipeed-lc4a-8g" \
+                and self.cmp_version(vinfo.version, "20240720") > 0:
+            bname = "u-boot-with-spl-lpi4a-main"
         elif index == "uboot-revyos-sipeed-lc4a-8g":
             bname = "u-boot-with-spl-lc4a-main"
         else:  # unreachable
@@ -171,10 +175,10 @@ class Lm4aRevy(UploadPluginBase):
                                 index: str, last_index: list[BoardImages]) -> BoardImages | None:
         if index == "uboot-revyos-sipeed-lpi4a-16g":
             base_url = f"https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/{
-            vinfo.version}/"
+                vinfo.version}/"
         elif index == "uboot-revyos-sipeed-lc4a-16g":
             base_url = f"https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/{
-            vinfo.version}/"
+                vinfo.version}/"
         else:
             return None
         html = self.requests.get(base_url, timeout=90).text
@@ -185,8 +189,12 @@ class Lm4aRevy(UploadPluginBase):
 
         uboot_dist = None
 
-        if index == "uboot-revyos-sipeed-lpi4a-16g":
+        if index == "uboot-revyos-sipeed-lpi4a-16g"  \
+                and self.cmp_version(vinfo.version, "20240720") <= 0:
             bname = "u-boot-with-spl-lpi4a-16g"
+        elif index == "uboot-revyos-sipeed-lc4a-16g" \
+                and self.cmp_version(vinfo.version, "20240720") > 0:
+            bname = "u-boot-with-spl-lpi4a-main-16g"
         elif index == "uboot-revyos-sipeed-lc4a-16g":
             bname = "u-boot-with-spl-lc4a-16g-main"
         else:  # unreachable
