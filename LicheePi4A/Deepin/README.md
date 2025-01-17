@@ -33,6 +33,10 @@ The tar doesn't contain the u-boot bin, you need to get it on your own: https://
 
 Choose whether you need the 16g version based on your ram size.
 
+If you are using a 8GB version LicheePi 4A , use the `light_lpi4a/u-boot-with-spl.bin`
+
+If you are using a 16GB version LicheePi 4A , use the `light_lpi4a_16g/u-boot-with-spl.bin`
+
 ### Flashing the Bootloader
 
 Extract the installation suite.
@@ -73,29 +77,19 @@ AON firmware is not working properly, the system is not booting.
 
 Just get a aon firmware from RevyOS and put it into the boot partition, then it works.
 
+You can get the aon firmware from this image: [https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20240720/boot-lpi4a-20240720_171951.ext4.zst](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20240720/boot-lpi4a-20240720_171951.ext4.zst)
+
 ```bash
 sudo losetup -P boot-lpi4a-20240720_171951.ext4
 sudo losetup boot-lpi4a-20240720_171951.ext4
 sudo losetup -f boot-lpi4a-20240720_171951.ext4
-ls
-ls /dev/loop
-ls /dev/loop0
-sudo fdisk
-sudo fdisk -l
 mkdir mnt
 sudo mount /dev/loop0 mnt
-ls
-ls nt
 ls mnt
 cp mnt/light_aon_fpga.bin .
-ls
-sudo umount 
 sudo umount mnt
 sudo losetup -f deepin-th1520-riscv64-stable-desktop-installer.boot.ext4
 sudo mount /dev/loop1 mnt
-ls mnt
-sha256sum mnt/light_aon_fpga.bin
-sha256sum light_aon_fpga.bin
 sudo rm mnt/light_aon_fpga.bin
 sudo cp light_aon_fpga.bin mnt/
 sudo umount mnt
