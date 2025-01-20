@@ -22,13 +22,9 @@
 sudo dd if=milkv-duo-musl-riscv64-sd_v2.0.0.img  of=/path/to/your/device bs=4M status=progress
 ```
 
-### 使用 `ruyi` CLI 刷写镜像到 microSD 卡
-
-安装 [`ruyi`](https://github.com/ruyisdk/ruyi) 包管理器，运行 `ruyi device provision` 并按提示操作。
-
 ### 登录系统
 
-通过串口登录系统。
+通过串口或 ssh 登录系统。默认以 root 无密码登录。
 
 ## 预期结果
 

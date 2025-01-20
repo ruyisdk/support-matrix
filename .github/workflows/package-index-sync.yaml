@@ -28,10 +28,22 @@ on:
   # push: # Uncomment this line to enable push event, but it is not recommended as it may cause unnecessary PRs. Use workflow_dispatch instead.
 
 jobs:
+  check_should_run:
+    name: Check Should Run
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Should Run
+        run: |
+          echo "Event Name: ${{ github.event_name }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "Repository Owner: ${{ github.repository_owner }}"
+          echo "Inputs: makepr ${{ inputs.makepr }} debuginfo ${{ inputs.debuginfo }}"
+          echo "Should Run Auto: ${{ ( github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository_owner == 'ruyisdk' ) }}"
+          echo "Should Run Manual: ${{ ( github.event_name == 'workflow_dispatch' ) }}"
   build:
     name: Generate and Upload
     runs-on: ubuntu-latest
-    if: ${{ ( github.event_name == 'push' && github.ref == github.ref == 'refs/heads/main' && github.repository_owner == 'ruyisdk' ) ||  ( github.event_name == 'workflow_dispatch' ) }}
+    if: ${{ ( github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository_owner == 'ruyisdk' ) ||  ( github.event_name == 'workflow_dispatch' ) }}
     environment: ruyi-sync
     env:
       GITHUB_TOKEN: ${{ secrets.GHO_TOKEN }}
@@ -41,7 +53,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
           cache: 'pip'
           cache-dependency-path: '**/requirements*.txt'
       - uses: webfactory/ssh-agent@v0.9.0

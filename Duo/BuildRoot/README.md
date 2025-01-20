@@ -31,13 +31,12 @@ last_update: 2025-01-08
 sudo dd if=milkv-duo-musl-riscv64-sd_v2.0.0.img  of=/path/to/your/device bs=4M status=progress
 ```
 
-### Using `ruyi` CLI to Flash the Image to the microSD Card
-
-Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the prompts.
-
 ### Logging into the System
 
-Logging into the system via the serial port.
+Logging into the system via serial port or SSH.
+
+Default username: `root`
+Default password: none
 
 ## Expected Results
 

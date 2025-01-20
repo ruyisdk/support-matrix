@@ -4,9 +4,9 @@
 
 ### 系统信息
 
-- 系统版本：openKylin 2.0
+- 系统版本：openKylin v2.0-SP1
 - 下载链接：[https://www.openkylin.top/downloads/index-cn.html](https://www.openkylin.top/downloads/index-cn.html)
-- 参考安装文档：[https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin](https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
+- 参考安装文档：[https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8LicheePi4A%E4%B8%8A%E5%AE%89%E8%A3%85openKylin](https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8LicheePi4A%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
 
 ### 硬件信息
 
@@ -23,8 +23,8 @@
 刷入 u-boot 与 boot。
 
 ```bash
-tar -xvf openKylin-Embedded-V2.0-Release-licheepi4a-riscv64.tar.xz
-cd openKylin-Embedded-V2.0-Release-licheepi4a-riscv64/
+tar -xvf openKylin-Embedded-V2.0-SP1-Release-licheepi4a-riscv64.tar.xz
+cd openKylin-Embedded-V2.0-SP1-Release-licheepi4a-riscv64/
 sudo fastboot flash ram u-boot-with-spl-lpi4a(-16g).bin
 sudo fastboot reboot
 sudo fastboot flash uboot u-boot-with-spl-lpi4a(-16g).bin
@@ -36,7 +36,7 @@ sudo fastboot flash boot boot-lpi4a-20240720_171951.ext4
 将 root 分区刷入 eMMC 中。
 
 ```bash
-sudo fastboot flash root openKylin-2.0-licheepi4a-riscv64.img
+sudo fastboot flash root openKylin-2.0-sp1-licheepi4a-riscv64.img
 ```
 
 ### 登录系统
@@ -59,14 +59,13 @@ sudo fastboot flash root openKylin-2.0-licheepi4a-riscv64.img
 屏幕录像（从刷写镜像到登录系统）：
 
 
-[![asciicast](https://asciinema.org/a/YNXhBNMce237qsn8OLNzfQ6uE.svg)](https://asciinema.org/a/YNXhBNMce237qsn8OLNzfQ6uE)
-
+[![asciicast](https://asciinema.org/a/W0w4KbFDEjvuvPLGIyEYHtFdS.svg)](https://asciinema.org/a/W0w4KbFDEjvuvPLGIyEYHtFdS)
 ```log
-openKylin 2.0 openkylin ttyS0
+openKylin 2.0 SP1 openkylin ttyS0
 
 openkylin login: openkylin
 密码： 
-Welcome to openKylin 2.0 (GNU/Linux 5.10.113-th1520 riscv64)
+Welcome to openKylin 2.0 SP1 (GNU/Linux 5.10.113-th1520 riscv64)
 
  * Support:        https://openkylin.top
 
@@ -77,19 +76,17 @@ individual files in /usr/share/doc/*/copyright.
 openKylin comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-You do not have any new mail.
-load environment: GTK_MODULES=gail:atk-bridge
 load environment: QT_ACCESSIBILITY=1
-load environment: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+load environment: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 openkylin@openkylin:~$ uname -a
-Linux openkylin 5.10.113-th1520 #2024.07.20.13.28+d8f77de53 SMP PREEMPT Sat Jul 20 13:29:42 UTC  riscv64 riscv64 riscv64 Gx
-openkylin@openkylin:~$ cat /etc/os-release 
+Linux openkylin 5.10.113-th1520 #2024.07.20.13.28+d8f77de53 SMP PREEMPT Sat Jul 20 13:29:42 UTC  riscv64 riscv64 riscv64 GNU/Linux
+openkylin@openkylin:~$ cat /etc/os-release
 NAME="openKylin"
 FULL_NAME="openKylin"
-VERSION="2.0 (nile)"
-VERSION_US="2.0 (nile)"
+VERSION="2.0 SP1 (nile)"
+VERSION_US="2.0 SP1 (nile)"
 ID=openkylin
-PRETTY_NAME="openKylin 2.0"
+PRETTY_NAME="openKylin 2.0 SP1"
 VERSION_ID="2.0"
 HOME_URL="https://www.openkylin.top/"
 VERSION_CODENAME=nile
@@ -144,10 +141,7 @@ cpu-cacheline   : 64Bytes
 cpu-vector      : 0.7.1
 
 openkylin@openkylin:~$ 
-
-```
-
-![login](./login.png)
+ ```
 
 
 ### 常见问题

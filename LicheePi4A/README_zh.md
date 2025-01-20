@@ -7,12 +7,12 @@
 - openEuler RISC-V 24.03 Preview
     - 下载链接：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/2403LTS-test/v1/lpi4a/
     - 参考安装文档：https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
-- RevyOS 20231210
+- RevyOS 20240110
     - 下载链接：https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/
     - 参考安装文档：https://docs.revyos.dev/
-- openKylin 2.0 alpha
+- openKylin 2.0 SP1
     - 下载链接：https://www.openkylin.top/downloads/index-cn.html
-    - 参考安装文档：https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+    - 参考安装文档：https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8LicheePi4A%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 - Fedora 38
     - 下载链接：https://openkoji.iscas.ac.cn/pub/dl/riscv/T-Head/th1520_light/images/
     - 参考安装文档：https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head

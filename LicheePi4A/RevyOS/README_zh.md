@@ -4,7 +4,7 @@
 
 ### 操作系统信息
 
-- 系统版本：RevyOS 20240720
+- 系统版本：RevyOS 20250110
 - 下载链接：[ISCAS mirror](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
 - 参考安装文档：https://revyos.github.io/docs/
 
@@ -21,12 +21,11 @@
 下载镜像，使用 `zstd` 解压镜像：
 
 ```shell
-wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20240720/boot-lpi4a-20240720_171951.ext4.zst
-wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20240720/u-boot-with-spl-lpi4a.bin
-wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20240720/root-lpi4a-20240720_171951.ext4.zst
-zstd -d boot-lpi4a-20240720_171951.ext4.zst
-zstd -d root-lpi4a-20240720_171951.ext4.zst
-
+wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250110/boot-lpi4a-20250110_151339.ext4.zst
+wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250110/u-boot-with-spl-lpi4a-16g-main.bin
+wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250110/root-lpi4a-20250110_151339.ext4.zst
+zstd -d boot-lpi4a-20250110_151339.ext4.zst
+zstd -d root-lpi4a-20250110_151339.ext4.zst
 ```
 
 ### 通过 `fastboot` 刷写到板载 eMMC
@@ -53,12 +52,11 @@ fastboot usb 0
 
 ```shell
 sudo fastboot devices
-sudo fastboot flash ram u-boot-with-spl-lpi4a.bin 
+sudo fastboot flash ram u-boot-with-spl-lpi4a-16g-main.bin
 sudo fastboot reboot
-sudo fastboot flash uboot u-boot-with-spl-lpi4a.bin
-sudo fastboot flash boot boot-lpi4a-20240720_171951.ext4
-sudo fastboot flash root root-lpi4a-20240720_171951.ext4
-
+sudo fastboot flash uboot u-boot-with-spl-lpi4a-16g-main.bin
+sudo fastboot flash boot boot-lpi4a-20250110_151339.ext4
+sudo fastboot flash root root-lpi4a-20250110_151339.ext4
 ```
 
 ### 登录系统
@@ -79,14 +77,11 @@ sudo fastboot flash root root-lpi4a-20240720_171951.ext4
 ### 启动信息
 
 屏幕录制（从刷写镜像到登录系统）：
-[![asciicast](https://asciinema.org/a/GLrnMuapSQwQ1DufMCtaRYnkY.svg)](https://asciinema.org/a/GLrnMuapSQwQ1DufMCtaRYnkY)
+[![asciicast](https://asciinema.org/a/4kw9rznzmMGsEdD2lSqJOSm3h.svg)](https://asciinema.org/a/4kw9rznzmMGsEdD2lSqJOSm3h)
+
+![](image.png)
 
 ```log
-revyos-lpi4a login: debian
-Password: 
-[  300.207430] audit: type=1100 audit(1703432525.400:211): pid=589 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:authen'
-[  300.229172] audit: type=1101 audit(1703432525.400:212): pid=589 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:accoun'
-[  300.250545] audit: type=1006 audit(1703432525.400:213): pid=589 uid=0 old-auid=4294967295 auid=1000 tty=ttyS0 old-ses=41
 
    ____              _ ____  ____  _  __
   |  _ \ _   _ _   _(_) ___||  _ \| |/ /
@@ -96,9 +91,9 @@ Password:
                |___/                    
                    -- Presented by ISCAS
 
-  Debian GNU/Linux 12 (bookworm) (kernel 5.10.113-th1520)
+  Debian GNU/Linux trixie/sid (kernel 6.6.66-th1520)
 
-Linux revyos-lpi4a 5.10.113-th1520 #2024.07.20.13.28+d8f77de53 SMP PREEMPT Sat Jul 20 13:29:42 UTC  riscv64
+Linux revyos-lpi4a 6.6.66-th1520 #2025.01.10.02.53+1c6721ec2 SMP Fri Jan 10 03:09:24 UTC 2025 riscv64
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -106,74 +101,74 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-[  300.586878] audit: type=1130 audit(1703432525.776:214): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=user-runti'
-[  300.648819] audit: type=1101 audit(1703432525.840:215): pid=2082 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:accou'
-[  300.669416] audit: type=1103 audit(1703432525.840:216): pid=2082 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:setcr'
-[  300.689717] audit: type=1006 audit(1703432525.840:217): pid=2082 uid=0 old-auid=4294967295 auid=1000 tty=(none) old-ses1
-[  300.806560] audit: type=1105 audit(1703432525.996:218): pid=2082 uid=0 auid=1000 ses=3 msg='op=PAM:session_open grantor'
-[  300.850013] audit: type=1334 audit(1703432526.040:219): prog-id=64 op=LOAD
-[  300.856980] audit: type=1334 audit(1703432526.040:220): prog-id=64 op=UNLOAD
+Last login: Mon Sep  2 05:03:30 2024
+debian@revyos-lpi4a:~$ uname -a
+Linux revyos-lpi4a 6.6.66-th1520 #2025.01.10.02.53+1c6721ec2 SMP Fri Jan 10 03:09:24 UTC 2025 riscv64 GNU/Linux
 debian@revyos-lpi4a:~$ cat /etc/os-release 
-PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
+PRETTY_NAME="Debian GNU/Linux trixie/sid"
 NAME="Debian GNU/Linux"
-VERSION_ID="12"
-VERSION="12 (bookworm)"
-VERSION_CODENAME=bookworm
+VERSION_CODENAME=trixie
 ID=debian
 HOME_URL="https://www.debian.org/"
 SUPPORT_URL="https://www.debian.org/support"
 BUG_REPORT_URL="https://bugs.debian.org/"
-debian@revyos-lpi4a:~$ uname -a
-Linux revyos-lpi4a 5.10.113-th1520 #2024.07.20.13.28+d8f77de53 SMP PREEMPT Sat Jul 20 13:29:42 UTC  riscv64 GNU/Linux
 debian@revyos-lpi4a:~$ cat /proc/cpuinfo 
 processor       : 0
 hart            : 0
-isa             : rv64imafdcvsu
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
 mmu             : sv39
-cpu-freq        : 1.848Ghz
-cpu-icache      : 64KB
-cpu-dcache      : 64KB
-cpu-l2cache     : 1MB
-cpu-tlb         : 1024 4-ways
-cpu-cacheline   : 64Bytes
-cpu-vector      : 0.7.1
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
 
 processor       : 1
 hart            : 1
-isa             : rv64imafdcvsu
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
 mmu             : sv39
-cpu-freq        : 1.848Ghz
-cpu-icache      : 64KB
-cpu-dcache      : 64KB
-cpu-l2cache     : 1MB
-cpu-tlb         : 1024 4-ways
-cpu-cacheline   : 64Bytes
-cpu-vector      : 0.7.1
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
 
 processor       : 2
 hart            : 2
-isa             : rv64imafdcvsu
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
 mmu             : sv39
-cpu-freq        : 1.848Ghz
-cpu-icache      : 64KB
-cpu-dcache      : 64KB
-cpu-l2cache     : 1MB
-cpu-tlb         : 1024 4-ways
-cpu-cacheline   : 64Bytes
-cpu-vector      : 0.7.1
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
 
 processor       : 3
 hart            : 3
-isa             : rv64imafdcvsu
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
 mmu             : sv39
-cpu-freq        : 1.848Ghz
-cpu-icache      : 64KB
-cpu-dcache      : 64KB
-cpu-l2cache     : 1MB
-cpu-tlb         : 1024 4-ways
-cpu-cacheline   : 64Bytes
-cpu-vector      : 0.7.1
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
 
+debian@revyos-lpi4a:~$ neofetch
+       _,met$$$$$gg.          debian@revyos-lpi4a 
+    ,g$$$$$$$$$$$$$$$P.       ------------------- 
+  ,g$$P"     """Y$$.".        OS: Debian GNU/Linux trixie/sid riscv64 
+ ,$$P'              `$$$.     Host: Sipeed Lichee Pi 4A 16G 
+',$$P       ,ggs.     `$$b:   Kernel: 6.6.66-th1520 
+`d$$'     ,$P"'   .    $$$    Uptime: 7 mins 
+ $$P      d$'     ,    $$P    Packages: 1223 (dpkg) 
+ $$:      $$.   -    ,d$$'    Shell: bash 5.2.32 
+ $$;      Y$b._   _,d$P'      Resolution: 3840x2160 
+ Y$$.    `.`"Y$$$$P"'         Terminal: /dev/pts/0 
+ `$$b      "-.__              CPU: (4) @ 1.848GHz 
+  `Y$$                        Memory: 357MiB / 15814MiB 
+   `Y$$.
+     `$$b.                                            
+       `Y$$b.                                         
+          `"Y$b._
+              `"""
+
+debian@revyos-lpi4a:~$  
 ```
 
 ## 测试判定标准
