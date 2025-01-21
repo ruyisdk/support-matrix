@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Automatically check the index of ruyi and renew it.
 """
@@ -39,6 +40,9 @@ def main():
         '--threadhold', help='the status threadhold can be synced', default='basic'
     )
     arg.add_argument(
+        '--force', help='force to update the index', action='store_true'
+    )
+    arg.add_argument(
         'plugin_names', help='the plugins to run, default to all', nargs='*'
     )
     args = arg.parse_args()
@@ -76,6 +80,7 @@ def main():
     matrix = Systems(args.path)
     diffs = RuyiDiff(matrix, args.config)
     repo = RuyiGitRepo(index_path)
+    force = args.force if args.force else False
 
     threadhold = ImageStatus(args.threadhold)
     for diff in diffs.gen_diff(args.plugin_names, threadhold):
@@ -85,7 +90,7 @@ def main():
         if not args.pr:
             logger.info("%s", repr(pr))
             continue
-        repo.create_wrapped_pr(pr)
+        repo.create_wrapped_pr(pr, force)
 
     if args.index is None:
         shutil.rmtree(index_path)
