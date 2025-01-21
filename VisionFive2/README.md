@@ -27,6 +27,9 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 - Arch Linux
     - Download Link: https://github.com/cwt-vf2/archlinux-image-vf2/releases/tag/cwt23
     - Reference Installation Document: https://forum.rvspace.org/t/arch-linux-image-for-visionfive-2/1459
+- Fedora 41
+  - Download Link: https://mirror.iscas.ac.cn/fedora-riscv/dl/StarFive/visionfive2/images/latest/fedora-disk-multi-desktops_starfive_vf2-sda.raw.gz
+  - Reference Installation Document: https://images.fedoravforce.com/how-to-burn-images-to-sd-cards
 - Gentoo
     - Download Link: https://drive.google.com/file/d/10TDsk2FwZDJv3yJvDAfCam5Wf9ibS6Eg/view?usp=sharing
     - Reference Installation Document: https://forum.rvspace.org/t/experimental-gentoo-image/1807
@@ -78,6 +81,7 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 | Ubuntu LTS Image      | N/A              | [Successful][Ubuntu-LTS] (Official Support)       |
 | BuildRoot Image       | N/A              | [Successful][BuildRoot] (Official StarFive Image) |
 | Arch Linux Image      | N/A              | [Successful][Arch]                                |
+| Fedora Image          | N/A              | [Successful][Fedora]                              |
 | Gentoo Image          | N/A              | [Successful][Gentoo]                              |
 | openSUSE Image        | N/A              | [Successful][openSUSE] (Official Support)         |
 | OpenBSD Image         | N/A              | [Successful][OpenBSD]                             |
@@ -100,6 +104,7 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 [Ubuntu-LTS]: ./Ubuntu/Ubuntu_LTS.md
 [BuildRoot]: ./BuildRoot/README.md
 [Arch]: ./ArchLinux/README.md
+[Fedora]: ./Fedora/README.md
 [Gentoo]: ./Gentoo/README.md
 [openSUSE]: ./openSUSE/README.md
 [OpenBSD]: ./OpenBSD/README.md
