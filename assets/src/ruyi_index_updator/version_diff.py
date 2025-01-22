@@ -8,6 +8,7 @@ import shutil
 import tempfile
 import hashlib
 import toml
+import traceback
 
 from awesomeversion import AwesomeVersion
 
@@ -151,6 +152,7 @@ class RuyiDiff:
                 logger.error("Error occurs when handling system %s:%s:%s-%s",
                              v.vendor, v.system, v.variant, v.version)
                 logger.error("Error: %s", e)
+                logger.error(traceback.format_exc())
 
     def __init__(self, matrix: Systems, conf: str):
         self.__get_tmp_path()
