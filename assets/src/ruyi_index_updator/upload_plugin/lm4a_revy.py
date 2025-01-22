@@ -131,7 +131,7 @@ class Lm4aRevy(UploadPluginBase):
         if index == "uboot-revyos-sipeed-lpi4a-8g"  \
                 and self.cmp_version(vinfo.version, "20240720") <= 0:
             bname = "u-boot-with-spl-lpi4a"
-        elif index == "uboot-revyos-sipeed-lc4a-8g" \
+        elif index == "uboot-revyos-sipeed-lpi4a-8g" \
                 and self.cmp_version(vinfo.version, "20240720") > 0:
             bname = "u-boot-with-spl-lpi4a-main"
         elif index == "uboot-revyos-sipeed-lc4a-8g":
@@ -192,9 +192,9 @@ class Lm4aRevy(UploadPluginBase):
         if index == "uboot-revyos-sipeed-lpi4a-16g"  \
                 and self.cmp_version(vinfo.version, "20240720") <= 0:
             bname = "u-boot-with-spl-lpi4a-16g"
-        elif index == "uboot-revyos-sipeed-lc4a-16g" \
+        elif index == "uboot-revyos-sipeed-lpi4a-16g" \
                 and self.cmp_version(vinfo.version, "20240720") > 0:
-            bname = "u-boot-with-spl-lpi4a-main-16g"
+            bname = "u-boot-with-spl-lpi4a-16g-main"
         elif index == "uboot-revyos-sipeed-lc4a-16g":
             bname = "u-boot-with-spl-lc4a-16g-main"
         else:  # unreachable
