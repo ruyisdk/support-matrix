@@ -1,10 +1,10 @@
 ---
 sys: deepin
-sys_ver: 20240815
+sys_ver: 20241227
 sys_var: null
 
-status: cfh
-last_update: 2024-10-31
+status: good
+last_update: 2025-01-22
 ---
 
 # Deepin preview LPi4A Test Report
@@ -13,19 +13,17 @@ last_update: 2024-10-31
 
 ### System Information
 
-- System Version: Deepin preview 20240815
-- Download Link: https://cdimage.deepin.com/RISC-V/preview-20240815-riscv64/deepin-23-beige-preview-riscv64-th1520-20240815-132955.tar.xz
+- System Version: Deepin preview 20241227
+- Download Link: https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
 - Reference Installation Document: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
 
 ### Hardware Information
 
-- Lichee Pi 4A (8GB RAM + 32GB eMMC)
+- Lichee Pi 4A (16GB RAM + 128GB eMMC)
 - Power Adapter
 - A USB to UART Debugger
 
 ## Installation Steps
-
-Note: The official deepin site has a really slow connection. Recommand use some mirror site like [Qilu University of Technology](https://mirrors.qlu.edu.cn/deepin-cd/deepin-cd/RISC-V/preview-20240815-riscv64/)
 
 ### Get uboot
 
@@ -43,11 +41,11 @@ Extract the installation suite.
 Flash the u-boot and boot.
 
 ```bash
-tar -xvf deepin-23-beige-preview-riscv64-th1520-20240815-132955.tar.xz
+tar -xvf deepin-23-beige-preview-riscv64-th1520-20241227-161022.tar.xz
 sudo fastboot flash ram u-boot-with-spl.bin
 sudo fastboot reboot
 sudo fastboot flash uboot u-boot-with-spl.bin
-sudo fastboot flash boot deepin-th1520-riscv64-stable-desktop-installer.boot.ext4
+sudo fastboot flash boot deepin-th1520-riscv64-v23-desktop-installer.boot.ext4
 ```
 
 ### Flashing the Image
@@ -55,7 +53,7 @@ sudo fastboot flash boot deepin-th1520-riscv64-stable-desktop-installer.boot.ext
 Flash the root partition into the eMMC.
 
 ```bash
-sudo fastboot flash root deepin-th1520-riscv64-stable-desktop-installer.root.ext4
+sudo fastboot flash root deepin-th1520-riscv64-v23-desktop-installer.root.ext4
 ```
 
 ### Logging into the System
@@ -71,47 +69,17 @@ The system should boot successfully, allowing login via the onboard serial conso
 
 ## Actual Results
 
-AON firmware is not working properly, the system is not booting.
-
-### How to fix
-
-Just get a aon firmware from RevyOS and put it into the boot partition, then it works.
-
-You can get the aon firmware from this image: [https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20240720/boot-lpi4a-20240720_171951.ext4.zst](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20240720/boot-lpi4a-20240720_171951.ext4.zst)
-
-```bash
-sudo losetup -P boot-lpi4a-20240720_171951.ext4
-sudo losetup boot-lpi4a-20240720_171951.ext4
-sudo losetup -f boot-lpi4a-20240720_171951.ext4
-mkdir mnt
-sudo mount /dev/loop0 mnt
-ls mnt
-cp mnt/light_aon_fpga.bin .
-sudo umount mnt
-sudo losetup -f deepin-th1520-riscv64-stable-desktop-installer.boot.ext4
-sudo mount /dev/loop1 mnt
-sudo rm mnt/light_aon_fpga.bin
-sudo cp light_aon_fpga.bin mnt/
-sudo umount mnt
-sudo losetup -d /dev/loop1
-sudo fastboot flash ram light_lpi4a/u-boot-with-spl.bin
-sudo fastboot reboot
-sudo fastboot flash boot deepin-th1520-riscv64-stable-desktop-installer.boot.ext4
-
-```
-
-See [issue](https://github.com/linuxdeepin/developer-center/issues/10829)
+The system boots up successfully, and login via onboard serial port is successful.
 
 ### Boot Log
 
-Screen recording (system login):
-Waiting for system to be fixed...
-
 ```log
+Deepin GNU/Linux 23 deepin-riscv64-th1520 ttyS0
+
 deepin-riscv64-th1520 login: root
 Password:
 Verification successful
-Linux deepin-riscv64-th1520 5.10.113-th1520 #1 SMP PREEMPT Wed Apr 24 13:12:14 UTC 2024 riscv64
+Linux deepin-riscv64-th1520 5.10.113-th1520-revyos-510 #1 SMP PREEMPT Tue Aug 27 10:05:53 UTC 2024 riscv64
 Welcome to Deepin 23 GNU/Linux
 
     * Homepage:https://www.deepin.org/
@@ -119,6 +87,8 @@ Welcome to Deepin 23 GNU/Linux
     * Bugreport:https://bbs.deepin.org/
 
 
+root@deepin-riscv64-th1520:~# uname -a
+Linux deepin-riscv64-th1520 5.10.113-th1520-revyos-510 #1 SMP PREEMPT Tue Aug 27 10:05:53 UTC 2024 riscv64 GNU/Linux
 root@deepin-riscv64-th1520:~# cat /etc/os-release 
 PRETTY_NAME="Deepin 23"
 NAME="Deepin"
@@ -128,9 +98,7 @@ ID=deepin
 HOME_URL="https://www.deepin.org/"
 BUG_REPORT_URL="https://bbs.deepin.org"
 VERSION_CODENAME=beige
-root@deepin-riscv64-th1520:~# uname -a
-Linux deepin-riscv64-th1520 5.10.113-th1520 #1 SMP PREEMPT Wed Apr 24 13:12:14 UTC 2024 riscv64 GNU/Linux
-root@deepin-riscv64-th1520:~# cat /proc/cpuinfo
+root@deepin-riscv64-th1520:~# cat /proc/cpuinfo 
 processor       : 0
 hart            : 0
 isa             : rv64imafdcvsu
@@ -180,6 +148,8 @@ cpu-cacheline   : 64Bytes
 cpu-vector      : 0.7.1
 ```
 
+![](./image.png)
+
 ## Test Criteria
 
 Successful: The actual result matches the expected result.
@@ -188,4 +158,4 @@ Failed: The actual result does not match the expected result.
 
 ## Test Conclusion
 
-CFH
+good

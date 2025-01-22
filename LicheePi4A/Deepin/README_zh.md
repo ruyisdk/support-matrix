@@ -5,18 +5,16 @@
 ### 系统信息
 
 - 系统版本：Deepin preview 20240815
-- 下载链接：https://cdimage.deepin.com/RISC-V/preview-20240815-riscv64/deepin-23-beige-preview-riscv64-th1520-20240815-132955.tar.xz
+- 下载链接：https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
 - 参考安装文档：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
 
 ### 硬件信息
 
-- Lichee Pi 4A (8G RAM + 32GB eMMC)
+- Lichee Pi 4A (16G RAM + 128GB eMMC)
 - 电源适配器
 - USB to UART 调试器一个
 
 ## 安装步骤
-
-注：deepin 的官方站点连接速度较慢，推荐使用一些镜像站点，如[齐鲁工业大学](https://mirrors.qlu.edu.cn/deepin-cd/deepin-cd/RISC-V/preview-20240815-riscv64/)
 
 ### 获取 u-boot
 
@@ -35,11 +33,11 @@
 刷入 u-boot 与 boot。
 
 ```bash
-tar -xvf deepin-23-beige-preview-riscv64-th1520-20240815-132955.tar.xz
+tar -xvf deepin-23-beige-preview-riscv64-th1520-20241227-161022.tar.xz
 sudo fastboot flash ram u-boot-with-spl.bin
 sudo fastboot reboot
 sudo fastboot flash uboot u-boot-with-spl.bin
-sudo fastboot flash boot deepin-th1520-riscv64-stable-desktop-installer.boot.ext4
+sudo fastboot flash boot deepin-th1520-riscv64-v23-desktop-installer.boot.ext4
 ```
 
 ### 刷写镜像
@@ -47,7 +45,7 @@ sudo fastboot flash boot deepin-th1520-riscv64-stable-desktop-installer.boot.ext
 将 root 分区刷入 eMMC 中。
 
 ```bash
-sudo fastboot flash root deepin-th1520-riscv64-stable-desktop-installer.root.ext4
+sudo fastboot flash root deepin-th1520-riscv64-v23-desktop-installer.root.ext4
 ```
 
 ### 登录系统
@@ -63,48 +61,17 @@ sudo fastboot flash root deepin-th1520-riscv64-stable-desktop-installer.root.ext
 
 ## 实际结果
 
-AON 固件不正常，无法启动。
-
-### 如何修复
-
-从 RevyOS 借个 AON 固件，扔进 boot 分区，然后刷入就工作了。
-
-你可以从此处获取到aon固件： [https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20240720/boot-lpi4a-20240720_171951.ext4.zst](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20240720/boot-lpi4a-20240720_171951.ext4.zst)
-
-```bash
-sudo losetup -P boot-lpi4a-20240720_171951.ext4
-sudo losetup boot-lpi4a-20240720_171951.ext4
-sudo losetup -f boot-lpi4a-20240720_171951.ext4
-sudo fdisk -l
-mkdir mnt
-sudo mount /dev/loop0 mnt
-ls mnt
-cp mnt/light_aon_fpga.bin .
-sudo umount mnt
-sudo losetup -f deepin-th1520-riscv64-stable-desktop-installer.boot.ext4
-sudo mount /dev/loop1 mnt
-sudo rm mnt/light_aon_fpga.bin
-sudo cp light_aon_fpga.bin mnt/
-sudo umount mnt
-sudo losetup -d /dev/loop1
-sudo fastboot flash ram light_lpi4a/u-boot-with-spl.bin
-sudo fastboot reboot
-sudo fastboot flash boot deepin-th1520-riscv64-stable-desktop-installer.boot.ext4
-
-```
-
-见 [issue](https://github.com/linuxdeepin/developer-center/issues/10829)
+系统正常启动，成功通过板载串口登录。
 
 ### 启动信息
 
-屏幕录像（登录系统）：
-等待官方修复中...
-
 ```log
+Deepin GNU/Linux 23 deepin-riscv64-th1520 ttyS0
+
 deepin-riscv64-th1520 login: root
 Password:
 Verification successful
-Linux deepin-riscv64-th1520 5.10.113-th1520 #1 SMP PREEMPT Wed Apr 24 13:12:14 UTC 2024 riscv64
+Linux deepin-riscv64-th1520 5.10.113-th1520-revyos-510 #1 SMP PREEMPT Tue Aug 27 10:05:53 UTC 2024 riscv64
 Welcome to Deepin 23 GNU/Linux
 
     * Homepage:https://www.deepin.org/
@@ -112,6 +79,8 @@ Welcome to Deepin 23 GNU/Linux
     * Bugreport:https://bbs.deepin.org/
 
 
+root@deepin-riscv64-th1520:~# uname -a
+Linux deepin-riscv64-th1520 5.10.113-th1520-revyos-510 #1 SMP PREEMPT Tue Aug 27 10:05:53 UTC 2024 riscv64 GNU/Linux
 root@deepin-riscv64-th1520:~# cat /etc/os-release 
 PRETTY_NAME="Deepin 23"
 NAME="Deepin"
@@ -121,9 +90,7 @@ ID=deepin
 HOME_URL="https://www.deepin.org/"
 BUG_REPORT_URL="https://bbs.deepin.org"
 VERSION_CODENAME=beige
-root@deepin-riscv64-th1520:~# uname -a
-Linux deepin-riscv64-th1520 5.10.113-th1520 #1 SMP PREEMPT Wed Apr 24 13:12:14 UTC 2024 riscv64 GNU/Linux
-root@deepin-riscv64-th1520:~# cat /proc/cpuinfo
+root@deepin-riscv64-th1520:~# cat /proc/cpuinfo 
 processor       : 0
 hart            : 0
 isa             : rv64imafdcvsu
@@ -173,6 +140,7 @@ cpu-cacheline   : 64Bytes
 cpu-vector      : 0.7.1
 ```
 
+![](./image.png)
 
 ## 测试判定标准
 
