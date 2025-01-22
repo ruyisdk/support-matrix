@@ -4,7 +4,7 @@
 
 ### 系统信息
 
-- 系统版本：Deepin preview 20240815
+- 系统版本：Deepin preview 20241227
 - 下载链接：https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
 - 参考安装文档：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
 
@@ -25,7 +25,6 @@
 如果使用 8GB 版本的 LicheePi 4A，请使用 `light_lpi4a/u-boot-with-spl.bin`
 
 如果使用 16GB 版本的 LicheePi 4A，请使用 `light_lpi4a_16g/u-boot-with-spl.bin`
-
 
 ### 刷写 bootloader
 
@@ -150,4 +149,4 @@ cpu-vector      : 0.7.1
 
 ## 测试结论
 
-CFH
+测试成功.
