@@ -19,7 +19,7 @@ cpu_core: SpacemiT X60
     - Google Drive: https://drive.google.com/drive/folders/1Y5iKY55hFEO2z0sEeG_KC5EInD6nVDft?usp=sharing
   - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 - Armbian(noble, desktopless)
-  - Download Links: https://mirrors.tuna.tsinghua.edu.cn/armbian-releases/bananapif3/archive/Armbian_24.8.1_Bananapif3_noble_legacy_6.1.15_minimal.img.xz
+  - Download Links: https://www.armbian.com/bananapi-f3/
   - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 - Fedora
   - Download Links:
