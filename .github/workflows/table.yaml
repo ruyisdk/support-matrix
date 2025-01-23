@@ -36,10 +36,10 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Generate Images
         run: |
-          sudo apt-get update
-          sudo apt-get install -y ninja-build cairosvg libcairo2-dev libjpeg-dev libgif-dev
-          sudo pip3 install --upgrade meson
-          pip install -r assets/requirements_svg.txt
+          sudo apt-get update -qq
+          sudo apt-get install -qqy ninja-build cairosvg libcairo2-dev libjpeg-dev libgif-dev
+          sudo pip3 install -q --upgrade meson
+          pip install -qr assets/requirements_svg.txt
           mkdir assets/output
           python assets/generate_svgimage.py -p . -o assets/output --html https://${{ github.repository_owner }}.github.io/support-matrix | tee build.log
           python assets/generate_svgimage.py -p . -o assets/output --html https://${{ github.repository_owner }}.github.io/support-matrix -l zh | tee -a build.log
