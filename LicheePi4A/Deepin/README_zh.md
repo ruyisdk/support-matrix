@@ -4,7 +4,7 @@
 
 ### 系统信息
 
-- 系统版本：Deepin preview 20241227
+- 系统版本：Deepin 25-beige-preview 20250122
 - 下载链接：https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
 - 参考安装文档：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
 
@@ -32,11 +32,11 @@
 刷入 u-boot 与 boot。
 
 ```bash
-tar -xvf deepin-23-beige-preview-riscv64-th1520-20241227-161022.tar.xz
+tar -xvf deepin-25-beige-preview-riscv64-th1520-20250122-113934.tar.xz
 sudo fastboot flash ram u-boot-with-spl.bin
 sudo fastboot reboot
 sudo fastboot flash uboot u-boot-with-spl.bin
-sudo fastboot flash boot deepin-th1520-riscv64-v23-desktop-installer.boot.ext4
+sudo fastboot flash boot deepin-th1520-riscv64-25-desktop-installer.boot.ext4 
 ```
 
 ### 刷写镜像
@@ -44,7 +44,7 @@ sudo fastboot flash boot deepin-th1520-riscv64-v23-desktop-installer.boot.ext4
 将 root 分区刷入 eMMC 中。
 
 ```bash
-sudo fastboot flash root deepin-th1520-riscv64-v23-desktop-installer.root.ext4
+sudo fastboot flash root deepin-th1520-riscv64-25-desktop-installer.root.ext4 
 ```
 
 ### 登录系统
@@ -65,31 +65,31 @@ sudo fastboot flash root deepin-th1520-riscv64-v23-desktop-installer.root.ext4
 ### 启动信息
 
 ```log
-Deepin GNU/Linux 23 deepin-riscv64-th1520 ttyS0
+Deepin GNU/Linux 23 plct-PC ttyS0
 
-deepin-riscv64-th1520 login: root
+plct-PC login: root
 Password:
-Verification successful
-Linux deepin-riscv64-th1520 5.10.113-th1520-revyos-510 #1 SMP PREEMPT Tue Aug 27 10:05:53 UTC 2024 riscv64
-Welcome to Deepin 23 GNU/Linux
+验证成功
+Linux plct-PC 5.10.113-th1520-revyos-510 #1 SMP PREEMPT Tue Aug 27 10:05:53 UTC 2024 riscv64
+Welcome to deepin 25 GNU/Linux
 
-    * Homepage:https://www.deepin.org/
+    * Homepage: https://www.deepin.org/
 
-    * Bugreport:https://bbs.deepin.org/
+    * Bugreport: https://bbs.deepin.org/
 
 
-root@deepin-riscv64-th1520:~# uname -a
-Linux deepin-riscv64-th1520 5.10.113-th1520-revyos-510 #1 SMP PREEMPT Tue Aug 27 10:05:53 UTC 2024 riscv64 GNU/Linux
-root@deepin-riscv64-th1520:~# cat /etc/os-release 
-PRETTY_NAME="Deepin 23"
+root@plct-PC:~# uname -a
+Linux plct-PC 5.10.113-th1520-revyos-510 #1 SMP PREEMPT Tue Aug 27 10:05:53 UTC 2024 riscv64 GNU/Linux
+root@plct-PC:~# cat /etc/os-release
+PRETTY_NAME="Deepin 25"
 NAME="Deepin"
-VERSION_ID="23"
-VERSION="23"
+VERSION_CODENAME=beige
 ID=deepin
 HOME_URL="https://www.deepin.org/"
 BUG_REPORT_URL="https://bbs.deepin.org"
-VERSION_CODENAME=beige
-root@deepin-riscv64-th1520:~# cat /proc/cpuinfo 
+VERSION_ID="25"
+VERSION="25"
+root@plct-PC:~# cat /proc/cpuinfo 
 processor       : 0
 hart            : 0
 isa             : rv64imafdcvsu
@@ -137,6 +137,8 @@ cpu-l2cache     : 1MB
 cpu-tlb         : 1024 4-ways
 cpu-cacheline   : 64Bytes
 cpu-vector      : 0.7.1
+
+root@plct-PC:~# 
 ```
 
 ![](./image.png)

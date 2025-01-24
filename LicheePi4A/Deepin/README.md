@@ -1,10 +1,10 @@
 ---
 sys: deepin
-sys_ver: 20241227
+sys_ver: 25-beige-preview
 sys_var: null
 
 status: good
-last_update: 2025-01-22
+last_update: 2025-01-24
 ---
 
 # Deepin preview LPi4A Test Report
@@ -13,7 +13,7 @@ last_update: 2025-01-22
 
 ### System Information
 
-- System Version: Deepin preview 20241227
+- System Version: Deepin 25-beige-preview 20250122
 - Download Link: https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
 - Reference Installation Document: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
 
@@ -41,11 +41,11 @@ Extract the installation suite.
 Flash the u-boot and boot.
 
 ```bash
-tar -xvf deepin-23-beige-preview-riscv64-th1520-20241227-161022.tar.xz
+tar -xvf deepin-25-beige-preview-riscv64-th1520-20250122-113934.tar.xz
 sudo fastboot flash ram u-boot-with-spl.bin
 sudo fastboot reboot
 sudo fastboot flash uboot u-boot-with-spl.bin
-sudo fastboot flash boot deepin-th1520-riscv64-v23-desktop-installer.boot.ext4
+sudo fastboot flash boot deepin-th1520-riscv64-25-desktop-installer.boot.ext4 
 ```
 
 ### Flashing the Image
@@ -53,7 +53,7 @@ sudo fastboot flash boot deepin-th1520-riscv64-v23-desktop-installer.boot.ext4
 Flash the root partition into the eMMC.
 
 ```bash
-sudo fastboot flash root deepin-th1520-riscv64-v23-desktop-installer.root.ext4
+sudo fastboot flash root deepin-th1520-riscv64-25-desktop-installer.root.ext4 
 ```
 
 ### Logging into the System
@@ -74,31 +74,31 @@ The system boots up successfully, and login via onboard serial port is successfu
 ### Boot Log
 
 ```log
-Deepin GNU/Linux 23 deepin-riscv64-th1520 ttyS0
+Deepin GNU/Linux 23 plct-PC ttyS0
 
-deepin-riscv64-th1520 login: root
+plct-PC login: root
 Password:
-Verification successful
-Linux deepin-riscv64-th1520 5.10.113-th1520-revyos-510 #1 SMP PREEMPT Tue Aug 27 10:05:53 UTC 2024 riscv64
-Welcome to Deepin 23 GNU/Linux
+验证成功
+Linux plct-PC 5.10.113-th1520-revyos-510 #1 SMP PREEMPT Tue Aug 27 10:05:53 UTC 2024 riscv64
+Welcome to deepin 25 GNU/Linux
 
-    * Homepage:https://www.deepin.org/
+    * Homepage: https://www.deepin.org/
 
-    * Bugreport:https://bbs.deepin.org/
+    * Bugreport: https://bbs.deepin.org/
 
 
-root@deepin-riscv64-th1520:~# uname -a
-Linux deepin-riscv64-th1520 5.10.113-th1520-revyos-510 #1 SMP PREEMPT Tue Aug 27 10:05:53 UTC 2024 riscv64 GNU/Linux
-root@deepin-riscv64-th1520:~# cat /etc/os-release 
-PRETTY_NAME="Deepin 23"
+root@plct-PC:~# uname -a
+Linux plct-PC 5.10.113-th1520-revyos-510 #1 SMP PREEMPT Tue Aug 27 10:05:53 UTC 2024 riscv64 GNU/Linux
+root@plct-PC:~# cat /etc/os-release
+PRETTY_NAME="Deepin 25"
 NAME="Deepin"
-VERSION_ID="23"
-VERSION="23"
+VERSION_CODENAME=beige
 ID=deepin
 HOME_URL="https://www.deepin.org/"
 BUG_REPORT_URL="https://bbs.deepin.org"
-VERSION_CODENAME=beige
-root@deepin-riscv64-th1520:~# cat /proc/cpuinfo 
+VERSION_ID="25"
+VERSION="25"
+root@plct-PC:~# cat /proc/cpuinfo 
 processor       : 0
 hart            : 0
 isa             : rv64imafdcvsu
@@ -146,6 +146,7 @@ cpu-l2cache     : 1MB
 cpu-tlb         : 1024 4-ways
 cpu-cacheline   : 64Bytes
 cpu-vector      : 0.7.1
+
 ```
 
 ![](./image.png)
