@@ -51,8 +51,42 @@ class BoardImageWrapper:
         self.index_name = index_name
         self.old_indexs = old_indexs
 
+        if len(self.old_indexs):
+            self.old_indexs.append(self.__gen_dummy_index(
+                vinfo.vendor
+            ))
+
         self.index = self.plugin.handle_report(
             self.vinfo, self.index_name, self.old_indexs)
+
+    def __gen_dummy_index(self, name: str = "Dummy", strategy: str = "dd-v1") -> BoardImages:
+        """
+        Generate a dummy index
+        """
+        return BoardImages(
+            bot_created=False,
+            version="0.0.0",
+            info=BoardIndex(
+                {
+                    "format": "v1",
+                    "metadata": {
+                        "desc": "Dummy file",
+                        "vendor": {
+                            "name": name,
+                            "eula": ""
+                        },
+                    },
+                    "distfiles": [],
+                    "blob": {
+                        "distfiles": []
+                    },
+                    "provisionable": {
+                        "strategy": strategy,
+                        "partition_map": None
+                    }
+                }
+            )
+        )
 
     def new_index(self) -> BoardImages:
         """
