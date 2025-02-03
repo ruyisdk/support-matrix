@@ -10,7 +10,7 @@ from pluginbase import PluginBase
 from .config import config
 from . import util
 from .upload_plugin_base import UploadPluginBase
-from ..version_checker import VInfo
+from ..matrix_parser import VInfo
 
 logger = logging.getLogger(__name__)
 

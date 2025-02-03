@@ -12,10 +12,10 @@ from awesomeversion import AwesomeVersion
 
 from . import util
 from .config import config
-from .ruyi_index_parser import PackageIndexProc, clone_package_index, BoardImages
-from ..version_checker import gen_oldver
+from .ruyi_index_parser import PackageIndexProc, clone_package_index
+from .ruyi_index_parser import BoardImages, BoardIndex
 from ..matrix_parser import Systems, ImageStatus
-from ..version_checker import VInfo
+from ..matrix_parser import VInfo, gen_oldver
 from .plugin_handler import find_plugin
 from .upload_plugin_base import UploadPluginBase
 
@@ -138,7 +138,7 @@ class RuyiDiff:
 
             try:
                 yield from self.__yield_one_sys(v, plugin)
-            except Exception as e: # pylint: disable=broad-except
+            except Exception as e:  # pylint: disable=broad-except
                 logger.error("Error occurs when handling system %s:%s:%s-%s",
                              v.vendor, v.system, v.variant, v.version)
                 logger.error("Error: %s", e)
@@ -151,7 +151,7 @@ class RuyiDiff:
         self.index_proc = PackageIndexProc(index_path)
         self.index = self.index_proc.parse_board()
         self.matrix = matrix
-        self.oldver = gen_oldver(matrix, config["config"])
+        self.oldver = gen_oldver(matrix)
 
     def __enter__(self):
         return self

@@ -8,7 +8,7 @@ See lm4a_revy.py for example.
 """
 
 from abc import ABC, abstractmethod
-from ..version_checker import VInfo
+from ..matrix_parser import VInfo
 from .ruyi_index_parser import BoardImages, BoardIndexDistfiles
 
 
