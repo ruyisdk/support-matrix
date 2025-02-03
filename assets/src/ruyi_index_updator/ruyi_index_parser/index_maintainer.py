@@ -12,7 +12,10 @@ def clone_package_index(path: str):
     """
     Clone the ruyi package index to the path.
     """
-    repo = git.Repo.clone_from(config["RUYI_PACKAGE_INDEX"], path)
+    if os.path.exists(path):
+        repo = git.Repo(path)
+    else:
+        repo = git.Repo.clone_from(config["RUYI_PACKAGE_INDEX"], path)
     return repo
 
 class PackageIndex():
