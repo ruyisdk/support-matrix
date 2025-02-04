@@ -216,6 +216,8 @@ class RuyiGitRepo:
             image.index_name,
             file_name
         )
+        index_dir = os.path.dirname(index_file)
+        os.makedirs(index_dir, exist_ok=True)
         with open(index_file, "w", encoding="utf-8") as f:
             f.write(image.new_index_toml())
             if image.index.is_bot_created and CI_RUN_ID is None:

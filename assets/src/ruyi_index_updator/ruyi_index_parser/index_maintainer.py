@@ -8,6 +8,7 @@ from .. import util
 from ..config import config
 from .parse_board_img import BoardImages
 
+
 def clone_package_index(path: str):
     """
     Clone the ruyi package index to the path.
@@ -17,6 +18,7 @@ def clone_package_index(path: str):
     else:
         repo = git.Repo.clone_from(config["RUYI_PACKAGE_INDEX"], path)
     return repo
+
 
 class PackageIndex():
     """
@@ -45,6 +47,7 @@ class PackageIndex():
         self.repo.close()
         self.repo = None
 
+
 class PackageIndexProc():
     """
     Processor for the ruyi package index.
@@ -67,3 +70,15 @@ class PackageIndexProc():
             res[d] = [BoardImages(os.path.join(d_f, x)) for x in images]
             res[d].sort()
         return res
+
+    def create_new_index(self, current: dict[str, list[BoardImages]], index_name: str) -> dict[str, list[BoardImages]]:
+        """
+        Create a new index
+        """
+        b_path = os.path.join(self.path, "manifests", "board-image")
+        new_folder = os.path.join(b_path, index_name)
+        if os.path.exists(new_folder):
+            return current
+        os.mkdir(new_folder)
+        current[index_name] = []
+        return current
