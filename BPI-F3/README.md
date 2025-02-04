@@ -1,4 +1,5 @@
 ---
+vendor: "bpi_f3"
 product: BananaPi BPI-F3
 cpu: Key Stone K1
 cpu_core: SpacemiT X60
