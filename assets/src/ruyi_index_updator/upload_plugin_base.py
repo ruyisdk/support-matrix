@@ -38,7 +38,7 @@ class UploadPluginBase(ABC):
     @abstractmethod
     def can_handle(self, vinfo: VInfo) -> bool:
         """
-        Check if the plugin can handle the system
+        Check if the plugin can handle a system from support matrix
         """
         raise NotImplementedError
 

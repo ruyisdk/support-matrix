@@ -15,9 +15,7 @@ class Star64Armbian(UploadPluginBase):
     }
 
     def can_handle(self, vinfo: VInfo) -> bool:
-        if vinfo in self.can_handle_tup.values():
-            return True
-        return False
+        return vinfo in self.can_handle_tup.values()
 
     def is_mapped_ruyi_index(self, vinfo: VInfo, index: str) -> bool:
         if index in self.can_handle_tup and self.can_handle_tup[index] == vinfo:
