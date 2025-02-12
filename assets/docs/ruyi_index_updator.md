@@ -28,7 +28,7 @@ renew_ruyi_index.py 里面封装了所有的操作，你可以直接运行这个
 
 `UploadPluginBase`类中你需要实现以下方法：
 - `get_name`：static 方法，返回插件的名字。
-- `can_handle`：判断是否能处理当前镜像（以 vendor-system-variance 三元组存储，当然包含原报告在`raw_data`中）。
+- `can_handle`：判断能否处理一份报告（以 vendor-system-variance 三元组存储，当然包含原报告在`raw_data`中）。
 - `is_mapped_ruyi_index`：判断当前的 ruyi index 中的一个镜像是否可以由该报告生成。
 - `handle_version`：从镜像版本 map 到 ruyi 使用的语义化版本号。更多定义问 ruyi。
 - `handle_report`：使用当前报告，为 index 生成一份新的 image index。
@@ -66,7 +66,8 @@ renew_ruyi_index.py 里面封装了所有的操作，你可以直接运行这个
 
 ### 使用它
 
-在 `src/ruyi_index_updator/github_auth.py` 是一个单独的脚本，其用途就是获取一个 token。直接运行它，按照提示输入即可。
-```python
-python assets/src/ruyi_index_updator/github_auth.py
+在 `scripts/github_auth.py` 是一个单独的脚本，其用途就是获取一个 token。直接运行它，按照提示输入即可。
+```shell
+pip install -r requirements_ruyinv.txt
+python scripts/github_auth.py
 ```

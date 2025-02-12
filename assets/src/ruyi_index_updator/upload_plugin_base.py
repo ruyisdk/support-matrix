@@ -8,8 +8,8 @@ See lm4a_revy.py for example.
 """
 
 from abc import ABC, abstractmethod
-from ..version_checker import VInfo
-from ..ruyi_index_parser import BoardImages, BoardIndexDistfiles
+from ..matrix_parser import VInfo
+from .ruyi_index_parser import BoardImages, BoardIndexDistfiles
 
 
 class UploadPluginBase(ABC):
@@ -38,7 +38,7 @@ class UploadPluginBase(ABC):
     @abstractmethod
     def can_handle(self, vinfo: VInfo) -> bool:
         """
-        Check if the plugin can handle the system
+        Check if the plugin can handle a system from support matrix
         """
         raise NotImplementedError
 

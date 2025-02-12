@@ -28,7 +28,7 @@ A `register` function is mandatory in the file. If it returns `Null`, it indicat
 
 In the `UploadPluginBase` class, you need to implement the following methods:
 - `get_name`: A static method that returns the name of the plugin.
-- `can_handle`: Determines if the current mirror can be handled (stored as a vendor-system-variance triplet, including the original report in `raw_data`).
+- `can_handle`: Determines if a report can be handled (stored as a vendor-system-variance triplet, including the original report in `raw_data`).
 - `is_mapped_ruyi_index`: Checks if a mirror in the current ruyi index can be generated from the report.
 - `handle_version`: Maps the mirror version to the semantic version used by ruyi. For more definitions, refer to ruyi documentation.
 - `handle_report`: Uses the current report to generate a new image index for the ruyi index.

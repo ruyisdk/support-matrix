@@ -5,8 +5,8 @@ Check for updates in the matrix
 import sys
 import argparse
 import logging
-from src.matrix_parser import Systems
-from src.version_checker import gen_oldver, run_nvchecker, vinfo_dict_to_dict, filter_newer
+from src.matrix_parser import Systems, gen_oldver
+from src.version_checker import run_nvchecker, filter_newer
 
 logger = logging.getLogger(__name__)
 
@@ -23,13 +23,17 @@ def main():
     args = arg.parse_args()
 
     matrix = Systems(args.path)
-    old = gen_oldver(matrix, args.config)
+    old = gen_oldver(matrix)
 
     new, fail = run_nvchecker(oldvers=old)
     if fail:
         logger.exception("Failed to run nvchecker: %s", fail)
         sys.exit(-1)
-    old = vinfo_dict_to_dict(old)
+    old = {
+        f"{vinfo.vendor}-{vinfo.system}-{vinfo.variant}": {
+            "version": vinfo.version
+        } for vinfo in old.values()
+    }
 
     upd = filter_newer(old, new)
 
