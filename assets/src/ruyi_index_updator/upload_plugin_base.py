@@ -42,6 +42,13 @@ class UploadPluginBase(ABC):
         """
         raise NotImplementedError
 
+    def all_index_can_handle(self) -> dict[str, tuple[str, str, str]]:
+        """
+        Give a list of all the index name from packages index which this plugin can process.
+        This is not necessary, but better have it to allow extra checker applyed.
+        """
+        return {}
+
     @abstractmethod
     def is_mapped_ruyi_index(self, vinfo: VInfo, index: str) -> bool:
         """

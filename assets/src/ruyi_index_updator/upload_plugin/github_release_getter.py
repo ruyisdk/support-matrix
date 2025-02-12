@@ -51,6 +51,12 @@ class GithubReleaseGetter(UploadPluginBase):
                 return True
         return False
 
+    def all_index_can_handle(self):
+        res = {
+            i.index: i.tup for i in self.can_handle_lst
+        }
+        return res
+
     def is_mapped_ruyi_index(self, vinfo, index):
         for handle_info in self.can_handle_lst:
             if handle_info.index == index and handle_info.tup == vinfo:

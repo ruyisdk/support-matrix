@@ -51,8 +51,42 @@ class BoardImageWrapper:
         self.index_name = index_name
         self.old_indexs = old_indexs
 
+        if len(self.old_indexs) <= 0:
+            self.old_indexs.append(self.__gen_dummy_index(
+                vinfo.vendor
+            ))
+
         self.index = self.plugin.handle_report(
             self.vinfo, self.index_name, self.old_indexs)
+
+    def __gen_dummy_index(self, name: str = "Dummy", strategy: str = "dd-v1") -> BoardImages:
+        """
+        Generate a dummy index
+        """
+        return BoardImages(
+            bot_created=False,
+            version="0.0.0",
+            info=BoardIndex(
+                {
+                    "format": "v1",
+                    "metadata": {
+                        "desc": "Dummy file",
+                        "vendor": {
+                            "name": name,
+                            "eula": ""
+                        },
+                    },
+                    "distfiles": [],
+                    "blob": {
+                        "distfiles": []
+                    },
+                    "provisionable": {
+                        "strategy": strategy,
+                        "partition_map": None
+                    }
+                }
+            )
+        )
 
     def new_index(self) -> BoardImages:
         """
@@ -93,25 +127,59 @@ class RuyiDiff:
     A wrapper for RuyiDiff, holding the resource, doing the diff process
     """
 
+    def __is_bootstrap(self, vinfo: VInfo, plug: UploadPluginBase):
+        """
+        Cross check if an index isn't exists of a vinfo. If true, means we are doing a bootstrap
+        """
+        index_name: str | None = None
+        for k, v in plug.all_index_can_handle().items():
+            if v == vinfo:
+                index_name = k
+                break
+
+        if index_name is None:
+            return False
+
+        if index_name not in self.index:
+            return True
+
+    def __do_bootstrap(self, vinfo: VInfo, plug: UploadPluginBase):
+        """
+        Bootstrap a new index
+        """
+        new_index_names = []
+        for k, v in plug.all_index_can_handle().items():
+            if v == vinfo and k not in self.index:
+                new_index_names.append(k)
+        for name in new_index_names:
+            logger.warning(
+                "Bootstrapping a new image in packages index: %s", name)
+            self.index = self.index_proc.create_new_index(self.index, name)
+
     def __yield_one_sys(self, vinfo: VInfo,
                         plug: UploadPluginBase):
+        if self.__is_bootstrap(vinfo, plug):
+            self.__do_bootstrap(vinfo, plug)
         for index_name, index in self.index.items():
             if not plug.is_mapped_ruyi_index(vinfo, index_name):
                 continue
-            newest_index = index[0]
+
+            newest_version = "0.0.0"
             for i in index:
-                if cmp_version(i.version, newest_index.version) > 0:
-                    newest_index = i
+                if cmp_version(i.version, newest_version) > 0:
+                    newest_version = i.version
+
             matrix_version = plug.handle_version(vinfo)
-            if newest_index.version < matrix_version:
+
+            if newest_version < matrix_version:
                 logger.info(
                     "Find new version for %s: %s -> %s",
-                    index_name, newest_index.version, matrix_version)
+                    index_name, newest_version, matrix_version)
                 yield BoardImageWrapper(vinfo, plug, index_name, index)
             elif config["force"]:
                 logger.info(
                     "Force update for %s: %s -> %s",
-                    index_name, newest_index.version, matrix_version)
+                    index_name, newest_version, matrix_version)
                 yield BoardImageWrapper(vinfo, plug, index_name, index)
 
     def gen_branch(self):
@@ -130,7 +198,11 @@ class RuyiDiff:
                 continue
 
             if v.raw_data.status < threadhold:
+                logger.info("Image %s is blocked dueto status %s less then threadhold %s", repr(
+                    v), v.raw_data.status, threadhold)
                 continue
+
+            logger.info("Processing %s...", repr(v))
 
             # Please notice:
             # One system may have multiple ruyi_index, we need to handle them all

@@ -32,6 +32,7 @@ renew_ruyi_index.py 里面封装了所有的操作，你可以直接运行这个
 - `is_mapped_ruyi_index`：判断当前的 ruyi index 中的一个镜像是否可以由该报告生成。
 - `handle_version`：从镜像版本 map 到 ruyi 使用的语义化版本号。更多定义问 ruyi。
 - `handle_report`：使用当前报告，为 index 生成一份新的 image index。
+- *可选* `all_index_can_handle`：所有能处理的 packages index image 名称。用于进行自动初始化和额外检查等。
 
 其中包含的一些 helper 函数可自行查看。一份示例是给 lpi4a 中 ruyi 系统的插件，包含了 RevyOS 和两个 u-boot 镜像，RevyOS 镜像中又有多个文件，应该能较好的代表所有情况。
 
