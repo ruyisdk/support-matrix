@@ -1,13 +1,13 @@
 # pylint: disable=import-outside-toplevel, missing-function-docstring
 """
-Upload plugin for LM4A Revy
+Upload plugin for Th1520 Revy
 """
 from .prelude import *  # pylint: disable=wildcard-import, unused-wildcard-import
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 
-class Lm4aRevy(UploadPluginBase):
+class Th1520Revy(UploadPluginBase):
     """
     Class for LM4A Revy plugin
     """
@@ -17,7 +17,7 @@ class Lm4aRevy(UploadPluginBase):
 
     @staticmethod
     def get_name() -> str:
-        return "lm4a_revy"
+        return "th1520_revy"
 
     can_handle_tup = {
         "revyos-sipeed-lpi4a": ("sipeed_licheepi4a", "debian", "null"),
@@ -26,10 +26,14 @@ class Lm4aRevy(UploadPluginBase):
         "uboot-revyos-sipeed-lpi4a-8g": ("sipeed_licheepi4a", "debian", "null"),
         "uboot-revyos-sipeed-lc4a-16g": ("sipeed_licheecluster4a", "debian", "null"),
         "uboot-revyos-sipeed-lc4a-8g": ("sipeed_licheecluster4a", "debian", "null"),
+        "revyos-milkv-meles": ("milkv_meles", "debian", "null"),
     }
 
     def can_handle(self, vinfo: VInfo) -> bool:
         return vinfo in self.can_handle_tup.values()
+
+    def all_index_can_handle(self):
+        return self.can_handle_tup
 
     def is_mapped_ruyi_index(self, vinfo: VInfo, index: str) -> bool:
         if index in self.can_handle_tup and self.can_handle_tup[index] == vinfo:
@@ -38,11 +42,16 @@ class Lm4aRevy(UploadPluginBase):
 
     def handle_version(self, vinfo: VInfo) -> str:
         # Wait for ruyi to give a more specific definition
+        # If it is milkv_meles, the version should be greater than 1.0.0
+        # to override old vendor release
+        if vinfo == ("milkv_meles", "debian", "null"):
+            return f"1.{vinfo.version}.0"
         return f"0.{vinfo.version}.0"
 
     def handle_report(self, vinfo: VInfo,
                       index: str, last_index: list[BoardImages]) -> BoardImages:
-        if index == "revyos-sipeed-lpi4a" or index == "revyos-sipeed-lc4a":
+        if index == "revyos-sipeed-lpi4a" or index == "revyos-sipeed-lc4a" \
+                or index == "revyos-milkv-meles":
             return self.handle_report_image(vinfo, index, last_index)
         if index == "uboot-revyos-sipeed-lpi4a-8g" or index == "uboot-revyos-sipeed-lc4a-8g":
             return self.handle_report_uboot_8g(vinfo, index, last_index)
@@ -57,6 +66,9 @@ class Lm4aRevy(UploadPluginBase):
                 vinfo.version}/"
         elif index == "revyos-sipeed-lc4a":
             base_url = f"https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/{
+                vinfo.version}/"
+        elif index == "revyos-milkv-meles":
+            base_url = f"https://mirror.iscas.ac.cn/revyos/extra/images/meles/{
                 vinfo.version}/"
         else:
             return None
@@ -90,6 +102,8 @@ class Lm4aRevy(UploadPluginBase):
             desc = f"RevyOS {vinfo.version} image for Sipeed LicheePi 4A"
         elif index == "revyos-sipeed-lc4a":
             desc = f"RevyOS {vinfo.version} image for Sipeed LicheeCluster 4A"
+        elif index == "revyos-milkv-meles":
+            desc = f"RevyOS {vinfo.version} image for Milk-V Meles (vendor release v1.0.0)"
         else:  # unreachable
             raise ValueError(f"Unknown index {index}")
         res = self.copy.copy(last_index[-1])
@@ -102,8 +116,8 @@ class Lm4aRevy(UploadPluginBase):
             boot_dist.name
         ]
         res.info.provisionable.partition_map = {
-            "boot": boot_dist.name[:-4],
-            "root": root_dist.name[:-4]
+            "boot": ".".join(boot_dist.name.split(".")[:-1]),
+            "root": ".".join(root_dist.name.split(".")[:-1])
         }
         return res
 
@@ -235,4 +249,4 @@ def register() -> UploadPluginBase | None:
     """
     Register the plugin
     """
-    return Lm4aRevy()
+    return Th1520Revy()

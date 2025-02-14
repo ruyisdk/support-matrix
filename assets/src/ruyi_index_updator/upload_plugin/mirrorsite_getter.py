@@ -170,6 +170,22 @@ bpif3_bianbu: Info = {
             vinfo.version}",
 }
 
+pioneer_revyos: Info = {
+    "index_name": "revyos-sg2042-milkv-pioneer",
+    "tup": ("milkv_pioneer", "debian", "null"),
+    "version_mapper": lambda vinfo: f"0.{vinfo.version}.0",
+    "url": {
+        "mirrorsite_url": "https://mirror.iscas.ac.cn/",
+        "split_path": "revyos/extra/images/sg2042/"
+    },
+    "file_name_filter": lambda vinfo, filename:
+    "revyos" in filename and
+        "pioneer" in filename and
+        "img" in filename,
+    "gen_desc": lambda vinfo, index_name:
+        f"RevyOS {vinfo.version} image for Milk-V Pioneer Box with SG2042"
+}
+
 
 def register() -> UploadPluginBase | None:
     return MirrorsiteGetter([
