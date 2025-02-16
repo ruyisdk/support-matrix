@@ -22,9 +22,10 @@
 - Arch Linux
     - 下载链接：[https://mirror.iscas.ac.cn/archriscv/images/](https://mirror.iscas.ac.cn/archriscv/images/)
     - 参考安装文档：[ArchWiki](https://wiki.archlinux.org/title/General_recommendations)
-- Deepin preview 20240603
-    - 下载链接：https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-lpi4a-20240613-122949.tar.xz
+- Deepin 25-beige-preview 20250122
+    - 下载链接：https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
     - 参考安装文档：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
+    
 ### 硬件开发板信息
 
 - Lichee Pi 4A 16GB RAM + 128GB eMMC

@@ -1,5 +1,6 @@
 ---
 product: Pioneer Box
+vendor: milkv_pioneer
 cpu: SG2042
 cpu_core: XuanTie C920
 ---

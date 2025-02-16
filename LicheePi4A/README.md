@@ -30,9 +30,9 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
     - Download link: [https://mirror.iscas.ac.cn/archriscv/images/](https://mirror.iscas.ac.cn/archriscv/images/)
     - Reference Installation Document: 
     - [ArchWiki](https://wiki.archlinux.org/title/General_recommendations)
-- Deepin preview 20240603
-    - Download link: https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-lpi4a-20240613-122949.tar.xz
-    - Reference Installation Document: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/
+- Deepin 25-beige-preview 20250122
+    - Download Link: https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
+    - Reference Installation Document: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
 
 ### Hardware Information
 

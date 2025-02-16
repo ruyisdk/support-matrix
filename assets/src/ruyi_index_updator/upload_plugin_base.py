@@ -8,8 +8,8 @@ See lm4a_revy.py for example.
 """
 
 from abc import ABC, abstractmethod
-from ..version_checker import VInfo
-from ..ruyi_index_parser import BoardImages, BoardIndexDistfiles
+from ..matrix_parser import VInfo
+from .ruyi_index_parser import BoardImages, BoardIndexDistfiles
 
 
 class UploadPluginBase(ABC):
@@ -38,9 +38,16 @@ class UploadPluginBase(ABC):
     @abstractmethod
     def can_handle(self, vinfo: VInfo) -> bool:
         """
-        Check if the plugin can handle the system
+        Check if the plugin can handle a system from support matrix
         """
         raise NotImplementedError
+
+    def all_index_can_handle(self) -> dict[str, tuple[str, str, str]]:
+        """
+        Give a list of all the index name from packages index which this plugin can process.
+        This is not necessary, but better have it to allow extra checker applyed.
+        """
+        return {}
 
     @abstractmethod
     def is_mapped_ruyi_index(self, vinfo: VInfo, index: str) -> bool:
@@ -71,6 +78,20 @@ class UploadPluginBase(ABC):
     from tqdm import tqdm
     import hashlib
     import copy
+    from awesomeversion import AwesomeVersion
+
+    def cmp_version(self, v1: str, v2: str) -> int:
+        """
+        Compare the version of two strings
+        Though this function is in version_diff.py, as plugins runs in a seprate env, we need to rewrite it here.
+        """
+        av1 = self.AwesomeVersion(v1)
+        av2 = self.AwesomeVersion(v2)
+        if av1 > av2:
+            return 1
+        if av1 < av2:
+            return -1
+        return 0
 
     def download_file(self, file: str, url: str) -> str:
         """
@@ -129,7 +150,8 @@ class UploadPluginBase(ABC):
             "checksums": {
                 "sha256": self.sha256sum(file),
                 "sha512": self.sha512sum(file),
-            }
+            },
+            "restrict": ["mirror"],
         })
 
     def autoupdate_index(self, last_index: BoardImages, vinfo: VInfo,

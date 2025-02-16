@@ -28,10 +28,11 @@ A `register` function is mandatory in the file. If it returns `Null`, it indicat
 
 In the `UploadPluginBase` class, you need to implement the following methods:
 - `get_name`: A static method that returns the name of the plugin.
-- `can_handle`: Determines if the current mirror can be handled (stored as a vendor-system-variance triplet, including the original report in `raw_data`).
+- `can_handle`: Determines if a report can be handled (stored as a vendor-system-variance triplet, including the original report in `raw_data`).
 - `is_mapped_ruyi_index`: Checks if a mirror in the current ruyi index can be generated from the report.
 - `handle_version`: Maps the mirror version to the semantic version used by ruyi. For more definitions, refer to ruyi documentation.
 - `handle_report`: Uses the current report to generate a new image index for the ruyi index.
+- *optional* `all_index_can_handle`: All names of packages index images that can be processed. Used for automatic initialization and additional checks, etc.
 
 You can review the provided helper functions as needed. An example plugin is provided for the LPI4A system in ruyi, which includes RevyOS and two U-Boot mirrors. The RevyOS mirror contains multiple files, making it a good representation of all scenarios.
 

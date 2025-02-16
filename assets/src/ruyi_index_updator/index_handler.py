@@ -8,14 +8,13 @@ import git
 from github import Github, Auth
 from github.Repository import Repository
 from .version_diff import BoardImageWrapper
+from .config import config
 
 logger = logging.getLogger(__name__)
 
-PACKAGE_INDEX_OWNER = os.getenv("PACKAGE_INDEX_OWNER", "ruyisdk")
-PACKAGE_INDEX_REPO = "packages-index"
-
 CI_RUN_ID = os.getenv("CI_RUN_ID", None)
 CI_RUN_URL = os.getenv("CI_RUN_URL", None)
+
 
 class PrWrapper:
     """
@@ -32,8 +31,8 @@ class PrWrapper:
         return f"""\
 PR:
     Title: {self.title}
-    Body: 
-{self.body} 
+    Body:
+{self.body}
 
 <Body End>
     From: {self.self_branch}
@@ -50,10 +49,10 @@ class RuyiGitRepo:
         # We assert the PACKAGE_INDEX_REPO is the ruyi index repo.
         try:
             repo = self.github.get_repo(
-                f"{self.user.login}/{PACKAGE_INDEX_REPO}")
+                f"{self.user.login}/{config["PACKAGE_INDEX_REPO"]}")
         except:  # pylint: disable=bare-except
             ruyi_repo = self.github.get_repo(
-                f"{PACKAGE_INDEX_OWNER}/{PACKAGE_INDEX_REPO}")
+                f"{config["PACKAGE_INDEX_OWNER"]}/{config["PACKAGE_INDEX_REPO"]}")
             repo = self.user.create_fork(repo=ruyi_repo)
         return repo
 
@@ -91,7 +90,7 @@ class RuyiGitRepo:
         """
         head = f"{self.user.login}:{wrapper.self_branch}"
         base = wrapper.upstream_branch
-        if self.check_pr_updated(head, base):
+        if not config["force"] and self.check_pr_updated(head, base):
             logger.error(
                 "PR already exist for %s -> %s, please check manually", head, base)
             logger.error("New PR info: %s", repr(wrapper))
@@ -157,11 +156,11 @@ class RuyiGitRepo:
         self.user = self.github.get_user()
 
         self.upstream = self.github.get_repo(
-            f"{PACKAGE_INDEX_OWNER}/{PACKAGE_INDEX_REPO}")
+            f"{config["PACKAGE_INDEX_OWNER"]}/{config["PACKAGE_INDEX_REPO"]}")
 
         self.repo = self.__get_or_fork_repo()
 
-        repo_dir = os.path.join(repo_dir, PACKAGE_INDEX_REPO)
+        repo_dir = os.path.join(repo_dir, config["PACKAGE_INDEX_REPO"])
 
         if not os.path.exists(repo_dir):
             self.local_repo = git.Repo.clone_from(self.repo.ssh_url, repo_dir)
@@ -173,7 +172,7 @@ class RuyiGitRepo:
             logger.info("Repo updated to %s: %s", self.repo.ssh_url,
                         self.local_repo.head.commit)
 
-    def local_checkout(self, branch: str):
+    def __local_checkout(self, branch: str):
         """
         Checkout to a branch.
         """
@@ -186,7 +185,7 @@ class RuyiGitRepo:
         self.__clean()
         logger.info("Checkout to %s", branch)
 
-    def local_commit(self, message: str):
+    def __local_commit(self, message: str):
         """
         Commit the changes.
         """
@@ -194,7 +193,7 @@ class RuyiGitRepo:
         message = f"{message}\n\nThis commit is made by ruyi-index-updator"
         self.local_repo.index.commit(message)
 
-    def local_push(self, branch: str):
+    def __local_push(self, branch: str):
         """
         Push the changes to remote.
         """
@@ -205,7 +204,7 @@ class RuyiGitRepo:
             ["git", "push", "--set-upstream", "origin", branch, "-f"]
         )
 
-    def add_image(self, image: BoardImageWrapper):
+    def __add_image(self, image: BoardImageWrapper):
         """
         Add a image index to the repo.
         """
@@ -217,13 +216,17 @@ class RuyiGitRepo:
             image.index_name,
             file_name
         )
+        index_dir = os.path.dirname(index_file)
+        os.makedirs(index_dir, exist_ok=True)
         with open(index_file, "w", encoding="utf-8") as f:
             f.write(image.new_index_toml())
             if image.index.is_bot_created and CI_RUN_ID is None:
-                f.write("\n# This file is created by program renew_ruyi_index in support-matrix\n")
+                f.write(
+                    "\n# This file is created by program renew_ruyi_index in support-matrix\n")
                 f.write("# Run: In local\n")
             elif image.index.is_bot_created:
-                f.write("\n# This file is created by CI Sync Package Index inside support-matrix\n")
+                f.write(
+                    "\n# This file is created by CI Sync Package Index inside support-matrix\n")
                 f.write(f"# Run ID: {CI_RUN_ID}\n")
                 f.write(f"# Run URL: {CI_RUN_URL}\n")
         # self.local_repo.index.add([index_file])
@@ -232,7 +235,7 @@ class RuyiGitRepo:
         )
         logger.info("Add %s", file_name)
 
-    def upload_image(self, image: BoardImageWrapper):
+    def push(self, image: BoardImageWrapper):
         """
         Upload the image index to the repo.
         """
@@ -242,8 +245,8 @@ class RuyiGitRepo:
             return
 
         branch_name = f"{image.index_name}-{image.index.raw_version}"
-        self.local_checkout(branch_name)
-        self.add_image(image)
+        self.__local_checkout(branch_name)
+        self.__add_image(image)
         message = f"board-image/{image.index_name}:"\
             f" Bump to {image.index.version}"
         body = f"""\
@@ -253,8 +256,8 @@ Identifier: [HASH[{image.gen_hash()}]]
 
 This PR is made by ruyi-index-updator bot.
 """
-        self.local_commit(message)
-        self.local_push(branch_name)
+        self.__local_commit(message)
+        self.__local_push(branch_name)
         return PrWrapper(
             title=message,
             body=body,
