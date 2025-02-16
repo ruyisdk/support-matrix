@@ -32,7 +32,9 @@ cpu_core: SpacemiT X60
 - Alpine
   - Download Link: https://dev.alpinelinux.org/~mps/riscv64/
   - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
-
+- Deepin
+  - Download Link: https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20240913/riscv64/deepin-23-beige-preview-riscv64-k1-20240913-124401.tar.xz
+  - Reference Installation Document: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
 
 ### Hardware Information
 
@@ -48,6 +50,7 @@ cpu_core: SpacemiT X60
 | Fedora Image Boot           | N/A          | [Successful][Fedora]        |
 | OpenWrt Image Boot          | N/A          | [Successful][OpenWrt]       |
 | Alpine Image Boot           | N/A          | [Successful][Alpine]        |
+| Deepin Image Boot           | N/A          | [Successful][Deepin]        |
 
 [Bianbu]: ./Bianbu/README.md
 [Armbian_noble]: ./Armbian/README_noble.md
@@ -55,3 +58,4 @@ cpu_core: SpacemiT X60
 [Fedora]: ./Fedora/README.md
 [OpenWrt]: ./OpenWrt/README.md
 [Alpine]: ./Alpine/README.md
+[Deepin]: ./Deepin/README.md

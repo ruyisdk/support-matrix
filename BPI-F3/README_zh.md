@@ -26,6 +26,9 @@
 - Alpine
   - 下载链接：https://dev.alpinelinux.org/~mps/riscv64/
   - 参考安装文档：https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
+- Deepin
+  - 下载链接：https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20240913/riscv64/deepin-23-beige-preview-riscv64-k1-20240913-124401.tar.xz
+  - 参考安装文档：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
 
 ### 硬件开发板信息
 
@@ -41,6 +44,7 @@
 | Fedora 镜像启动           | N/A      | [成功][Fedora]        |
 | OpenWrt 镜像启动          | N/A      | [成功][OpenWrt]       |
 | Alpine 镜像启动           | N/A      | [成功][Alpine]        |
+| Deepin 镜像启动           | N/A      | [成功][Deepin]        |
 
 [Bianbu]: ./Bianbu/README_zh.md
 [Armbian_noble]: ./Armbian/README_zh_noble.md
@@ -48,3 +52,4 @@
 [Fedora]: ./Fedora/README_zh.md
 [OpenWrt]: ./OpenWrt/README_zh.md
 [Alpine]: ./Alpine/README_zh.md
+[Deepin]: ./Deepin/README_zh.md
