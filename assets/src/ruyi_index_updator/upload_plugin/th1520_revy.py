@@ -90,7 +90,7 @@ class Th1520Revy(UploadPluginBase):
                     self.__tmppath__, link.contents[0])
                 root_file = self.download_file(root_path, root_url)
                 root_dist = self.gen_distfile(root_file, root_url)
-            elif 'boot-' in link.contents[0]:
+            elif 'boot-' in link.contents[0] and 'u-boot' not in link.contents[0]:
                 boot_url = self.urllib.parse.urljoin(
                     base_url, str(link["href"]))
                 boot_path = self.os.path.join(
