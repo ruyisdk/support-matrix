@@ -79,6 +79,7 @@ class UploadPluginBase(ABC):
     import hashlib
     import copy
     from awesomeversion import AwesomeVersion
+    import urllib.parse as urllib_parse
 
     def cmp_version(self, v1: str, v2: str) -> int:
         """
@@ -118,6 +119,12 @@ class UploadPluginBase(ABC):
         Get the size of a file.
         """
         return self.os.path.getsize(file)
+    
+    def urljoin(self, base: str, path: str) -> str:
+        """
+        Do a urljoin
+        """
+        return self.urllib_parse.urljoin(base + '/', path)
 
     def sha256sum(self, file: str) -> str:
         """
