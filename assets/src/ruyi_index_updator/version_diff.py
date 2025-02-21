@@ -13,7 +13,7 @@ from awesomeversion import AwesomeVersion
 from . import util
 from .config import config
 from .ruyi_index_parser import PackageIndexProc, clone_package_index
-from .ruyi_index_parser import BoardImages, BoardIndex
+from .ruyi_index_parser import BoardImages
 from ..matrix_parser import Systems, ImageStatus
 from ..matrix_parser import VInfo, gen_oldver
 from .plugin_handler import find_plugin
@@ -66,8 +66,7 @@ class BoardImageWrapper:
         return BoardImages(
             bot_created=False,
             version="0.0.0",
-            info=BoardIndex(
-                {
+            info={
                     "format": "v1",
                     "metadata": {
                         "desc": "Dummy file",
@@ -76,16 +75,15 @@ class BoardImageWrapper:
                             "eula": ""
                         },
                     },
-                    "distfiles": [],
-                    "blob": {
+                "distfiles": [],
+                "blob": {
                         "distfiles": []
-                    },
-                    "provisionable": {
+                },
+                "provisionable": {
                         "strategy": strategy,
                         "partition_map": None
-                    }
                 }
-            )
+            }
         )
 
     def new_index(self) -> BoardImages:
@@ -104,7 +102,7 @@ class BoardImageWrapper:
         """
         Generate the new index dict
         """
-        return self.index.info.serialize()
+        return self.index.serialize()
 
     def new_index_toml(self) -> str:
         """

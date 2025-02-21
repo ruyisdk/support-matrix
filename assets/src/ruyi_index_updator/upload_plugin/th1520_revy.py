@@ -109,15 +109,17 @@ class Th1520Revy(UploadPluginBase):
         res = self.copy.copy(last_index[-1])
         res.is_bot_created = True
         res.version = self.handle_version(vinfo)
-        res.info.metadata.desc = desc
-        res.info.distfiles = [root_dist, boot_dist]
-        res.info.blob.distfiles = [
-            root_dist.name,
-            boot_dist.name
+        res.info["metadata"]["desc"] = desc
+        res.info["distfiles"] = [
+            root_dist, boot_dist
         ]
-        res.info.provisionable.partition_map = {
-            "boot": ".".join(boot_dist.name.split(".")[:-1]),
-            "root": ".".join(root_dist.name.split(".")[:-1])
+        res.info["blob"]["distfiles"] = [
+            root_dist["name"],
+            boot_dist["name"]
+        ]
+        res.info["provisionable"]["partition_map"] = {
+            "boot": ".".join(boot_dist["name"].split(".")[:-1]),
+            "root": ".".join(root_dist["name"].split(".")[:-1])
         }
         return res
 
@@ -159,7 +161,7 @@ class Th1520Revy(UploadPluginBase):
                     self.__tmppath__, link.contents[0])
                 uboot_file = self.download_file(uboot_path, uboot_url)
                 uboot_dist = self.gen_distfile(uboot_file, uboot_url)
-                uboot_dist.name = f"{bname}.{
+                uboot_dist["name"] = f"{bname}.{
                     vinfo.version}.bin"
 
         if index == "uboot-revyos-sipeed-lpi4a-8g":
@@ -173,13 +175,13 @@ class Th1520Revy(UploadPluginBase):
         res = self.copy.copy(last_index[-1])
         res.is_bot_created = True
         res.version = self.handle_version(vinfo)
-        res.info.metadata.desc = desc
-        res.info.distfiles = [uboot_dist]
-        res.info.blob.distfiles = [
-            uboot_dist.name
+        res.info["metadata"]["desc"] = desc
+        res.info["distfiles"] = [uboot_dist]
+        res.info["blob"]["distfiles"] = [
+            uboot_dist["name"]
         ]
-        res.info.provisionable.partition_map = {
-            "uboot": uboot_dist.name
+        res.info["provisionable"]["partition_map"] = {
+            "uboot": uboot_dist["name"]
         }
         return res
 
@@ -220,7 +222,7 @@ class Th1520Revy(UploadPluginBase):
                     self.__tmppath__, link.contents[0])
                 uboot_file = self.download_file(uboot_path, uboot_url)
                 uboot_dist = self.gen_distfile(uboot_file, uboot_url)
-                uboot_dist.name = f"{bname}.{
+                uboot_dist["name"] = f"{bname}.{
                     vinfo.version}.bin"
 
         if index == "uboot-revyos-sipeed-lpi4a-16g":
@@ -234,13 +236,13 @@ class Th1520Revy(UploadPluginBase):
         res = self.copy.copy(last_index[-1])
         res.is_bot_created = True
         res.version = self.handle_version(vinfo)
-        res.info.metadata.desc = desc
-        res.info.distfiles = [uboot_dist]
-        res.info.blob.distfiles = [
-            uboot_dist.name
+        res.info["metadata"]["desc"] = desc
+        res.info["distfiles"] = [uboot_dist]
+        res.info["blob"]["distfiles"] = [
+            uboot_dist["name"]
         ]
-        res.info.provisionable.partition_map = {
-            "uboot": uboot_dist.name
+        res.info["provisionable"]["partition_map"] = {
+            "uboot": uboot_dist["name"]
         }
         return res
 
