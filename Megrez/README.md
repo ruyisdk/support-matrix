@@ -12,8 +12,10 @@ cpu_core: SiFive P550
 ### Operating System Information
 
 - RockOS
-    - Download Link: https://github.com/milkv-megrez/megrez-build/releases/tag/2025-0117
-    - Reference Installation Document: https://milkv.io/zh/docs/megrez/getting-started/boot
+    - Project Link: https://github.com/rockos-riscv
+    - Reference Installation Document
+        - https://milkv.io/zh/docs/megrez/getting-started/boot 
+        - https://rockos-riscv.github.io/rockos-docs/docs/installation
 - Fedora 41
     - Download Link: https://images.fedoravforce.org/Megrez
     - Reference Installation Document: https://milkv.io/zh/docs/megrez/getting-started/boot
