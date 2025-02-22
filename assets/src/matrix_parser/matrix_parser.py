@@ -263,7 +263,7 @@ class Board:
                     sys_var=i['sys_var'],
                     status=i['status'],
                     last_update='2000-00-00',
-                    link=None
+                    link=[self.link, 'others.yml']
                 )
                 self.append_system(system)
         if not check_success:
