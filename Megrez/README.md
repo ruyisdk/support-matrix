@@ -28,7 +28,7 @@ cpu_core: SiFive P550
 
 | Software Category       | Package Name | Test Result (Test Report)       |
 |-------------------------|--------------|---------------------------------|
-| RockOS Image Boot       | N/A          | [CFT][RockOS]                   |
+| RockOS Image Boot       | N/A          | [Good][RockOS]                   |
 | Fedora Image Boot       | N/A          | [CFT][Fedora]                   |
 
 [RockOS]: ./RockOS/README.md
