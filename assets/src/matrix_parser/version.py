@@ -55,12 +55,11 @@ def gen_oldver(matrix: Systems):
     oldver: list[VInfo] = []
 
     for board in matrix.boards:
-        if board.vendor is None:
-            continue
+        vendor = "not_defined" if board.vendor is None else board.vendor
         for system in board.systems:
             for variant in system.variant:
                 variant_str = variant.sys_var if variant.sys_var is not None else 'null'
-                vinfo = VInfo(board.vendor, system.sys, variant_str)
+                vinfo = VInfo(vendor, system.sys, variant_str)
                 vinfo.set_version(variant.sys_ver)
                 vinfo.set_raw_data(variant)
                 oldver.append(vinfo)

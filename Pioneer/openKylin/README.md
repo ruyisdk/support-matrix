@@ -1,6 +1,6 @@
 ---
 sys: openkylin
-sys_ver: 2.0-alpha
+sys_ver: "2.0"
 sys_var: null
 
 status: good

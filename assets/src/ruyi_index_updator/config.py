@@ -59,6 +59,7 @@ _cli_configs = CFG([
     {'name': 'pr', 'explain': 'should create a PR for the update', 'action': 'store_true'},
     {'name': 'log', 'explain': 'output the log to the file', 'default': None},
     {'name': 'warn', 'explain': 'output the warn to the file', 'default': None},
+    {'name': 'update_info', 'explain': 'output the update info to the file', 'default': None},
     {'name': 'threadhold', 'explain': 'the status threadhold can be synced',
         'default': 'basic'},
     {'name': 'force', 'explain': 'force to update the index', 'action': 'store_true'},

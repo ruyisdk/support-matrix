@@ -35,5 +35,22 @@ def main():
             pr.title = f"[Force Update] {pr.title}"
         repo.create_wrapped_pr(pr)
 
+    update_info = diffs.update_info()
+    if config["update_info"] is not None:
+        with open(config["update_info"], "w", encoding="utf-8") as f:
+            f.write("|" . join([
+                "", "File", "Triple", "Update Info", ""
+            ]))
+            f.write("\n")
+            f.write("|" . join([
+                "", "---", "---", "---", ""
+            ]))
+            f.write("\n")
+            for i in update_info:
+                f.write("|" . join([
+                    "", i[0], i[1], i[2], ""
+                ]))
+                f.write("\n")
+
 if __name__ == '__main__':
     main()
