@@ -113,6 +113,24 @@ When all set, flash the binary with:
 ```bash
 make SOC=gd32vf103 BOARD=gd32vf103c_t_display upload
 ```
+
+> Still unable to connect to the board? Try re-flashing its firmware via its DFU bootloader.
+> 
+> Download the firmware from here: https://github.com/Xinyuan-LilyGO/LilyGO-T-DisplayGD32/raw/refs/heads/master/firmware/GD32V_CBT6_20200116.bin
+> 
+> Press the BOOT button while plugging in the board to enter DFU mode. `lsusb` should show something like:
+> 
+> ```shell
+> Bus 001 Device 047: ID 28e9:0189 GDMicroelectronics GD32 DFU Bootloader (Longan Nano)
+> # "Longan Nano" is intended behavior
+> ```
+
+> Flash the firmware with `gd32-dfu-utils` (https://github.com/riscv-mcu/gd32-dfu-utils):
+> 
+> ```shell
+> sudo gd32-dfu-util -D GD32V_CBT6_20200116.bin
+> ```
+
 ### System Startup
 
 Connect to the development board via the serial port.

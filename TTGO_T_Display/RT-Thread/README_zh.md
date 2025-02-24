@@ -105,6 +105,23 @@ index 019218da..66895b18 100644
 make SOC=gd32vf103 BOARD=gd32vf103c_t_display upload
 ```
 
+> 如果还是无法连接到开发板，可尝试重新烧写其固件进DFU。
+> 
+> 从这里下载固件：https://github.com/Xinyuan-LilyGO/LilyGO-T-DisplayGD32/raw/refs/heads/master/firmware/GD32V_CBT6_20200116.bin
+> 
+> 按住开发板上的 BOOT 按钮的同时上电，进入 DFU 模式，此时 `lsusb` 应有例如：
+> 
+> ```shell
+> Bus 001 Device 047: ID 28e9:0189 GDMicroelectronics GD32 DFU Bootloader (Longan Nano)
+> # 显示 Longan Nano 为正常现象
+> ```
+
+> 使用 `gd32-dfu-utils` (https://github.com/riscv-mcu/gd32-dfu-utils) 烧写固件：
+> 
+> ```shell
+> sudo gd32-dfu-util -D GD32V_CBT6_20200116.bin
+> ```
+
 ### 启动系统
 
 通过串口连接开发板。
