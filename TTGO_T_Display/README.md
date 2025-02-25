@@ -1,10 +1,10 @@
 ---
-product: Longan Nano
+product: TTGO T-Display-GD32
 cpu: GD32VF103
 cpu_core: Nuclei Bumblebee
 ---
 
-# Longan Nano
+# TTGO T-Display-GD32
 
 ## Test Environment
 
@@ -13,14 +13,11 @@ cpu_core: Nuclei Bumblebee
 - FreeRTOS/RT-Thread/ThreadX/μCOS-II
     - Source Code: https://github.com/Nuclei-Software/nuclei-sdk
     - Reference Installation Document: https://doc.nucleisys.com/nuclei_sdk/quickstart.html#build-run-and-debug-sample-application
-        - https://doc.nucleisys.com/nuclei_sdk/design/board/gd32vf103c_longan_nano.html
-- Zephyr
-    - Source Code: https://github.com/zephyrproject-rtos/zephyr/tree/main
-    - Reference Installation Document: https://docs.zephyrproject.org/latest/develop/getting_started/index.html
+        - https://doc.nucleisys.com/nuclei_sdk/design/board/gd32vf103c_t_display.html
 
 ### Hardware Information
 
-- Longan Nano (GD32VF103CBT6)
+- TTGO T-Display-GD32 (GD32VF103CBT6)
 
 ## Test Results
 
@@ -28,12 +25,11 @@ cpu_core: Nuclei Bumblebee
 | ----------------- | ------------ | -------------------------- |
 | FreeRTOS          | N/A          | [Success][FreeRTOS]        |
 | RT-Thread         | N/A          | [Success][RT-Thread]       |
-| Zephyr            | N/A          | [Success][Zephyr]          |
+| uCOSII            | N/A          | [Success][uCOSII]          |
 | ThreadX           | N/A          | [Success][ThreadX]         |
-| μC/OS-II          | N/A          | [Success][uCOSII]          |
 
 [FreeRTOS]: ./FreeRTOS/README.md
 [RT-Thread]: ./RT-Thread/README.md
 [ThreadX]: ./ThreadX/README.md
-[Zephyr]: ./Zephyr/README.md
 [uCOSII]: ./uCOSII/README.md
+
