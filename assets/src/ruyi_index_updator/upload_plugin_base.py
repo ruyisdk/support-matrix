@@ -9,7 +9,7 @@ See lm4a_revy.py for example.
 
 from abc import ABC, abstractmethod
 from ..matrix_parser import VInfo
-from .ruyi_index_parser import BoardImages, BoardIndexDistfiles
+from .ruyi_index_parser import BoardImages, DistfileDeclType
 
 
 class UploadPluginBase(ABC):
@@ -79,6 +79,7 @@ class UploadPluginBase(ABC):
     import hashlib
     import copy
     from awesomeversion import AwesomeVersion
+    import urllib.parse as urllib_parse
 
     def cmp_version(self, v1: str, v2: str) -> int:
         """
@@ -118,6 +119,12 @@ class UploadPluginBase(ABC):
         Get the size of a file.
         """
         return self.os.path.getsize(file)
+    
+    def urljoin(self, base: str, path: str) -> str:
+        """
+        Do a urljoin
+        """
+        return self.urllib_parse.urljoin(base + '/', path)
 
     def sha256sum(self, file: str) -> str:
         """
@@ -139,11 +146,11 @@ class UploadPluginBase(ABC):
                 sha512.update(chunk)
         return sha512.hexdigest()
 
-    def gen_distfile(self, file: str, url: str) -> BoardIndexDistfiles:
+    def gen_distfile(self, file: str, url: str) -> DistfileDeclType:
         """
         Generate a distfile object from a file.
         """
-        return BoardIndexDistfiles({
+        return {
             "name": self.os.path.basename(file),
             "size": self.file_size(file),
             "urls": [url],
@@ -152,23 +159,23 @@ class UploadPluginBase(ABC):
                 "sha512": self.sha512sum(file),
             },
             "restrict": ["mirror"],
-        })
+        }
 
     def autoupdate_index(self, last_index: BoardImages, vinfo: VInfo,
-                         desc: str, distfiles: dict[str, BoardIndexDistfiles]) -> BoardImages:
+                         desc: str, distfiles: dict[str, DistfileDeclType]) -> BoardImages:
         """
         Auto update the index.
         """
         res = self.copy.copy(last_index)
         res.is_bot_created = True
         res.version = self.handle_version(vinfo)
-        res.info.metadata.desc = desc
-        res.info.distfiles = distfiles.values()
-        res.info.blob.distfiles = [
-            dist.name for dist in distfiles.values()
+        res.info["metadata"]["desc"] = desc
+        res.info["distfiles"] = list(distfiles.values())
+        res.info["blob"]["distfiles"] = [
+            dist["name"] for dist in distfiles.values()
         ]
-        res.info.provisionable.partition_map = {
-            k: ".".join(v.name.split(".")[:-1]) for k, v in distfiles.items()
+        res.info["provisionable"]["partition_map"] = {
+            k: ".".join(v["name"].split(".")[:-1]) for k, v in distfiles.items()
         }
         return res
 

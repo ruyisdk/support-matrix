@@ -6,6 +6,7 @@ import os
 import logging
 import hashlib
 import traceback
+from typing import Literal
 
 import toml
 from awesomeversion import AwesomeVersion
@@ -13,7 +14,7 @@ from awesomeversion import AwesomeVersion
 from . import util
 from .config import config
 from .ruyi_index_parser import PackageIndexProc, clone_package_index
-from .ruyi_index_parser import BoardImages, BoardIndex
+from .ruyi_index_parser import BoardImages
 from ..matrix_parser import Systems, ImageStatus
 from ..matrix_parser import VInfo, gen_oldver
 from .plugin_handler import find_plugin
@@ -66,8 +67,7 @@ class BoardImageWrapper:
         return BoardImages(
             bot_created=False,
             version="0.0.0",
-            info=BoardIndex(
-                {
+            info={
                     "format": "v1",
                     "metadata": {
                         "desc": "Dummy file",
@@ -76,16 +76,15 @@ class BoardImageWrapper:
                             "eula": ""
                         },
                     },
-                    "distfiles": [],
-                    "blob": {
+                "distfiles": [],
+                "blob": {
                         "distfiles": []
                     },
-                    "provisionable": {
+                "provisionable": {
                         "strategy": strategy,
                         "partition_map": None
                     }
-                }
-            )
+            }
         )
 
     def new_index(self) -> BoardImages:
@@ -104,7 +103,7 @@ class BoardImageWrapper:
         """
         Generate the new index dict
         """
-        return self.index.info.serialize()
+        return self.index.serialize()
 
     def new_index_toml(self) -> str:
         """
@@ -126,6 +125,34 @@ class RuyiDiff:
     """
     A wrapper for RuyiDiff, holding the resource, doing the diff process
     """
+
+    class RuyiUpdateInfo:
+        """
+        Information of the update on a single image
+        """
+        stat: Literal['none', 'update', 'nochange', 'error']
+        force: bool | None
+        old_ver: str | None
+        new_ver: str | None
+
+        def __init__(self, stat: Literal['none', 'update', 'nochange', 'error'] = 'none',
+                     force: bool | None = None,
+                     old_ver: str | None = None, new_ver: str | None = None):
+            self.stat = stat
+            self.force = force
+            self.old_ver = old_ver
+            self.new_ver = new_ver
+
+        def __str__(self):
+            if self.stat == "none":
+                return "No update handler found"
+            if self.stat == "nochange":
+                return f"No change for version {self.old_ver}"
+            if self.stat == "update":
+                return f"Update from {self.old_ver} to {self.new_ver}"
+            if self.stat == "error":
+                return "Error occurs when updating! Please check the log for more information"
+            return "Unknown status"
 
     def __is_bootstrap(self, vinfo: VInfo, plug: UploadPluginBase):
         """
@@ -171,15 +198,30 @@ class RuyiDiff:
 
             matrix_version = plug.handle_version(vinfo)
 
+            # Mark update info
+            vinfo.update_info.stat = "nochange"
+            vinfo.update_info.old_ver = newest_version
+
             if newest_version < matrix_version:
                 logger.info(
                     "Find new version for %s: %s -> %s",
                     index_name, newest_version, matrix_version)
+
+                # Update update info
+                vinfo.update_info.stat = "update"
+                vinfo.update_info.new_ver = matrix_version
+
                 yield BoardImageWrapper(vinfo, plug, index_name, index)
             elif config["force"]:
                 logger.info(
                     "Force update for %s: %s -> %s",
                     index_name, newest_version, matrix_version)
+
+                # Update update info
+                vinfo.update_info.stat = "update"
+                vinfo.update_info.new_ver = matrix_version
+                vinfo.update_info.force = True
+
                 yield BoardImageWrapper(vinfo, plug, index_name, index)
 
     def gen_branch(self):
@@ -189,6 +231,10 @@ class RuyiDiff:
         threadhold = ImageStatus(config["threadhold"])
         filter_plugins = config["plugin_names"]
         for _, v in self.oldver.items():
+            # Mark system update info
+
+            setattr(v, "update_info", self.RuyiUpdateInfo())
+
             # Find the plugin that can handle the system
             plugin = find_plugin(v)
             if plugin is None:
@@ -211,10 +257,22 @@ class RuyiDiff:
             try:
                 yield from self.__yield_one_sys(v, plugin)
             except Exception as e:  # pylint: disable=broad-except
+                v.update_info.stat = "error"
                 logger.error("Error occurs when handling system %s:%s:%s-%s",
                              v.vendor, v.system, v.variant, v.version)
                 logger.error("Error: %s", e)
                 logger.error(traceback.format_exc())
+
+    def update_info(self) -> list[tuple[str, str, str]]:
+        """
+        Generate the update info
+        """
+        res = []
+        for _, v in self.oldver.items():
+            i = ('/'.join(v.raw_data.link),
+                 f"{v.vendor}-{v.system}-{v.variant}", str(v.update_info))
+            res.append(i)
+        return res
 
     def __init__(self, matrix: Systems):
         self.tmp_path = util.folder_tmp_mux(config["CACHE_DIR"])
