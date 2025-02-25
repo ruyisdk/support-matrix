@@ -21,7 +21,7 @@ cpu_core: XuanTie C906
     - Sipeed Lichee RV: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
 - Ubuntu
   - 24.10 Download link: https://ubuntu.com/download/risc-v
-  - 24.04.1 LTS Download link: https://ubuntu.com/download/risc-v
+  - 24.04.2 LTS Download link: https://ubuntu.com/download/risc-v
   - Reference Installation Document:
       - Sipeed Lichee RV Dock: https://wiki.ubuntu.com/RISC-V/LicheeRV
 - OpenWrt 23.05.2

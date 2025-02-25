@@ -1,19 +1,19 @@
 ---
 sys: ubuntu
-sys_ver: 24.04.1
+sys_ver: 24.04.2
 sys_var: LTS
 
 status: basic
-last_update: 2024-12-04
+last_update: 2025-02-24
 ---
 
-# Ubuntu 24.04.1 LTS D1 Test Report
+# Ubuntu 24.04.2 LTS LicheeRV Dock Test Report
 
 ## Test Environment
 
 ### Operating System Information
 
-- System Version: Ubuntu 24.04.1 LTS
+- System Version: Ubuntu 24.04.2 LTS
 - Download Link: https://ubuntu.com/download/risc-v
 - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/LicheeRV
 
@@ -52,6 +52,8 @@ The system booted successfully and login via the onboard serial port was also su
 ### Boot Log
 
 ```log
+Ubuntu 24.04.2 LTS ubuntu ttyS0
+
 ubuntu login: ubuntu
 Password: 
 You are required to change your password immediately (administrator enforced).
@@ -59,20 +61,17 @@ Changing password for ubuntu.
 Current password: 
 New password: 
 Retype new password: 
-The password has not been changed.
-New password: 
-Retype new password: 
-Welcome to Ubuntu 24.04.1 LTS (GNU/Linux 6.8.0-41-generic riscv64)
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-52-generic riscv64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/pro
 
- System information as of Tue Aug 27 15:32:33 UTC 2024
+ System information as of Sat Feb 15 09:09:37 UTC 2025
 
-  System load:    1.15      Processes:             27
+  System load:    1.17      Processes:             29
   Usage of /home: unknown   Users logged in:       0
-  Memory usage:   5%        IPv4 address for eth0: 10.10.10.2
+  Memory usage:   2%        IPv4 address for eth0: 10.10.10.2
   Swap usage:     0%
 
 Expanded Security Maintenance for Applications is not enabled.
@@ -95,12 +94,12 @@ To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
 ubuntu@ubuntu:~$ uname -a
-Linux ubuntu 6.8.0-41-generic #41.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Aug 13 09:58:43 UTC 2024 riscv64 riscv64 riscv64 GNU/Linux
+Linux ubuntu 6.8.0-52-generic #53.1-Ubuntu SMP PREEMPT_DYNAMIC Sun Jan 26 04:38:25 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux
 ubuntu@ubuntu:~$ cat /etc/os-release 
-PRETTY_NAME="Ubuntu 24.04.1 LTS"
+PRETTY_NAME="Ubuntu 24.04.2 LTS"
 NAME="Ubuntu"
 VERSION_ID="24.04"
-VERSION="24.04.1 LTS (Noble Numbat)"
+VERSION="24.04.2 LTS (Noble Numbat)"
 VERSION_CODENAME=noble
 ID=ubuntu
 ID_LIKE=debian

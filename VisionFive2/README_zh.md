@@ -12,7 +12,7 @@
 - openKylin 2.0
     - 下载链接：https://www.openkylin.top/downloads
 - 参考安装文档：https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8VisionFive2%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
-- Ubuntu 24.10 & 24.04.1 LTS
+- Ubuntu 24.10 & 24.04.2 LTS
     - 下载链接：https://ubuntu.com/download/risc-v
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
 - BuildRoot (VisionFive 2 SDK)

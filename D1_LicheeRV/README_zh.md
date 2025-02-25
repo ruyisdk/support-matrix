@@ -15,7 +15,7 @@
     - Sipeed Lichee RV: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
 - Ubuntu 
   - 24.10 下载链接: https://ubuntu.com/download/risc-v
-  - 24.04.1 LTS 下载链接: https://ubuntu.com/download/risc-v
+  - 24.04.2 LTS 下载链接: https://ubuntu.com/download/risc-v
   - 参考安装文档：
     - Sipeed Lichee RV Dock: https://wiki.ubuntu.com/RISC-V/LicheeRV
 - OpenWrt 23.05.2
