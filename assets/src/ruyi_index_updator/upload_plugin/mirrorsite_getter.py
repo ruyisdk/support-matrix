@@ -160,7 +160,7 @@ class MirrorsiteGetter(UploadPluginBase):
 bpif3_bianbu: Info = {
     "index_name": "bianbu-bpi-f3",
     "tup": ("bpi_f3", "bianbu", "null"),
-    "version_mapper": lambda vinfo: vinfo.version[1:],
+    "version_mapper": lambda vinfo: vinfo.version,
     "url": {
         "mirrorsite_url": "https://archive.spacemit.com/",
         "split_path": "image/k1/version/bianbu/"
