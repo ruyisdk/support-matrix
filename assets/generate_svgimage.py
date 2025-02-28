@@ -338,6 +338,15 @@ def main():
             f.write(gen_html(svg, os.path.join(
                 html_path, f'others{file_suffix}.svg')))
 
+    svg = proc_onesys(systems.cutomized, systems, link_func, color_func)
+    with open(os.path.join(args.output, f'cutomized{file_suffix}.svg'), 'w', encoding="utf-8") as f:
+        f.write(str(svg))
+    if html_path:
+        with open(os.path.join(args.output,
+                               f'cutomized{file_suffix}.html'), 'w', encoding="utf-8") as f:
+            f.write(gen_html(svg, os.path.join(
+                html_path, f'cutomized{file_suffix}.svg')))
+
 
 if __name__ == "__main__":
     try:
