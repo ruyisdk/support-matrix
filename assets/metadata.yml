@@ -36,6 +36,7 @@ rtos:
   - nuttx: NuttX
   - melis: Melis
   - uniproton: UniProton
+  - ucosii: μC/OS-II
 
 others:
   - android: Android

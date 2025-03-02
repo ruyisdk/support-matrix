@@ -4,23 +4,23 @@ This checks if the version of each image needs to be updated, and if so, updates
 
 import os
 import logging
-import shutil
-import tempfile
 import hashlib
-import toml
+import traceback
+from typing import Literal
 
+import toml
 from awesomeversion import AwesomeVersion
 
-from ..ruyi_index_parser import PackageIndexProc, clone_package_index, BoardImages
-from ..version_checker import gen_oldver
+from . import util
+from .config import config
+from .ruyi_index_parser import PackageIndexProc, clone_package_index
+from .ruyi_index_parser import BoardImages
 from ..matrix_parser import Systems, ImageStatus
-from ..version_checker import VInfo
+from ..matrix_parser import VInfo, gen_oldver
 from .plugin_handler import find_plugin
 from .upload_plugin_base import UploadPluginBase
 
 logger = logging.getLogger(__name__)
-
-CACHE_DIR: str | None = os.environ.get("CACHE_DIR", None)
 
 
 def cmp_version(v1: str, v2: str) -> int:
@@ -52,8 +52,40 @@ class BoardImageWrapper:
         self.index_name = index_name
         self.old_indexs = old_indexs
 
+        if len(self.old_indexs) <= 0:
+            self.old_indexs.append(self.__gen_dummy_index(
+                vinfo.vendor
+            ))
+
         self.index = self.plugin.handle_report(
             self.vinfo, self.index_name, self.old_indexs)
+
+    def __gen_dummy_index(self, name: str = "Dummy", strategy: str = "dd-v1") -> BoardImages:
+        """
+        Generate a dummy index
+        """
+        return BoardImages(
+            bot_created=False,
+            version="0.0.0",
+            info={
+                    "format": "v1",
+                    "metadata": {
+                        "desc": "Dummy file",
+                        "vendor": {
+                            "name": name,
+                            "eula": ""
+                        },
+                    },
+                "distfiles": [],
+                "blob": {
+                        "distfiles": []
+                    },
+                "provisionable": {
+                        "strategy": strategy,
+                        "partition_map": None
+                    }
+            }
+        )
 
     def new_index(self) -> BoardImages:
         """
@@ -71,7 +103,7 @@ class BoardImageWrapper:
         """
         Generate the new index dict
         """
-        return self.index.info.serialize()
+        return self.index.serialize()
 
     def new_index_toml(self) -> str:
         """
@@ -94,42 +126,115 @@ class RuyiDiff:
     A wrapper for RuyiDiff, holding the resource, doing the diff process
     """
 
-    tmp_path = None
+    class RuyiUpdateInfo:
+        """
+        Information of the update on a single image
+        """
+        stat: Literal['none', 'update', 'nochange', 'error']
+        force: bool | None
+        old_ver: str | None
+        new_ver: str | None
 
-    def __get_tmp_path(self):
-        if self.tmp_path is not None:
-            return
-        if CACHE_DIR is not None:
-            self.tmp_path = CACHE_DIR
-        self.tmp_path = tempfile.mkdtemp()
+        def __init__(self, stat: Literal['none', 'update', 'nochange', 'error'] = 'none',
+                     force: bool | None = None,
+                     old_ver: str | None = None, new_ver: str | None = None):
+            self.stat = stat
+            self.force = force
+            self.old_ver = old_ver
+            self.new_ver = new_ver
 
-    def __release_tmp_path(self):
-        if self.tmp_path is None:
-            return
-        if CACHE_DIR is None:
-            shutil.rmtree(self.tmp_path)
+        def __str__(self):
+            if self.stat == "none":
+                return "No update handler found"
+            if self.stat == "nochange":
+                return f"No change for version {self.old_ver}"
+            if self.stat == "update":
+                return f"Update from {self.old_ver} to {self.new_ver}"
+            if self.stat == "error":
+                return "Error occurs when updating! Please check the log for more information"
+            return "Unknown status"
+
+    def __is_bootstrap(self, vinfo: VInfo, plug: UploadPluginBase):
+        """
+        Cross check if an index isn't exists of a vinfo. If true, means we are doing a bootstrap
+        """
+        index_name: str | None = None
+        for k, v in plug.all_index_can_handle().items():
+            if v == vinfo:
+                index_name = k
+                break
+
+        if index_name is None:
+            return False
+
+        if index_name not in self.index:
+            return True
+
+    def __do_bootstrap(self, vinfo: VInfo, plug: UploadPluginBase):
+        """
+        Bootstrap a new index
+        """
+        new_index_names = []
+        for k, v in plug.all_index_can_handle().items():
+            if v == vinfo and k not in self.index:
+                new_index_names.append(k)
+        for name in new_index_names:
+            logger.warning(
+                "Bootstrapping a new image in packages index: %s", name)
+            self.index = self.index_proc.create_new_index(self.index, name)
 
     def __yield_one_sys(self, vinfo: VInfo,
                         plug: UploadPluginBase):
+        if self.__is_bootstrap(vinfo, plug):
+            self.__do_bootstrap(vinfo, plug)
         for index_name, index in self.index.items():
             if not plug.is_mapped_ruyi_index(vinfo, index_name):
                 continue
-            newest_index = index[0]
+
+            newest_version = "0.0.0"
             for i in index:
-                if cmp_version(i.version, newest_index.version) > 0:
-                    newest_index = i
+                if cmp_version(i.version, newest_version) > 0:
+                    newest_version = i.version
+
             matrix_version = plug.handle_version(vinfo)
-            if newest_index.version < matrix_version:
+
+            # Mark update info
+            vinfo.update_info.stat = "nochange"
+            vinfo.update_info.old_ver = newest_version
+
+            if newest_version < matrix_version:
                 logger.info(
                     "Find new version for %s: %s -> %s",
-                    index_name, newest_index.version, matrix_version)
+                    index_name, newest_version, matrix_version)
+
+                # Update update info
+                vinfo.update_info.stat = "update"
+                vinfo.update_info.new_ver = matrix_version
+
+                yield BoardImageWrapper(vinfo, plug, index_name, index)
+            elif config["force"]:
+                logger.info(
+                    "Force update for %s: %s -> %s",
+                    index_name, newest_version, matrix_version)
+
+                # Update update info
+                vinfo.update_info.stat = "update"
+                vinfo.update_info.new_ver = matrix_version
+                vinfo.update_info.force = True
+
                 yield BoardImageWrapper(vinfo, plug, index_name, index)
 
-    def gen_diff(self, filter_plugins: list[str] = None, threadhold = ImageStatus("basic")):
+    def gen_branch(self):
         """
         Yield the system that needs to be updated
         """
+        threadhold = ImageStatus(config["threadhold"])
+        filter_plugins = config["plugin_names"]
         for _, v in self.oldver.items():
+            # Mark system update info
+
+            setattr(v, "update_info", self.RuyiUpdateInfo())
+
             # Find the plugin that can handle the system
             plugin = find_plugin(v)
             if plugin is None:
@@ -139,24 +244,44 @@ class RuyiDiff:
                 continue
 
             if v.raw_data.status < threadhold:
+                logger.info("Image %s is blocked dueto status %s less then threadhold %s", repr(
+                    v), v.raw_data.status, threadhold)
                 continue
+
+            logger.info("Processing %s...", repr(v))
 
             # Please notice:
             # One system may have multiple ruyi_index, we need to handle them all
             # So, we need to iterate the index
-            yield from self.__yield_one_sys(v, plugin)
 
-    def __init__(self, matrix: Systems, conf: str):
-        self.__get_tmp_path()
+            try:
+                yield from self.__yield_one_sys(v, plugin)
+            except Exception as e:  # pylint: disable=broad-except
+                v.update_info.stat = "error"
+                logger.error("Error occurs when handling system %s:%s:%s-%s",
+                             v.vendor, v.system, v.variant, v.version)
+                logger.error("Error: %s", e)
+                logger.error(traceback.format_exc())
+
+    def update_info(self) -> list[tuple[str, str, str]]:
+        """
+        Generate the update info
+        """
+        res = []
+        for _, v in self.oldver.items():
+            i = ('/'.join(v.raw_data.link),
+                 f"{v.vendor}-{v.system}-{v.variant}", str(v.update_info))
+            res.append(i)
+        return res
+
+    def __init__(self, matrix: Systems):
+        self.tmp_path = util.folder_tmp_mux(config["CACHE_DIR"])
         index_path = os.path.join(self.tmp_path, "packages-index")
         self.repo = clone_package_index(index_path)
         self.index_proc = PackageIndexProc(index_path)
         self.index = self.index_proc.parse_board()
         self.matrix = matrix
-        self.oldver = gen_oldver(matrix, conf)
+        self.oldver = gen_oldver(matrix)
 
     def __enter__(self):
         return self
-
-    def __exit__(self, exc_type, exc_value, traceback):
-        self.__release_tmp_path()

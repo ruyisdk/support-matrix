@@ -4,9 +4,9 @@
 
 ### 操作系统信息
 
-- 系统版本：Duo-V1.1.3
-- 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk/releases
-- 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk
+- 系统版本：DuoS-V2.0.0 (musl   版本)
+- 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
+- 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk-v2
 
 ### 硬件信息
 
@@ -20,12 +20,20 @@
 
 ## 安装步骤
 
-###  使用 `ruyi` CLI 刷写镜像到 microSD 卡
+###  下载 Duo S 镜像并解压
 
-安装 [`ruyi`](https://github.com/ruyisdk/ruyi) 包管理器，运行 `ruyi device provision` 并按提示操作。
+```bash
+wget https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/download/v2.0.0/milkv-duos-musl-riscv64-sd_v2.0.0.img.zip
+unzip milkv-duos-musl-riscv64-sd_v2.0.0.img.zip
+```
 
-###  使用 `balenaEtcher` 刷写镜像到 microSD 卡
-安装开源跨平台工具 `balenaEtcher` 进行刷写。
+###  刷写镜像
+
+使用 `dd` 命令将镜像刷写到 SD 卡：
+
+```bash
+sudo dd if=milkv-duos-musl-riscv64-sd_v2.0.0.img of=/dev/your/device bs=1M status=progress
+```
 
 ### 登录系统
 
@@ -46,31 +54,33 @@
 > 这是正常情况。
 
 ```log
-Starting app...                                                                                                                     
-                                                                                                                                    
-[root@milkv-duo]~# insmod: can't insert '/mnt/system/ko/aic8800_fdrv.ko': No such device                                            
-                                                                                                                                    
-[root@milkv-duo]~#                                                                                                                  
-[root@milkv-duo]~# uname -a                                                                                                         
-Linux milkv-duo 5.10.4-tag- #1 PREEMPT Mon Feb 26 16:01:35 CST 2024 riscv64 GNU/Linux                                               
-[root@milkv-duo]~# cat /proc/cpuinfo                                                                                                
-processor       : 0                                                                                                                 
-hart            : 0                                                                                                                 
-isa             : rv64imafdvcsu                                                                                                     
-mmu             : sv39                                                                                                              
-                                                                                                                                    
-[root@milkv-duo]~# cat /etc/os-release                                                                                              
-NAME=Buildroot                                                                                                                      
-VERSION=20240226-1609                                                                                                               
-ID=buildroot                                                                                                                        
-VERSION_ID=2021.05                                                                                                                  
-PRETTY_NAME="Buildroot 2021.05"                                                                                                     
-[root@milkv-duo]~# 
+Starting app...
+
+[root@milkv-duo]~# [    5.417921] aicbsp: sdio_err:<aicwf_sdio_bus_pwrctl,1431>: bus down
+[    6.149662] ieee80211 phy0: 
+[    6.149662] *******************************************************
+[    6.149662] ** CAUTION: USING PERMISSIVE CUSTOM REGULATORY RULES **
+[    6.149662] *******************************************************
+
+[root@milkv-duo]~# uname -a
+Linux milkv-duo 5.10.4-tag- #1 PREEMPT Mon Dec 9 10:28:13 CST 2024 riscv64 GNU/Linux
+[root@milkv-duo]~# cat /etc/os-release 
+NAME=Buildroot
+VERSION=-g2b4e5fdbc
+ID=buildroot
+VERSION_ID=2024.02.3
+PRETTY_NAME="Buildroot 2024.02.3"
+[root@milkv-duo]~# cat /proc/cpuinfo 
+processor       : 0
+hart            : 0
+isa             : rv64imafdvcsu
+mmu             : sv39
+
 ```
 
 屏幕录像（从刷写镜像到登录系统）：
 
-[![asciinema](https://asciinema.org/a/y74COq4Da80mjhqZygoL7i97x)](https://asciinema.org/a/y74COq4Da80mjhqZygoL7i97x)
+[![asciicast](https://asciinema.org/a/48Jw8Gwh6NqCJpnVejBntLIxd.svg)](https://asciinema.org/a/48Jw8Gwh6NqCJpnVejBntLIxd)
 
 ## 测试判定标准
 

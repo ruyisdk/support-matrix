@@ -11,16 +11,16 @@
 
 ### 操作系统信息
 
-- Ubuntu 24.04.1 LTS
-    - 下载链接：https://cdimage.ubuntu.com/releases/24.04.1/release/
-        - TUNA 镜像源：https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.04.1-preinstalled-server-riscv64+icicle.img.xz
+- Ubuntu 24.04.2 LTS
+    - 下载链接：https://cdimage.ubuntu.com/releases/24.04.2/release/
+        - TUNA 镜像源：https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.04.2-preinstalled-server-riscv64+icicle.img.xz
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
 
 ### 其他信息
 
-- Icicle Kit Reference Design Release v2024.02
-    - 下载链接：https://github.com/polarfire-soc/icicle-kit-reference-design/releases/tag/v2024.02
-- FlashPro Express v2024.1（打包在 Programming and Debug Tools 内）
+- Icicle Kit Reference Design Release v2024.09
+    - 下载链接：https://github.com/polarfire-soc/icicle-kit-reference-design/releases/tag/v2024.09
+- FlashPro Express v2024.2（打包在 Programming and Debug Tools 内）
     - 下载链接（需要登录）：https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug/lab
 
 ## （可选，建议）更新 FPGA Design 和 Hart Software Services (HSS)
@@ -35,10 +35,10 @@
 
 此工具支持的系统有：
 
-- Windows 10/11
-- RHEL/CentOS 7.x, RHEL/CentOS 8.0-8.2
-- OpenSUSE Leap 42.3 (SLES 12.3)
-- Ubuntu 18.04 LTS, 20.04.3 LTS, 以及 22.04.1 LTS
+- Windows 10.0/11
+- Red Hat® Enterprise Linux (RHEL) 8.0-8.10, AlmaLinux® 8.3-8.10
+- Ubuntu 20.04.6 LTS
+- SUSE™ Linux Enterprise Server 12 SP5
 
 笔者使用的为 Windows 11 Home x64，尽管安装程序会提示不受支持的系统环境，但实测可正常安装。
 

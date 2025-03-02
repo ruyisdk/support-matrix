@@ -21,9 +21,7 @@ class DuoxBuildRoot(UploadPluginBase):
     }
 
     def can_handle(self, vinfo: VInfo) -> bool:
-        if vinfo in self.can_handle_tup.values():
-            return True
-        return False
+        return vinfo in self.can_handle_tup.values()
 
     def is_mapped_ruyi_index(self, vinfo: VInfo, index: str) -> bool:
         if index in self.can_handle_tup and self.can_handle_tup[index] == vinfo:
@@ -34,7 +32,7 @@ class DuoxBuildRoot(UploadPluginBase):
         return vinfo.version[1:]
 
     def fetch_release(self, vinfo: VInfo) -> dict:
-        api_url = 'https://api.github.com/repos/milkv-duo/duo-buildroot-sdk/releases'
+        api_url = 'https://api.github.com/repos/milkv-duo/duo-buildroot-sdk-v2/releases'
         headers = {
             "Accept": "application/vnd.github.v3+json",
             "X-Github-API-Version": "2022-11-28",
@@ -54,7 +52,7 @@ class DuoxBuildRoot(UploadPluginBase):
         assets = gh_release["assets"]
         for asset in assets:
             if asset["name"].startswith(f"milkv-{vinfo.vendor[6:]}-") \
-                    and "sd" in asset["name"]:
+                    and "sd" in asset["name"] and "riscv64" in asset["name"]:
                 return asset
         raise ValueError("No download url found in release")
 

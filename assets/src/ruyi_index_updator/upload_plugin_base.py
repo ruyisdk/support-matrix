@@ -8,8 +8,8 @@ See lm4a_revy.py for example.
 """
 
 from abc import ABC, abstractmethod
-from ..version_checker import VInfo
-from ..ruyi_index_parser import BoardImages, BoardIndexDistfiles
+from ..matrix_parser import VInfo
+from .ruyi_index_parser import BoardImages, DistfileDeclType
 
 
 class UploadPluginBase(ABC):
@@ -38,9 +38,16 @@ class UploadPluginBase(ABC):
     @abstractmethod
     def can_handle(self, vinfo: VInfo) -> bool:
         """
-        Check if the plugin can handle the system
+        Check if the plugin can handle a system from support matrix
         """
         raise NotImplementedError
+
+    def all_index_can_handle(self) -> dict[str, tuple[str, str, str]]:
+        """
+        Give a list of all the index name from packages index which this plugin can process.
+        This is not necessary, but better have it to allow extra checker applyed.
+        """
+        return {}
 
     @abstractmethod
     def is_mapped_ruyi_index(self, vinfo: VInfo, index: str) -> bool:
@@ -71,6 +78,21 @@ class UploadPluginBase(ABC):
     from tqdm import tqdm
     import hashlib
     import copy
+    from awesomeversion import AwesomeVersion
+    import urllib.parse as urllib_parse
+
+    def cmp_version(self, v1: str, v2: str) -> int:
+        """
+        Compare the version of two strings
+        Though this function is in version_diff.py, as plugins runs in a seprate env, we need to rewrite it here.
+        """
+        av1 = self.AwesomeVersion(v1)
+        av2 = self.AwesomeVersion(v2)
+        if av1 > av2:
+            return 1
+        if av1 < av2:
+            return -1
+        return 0
 
     def download_file(self, file: str, url: str) -> str:
         """
@@ -97,6 +119,12 @@ class UploadPluginBase(ABC):
         Get the size of a file.
         """
         return self.os.path.getsize(file)
+    
+    def urljoin(self, base: str, path: str) -> str:
+        """
+        Do a urljoin
+        """
+        return self.urllib_parse.urljoin(base + '/', path)
 
     def sha256sum(self, file: str) -> str:
         """
@@ -118,35 +146,36 @@ class UploadPluginBase(ABC):
                 sha512.update(chunk)
         return sha512.hexdigest()
 
-    def gen_distfile(self, file: str, url: str) -> BoardIndexDistfiles:
+    def gen_distfile(self, file: str, url: str) -> DistfileDeclType:
         """
         Generate a distfile object from a file.
         """
-        return BoardIndexDistfiles({
+        return {
             "name": self.os.path.basename(file),
             "size": self.file_size(file),
             "urls": [url],
             "checksums": {
                 "sha256": self.sha256sum(file),
                 "sha512": self.sha512sum(file),
-            }
-        })
+            },
+            "restrict": ["mirror"],
+        }
 
     def autoupdate_index(self, last_index: BoardImages, vinfo: VInfo,
-                         desc: str, distfiles: dict[str, BoardIndexDistfiles]) -> BoardImages:
+                         desc: str, distfiles: dict[str, DistfileDeclType]) -> BoardImages:
         """
         Auto update the index.
         """
         res = self.copy.copy(last_index)
         res.is_bot_created = True
         res.version = self.handle_version(vinfo)
-        res.info.metadata.desc = desc
-        res.info.distfiles = distfiles.values()
-        res.info.blob.distfiles = [
-            dist.name for dist in distfiles.values()
+        res.info["metadata"]["desc"] = desc
+        res.info["distfiles"] = list(distfiles.values())
+        res.info["blob"]["distfiles"] = [
+            dist["name"] for dist in distfiles.values()
         ]
-        res.info.provisionable.partition_map = {
-            k: ".".join(v.name.split(".")[:-1]) for k, v in distfiles.items()
+        res.info["provisionable"]["partition_map"] = {
+            k: ".".join(v["name"].split(".")[:-1]) for k, v in distfiles.items()
         }
         return res
 

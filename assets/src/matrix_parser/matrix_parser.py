@@ -86,7 +86,7 @@ class SystemVar:
 
     def __init__(self, *args, **kwargs):
         if len(kwargs) > 0:
-            self.sys = kwargs['sys']
+            self.sys = kwargs['sys'].lower()
             self.sys_ver = kwargs['sys_ver']
             self.sys_var = kwargs['sys_var']
             self.status = ImageStatus(kwargs['status'])
@@ -263,7 +263,7 @@ class Board:
                     sys_var=i['sys_var'],
                     status=i['status'],
                     last_update='2000-00-00',
-                    link=None
+                    link=[self.link, 'others.yml']
                 )
                 self.append_system(system)
         if not check_success:

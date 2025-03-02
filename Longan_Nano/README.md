@@ -10,7 +10,7 @@ cpu_core: Nuclei Bumblebee
 
 ### Operating System Information
 
-- FreeRTOS/RT-Thread/ThreadX
+- FreeRTOS/RT-Thread/ThreadX/μCOS-II
     - Source Code: https://github.com/Nuclei-Software/nuclei-sdk
     - Reference Installation Document: https://doc.nucleisys.com/nuclei_sdk/quickstart.html#build-run-and-debug-sample-application
         - https://doc.nucleisys.com/nuclei_sdk/design/board/gd32vf103c_longan_nano.html
@@ -30,9 +30,10 @@ cpu_core: Nuclei Bumblebee
 | RT-Thread         | N/A          | [Success][RT-Thread]       |
 | Zephyr            | N/A          | [Success][Zephyr]          |
 | ThreadX           | N/A          | [Success][ThreadX]         |
+| μC/OS-II          | N/A          | [Success][uCOSII]          |
 
 [FreeRTOS]: ./FreeRTOS/README.md
 [RT-Thread]: ./RT-Thread/README.md
 [ThreadX]: ./ThreadX/README.md
 [Zephyr]: ./Zephyr/README.md
-
+[uCOSII]: ./uCOSII/README.md

@@ -13,8 +13,8 @@
 - Ubuntu 24.10
     - 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched
-- Ubuntu 24.04.1 LTS
-    - 下载链接：https://cdimage.ubuntu.com/releases/24.04.1/release/
+- Ubuntu 24.04.2 LTS
+    - 下载链接：https://cdimage.ubuntu.com/releases/24.04.2/release/
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched
 - FreeBSD 14.0
     - 下载链接：https://mirrors.ustc.edu.cn/freebsd/releases/riscv/riscv64/ISO-IMAGES/14.0/FreeBSD-14.0-RELEASE-riscv-riscv64-mini-memstick.img.xz

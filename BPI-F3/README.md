@@ -1,4 +1,5 @@
 ---
+vendor: "bpi_f3"
 product: BananaPi BPI-F3
 cpu: Key Stone K1
 cpu_core: SpacemiT X60
@@ -19,7 +20,7 @@ cpu_core: SpacemiT X60
     - Google Drive: https://drive.google.com/drive/folders/1Y5iKY55hFEO2z0sEeG_KC5EInD6nVDft?usp=sharing
   - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 - Armbian(noble, desktopless)
-  - Download Links: https://mirrors.tuna.tsinghua.edu.cn/armbian-releases/bananapif3/archive/Armbian_24.8.1_Bananapif3_noble_legacy_6.1.15_minimal.img.xz
+  - Download Links: https://www.armbian.com/bananapi-f3/
   - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 - Fedora
   - Download Links:
@@ -32,6 +33,9 @@ cpu_core: SpacemiT X60
 - Alpine
   - Download Link: https://dev.alpinelinux.org/~mps/riscv64/
   - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
+- openKylin
+  - Download Links: https://www.openkylin.top/downloads/index.html
+  - Reference Installation Document: https://docs.openkylin.top/en/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8SpacemiT_K1%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 
 
 ### Hardware Information
@@ -48,6 +52,7 @@ cpu_core: SpacemiT X60
 | Fedora Image Boot           | N/A          | [Successful][Fedora]        |
 | OpenWrt Image Boot          | N/A          | [Successful][OpenWrt]       |
 | Alpine Image Boot           | N/A          | [Successful][Alpine]        |
+| openKylin Image Boot           | N/A          | [Successful][openKylin]        |
 
 [Bianbu]: ./Bianbu/README.md
 [Armbian_noble]: ./Armbian/README_noble.md
@@ -55,3 +60,4 @@ cpu_core: SpacemiT X60
 [Fedora]: ./Fedora/README.md
 [OpenWrt]: ./OpenWrt/README.md
 [Alpine]: ./Alpine/README.md
+[openKylin]: ./openKylin/README.md

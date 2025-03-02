@@ -18,7 +18,7 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 - openKylin 2.0
     - Download Link: https://www.openkylin.top/downloads
     - Reference Installation Document：https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8VisionFive2%E4%B8%8A%E5%AE%89%E8%A3%85openKylin (Chinese)
-- Ubuntu 24.10 & 24.04.1 LTS
+- Ubuntu 24.10 & 24.04.2 LTS
     - Download Link: https://ubuntu.com/download/risc-v
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
 - BuildRoot (VisionFive 2 SDK)
@@ -27,6 +27,9 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 - Arch Linux
     - Download Link: https://github.com/cwt-vf2/archlinux-image-vf2/releases/tag/cwt23
     - Reference Installation Document: https://forum.rvspace.org/t/arch-linux-image-for-visionfive-2/1459
+- Fedora 41
+  - Download Link: https://mirror.iscas.ac.cn/fedora-riscv/dl/StarFive/visionfive2/images/latest/fedora-disk-multi-desktops_starfive_vf2-sda.raw.gz
+  - Reference Installation Document: https://images.fedoravforce.com/how-to-burn-images-to-sd-cards
 - Gentoo
     - Download Link: https://drive.google.com/file/d/10TDsk2FwZDJv3yJvDAfCam5Wf9ibS6Eg/view?usp=sharing
     - Reference Installation Document: https://forum.rvspace.org/t/experimental-gentoo-image/1807
@@ -83,6 +86,7 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 | Ubuntu LTS Image      | N/A              | [Successful][Ubuntu-LTS] (Official Support)       |
 | BuildRoot Image       | N/A              | [Successful][BuildRoot] (Official StarFive Image) |
 | Arch Linux Image      | N/A              | [Successful][Arch]                                |
+| Fedora Image          | N/A              | [Successful][Fedora]                              |
 | Gentoo Image          | N/A              | [Successful][Gentoo]                              |
 | openSUSE Image        | N/A              | [Successful][openSUSE] (Official Support)         |
 | OpenBSD Image         | N/A              | [Successful][OpenBSD]                             |
@@ -106,6 +110,7 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 [Ubuntu-LTS]: ./Ubuntu/Ubuntu_LTS.md
 [BuildRoot]: ./BuildRoot/README.md
 [Arch]: ./ArchLinux/README.md
+[Fedora]: ./Fedora/README.md
 [Gentoo]: ./Gentoo/README.md
 [openSUSE]: ./openSUSE/README.md
 [OpenBSD]: ./OpenBSD/README.md

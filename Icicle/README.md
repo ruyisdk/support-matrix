@@ -13,8 +13,8 @@ cpu_core: SiFive U54 + SiFive E51
 - Ubuntu 24.10
     - Download Link: https://cdimage.ubuntu.com/releases/24.10/release/
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
-- Ubuntu 24.04.1 LTS
-    - Download Link: https://cdimage.ubuntu.com/releases/24.04.1/release/
+- Ubuntu 24.04.2 LTS
+    - Download Link: https://cdimage.ubuntu.com/releases/24.04.2/release/
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
 - BuildRoot 24.02.2
     - Source Code Download Link: https://buildroot.org/downloads/buildroot-2024.02.2.tar.gz

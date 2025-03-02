@@ -52,7 +52,73 @@ StarFive VisionFive 2 提供了多种引导模式，可在上电前通过板载�
 ### 启动信息
 
 ```log
+openKylin 2.0 openkylin ttyS0
 
+openkylin login: openkylin
+密码： 
+Welcome to openKylin 2.0 (GNU/Linux 6.6.20 riscv64)
+
+ * Support:        https://openkylin.top
+
+The programs included with the openKylin system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+openKylin comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+You do not have any new mail.
+load environment: QT_ACCESSIBILITY=1
+load environment: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+openkylin@openkylin:~$ uname -a
+Linux openkylin 6.6.20 #1 SMP Tue May 28 14:19:33 CST 2024 riscv64 riscv64 riscv64 GNU/Linux
+openkylin@openkylin:~$ cat /etc/os-release 
+NAME="openKylin"
+FULL_NAME="openKylin"
+VERSION="2.0 (nile)"
+VERSION_US="2.0 (nile)"
+ID=openkylin
+PRETTY_NAME="openKylin 2.0"
+VERSION_ID="2.0"
+HOME_URL="https://www.openkylin.top/"
+VERSION_CODENAME=nile
+PRODUCT_FEATURES=3
+openkylin@openkylin:~$ cat /proc/cpuinfo 
+processor       : 0
+hart            : 3
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+
+processor       : 1
+hart            : 1
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+
+processor       : 2
+hart            : 2
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+
+processor       : 3
+hart            : 4
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
 ```
 
 ![login](./image.png)

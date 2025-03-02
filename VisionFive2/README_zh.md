@@ -12,7 +12,7 @@
 - openKylin 2.0
     - 下载链接：https://www.openkylin.top/downloads
 - 参考安装文档：https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8VisionFive2%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
-- Ubuntu 24.10 & 24.04.1 LTS
+- Ubuntu 24.10 & 24.04.2 LTS
     - 下载链接：https://ubuntu.com/download/risc-v
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
 - BuildRoot (VisionFive 2 SDK)
@@ -21,6 +21,9 @@
 - Arch Linux
     - 下载链接：https://github.com/cwt-vf2/archlinux-image-vf2/releases/tag/cwt23
     - 参考安装文档：https://forum.rvspace.org/t/arch-linux-image-for-visionfive-2/1459
+- Fedora 41
+  - 下载链接：https://mirror.iscas.ac.cn/fedora-riscv/dl/StarFive/visionfive2/images/latest/fedora-disk-multi-desktops_starfive_vf2-sda.raw.gz
+  - 参考安装文档：https://images.fedoravforce.com/how-to-burn-images-to-sd-cards
 - Gentoo
     - 下载链接：https://drive.google.com/file/d/10TDsk2FwZDJv3yJvDAfCam5Wf9ibS6Eg/view?usp=sharing
     - 参考安装文档：https://forum.rvspace.org/t/experimental-gentoo-image/1807
@@ -76,6 +79,7 @@
 | Ubuntu LTS 镜像启动      | N/A      | [成功][Ubuntu-LTS]（官方支持）         |
 | BuildRoot 镜像启动       | N/A      | [成功][BuildRoot]（StarFive 厂商镜像） |
 | Arch Linux 镜像启动      | N/A      | [成功][Arch]                           |
+| Fedora 镜像启动          | N/A      | [成功][Fedora]                         |
 | Gentoo 镜像启动          | N/A      | [成功][Gentoo]                         |
 | openSUSE 镜像启动        | N/A      | [成功][openSUSE]（官方支持）           |
 | OpenBSD 镜像启动         | N/A      | [成功][OpenBSD]                        |
@@ -99,6 +103,7 @@
 [Ubuntu-LTS]: ./Ubuntu/Ubuntu_LTS_zh.md
 [BuildRoot]: ./BuildRoot/README_zh.md
 [Arch]: ./ArchLinux/README_zh.md
+[Fedora]: ./Fedora/README_zh.md
 [Gentoo]: ./Gentoo/README_zh.md
 [openSUSE]: ./openSUSE/README_zh.md
 [OpenBSD]: ./OpenBSD/README_zh.md

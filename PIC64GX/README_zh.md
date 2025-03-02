@@ -7,8 +7,8 @@
 - Ubuntu 24.10
     - 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/Microchip%20PIC64GX1000%20Curiosity%20Kit
-- Ubuntu 24.04.1 LTS
-    - 下载链接：https://cdimage.ubuntu.com/releases/24.04/release/
+- Ubuntu 24.04.2 LTS
+    - 下载链接：https://cdimage.ubuntu.com/releases/24.04.2/release/
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/Microchip%20PIC64GX1000%20Curiosity%20Kit
 - OpenEmbedded / Yocto
     - 下载链接：https://github.com/pic64gx/meta-pic64gx-yocto-bsp

@@ -16,8 +16,8 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
     - Reference Installation Document: https://milkv.io/zh/docs/mars/getting-started/boot
 - Ubuntu 24.10
     - Download Link: https://cdimage.ubuntu.com/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64+milkvmars.img.xz
-- Ubuntu 24.04.1 LTS
-    - Download Link: https://cdimage.ubuntu.com/releases/24.04.1/release/ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img.xz
+- Ubuntu 24.04.2 LTS
+    - Download Link: https://cdimage.ubuntu.com/releases/24.04.2/release/ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img.xz
     - Reference Installation Document: https://milkv.io/zh/docs/mars/getting-started/boot
 - Deepin
     - Download Link: https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-milkv-mars-20240613-123442.tar.xz

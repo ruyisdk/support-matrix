@@ -1,10 +1,10 @@
 ---
 sys: buildroot
-sys_ver: v1.1.3
+sys_ver: v2.0.0
 sys_var: null
 
 status: basic
-last_update: 2024-11-17
+last_update: 2025-01-14
 ---
 
 # BuildRoot Milk-V Duo S Test Report
@@ -13,9 +13,9 @@ last_update: 2024-11-17
 
 ### Operating System Information
 
-- System Version: Duo-V1.1.3
-- Download Link: https://github.com/milkv-duo/duo-buildroot-sdk/releases
-- Reference Installation Document: https://github.com/milkv-duo/duo-buildroot-sdk
+- System Version: DuoS-V2.0.0 (musl riscv64 version)
+- Download Link: https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
+- Reference Installation Document: https://github.com/milkv-duo/duo-buildroot-sdk-v2
 
 ### Hardware Information
 
@@ -28,12 +28,19 @@ last_update: 2024-11-17
 
 ## Installation Steps
 
-### Using `ruyi` CLI to Flash Image to microSD Card
+### Download DuoS Image and extract
 
-Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the prompts.
+```bash
+wget https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/download/v2.0.0/milkv-duos-musl-riscv64-sd_v2.0.0.img.zip
+unzip milkv-duos-musl-riscv64-sd_v2.0.0.img.zip
+```
 
-### Using `balenaEtcher` to flash image to microSD Card
-Install `balennaEtcher`, the open source tool for flashing.
+### Flashing the Image
+
+Use `dd` to flash the image to the SD card:
+```bash
+sudo dd if=milkv-duos-musl-riscv64-sd_v2.0.0.img of=/dev/your/device bs=1M status=progress
+```
 
 ### Logging into the System
 
@@ -54,31 +61,33 @@ The system booted successfully and login via the onboard serial port and ssh was
 > This is normal.
 
 ```log
-Starting app...                                                                                                                     
-                                                                                                                                    
-[root@milkv-duo]~# insmod: can't insert '/mnt/system/ko/aic8800_fdrv.ko': No such device                                            
-                                                                                                                                    
-[root@milkv-duo]~#                                                                                                                  
-[root@milkv-duo]~# uname -a                                                                                                         
-Linux milkv-duo 5.10.4-tag- #1 PREEMPT Mon Feb 26 16:01:35 CST 2024 riscv64 GNU/Linux                                               
-[root@milkv-duo]~# cat /proc/cpuinfo                                                                                                
-processor       : 0                                                                                                                 
-hart            : 0                                                                                                                 
-isa             : rv64imafdvcsu                                                                                                     
-mmu             : sv39                                                                                                              
-                                                                                                                                    
-[root@milkv-duo]~# cat /etc/os-release                                                                                              
-NAME=Buildroot                                                                                                                      
-VERSION=20240226-1609                                                                                                               
-ID=buildroot                                                                                                                        
-VERSION_ID=2021.05                                                                                                                  
-PRETTY_NAME="Buildroot 2021.05"                                                                                                     
-[root@milkv-duo]~# 
+Starting app...
+
+[root@milkv-duo]~# [    5.417921] aicbsp: sdio_err:<aicwf_sdio_bus_pwrctl,1431>: bus down
+[    6.149662] ieee80211 phy0: 
+[    6.149662] *******************************************************
+[    6.149662] ** CAUTION: USING PERMISSIVE CUSTOM REGULATORY RULES **
+[    6.149662] *******************************************************
+
+[root@milkv-duo]~# uname -a
+Linux milkv-duo 5.10.4-tag- #1 PREEMPT Mon Dec 9 10:28:13 CST 2024 riscv64 GNU/Linux
+[root@milkv-duo]~# cat /etc/os-release 
+NAME=Buildroot
+VERSION=-g2b4e5fdbc
+ID=buildroot
+VERSION_ID=2024.02.3
+PRETTY_NAME="Buildroot 2024.02.3"
+[root@milkv-duo]~# cat /proc/cpuinfo 
+processor       : 0
+hart            : 0
+isa             : rv64imafdvcsu
+mmu             : sv39
+
 ```
 
 Screen recording (From flashing image to login):
 
-[![asciinema](https://asciinema.org/a/y74COq4Da80mjhqZygoL7i97x)](https://asciinema.org/a/y74COq4Da80mjhqZygoL7i97x)
+[![asciicast](https://asciinema.org/a/48Jw8Gwh6NqCJpnVejBntLIxd.svg)](https://asciinema.org/a/48Jw8Gwh6NqCJpnVejBntLIxd)
 
 ## Test Criteria
 
