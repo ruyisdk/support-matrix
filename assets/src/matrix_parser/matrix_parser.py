@@ -75,7 +75,7 @@ class SystemVar:
             if 'sys' not in post.keys():
                 raise FileNotFoundError(f"{meta_path} has no frontmatter")
             self.raw_data = post
-            self.sys = post['sys']
+            self.sys = post['sys'].lower()
             self.sys_ver = post['sys_ver']
             self.sys_var = post['sys_var']
             self.status = ImageStatus(post['status'])
