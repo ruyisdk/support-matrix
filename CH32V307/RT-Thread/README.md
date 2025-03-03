@@ -92,7 +92,7 @@ pio run -e your_board --target upload
 
 - Error: error writing to flash at address 0x00000000 at offset 0x00000000
     - This is due to a low firmware version of WCH-Link. (See [important-notices](https://github.com/Community-PIO-CH32V/platform-ch32v?tab=readme-ov-file#important-notices)).
-    - Please use the [WCH-Link Utility](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html) to connect once with CH-Link on W2 to automatically update. **This tool is currently only available for Windows**
+    - Please use the [WCH-Link Utility](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html) to connect once with WCH-Link to automatically update. **This tool is currently only available for Windows**
 - Error: Read-Protect Status Currently Enabled
     - This is caused by the chip having write protection enabled. In Windows, we can use the [WCH-Link Utility](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html) to disable protection. In Linux, OpenOCD can be used:
 ```bash

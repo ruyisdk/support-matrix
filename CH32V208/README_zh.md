@@ -4,7 +4,7 @@
 
 ### 操作系统信息
 
-- RT-Thread / FreeRTOS
+- RT-Thread / FreeRTOS / LiteOS
     - 源码链接：https://github.com/Community-PIO-CH32V/ch32-pio-projects
     - 参考文档：
         - PlatformIO Core：https://docs.platformio.org/en/latest/core/installation/index.html
@@ -21,6 +21,8 @@
 |--------------|-------------|------------------|
 | FreeRTOS     | N/A         | [成功][FreeRTOS]   |
 | RT-Thread    | N/A         | [成功][RTThread]  |
+| LiteOS       | PlatformIO  | [成功][LiteOS]    |
 
 [FreeRTOS]: ./FreeRTOS/README_zh.md
 [RTThread]: ./RT-Thread/README_zh.md
+[LiteOS]: ./LiteOS/README_zh.md

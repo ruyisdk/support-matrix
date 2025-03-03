@@ -11,7 +11,7 @@ cpu_core: QingKe V4F
 
 ### Operating System Information
 
-- RT-Thread / FreeRTOS
+- RT-Thread / FreeRTOS / LiteOS
     - Source Code Link: https://github.com/Community-PIO-CH32V/ch32-pio-projects
     - Reference Installation Document:
         - PlatformIO Core: https://docs.platformio.org/en/latest/core/installation/index.html
@@ -27,6 +27,8 @@ cpu_core: QingKe V4F
 | ----------------- | ------------ | -------------------------- |
 | FreeRTOS          | N/A          | [Success][FreeRTOS]        |
 | RT-Thread         | N/A          | [Success][RTThread]        |
+| LiteOS            | PlatformIO   | [Success][LiteOS]          |
 
 [FreeRTOS]: ./FreeRTOS/README.md
 [RTThread]: ./RT-Thread/README.md
+[LiteOS]: ./LiteOS/README.md

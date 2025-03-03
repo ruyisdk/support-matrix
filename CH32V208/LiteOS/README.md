@@ -4,10 +4,10 @@ sys_ver: null
 sys_var: null
 
 status: basic
-last_update: 2025-02-24
+last_update: 2025-03-03
 ---
 
-# LiteOS CH32V307 Test Report
+# LiteOS CH32V208 Test Report
 
 ## Test Environment
 
@@ -23,9 +23,9 @@ The test environment is Ubuntu 22.04.5 LTS
 
 ### Hardware Information
 
-- CH32V307V-EVT-R1-1v1
-- A USB to UART Debugger (not required, available on official EVT development board)
-- A WCH-Link or WCH-LinkE (not required, available on official EVT development board)
+- CH32V208WBU6-EVT-R0-1v4
+- A USB to UART Debugger (not required, WCH-Link or WCH-LinkE can be used instead)
+- A WCH-Link or WCH-LinkE
 
 ## Installation Steps
 
@@ -115,16 +115,13 @@ genericCH32L103C8T6  SUCCESS   00:00:01.758
 
 ### Flashing Image
 
-After confirming the connection of WCH-Link(E) to the SWD debug port, manually specify the development board using pio and burn the image:
-```bash
-pio run -e your_board --target upload
-```
-
-If the official EVT development board is used, you can directly connect the USB of the onboard WCH-Link and use pio for image burning
+After confirming the connection of WCH-Link(E) to the SWD debug port (P6 pin header of the official EVT development board), manually specify the development board using pio and burn the image:
 
 ```bash
-pio run -e ch32v307_evt --target upload
+pio run -e genericCH32V208CBU6 --target upload
 ```
+
+(The test confirmed that the CH32V208CBU6 example can be successfully run on the CH32V208WBU6 chip of the official EVT development board)
 
 The output information when the image is successfully burned
 
@@ -136,13 +133,12 @@ The output information when the image is successfully burned
 ** Verified OK **
 ** Resetting Target **
 shutdown command invoked
-========================= [SUCCESS] Took 4.31 seconds =========================
+========================= [SUCCESS] Took 7.61 seconds =========================
 
-Environment    Status    Duration
--------------  --------  ------------
-ch32v307_evt   SUCCESS   00:00:04.306
-========================= 1 succeeded in 00:00:04.306 =========================
-
+Environment          Status    Duration
+-------------------  --------  ------------
+genericCH32V208CBU6  SUCCESS   00:00:07.610
+========================= 1 succeeded in 00:00:07.610 =========================
 ```
 
 
@@ -166,11 +162,11 @@ ch32v307_evt   SUCCESS   00:00:04.306
 
 ### Logging into the System
 
-Connect to the development board via serial port.
+Connect to the development board via serial port. If it is an official EVT development board, the P6 pin header are also connected.
 
 ## Expected Results
 
-The system starts normally, and information can be viewed via the onboard serial port. If the official EVT development board is used, the on-board WCH-Link can be used as the default output serial port.
+The system starts normally, and information can be viewed via the onboard serial port.
 
 ## Actual Results
 
@@ -180,8 +176,26 @@ The system starts normally, and information can be viewed via the onboard serial
 
 ```log
 SystemClk:96000000
-ChipID: 30700528
-entering kernel init...Entering schedulertaskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry2 running,task2 SP:2000258ctaskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry2 running,task2 SP:2000258ctaskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry2 running,task2
+ChipID:2080051c
+entering kernel init...
+Entering scheduler
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry2 running,task2 SP:200023d4
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry2 running,task2 SP:200023d4
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry2 running,task2 SP:200023d4
 ```
 
 ## Test Criteria
