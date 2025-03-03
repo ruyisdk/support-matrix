@@ -1,5 +1,5 @@
 ---
-sys: NixOS
+sys: nixos
 sys_ver: null
 sys_var: null
 
@@ -7,7 +7,7 @@ status: basic
 last_update: 2024-12-20
 ---
 
-# Nixos LicheeRV Test Report
+# NixOS LicheeRV Test Report
 
 ## Test Environment
 
