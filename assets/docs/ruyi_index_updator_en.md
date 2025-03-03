@@ -20,6 +20,50 @@ The `renew_ruyi_index.py` script encapsulates all operations, and you can run th
 
 ### Plugin Development Guide
 
+#### Structure of an Index File
+
+```
+Device as vendor (eg: LicheePi-4A as sipeed-lpi4a)
+    |
+    |--- Board Variants as board_var (eg: 4g ver as 4g)
+    |       |
+    |       |--- System Variant as sys (eg: RevyOS as revyos)
+    |       |       |
+    |       |       |--- File as file (eg: uboot as uboot)
+    |       |       |
+    |       |       |--- File (eg: boot)
+    |       |       |
+    |       |       |--- File (eg: root)
+    |       |
+    |       |--- System Variant (eg: openKylin)
+    |               |
+    |               |--- File (eg: uboot)
+    |               |
+    |               |--- File (eg: boot)
+    |               |
+    |               |--- File (eg: root)
+    |
+    |--- Board Variants (eg: 8g ver)
+            |
+            |--- System Variant (eg: RevyOS)
+            |       |
+            |       |--- File (eg: uboot)
+            |       |
+            |       |--- File (eg: boot)
+            |       |
+            |       |--- File (eg: root)
+            |
+            |--- System Variant (eg: openKylin)
+                    |
+                    |--- File (eg: uboot)
+                    |
+                    |--- File (eg: boot)
+                    |
+                    |--- File (eg: root)
+```
+
+#### Old:
+
 Due to the complexity of mirror mapping (a single report might correspond to multiple files or indices) and version numbers that need manual handling, creating plugins for each mirror is currently necessary. In the future, generic plugin development may be considered.
 
 To add a new plugin, simply create a new file in the `ruyi_index_updator/upload_plugin` directory. You can directly import the `prelude` from the current folder for some typing helpers.
