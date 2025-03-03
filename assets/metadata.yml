@@ -2,8 +2,7 @@
 
 linux:
   - archlinux: Arch Linux
-  - debian: Debian/RevyOS
-  # - revyos: RevyOS # This is special case with Debian
+  - debian: Debian
   - fedora: Fedora
   - gentoo: Gentoo
   - openanlios: openAnolis
@@ -12,11 +11,9 @@ linux:
   - openkylin: openKylin
   - opensuse: openSUSE
   - ubuntu: Ubuntu
-  - tina: Tina-Linux
   - armbian: Armbian
   - buildroot: BuildRoot
   - openwrt: OpenWRT
-  - bianbu: Bianbu
   - deepin: Deepin
   - yocto: Yocto
   - alpine: Alpine
