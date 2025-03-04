@@ -22,6 +22,7 @@ linux:
   - alpine: Alpine
   - nixos: NixOS
   - dietpi: DietPi
+  - slackware: Slackware
 
 bsd:
   - freebsd: FreeBSD
