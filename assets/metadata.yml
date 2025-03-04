@@ -23,6 +23,7 @@ linux:
   - nixos: NixOS
   - dietpi: DietPi
   - slackware: Slackware
+  - pmos: postmarketOS
 
 bsd:
   - freebsd: FreeBSD

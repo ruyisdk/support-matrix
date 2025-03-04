@@ -39,6 +39,9 @@
 - Slackware
   - 下载链接：http://dl.slarm64.org/slackware/images/mangopi_mq_pro/slarm64-current-riscv64-xfce-mangopi_mq_pro-6.1.53-build-20230919.img.zst
   - 参考安装文档：http://dl.slarm64.org/slackware/images/mangopi_mq_pro/
+- postmarketOS
+  - 下载链接（pmbootstrap）: https://wiki.postmarketos.org/wiki/Pmbootstrap
+  - 参考安装文档：https://wiki.postmarketos.org/index.php?title=MangoPi_MQ-Pro_(mangopi-mq-pro)&direction=prev&oldid=46021
 
 ### 硬件开发板信息
 
@@ -46,19 +49,20 @@
 
 ## 测试结果
 
-| 软件分类            | 软件包名 | 测试结果（测试报告） |
-| ------------------- | -------- | -------------------- |
-| Tina-Linux 镜像启动 | N/A      | [CFT][Tina]          |
-| OpenWrt 镜像启动    | N/A      | [成功][OpenWrt]      |
-| Armbian 镜像启动    | N/A      | [失败][Armbian]      |
-| Debian 镜像启动     | N/A      | [成功][Debian]       |
-| Arch Linux 镜像启动 | N/A      | [CFT][Archlinux]     |
-| Fedora 镜像启动     | N/A      | [成功][Fedora]       |
-| FreeBSD 镜像启动    | N/A      | [CFT][FreeBSD]       |
-| openSUSE 镜像启动   | N/A      | [成功][openSUSE]     |
-| Ubuntu 镜像启动     | N/A      | [成功][Ubuntu]       |
-| NetBSD 镜像启动     | N/A      | [CFT][NetBSD]        |
-| Slackware 镜像启动  | N/A      | [成功][Slackware]    |
+| 软件分类                    | 软件包名 | 测试结果（测试报告） |
+| --------------------------- | -------- | -------------------- |
+| Tina-Linux 镜像启动         | N/A      | [CFT][Tina]          |
+| OpenWrt 镜像启动            | N/A      | [成功][OpenWrt]      |
+| Armbian 镜像启动            | N/A      | [失败][Armbian]      |
+| Debian 镜像启动             | N/A      | [成功][Debian]       |
+| Arch Linux 镜像编译和启动   | N/A      | [失败][Archlinux]    |
+| Fedora 镜像启动             | N/A      | [成功][Fedora]       |
+| FreeBSD 镜像启动            | N/A      | [CFT][FreeBSD]       |
+| openSUSE 镜像启动           | N/A      | [成功][openSUSE]     |
+| Ubuntu 镜像启动             | N/A      | [成功][Ubuntu]       |
+| NetBSD 镜像启动             | N/A      | [CFT][NetBSD]        |
+| Slackware 镜像启动          | N/A      | [成功][Slackware]    |
+| postmarketOS 镜像编译和启动 | N/A      | [成功][pmOS]         |
 
 [Tina]: ./TinaLinux/README_zh.md
 [OpenWrt]: ./OpenWrt/README_zh.md
@@ -71,3 +75,4 @@
 [Ubuntu]: ./Ubuntu/README_zh.md
 [NetBSD]: ./NetBSD/README_zh.md
 [Slackware]: ./Slackware/README_zh.md
+[pmOS]: ./postmarketOS/README_zh.md

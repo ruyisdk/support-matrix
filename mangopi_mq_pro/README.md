@@ -45,6 +45,9 @@ cpu_core: XuanTie C906
 - Slackware
   - Download Link：http://dl.slarm64.org/slackware/images/mangopi_mq_pro/slarm64-current-riscv64-xfce-mangopi_mq_pro-6.1.53-build-20230919.img.zst
   - Reference Installation Document：http://dl.slarm64.org/slackware/images/mangopi_mq_pro/
+- postmarketOS
+  - Download link (pmbootstrap): https://wiki.postmarketos.org/wiki/Pmbootstrap
+  - Reference Installation Document: https://wiki.postmarketos.org/index.php?title=MangoPi_MQ-Pro_(mangopi-mq-pro)&direction=prev&oldid=46021
 
 ### Hardware Information
 
@@ -52,19 +55,20 @@ cpu_core: XuanTie C906
 
 ## Test Results
 
-| Software Category     | Package Name | Test Result (Test Report) |
-| --------------------- | ------------ | ------------------------- |
-| Tina-Linux Image Boot | N/A          | [CFT][Tina]               |
-| OpenWrt Image Boot    | N/A          | [Success][OpenWrt]        |
-| Armbian Image Boot    | N/A          | [Failed][Armbian]         |
-| Debian Image Boot     | N/A          | [Success][Debian]         |
-| Arch Linux Image Boot | N/A          | [CFT][Archlinux]          |
-| Fedora Image Boot     | N/A          | [Success][Fedora]         |
-| FreeBSD Image Boot    | N/A          | [CFT][FreeBSD]            |
-| openSUSE Image Boot   | N/A          | [Success][openSUSE]       |
-| Ubuntu Image Boot     | N/A          | [Success][Ubuntu]         |
-| NetBSD Image Boot     | N/A          | [CFT][NetBSD]             |
-| Slackware Image Boot  | N/A          | [Success][Slackware]      |
+| Software Category                 | Package Name | Test Result (Test Report) |
+| --------------------------------- | ------------ | ------------------------- |
+| Tina-Linux Image Boot             | N/A          | [CFT][Tina]               |
+| OpenWrt Image Boot                | N/A          | [Success][OpenWrt]        |
+| Armbian Image Boot                | N/A          | [Failed][Armbian]         |
+| Debian Image Boot                 | N/A          | [Success][Debian]         |
+| Arch Linux Image Compile & Boot   | N/A          | [Failed][Archlinux]       |
+| Fedora Image Boot                 | N/A          | [Success][Fedora]         |
+| FreeBSD Image Boot                | N/A          | [CFT][FreeBSD]            |
+| openSUSE Image Boot               | N/A          | [Success][openSUSE]       |
+| Ubuntu Image Boot                 | N/A          | [Success][Ubuntu]         |
+| NetBSD Image Boot                 | N/A          | [CFT][NetBSD]             |
+| Slackware Image Boot              | N/A          | [Success][Slackware]      |
+| postmarketOS Image Compile & Boot | N/A          | [Success][Slackware]      |
 
 [Tina]: ./TinaLinux/README.md
 [OpenWrt]: ./OpenWrt/README.md
@@ -77,3 +81,4 @@ cpu_core: XuanTie C906
 [Ubuntu]: ./Ubuntu/README.md
 [NetBSD]: ./NetBSD/README.md
 [Slackware]: ./Slackware/README.md
+[pmOS]: ./postmarketOS/README.md
