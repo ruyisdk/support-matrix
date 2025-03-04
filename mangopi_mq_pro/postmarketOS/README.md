@@ -1,5 +1,5 @@
 ---
-sys: pmOS
+sys: pmos
 sys_ver: null
 sys_var: null
 

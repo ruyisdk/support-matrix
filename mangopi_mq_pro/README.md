@@ -48,6 +48,9 @@ cpu_core: XuanTie C906
 - postmarketOS
   - Download link (pmbootstrap): https://wiki.postmarketos.org/wiki/Pmbootstrap
   - Reference Installation Document: https://wiki.postmarketos.org/index.php?title=MangoPi_MQ-Pro_(mangopi-mq-pro)&direction=prev&oldid=46021
+- Gentoo
+  - Download Link: https://github.com/RevySR/riscv-calculate/releases/download/v20220929/gentoo-d1-20220929153235.img.zst
+  - Reference Installation Document: https://github.com/RevySR/riscv-calculate
 
 ### Hardware Information
 
@@ -69,6 +72,7 @@ cpu_core: XuanTie C906
 | NetBSD Image Boot                 | N/A          | [CFT][NetBSD]             |
 | Slackware Image Boot              | N/A          | [Success][Slackware]      |
 | postmarketOS Image Compile & Boot | N/A          | [Success][Slackware]      |
+| Gentoo Image Boot                 | N/A          | [Success][Gentoo]         |
 
 [Tina]: ./TinaLinux/README.md
 [OpenWrt]: ./OpenWrt/README.md
@@ -82,3 +86,4 @@ cpu_core: XuanTie C906
 [NetBSD]: ./NetBSD/README.md
 [Slackware]: ./Slackware/README.md
 [pmOS]: ./postmarketOS/README.md
+[Gentoo]: ./Gentoo/README.md

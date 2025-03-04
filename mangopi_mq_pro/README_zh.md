@@ -42,6 +42,9 @@
 - postmarketOS
   - 下载链接（pmbootstrap）: https://wiki.postmarketos.org/wiki/Pmbootstrap
   - 参考安装文档：https://wiki.postmarketos.org/index.php?title=MangoPi_MQ-Pro_(mangopi-mq-pro)&direction=prev&oldid=46021
+- Gentoo
+  - 下载链接：https://github.com/RevySR/riscv-calculate/releases/download/v20220929/gentoo-d1-20220929153235.img.zst
+  - 参考安装文档：https://github.com/RevySR/riscv-calculate
 
 ### 硬件开发板信息
 
@@ -63,6 +66,7 @@
 | NetBSD 镜像启动             | N/A      | [CFT][NetBSD]        |
 | Slackware 镜像启动          | N/A      | [成功][Slackware]    |
 | postmarketOS 镜像编译和启动 | N/A      | [成功][pmOS]         |
+| Gentoo 镜像启动             | N/A      | [成功][Gentoo]       |
 
 [Tina]: ./TinaLinux/README_zh.md
 [OpenWrt]: ./OpenWrt/README_zh.md
@@ -76,3 +80,4 @@
 [NetBSD]: ./NetBSD/README_zh.md
 [Slackware]: ./Slackware/README_zh.md
 [pmOS]: ./postmarketOS/README_zh.md
+[Gentoo]: ./Gentoo/README_zh.md
