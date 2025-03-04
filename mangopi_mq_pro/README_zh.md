@@ -8,10 +8,10 @@
   - 下载链接：链接：https://pan.baidu.com/s/1v55AKMFripaEu22tJ92lmw?pwd=awol 提取码：awol
   - 参考安装文档：https://d1.docs.aw-ol.com/study/study_1tina/
 - Armbian
-  - 下载链接：https://disk.yandex.ru/d/da8qJ8wyE1hhcQ/Nezha_D1/ArmbianTV/20220722/Armbian_22.08.0-trunk_Nezha_jammy_current_5.19.0_xfce_desktop.img.xz
+  - 下载链接：https://xogium.performanceservers.nl/archive/mangopi-mq/archive/Armbian_23.8.1_Mangopi-mq_jammy_edge_6.1.0-rc3_xfce_desktop.img.xz
   - 参考安装文档：https://mangopi.org/mqpro
 - OpenWrt
-  - 下载链接（OpenWrt Firmware Selector）：https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=mangopi_mq_pro
+  - 下载链接（OpenWrt Firmware Selector）：https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=widora_mangopi-mq-pro
   - 参考安装文档：https://openwrt.org/docs/techref/hardware/soc/soc.allwinner.d1
 - Debian
   - 下载链接：https://popolon.org/depots/RISC-V/D1/ovsienko/RVBoards_D1_Debian_lxde_img_linux_v0.4.1.img.zip
@@ -23,7 +23,7 @@
       - RootFS: https://archriscv.felixc.at
   - 参考安装文档：https://github.com/sehraf/d1-riscv-arch-image-builder
 - Fedora
-  - 下载链接：https://openkoji-bj.isrc.ac.cn/pub/dl/riscv/Allwinner/Nezha_D1/images-release/Fedora/fedora-riscv64-d1-developer-xfce-rawhide-Rawhide-20220117-135925.n.0-sda.raw.zst
+  - 下载链接：https://mirror.iscas.ac.cn/fedora-riscv/old_dl/Allwinner/Nezha_D1/images-release/Fedora/fedora-riscv64-d1-developer-xfce-rawhide-Rawhide-20220117-135925.n.0-sda.raw.zst
   - 参考安装文档：https://popolon.org/depots/RISC-V/D1/ovsienko/_index.html
 - FreeBSD
   - 下载链接：https://github.com/freebsd-d1/freebsd-d1
@@ -32,30 +32,41 @@
   - 下载链接：https://download.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/AllwinnerD1/images/openSUSE-Tumbleweed-RISC-V-JeOS-mangopimqpro.riscv64.raw.xz
   - 参考安装文档：https://en.opensuse.org/HCL:MangoPi_MQ-Pro
 - Ubuntu
-  - 下载链接：https://cdimage.ubuntu.com/releases/23.10/release/ubuntu-23.10-preinstalled-server-riscv64+nezha.img.xz
+  - 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64+nezha.img.xz
   - 参考安装文档：https://mangopi.org/mqpro
 - NetBSD
   - 下载链接：https://nyftp.netbsd.org/pub/NetBSD-daily/HEAD/latest/riscv-riscv64/binary/gzimg/
-
+- Slackware
+  - 下载链接：http://dl.slarm64.org/slackware/images/mangopi_mq_pro/slarm64-current-riscv64-xfce-mangopi_mq_pro-6.1.53-build-20230919.img.zst
+  - 参考安装文档：http://dl.slarm64.org/slackware/images/mangopi_mq_pro/
+- postmarketOS
+  - 下载链接（pmbootstrap）: https://wiki.postmarketos.org/wiki/Pmbootstrap
+  - 参考安装文档：https://wiki.postmarketos.org/index.php?title=MangoPi_MQ-Pro_(mangopi-mq-pro)&direction=prev&oldid=46021
+- Gentoo
+  - 下载链接：https://github.com/RevySR/riscv-calculate/releases/download/v20220929/gentoo-d1-20220929153235.img.zst
+  - 参考安装文档：https://github.com/RevySR/riscv-calculate
 
 ### 硬件开发板信息
 
-- MangoPi MQ Pro
+- MangoPi MQ Pro (Allwinner D1/D1-H)
 
 ## 测试结果
 
-| 软件分类            | 软件包名 | 测试结果（测试报告） |
-|---------------------|----------|----------------------|
-| Tina-Linux 镜像启动 | N/A      | [CFT][Tina]          |
-| OpenWrt 镜像启动    | N/A      | [CFT][OpenWrt]       |
-| Armbian 镜像启动    | N/A      | [CFT][Armbian]       |
-| Debian 镜像启动     | N/A      | [CFT][Debian]        |
-| Arch Linux 镜像启动 | N/A      | [CFT][Archlinux]     |
-| Fedora 镜像启动     | N/A      | [CFT][Fedora]        |
-| FreeBSD 镜像启动    | N/A      | [CFT][FreeBSD]       |
-| openSUSE 镜像启动   | N/A      | [CFT][openSUSE]      |
-| Ubuntu 镜像启动     | N/A      | [CFT][Ubuntu]        |
-| NetBSD 镜像启动     | N/A      | [CFT][NetBSD]        |
+| 软件分类                    | 软件包名 | 测试结果（测试报告） |
+| --------------------------- | -------- | -------------------- |
+| Tina-Linux 镜像启动         | N/A      | [CFT][Tina]          |
+| OpenWrt 镜像启动            | N/A      | [成功][OpenWrt]      |
+| Armbian 镜像启动            | N/A      | [失败][Armbian]      |
+| Debian 镜像启动             | N/A      | [成功][Debian]       |
+| Arch Linux 镜像编译和启动   | N/A      | [失败][Archlinux]    |
+| Fedora 镜像启动             | N/A      | [成功][Fedora]       |
+| FreeBSD 镜像启动            | N/A      | [CFT][FreeBSD]       |
+| openSUSE 镜像启动           | N/A      | [成功][openSUSE]     |
+| Ubuntu 镜像启动             | N/A      | [成功][Ubuntu]       |
+| NetBSD 镜像启动             | N/A      | [CFT][NetBSD]        |
+| Slackware 镜像启动          | N/A      | [成功][Slackware]    |
+| postmarketOS 镜像编译和启动 | N/A      | [成功][pmOS]         |
+| Gentoo 镜像启动             | N/A      | [成功][Gentoo]       |
 
 [Tina]: ./TinaLinux/README_zh.md
 [OpenWrt]: ./OpenWrt/README_zh.md
@@ -67,3 +78,6 @@
 [openSUSE]: ./openSUSE/README_zh.md
 [Ubuntu]: ./Ubuntu/README_zh.md
 [NetBSD]: ./NetBSD/README_zh.md
+[Slackware]: ./Slackware/README_zh.md
+[pmOS]: ./postmarketOS/README_zh.md
+[Gentoo]: ./Gentoo/README_zh.md
