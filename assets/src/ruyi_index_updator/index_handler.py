@@ -7,7 +7,6 @@ import logging
 import git
 from github import Github, Auth
 from github.Repository import Repository
-from .version_diff import BoardImageWrapper
 from .config import config
 
 logger = logging.getLogger(__name__)
@@ -84,35 +83,24 @@ class RuyiGitRepo:
                 return True
         return False
 
-    def __create_pr(self, wrapper: PrWrapper):
-        """
-        Create a pull request.
-        """
-        head = f"{self.user.login}:{wrapper.self_branch}"
-        base = wrapper.upstream_branch
-        if not config["force"] and self.check_pr_updated(head, base):
-            logger.error(
-                "PR already exist for %s -> %s, please check manually", head, base)
-            logger.error("New PR info: %s", repr(wrapper))
-            return
-        pr = self.upstream.create_pull(
-            title=wrapper.title, body=wrapper.body, head=head, base=base)
-        logger.info("PR created: %s at %s", pr.title, pr.html_url)
-
-    def create_wrapped_pr(self, wrapper: PrWrapper):
-        """
-        Create a pull request.
-        """
-        self.__create_pr(wrapper)
-
     def create_pr(self, title: str, body: str, self_branch: str, upstream_branch: str):
         """
         Create a pull request.
         """
-        self.__create_pr(PrWrapper(
-            title, body, self_branch, upstream_branch))
+        head = f"{self.user.login}:{self_branch}"
+        base = upstream_branch
+        if not config["force"] and self.check_pr_updated(head, base):
+            logger.error(
+                "PR already exist for %s -> %s, please check manually", head, base)
+            logger.error("New PR info:")
+            logger.error("Title: %s", title)
+            logger.error("Body: \n%s\n<Body End>", body)
+            return
+        pr = self.upstream.create_pull(
+            title=title, body=body, head=head, base=base)
+        logger.info("PR created: %s at %s", pr.title, pr.html_url)
 
-    def __reset_to_upstream(self):
+    def reset_to_upstream(self):
         # self.local_repo.remote().set_url(self.upstream.ssh_url)
         # self.local_repo.remote().fetch()
 
@@ -141,7 +129,7 @@ class RuyiGitRepo:
             ["git", "clean", "-xdf"]
         )
 
-    def __clean(self):
+    def clean(self):
         self.local_repo.git.execute(
             ["git", "clean", "-xdf"]
         )
@@ -168,24 +156,36 @@ class RuyiGitRepo:
                         self.repo.ssh_url, repo_dir)
         else:
             self.local_repo = git.Repo(repo_dir)
-            self.__reset_to_upstream()
+            self.reset_to_upstream()
             logger.info("Repo updated to %s: %s", self.repo.ssh_url,
                         self.local_repo.head.commit)
 
-    def __local_checkout(self, branch: str):
+    def local_checkout(self, branch: str):
         """
         Checkout to a branch.
         """
+        self.local_repo.git.execute(
+            ["git", "checkout", "main"]
+        )
         for ref in self.local_repo.branches:
             if branch in ref.name:
                 self.local_repo.git.branch("-D", ref.name)
-        self.__reset_to_upstream()
+        self.reset_to_upstream()
         head = self.local_repo.create_head(branch)
         head.checkout()
-        self.__clean()
+        self.clean()
         logger.info("Checkout to %s", branch)
 
-    def __local_commit(self, message: str):
+    def local_add(self, file: str):
+        """
+        Add a file to the repo.
+        """
+        logger.info("Add: %s", file)
+        self.local_repo.git.execute(
+            ["git", "add", file]
+        )
+
+    def local_commit(self, message: str):
         """
         Commit the changes.
         """
@@ -193,7 +193,7 @@ class RuyiGitRepo:
         message = f"{message}\n\nThis commit is made by ruyi-index-updator"
         self.local_repo.index.commit(message)
 
-    def __local_push(self, branch: str):
+    def local_push(self, branch: str):
         """
         Push the changes to remote.
         """
@@ -202,65 +202,4 @@ class RuyiGitRepo:
         # self.local_repo.remote().push(refspec=f"{branch}:{branch}")
         self.local_repo.git.execute(
             ["git", "push", "--set-upstream", "origin", branch, "-f"]
-        )
-
-    def __add_image(self, image: BoardImageWrapper):
-        """
-        Add a image index to the repo.
-        """
-        file_name = image.new_index_name()
-        index_file = os.path.join(
-            self.local_repo.working_dir,
-            "manifests",
-            "board-image",
-            image.index_name,
-            file_name
-        )
-        index_dir = os.path.dirname(index_file)
-        os.makedirs(index_dir, exist_ok=True)
-        with open(index_file, "w", encoding="utf-8") as f:
-            f.write(image.new_index_toml())
-            if image.index.is_bot_created and CI_RUN_ID is None:
-                f.write(
-                    "\n# This file is created by program renew_ruyi_index in support-matrix\n")
-                f.write("# Run: In local\n")
-            elif image.index.is_bot_created:
-                f.write(
-                    "\n# This file is created by CI Sync Package Index inside support-matrix\n")
-                f.write(f"# Run ID: {CI_RUN_ID}\n")
-                f.write(f"# Run URL: {CI_RUN_URL}\n")
-        # self.local_repo.index.add([index_file])
-        self.local_repo.git.execute(
-            ["git", "add", index_file]
-        )
-        logger.info("Add %s", file_name)
-
-    def push(self, image: BoardImageWrapper):
-        """
-        Upload the image index to the repo.
-        """
-
-        if self.check_pr_exist(image.gen_hash()):
-            logger.info("PR for %s already exist, skip", image.index_name)
-            return
-
-        branch_name = f"{image.index_name}-{image.index.raw_version}"
-        self.__local_checkout(branch_name)
-        self.__add_image(image)
-        message = f"board-image/{image.index_name}:"\
-            f" Bump to {image.index.version}"
-        body = f"""\
-Bump {image.index_name} from {image.old_indexs[-1].version} to {image.index.version}.
-
-Identifier: [HASH[{image.gen_hash()}]]
-
-This PR is made by ruyi-index-updator bot.
-"""
-        self.__local_commit(message)
-        self.__local_push(branch_name)
-        return PrWrapper(
-            title=message,
-            body=body,
-            self_branch=branch_name,
-            upstream_branch="main"
         )

@@ -74,6 +74,10 @@ class PackageIndexProc():
     def create_new_index(self, current: dict[str, list[BoardImages]], index_name: str) -> dict[str, list[BoardImages]]:
         """
         Create a new index
+
+        Creating a new index has two steps:
+        - Create a new folder in the board-image folder
+        - Bind it to the board
         """
         b_path = os.path.join(self.path, "manifests", "board-image")
         new_folder = os.path.join(b_path, index_name)
@@ -81,4 +85,7 @@ class PackageIndexProc():
             return current
         os.mkdir(new_folder)
         current[index_name] = []
+
+        # TODO
+
         return current
