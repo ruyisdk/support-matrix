@@ -14,8 +14,8 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 - openEuler RISC-V 24.03 Preview
     - Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/2403LTS-test/v1/lpi4a/
     - Reference Installation Document: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
-- RevyOS 20240110
-    - Download link: [RevyOS Images](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
+- RevyOS 20240123
+    - Download link: [RevyOS Images]([Nginx Directory](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250123/))
     - Reference Installation Document: [RevyOS Documentation](https://docs.revyos.dev/)
 - openKylin 2.0 SP1
     - Download link: [OpenKylin Downloads](https://www.openkylin.top/downloads/index-cn.html)
@@ -23,8 +23,8 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 - Fedora 41
   - Download Link: https://images.fedoravforce.org/LicheePi%204A
   - Reference Installation Document: https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head
-- Armbian (Ubuntu 20.04 LTS)
-    - Download link: [Armbian Images](https://github.com/chainsx/armbian-riscv-build/tree/main)
+- Armbian (Ubuntu 22.04 LTS)
+    - Download link: [Armbian Images]([Releases · chainsx/armbian-riscv-build](https://github.com/chainsx/armbian-riscv-build/releases))
     - Reference Installation Document: [Armbian Installation Guide](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
 - Arch Linux
     - Download link: [https://mirror.iscas.ac.cn/archriscv/images/](https://mirror.iscas.ac.cn/archriscv/images/)
@@ -33,6 +33,9 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 - Deepin 25-beige-preview 20250122
     - Download Link: https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
     - Reference Installation Document: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
+- NixOS 23.05
+    - Download Link：https://github.com/ryan4yin/nixos-licheepi4a/releases
+    - Reference Installation Document：https://github.com/ryan4yin/nixos-licheepi4a?tab=readme-ov-file
 
 ### Hardware Information
 
@@ -52,7 +55,7 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 | OpenWRT Image Boot            | N/A              | [Success][OpenWRT]                      |
 | Arch Linux Desktop Image Boot | N/A              | [Success][ArchLinux]                    |
 | Deepin Desktop Image Boot     | N/A              | [Success][Deepin]                       |
-
+| NixOS Image Boot	|  N/A      | [Success][NixOS] 				|
 [oERV]: ./openEuler/README.md
 [RevyOS]: ./RevyOS/README.md
 [Fedora]: ./Fedora/README.md
@@ -61,3 +64,4 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 [OpenWRT]: ./OpenWRT/README.md
 [ArchLinux]: ./ArchLinux/README.md
 [Deepin]: ./Deepin/README.md
+[NixOS]: ./NixOS/README.md

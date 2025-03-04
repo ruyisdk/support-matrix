@@ -1,10 +1,12 @@
 ---
 sys: revyos
-sys_ver: 20250110
+sys_ver: 20250123
 sys_var: null
 
 status: good
-last_update: 2025-01-13
+last_update: 2025-01-23
+
+
 ---
 
 # RevyOS LPi4A Test Report
@@ -13,8 +15,8 @@ last_update: 2025-01-13
 
 ### System Information
 
-- System Version: RevyOS 20250110
-- Download Link: [ISCAS mirror](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/)
+- System Version: RevyOS 20250123
+- Download Link: [Nginx Directory](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250123/)
 - Reference Installation Document: [Visit here](https://revyos.github.io/docs/)
 
 ### Hardware Information
@@ -28,32 +30,20 @@ last_update: 2025-01-13
 ### Download and decompress image
 
 Download the image, use `zstd` to decompress the image:
+
 ```shell
-wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250110/boot-lpi4a-20250110_151339.ext4.zst
-wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250110/u-boot-with-spl-lpi4a-16g-main.bin
-wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250110/root-lpi4a-20250110_151339.ext4.zst
-zstd -d boot-lpi4a-20250110_151339.ext4.zst
-zstd -d root-lpi4a-20250110_151339.ext4.zst
+wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250123/u-boot-with-spl-lpi4a-16g-main.bin
+wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250123/boot-lpi4a-20250123_195216.ext4.zst
+wget https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250123/root-lpi4a-20250123_195216.ext4.zst
+zstd -d boot-lpi4a-20250123_195216.ext4.zst
+zstd -d root-lpi4a-20250123_195216.ext4.zst
 ```
 
 ### Flash to onboard eMMC via `fastboot`
 
-There are two ways to enter fastboot mode:
-
 #### Use boot button to enter fastboot mode
 
 Hold the **BOOT** button, then connect the USB-C cable (to your PC on the other side) to enter USB burning mode.
-
-#### Use u-boot to enter fastboot mode
-
-After entering the u-boot console, interrupt it, and use the following commands to enter fastboot mode:
-```shell
-fastboot usb 0
-```
-
----
-
-In Linux using `lsusb` you'll see a device like: `ID 2345:7654 T-HEAD USB download gadget`.
 
 Use the following commands to flash the image.
 
@@ -62,8 +52,8 @@ sudo fastboot devices
 sudo fastboot flash ram u-boot-with-spl-lpi4a-16g-main.bin
 sudo fastboot reboot
 sudo fastboot flash uboot u-boot-with-spl-lpi4a-16g-main.bin
-sudo fastboot flash boot boot-lpi4a-20250110_151339.ext4
-sudo fastboot flash root root-lpi4a-20250110_151339.ext4
+sudo fastboot flash boot boot-lpi4a-20250123_195216.ext4.zst
+sudo fastboot flash root root-lpi4a-20250123_195216.ext4.zst
 ```
 
 ### Logging into the System
@@ -85,12 +75,11 @@ The system boots up successfully and login via the serial console is successful.
 
 Screen recording (from flashing image to logging into system):
 
-[![asciicast](https://asciinema.org/a/4kw9rznzmMGsEdD2lSqJOSm3h.svg)](https://asciinema.org/a/4kw9rznzmMGsEdD2lSqJOSm3h)
+[![asciicast](https://asciinema.org/a/aG83MyK1jsHqWPD234Trl1GEp.svg)](https://asciinema.org/a/aG83MyK1jsHqWPD234Trl1GEp)
 
-![](image.png)
+![A](A.jpg)
 
 ```log
-
    ____              _ ____  ____  _  __
   |  _ \ _   _ _   _(_) ___||  _ \| |/ /
   | |_) | | | | | | | \___ \| | | | ' / 
@@ -99,9 +88,10 @@ Screen recording (from flashing image to logging into system):
                |___/                    
                    -- Presented by ISCAS
 
-  Debian GNU/Linux trixie/sid (kernel 6.6.66-th1520)
+  Debian GNU/Linux trixie/sid (kernel 6.6.73-th1520)
 
-Linux revyos-lpi4a 6.6.66-th1520 #2025.01.10.02.53+1c6721ec2 SMP Fri Jan 10 03:09:24 UTC 2025 riscv64
+Linux revyos-lpi4a 6.6.73-th1520 #2025.01.22.09.36+39bfa82ff SMP Wed Jan 22 09:5
+3:08 UTC 2025 riscv64
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -109,77 +99,25 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-Last login: Mon Sep  2 05:03:30 2024
-debian@revyos-lpi4a:~$ uname -a
-Linux revyos-lpi4a 6.6.66-th1520 #2025.01.10.02.5
-
-debian@revyos-lpi4a:~$ 3+1c6721ec2 SMP Fri Jan 10 03:09:24 UTC 2025 riscv64 GNU/Linux
-debian@revyos-lpi4a:~$ cat /etc/os-release 
-PRETTY_NAME="Debian GNU/Linux trixie/sid"
-NAME="Debian GNU/Linux"
-VERSION_CODENAME=trixie
-ID=debian
-HOME_URL="https://www.debian.org/"
-SUPPORT_URL="https://www.debian.org/support"
-BUG_REPORT_URL="https://bugs.debian.org/"
-debian@revyos-lpi4a:~$ cat /proc/cpuinfo 
-processor       : 0
-hart            : 0
-isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
-mmu             : sv39
-uarch           : thead,c910
-mvendorid       : 0x5b7
-marchid         : 0x0
-mimpid          : 0x0
-
-processor       : 1
-hart            : 1
-isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
-mmu             : sv39
-uarch           : thead,c910
-mvendorid       : 0x5b7
-marchid         : 0x0
-mimpid          : 0x0
-
-processor       : 2
-hart            : 2
-isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
-mmu             : sv39
-uarch           : thead,c910
-mvendorid       : 0x5b7
-marchid         : 0x0
-mimpid          : 0x0
-
-debian@revyos-lpi4a:~$ 
-
-processor       : 3
-hart            : 3
-isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
-mmu             : sv39
-uarch           : thead,c910
-mvendorid       : 0x5b7
-marchid         : 0x0
-mimpid          : 0x0
-
-debian@revyos-lpi4a:~$ neofetch
-       _,met$$$$$gg.          debian@revyos-lpi4a 
-    ,g$$$$$$$$$$$$$$$P.       ------------------- 
-  ,g$$P"     """Y$$.".        OS: Debian GNU/Linux trixie/sid riscv64 
- ,$$P'              `$$$.     Host: Sipeed Lichee Pi 4A 16G 
-',$$P       ,ggs.     `$$b:   Kernel: 6.6.66-th1520 
-`d$$'     ,$P"'   .    $$$    Uptime: 7 mins 
- $$P      d$'     ,    $$P    Packages: 1223 (dpkg) 
- $$:      $$.   -    ,d$$'    Shell: bash 5.2.32 
- $$;      Y$b._   _,d$P'      Resolution: 3840x2160 
- Y$$.    `.`"Y$$$$P"'         Terminal: /dev/pts/0 
- `$$b      "-.__              CPU: (4) @ 1.848GHz 
-  `Y$$                        Memory: 357MiB / 15814MiB 
-   `Y$$.
-     `$$b.                                            
-       `Y$$b.                                         
-          `"Y$b._
-              `"""
-
+[  131.605585] audit: type=1130 audit(1725224710.340:157): pid=1 uid=0 auid=4294
+967295 ses=4294967295 subj=unconfined msg='unit=user-runtime-dir@1000 comm="syst
+emd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+[  131.661424] audit: type=1101 audit(1725224710.396:158): pid=3275 uid=0 auid=4
+294967295 ses=4294967295 subj=unconfined msg='op=PAM:accounting grantors=pam_per
+mit acct="debian" exe="/usr/lib/systemd/systemd-executor" hostname=? addr=? term
+inal=? res=success'
+[  131.685342] audit: type=1103 audit(1725224710.396:159): pid=3275 uid=0 auid=4
+294967295 ses=4294967295 subj=unconfined msg='op=PAM:setcred grantors=pam_permit
+ acct="debian" exe="/usr/lib/systemd/systemd-executor" hostname=? addr=? termina
+l=? res=success'                                     
+[  131.707886] audit: type=1006 audit(1725224710.396:160): pid=3275 uid=0 subj=u
+nconfined old-auid=4294967295 auid=1000 tty=(none) old-ses=4294967295 ses=3 res=
+1
+[  131.722134] audit: type=1300 audit(1725224710.396:160): arch=c00000f3 syscall
+=64 success=yes exit=4 a0=7 a1=3fe1cc2a70 a2=4 a3=0 items=0 ppid=1 pid=3275 auid
+=1000 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=3 c
+omm="(systemd)" exe="/usr/lib/systemd/systemd-executor" subj=unconfined key=(nul
+l)
 debian@revyos-lpi4a:~$ 
 ```
 
