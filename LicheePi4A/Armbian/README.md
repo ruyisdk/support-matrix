@@ -4,8 +4,7 @@ sys_ver: 22.04
 sys_var: null
 
 status: basic
-
-
+last_update: 2024-03-04
 ---
 
 # Armbian LPi4A Test Report
