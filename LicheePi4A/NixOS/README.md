@@ -4,9 +4,7 @@ sys_ver: 23.05
 sys_var: null
 
 status: basic
-
-
-
+last_update: 2025-03-04
 ---
 
 # NixOS LPi4A Test Report
