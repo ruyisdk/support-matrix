@@ -1,4 +1,4 @@
-# LiteOS CH32V307 测试报告
+# LiteOS CH32V208 测试报告
 
 ## 测试环境
 
@@ -13,9 +13,9 @@
 
 ### 硬件信息
 
-- CH32V307V-EVT-R1-1v1
-- USB to UART 调试器一个（非必须，官方EVT开发板自带）
-- WCH-Link或WCH-LinkE 一个（非必须，官方EVT开发板自带）
+- CH32V208WBU6-EVT-R0-1v4
+- USB to UART 调试器一个（非必须，可以用WCH-Link或WCH-LinkE代替）
+- WCH-Link或WCH-LinkE 一个
 
 ## 安装步骤
 
@@ -105,14 +105,13 @@ genericCH32L103C8T6  SUCCESS   00:00:01.758
 
 ### 烧写镜像
 
-确认 WCH-Link(E) 连接到 SWD 调试口后，使用 pio 手动指定开发板后烧录：
+确认 WCH-Link(E) 连接到 SWD 调试口（官方EVT开发板的P6排针）后，使用 pio 手动指定开发板后烧录:
 ```bash
-pio run -e your_board --target upload
+pio run -e genericCH32V208CBU6 --target upload
 ```
-若使用官方EVT开发板，则可以直接连接板载WCH-Link的USB，使用pio进行镜像烧录
-```bash
-pio run -e ch32v307_evt --target upload
-```
+
+（实测CH32V208CBU6示例可以正常运行于官方EVT开发板的CH32V208WBU6芯片上）
+
 镜像烧录成功时的输出信息
 ```log
 [wch_riscv.cpu.0] Target successfully examined.
@@ -122,13 +121,12 @@ pio run -e ch32v307_evt --target upload
 ** Verified OK **
 ** Resetting Target **
 shutdown command invoked
-========================= [SUCCESS] Took 4.31 seconds =========================
+========================= [SUCCESS] Took 7.61 seconds =========================
 
-Environment    Status    Duration
--------------  --------  ------------
-ch32v307_evt   SUCCESS   00:00:04.306
-========================= 1 succeeded in 00:00:04.306 =========================
-
+Environment          Status    Duration
+-------------------  --------  ------------
+genericCH32V208CBU6  SUCCESS   00:00:07.610
+========================= 1 succeeded in 00:00:07.610 =========================
 ```
 
 #### 常见问题
@@ -152,7 +150,7 @@ ch32v307_evt   SUCCESS   00:00:04.306
 
 ### 登录系统
 
-使用串口调试软件，通过串口连接开发板（默认波特率115200）。若为官方EVT开发板则同样使用板载WCH-Link的USB，兼做默认输出串口。
+使用串口调试软件，通过串口连接开发板（默认波特率115200）。若为官方EVT开发板则同样连接P6排针。
 
 ## 预期结果
 
@@ -166,8 +164,26 @@ ch32v307_evt   SUCCESS   00:00:04.306
 
 ```log
 SystemClk:96000000
-ChipID: 30700528
-entering kernel init...Entering schedulertaskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry2 running,task2 SP:2000258ctaskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry2 running,task2 SP:2000258ctaskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry1 running,task1 SP:20002084taskSampleEntry2 running,task2
+ChipID:2080051c
+entering kernel init...
+Entering scheduler
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry2 running,task2 SP:200023d4
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry2 running,task2 SP:200023d4
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry1 running,task1 SP:20001ecc
+taskSampleEntry2 running,task2 SP:200023d4
 ```
 
 ## 测试判定标准
