@@ -1,4 +1,4 @@
-# Armbian MangoPi MQ Pro 测试报告
+# openSUSE Tumbleweed MangoPi MQ Pro 测试报告
 
 ## 测试环境
 
@@ -22,7 +22,7 @@
 使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
-xzcat openSUSE-Tumbleweed-RISC-V-JeOS-mangopimqpro.riscv64.raw.xz.raw.xz | dd bs=4M of=/dev/your/device iflag=fullblock oflag=direct status=progress; sync
+xzcat openSUSE-Tumbleweed-RISC-V-JeOS-mangopimqpro.riscv64.raw.xz | dd bs=4M of=/dev/your/device iflag=fullblock oflag=direct status=progress; sync
 ```
 
 ### 登录系统
@@ -38,13 +38,45 @@ xzcat openSUSE-Tumbleweed-RISC-V-JeOS-mangopimqpro.riscv64.raw.xz.raw.xz | dd bs
 
 ## 实际结果
 
-CFT
+系统正常启动，能够通过板载串口登录。
 
 ### 启动信息
 
-屏幕录像（从刷写镜像到登录系统）：
-
 ```log
+Welcome to openSUSE Tumbleweed 20
+Welcome to openSUSE Tumbleweed 20240115 - Kernel 6.5.2-4-default (ttyS0).
+
+wla240115 - Kernel 6.5.2-4-default (hn0:  
+
+
+localhost login: vc0).
+
+wlan0:  
+
+
+localhost login: root
+Password: 
+Have a lot of fun...
+localhost:~ # uname -a
+Linux localhost.localdomain 6.5.2-4-default #1 SMP Wed Sep 13 03:16:12 UTC 2023 (b06df44) riscv64 riscv64 riscv64 GNU/Linux
+localhost:~ # cat /etc/os-release
+NAME="openSUSE Tumbleweed"
+# VERSION="20240115"
+ID="opensuse-tumbleweed"
+ID_LIKE="opensuse suse"
+VERSION_ID="20240115"
+PRETTY_NAME="openSUSE Tumbleweed"
+ANSI_COLOR="0;32"
+CPE_NAME="cpe:/o:opensuse:tumbleweed:20240115"
+BUG_REPORT_URL="https://bugzilla.opensuse.org"
+SUPPORT_URL="https://bugs.opensuse.org"
+HOME_URL="https://www.opensuse.org"
+DOCUMENTATION_URL="https://en.opensuse.org/Portal:Tumbleweed"
+LOGO="distributor-logo-Tumbleweed"
+localhost:~ # zypper --version
+zypper 1.14.68
+localhost:~ # 
+
 ```
 
 ## 测试判定标准
@@ -55,4 +87,4 @@ CFT
 
 ## 测试结论
 
-CFT
+测试成功。
