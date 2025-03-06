@@ -10,6 +10,8 @@ from .config import config
 from .version_diff import RuyiDiff
 from .index_handler import RuyiGitRepo
 
+__version__ = "1.0.0"
+
 def _init_logger():
     handler = colorlog.StreamHandler()
     handler.setFormatter(colorlog.ColoredFormatter(

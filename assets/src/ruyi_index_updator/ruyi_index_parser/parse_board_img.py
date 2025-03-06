@@ -4,53 +4,36 @@ Structure of the board index file
 See ruyi packages-index definition
 """
 
-from ..schema.pkg_manifest import *
 import os
 import copy
 import toml
 from awesomeversion import AwesomeVersion
 
+from ...matrix_parser import ImageStatus
+
+from ..schema.pkg_manifest import *
+
 
 class BoardImages:
-    """
-    Hold one version of the board image index
-    """
-    raw_version: str
-    is_bot_created: bool
+    version: str
+    bot_created: bool
     info: PackageManifestType
-
-    @property
-    def version(self) -> str:
-        """
-        return the version
-        """
-        return self.raw_version
-
-    @version.setter
-    def version(self, value: str):
-        self.raw_version = value
 
     def __init__(self, file: str | None = None, *,
                  bot_created: bool = True, version: str = None, info: PackageManifestType = None):
         if file is None:
-            self.is_bot_created = bot_created
-            self.raw_version = version
+            self.bot_created = bot_created
+            self.version = version
             self.info = info
             return
-        self.is_bot_created = False
+        self.bot_created = False
         basename = os.path.basename(file)
         self.version = basename[:-5]  # remove .toml
         t = toml.load(file)
         self.info = t
 
-    def serialize(self) -> dict:
-        """
-        Serialize
-        """
-        return self.info
-
     def __copy__(self):
-        return BoardImages(bot_created=False,
+        return BoardImages(bot_created=self.bot_created,
                            version=copy.copy(self.version), info=copy.copy(self.info)
                            )
 
@@ -76,3 +59,60 @@ class BoardImages:
 
     def __eq__(self, other):
         return self.__cmp__(other) == 0
+
+
+class BoardImagesGenerator:
+    def __init__(self,
+                 version: str,
+                 desc: str,
+                 vendor: str,
+                 distfiles: list[DistfileDeclType],
+                 strategy: str,
+                 status: ImageStatus,  # Good/CFT/CFH
+                 partition_map: dict[str, str]):
+        self.version = version
+        self.desc = desc
+        self.vendor = vendor
+        self.distfiles = distfiles
+        self.strategy = strategy
+        self.status = status
+        self.partition_map = partition_map
+
+    def generate(self, version = None) -> BoardImages:
+        if self.status == "good":
+            level = "good"
+        elif self.status == "cft":
+            level = "untested"
+        elif self.status == "cfh":
+            level = "known_issue"
+        else:
+            level = None
+        service_level = [{
+            "level": level
+        }] if level is not None else []
+        info = {
+            "format": "v1",
+            "metadata": {
+                "desc": self.desc,
+                "vendor": {
+                    "name": self.vendor,
+                    "eula": ""
+                },
+                "service_level": service_level
+            },
+            "distfiles": self.distfiles,
+            "blob": {
+                "distfiles": [
+                    dist["name"] for dist in self.distfiles
+                ],
+            },
+            "provisionable": {
+                "strategy": self.strategy,
+                "partition_map": self.partition_map,
+            }
+        }
+        return BoardImages(
+            bot_created=True,
+            version=version,
+            info=info
+        )
