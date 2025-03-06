@@ -68,6 +68,10 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 - eweOS
     - Source code Link: https://github.com/panglars/eweos-vf2-mainline
     - Reference Installation Document: https://github.com/panglars/eweos-vf2-mainline/blob/main/README.md
+- irradium 3.7 
+    - Download Link: https://dl.irradium.org/irradium/images/visionfive_2/
+    - Reference Installation Document: https://dl.irradium.org/irradium/images/visionfive_2/README.TXT
+
     
     
 ### Hardware Information
@@ -102,6 +106,7 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 | DietPi Image          | N/A              | [Successful][DietPi]                              |
 | NixOS Image           | N/A              | [Successful][NixOS]                               |
 | eweOS Image           | N/A              | [Successful][eweOS]                               |
+| irradium Image        | N/A              | [Successful][irradium]                            |
 
 [oERV]: ./openEuler/README.md
 [Debian]: ./Debian/README.md
@@ -125,3 +130,4 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 [DietPi]: ./DietPi/README.md
 [NixOS]: ./NixOS/README.md
 [eweOS]: ./eweOS/README.md
+[irradium]: ./irradium/README.md
