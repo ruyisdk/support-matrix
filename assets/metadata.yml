@@ -19,6 +19,10 @@ linux:
   - alpine: Alpine
   - nixos: NixOS
   - dietpi: DietPi
+  - slackware: Slackware
+  - pmos: postmarketOS
+  - irradium: irradium
+  - eweos: eweOS
 
 bsd:
   - freebsd: FreeBSD
