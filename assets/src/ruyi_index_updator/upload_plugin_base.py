@@ -1,4 +1,4 @@
-# pylint: disable=import-outside-toplevel
+# pylint: disable=import-outside-toplevel, unused-import
 """
 Base class for upload plugins. 
 
@@ -8,8 +8,9 @@ See lm4a_revy.py for example.
 """
 
 from abc import ABC, abstractmethod
-from ..matrix_parser import VInfo
-from .ruyi_index_parser import BoardImages, DistfileDeclType
+
+from ..matrix_parser import SystemIdentifier, SystemInfo
+from .ruyi_index_parser import BoardImages, BoardImagesGenerator, DistfileDeclType
 
 
 class UploadPluginBase(ABC):
@@ -20,9 +21,14 @@ class UploadPluginBase(ABC):
     __tmppath__: str = None
 
     import logging
+    from src.ruyi_index_updator.ruyi_index_parser import BoardImagesGenerator
+    from src.matrix_parser import SystemIdentifier, SystemInfo
+    logger: logging.Logger
+
+    # Following are the metadata of the plugin
 
     def __init__(self) -> None:
-        self.logger = self.logging.getLogger("ruyi_index_updator")
+        self.logger = self.logging.getLogger(self.get_name())
 
     @staticmethod
     @abstractmethod
@@ -35,37 +41,38 @@ class UploadPluginBase(ABC):
     def __repr__(self) -> str:
         return f"<Ruyi Index Updator Plugin: {self.get_name()}: v{self.__version__}>"
 
-    @abstractmethod
-    def can_handle(self, vinfo: VInfo) -> bool:
-        """
-        Check if the plugin can handle a system from support matrix
-        """
-        raise NotImplementedError
-
-    def all_index_can_handle(self) -> dict[str, tuple[str, str, str]]:
+    def all_can_handle(self) -> list[SystemIdentifier]:
         """
         Give a list of all the index name from packages index which this plugin can process.
-        This is not necessary, but better have it to allow extra checker applyed.
         """
-        return {}
+        raise NotImplementedError
+
+    # Following are how the plugin should handle a system
 
     @abstractmethod
-    def is_mapped_ruyi_index(self, vinfo: VInfo, index: str) -> bool:
+    def system_display_name(self, info: SystemInfo, board_variant: str | None = None) -> str:
         """
-        Check if the ruyi index is mapped from the system.
+        Get the display name of the system
         """
         raise NotImplementedError
 
     @abstractmethod
-    def handle_version(self, vinfo: VInfo) -> str:
+    def system_image_files(self, info: SystemInfo, board_variant: str | None = None) -> list[str]:
+        """
+        Get the image files of the system
+        """
+        raise NotImplementedError
+
+    @abstractmethod
+    def handle_version(self, info: SystemInfo) -> str | None:
         """
         Handle the version mapping from system version to Ruyi Index version.
         """
         raise NotImplementedError
 
     @abstractmethod
-    def handle_report(self, vinfo: VInfo,
-                      index: str, last_index: list[BoardImages]) -> BoardImages | None:
+    def handle_report(self,
+                      info: SystemInfo) -> dict[str, BoardImages | BoardImagesGenerator] | None:
         """
         Handle the report data from the system.
         """
@@ -73,18 +80,44 @@ class UploadPluginBase(ABC):
 
     # Helper functions
 
+    import builtins
     import os
     import requests
     from tqdm import tqdm
     import hashlib
     import copy
+    import re
     from awesomeversion import AwesomeVersion
     import urllib.parse as urllib_parse
+    from src.ruyi_index_updator import config
+    from src.ruyi_index_updator import util
+
+    def eval(self, source, /, globals=None, locals=None):
+        """
+        Same as python's built-in eval, but pass locals properly
+        """
+        _g_a_l = self.builtins.globals()
+        _g_a_l["__builtins__"] = self.builtins
+        _globals = globals if globals is not None else _g_a_l
+        _locals = locals if locals is not None else self.builtins.locals()
+        return eval(source, globals=_globals, locals=_locals)  # pylint: disable=eval-used
+
+    def unique_list(self, arr: list) -> list:
+        """
+        Unique list
+        """
+        a = set()
+        for i in arr:
+            if isinstance(i, str):
+                i = i.strip()
+            a.add(i)
+        return list(a)
 
     def cmp_version(self, v1: str, v2: str) -> int:
         """
         Compare the version of two strings
-        Though this function is in version_diff.py, as plugins runs in a seprate env, we need to rewrite it here.
+        Though this function is in version_diff.py, 
+        as plugins runs in a seprate env, we need to rewrite it here.
         """
         av1 = self.AwesomeVersion(v1)
         av2 = self.AwesomeVersion(v2)
@@ -171,24 +204,6 @@ class UploadPluginBase(ABC):
             },
             "restrict": ["mirror"],
         }
-
-    def autoupdate_index(self, last_index: BoardImages, vinfo: VInfo,
-                         desc: str, distfiles: dict[str, DistfileDeclType]) -> BoardImages:
-        """
-        Auto update the index.
-        """
-        res = self.copy.copy(last_index)
-        res.is_bot_created = True
-        res.version = self.handle_version(vinfo)
-        res.info["metadata"]["desc"] = desc
-        res.info["distfiles"] = list(distfiles.values())
-        res.info["blob"]["distfiles"] = [
-            dist["name"] for dist in distfiles.values()
-        ]
-        res.info["provisionable"]["partition_map"] = {
-            k: ".".join(v["name"].split(".")[:-1]) for k, v in distfiles.items()
-        }
-        return res
 
 
 def register() -> UploadPluginBase | None:

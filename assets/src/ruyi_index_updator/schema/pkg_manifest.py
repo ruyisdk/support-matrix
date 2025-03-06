@@ -2,6 +2,8 @@
 Notice:
     This file comes from repo `ruyisdk/ruyi` `ruyi/ruyipkg/pkg_manifest.py`
 
+    Version: 0.28.0
+
     LICENSE: Apache-2.0
 """
 
