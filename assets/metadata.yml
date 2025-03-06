@@ -68,15 +68,15 @@ definitions:
       - good
 
 # General info
-sys: string        # System name, should be one of key in linux/bsd/rtos/others
-sys_ver: string    # System version
-sys_var: string?   # System variant
+sys: string # System name, should be one of key in linux/bsd/rtos/others
+sys_ver: string # System version
+sys_var: string? # System variant
 
 # Doc info
 status: *STATUS_ENUM
-last_updated: timestamp   # Last update
+last_updated: timestamp # Last update
 
 # Definition for board metadata
-product: string     # Product name
-cpu: string         # CPU model
-cpu_core: string    # CPU core
+product: string # Product name
+cpu: string # CPU model
+cpu_core: string # CPU core
