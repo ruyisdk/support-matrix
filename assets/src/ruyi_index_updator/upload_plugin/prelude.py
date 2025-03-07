@@ -8,7 +8,6 @@ logger = logging.getLogger(__name__)
 
 try:
     from src.ruyi_index_updator.ruyi_index_parser import *
-    from src.matrix_parser.version import VInfo
     from src.matrix_parser import SystemIdentifier, SystemInfo
     from src.ruyi_index_updator.upload_plugin_base import UploadPluginBase
 except ModuleNotFoundError:
