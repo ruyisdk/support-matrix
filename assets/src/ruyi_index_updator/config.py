@@ -58,7 +58,7 @@ _cli_configs = CFG([
     {'name': 'path', 'short_name': 'p',
         'explain': 'path to the support matrix', 'default': '.'},
     {'name': 'config', 'short_name': 'c',
-        'explain': 'config file for the tool', 'default': None},
+        'explain': 'config file for the tool', 'default': 'assets/renew_config.yaml'},
     {'name': 'index', 'short_name': 'i',
         'explain': 'path to clone ruyi index, default to a temp dir'},
     {'name': 'pr', 'explain': 'should create a PR for the update', 'action': 'store_true'},
