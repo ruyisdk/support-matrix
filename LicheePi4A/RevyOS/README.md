@@ -1,6 +1,6 @@
 ---
 sys: revyos
-sys_ver: 20250123
+sys_ver: "20250123"
 sys_var: null
 
 status: good
