@@ -1,0 +1,114 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "config.schema.json",
+    "title": "Config file for ruyi-index-updator",
+    "definitions": {
+        "plugin_name": {
+            "enum": [
+                "github_release_simple",
+                "mirrorsite_getter_simple",
+                "doc_only",
+                "mirrorsite_getter_std",
+                "github_release_std"
+            ],
+            "description": "The plugin's name to load this config item"
+        },
+        "plugin_schema_mux":{
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "plugin": {
+                                "const": "github_release_simple"
+                            }
+                        }
+                    },
+                    "then": {
+                        "$ref": "plugin_schema/github_release_simple.schema.json"
+                    }
+                }, {
+                    "if": {
+                        "properties": {
+                            "plugin": {
+                                "const": "mirrorsite_getter_simple"
+                            }
+                        }
+                    },
+                    "then": {
+                        "$ref": "plugin_schema/mirrorsite_getter_simple.schema.json"
+                    }
+                }, {
+                    "if": {
+                        "properties": {
+                            "plugin": {
+                                "const": "doc_only"
+                            }
+                        }
+                    },
+                    "then": {
+                        "$ref": "plugin_schema/doc_only.schema.json"
+                    }
+                }, {
+                    "if": {
+                        "properties": {
+                            "plugin": {
+                                "const": "mirrorsite_getter_std"
+                            }
+                        }
+                    },
+                    "then": {
+                        "$ref": "plugin_schema/mirrorsite_getter_std.schema.json"
+                    }
+                }, {
+                    "if": {
+                        "properties": {
+                            "plugin": {
+                                "const": "github_release_std"
+                            }
+                        }
+                    },
+                    "then": {
+                        "$ref": "plugin_schema/github_release_std.schema.json"
+                    }
+                }
+            ]
+        },
+        "plugin_item": {
+            "type": "object",
+            "description": "One item for some update plugin to know how to update a system",
+            "properties": {
+                "plugin": {
+                    "$ref": "#/definitions/plugin_name"
+                },
+                "id": {
+                    "type": "string",
+                    "description": "*Optional* The id of this config item, defaults by each plugin"
+                }
+            },
+            "required": [
+                "plugin"
+            ],
+            "allOf": [
+                {
+                    "$ref": "#/definitions/plugin_schema_mux"
+                }
+            ]
+        }
+    },
+    "type": "object",
+    "properties": {
+        "handler": {
+            "type": "array",
+            "description": "The configuration for update plugin to know how to update a system",
+            "items": {
+                "$ref": "#/definitions/plugin_item"
+            }
+        },
+        "util": {
+            "type": "object",
+            "description": "Any be-refed fields",
+            "additionalProperties": true
+        }
+    },
+    "additionalProperties": false
+}

@@ -1,0 +1,148 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "plugin_schema/mirrorsite_getter_std.schema.json",
+    "title": "Schema using mirrorsite_getter_std plugin",
+    "description": "mirrorsite_getter_std is a generic type of plugin",
+    "definitions": {
+        "file_decl": {
+            "description": "Defines a file needs to be download",
+            "properties": {
+                "id": {
+                    "anyOf": [
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Just used as an identifier of a file in logging, not necessary"
+                },
+                "fileset": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "description": "One of fileset it should be in"
+                            }
+                        },
+                        {
+                            "type": "null",
+                            "description": "It should be in all fileset"
+                        }
+                    ],
+                    "description": "Which fileset should this file present in"
+                },
+                "url": {
+                    "$ref": "common.schema.json#/definitions/mapper_decl",
+                    "description": "To generate the image's mirrorsite url using version, the given str is the vinfo.version\nTo the page, not directily to the file itself\nOverride the upper level option"
+                },
+                "file_filter": {
+                    "$ref": "common.schema.json#/definitions/filter_decl",
+                    "description": "To filter the file name, given str is the file name\nOverride the upper level option"
+                },
+                "partition_map": {
+                    "type": "string",
+                    "description": "Which partition should this file be in",
+                    "default": "disk"
+                }
+            },
+            "required": [
+                "fileset",
+                "file_filter"
+            ]
+        }
+    },
+    "properties": {
+        "vendor": {
+            "type": "string",
+            "description": "The vendor of the system which this config represents"
+        },
+        "system": {
+            "type": "string",
+            "description": "The system's id of the system which this config represents"
+        },
+        "variant": {
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The variant of the system which this config represents\n'null' if is 'null'"
+        },
+        "board_variants": {
+            "anyOf": [
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "What board_variants can is handle"
+        },
+        "url": {
+            "$ref": "common.schema.json#/definitions/mapper_decl",
+            "description": "To generate the image's mirrorsite url using version, the given str is the vinfo.version\nTo the page, not directily to the file itself"
+        },
+        "version_mapper": {
+            "$ref": "common.schema.json#/definitions/mapper_decl",
+            "description": "To map the system version to a symver, given str is the system version"
+        },
+        "strategy": {
+            "type": "string",
+            "description": "Flash strategy",
+            "default": "dd_v1"
+        },
+        "fileset": {
+            "type": "array",
+            "description": "Which fileset does this system provides",
+            "items": {
+                "$ref": "common.schema.json#/definitions/fileset_decl"
+            }
+        },
+        "files": {
+            "type": "array",
+            "description": "What files does this system provides",
+            "items": {
+                "$ref": "#/definitions/file_decl"
+            }
+        }
+    },
+    "required": [
+        "vendor",
+        "system",
+        "variant",
+        "board_variants",
+        "version_mapper",
+        "fileset"
+    ],
+    "allOf": [
+        {
+            "$comment": "Restiction: if not all file has url, global must have url",
+            "if": {
+                "properties": {
+                    "files": {
+                        "contains": {
+                            "properties": {
+                                "url": false
+                            }
+                        }
+                    }
+                }
+            },
+            "then": {
+                "required": [
+                    "url"
+                ]
+            }
+        }
+    ]
+}
