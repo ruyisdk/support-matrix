@@ -1,0 +1,69 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "plugin_schema/github_release_simple.schema.json",
+    "title": "Schema using github_release_simple plugin",
+    "description": "github_release_simple plugin limits to no board variant and a single file",
+    "properties": {
+        "vendor": {
+            "type": "string",
+            "description": "The vendor of the system which this config represents"
+        },
+        "system": {
+            "type": "string",
+            "description": "The system's id of the system which this config represents"
+        },
+        "variant": {
+            "anyOf": [
+                {
+                    "type": "string"
+                },                 {
+                    "type": "null"
+                }
+            ],
+            "description": "The variant of the system which this config represents\n'null' if is 'null'"
+        },
+        "repo": {
+            "type": "string",
+            "description": "The release file is in which repo"
+        },
+        "release_filter": {
+            "$ref": "common.schema.json#/definitions/filter_decl",
+            "description": "To filter the github release using the system version, given str is the system version"
+        },
+        "version_mapper": {
+            "$ref": "common.schema.json#/definitions/mapper_decl",
+            "description": "To map the system version to a symver, given str is the system version"
+        },
+        "asset_filter": {
+            "$ref": "common.schema.json#/definitions/filter_decl",
+            "description": "To filter the file name, given str is the file name"
+        },
+        "strategy": {
+            "type": "string",
+            "description": "Flash strategy",
+            "default": "dd_v1"
+        },
+        "partition_map": {
+            "type": "string",
+            "description": "Partition map. Due to the simple version plugin, only one file",
+            "default": "disk"
+        },
+        "desc_mapper": {
+            "$ref": "common.schema.json#/definitions/mapper_info_decl",
+            "description": "To generate the description of the system"
+        },
+        "name_mapper": {
+            "$ref": "common.schema.json#/definitions/mapper_info_decl",
+            "description": "To generate the display name for the system"
+        }
+    },
+    "required": [
+        "vendor",
+        "system",
+        "variant",
+        "repo",
+        "release_filter",
+        "version_mapper",
+        "asset_filter"
+    ]
+}

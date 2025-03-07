@@ -1,0 +1,261 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "plugin_schema/common.schema.json",
+    "description": "common part schema",
+    "definitions": {
+        "filter_decl": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "regex",
+                        "lambda"
+                    ],
+                    "description": "The type of the filter",
+                    "default": "regex"
+                }
+            },
+            "allOf": [
+                {
+                    "if": {
+                        "anyOf": [
+                            {
+                                "properties": {
+                                    "type": {
+                                        "const": "regex"
+                                    }
+                                }
+                            },
+                            {
+                                "properties": {
+                                    "type": false
+                                }
+                            }
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "filter": {
+                                "type": "string",
+                                "description": "A regex string to see if the given str can be matched"
+                            }
+                        },
+                        "required": [
+                            "filter"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "lambda"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "filter": {
+                                "type": "string",
+                                "description": "A python lambda function, with protocol like: `def f(s: str, info: SystemInfo) -> bool`"
+                            }
+                        },
+                        "required": [
+                            "filter"
+                        ]
+                    }
+                }
+            ]
+        },
+        "mapper_decl": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "regex",
+                        "lambda"
+                    ],
+                    "description": "The type of the mapper",
+                    "default": "regex"
+                }
+            },
+            "allOf": [
+                {
+                    "if": {
+                        "anyOf": [
+                            {
+                                "properties": {
+                                    "type": {
+                                        "const": "regex"
+                                    }
+                                }
+                            },
+                            {
+                                "properties": {
+                                    "type": false
+                                }
+                            }
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "regex": {
+                                "type": "string",
+                                "description": "A regex string to see if the given str can be matched"
+                            },
+                            "mapper": {
+                                "type": "string",
+                                "description": "A format string with args expanded result from regex",
+                                "examples": [
+                                    "{0}.{1}.{2}-{3}+{4}"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "regex",
+                            "mapper"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "lambda"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "mapper": {
+                                "type": "string",
+                                "description": "A python lambda function, with protocol like: `def f(s: str, info: SystemInfo) -> str`"
+                            }
+                        },
+                        "required": [
+                            "mapper"
+                        ]
+                    }
+                }
+            ]
+        },
+        "mapper_info_decl": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "enum": [
+                        "regex",
+                        "lambda"
+                    ],
+                    "description": "The type of the mapper. Here regex actually means a format string",
+                    "default": "regex"
+                }
+            },
+            "allOf": [
+                {
+                    "if": {
+                        "anyOf": [
+                            {
+                                "properties": {
+                                    "type": {
+                                        "const": "regex"
+                                    }
+                                }
+                            },
+                            {
+                                "properties": {
+                                    "type": false
+                                }
+                            }
+                        ]
+                    },
+                    "then": {
+                        "properties": {
+                            "mapper": {
+                                "type": "string",
+                                "description": "A format string with args `SystemInfo` as `info`",
+                                "examples": [
+                                    "System {info.system} as {info.variant}"
+                                ]
+                            }
+                        },
+                        "required": [
+                            "mapper"
+                        ]
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "lambda"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "mapper": {
+                                "type": "string",
+                                "description": "A python lambda function, with protocol like: `def f(s: str, info: SystemInfo) -> str`"
+                            }
+                        },
+                        "required": [
+                            "mapper"
+                        ]
+                    }
+                }
+            ]
+        },
+        "fileset_decl": {
+            "type": "object",
+            "description": "Fileset is a list of files using in a single image_combo, for example: boot part and root part for a fastboot img",
+            "properties": {
+                "id": {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "description": "One of a fileset name"
+                        },
+                        {
+                            "type": "null",
+                            "description": "This fileset contains all file"
+                        }
+                    ],
+                    "description": "The id to seperate each file set\nCan be null but need to be distinct"
+                },
+                "prepend": {
+                    "type": "string",
+                    "description": "Prepend to the front of the image-combo name to seprate with other fileset."
+                },          
+                "append": {
+                    "type": "string",
+                    "description": "Append to the back of the image-combo name to seprate with other fileset."
+                },
+                "board_variants": {
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "description": "One kind of board variant"
+                            }
+                        },
+                        {
+                            "type": "null",
+                            "description": "Match all board variant"
+                        }
+                    ],
+                    "description": "In which board variants should this fileset exists. null means all"
+                },
+                "desc_mapper": {
+                    "$ref": "#/definitions/mapper_info_decl",
+                    "description": "To generate the description of the system"
+                }
+            },
+            "required": [
+                "id",
+                "board_variants"
+            ]
+        }
+    }
+}
