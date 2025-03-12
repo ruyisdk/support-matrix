@@ -18,6 +18,9 @@
   - 参考安装文档：https://dongshanpi.com/DongshanNezhaSTU/07-Buildroot-SDK_DevelopmentGuide/
 - Arch Linux
   - 打包脚本：https://github.com/sehraf/d1-riscv-arch-image-builder
+- postmarketOS
+  - 下载链接（pmbootstrap）: https://wiki.postmarketos.org/wiki/Pmbootstrap
+  - 参考安装文档：https://wiki.postmarketos.org/index.php?title=MangoPi_MQ-Pro_(mangopi-mq-pro)&direction=prev&oldid=46021
 
 ### 硬件开发板信息
 
@@ -25,16 +28,18 @@
 
 ## 测试结果
 
-| 软件分类                       | 软件包名     | 测试结果（测试报告）        |
-|----------------------------|--------------|---------------------------|
-| Tina-Linux 镜像启动            | N/A          | [CFT][Tina]       |
-| OpenWrt 镜像启动               | N/A          | [CFT][OpenWrt]         |
-| Debian 镜像启动                | N/A          | [CFT][Debian]          |
-| Arch Linux 镜像启动            | N/A          | [CFT][Arch]            |
-| BuildRoot 镜像启动             | N/A          | [CFT][BuildRoot]       |
+| 软件分类                | 软件包名 | 测试结果（测试报告） |
+| ----------------------- | -------- | -------------------- |
+| Tina-Linux 镜像启动     | N/A      | [成功][Tina]         |
+| OpenWrt 镜像启动        | N/A      | [CFT][OpenWrt]       |
+| Debian 镜像启动         | N/A      | [CFT][Debian]        |
+| Arch Linux 镜像启动     | N/A      | [CFT][Arch]          |
+| BuildRoot 镜像启动      | N/A      | [CFT][BuildRoot]     |
+| postmarketOS 编译和启动 | N/A      | [成功][pmOS]         |
 
 [Tina]: ./TinaLinux/README_zh.md
 [OpenWrt]: ./OpenWrt/README_zh.md
 [Debian]: ./Debian/README_zh.md
 [BuildRoot]: ./BuildRoot/README_zh.md
 [Arch]: ./ArchLinux/README_zh.md
+[pmOS]: ./postmarketOS/README_zh.md
