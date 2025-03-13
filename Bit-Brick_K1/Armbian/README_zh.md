@@ -25,7 +25,8 @@ xz -kd Armbian_25.2.1_Bananapif3_noble_current_6.6.76_minimal.img.xz
 sudo dd if=Armbian_25.2.1_Bananapif3_noble_current_6.6.76_minimal.img of=/dev/<your-device> bs=1M status=progress
 ```
 
-**警告**: 该镜像默认加载 `bpi-f3` 的设备树文件,可能会导致部分外设无法使用,请在烧录后修改镜像内文件`/boot/extlinux/extlinux.conf`
+> [!Warning]
+> 该镜像默认加载 `bpi-f3` 的设备树文件,可能会导致部分外设无法使用,请在烧录后修改镜像内文件`/boot/extlinux/extlinux.conf`
 
 ```
 label Armbian

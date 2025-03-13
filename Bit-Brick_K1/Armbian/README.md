@@ -34,7 +34,8 @@ xz -kd Armbian_25.2.1_Bananapif3_noble_current_6.6.76_minimal.img.xz
 sudo dd if=Armbian_25.2.1_Bananapif3_noble_current_6.6.76_minimal.img of=/dev/<your-device> bs=1M status=progress
 ```
 
-**Warning**: This image loads `bpi-f3`'s device tree file by default, which may cause some peripherals to be unusable, please modify the file `/boot/extlinux/extlinux.conf` in the image after flashing.
+> [!Warning]
+> This image loads `bpi-f3`'s device tree file by default, which may cause some peripherals to be unusable, please modify the file `/boot/extlinux/extlinux.conf` in the image after flashing.
 
 ```
 label Armbian
