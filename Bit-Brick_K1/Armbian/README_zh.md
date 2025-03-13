@@ -25,6 +25,16 @@ xz -kd Armbian_25.2.1_Bananapif3_noble_current_6.6.76_minimal.img.xz
 sudo dd if=Armbian_25.2.1_Bananapif3_noble_current_6.6.76_minimal.img of=/dev/<your-device> bs=1M status=progress
 ```
 
+**警告**: 该镜像默认加载 `bpi-f3` 的设备树文件,可能会导致部分外设无法使用,请在烧录后修改镜像内文件`/boot/extlinux/extlinux.conf`
+
+```
+label Armbian
+  kernel /boot/Image
+  initrd /boot/uInitrd
+  fdt /boot/dtb/spacemit/k1-x_bit-brick.dtb
+  append root=UUID=eee55a77-fdd4-44a3-bbb9-07c346297d0c earlycon=sbi console=tty1 console=ttyS0,115200 clk_ignore_unused rw no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0 splash plymouth.ignore-serial-consoles
+```
+
 ### 登录系统
 
 通过串口登录系统。
@@ -162,7 +172,8 @@ mvendorid       : 0x710
 marchid         : 0x8000000058000001
 mimpid          : 0x1000000049772200
 
-root@bananapif3:~# 
+root@bananapif3:~# root@bananapif3:~# cat /sys/firmware/devicetree/base/model 
+spacemit k1-x bit-brick board
 ```
 
 ## 测试判定标准

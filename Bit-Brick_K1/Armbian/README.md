@@ -4,7 +4,7 @@ sys_ver: 25.2.1
 sys_var: minimal
 
 status: basic
-last_update: 2025-03-07
+last_update: 2025-03-13
 ---
 
 # Armbian Bit-Brick K1 Test Report
@@ -32,6 +32,16 @@ After downloading and extracting the image, use `dd` to flash the image to the m
 ```bash
 xz -kd Armbian_25.2.1_Bananapif3_noble_current_6.6.76_minimal.img.xz 
 sudo dd if=Armbian_25.2.1_Bananapif3_noble_current_6.6.76_minimal.img of=/dev/<your-device> bs=1M status=progress
+```
+
+**Warning**: This image loads `bpi-f3`'s device tree file by default, which may cause some peripherals to be unusable, please modify the file `/boot/extlinux/extlinux.conf` in the image after flashing.
+
+```
+label Armbian
+  kernel /boot/Image
+  initrd /boot/uInitrd
+  fdt /boot/dtb/spacemit/k1-x_bit-brick.dtb
+  append root=UUID=eee55a77-fdd4-44a3-bbb9-07c346297d0c earlycon=sbi console=tty1 console=ttyS0,115200 clk_ignore_unused rw no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0 splash plymouth.ignore-serial-consoles
 ```
 
 ### Logging into the System
@@ -170,7 +180,8 @@ mvendorid       : 0x710
 marchid         : 0x8000000058000001
 mimpid          : 0x1000000049772200
 
-root@bananapif3:~# 
+root@bananapif3:~# cat /sys/firmware/devicetree/base/model 
+spacemit k1-x bit-brick board
 ```
 
 ## Test Criteria
