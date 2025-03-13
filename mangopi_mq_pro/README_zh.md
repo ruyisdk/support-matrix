@@ -45,28 +45,31 @@
 - Gentoo
   - 下载链接：https://github.com/RevySR/riscv-calculate/releases/download/v20220929/gentoo-d1-20220929153235.img.zst
   - 参考安装文档：https://github.com/RevySR/riscv-calculate
-
+- NixOS
+  - 下载链接: https://github.com/chuangzhu/nixos-sun20iw1p1/releases/download/hdmi/nixos-sd-image-22.11.20221014.4428e23-riscv64-linux.img.zst
+  - 参考安装文档: https://github.com/chuangzhu/nixos-sun20iw1p1
 ### 硬件开发板信息
 
 - MangoPi MQ Pro (Allwinner D1/D1-H)
 
 ## 测试结果
 
-| 软件分类                    | 软件包名 | 测试结果（测试报告） |
-| --------------------------- | -------- | -------------------- |
-| Tina-Linux 镜像启动         | N/A      | [CFT][Tina]          |
-| OpenWrt 镜像启动            | N/A      | [成功][OpenWrt]      |
-| Armbian 镜像启动            | N/A      | [失败][Armbian]      |
-| Debian 镜像启动             | N/A      | [成功][Debian]       |
-| Arch Linux 镜像编译和启动   | N/A      | [失败][Archlinux]    |
-| Fedora 镜像启动             | N/A      | [成功][Fedora]       |
-| FreeBSD 镜像启动            | N/A      | [CFT][FreeBSD]       |
-| openSUSE 镜像启动           | N/A      | [成功][openSUSE]     |
-| Ubuntu 镜像启动             | N/A      | [成功][Ubuntu]       |
-| NetBSD 镜像启动             | N/A      | [CFT][NetBSD]        |
-| Slackware 镜像启动          | N/A      | [成功][Slackware]    |
-| postmarketOS 镜像编译和启动 | N/A      | [成功][pmOS]         |
-| Gentoo 镜像启动             | N/A      | [成功][Gentoo]       |
+| 软件分类                  | 软件包名 | 测试结果（测试报告） |
+| ------------------------- | -------- | -------------------- |
+| Tina-Linux 镜像启动       | N/A      | [CFT][Tina]          |
+| OpenWrt 镜像启动          | N/A      | [成功][OpenWrt]      |
+| Armbian 镜像启动          | N/A      | [失败][Armbian]      |
+| Debian 镜像启动           | N/A      | [成功][Debian]       |
+| Arch Linux 镜像编译和启动 | N/A      | [失败][Archlinux]    |
+| Fedora 镜像启动           | N/A      | [成功][Fedora]       |
+| FreeBSD 镜像编译和启动    | N/A      | [成功][FreeBSD]      |
+| openSUSE 镜像启动         | N/A      | [成功][openSUSE]     |
+| Ubuntu 镜像启动           | N/A      | [成功][Ubuntu]       |
+| NetBSD 镜像启动           | N/A      | [CFT][NetBSD]        |
+| Slackware 镜像启动        | N/A      | [成功][Slackware]    |
+| postmarketOS 编译和启动   | N/A      | [成功][pmOS]         |
+| Gentoo 镜像启动           | N/A      | [成功][Gentoo]       |
+| NixOS 镜像启动            | N/A      | [成功][NixOS]        |
 
 [Tina]: ./TinaLinux/README_zh.md
 [OpenWrt]: ./OpenWrt/README_zh.md
@@ -81,3 +84,4 @@
 [Slackware]: ./Slackware/README_zh.md
 [pmOS]: ./postmarketOS/README_zh.md
 [Gentoo]: ./Gentoo/README_zh.md
+[NixOS]: ./NixOS/README_zh.md
