@@ -61,6 +61,11 @@
 - eweOS
     - 源码链接：https://github.com/panglars/eweos-vf2-mainline
     - 参考安装文档：https://github.com/panglars/eweos-vf2-mainline/blob/main/README.md
+irradium 3.7
+    - 下载链接：https://dl.irradium.org/irradium/images/visionfive_2/
+    - 参考安装文档：https://dl.irradium.org/irradium/images/visionfive_2/README.TXT
+
+
 
 
 ### 硬件开发板信息
@@ -95,6 +100,7 @@
 | DietPi 镜像启动          | N/A      | [成功][DietPi]                         |
 | NixOS 镜像构建及启动     | N/A      | [成功][NixOS]                          |
 | eweOS 镜像构建及启动     | N/A      | [成功][eweOS]                          |
+| irradium 镜像启动        | N/A      | [成功][irradium]                       |
 
 [oERV]: ./openEuler/README_zh.md
 [Debian]: ./Debian/README_zh.md
@@ -118,3 +124,4 @@
 [DietPi]: ./DietPi/README_zh.md
 [NixOS]: ./NixOS/README_zh.md
 [eweOS]: ./eweOS/README_zh.md
+[irradium]: ./irradium/README.md

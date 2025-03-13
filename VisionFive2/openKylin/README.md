@@ -129,8 +129,6 @@ marchid         : 0x8000000000000007
 mimpid          : 0x4210427
 ```
 
-![login](./image.png)
-
 ## Test Criteria
 
 Successful: The actual result matches the expected result.

@@ -1,90 +1,106 @@
-# Bianbu BIT-BRICK K1 测试报告
+---
+sys: armbian
+sys_ver: 25.2.1
+sys_var: minimal
 
-## 测试环境
+status: basic
+last_update: 2025-03-13
+---
 
-### 系统信息
+# Armbian Bit-Brick K1 Test Report
 
-- 系统版本：v2.1
-- 下载链接：https://archive.spacemit.com/image/k1/version/bianbu/v2.1/
-- 参考安装文档：https://docs.bit-brick.com/docs/k1/getting-started/preparation
+## Test Environment
 
-### 硬件信息
+### System Information
 
-- BIT-BRICK K1
-- 电源适配器
-- microSD 卡一张
-- USB to UART 调试器一个
+- System Version: Armbian 25.2.1 Noble Minimal / IOT
+- Download Links: https://www.armbian.com/bananapi-f3/
 
-## 安装步骤
+### Hardware Information
 
-### 刷写镜像（sd 卡）
+- Bit-Brick K1
+- Power Adapter
+- A microSD Card
+- A USB to UART Debugger
 
+## Installation Steps
 
-**请务必选择以 `.img.zip` 结尾的压缩包**
-下载并解压镜像后，使用 `dd` 将镜像写入 microSD 卡。
+### Flashing the Image (SD Card)
+
+After downloading and extracting the image, use `dd` to flash the image to the microSD card.
 
 ```bash
-unzip bianbu-24.04-minimal-k1-v2.1-release-20250124140410.img.zip
-sudo dd if=/path/to/bianbu-24.04-minimal-k1-v2.1-release-20250124140410.img of=/dev/your-device bs=1M status=progress
+xz -kd Armbian_25.2.1_Bananapif3_noble_current_6.6.76_minimal.img.xz 
+sudo dd if=Armbian_25.2.1_Bananapif3_noble_current_6.6.76_minimal.img of=/dev/<your-device> bs=1M status=progress
 ```
 
-### 登录系统
+> [!Warning]
+> This image loads `bpi-f3`'s device tree file by default, which may cause some peripherals to be unusable, please modify the file `/boot/extlinux/extlinux.conf` in the image after flashing.
 
-通过串口登录系统。
+```
+label Armbian
+  kernel /boot/Image
+  initrd /boot/uInitrd
+  fdt /boot/dtb/spacemit/k1-x_bit-brick.dtb
+  append root=UUID=eee55a77-fdd4-44a3-bbb9-07c346297d0c earlycon=sbi console=tty1 console=ttyS0,115200 clk_ignore_unused rw no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0 splash plymouth.ignore-serial-consoles
+```
 
-默认用户名： `root`
-默认密码： `bianbu`
+### Logging into the System
 
-## 预期结果
+Logging into the system via the serial port.
 
-系统正常启动，能够通过串口或图形界面登录。
+At the first boot, Armbian will ask to create a user and password, set the time zone, etc.
 
-## 实际结果
+## Expected Results
 
-系统正常启动，成功通过串口及图形界面登录。
+The system should boot up normally and allow login through the onboard serial port.
 
-### 启动信息
+## Actual Results
+
+The system booted successfully and login through the onboard serial port was also successful.
+
+### Boot Log
 
 ```log
+    _             _    _           
+   /_\  _ _ _ __ | |__(_)__ _ _ _  
+  / _ \| '_| '  \| '_ \ / _` | ' \ 
+ /_/ \_\_| |_|_|_|_.__/_\__,_|_||_|
+                                   
+ v25.2.1 for BananaPi BPI-F3 running Armbian Linux 6.6.76-current-spacemit
 
-Bianbu 2.1 k1 ttyS0
-k1 login: root
-密码： 
-Welcome to Bianbu 2.1 (GNU/Linux 6.6.63 riscv64)
+ Packages:     Ubuntu stable (noble)
+ Support:      DIY (community maintained)
+ IP addresses: (LAN) IPv4:  IPv6:  
+ Performance:  
 
- * Documentation:  https://bianbu.spacemit.com
- * Support:        https://ticket.spacemit.com
+ Load:         7%               Up time:       2 min
+ Memory usage: 2% of 7.65G  
+ CPU temp:     31°C              Usage of /:   4% of 29G    
 
-0 updates can be applied immediately.
+ Commands: 
 
+ Configuration : armbian-config
+ Monitoring    : htop
 
-The list of available updates is more than a week old.
-To check for new updates run: sudo apt update
-
-The programs included with the Bianbu system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Bianbu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-applicable law.
-
-root@k1:~# uname -a
-Linux k1 6.6.63 #2.1.0.2 SMP PREEMPT Fri Jan 24 03:39:48 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux
-root@k1:~# cat /etc/os-release 
-PRETTY_NAME="Bianbu 2.1"
-NAME="Bianbu"
-VERSION_ID="2.1"
-VERSION="2.1 (Noble Numbat)"
+root@bananapif3:~# uname -a
+Linux bananapif3 6.6.76-current-spacemit #1 SMP PREEMPT_DYNAMIC Sat Feb  8 16:27:57 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux
+root@bananapif3:~# cat /etc/os-release 
+PRETTY_NAME="Armbian 25.2.1 noble"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04 LTS (Noble Numbat)"
 VERSION_CODENAME=noble
-ID=bianbu
+ID=ubuntu
 ID_LIKE=debian
-HOME_URL="https://bianbu.spacemit.com"
-SUPPORT_URL="https://bianbu.spacemit.com"
-BUG_REPORT_URL="https://ticket.spacemit.com"
-PRIVACY_POLICY_URL="https://www.spacemit.com/privacy-policy"
+HOME_URL="https://www.armbian.com/"
+SUPPORT_URL="https://forum.armbian.com"
+BUG_REPORT_URL="https://www.armbian.com/bugs"
+PRIVACY_POLICY_URL="https://www.armbian.com"
 UBUNTU_CODENAME=noble
-LOGO=ubuntu-logo
-root@k1:~# cat /proc/cpuinfo 
+LOGO="armbian-logo"
+ARMBIAN_PRETTY_NAME="Armbian 25.2.1 noble"
+root@bananapif3:~# cat /proc/cpuinfo 
 processor       : 0
 hart            : 0
 model name      : Spacemit(R) X60
@@ -165,17 +181,16 @@ mvendorid       : 0x710
 marchid         : 0x8000000058000001
 mimpid          : 0x1000000049772200
 
-root@k1:~# 
+root@bananapif3:~# cat /sys/firmware/devicetree/base/model 
+spacemit k1-x bit-brick board
 ```
 
-![](./gnome.png)
+## Test Criteria
 
-## 测试判定标准
+Successful: The actual result matches the expected result.
 
-测试成功：实际结果与预期结果相符。
+Failed: The actual result does not match the expected result.
 
-测试失败：实际结果与预期结果不符。
+## Test Conclusion
 
-## 测试结论
-
-测试成功
+Test successful.

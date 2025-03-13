@@ -51,28 +51,31 @@ cpu_core: XuanTie C906
 - Gentoo
   - Download Link: https://github.com/RevySR/riscv-calculate/releases/download/v20220929/gentoo-d1-20220929153235.img.zst
   - Reference Installation Document: https://github.com/RevySR/riscv-calculate
-
+- NixOS
+  - Source code link: https://github.com/chuangzhu/nixos-sun20iw1p1/releases/download/hdmi/nixos-sd-image-22.11.20221014.4428e23-riscv64-linux.img.zst
+  - Reference Installation Document: https://github.com/chuangzhu/nixos-sun20iw1p1/
 ### Hardware Information
 
 - MangoPi MQ Pro (Allwinner D1/D1-H)
 
 ## Test Results
 
-| Software Category                 | Package Name | Test Result (Test Report) |
-| --------------------------------- | ------------ | ------------------------- |
-| Tina-Linux Image Boot             | N/A          | [CFT][Tina]               |
-| OpenWrt Image Boot                | N/A          | [Success][OpenWrt]        |
-| Armbian Image Boot                | N/A          | [Failed][Armbian]         |
-| Debian Image Boot                 | N/A          | [Success][Debian]         |
-| Arch Linux Image Compile & Boot   | N/A          | [Failed][Archlinux]       |
-| Fedora Image Boot                 | N/A          | [Success][Fedora]         |
-| FreeBSD Image Boot                | N/A          | [CFT][FreeBSD]            |
-| openSUSE Image Boot               | N/A          | [Success][openSUSE]       |
-| Ubuntu Image Boot                 | N/A          | [Success][Ubuntu]         |
-| NetBSD Image Boot                 | N/A          | [CFT][NetBSD]             |
-| Slackware Image Boot              | N/A          | [Success][Slackware]      |
-| postmarketOS Image Compile & Boot | N/A          | [Success][Slackware]      |
-| Gentoo Image Boot                 | N/A          | [Success][Gentoo]         |
+| Software Category               | Package Name | Test Result (Test Report) |
+| ------------------------------- | ------------ | ------------------------- |
+| Tina-Linux Image Boot           | N/A          | [CFT][Tina]               |
+| OpenWrt Image Boot              | N/A          | [Success][OpenWrt]        |
+| Armbian Image Boot              | N/A          | [Failed][Armbian]         |
+| Debian Image Boot               | N/A          | [Success][Debian]         |
+| Arch Linux Image Compile & Boot | N/A          | [Failed][Archlinux]       |
+| Fedora Image Boot               | N/A          | [Success][Fedora]         |
+| FreeBSD Image Boot              | N/A          | [Success][FreeBSD]        |
+| openSUSE Image Boot             | N/A          | [Success][openSUSE]       |
+| Ubuntu Image Boot               | N/A          | [Success][Ubuntu]         |
+| NetBSD Image Boot               | N/A          | [CFT][NetBSD]             |
+| Slackware Image Boot            | N/A          | [Success][Slackware]      |
+| postmarketOS Bootstrap & Boot   | N/A          | [Success][pmOS]           |
+| Gentoo Image Boot               | N/A          | [Success][Gentoo]         |
+| NixOS Image Boot                | N/A          | [Success][NixOS]          |
 
 [Tina]: ./TinaLinux/README.md
 [OpenWrt]: ./OpenWrt/README.md
@@ -87,3 +90,4 @@ cpu_core: XuanTie C906
 [Slackware]: ./Slackware/README.md
 [pmOS]: ./postmarketOS/README.md
 [Gentoo]: ./Gentoo/README.md
+[NixOS]: ./NixOS/README.md
