@@ -37,8 +37,8 @@ cpu_core: XuanTie C906
 | Software Category             | Package Name | Test Results (Test Report) |
 | ----------------------------- | ------------ | -------------------------- |
 | Tina Linux Image Boot         | N/A          | [Success][Tina]            |
-| OpenWrt Image Boot            | N/A          | [CFT][OpenWrt]             |
-| Debian Image Boot             | N/A          | [CFT][Debian]              |
+| OpenWrt Image Boot            | N/A          | [Success][OpenWrt]         |
+| Debian Image Boot             | N/A          | [Success][Debian]          |
 | Arch Linux Image Boot         | N/A          | [CFT][Arch]                |
 | BuildRoot Image Boot          | N/A          | [CFT][BuildRoot]           |
 | postmarketOS Bootstrap & Boot | N/A          | [Success][pmOS]            |

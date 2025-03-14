@@ -31,8 +31,8 @@
 | 软件分类                | 软件包名 | 测试结果（测试报告） |
 | ----------------------- | -------- | -------------------- |
 | Tina-Linux 镜像启动     | N/A      | [成功][Tina]         |
-| OpenWrt 镜像启动        | N/A      | [CFT][OpenWrt]       |
-| Debian 镜像启动         | N/A      | [CFT][Debian]        |
+| OpenWrt 镜像启动        | N/A      | [成功][OpenWrt]      |
+| Debian 镜像启动         | N/A      | [成功][Debian]       |
 | Arch Linux 镜像启动     | N/A      | [CFT][Arch]          |
 | BuildRoot 镜像启动      | N/A      | [CFT][BuildRoot]     |
 | postmarketOS 编译和启动 | N/A      | [成功][pmOS]         |
