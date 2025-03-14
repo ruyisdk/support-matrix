@@ -42,6 +42,9 @@ cpu_core: XuanTie C906
 - NixOS
   - Download link: https://github.com/chuangzhu/nixos-sun20iw1p1/releases
   - Reference Installation Document: https://github.com/chuangzhu/nixos-sun20iw1p1
+- irradium
+  - Download link: https://dl.irradium.org/irradium/images/lichee_rv_dock/
+  - Reference Installation Document: https://dl.irradium.org/irradium/images/lichee_rv_dock/README.TXT
 
 ### Hardware Information
 
@@ -61,6 +64,7 @@ cpu_core: XuanTie C906
 | openSUSE Image Boot       | N/A          | [Successful][openSUSE]                     |
 | Arch Linux Image Boot     | N/A          | [Successful][Arch]                         |
 | NixOS Image Boot          | N/A          | [Successful][NixOS]                        |
+| irradium Image Boot       | N/A          | [Successful][irradium]                     |
 
 [oERVDL]: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/D1/
 [oERV]: ./openEuler/README.md
@@ -72,3 +76,4 @@ cpu_core: XuanTie C906
 [openSUSE]: ./openSUSE/README.md
 [Arch]: ./ArchLinux/README.md
 [NixOS]: ./NixOS/README.md
+[irradium]: ./irradium/README.md
