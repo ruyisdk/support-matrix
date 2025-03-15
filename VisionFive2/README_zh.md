@@ -12,7 +12,7 @@
 - openKylin 2.0
     - 下载链接：https://www.openkylin.top/downloads
 - 参考安装文档：https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8VisionFive2%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
-- Ubuntu 24.10 & 24.04.1 LTS
+- Ubuntu 24.10 & 24.04.2 LTS
     - 下载链接：https://ubuntu.com/download/risc-v
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
 - BuildRoot (VisionFive 2 SDK)
@@ -58,6 +58,15 @@
 - NixOS
     - 源码链接: https://github.com/NickCao/nixos-riscv
     - 参考安装文档: https://github.com/NickCao/nixos-riscv/README.md
+- eweOS
+    - 源码链接：https://github.com/panglars/eweos-vf2-mainline
+    - 参考安装文档：https://github.com/panglars/eweos-vf2-mainline/blob/main/README.md
+irradium 3.7
+    - 下载链接：https://dl.irradium.org/irradium/images/visionfive_2/
+    - 参考安装文档：https://dl.irradium.org/irradium/images/visionfive_2/README.TXT
+
+
+
 
 ### 硬件开发板信息
 
@@ -66,7 +75,7 @@
 ## 测试结果
 
 | 软件分类                 | 软件包名 | 测试结果（测试报告）                   |
-| ------------------------ | -------- | -------------------------------------- |
+|--------------------------|----------|----------------------------------------|
 | openEuler/Base 镜像启动  | N/A      | [成功][oERV]                           |
 | openEuler/Xfce 镜像启动  | Xfce     | [成功][oERV]                           |
 | Debian 镜像启动          | N/A      | [成功][Debian]（StarFive 厂商镜像）    |
@@ -90,6 +99,8 @@
 | Alpine 镜像启动          | N/A      | [成功][Alpine]                         |
 | DietPi 镜像启动          | N/A      | [成功][DietPi]                         |
 | NixOS 镜像构建及启动     | N/A      | [成功][NixOS]                          |
+| eweOS 镜像构建及启动     | N/A      | [成功][eweOS]                          |
+| irradium 镜像启动        | N/A      | [成功][irradium]                       |
 
 [oERV]: ./openEuler/README_zh.md
 [Debian]: ./Debian/README_zh.md
@@ -112,3 +123,5 @@
 [Alpine]: ./Alpine/README_zh.md
 [DietPi]: ./DietPi/README_zh.md
 [NixOS]: ./NixOS/README_zh.md
+[eweOS]: ./eweOS/README_zh.md
+[irradium]: ./irradium/README.md

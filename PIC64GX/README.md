@@ -13,8 +13,8 @@ cpu_core: SiFive U54 + SiFive E51
 - Ubuntu 24.10
     - Download Link: https://cdimage.ubuntu.com/releases/24.10/release/
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/Microchip%20PIC64GX1000%20Curiosity%20Kit
-- Ubuntu 24.04.1 LTS
-    - Download Link: https://cdimage.ubuntu.com/releases/24.04/release/
+- Ubuntu 24.04.2 LTS
+    - Download Link: https://cdimage.ubuntu.com/releases/24.04.2/release/
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/Microchip%20PIC64GX1000%20Curiosity%20Kit
 - OpenEmbedded / Yocto
     - Download Link: https://github.com/pic64gx/meta-pic64gx-yocto-bsp

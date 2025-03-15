@@ -19,8 +19,8 @@ cpu_core: SiFive U74 + SiFive S7
 - Ubuntu 24.10
     - Download link: https://cdimage.ubuntu.com/releases/24.10/release/
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched
-- Ubuntu 24.04.1 LTS
-    - Download link: https://cdimage.ubuntu.com/releases/24.04.1/release/
+- Ubuntu 24.04.2 LTS
+    - Download link: https://cdimage.ubuntu.com/releases/24.04.2/release/
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched
 - FreeBSD 14.0
     - Download link: https://mirrors.ustc.edu.cn/freebsd/releases/riscv/riscv64/ISO-IMAGES/14.0/FreeBSD-14.0-RELEASE-riscv-riscv64-mini-memstick.img.xz

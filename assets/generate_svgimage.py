@@ -285,7 +285,7 @@ def main():
     parser.add_argument('-p', '--path', dest="path",
                         help="support matrix path", type=str, default='.')
     parser.add_argument('-o', '--output', dest="output",
-                        help="output path", type=str, default='.')
+                        help="output path", type=str, default='assets/output')
     parser.add_argument('-l', '--lang', dest="lang",
                         help="language", type=str, default='en')
     parser.add_argument('--html', dest="html",
@@ -300,8 +300,10 @@ def main():
     link_func = gen_gen_link(args.lang)
 
     file_suffix = "" if args.lang == "en" else f"_{args.lang}"
-
     html_path = args.html
+    if not os.path.exists(args.output):
+        os.mkdir(args.output)
+
     svg = proc_onesys(systems.linux, systems, link_func, color_func)
     with open(os.path.join(args.output, f'linux{file_suffix}.svg'), 'w', encoding="utf-8") as f:
         f.write(str(svg))
@@ -337,6 +339,15 @@ def main():
                                f'others{file_suffix}.html'), 'w', encoding="utf-8") as f:
             f.write(gen_html(svg, os.path.join(
                 html_path, f'others{file_suffix}.svg')))
+
+    svg = proc_onesys(systems.customized, systems, link_func, color_func)
+    with open(os.path.join(args.output, f'customized{file_suffix}.svg'), 'w', encoding="utf-8") as f:
+        f.write(str(svg))
+    if html_path:
+        with open(os.path.join(args.output,
+                               f'customized{file_suffix}.html'), 'w', encoding="utf-8") as f:
+            f.write(gen_html(svg, os.path.join(
+                html_path, f'customized{file_suffix}.svg')))
 
 
 if __name__ == "__main__":

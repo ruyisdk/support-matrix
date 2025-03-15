@@ -15,7 +15,7 @@
     - Sipeed Lichee RV: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
 - Ubuntu 
   - 24.10 下载链接: https://ubuntu.com/download/risc-v
-  - 24.04.1 LTS 下载链接: https://ubuntu.com/download/risc-v
+  - 24.04.2 LTS 下载链接: https://ubuntu.com/download/risc-v
   - 参考安装文档：
     - Sipeed Lichee RV Dock: https://wiki.ubuntu.com/RISC-V/LicheeRV
 - OpenWrt 23.05.2
@@ -36,6 +36,9 @@
 - NixOS
   - 下载链接：https://github.com/chuangzhu/nixos-sun20iw1p1/releases
   - 参考安装文档:https://github.com/chuangzhu/nixos-sun20iw1p1
+- irradium
+  - 下载链接: https://dl.irradium.org/irradium/images/lichee_rv_dock/
+  - 参考安装文档: https://dl.irradium.org/irradium/images/lichee_rv_dock/README.TXT
 
 ### 硬件开发板信息
 
@@ -55,6 +58,7 @@
 | openSUSE 镜像启动       | N/A          | [成功][openSUSE]              |
 | Arch Linux 镜像启动     | N/A          | [成功][Arch]                  |
 | NixOS 镜像启动          | N/A          | [成功][NixOS]                 |
+| irradium 镜像启动       | N/A          | [成功][irradium]              |
 
 [oERVDL]: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/D1/
 [oERV]: ./openEuler/README_zh.md
@@ -66,3 +70,4 @@
 [openSUSE]: ./openSUSE/README_zh.md
 [Arch]: ./ArchLinux/README_zh.md
 [NixOS]: ./NixOS/README_zh.md
+[irradium]: ./irradium/README_zh.md

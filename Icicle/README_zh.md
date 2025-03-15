@@ -7,8 +7,8 @@
 - Ubuntu 24.10
     - 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
-- Ubuntu 24.04.1 LTS
-    - 下载链接：https://cdimage.ubuntu.com/releases/24.04.1/release/
+- Ubuntu 24.04.2 LTS
+    - 下载链接：https://cdimage.ubuntu.com/releases/24.04.2/release/
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
 - BuildRoot 24.02.2
     - 源码下载链接：https://buildroot.org/downloads/buildroot-2024.02.2.tar.gz
