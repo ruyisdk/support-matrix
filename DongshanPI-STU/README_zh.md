@@ -21,7 +21,9 @@
 - postmarketOS
   - 下载链接（pmbootstrap）: https://wiki.postmarketos.org/wiki/Pmbootstrap
   - 参考安装文档：https://wiki.postmarketos.org/index.php?title=MangoPi_MQ-Pro_(mangopi-mq-pro)&direction=prev&oldid=46021
-
+- FreeBSD
+  - 下载链接：https://github.com/freebsd-d1/freebsd-d1
+  - 参考安装文档：https://github.com/freebsd-d1/freebsd-d1
 ### 硬件开发板信息
 
 - DongshanPI-哪吒 STU 开发板
@@ -34,8 +36,9 @@
 | OpenWrt 镜像启动        | N/A      | [成功][OpenWrt]      |
 | Debian 镜像启动         | N/A      | [成功][Debian]       |
 | Arch Linux 镜像启动     | N/A      | [CFT][Arch]          |
-| BuildRoot 镜像启动      | N/A      | [CFT][BuildRoot]     |
+| BuildRoot 镜像启动      | N/A      | [CFI][BuildRoot]     |
 | postmarketOS 编译和启动 | N/A      | [成功][pmOS]         |
+| FreeBSD 镜像编译和启动  | N/A      | [成功][FreeBSD]      |
 
 [Tina]: ./TinaLinux/README_zh.md
 [OpenWrt]: ./OpenWrt/README_zh.md
@@ -43,3 +46,4 @@
 [BuildRoot]: ./BuildRoot/README_zh.md
 [Arch]: ./ArchLinux/README_zh.md
 [pmOS]: ./postmarketOS/README_zh.md
+[FreeBSD]: ./FreeBSD/README_zh.md
