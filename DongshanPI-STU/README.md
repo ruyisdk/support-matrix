@@ -27,6 +27,9 @@ cpu_core: XuanTie C906
 - postmarketOS
   - Download link (pmbootstrap): https://wiki.postmarketos.org/wiki/Pmbootstrap
   - Reference Installation Document: https://wiki.postmarketos.org/wiki/DongshanPi_NeZha_STU_(dongshanpi-nezhastu)
+- FreeBSD
+  - Download Link: https://github.com/freebsd-d1/freebsd-d1
+  - Reference Installation Document: https://github.com/freebsd-d1/freebsd-d1
 
 ### Hardware Information
 
@@ -40,8 +43,9 @@ cpu_core: XuanTie C906
 | OpenWrt Image Boot            | N/A          | [Success][OpenWrt]         |
 | Debian Image Boot             | N/A          | [Success][Debian]          |
 | Arch Linux Image Boot         | N/A          | [CFT][Arch]                |
-| BuildRoot Image Boot          | N/A          | [CFT][BuildRoot]           |
+| BuildRoot Image Boot          | N/A          | [CFI][BuildRoot]           |
 | postmarketOS Bootstrap & Boot | N/A          | [Success][pmOS]            |
+| FreeBSD Image Compile & Boot  | N/A          | [Success][FreeBSD]         |
 
 [Tina]: ./TinaLinux/README.md
 [OpenWrt]: ./OpenWrt/README.md
@@ -49,3 +53,4 @@ cpu_core: XuanTie C906
 [BuildRoot]: ./BuildRoot/README.md
 [Arch]: ./ArchLinux/README.md
 [pmOS]: ./postmarketOS/README.md
+[FreeBSD]: ./FreeBSD/README.md
