@@ -1,6 +1,6 @@
 ---
 sys: bianbu
-sys_ver: 2.1.0
+sys_ver: "v2.1"
 sys_var: null
 
 status: basic

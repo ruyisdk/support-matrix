@@ -58,7 +58,7 @@ _cli_configs = CFG([
     {'name': 'path', 'short_name': 'p',
         'explain': 'path to the support matrix', 'default': '.'},
     {'name': 'config', 'short_name': 'c',
-        'explain': 'config file for the tool', 'default': None},
+        'explain': 'config file for the tool', 'default': 'assets/renew_config.yaml'},
     {'name': 'index', 'short_name': 'i',
         'explain': 'path to clone ruyi index, default to a temp dir'},
     {'name': 'pr', 'explain': 'should create a PR for the update', 'action': 'store_true'},
@@ -70,9 +70,9 @@ _cli_configs = CFG([
 ])
 
 _internal_configs = {
-    "RUYI_PACKAGE_INDEX": "git@github.com:ruyisdk/packages-index.git",
+    "RUYI_PACKAGE_INDEX": "git@github.com:wychlw/packages-index.git",
     "CACHE_DIR": os.getenv("CACHE_DIR", None),
-    "PACKAGE_INDEX_OWNER": os.getenv("PACKAGE_INDEX_OWNER", "ruyisdk"),
+    "PACKAGE_INDEX_OWNER": os.getenv("PACKAGE_INDEX_OWNER", "wychlw"),
     "PACKAGE_INDEX_REPO": "packages-index",
     "CI_RUN_ID": os.getenv("CI_RUN_ID", None),
     "CI_RUN_URL": os.getenv("CI_RUN_URL", None),

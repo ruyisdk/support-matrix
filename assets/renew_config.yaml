@@ -1,0 +1,357 @@
+# $schema: docs/schemas/config.schema.json
+# yaml-language-server: $schema=docs/schemas/config.schema.json
+
+# This file has a schema, ypu can read it to get additional definations
+# Suggest use: yaml-language-server in vscode to see comments and auto-complitions
+
+util:
+    general_ver_mapper: &general_ver_mapper
+    # this version mapper cam map any version like (v?)a.b(.c)?(-*)*(-sp*)*(-*)
+        type: lambda
+        mapper: 'lambda ver, info: [(m := re.match(r"(v)?(\d+)\.(\d+)(\.(\d+))?((-(?:(?!SP)\w+))*)(-SP(\d+))?((-(\w+))*)?((\+(\w+))*)?", ver), f"{m[2]}.{m[3]}.{m[5] or 0}-{m[9] or 0}{m[6] or ""}{m[10] or ""}{m[13] or ""}")[-1] for re in [__import__("re")]][0]'
+    do_nothing_mapper: &do_nothing_mapper
+        regex: 'v?(.*)'
+        mapper: '{0}'
+    date_middle_mapper: &date_middle_mapper
+        regex: '(.*)'
+        mapper: '0.{0}.0'
+
+handler:
+    -   plugin: github_release_simple
+        id: buildroot-sipeed-licheervnano
+        vendor: sipeed-licheervnano
+        system: buildroot
+        variant: null
+        repo: sipeed/LicheeRV-Nano-Build
+        strategy: dd_v1
+        partition_map: disk
+        release_filter:
+            type: lambda
+            filter: "lambda name, info: info.version in name"
+        version_mapper:
+            <<: *date_middle_mapper
+        asset_filter:
+            filter: .*\.img
+
+    -   plugin: github_release_simple
+        vendor: sipeed-licheervnano
+        system: debian
+        variant: null
+        repo: Fishwaldo/sophgo-sg200x-debian
+        release_filter:
+            type: lambda
+            filter: "lambda name, info: info.version in name"
+        version_mapper:
+            <<: *do_nothing_mapper
+        asset_filter:
+            filter: '^licheervnano.*\.img.*$'
+
+    -   plugin: mirrorsite_getter_simple
+        vendor: milkv-pioneer
+        system: revyos
+        variant: null
+        url:
+            regex: .*
+            mapper: https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/{0}/
+        file_filter:
+            filter: ^revyos-pioneer.*\.img.*(?<!sum)$
+        version_mapper:
+            <<: *date_middle_mapper
+        desc_mapper:
+            mapper: RevyOS {info.version} image for Milk-V Pioneer Box with SG2042
+
+    -   plugin: github_release_simple
+        vendor: milkv-duo
+        system: buildroot
+        variant: null
+        repo: milkv-duo/duo-buildroot-sdk-v2
+        release_filter:
+            type: lambda
+            filter: "lambda name, info: info.version in name"
+        version_mapper:
+            <<: *do_nothing_mapper
+        asset_filter:
+            filter: ^milkv-duo-.*riscv64.*sd.*\.img.*$
+
+    # Comment this because it also contains build date, wait until full rules from ruyi
+    # -   plugin: mirrorsite_getter_simple
+    #     vendor: milkv-duo
+    #     system: fedora
+    #     variant: null
+    #     url:
+    #         regex: .*
+    #         mapper: https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/Duo/images/latest/
+    #     file_filter:
+    #         filter: ^milkv-duo-.*\.img.*$
+    #     version_mapper:
+    #         regex: .*
+    #         mapper: "{0}.0.0"
+
+    -   plugin: github_release_simple
+        vendor: milkv-duo256m
+        system: buildroot
+        variant: null
+        repo: milkv-duo/duo-buildroot-sdk-v2
+        release_filter:
+            type: lambda
+            filter: "lambda name, info: info.version in name"
+        version_mapper:
+            <<: *do_nothing_mapper
+        asset_filter:
+            filter: ^milkv-duo256m-.*riscv64.*sd.*\.img.*$
+
+    -   plugin: github_release_simple
+        vendor: milkv-duo256m
+        system: debian
+        variant: null
+        repo: Fishwaldo/sophgo-sg200x-debian
+        release_filter:
+            type: lambda
+            filter: "lambda name, info: info.version in name"
+        version_mapper:
+            <<: *do_nothing_mapper
+        asset_filter:
+            filter: '^duo256_.*sd.*\.img.*$'
+
+    -   plugin: github_release_simple
+        vendor: milkv-duos
+        system: buildroot
+        variant: sd
+        repo: milkv-duo/duo-buildroot-sdk-v2
+        release_filter:
+            type: lambda
+            filter: "lambda name, info: info.version in name"
+        version_mapper:
+            <<: *do_nothing_mapper
+        asset_filter:
+            filter: ^milkv-duos-.*riscv64.*sd.*\.img.*$
+
+    -   plugin: github_release_simple
+        vendor: milkv-duos
+        system: debian
+        variant: sd
+        repo: Fishwaldo/sophgo-sg200x-debian
+        release_filter:
+            type: lambda
+            filter: "lambda name, info: info.version in name"
+        version_mapper:
+            <<: *do_nothing_mapper
+        asset_filter:
+            filter: ^duos_.*sd.*\.img.*$
+
+    -   plugin: mirrorsite_getter_std
+        vendor: sipeed-lpi4a
+        system: revyos
+        variant: null
+        board_variants: [ 8g, 16g ]
+        version_mapper:
+            <<: *date_middle_mapper
+        strategy: fastboot-v1
+        fileset:
+            -   id: 'main'
+                board_variants: null
+                desc_mapper:
+                    mapper: 'RevyOS {info.version} image for Sipeed LicheePi 4A'
+            -   id: 'uboot-8g'
+                prepend: 'uboot'
+                board_variants: [ 8g ]
+                desc_mapper:
+                    mapper: 'U-Boot image for LicheePi 4A (8G RAM) and RevyOS {info.version}'
+            -   id: 'uboot-16g'
+                prepend: 'uboot'
+                board_variants: [ 16g ]
+                desc_mapper:
+                    mapper: 'U-Boot image for LicheePi 4A (16G RAM) and RevyOS {info.version}'
+        files:
+            -   id: "boot file"
+                fileset: [ main ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "boot-" in name and "u-boot" not in name'
+                partition_map: "boot"
+            -   id: "root file"
+                fileset: [ main ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "root-" in name'
+                partition_map: "root"
+            -   id: "uboot 8g file"
+                fileset: [ uboot-8g ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "u-boot-" in name and "lpi4a-main" in name'
+                partition_map: "uboot"
+            -   id: "uboot 16g file"
+                fileset: [ uboot-16g ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "u-boot-" in name and "lpi4a-16g-main" in name'
+                partition_map: "uboot"
+        url:
+            regex: (.*)
+            mapper: 'https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/{0}/'
+
+    -   plugin: mirrorsite_getter_std
+        vendor: sipeed-lc4a
+        system: revyos
+        variant: null
+        board_variants: [ 8g, 16g ]
+        version_mapper:
+            <<: *date_middle_mapper
+        strategy: fastboot-v1
+        fileset:
+            -   id: 'main'
+                board_variants: null
+                desc_mapper:
+                    mapper: 'RevyOS {info.version} image for Sipeed LicheeCluster 4A'
+            -   id: 'uboot-8g'
+                prepend: 'uboot'
+                board_variants: [ 8g ]
+                desc_mapper:
+                    mapper: 'U-Boot image for LicheeCluster 4A (8G RAM) and RevyOS {info.version}'
+            -   id: 'uboot-16g'
+                prepend: 'uboot'
+                board_variants: [ 16g ]
+                desc_mapper:
+                    mapper: 'U-Boot image for LicheeCluster 4A (16G RAM) and RevyOS {info.version}'
+        files:
+            -   id: "boot file"
+                fileset: [ main ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "boot-" in name and "u-boot" not in name'
+                partition_map: "boot"
+            -   id: "root file"
+                fileset: [ main ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "root-" in name'
+                partition_map: "root"
+            -   id: "uboot 8g file"
+                fileset: [ uboot-8g ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "u-boot-" in name and "lc4a-main" in name'
+                partition_map: "uboot"
+            -   id: "uboot 16g file"
+                fileset: [ uboot-16g ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "u-boot-" in name and "lc4a-16g-main" in name'
+                partition_map: "uboot"
+        url:
+            regex: (.*)
+            mapper: 'https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/{0}/'
+
+    -   plugin: mirrorsite_getter_simple
+        vendor: bpi-f3
+        system: bianbu
+        variant: null
+        url:
+            regex: .*
+            mapper: https://archive.spacemit.com/image/k1/version/bianbu/{0}/
+        file_filter:
+            type: lambda
+            filter: 'lambda name, info: "desktop" in name and "k1" in name and "img" in name and "md5" not in name'
+        version_mapper:
+            <<: *general_ver_mapper
+        desc_mapper:
+            mapper: Official bianbu desktop image for Banana Pi F3 version {info.version}
+
+    # Waiting for mapper rules
+    # -   plugin: mirrorsite_getter_simple
+    #     vendor: bpi-f3
+    #     system: openkylin
+    #     variant: null
+    #     url:
+    #         regex: .*
+    #         mapper: https://mirror.iscas.ac.cn/openkylin-cdimage/{0}/
+    #     file_filter:
+    #         type: lambda
+    #         filter: 'lambda name, info: "openKylin-Embedded" in name and "spacemit-k1" in name'
+    #     version_mapper:
+    #         <<: *general_ver_mapper
+    #     desc_mapper:
+    #         mapper: Official OpenKylin Embedded image for Banana Pi F3 version {info.version}
+
+    -   plugin: mirrorsite_getter_std
+        vendor: milkv-meles
+        system: revyos
+        variant: null
+        board_variants: [ 8g, 16g ]
+        version_mapper:
+            <<: *date_middle_mapper
+        strategy: fastboot-v1
+        fileset:
+            -   id: 'main'
+                board_variants: null
+                desc_mapper:
+                    mapper: 'RevyOS {info.version} image for Milk-V Meles using EMMC'
+            -   id: 'uboot-8g'
+                prepend: 'uboot'
+                board_variants: [ 8g ]
+                desc_mapper:
+                    mapper: 'U-Boot image for Milk-V Meles (8G RAM) and RevyOS {info.version}'
+            -   id: 'uboot-16g'
+                prepend: 'uboot'
+                board_variants: [ 16g ]
+                desc_mapper:
+                    mapper: 'U-Boot image for Milk-V Meles (16G RAM) and RevyOS {info.version}'
+        files:
+            -   id: "boot file"
+                fileset: [ main ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "boot-" in name and "u-boot" not in name'
+                partition_map: "boot"
+            -   id: "root file"
+                fileset: [ main ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "root-" in name'
+                partition_map: "root"
+            -   id: "uboot 8g file"
+                fileset: [ uboot-8g ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "u-boot-" in name and "16g" not in name and "4g" not in name'
+                partition_map: "uboot"
+            -   id: "uboot 16g file"
+                fileset: [ uboot-16g ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "u-boot-" in name and "16g" in name'
+                partition_map: "uboot"
+        url:
+            regex: (.*)
+            mapper: 'https://mirror.iscas.ac.cn/revyos/extra/images/meles/{0}/'
+        name_mapper:
+            regex: (.*)
+            mapper: RevyOS image for Milk-V Meles using EMMC
+
+    # -   plugin: mirrorsite_getter_std
+    #     vendor: milkv-meles
+    #     system: revyos
+    #     variant: null
+    #     board_variants: [ 8g, 16g ]
+    #     version_mapper:
+    #        <<: *date_middle_mapper
+    #     strategy: dd-v1
+    #     fileset:
+    #         -   id: 'main'
+    #             board_variants: null
+    #             desc_mapper:
+    #                 mapper: 'RevyOS {info.version} image for Milk-V Meles using SD Card'
+    #     files:
+    #         -   id: "SD file"
+    #             fileset: [ main ]
+    #             append: sd
+    #             file_filter:
+    #                 type: lambda
+    #                 filter: 'lambda name, info: "sdcard" in name'
+    #     url:
+    #         regex: (.*)
+    #         mapper: 'https://mirror.iscas.ac.cn/revyos/extra/images/meles/{0}/'
+    #     name_mapper:
+    #         regex: (.*)
+    #         mapper: RevyOS image for Milk-V Meles using SD Card
