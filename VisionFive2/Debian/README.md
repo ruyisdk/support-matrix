@@ -4,7 +4,7 @@ sys_ver: null
 sys_var: null
 
 status: good
-last_update: 2024-06-21
+last_update: 2025-03-16
 ---
 
 # Debian VisionFive 2 Test Report
@@ -15,7 +15,7 @@ last_update: 2024-06-21
 
 - System Version: Debian bookworm (starfive-jh7110-202403-SD-minimal-desktop-wayland.img.bz2)
 - Download Link: https://debian.starfivetech.com/
-- Reference Installation Document: https://gitee.com/openeuler/RISC-V/blob/master/release/openEuler-23.03/Installation_Book/Visionfive2/README.md
+- Reference Installation Document: https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/
 
 ### Hardware Information
 
@@ -33,8 +33,8 @@ last_update: 2024-06-21
 Assuming `/dev/sdc` is the storage card.
 
 ```bash
-bzip2 -dk starfive-jh7110-202403-SD-minimal-desktop-wayland.img.bz2
-sudo dd if=starfive-jh7110-202403-SD-minimal-desktop-wayland.img of=/dev/sdc bs=1M status=progress
+bzip2 -dk starfive-jh7110-202409-SD-minimal-desktop-wayland.img.bz2 
+sudo dd if=starfive-jh7110-202409-SD-minimal-desktop-wayland.img of=/dev/sdc bs=1M status=progress
 ```
 
 ### Boot Mode Selection
@@ -73,19 +73,73 @@ The system booted up successfully, and login via the serial port was successful.
 ### Boot Log
 
 ```log
-user@starfive:~$ uname -a                                                                                             
-Linux starfive 6.1.31-starfive #1 SMP Mon Mar  4 21:31:49 CST 2024 riscv64 GNU/Linux                                  
-user@starfive:~$ cat /etc/os-release                                                                                  
-PRETTY_NAME="Debian GNU/Linux bookworm/sid"                                                                           
-NAME="Debian GNU/Linux"                                                                                               
-VERSION_CODENAME=bookworm                                                                                             
-ID=debian                                                                                                             
-HOME_URL="https://www.debian.org/"                                                                                    
-SUPPORT_URL="https://www.debian.org/support"                                                                          
-BUG_REPORT_URL="https://bugs.debian.org/"                                                                             
-BUILD_ID=7                                                                                                            
-user@starfive:~$
+Debian GNU/Linux trixie/sid starfive ttyS0
+
+starfive login: [   37.039220] mipi_0p9: disabling
+
+starfive login: user
+Password: 
+Linux starfive 6.6.20-starfive #41SF SMP Fri Sep 20 17:48:26 CST 2024 riscv64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+user@starfive:~$ uname -a
+Linux starfive 6.6.20-starfive #41SF SMP Fri Sep 20 17:48:26 CST 2024 riscv64 GNU/Linux
+user@starfive:~$ cat /etc/os-release 
+PRETTY_NAME="Debian GNU/Linux trixie/sid"
+NAME="Debian GNU/Linux"
+VERSION_CODENAME=trixie
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+BUILD_ID=32
+BUILD_DATE=T2024-09-23
+user@starfive:~$ cat /proc/cpuinfo 
+processor       : 0
+hart            : 1
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+
+processor       : 1
+hart            : 2
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+
+processor       : 2
+hart            : 3
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+
+processor       : 3
+hart            : 4
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+
+user@starfive:~$ 
 ```
+
+![](./image.png)
 
 Screen recording (from flashing the image to system login):
 
