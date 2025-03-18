@@ -14,18 +14,19 @@ cpu_core: XuanTie E907 + ARM Cortex-A7
     - SDK Link:
         - Global - Google Drive: https://drive.google.com/drive/folders/1_HAZRddR69hRMZAVrxFrPZXFFQiV3vE0?usp=share_link
         - Recommended for users in Chinese mainland - Baidu Netdisk: https://pan.baidu.com/s/115gVK-8Pt-vJi8jn2AWMYw?pwd=7n4q Extraction code: 7n4q
+        - Docker: https://hub.docker.com/r/gloomyghost/yuzukilizard
     - Reference Installation Document:
         - https://dongshanpi.com/YuzukiHD-Lizard/01-BoardIntroduction/
         - https://tina.100ask.net/SdkModule/Linux_E907_DevelopmentGuide-01/
 
 ### Hardware Information
 
-- Yuzuki PI-Lizard Development Board
+- Yuzuki Lizard Development Board
 
 ## Test Results
 
 | Software Category | Package Name | Test Results (Test Report) |
-|-------------------|--------------|----------------------------|
-| Melis             | N/A          | [CFT][Melis]               |
+| ----------------- | ------------ | -------------------------- |
+| Melis             | N/A          | [WIP][Melis]               |
 
 [Melis]: ./Melis/README.md

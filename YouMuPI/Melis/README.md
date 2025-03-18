@@ -3,11 +3,11 @@ sys: melis
 sys_ver: null
 sys_var: null
 
-status: cft
-last_update: 2024-06-21
+status: wip
+last_update: 2025-03-18
 ---
 
-# Melis Yuzuki PI-Lizard Test Report
+# Melis YouMuPI(Yuzuki)-Lizard Test Report
 
 ## Test Environment
 
@@ -16,35 +16,40 @@ last_update: 2024-06-21
 - SDK Links:
     - Global - Google Drive: https://drive.google.com/drive/folders/1_HAZRddR69hRMZAVrxFrPZXFFQiV3vE0?usp=share_link
     - Recommended for users in Chinese mainland - Baidu Netdisk: https://pan.baidu.com/s/115gVK-8Pt-vJi8jn2AWMYw?pwd=7n4q Password: 7n4q
+    - Docker: https://hub.docker.com/r/gloomyghost/yuzukilizard
 - Reference Installation Document:
     - https://dongshanpi.com/YuzukiHD-Lizard/01-BoardIntroduction/
     - https://tina.100ask.net/SdkModule/Linux_E907_DevelopmentGuide-01/
 
 ### Hardware Information
 
-- Yuzuki PI-Lizard Development Board
+- Yuzuki Lizard Development Board
 
 ## Installation Steps
 
-### Extracting the SDK
+### Environment setup
 
-After downloading the SDK, merge the package files and extract:
+Use docker:
+
+```bash
+docker pull gloomyghost/yuzukilizard
+docker run -it gloomyghost/yuzukilizard /bin/bash
+```
+
+Or download the SDK and set it up manually as follows:
 ```bash
 cat tina-v853-open.tar.gz.* > tina-v853-open.tar.gz
 tar -xzvf tina-v853-open.tar.gz
-```
-
-Since the default SDK doesn’t support this development board, you need to add the necessary configurations separately to the tina-v853-open SDK. First, clone the patch repository for this development board and then overwrite it:
-```bash
-git clone  https://github.com/DongshanPI/Yzukilizard-v851s-TinaSDK
-cp -rfvd Yzukilizard-v851s-TinaSDK/* tina-v853-open/
+git clone https://github.com/DongshanPI/Yuzukilizard-v851s-TinaSDK
+cp -rfvd Yuzukilizard-v851s-TinaSDK/* tina-v853-open/
+mv tina-v853-open tina-v853-docker
 ```
 
 ### System Configuration and Compilation
 
-After downloading the SDK, configure the environment:
+Configure the environment:
 ```bash
-cd tina-v853-open
+cd tina-v853-docker
 source build/envsetup.sh
 lunch
 ```
@@ -134,7 +139,7 @@ mkernel -j
 > If a linker error regarding `yyloc` redefinition occurs:
 > This is due to GCC version being higher than 10. Change `YYLTYPE yyloc` to `extern YYLTYPE yyloc` in `scripts/dtc/dtc-parser.tab.c`
 
-Configure RTOS:
+~~Configure RTOS (Note: unusable command)~~:
 ```bash
 mmelis menuconfig
 ```
@@ -156,7 +161,7 @@ The system should boot normally and provide serial port output.
 
 ## Actual Results
 
-CFT
+WIP/CFI
 
 ### Boot Log
 
@@ -173,4 +178,4 @@ Failed: The actual result does not match the expected result.
 
 ## Test Conclusion
 
-CFT
+WIP/CFI
