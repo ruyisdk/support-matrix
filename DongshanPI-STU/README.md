@@ -30,6 +30,12 @@ cpu_core: XuanTie C906
 - FreeBSD
   - Download Link: https://github.com/freebsd-d1/freebsd-d1
   - Reference Installation Document: https://github.com/freebsd-d1/freebsd-d1
+- Fedora
+  - Download Link: https://mirror.iscas.ac.cn/fedora-riscv/old_dl/Allwinner/Nezha_D1/images-release/Fedora/fedora-riscv64-d1-developer-xfce-rawhide-Rawhide-20220117-135925.n.0-sda.raw.zst
+  - Reference Installation Document: https://popolon.org/depots/RISC-V/D1/ovsienko/_index.html
+- Gentoo
+  - Download Link: https://github.com/RevySR/riscv-calculate/releases/download/v20220929/gentoo-d1-20220929153235.img.zst
+  - Reference Installation Document: https://github.com/RevySR/riscv-calculate
 
 ### Hardware Information
 
@@ -46,6 +52,8 @@ cpu_core: XuanTie C906
 | BuildRoot Image Boot          | N/A          | [CFI][BuildRoot]           |
 | postmarketOS Bootstrap & Boot | N/A          | [Success][pmOS]            |
 | FreeBSD Image Compile & Boot  | N/A          | [Success][FreeBSD]         |
+| Fedora Image Compile & Boot   | N/A          | [Failed][Fedora]           |
+| Gentoo Image Compile & Boot   | N/A          | [Success][Gentoo]          |
 
 [Tina]: ./TinaLinux/README.md
 [OpenWrt]: ./OpenWrt/README.md
@@ -54,3 +62,5 @@ cpu_core: XuanTie C906
 [Arch]: ./ArchLinux/README.md
 [pmOS]: ./postmarketOS/README.md
 [FreeBSD]: ./FreeBSD/README.md
+[Fedora]: ./Fedora/README.md
+[Gentoo]: ./Gentoo/README.md
