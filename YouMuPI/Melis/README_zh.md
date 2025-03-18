@@ -1,4 +1,4 @@
-# Melis 柚木 PI-蜥蜴 测试报告
+# Melis YouMuPI(Yuzuki)-Lizard 测试报告
 
 ## 测试环境
 
@@ -7,20 +7,25 @@
 - SDK 链接：
     - 国外 - Google Drive：https://drive.google.com/drive/folders/1_HAZRddR69hRMZAVrxFrPZXFFQiV3vE0?usp=share_link
     - 国内 - 百度网盘：https://pan.baidu.com/s/115gVK-8Pt-vJi8jn2AWMYw?pwd=7n4q 提取码：7n4q
+    - Docker：https://hub.docker.com/r/gloomyghost/yuzukilizard
 - 参考文档：
     - https://dongshanpi.com/YuzukiHD-Lizard/01-BoardIntroduction/
     - https://tina.100ask.net/SdkModule/Linux_E907_DevelopmentGuide-01/
 
 ### 硬件信息
 
-- 柚木 PI-蜥蜴 开发板
-
+- Yuzuki Lizard 开发板
 
 ## 安装步骤
 
 ### 配置编译环境
 
-建议使用 Docker镜像：
+建议使用 Docker 镜像：
+
+```bash
+docker pull gloomyghost/yuzukilizard
+docker run -it gloomyghost/yuzukilizard /bin/bash
+```
 
 或者参照如下步骤手动下载SDK并配置：
 
@@ -29,13 +34,14 @@ cat tina-v853-open.tar.gz.* > tina-v853-open.tar.gz
 tar -xzvf tina-v853-open.tar.gz
 git clone https://github.com/DongshanPI/Yuzukilizard-v851s-TinaSDK
 cp -rfvd Yuzukilizard-v851s-TinaSDK/* tina-v853-open/
+mv tina-v853-open tina-v853-docker
 ```
 
 
 ### 配置系统并编译
 
 ```bash
-cd tina-v853-open
+cd tina-v853-docker
 source build/envsetup.sh
 lunch
 ```
@@ -125,7 +131,7 @@ mkernel -j$(nproc)
 > 若出现链接器报告 `yyloc` 重定义：
 > 这是由于 GCC 版本高于 10，更改 `scripts/dtc/dtc-parser.tab.c` 下的 `YYLTYPE yyloc` 为 `extern YYLTYPE yyloc`
 
-配置 RTOS：
+~~配置 RTOS：（注：该命令不可用）~~
 ```bash
 mmelis menuconfig
 ```
@@ -147,7 +153,7 @@ p
 
 ## 实际结果
 
-CFT
+WIP/CFI
 
 ### 启动信息
 
@@ -164,4 +170,4 @@ CFT
 
 ## 测试结论
 
-CFT
+WIP/CFI
