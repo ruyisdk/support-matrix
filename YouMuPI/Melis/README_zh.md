@@ -18,24 +18,22 @@
 
 ## 安装步骤
 
-### 解压 SDK
+### 配置编译环境
 
-下载 SDK 后，合并压缩包，并解压：
+建议使用 Docker镜像：
+
+或者参照如下步骤手动下载SDK并配置：
+
 ```bash
 cat tina-v853-open.tar.gz.* > tina-v853-open.tar.gz
 tar -xzvf tina-v853-open.tar.gz
-```
-
-由于默认的 sdk 并未支持此开发板，所以我们需要支持此开发板的配置 单独拷贝增加到 tina-v853-open sdk 内，首先 clone 此开发板补丁仓库，然后单独覆盖：
-```bash
-git clone  https://github.com/DongshanPI/Yzukilizard-v851s-TinaSDK
-cp -rfvd Yzukilizard-v851s-TinaSDK/* tina-v853-open/
+git clone https://github.com/DongshanPI/Yuzukilizard-v851s-TinaSDK
+cp -rfvd Yuzukilizard-v851s-TinaSDK/* tina-v853-open/
 ```
 
 
 ### 配置系统并编译
 
-下载 SDK 后，进行配置环境工作：
 ```bash
 cd tina-v853-open
 source build/envsetup.sh
@@ -121,7 +119,7 @@ Include `Device Drivers → Mailbox Hardware Support` 下的 `sunxi Mailbox` 和
  CONFIG_HAVE_ARM_SMCCC=y
 ```
 ```bash
-mkernel -j
+mkernel -j$(nproc)
 ```
 
 > 若出现链接器报告 `yyloc` 重定义：

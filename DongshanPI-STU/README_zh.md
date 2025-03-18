@@ -24,6 +24,10 @@
 - FreeBSD
   - 下载链接：https://github.com/freebsd-d1/freebsd-d1
   - 参考安装文档：https://github.com/freebsd-d1/freebsd-d1
+- Fedora
+  - 下载链接：https://mirror.iscas.ac.cn/fedora-riscv/old_dl/Allwinner/Nezha_D1/images-release/Fedora/fedora-riscv64-d1-developer-xfce-rawhide-Rawhide-20220117-135925.n.0-sda.raw.zst
+  - 参考安装文档：https://popolon.org/depots/RISC-V/D1/ovsienko/_index.html
+
 ### 硬件开发板信息
 
 - DongshanPI-哪吒 STU 开发板
@@ -39,6 +43,8 @@
 | BuildRoot 镜像启动      | N/A      | [CFI][BuildRoot]     |
 | postmarketOS 编译和启动 | N/A      | [成功][pmOS]         |
 | FreeBSD 镜像编译和启动  | N/A      | [成功][FreeBSD]      |
+| Fedora 镜像启动         | N/A      | [失败][Fedora]       |
+| Gentoo 镜像启动         | N/A      | [成功][Gentoo]       |
 
 [Tina]: ./TinaLinux/README_zh.md
 [OpenWrt]: ./OpenWrt/README_zh.md
@@ -47,3 +53,5 @@
 [Arch]: ./ArchLinux/README_zh.md
 [pmOS]: ./postmarketOS/README_zh.md
 [FreeBSD]: ./FreeBSD/README_zh.md
+[Fedora]: ./Fedora/README_zh.md
+[Gentoo]: ./Gentoo/README_zh.md
