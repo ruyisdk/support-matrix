@@ -45,7 +45,7 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 | FreeRTOS Boot               | mailbox-test | [Successful][FreeRTOS]  |
 | Apache NuttX Build and Boot | N/A          | [Successful][NuttX]     |
 | Zephyr Image Build and Boot | N/A          | [Successful][Zephyr]    |
-| Ubuntu Image Boot           | N/A          | [Success][Ubuntu]       |
+| Ubuntu Image Boot           | N/A          | [Successful][Ubuntu]       |
 
 [BuildRoot]: ./BuildRoot/README.md
 [Debian]: ./Debian/README.md
