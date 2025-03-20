@@ -21,6 +21,9 @@
   - 参考文档：
       - https://docs.zephyrproject.org/latest/develop/getting_started/index.html
       - https://github.com/milkv-duo/duo-buildroot-sdk
+- Ubuntu
+  - 下载链接：https://drive.google.com/file/d/1mkzLhvtjJup3GbgWKZdwL80PZMMXg7n1/view
+  - 参考文档：https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/
 
 ### 硬件开发板信息
 
@@ -29,15 +32,17 @@
 ## 测试结果
 
 | 软件分类                | 软件包名     | 测试结果（测试报告）    |
-| ----------------------- | ------------ | ----------------------- |
+|-------------------------|--------------|-------------------------|
 | BuildRoot 镜像启动      | N/A          | [Successful][BuildRoot] |
 | Debian 镜像启动         | N/A          | [Successful][Debian]    |
 | FreeRTOS 启动           | mailbox-test | [Successful][FreeRTOS]  |
 | Apache NuttX 构建及启动 | N/A          | [Successful][NuttX]     |
 | Zephyr 镜像构建及启动   | N/A          | [Successful][Zephyr]    |
+| Ubuntu 镜像启动         | N/A          | [Successful][Ubuntu]    |
 
 [BuildRoot]: ./BuildRoot/README_zh.md
 [Debian]: ./Debian/README_zh.md
 [FreeRTOS]: ./FreeRTOS/README_zh.md
 [NuttX]: ./NuttX/README_zh.md
 [Zephyr]: ./Zephyr/README_zh.md
+[Ubuntu]: ./Ubuntu/README_zh.md
