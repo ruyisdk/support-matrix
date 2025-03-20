@@ -1,8 +1,9 @@
 ---
 product: Milk-V Meles
-vendor: milkv_meles
+vendor: milkv-meles
 cpu: TH1520
 cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
+board_variants: [ 8g, 16g ]
 ---
 
 # Milk-V Meles
