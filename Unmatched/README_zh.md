@@ -23,7 +23,7 @@
     - 下载链接：https://mirrors.tuna.tsinghua.edu.cn/OpenBSD/7.4/riscv64/install74.img
     - 参考安装文档：https://ftp.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64
 - Zephyr
-    - 参考安装文档：https://docs.zephyrproject.org/latest/boards/riscv/index.html
+    - 参考安装文档：https://docs.zephyrproject.org/latest/boards/sifive/hifive_unmatched/doc/index.html
 - OpenWrt 23.05.2
     - 下载链接（Firmware Selector）：https://firmware-selector.openwrt.org/?version=23.05.2&target=sifiveu%2Fgeneric&id=sifive_unmatched
     - 参考安装文档：https://openwrt.org/docs/techref/hardware/soc/soc.sifive

@@ -10,7 +10,7 @@
         - https://doc.nucleisys.com/nuclei_sdk/design/board/gd32vf103c_longan_nano.html
 - Zephyr
     - 源码链接：https://github.com/zephyrproject-rtos/zephyr/tree/main
-    - 参考文档：https://docs.zephyrproject.org/latest/develop/getting_started/index.html
+    - 参考文档：https://docs.zephyrproject.org/latest/boards/sipeed/longan_nano/doc/index.html
 
 ### 硬件开发板信息
 
