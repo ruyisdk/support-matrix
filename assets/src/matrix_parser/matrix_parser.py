@@ -290,6 +290,7 @@ class Systems:
         '.git',
         '.vscode',
         '__pycache__',
+        'report-template',
         '~', # ?
     ]
 
