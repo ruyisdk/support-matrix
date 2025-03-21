@@ -16,7 +16,7 @@ cpu_core: Nuclei Bumblebee
         - https://doc.nucleisys.com/nuclei_sdk/design/board/gd32vf103c_longan_nano.html
 - Zephyr
     - Source Code: https://github.com/zephyrproject-rtos/zephyr/tree/main
-    - Reference Installation Document: https://docs.zephyrproject.org/latest/develop/getting_started/index.html
+    - Reference Installation Document: https://docs.zephyrproject.org/latest/boards/sipeed/longan_nano/doc/index.html
 
 ### Hardware Information
 
