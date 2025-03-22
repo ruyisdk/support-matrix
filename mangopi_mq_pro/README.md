@@ -54,6 +54,10 @@ cpu_core: XuanTie C906
 - NixOS
   - Source code link: https://github.com/chuangzhu/nixos-sun20iw1p1/releases/download/hdmi/nixos-sd-image-22.11.20221014.4428e23-riscv64-linux.img.zst
   - Reference Installation Document: https://github.com/chuangzhu/nixos-sun20iw1p1/
+- irradium
+  - Download Link: https://dl.irradium.org/irradium/images/visionfive_2/
+  - Reference Installation Document: https://dl.irradium.org/irradium/images/visionfive_2/README.TXT
+
 ### Hardware Information
 
 - MangoPi MQ Pro (Allwinner D1/D1-H)
@@ -76,6 +80,7 @@ cpu_core: XuanTie C906
 | postmarketOS Bootstrap & Boot   | N/A          | [Success][pmOS]           |
 | Gentoo Image Boot               | N/A          | [Success][Gentoo]         |
 | NixOS Image Boot                | N/A          | [Success][NixOS]          |
+| irradium Image Boot             | N/A          | [Success][irradium]       |
 
 [Tina]: ./TinaLinux/README.md
 [OpenWrt]: ./OpenWrt/README.md
@@ -91,3 +96,4 @@ cpu_core: XuanTie C906
 [pmOS]: ./postmarketOS/README.md
 [Gentoo]: ./Gentoo/README.md
 [NixOS]: ./NixOS/README.md
+[irradium]: ./irradium/README.md

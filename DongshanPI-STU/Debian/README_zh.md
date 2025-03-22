@@ -1,4 +1,4 @@
-# Debian DongshanPI-哪吒 STU 测试报告
+# Debian DongshanPI-Nezha STU 测试报告
 
 ## 测试环境
 
@@ -9,7 +9,7 @@
 
 ### 硬件信息
 
-- DongshanPI-哪吒 STU
+- DongshanPI-Nezha STU
 - 电源适配器
 - microSD 卡一张
 - USB to UART 调试器一个
@@ -41,13 +41,48 @@ sudo dd if=/path/to/DshanNezhaSTU-APTok-Sdcard.img of=/dev/your_device bs=1M sta
 
 ## 实际结果
 
-CFT
+系统正常启动，能够通过板载串口登录。
 
 ### 启动信息
 
 屏幕录像（从刷写镜像到登录系统）：
 
 ```log
+[   18.939791] fbcon: Taking over console
+
+Debian GNU/Linux bookworm/sid nezhastu ttyS0
+
+nezhastu login: 
+Debian GNU/Linux bookworm/sid nezhastu hvc0
+
+nezhastu login: root
+Password: 
+Linux nezhastu 5.18.0-rc4-396532-gf4bce410a6b4 #4 PREEMPT Fri May 6 05:21:39 EDT 2022 riscv64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+root@nezhastu:~# [   33.854677] ldob: disabling
+
+root@nezhastu:~# uname -a
+Linux nezhastu 5.18.0-rc4-396532-gf4bce410a6b4 #4 PREEMPT Fri May 6 05:21:39 EDT 2022 riscv64 GNU/Linux
+root@nezhastu:~# cat /etc/os-release
+PRETTY_NAME="Debian GNU/Linux bookworm/sid"
+NAME="Debian GNU/Linux"
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+root@nezhastu:~# lscpu
+Architecture:          riscv64
+  Byte Order:          Little Endian
+CPU(s):                1
+  On-line CPU(s) list: 0
+root@nezhastu:~# 
+
 ```
 
 ## 测试判定标准
@@ -58,4 +93,4 @@ CFT
 
 ## 测试结论
 
-CFT
+测试成功。
