@@ -31,6 +31,11 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 - Ubuntu
   - Download Link: https://drive.google.com/file/d/1mkzLhvtjJup3GbgWKZdwL80PZMMXg7n1/view
   - Reference Installation Document: https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/
+- OpenWrt
+  - Download Link: https://github.com/draftbottle/Milkv-duo-openwrt/releases/download/v4.0/milkv-duos.img
+  - Reference Installation Document:
+	  - https://community.milkv.io/t/milk-v-duo-openwrt/2399/10
+	  - https://github.com/draftbottle/VizOS
 
 ### Hardware Information
 
@@ -45,7 +50,8 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 | FreeRTOS Boot               | mailbox-test | [Successful][FreeRTOS]  |
 | Apache NuttX Build and Boot | N/A          | [Successful][NuttX]     |
 | Zephyr Image Build and Boot | N/A          | [Successful][Zephyr]    |
-| Ubuntu Image Boot           | N/A          | [Successful][Ubuntu]       |
+| Ubuntu Image Boot           | N/A          | [Successful][Ubuntu]    |
+| OpenWrt Build and Boot      | N/A          | [Successful][OpenWrt]   |
 
 [BuildRoot]: ./BuildRoot/README.md
 [Debian]: ./Debian/README.md
@@ -53,3 +59,4 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 [NuttX]: ./NuttX/README.md
 [Zephyr]: ./Zephyr/README.md
 [Ubuntu]: ./Ubuntu/README.md
+[OpenWrt]: ./OpenWrt/README.md
