@@ -9,6 +9,8 @@ last_update: 2025-03-18
 
 # Ubuntu Milk-V Duo S Test Report
 
+## Test Environment
+
 ### Operating System Information
 
 - System Version: Ubuntu 22.04
