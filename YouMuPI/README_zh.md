@@ -15,12 +15,12 @@
     
 ### 硬件开发板信息
 
-- Yuzuki Lizard 开发板
+- Yuzuki Lizard 开发板 (Allwinner V851s, XuanTie E907 + ARM Cortex-A7)
 
 ## 测试结果
 
 | 软件分类 | 软件包名 | 测试结果（测试报告） |
 | -------- | -------- | -------------------- |
-| Melis    | N/A      | [WIP][Melis]         |
+| Melis    | N/A      | [CFI][Melis]         |
 
 [Melis]: ./Melis/README_zh.md
