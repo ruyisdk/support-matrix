@@ -1,6 +1,6 @@
 ---
 sys: openwrt
-sys_ver: null
+sys_ver: 24.10-SNAPSHOT
 sys_var: null
 
 status: basic

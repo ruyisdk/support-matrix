@@ -41,7 +41,7 @@ mv tina-v853-open tina-v853-docker
 ### 配置系统并编译
 
 ```bash
-cd tina-v853-docker
+cd ~/tina-v853-docker
 source build/envsetup.sh
 lunch
 ```
@@ -49,7 +49,7 @@ lunch
 
 **若出现问题，请尝试换用 bash 而非 zsh 等其他 shell 环境**
 
-配置 E906 启动 RTOS：
+配置 E907 启动 RTOS：
 ```bash
 cconfigs
 cd ../default/
@@ -124,24 +124,30 @@ Include `Device Drivers → Mailbox Hardware Support` 下的 `sunxi Mailbox` 和
  # CONFIG_FW_CFG_SYSFS is not set
  CONFIG_HAVE_ARM_SMCCC=y
 ```
+
+编译和打包大核 Tina-Linux:
 ```bash
-mkernel -j$(nproc)
+make -j$(nproc)
+p
 ```
 
 > 若出现链接器报告 `yyloc` 重定义：
 > 这是由于 GCC 版本高于 10，更改 `scripts/dtc/dtc-parser.tab.c` 下的 `YYLTYPE yyloc` 为 `extern YYLTYPE yyloc`
 
-~~配置 RTOS：（注：该命令不可用）~~
-```bash
-mmelis menuconfig
-```
-
-### 构建并打包
+配置 E907 小核 RTOS：
 
 ```bash
-make -j$(nproc)
-p
+cd ~/e907_rtos/rtos/source
+source melis-env.sh
+lunch
 ```
+
+编译 RTOS：
+```bash
+make menuconfig
+make
+```
+生成的 RTOS 固件在 `ekernel/melis30.bin`。
 
 ### 登录系统
 
@@ -153,14 +159,12 @@ p
 
 ## 实际结果
 
-WIP/CFI
+CFI
+
+官方文档给出的步骤可编译出小核固件，但无法打包进 armv7 大核的 Linux 镜像中，且并未明确说明正常启动小核的方式。
 
 ### 启动信息
 
-屏幕录像：
-
-```log
-```
 
 ## 测试判定标准
 
@@ -170,4 +174,4 @@ WIP/CFI
 
 ## 测试结论
 
-WIP/CFI
+CFI

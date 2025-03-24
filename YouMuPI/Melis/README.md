@@ -3,8 +3,8 @@ sys: melis
 sys_ver: null
 sys_var: null
 
-status: wip
-last_update: 2025-03-18
+status: cfi
+last_update: 2025-03-24
 ---
 
 # Melis YouMuPI(Yuzuki)-Lizard Test Report
@@ -49,7 +49,7 @@ mv tina-v853-open tina-v853-docker
 
 Configure the environment:
 ```bash
-cd tina-v853-docker
+cd ~/tina-v853-docker
 source build/envsetup.sh
 lunch
 ```
@@ -57,7 +57,7 @@ Choose the appropriate scheme.
 
 **If you encounter issues, try using bash instead of zsh or other shell environments**
 
-Configure E906 to start RTOS:
+Configure E907 to start RTOS:
 ```bash
 cconfigs
 cd ../default/
@@ -132,24 +132,30 @@ Include `Device Drivers → Mailbox Hardware Support` under `sunxi Mailbox` and 
  # CONFIG_FW_CFG_SYSFS is not set
  CONFIG_HAVE_ARM_SMCCC=y
 ```
+
+Compile and pack Tina-Linux for the armv7 core:
 ```bash
-mkernel -j
+make -j$(nproc)
+p
 ```
 
 > If a linker error regarding `yyloc` redefinition occurs:
 > This is due to GCC version being higher than 10. Change `YYLTYPE yyloc` to `extern YYLTYPE yyloc` in `scripts/dtc/dtc-parser.tab.c`
 
-~~Configure RTOS (Note: unusable command)~~:
+Configure E907 RTOS:
 ```bash
-mmelis menuconfig
+cd ~/e907_rtos/rtos/source
+source melis-env.sh
+lunch
 ```
 
-### Build and Package
-
+Compile RTOS:
 ```bash
-make -j$(nproc)
-p
+make menuconfig
+make
 ```
+
+The built RTOS firmware is at `ekernel/melis30.bin`
 
 ### Logging into the System
 
@@ -161,14 +167,12 @@ The system should boot normally and provide serial port output.
 
 ## Actual Results
 
-WIP/CFI
+CFI
+
+A build of the Melis RTOS firmware for the E907 core could be obtained by following the steps in the official documentation. It is not possible however to pack it into the Tina-Linux image for the armv7 core due to lack of information in the documentation.
 
 ### Boot Log
 
-Screen recording:
-
-```log
-```
 
 ## Test Criteria
 
@@ -178,4 +182,4 @@ Failed: The actual result does not match the expected result.
 
 ## Test Conclusion
 
-WIP/CFI
+CFI

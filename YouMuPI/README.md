@@ -21,12 +21,12 @@ cpu_core: XuanTie E907 + ARM Cortex-A7
 
 ### Hardware Information
 
-- Yuzuki Lizard Development Board
+- Yuzuki Lizard Development Board (Allwinner V851s, XuanTie E907 + ARM Cortex-A7)
 
 ## Test Results
 
 | Software Category | Package Name | Test Results (Test Report) |
 | ----------------- | ------------ | -------------------------- |
-| Melis             | N/A          | [WIP][Melis]               |
+| Melis             | N/A          | [CFI][Melis]               |
 
 [Melis]: ./Melis/README.md
