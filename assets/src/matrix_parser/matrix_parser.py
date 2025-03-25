@@ -18,8 +18,9 @@ class ImageStatus:
         'wip': ('WIP', 1),
         'cfh': ('CFH', 2),
         'cft': ('CFT', 3),
-        'basic': ('Basic', 4),
-        'good': ('Good', 5),
+        'cfi': ('CFI', 4),
+        'basic': ('Basic', 5),
+        'good': ('Good', 6),
     }
 
     def __init__(self, status: str):
