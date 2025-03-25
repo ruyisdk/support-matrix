@@ -1,44 +1,44 @@
 # id: pretty name
 
 linux:
+  - alpine: Alpine
   - archlinux: Arch Linux
+  - armbian: Armbian
+  - buildroot: BuildRoot
   - debian: Debian
+  - deepin: Deepin
+  - dietpi: DietPi
+  - eweos: eweOS
   - fedora: Fedora
   - gentoo: Gentoo
+  - irradium: irradium
+  - nixos: NixOS
   - openanlios: openAnolis
   - opencloudos: openCloudOS
   - openeuler: openEuler
   - openkylin: openKylin
   - opensuse: openSUSE
-  - ubuntu: Ubuntu
-  - armbian: Armbian
-  - buildroot: BuildRoot
   - openwrt: OpenWRT
-  - deepin: Deepin
-  - yocto: Yocto
-  - alpine: Alpine
-  - nixos: NixOS
-  - dietpi: DietPi
-  - slackware: Slackware
   - pmos: postmarketOS
-  - irradium: irradium
-  - eweos: eweOS
+  - slackware: Slackware
+  - ubuntu: Ubuntu
+  - yocto: Yocto
 
 bsd:
   - freebsd: FreeBSD
-  - openbsd: OpenBSD
   - netbsd: NetBSD
+  - openbsd: OpenBSD
 
 rtos:
   - freertos: FreeRTOS
-  - rtthread: RT-Thread
-  - zephyr: Zephyr
-  - threadx: ThreadX
-  - nuttx: NuttX
-  - melis: Melis
-  - uniproton: UniProton
-  - ucosii: μC/OS-II
   - LiteOS: LiteOS
+  - melis: Melis
+  - nuttx: NuttX
+  - rtthread: RT-Thread
+  - threadx: ThreadX
+  - ucosii: μC/OS-II
+  - uniproton: UniProton
+  - zephyr: Zephyr
 
 others:
   - android: Android
@@ -50,5 +50,4 @@ customized:
   - revyos: RevyOS
   - rockos: RockOS
   - tina: Tina-Linux
-
 ### END ###
