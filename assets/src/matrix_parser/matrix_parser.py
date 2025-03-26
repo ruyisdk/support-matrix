@@ -314,8 +314,8 @@ class Systems:
             def mp(x):
                 res = {}
                 for l in x:
-                    for i in l.items():
-                        res[i[0]] = i[1]
+                    for (k, v) in l.items():
+                        res[k.lower()] = v.lower()
                 return res
             data = yaml.load(file, Loader=yaml.FullLoader)
             self.linux = mp(data['linux'])
