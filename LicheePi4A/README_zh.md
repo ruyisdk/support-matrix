@@ -16,7 +16,7 @@
 - Fedora 41
   - 下载链接：https://images.fedoravforce.org/LicheePi%204A
   - 参考安装文档：https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head
-- Armbian (Ubuntu 22.04 LTS)
+- Armbian 23.09.15
     - 下载链接：https://github.com/chainsx/armbian-riscv-build/releases
     - 参考安装文档：https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide_ch.md
 - Arch Linux
