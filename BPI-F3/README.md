@@ -36,7 +36,9 @@ cpu_core: SpacemiT X60
 - openKylin
   - Download Links: https://www.openkylin.top/downloads/index.html
   - Reference Installation Document: https://docs.openkylin.top/en/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8SpacemiT_K1%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
-
+- openHarmony
+  - Repo Manifest: [riscv-sig/manifest](https://gitee.com/riscv-sig/manifest)
+  - Reference Installation Document: [spacemit](https://developer.spacemit.com/documentation)
 
 ### Hardware Information
 
@@ -52,7 +54,8 @@ cpu_core: SpacemiT X60
 | Fedora Image Boot           | N/A          | [Successful][Fedora]        |
 | OpenWrt Image Boot          | N/A          | [Successful][OpenWrt]       |
 | Alpine Image Boot           | N/A          | [Successful][Alpine]        |
-| openKylin Image Boot           | N/A          | [Successful][openKylin]        |
+| openKylin Image Boot        | N/A          | [Successful][openKylin]     |
+| openHarmony Image Boot      | N/A          | [Successful][openHarmony]   |
 
 [Bianbu]: ./Bianbu/README.md
 [Armbian_noble]: ./Armbian/README_noble.md
@@ -61,3 +64,5 @@ cpu_core: SpacemiT X60
 [OpenWrt]: ./OpenWrt/README.md
 [Alpine]: ./Alpine/README.md
 [openKylin]: ./openKylin/README.md
+[openHarmony]: ./openHarmony/README.md
+
