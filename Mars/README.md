@@ -24,6 +24,10 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
   - Reference Installation Document:
     1. <https://milkv.io/zh/docs/mars/getting-started/boot>
     2. <https://deepin-community.github.io/sig-deepin-ports/docs/install/riscv/jh7110>
+- eweOS
+  - Dowload Link：<https://github.com/panglars/eweos-vf2-mainline>
+  - Reference Installation Document: <https://github.com/panglars/eweos-vf2-mainline/blob/main/README.md>
+  - eweOS Website: <https://os.ewe.moe/>
 
 ### Hardware Information
 
@@ -38,9 +42,11 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 | Ubuntu Image Boot      | N/A          | [CFT][Ubuntu]                                |
 | Ubuntu LTS Image Boot  | N/A          | [Successful][Ubuntu LTS]                            |
 | Deepin Image Boot      | N/A          | [Successful][Deepin]                                |
+| eweOS Image Boot       | N/A          | [Successful][eweOS]                                |
 
 [Debian]: ./Debian/README.md
 [BuildRoot]: ./BuildRoot/README.md
 [Ubuntu]: ./Ubuntu/README.md
 [Ubuntu LTS]: ./Ubuntu/README_LTS.md
 [Deepin]: ./Deepin/README.md
+[eweOS]: ./eweOS/README.md
