@@ -1,7 +1,7 @@
 ---
 sys: debian
-sys_ver: null
-sys_var: null
+sys_ver: v1.4.0
+sys_var: sd
 
 status: basic
 last_update: 2024-06-21
