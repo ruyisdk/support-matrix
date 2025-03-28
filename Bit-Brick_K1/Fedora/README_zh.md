@@ -1,99 +1,96 @@
----
-sys: bianbu
-sys_ver: 2.1
-sys_var: null
+# Fedora 42 Bit-Brick K1 Minimal 测试报告
 
-status: good
-last_update: 2025-03-06
----
+## 测试环境
 
-# Bianbu BIT-BRICK K1 Test Report
+### 系统信息
 
-## Test Environment
+- 系统版本：Fedora 42
+- 下载链接：https://images.fedoravforce.org/Banana%20Pi%20BPI-F3
+- 参考安装文档：https://images.fedoravforce.org/how-to-burn-images-to-sd-cards
 
-### System Information
-
-- System version: v2.1
-- Download Links: https://archive.spacemit.com/image/k1/version/bianbu/v2.1/
-- Reference Installation Document: https://docs.bit-brick.com/docs/k1/getting-started/preparation
-
-### Hardware Information
+### 硬件信息
 
 - BIT-BRICK K1
-- Power Adapter
-- A microSD Card
-- A USB to UART Debugger
+- 电源适配器
+- microSD 卡一张
+- USB to UART 调试器一个
 
-## Installation Steps
+## 安装步骤
 
-### Flashing the Image (SD Card)
+### 刷写镜像
 
-**Please make sure to choose the file ending with `.img.zip`**
-After downloading and extracting the image, use `dd` to flash the image to the microSD card.
+使用 `gzip` 解压镜像。
+使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
-unzip bianbu-24.04-minimal-k1-v2.1-release-20250124140410.img.zip
-sudo dd if=/path/to/bianbu-24.04-minimal-k1-v2.1-release-20250124140410.img of=/dev/your-device bs=1M status=progress
+gzip -d Fedora-Minimal-42-20250324132559.riscv64.SpacemiT-K1.raw.gz
+sudo dd if=Fedora-Minimal-42-20250324132559.riscv64.SpacemiT-K1.raw.gz of=/dev/<your_device> bs=4M status=progress
 ```
 
-### Logging into the System
+### 登录系统
 
-Logging into the system via the serial port.
+通过串口登录系统。
 
-Default Username: `root`
-Default Password: `bianbu`
+默认用户名： `root`
+默认密码： `riscv`
 
-## Expected Results
+## 预期结果
 
-The system should boot up normally and allow login through the onboard serial port and through GUI.
+系统正常启动，能够通过板载串口登录。
 
-## Actual Results
+## 实际结果
 
-The system booted successfully and login through the onboard serial port as well as the GUI was successful.
+系统正常启动，成功通过板载串口登录。能进入桌面。
 
-### Boot Log
-
+### 启动信息
 
 ```log
+Welcome to the Fedora-V Force disk image
+https://www.fedoravforce.org
 
-Bianbu 2.1 k1 ttyS0
-k1 login: root
-密码： 
-Welcome to Bianbu 2.1 (GNU/Linux 6.6.63 riscv64)
+Build date: Mon Mar 24 13:36:35 UTC 2025
 
- * Documentation:  https://bianbu.spacemit.com
- * Support:        https://ticket.spacemit.com
+Kernel 6.6.63 on an riscv64 (ttyS0)
 
-0 updates can be applied immediately.
+The root password is 'riscv'.
+root password logins are disabled in SSH starting Fedora.
 
+If DNS isn’t working, try editing ‘/etc/resolv.conf’ or using 'resolvctl'.
 
-The list of available updates is more than a week old.
-To check for new updates run: sudo apt update
+For updates and latest information read:
+https://images.fedoravforce.org
 
-The programs included with the Bianbu system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Bianbu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-applicable law.
-
-root@k1:~# uname -a
-Linux k1 6.6.63 #2.1.0.2 SMP PREEMPT Fri Jan 24 03:39:48 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux
-root@k1:~# cat /etc/os-release 
-PRETTY_NAME="Bianbu 2.1"
-NAME="Bianbu"
-VERSION_ID="2.1"
-VERSION="2.1 (Noble Numbat)"
-VERSION_CODENAME=noble
-ID=bianbu
-ID_LIKE=debian
-HOME_URL="https://bianbu.spacemit.com"
-SUPPORT_URL="https://bianbu.spacemit.com"
-BUG_REPORT_URL="https://ticket.spacemit.com"
-PRIVACY_POLICY_URL="https://www.spacemit.com/privacy-policy"
-UBUNTU_CODENAME=noble
-LOGO=ubuntu-logo
-root@k1:~# cat /proc/cpuinfo 
+Fedora RISC-V
+-------------
+fedora login: root
+Password: 
+[root@fedora ~]# cat /sys/firmware/devicetree/base/model 
+spacemit k1-x bit-brick board[root@fedora ~]# 
+[root@fedora ~]# cat /etc/os-release 
+NAME="Fedora Linux"
+VERSION="42 (Adams Prerelease)"
+RELEASE_TYPE=development
+ID=fedora
+VERSION_ID=42
+VERSION_CODENAME=""
+PLATFORM_ID="platform:f42"
+PRETTY_NAME="Fedora Linux 42 (Adams Prerelease)"
+ANSI_COLOR="0;38;2;60;110;180"
+LOGO=fedora-logo-icon
+CPE_NAME="cpe:/o:fedoraproject:fedora:42"
+DEFAULT_HOSTNAME="fedora"
+HOME_URL="https://fedoraproject.org/"
+DOCUMENTATION_URL="https://docs.fedoraproject.org/en-US/fedora/f42/system-administrators-guide/"
+SUPPORT_URL="https://ask.fedoraproject.org/"
+BUG_REPORT_URL="https://bugzilla.redhat.com/"
+REDHAT_BUGZILLA_PRODUCT="Fedora"
+REDHAT_BUGZILLA_PRODUCT_VERSION=42
+REDHAT_SUPPORT_PRODUCT="Fedora"
+REDHAT_SUPPORT_PRODUCT_VERSION=42
+SUPPORT_END=2026-05-13
+[root@fedora ~]# uname -a
+Linux fedora 6.6.63 #1 SMP PREEMPT Mon Mar 24 18:53:47 CST 2025 riscv64 GNU/Linux
+[root@fedora ~]# cat /proc/cpuinfo 
 processor       : 0
 hart            : 0
 model name      : Spacemit(R) X60
@@ -174,17 +171,15 @@ mvendorid       : 0x710
 marchid         : 0x8000000058000001
 mimpid          : 0x1000000049772200
 
-root@k1:~# 
+[root@fedora ~]# 
 ```
 
-![](./gnome.png)
+## 测试判定标准
 
-## Test Criteria
+测试成功：实际结果与预期结果相符。
 
-Successful: The actual result matches the expected result.
+测试失败：实际结果与预期结果不符。
 
-Failed: The actual result does not match the expected result.
+## 测试结论
 
-## Test Conclusion
-
-Test Successful
+测试成功。
