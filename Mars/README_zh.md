@@ -17,6 +17,10 @@
   - 参考安装文档：
     1. <https://milkv.io/zh/docs/mars/getting-started/boot>
     2. <https://deepin-community.github.io/sig-deepin-ports/docs/install/riscv/jh7110>
+- eweOS
+  - 下载链接：<https://github.com/panglars/eweos-vf2-mainline>
+  - 参考安装文档：<https://github.com/panglars/eweos-vf2-mainline/blob/main/README.md>
+  - eweOS官网：<https://os.ewe.moe/>
 
 ### 硬件开发板信息
 
@@ -31,9 +35,11 @@
 | Ubuntu 镜像启动      | N/A      | [CFT][Ubuntu]                     |
 | Ubuntu LTS 镜像启动  | N/A      | [成功][Ubuntu LTS]                 |
 | Deepin 镜像启动      | N/A      | [成功][Deepin]                     |
+| eweOS 镜像启动       | N/A      | [成功][eweOS]                     |
 
 [Debian]: ./Debian/README_zh.md
 [BuildRoot]: ./BuildRoot/README_zh.md
 [Ubuntu]: ./Ubuntu/README_zh.md
 [Ubuntu LTS]: ./Ubuntu/README_LTS_zh.md
 [Deepin]: ./Deepin/README_zh.md
+[eweOS]: ./eweOS/README_zh.md
