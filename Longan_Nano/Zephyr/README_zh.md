@@ -5,7 +5,7 @@
 ### 操作系统信息
 
 - 源码链接：https://github.com/zephyrproject-rtos/zephyr/tree/main
-- 参考文档：https://docs.zephyrproject.org/latest/develop/getting_started/index.html
+- 参考文档：https://docs.zephyrproject.org/latest/boards/sipeed/longan_nano/doc/index.html
 
 ### 硬件信息
 

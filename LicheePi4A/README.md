@@ -23,7 +23,7 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 - Fedora 41
   - Download Link: https://images.fedoravforce.org/LicheePi%204A
   - Reference Installation Document: https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head
-- Armbian (Ubuntu 22.04 LTS)
+- Armbian 23.09.15
     - Download link: [Armbian Images]([Releases · chainsx/armbian-riscv-build](https://github.com/chainsx/armbian-riscv-build/releases))
     - Reference Installation Document: [Armbian Installation Guide](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
 - Arch Linux

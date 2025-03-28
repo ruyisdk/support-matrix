@@ -4,34 +4,38 @@
 
 ### 操作系统信息
 
-- Ubuntu 24.04.2 LTS
-  - 下载链接：https://cdimage.ubuntu.com/releases/24.04.2/release/ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img.xz
-  - 参考安装文档：https://milkv.io/zh/docs/mars/getting-started/boot
+- Ubuntu 24.04.2 LTS (2025-02-15更新版本)
+  - 下载链接：<https://cdimage.ubuntu.com/releases/24.04.2/release/ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img.xz>
+  - 参考安装文档：<https://milkv.io/zh/docs/mars/getting-started/boot>
 
 ### 硬件开发板信息
 
-- Milk-V Mars
+- Milk-V Mars (8GB RAM)
+- USB 电源适配器和USB-A to C 或 C to C 线缆一条
+- microSD 卡一张
+- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
 
 ## 安装步骤
 
 ### 刷写镜像
 
-使用 `unxz` 解压镜像。
-使用 `dd` 将镜像写入 microSD 卡。
+使用 `tar` 解压镜像。
+使用 `dd`命令或者使用 `balenaEther` 软件将镜像写入 microSD 卡
 
 其中，`/dev/sdc` 为存储卡对应设备。
 
 ```bash
-unxz -d ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img.xz
+tar -xvf ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img.xz
 sudo dd if=ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img of=/dev/sdc bs=1M status=progress
 ```
 
 ### 更新 U-Boot
 
-**若出现启动时 Kernel Panic，需要更新 U-Boot**
+**若出现启动时 Kernel Panic，需要更新 U-Boot:**
 
-插入烧好镜像的 SD 卡，在串口终端中出现 Hit any key to stop autoboot 时迅速按下回车键，进入 U-boot 命令行终端。
+插入烧好镜像的 SD 卡，在串口终端中出现 `Hit any key to stop autoboot` 时迅速按下回车键，进入 U-boot 命令行终端。
 进入 U-Boot 控制台后，依次输入：
+
 ```bash
 sf probe
 load mmc 1:1 $kernel_addr_r /usr/lib/u-boot/starfive_visionfive2/u-boot-spl.bin.normal.out
@@ -45,30 +49,41 @@ sf update $kernel_addr_r 0x100000 $filesize
 通过串口登录系统。
 
 默认用户名： `ubuntu`
+
 默认密码： `ubuntu`
 
 ## 预期结果
 
-系统正常启动，能够通过板载串口登录。能进入安装向导。
+系统正常启动，能够通过板载串口登录。
 
 ## 实际结果
-<details>
-<summary>结果已过时（24.04）</summary>
-系统正常启动，成功通过串口查看输出。
+
+系统正常启动，成功通过串口查看输出。HDMI无法正常输出图形界面。
 
 ### 启动信息
 
-屏幕录像：
-[![asciicast](https://asciinema.org/a/a3DgDMfhYPQgWhUjTTScbJ04n.svg)](https://asciinema.org/a/a3DgDMfhYPQgWhUjTTScbJ04n)
-
 ```log
-Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic riscv64)
+Ubuntu 24.04.2 LTS ubuntu ttyS0
+
+ubuntu login: ubuntu
+Password:
+You are required to change your password immediately (administrator enforced).
+Changing password for ubuntu.
+Current password:
+New password:
+Retype new password:
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-52-generic riscv64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/pro
 
- System information disabled due to load higher than 1.0
+ System information as of Sat Feb 15 09:12:23 UTC 2025
+
+  System load:    1.09      Processes:             29
+  Usage of /home: unknown   Users logged in:       0
+  Memory usage:   2%        IPv4 address for eth0: 10.10.10.2
+  Swap usage:     0%
 
 Expanded Security Maintenance for Applications is not enabled.
 
@@ -89,13 +104,11 @@ applicable law.
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
-ubuntu@ubuntu:~$ cat /etc-o
-cat: /etc-o: No such file or directory
-ubuntu@ubuntu:~$ cat /etc/os-release 
-PRETTY_NAME="Ubuntu 24.04 LTS"
+ubuntu@ubuntu:~$ cat /etc/os-release
+PRETTY_NAME="Ubuntu 24.04.2 LTS"
 NAME="Ubuntu"
 VERSION_ID="24.04"
-VERSION="24.04 LTS (Noble Numbat)"
+VERSION="24.04.2 LTS (Noble Numbat)"
 VERSION_CODENAME=noble
 ID=ubuntu
 ID_LIKE=debian
@@ -105,11 +118,51 @@ BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
 UBUNTU_CODENAME=noble
 LOGO=ubuntu-logo
-ubuntu@ubuntu:~$ uname -a
-Linux ubuntu 6.8.0-31-generic #31.1-Ubuntu SMP PREEMPT_DYNAMIC Sun Apr 21 01:12:53 UTC 2024 riscv64 riscv64 riscv64 GNU/Lix
-ubuntu@ubuntu:~$ 
- 
 
+ubuntu@ubuntu:~$ uname -a
+Linux ubuntu 6.8.0-52-generic #53.1-Ubuntu SMP PREEMPT_DYNAMIC Sun Jan 26 04:38:25 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux
+ubuntu@ubuntu:~$ cat /proc/cpuinfo
+processor       : 0
+hart            : 2
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+
+processor       : 1
+hart            : 1
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+
+processor       : 2
+hart            : 3
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+
+processor       : 3
+hart            : 4
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+
+ubuntu@ubuntu:~$
 ```
 
 ## 测试判定标准
@@ -120,5 +173,4 @@ ubuntu@ubuntu:~$
 
 ## 测试结论
 
-成功
-</details>
+测试成功

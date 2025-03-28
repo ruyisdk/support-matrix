@@ -48,6 +48,10 @@
 - NixOS
   - 下载链接: https://github.com/chuangzhu/nixos-sun20iw1p1/releases/download/hdmi/nixos-sd-image-22.11.20221014.4428e23-riscv64-linux.img.zst
   - 参考安装文档: https://github.com/chuangzhu/nixos-sun20iw1p1
+- irradium 3.7
+  - 下载链接：https://dl.irradium.org/irradium/images/mangopi_mq_pro/
+  - 参考安装文档：https://dl.irradium.org/irradium/images/mangopi_mq_pro/README.TXT
+
 ### 硬件开发板信息
 
 - MangoPi MQ Pro (Allwinner D1/D1-H)
@@ -70,6 +74,7 @@
 | postmarketOS 编译和启动   | N/A      | [成功][pmOS]         |
 | Gentoo 镜像启动           | N/A      | [成功][Gentoo]       |
 | NixOS 镜像启动            | N/A      | [成功][NixOS]        |
+| irradium 镜像启动         | N/A      | [成功][irradium]     |
 
 [Tina]: ./TinaLinux/README_zh.md
 [OpenWrt]: ./OpenWrt/README_zh.md
@@ -85,3 +90,4 @@
 [pmOS]: ./postmarketOS/README_zh.md
 [Gentoo]: ./Gentoo/README_zh.md
 [NixOS]: ./NixOS/README_zh.md
+[irradium]: ./irradium/README_zh.md
