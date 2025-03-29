@@ -4,7 +4,7 @@ sys_ver: 5.0.0.71
 sys_var: null
 
 status: good
-last_update: 2025-0
+last_update: 2025-03-28
 ---
 
 # OpenHarmony v5.0.0.71 Banana Pi BPI-F3 Test Report
