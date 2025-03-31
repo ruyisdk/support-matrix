@@ -1,7 +1,7 @@
 ---
 sys: openwrt
 sys_ver: 23.05
-sys_var: null
+sys_var: VizOS
 
 status: basic
 last_update: 2025-03-31
