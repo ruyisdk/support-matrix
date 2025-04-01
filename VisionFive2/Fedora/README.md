@@ -7,7 +7,7 @@ status: good
 last_update: 2025-01-19
 ---
 
-# Fedora Banana Pi BPI-F3 Test Report
+# Fedora VisionFive 2 Test Report
 
 ## Test Environment
 
