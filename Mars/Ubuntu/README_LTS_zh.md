@@ -1,4 +1,4 @@
-# Ubuntu 24.04.2 LTS on Milk-V Mars
+# Ubuntu 24.04.2 LTS Milk-V Mars 测试报告
 
 ## 测试环境
 

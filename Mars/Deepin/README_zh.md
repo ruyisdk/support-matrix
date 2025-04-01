@@ -1,4 +1,4 @@
-# Debian Milk-V Mars 版本测试报告
+# Deepin Milk-V Mars 测试报告
 
 ## 测试环境
 
@@ -22,12 +22,12 @@
 
 ### 解压并刷写镜像到 microSD 卡
 
-- 方法1：使用 `tar` 解压镜像，并使用 `dd` 将镜像写入 microSD 卡。（假定/dev/sdc为microSD 卡设备）
+- 方法1：使用 `tar` 解压镜像，并使用 `dd` 将镜像写入 microSD 卡。（假定`/dev/sdc`为microSD 卡设备）
 
     ```bash
     tar -xvf deepin-25-beige-preview-riscv64-jh7110-20250122-110620.tar.xz
     sudo dd if=deepin-jh7110-riscv64-25-desktop-installer.img of=/dev/sdc bs=4M status=progress
-    sudo sync
+    sync
     ```
 
 - 方法2：解压镜像后使用 `balenaEtcher` 软件将镜像写入microSD 卡。

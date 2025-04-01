@@ -13,7 +13,7 @@ last_update: 2025-03-24
 
 ### Operating System Information
 
-- System Version: Deepin preview
+- System Version: Deepin 25 preview
 - Download Link: <https://cdimage.deepin.com/RISC-V/preview-20240613-riscv64/deepin-23-beige-preview-riscv64-milkv-mars-20240613-123442.tar.xz>
 - Reference Installation Document:
   1. <https://milkv.io/zh/docs/mars/getting-started/boot>
@@ -36,7 +36,7 @@ last_update: 2025-03-24
     ```bash
     tar -xvf deepin-25-beige-preview-riscv64-jh7110-20250122-110620.tar.xz
     sudo dd if=deepin-jh7110-riscv64-25-desktop-installer.img of=/dev/sdc bs=4M status=progress
-    sudo sync
+    sync
     ```
 
 - Method 2: After extracting the image, use the `balenaEtcher` software to write the image to the microSD card.

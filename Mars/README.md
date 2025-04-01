@@ -19,15 +19,20 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 - Ubuntu 24.04.2 LTS
   - Download Link: <https://cdimage.ubuntu.com/releases/24.04.2/release/ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img.xz>
   - Reference Installation Document: <https://milkv.io/zh/docs/mars/getting-started/boot>
-- Deepin
+- Deepin 25 preview
   - Download Link: <https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250122/riscv64/deepin-25-beige-preview-riscv64-jh7110-20250122-110620.tar.xz>
   - Reference Installation Document:
     1. <https://milkv.io/zh/docs/mars/getting-started/boot>
     2. <https://deepin-community.github.io/sig-deepin-ports/docs/install/riscv/jh7110>
-- eweOS
-  - Dowload Link：<https://github.com/panglars/eweos-vf2-mainline>
+- eweOS 6.13.8
+  - Download Link: <https://github.com/panglars/eweos-vf2-mainline>
   - Reference Installation Document: <https://github.com/panglars/eweos-vf2-mainline/blob/main/README.md>
   - eweOS Website: <https://os.ewe.moe/>
+- Fedora 41
+  - Download Link: <https://mirror.iscas.ac.cn/fedora-riscv/dl/StarFive/visionfive2/images/fedora-disk-gnome-workstation_starfive_vf2_f41_20241201091200.raw.gz>
+  - Reference Installation Document:
+    1. <https://milkv.io/zh/docs/mars/getting-started/boot>
+    2. <https://images.fedoravforce.org/Mars>  
 
 ### Hardware Information
 
@@ -43,6 +48,7 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 | Ubuntu LTS Image Boot  | N/A          | [Successful][Ubuntu LTS]                            |
 | Deepin Image Boot      | N/A          | [Successful][Deepin]                                |
 | eweOS Image Boot       | N/A          | [Successful][eweOS]                                |
+| Fedora Image Boot       | N/A          | [Successful][Fedora]                                |
 
 [Debian]: ./Debian/README.md
 [BuildRoot]: ./BuildRoot/README.md
@@ -50,3 +56,4 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 [Ubuntu LTS]: ./Ubuntu/README_LTS.md
 [Deepin]: ./Deepin/README.md
 [eweOS]: ./eweOS/README.md
+[Fedora]: ./Fedora/README.md
