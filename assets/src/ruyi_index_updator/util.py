@@ -44,10 +44,14 @@ def cmp_version(ver1: str, ver2: str) -> int:
 
 def remove_file_extension(name: str) -> str:
     """
-    Remove the last part of a file name,
+    Remove the last part of a file name, only works for compressed files.
     eg: a.img.zstd -> a.img
     """
-    return '.'.join(name.split('.')[:-1])
+    compressed_exts = ['zstd', 'xz', 'gz', 'bz2', 'lzma', 'lz4', 'lzo', 'z', '7z', 'zip']
+    for ext in compressed_exts:
+        if name.endswith(f".{ext}"):
+            return '.'.join(name.split('.')[:-1])
+    return name
 
 
 def board_id(info: SystemInfo | SystemIdentifier) -> str:
