@@ -22,7 +22,6 @@
 - USB A to C 线缆一条
 - USB-TTL 调试器一个（用于烧录 U-Boot with SPL 至 SPI NOR Flash）
 - 可选：键盘、显示器、鼠标（测试图形界面）
-    - 此次测试使用：MS2130 采集卡，1080P 60Hz 模式
 
 ## 安装步骤
 

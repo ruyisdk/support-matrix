@@ -39,6 +39,9 @@ cpu_core: SpacemiT X60
 - openKylin
   - Download Links: https://www.openkylin.top/downloads/index.html
   - Reference Installation Document: https://docs.openkylin.top/en/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8SpacemiT_K1%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+- openEuler RISC-V 20241231
+  - Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241231/v0.5/k1/
+  - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 
 ### Hardware Information
 
@@ -55,7 +58,8 @@ cpu_core: SpacemiT X60
 | OpenWrt Image Boot          | N/A          | [Successful][OpenWrt]       |
 | Alpine Image Boot           | N/A          | [Successful][Alpine]        |
 | Deepin Image Boot           | N/A          | [Successful][Deepin]        |
-| openKylin Image Boot           | N/A          | [Successful][openKylin]        |
+| openKylin Image Boot        | N/A          | [Successful][openKylin]     |
+| openEuler Image Boot        | N/A          | [Failed][oERV]              |
 
 [Bianbu]: ./Bianbu/README.md
 [Armbian_noble]: ./Armbian/README_noble.md
@@ -65,3 +69,4 @@ cpu_core: SpacemiT X60
 [Alpine]: ./Alpine/README.md
 [Deepin]: ./Deepin/README.md
 [openKylin]: ./openKylin/README.md
+[oERV]: ./openEuler/README.md

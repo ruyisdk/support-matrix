@@ -32,6 +32,9 @@
 - openKylin
   - 下载链接：https://www.openkylin.top/downloads/index-cn.html
   - 参考安装文档：https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8SpacemiT_K1%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+- openEuler RISC-V 20241231
+  - 下载链接：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241231/v0.5/k1/
+  - 参考安装文档：https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 
 ### 硬件开发板信息
 
@@ -48,7 +51,8 @@
 | OpenWrt 镜像启动          | N/A      | [成功][OpenWrt]       |
 | Alpine 镜像启动           | N/A      | [成功][Alpine]        |
 | Deepin 镜像启动           | N/A      | [成功][Deepin]        |
-| openKylin 镜像启动           | N/A      | [成功][openKylin]        |
+| openKylin 镜像启动        | N/A      | [成功][openKylin]     |
+| openEuler 镜像启动        | N/A      | [失败][oERV]          |
 
 [Bianbu]: ./Bianbu/README_zh.md
 [Armbian_noble]: ./Armbian/README_zh_noble.md
@@ -58,3 +62,4 @@
 [Alpine]: ./Alpine/README_zh.md
 [Deepin]: ./Deepin/README_zh.md
 [openKylin]: ./openKylin/README_zh.md
+[oERV]: ./openEuler/README_zh.md
