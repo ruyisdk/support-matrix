@@ -46,21 +46,21 @@
 
 ## 测试结果
 
-| 软件分类                | 软件包名 | 测试结果（测试报告）        |
-| ----------------------- | -------- | --------------------------- |
-| Debian 镜像启动         | N/A      | [成功][Debian]              |
-| openEuler/Base 镜像启动 | N/A      | [成功][oERV]                |
-| openEuler/Xfce 镜像启动 | N/A      | [成功][oERV]                |
-| openKylin 镜像启动      | N/A      | [成功][oK]（官方支持）      |
-| OpenSUSE 镜像启动       | N/A      | [成功][SUSE]                |
-| Ubuntu 镜像启动         | N/A      | [CFT][Ubuntu]（官方支持）   |
-| Ubuntu LTS 镜像启动     | N/A      | [CFT][Ubuntu LTS]（官方支持）|
-| FreeBSD 镜像启动        | N/A      | [成功][FreeBSD]（官方支持） |
-| OpenBSD 镜像启动        | N/A      | [成功][OpenBSD]（官方支持） |
-| Zephyr 启动             | N/A      | [成功][Zephyr]（官方支持）  |
-| OpenWrt 启动            | N/A      | [成功][OpenWrt]（官方支持） |
-| Fedora 启动             | N/A      | [成功][Fedora]（官方支持）  |
-| Deepin 启动             | N/A      | [CFT][Deepin]（官方支持）   |
+| 软件分类                | 软件包名 | 测试结果（测试报告）          |
+| ----------------------- | -------- | ----------------------------- |
+| Debian 镜像启动         | N/A      | [成功][Debian]                |
+| openEuler/Base 镜像启动 | N/A      | [成功][oERV]                  |
+| openEuler/Xfce 镜像启动 | N/A      | [成功][oERV]                  |
+| openKylin 镜像启动      | N/A      | [成功][oK]（官方支持）        |
+| OpenSUSE 镜像启动       | N/A      | [成功][SUSE]                  |
+| Ubuntu 镜像启动         | N/A      | [CFT][Ubuntu]（官方支持）     |
+| Ubuntu LTS 镜像启动     | N/A      | [CFT][Ubuntu LTS]（官方支持） |
+| FreeBSD 镜像启动        | N/A      | [成功][FreeBSD]（官方支持）   |
+| OpenBSD 镜像启动        | N/A      | [成功][OpenBSD]（官方支持）   |
+| Zephyr 启动             | N/A      | [成功][Zephyr]（官方支持）    |
+| OpenWrt 启动            | N/A      | [成功][OpenWrt]（官方支持）   |
+| Fedora 启动             | N/A      | [成功][Fedora]（官方支持）    |
+| Deepin 启动             | N/A      | [成功][Deepin]（EOL）         |
 
 [Debian]: ./Debian/README_zh.md
 [oERV]: ./openEuler/README_zh.md

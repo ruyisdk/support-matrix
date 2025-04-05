@@ -66,7 +66,7 @@ cpu_core: SiFive U74 + SiFive S7
 | Zephyr Boot               | N/A          | [Successful][Zephyr] (Official Support)  |
 | OpenWrt Boot              | N/A          | [Successful][OpenWrt] (Official Support) |
 | Fedora Boot               | N/A          | [Successful][Fedora](Official Support)   |
-| Deepin Boot               | N/A          | [CFT][Deepin](Official Support)          |
+| Deepin Boot               | N/A          | [Successful][Deepin](EOL)                |
 
 [Debian]: ./Debian/README.md
 [oERV]: ./openEuler/README.md

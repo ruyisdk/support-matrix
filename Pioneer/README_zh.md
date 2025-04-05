@@ -16,11 +16,11 @@
 - openKylin 2.0 alpha RISC-V
     - 下载链接：https://www.openkylin.top/downloads
     - 参考安装文档：https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
-- Deepin 23 preview-20240517
+- Deepin 23 preview-20240815
     - 下载链接：
-        - 系统镜像：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/deepin-sg2042-riscv64-stable-desktop-installer.tar.xz
-        - 固件：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/sophgo-bootloader-multi-sg2042-dev.zip
-    - 参考安装文档：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
+        - 系统镜像：https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20240815/riscv64/deepin-23-beige-preview-riscv64-sg2042-20240815-125146.tar.xz
+        - 固件：https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/latest/riscv64/bootloaders/sophgo-bootloader-single-sg2042-dev.zip
+    - 参考安装文档：https://deepin-community.github.io/sig-deepin-ports/docs/install/riscv/sg2042
 
 ### 硬件开发板信息
 
@@ -34,7 +34,7 @@
 | RevyOS 镜像启动                | N/A      | [成功][RevyOS]（官方支持）          |
 | openKylin 镜像启动             | N/A      | [成功][oK]（官方支持）              |
 | Fedora 镜像启动                | N/A      | [成功][Fedora]（官方支持&出厂预装） |
-| Deepin 镜像启动                | N/A      | [成功][Deepin]（仅 CLI）            |
+| Deepin 镜像启动                | N/A      | [成功][Deepin]                      |
 
 [oERV]: ./openEuler/README_zh.md
 [RevyOS]: ./RevyOS/README_zh.md
