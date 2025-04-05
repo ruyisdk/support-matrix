@@ -4,7 +4,7 @@ sys_ver: 1.0
 sys_var: null
 
 status: good
-last_update: 2024-06-21
+last_update: 2025-04-05
 ---
 
 # openKylin 1.0 HiFive Unmatched Test Report
@@ -54,63 +54,65 @@ The system booted successfully and login via the onboard serial port was success
 ### Boot Log
 
 ```log
-Welcome to openKylin 1.0 (GNU/Linux 5.11.0-1030-generic riscv64)                                                      
-                                                                                                                      
- * Support:        https://openkylin.top                                                                              
-                                                                                                                      
-The programs included with the openKylin system are free software;                                                    
-the exact distribution terms for each program are described in the                                                    
-individual files in /usr/share/doc/*/copyright.                                                                       
-                                                                                                                      
-openKylin comes with ABSOLUTELY NO WARRANTY, to the extent permitted by                                               
-applicable law.                                                                                                       
-                                                                                                                      
-To run a command as administrator (user "root"), use "sudo <command>".                                                
-See "man sudo_root" for details.                                                                                      
-                                                                                                                      
-openkylin@openkylin:~$                                                                                                
-openkylin@openkylin:~$ cat /etc/os-release                                                                            
-NAME="openKylin"                                                                                                      
-FULL_NAME="openKylin"                                                                                                 
-VERSION="1.0 (yangtze)"                                                                                               
-VERSION_US="1.0 (yangtze)"                                                                                            
-ID=openkylin                                                                                                          
-PRETTY_NAME="openKylin 1.0"                                                                                           
-VERSION_ID="1.0"                                                                                                      
-HOME_URL="https://www.openkylin.top/"                                                                                 
-VERSION_CODENAME=yangtze                                                                                              
-PRODUCT_FEATURES=3                                                                                                    
-openkylin@openkylin:~$ cat /proc/cpuinfo                                                                              
-processor       : 0                                                                                                   
-hart            : 4                                                                                                   
-isa             : rv64imafdc                                                                                          
-mmu             : sv39                                                                                                
-uarch           : sifive,u74-mc                                                                                       
-                                                                                                                      
-processor       : 1                                                                                                   
-hart            : 1                                                                                                   
-isa             : rv64imafdc                                                                                          
-mmu             : sv39                                                                                                
-uarch           : sifive,u74-mc                                                                                       
-                                                                                                                      
-processor       : 2                                                                                                   
-hart            : 2                                                                                                   
-isa             : rv64imafdc                                                                                          
-mmu             : sv39                                                                                                
-uarch           : sifive,u74-mc                                                                                       
-                                                                                                                      
-processor       : 3                                                                                                   
-hart            : 3                                                                                                   
-isa             : rv64imafdc                                                                                          
-mmu             : sv39                                                                                                
-uarch           : sifive,u74-mc                                                                                       
-                                                                                                                      
-openkylin@openkylin:~$ 
+Welcome to openKylin 1.0 (GNU/Linux 5.11.0-1030-generic riscv64)
+
+ * Support:        https://openkylin.top
+
+The programs included with the openKylin system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+openKylin comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+openkylin@openkylin:~$
+openkylin@openkylin:~$ cat /etc/os-release
+NAME="openKylin"
+FULL_NAME="openKylin"
+VERSION="1.0 (yangtze)"
+VERSION_US="1.0 (yangtze)"
+ID=openkylin
+PRETTY_NAME="openKylin 1.0"
+VERSION_ID="1.0"
+HOME_URL="https://www.openkylin.top/"
+VERSION_CODENAME=yangtze
+PRODUCT_FEATURES=3
+openkylin@openkylin:~$ cat /proc/cpuinfo
+processor       : 0
+hart            : 4
+isa             : rv64imafdc
+mmu             : sv39
+uarch           : sifive,u74-mc
+
+processor       : 1
+hart            : 1
+isa             : rv64imafdc
+mmu             : sv39
+uarch           : sifive,u74-mc
+
+processor       : 2
+hart            : 2
+isa             : rv64imafdc
+mmu             : sv39
+uarch           : sifive,u74-mc
+
+processor       : 3
+hart            : 3
+isa             : rv64imafdc
+mmu             : sv39
+uarch           : sifive,u74-mc
+
+openkylin@openkylin:~$
 ```
 
 Screen recording (From flashing image to logging):
 
 [![asciicast](https://asciinema.org/a/Wgz7wgCph6BhEQpEskH4LDMd4.svg)](https://asciinema.org/a/Wgz7wgCph6BhEQpEskH4LDMd4)
+
+See https://github.com/QA-Team-lo/oscompare/blob/main/openKylin/Unmatched/README.md for our report on its desktop experience.
 
 ## Test Criteria
 
