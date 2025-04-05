@@ -5,7 +5,7 @@
 ### 操作系统信息
 
 - openEuler RISC-V 24.03 LTS
-    - 下载链接：https://www.openeuler.org/zh/download/archive/detail/?version=openEuler%2024.03%20LTS
+    - 下载链接：https://www.openeuler.org/zh/download/
     - 参考安装文档：https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-Pioneer1.3.html
 - RevyOS 20240119
     - 下载链接：https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/
@@ -28,13 +28,13 @@
 
 ## 测试结果
 
-| 软件分类                       | 软件包名 | 测试结果（测试报告）                |
-| ------------------------------ | -------- | ----------------------------------- |
-| openEuler (Image 镜像，Legacy) | N/A      | [成功][oERV]（官方支持）            |
-| RevyOS 镜像启动                | N/A      | [成功][RevyOS]（官方支持）          |
-| openKylin 镜像启动             | N/A      | [成功][oK]（官方支持）              |
-| Fedora 镜像启动                | N/A      | [成功][Fedora]（官方支持&出厂预装） |
-| Deepin 镜像启动                | N/A      | [成功][Deepin]                      |
+| 软件分类                           | 软件包名 | 测试结果（测试报告）                |
+| ---------------------------------- | -------- | ----------------------------------- |
+| openEuler (Image 镜像，Linux Boot) | N/A      | [成功][oERV]（官方支持）            |
+| RevyOS 镜像启动                    | N/A      | [成功][RevyOS]（官方支持）          |
+| openKylin 镜像启动                 | N/A      | [成功][oK]（官方支持）              |
+| Fedora 镜像启动                    | N/A      | [成功][Fedora]（官方支持&出厂预装） |
+| Deepin 镜像启动                    | N/A      | [成功][Deepin]                      |
 
 [oERV]: ./openEuler/README_zh.md
 [RevyOS]: ./RevyOS/README_zh.md

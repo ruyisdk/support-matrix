@@ -3,8 +3,8 @@ sys: openeuler
 sys_ver: 24.03-LTS-SP1
 sys_var: null
 
-status: basic
-last_update: 2025-03-03
+status: good
+last_update: 2025-04-05
 ---
 
 # openEuler RISC-V 24.03 LTS SP1 Pioneer Test Report
@@ -13,9 +13,10 @@ last_update: 2025-03-03
 
 ### Operating System Information
 
-- System Version: openEuler RISC-V 24.03 LTS SP1 (Image, Legacy boot)
-- Download Link: [openEuler mirror](https://mirrors.nju.edu.cn/openeuler/openEuler-24.03-LTS-SP1/embedded_img/riscv64/SG2042/) (Or in [openEuler website](https://www.openeuler.org/en/download/#openEuler%2024.03%20LTS%20SP1) Choose: riscv64 -> embedded -> SG2042 -> Choose Mirror Site)
-- Installation Guide: [Installing on Pioneer Box - openEuler Docs](https://docs.openeuler.org/en/docs/24.03_LTS_SP1/docs/Installation/RISC-V-Pioneer1.3.html)
+- System Version: openEuler RISC-V 24.03 LTS SP1 (Image, Linux boot)
+- Download Link: [openEuler website](https://www.openeuler.org/en/download/) Choose: riscv64 -> embedded -> SG2042 -> Choose Mirror Site
+  - Firmware: sg2042_firmware_linuxboot.img.zip, on the same page
+- Installation Guide: [Installing on Pioneer Box - openEuler Docs](https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-Pioneer1.3.html)
 
 ### Hardware Information
 
@@ -27,17 +28,20 @@ last_update: 2025-03-03
 
 ### Flashing Image to microSD card or NVMe SSD using `dd`
 
-Download the image, then burn it to microSD card or NVMe drive using `dd`.
-
-If you're using Windows, we recommend using tools like Rufus or Etcher.
-
-Replace `/dev/sda` with your actual drive's name.
+Download, unzip and burn the **Firmware** to **microSD card**.
 
 ```shell
-unzip openEuler-24.03-LTS-SP1-riscv64-sg2042.img.zip
-sudo dd if=openEuler-24.03-LTS-SP1-riscv64-sg2042.img of=/dev/sda bs=4M status=progress
-sync
-sudo eject /dev/sda
+unzip sg2042_firmware_linuxboot.img.zip
+sudo dd if=sg2042_firmware_linuxboot.img of=/dev/your/device bs=512K iflag=fullblock oflag=direct conv=fsync status=progress
+```
+
+Download, unzip and burn the **System Image** to **NVMe SSD**. For Windows users, try Rufus or balenaEtcher.
+
+```shell
+unzip openEuler-24.03-LTS-riscv64-sg2042.img.zip
+sudo wipefs -af /dev/your/device
+sudo dd if=openEuler-24.03-LTS-riscv64-sg2042.img of=/dev/your/device bs=1M status=progress
+sudo eject /dev/your/device
 ```
 
 ### Logging into the System
@@ -55,21 +59,59 @@ Or you can just connect a monitor, keyboard and mouse to Pioneer and login.
 Default username: `openeuler` or `root`
 Default password: `openEuler12#$`
 
+### Install Desktop Environment
+
+e.g. GNOME:
+```shelll
+sudo dnf update
+sudo dnf install dejavu-fonts liberation-fonts gnu-*-fonts google-*-fonts
+sudo dnf install xorg-*
+sudo dnf install adwaita-icon-theme atk atkmm at-spi2-atk at-spi2-core baobab \
+ abattis-cantarell-fonts cheese clutter clutter-gst3 clutter-gtk cogl dconf \
+ dconf-editor devhelp eog epiphany evince evolution-data-server file-roller folks \
+ gcab gcr gdk-pixbuf2 gdm gedit geocode-glib gfbgraph gjs glib2 glibmm24 \
+ glib-networking gmime30 gnome-autoar gnome-backgrounds gnome-bluetooth \
+ gnome-boxes gnome-builder gnome-calculator gnome-calendar gnome-characters \
+ gnome-clocks gnome-color-manager gnome-contacts gnome-control-center \
+ gnome-desktop3 gnome-disk-utility gnome-font-viewer gnome-getting-started-docs \
+ gnome-initial-setup gnome-keyring gnome-logs gnome-menus gnome-music \
+ gnome-online-accounts gnome-online-miners gnome-photos gnome-remote-desktop \
+ gnome-screenshot gnome-session gnome-settings-daemon gnome-shell \
+ gnome-shell-extensions gnome-software gnome-system-monitor gnome-terminal \
+ gnome-tour gnome-user-docs gnome-user-share gnome-video-effects \
+ gnome-weather gobject-introspection gom grilo grilo-plugins \
+ gsettings-desktop-schemas gsound gspell gssdp gtk3 gtk4 gtk-doc gtkmm30 \
+ gtksourceview4 gtk-vnc2 gupnp gupnp-av gupnp-dlna gvfs json-glib libchamplain \
+ libdazzle libgdata libgee libgnomekbd libgsf libgtop2 libgweather libgxps libhandy \
+ libmediaart libnma libnotify libpeas librsvg2 libsecret libsigc++20 libsoup \
+ mm-common mutter nautilus orca pango pangomm libphodav python3-pyatspi \
+ python3-gobject rest rygel simple-scan sushi sysprof tepl totem totem-pl-parser \
+ tracker3 tracker3-miners vala vte291 yelp yelp-tools \
+ yelp-xsl zenity
+```
+
+To boot to GUI by default:
+
+```
+sudo systemctl enable gdm
+sudo systemctl set-default graphical.target
+```
+
+Xfce is not available at the moment.
+
 ## Expected Results
 
-The system starts up properly and can be accessed via SSH.
+The system starts up properly and can be accessed via SSH and/or GUI.
 
 ## Actual Results
 
-The system starts up correctly and SSH login is successful.
+The system starts up correctly and SSH/GUI login is successful.
 
 ### Boot Log
 
-![console](./console.png)
-
 ```log
 Authorized users only. All activities may be monitored and reported.
-openeuler@192.168.36.39's password: 
+openeuler@192.168.36.39's password:
 
 Authorized users only. All activities may be monitored and reported.
 Last login: Mon Mar  3 17:13:14 2025
@@ -93,13 +135,13 @@ Architecture:          riscv64
   Byte Order:          Little Endian
 CPU(s):                64
   On-line CPU(s) list: 0-63
-NUMA:                  
+NUMA:
   NUMA node(s):        4
   NUMA node0 CPU(s):   0-7,16-23
   NUMA node1 CPU(s):   8-15,24-31
   NUMA node2 CPU(s):   32-39,48-55
   NUMA node3 CPU(s):   40-47,56-63
-[openeuler@openeuler-riscv64 ~]$ cat /etc/os-release 
+[openeuler@openeuler-riscv64 ~]$ cat /etc/os-release
 NAME="openEuler"
 VERSION="24.03 (LTS-SP1)"
 ID="openEuler"
@@ -107,12 +149,16 @@ VERSION_ID="24.03"
 PRETTY_NAME="openEuler 24.03 (LTS-SP1)"
 ANSI_COLOR="0;31"
 
-[openeuler@openeuler-riscv64 ~]$ 
+[openeuler@openeuler-riscv64 ~]$
 ```
 
-Screen recording (from bootup to SSH login): 
+Screen recording (from bootup to SSH login):
 
 [![asciicast](https://asciinema.org/a/Wzbli8yUqqYEF2D4A4X2M5fUu.svg)](https://asciinema.org/a/Wzbli8yUqqYEF2D4A4X2M5fUu)
+
+![](image/pioneer_openeuler_1.png)
+
+See https://github.com/QA-Team-lo/oscompare/blob/main/openEuler/Pioneer/README.md for our report on its desktop experience.
 
 ## Test Criteria
 
