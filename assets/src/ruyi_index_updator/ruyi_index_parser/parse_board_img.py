@@ -9,193 +9,31 @@ import copy
 import toml
 from awesomeversion import AwesomeVersion
 
+from ...matrix_parser import ImageStatus
 
-class BoardIndexProvisionable:
-    """
-    See ruyi packages-index definition
-    """
-    strategy: str
-    partition_map: dict[str] | None
-
-    def __init__(self, d: dict):
-        self.strategy = d["strategy"]
-        self.partition_map = d.get("partition_map", None)
-
-    def serialize(self) -> dict:
-        """
-        Serialize
-        """
-        if self.partition_map is None:
-            return {
-                "strategy": self.strategy,
-            }
-        return {
-            "strategy": self.strategy,
-            "partition_map": self.partition_map,
-        }
-
-    def __copy__(self):
-        return BoardIndexProvisionable(self.serialize())
-
-
-class BoardIndexBlob:
-    """
-    See ruyi packages-index definition
-    """
-    distfiles: list[str]
-
-    def __init__(self, d: dict):
-        self.distfiles = d["distfiles"]
-
-    def serialize(self) -> dict:
-        """
-        Serialize
-        """
-        return {
-            "distfiles": self.distfiles,
-        }
-
-    def __copy__(self):
-        return BoardIndexBlob(self.serialize())
-
-
-class BoardIndexDistfiles:
-    """
-    See ruyi packages-index definition
-    """
-    name: str
-    size: int
-    urls: list[str]
-    checksums: dict[
-        "sha256": str,
-        "sha512": str,
-    ]
-    restrict: list[str] | None
-
-    def __init__(self, d: dict):
-        self.name = d["name"]
-        self.size = d["size"]
-        self.urls = d["urls"]
-        self.checksums = d["checksums"]
-        self.restrict = d.get("restrict", None)
-
-    def serialize(self) -> dict:
-        """
-        Serialize
-        """
-        return {
-            "name": self.name,
-            "size": self.size,
-            "urls": self.urls,
-            "checksums": self.checksums,
-            "restrict": self.restrict
-        }
-
-    def __copy__(self):
-        return BoardIndexDistfiles(self.serialize())
-
-
-class BoardIndexMetadata:
-    """
-    See ruyi packages-index definition
-    """
-    desc: str
-    vendor: dict[
-        "name": str,
-        "eula": str,
-    ]
-
-    def __init__(self, d: dict):
-        self.desc = d["desc"]
-        self.vendor = d["vendor"]
-
-    def serialize(self) -> dict:
-        """
-        Serialize
-        """
-        return {
-            "desc": self.desc,
-            "vendor": self.vendor,
-        }
-
-    def __copy__(self):
-        return BoardIndexMetadata(self.serialize())
-
-
-class BoardIndex:
-    """
-    See ruyi packages-index definition
-    """
-    format: str
-    metadata: BoardIndexMetadata
-    distfiles: list[BoardIndexDistfiles]
-    blob: BoardIndexBlob
-    provisionable: BoardIndexProvisionable
-
-    def __init__(self, d: dict):
-        self.format = d["format"]
-        self.metadata = BoardIndexMetadata(d["metadata"])
-        self.distfiles = [BoardIndexDistfiles(x) for x in d["distfiles"]]
-        self.blob = BoardIndexBlob(d["blob"])
-        self.provisionable = BoardIndexProvisionable(d["provisionable"])
-
-    def serialize(self) -> dict:
-        """
-        Serialize
-        """
-        return {
-            "format": self.format,
-            "metadata": self.metadata.serialize(),
-            "distfiles": [x.serialize() for x in self.distfiles],
-            "blob": self.blob.serialize(),
-            "provisionable": self.provisionable.serialize(),
-        }
-
-    @staticmethod
-    def load(path: str) -> "BoardIndex":
-        """
-        Load from file
-        """
-        t = toml.load(path)
-        return BoardIndex(t)
-
-    def __copy__(self):
-        return BoardIndex(self.serialize())
+from ..schema.pkg_manifest import *
 
 
 class BoardImages:
-    """
-    Hold one version of the board image index
-    """
-    raw_version: str
-    is_bot_created: bool
-    info: BoardIndex
-
-    @property
-    def version(self) -> str:
-        """
-        return the version
-        """
-        return self.raw_version
-
-    @version.setter
-    def version(self, value: str):
-        self.raw_version = value
+    version: str
+    bot_created: bool
+    info: PackageManifestType
 
     def __init__(self, file: str | None = None, *,
-                 bot_created: bool = True, version: str = None, info: BoardIndex = None):
+                 bot_created: bool = True, version: str = None, info: PackageManifestType = None):
         if file is None:
-            self.is_bot_created = bot_created
-            self.raw_version = version
+            self.bot_created = bot_created
+            self.version = version
             self.info = info
             return
-        self.is_bot_created = False
+        self.bot_created = False
         basename = os.path.basename(file)
         self.version = basename[:-5]  # remove .toml
-        self.info = BoardIndex.load(file)
+        t = toml.load(file)
+        self.info = t
 
     def __copy__(self):
-        return BoardImages(bot_created=False,
+        return BoardImages(bot_created=self.bot_created,
                            version=copy.copy(self.version), info=copy.copy(self.info)
                            )
 
@@ -221,3 +59,60 @@ class BoardImages:
 
     def __eq__(self, other):
         return self.__cmp__(other) == 0
+
+
+class BoardImagesGenerator:
+    def __init__(self,
+                 version: str,
+                 desc: str,
+                 vendor: str,
+                 distfiles: list[DistfileDeclType],
+                 strategy: str,
+                 status: ImageStatus,  # Good/CFT/CFH
+                 partition_map: dict[str, str]):
+        self.version = version
+        self.desc = desc
+        self.vendor = vendor
+        self.distfiles = distfiles
+        self.strategy = strategy
+        self.status = status
+        self.partition_map = partition_map
+
+    def generate(self, version = None) -> BoardImages:
+        if self.status == "good":
+            level = "good"
+        elif self.status == "cft":
+            level = "untested"
+        elif self.status == "cfh":
+            level = "known_issue"
+        else:
+            level = None
+        service_level = [{
+            "level": level
+        }] if level is not None else []
+        info = {
+            "format": "v1",
+            "metadata": {
+                "desc": self.desc,
+                "vendor": {
+                    "name": self.vendor,
+                    "eula": ""
+                },
+                "service_level": service_level
+            },
+            "distfiles": self.distfiles,
+            "blob": {
+                "distfiles": [
+                    dist["name"] for dist in self.distfiles
+                ],
+            },
+            "provisionable": {
+                "strategy": self.strategy,
+                "partition_map": self.partition_map,
+            }
+        }
+        return BoardImages(
+            bot_created=True,
+            version=version,
+            info=info
+        )

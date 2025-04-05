@@ -24,6 +24,18 @@ cpu_core: XuanTie C906
   - Reference Installation Document: https://dongshanpi.com/DongshanNezhaSTU/07-Buildroot-SDK_DevelopmentGuide/
 - Arch Linux
   - Build Script: https://github.com/sehraf/d1-riscv-arch-image-builder
+- postmarketOS
+  - Download link (pmbootstrap): https://wiki.postmarketos.org/wiki/Pmbootstrap
+  - Reference Installation Document: https://wiki.postmarketos.org/wiki/DongshanPi_NeZha_STU_(dongshanpi-nezhastu)
+- FreeBSD
+  - Download Link: https://github.com/freebsd-d1/freebsd-d1
+  - Reference Installation Document: https://github.com/freebsd-d1/freebsd-d1
+- Fedora
+  - Download Link: https://mirror.iscas.ac.cn/fedora-riscv/old_dl/Allwinner/Nezha_D1/images-release/Fedora/fedora-riscv64-d1-developer-xfce-rawhide-Rawhide-20220117-135925.n.0-sda.raw.zst
+  - Reference Installation Document: https://popolon.org/depots/RISC-V/D1/ovsienko/_index.html
+- Gentoo
+  - Download Link: https://github.com/RevySR/riscv-calculate/releases/download/v20220929/gentoo-d1-20220929153235.img.zst
+  - Reference Installation Document: https://github.com/RevySR/riscv-calculate
 
 ### Hardware Information
 
@@ -31,16 +43,24 @@ cpu_core: XuanTie C906
 
 ## Test Results
 
-| Software Category               | Package Name | Test Results (Test Report)  |
-|--------------------------------|--------------|-----------------------------|
-| Tina Linux Image Boot          | N/A          | [CFT][Tina]                 |
-| OpenWrt Image Boot             | N/A          | [CFT][OpenWrt]              |
-| Debian Image Boot              | N/A          | [CFT][Debian]               |
-| Arch Linux Image Boot          | N/A          | [CFT][Arch]                 |
-| BuildRoot Image Boot           | N/A          | [CFT][BuildRoot]            |
+| Software Category             | Package Name | Test Results (Test Report) |
+| ----------------------------- | ------------ | -------------------------- |
+| Tina Linux Image Boot         | N/A          | [Success][Tina]            |
+| OpenWrt Image Boot            | N/A          | [Success][OpenWrt]         |
+| Debian Image Boot             | N/A          | [Success][Debian]          |
+| Arch Linux Image Boot         | N/A          | [CFT][Arch]                |
+| BuildRoot Image Boot          | N/A          | [CFI][BuildRoot]           |
+| postmarketOS Bootstrap & Boot | N/A          | [Success][pmOS]            |
+| FreeBSD Image Compile & Boot  | N/A          | [Success][FreeBSD]         |
+| Fedora Image Compile & Boot   | N/A          | [Failed][Fedora]           |
+| Gentoo Image Compile & Boot   | N/A          | [Success][Gentoo]          |
 
 [Tina]: ./TinaLinux/README.md
 [OpenWrt]: ./OpenWrt/README.md
 [Debian]: ./Debian/README.md
 [BuildRoot]: ./BuildRoot/README.md
 [Arch]: ./ArchLinux/README.md
+[pmOS]: ./postmarketOS/README.md
+[FreeBSD]: ./FreeBSD/README.md
+[Fedora]: ./Fedora/README.md
+[Gentoo]: ./Gentoo/README.md

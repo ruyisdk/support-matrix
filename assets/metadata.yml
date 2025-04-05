@@ -2,8 +2,7 @@
 
 linux:
   - archlinux: Arch Linux
-  - debian: Debian/RevyOS
-  # - revyos: RevyOS # This is special case with Debian
+  - debian: Debian
   - fedora: Fedora
   - gentoo: Gentoo
   - openanlios: openAnolis
@@ -12,16 +11,18 @@ linux:
   - openkylin: openKylin
   - opensuse: openSUSE
   - ubuntu: Ubuntu
-  - tina: Tina-Linux
   - armbian: Armbian
   - buildroot: BuildRoot
   - openwrt: OpenWRT
-  - bianbu: Bianbu
   - deepin: Deepin
   - yocto: Yocto
   - alpine: Alpine
   - nixos: NixOS
   - dietpi: DietPi
+  - slackware: Slackware
+  - pmos: postmarketOS
+  - irradium: irradium
+  - eweos: eweOS
 
 bsd:
   - freebsd: FreeBSD
@@ -36,37 +37,18 @@ rtos:
   - nuttx: NuttX
   - melis: Melis
   - uniproton: UniProton
+  - ucosii: μC/OS-II
+  - LiteOS: LiteOS
 
 others:
   - android: Android
   - openharmony: OpenHarmony
 
+customized:
+  - bianbu: Bianbu
+  - redleafos: RedleafOS
+  - revyos: RevyOS
+  - rockos: RockOS
+  - tina: Tina-Linux
+
 ### END ###
-
-# Definations for README metadata
-definitions:
-  status_enum:
-    type: string
-    enum: &STATUS_ENUM
-      - none
-      - wip
-      - cft
-      - cfh
-      - cfi
-      - partial
-      - basic
-      - good
-
-# General info
-sys: string        # System name, should be one of key in linux/bsd/rtos/others
-sys_ver: string    # System version
-sys_var: string?   # System variant
-
-# Doc info
-status: *STATUS_ENUM
-last_updated: timestamp   # Last update
-
-# Definition for board metadata
-product: string     # Product name
-cpu: string         # CPU model
-cpu_core: string    # CPU core

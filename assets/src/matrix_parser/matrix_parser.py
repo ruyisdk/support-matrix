@@ -35,7 +35,11 @@ class ImageStatus:
         return self.MAPPER[self.status][0]
     
     def __eq__(self, other):
-        return self.MAPPER[self.status][1] == self.MAPPER[other.status][1]
+        if isinstance(other, ImageStatus):
+            return self.MAPPER[self.status][1] == self.MAPPER[other.status][1]
+        if isinstance(other, str):
+            return self.status == other.lower()
+        raise ValueError("Unknown PartialEq for ImageStatus")
     
     def __lt__(self, other):
         return self.MAPPER[self.status][1] < self.MAPPER[other.status][1]
@@ -75,10 +79,7 @@ class SystemVar:
             if 'sys' not in post.keys():
                 raise FileNotFoundError(f"{meta_path} has no frontmatter")
             self.raw_data = post
-            if post['sys'] == 'revyos':
-                self.sys = 'debian'
-            else:
-                self.sys = post['sys']
+            self.sys = post['sys'].lower()
             self.sys_ver = post['sys_ver']
             self.sys_var = post['sys_var']
             self.status = ImageStatus(post['status'])
@@ -171,6 +172,7 @@ class Board:
     ---
     """
     vendor: str | None
+    board_variants: list[str] | None
     product: str
     cpu: str
     link: str
@@ -236,6 +238,7 @@ class Board:
             post = frontmatter.load(file)
             self.raw_data = post
             self.vendor = post.get('vendor', None)
+            self.board_variants = post.get('board_variants', None)
             self.product = post['product']
             self.cpu = post['cpu']
             self.cpu_core = post['cpu_core']
@@ -263,7 +266,7 @@ class Board:
                     sys_var=i['sys_var'],
                     status=i['status'],
                     last_update='2000-00-00',
-                    link=None
+                    link=[self.link, 'others.yml']
                 )
                 self.append_system(system)
         if not check_success:
@@ -279,6 +282,7 @@ class Systems:
     bsd: dict[str]
     rtos: dict[str]
     others: dict[str]
+    customized: dict[str]
 
     exclude_dir = [
         '.github',
@@ -316,6 +320,7 @@ class Systems:
             self.bsd = mp(data['bsd'])
             self.rtos = mp(data['rtos'])
             self.others = mp(data['others'])
+            self.customized = mp(data['customized'])
         self.boards = []
         for folder in os.listdir(path):
             if self.should_exclude(folder):

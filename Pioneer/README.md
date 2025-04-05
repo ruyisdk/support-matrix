@@ -24,11 +24,11 @@ cpu_core: XuanTie C920
 - openKylin 2.0 alpha RISC-V
     - Download link: https://www.openkylin.top/downloads
     - Reference Installation Document: https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
-- Deepin 23 preview-20240517
-    - Download link: 
-        - OS image: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/deepin-sg2042-riscv64-stable-desktop-installer.tar.xz
-        - Firmware: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/sophgo-bootloader-multi-sg2042-dev.zip
-    - Reference installation manual: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
+- Deepin 23 preview-20240815
+    - Download link:
+        - OS image: https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20240815/riscv64/deepin-23-beige-preview-riscv64-sg2042-20240815-125146.tar.xz
+        - Firmware: https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/latest/riscv64/bootloaders/sophgo-bootloader-single-sg2042-dev.zip
+    - Reference installation manual: https://deepin-community.github.io/sig-deepin-ports/docs/install/riscv/sg2042
 
 ### Hardware Information
 
@@ -42,7 +42,7 @@ cpu_core: XuanTie C920
 | RevyOS Image Boot              | N/A          | [Success][RevyOS] (Official support)                         |
 | openKylin Image Boot           | N/A          | [Success][oK] (Official support)                             |
 | Fedora Image Boot              | N/A          | [Success][Fedora] (Official support & Factory pre-installed) |
-| Deepin                         | N/A          | [Success][Deepin], CLI only                                  |
+| Deepin                         | N/A          | [Success][Deepin]                                            |
 
 [oERV]: ./openEuler/README.md
 [RevyOS]: ./RevyOS/README.md

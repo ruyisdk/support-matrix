@@ -16,7 +16,7 @@ def main():
     Main function
     """
 
-    logger = logging.getLogger()
+    _ = logging.getLogger()
 
     index_path = util.folder_tmp_mux(config["index"])
 
@@ -24,16 +24,30 @@ def main():
     diffs = RuyiDiff(matrix)
     repo = RuyiGitRepo(index_path)
 
-    for branch in diffs.gen_branch():
-        pr = repo.push(branch)
-        if pr is None:
-            continue
-        if not config["pr"]:
-            logger.info("%s", repr(pr))
-            continue
-        if config["force"]:
-            pr.title = f"[Force Update] {pr.title}"
-        repo.create_wrapped_pr(pr)
+    for worker in diffs.gen_branch(repo):
+        worker.do_checkout()
+        worker.do_update()
+        worker.do_commit()
+        worker.do_push()
+        if config["pr"]:
+            worker.do_pr()
+
+    update_info = diffs.update_info()
+    if config["update_info"] is not None:
+        with open(config["update_info"], "w", encoding="utf-8") as f:
+            f.write("|" . join([
+                "", " File ", " Plug ", " Update Info ", ""
+            ]))
+            f.write("\n")
+            f.write("|" . join([
+                "", " --- ", " --- ", " --- ", ""
+            ]))
+            f.write("\n")
+            for i in update_info:
+                arr = [""] + [f" {j} " for j in i] + [""]
+                f.write("|" . join(arr))
+                f.write("\n")
+
 
 if __name__ == '__main__':
     main()

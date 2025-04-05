@@ -1,20 +1,20 @@
 ---
 sys: ubuntu
-sys_ver: 24.04.1
+sys_ver: 24.04.2
 sys_var: LTS
 
 status: CFT
-last_update: 2024-10-25
+last_update: 2025-02-25
 ---
 
-# Ubuntu 24.04.1 LTS on Milk-V Mars Test Report
+# Ubuntu 24.04.2 LTS on Milk-V Mars Test Report
 
 ## Test Environment
 
 ### Operating System Information
 
-- Ubuntu 24.04.1 LTS
-  - Download Link: https://cdimage.ubuntu.com/releases/24.04.1/release/ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img.xz
+- Ubuntu 24.04.2 LTS
+  - Download Link: https://cdimage.ubuntu.com/releases/24.04.2/release/ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img.xz
   - Reference Installation Document: https://milkv.io/zh/docs/mars/getting-started/boot
 
 ### Hardware Information

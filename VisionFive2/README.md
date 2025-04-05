@@ -18,7 +18,7 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 - openKylin 2.0
     - Download Link: https://www.openkylin.top/downloads
     - Reference Installation Document：https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8VisionFive2%E4%B8%8A%E5%AE%89%E8%A3%85openKylin (Chinese)
-- Ubuntu 24.10 & 24.04.1 LTS
+- Ubuntu 24.10 & 24.04.2 LTS
     - Download Link: https://ubuntu.com/download/risc-v
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
 - BuildRoot (VisionFive 2 SDK)
@@ -65,6 +65,15 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 - NixOS
     - Source code link: https://github.com/NickCao/nixos-riscv
     - Reference Installation Document: https://github.com/NickCao/nixos-riscv/README.md
+- eweOS
+    - Source code Link: https://github.com/panglars/eweos-vf2-mainline
+    - Reference Installation Document: https://github.com/panglars/eweos-vf2-mainline/blob/main/README.md
+- irradium 3.7 
+    - Download Link: https://dl.irradium.org/irradium/images/visionfive_2/
+    - Reference Installation Document: https://dl.irradium.org/irradium/images/visionfive_2/README.TXT
+
+    
+    
 ### Hardware Information
 
 - StarFive VisionFive 2
@@ -72,7 +81,7 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 ## Test Results
 
 | Software Category     | Software Package | Test Results (Test Report)                        |
-| --------------------- | ---------------- | ------------------------------------------------- |
+|-----------------------|------------------|---------------------------------------------------|
 | openEuler/Base Image  | N/A              | [Successful][oERV]                                |
 | openEuler/Xfce Image  | Xfce             | [Successful][oERV]                                |
 | Debian Image          | N/A              | [Successful][Debian] (Official StarFive Image)    |
@@ -96,6 +105,8 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 | Alpine Image          | N/A              | [Successful][Alpine]                              |
 | DietPi Image          | N/A              | [Successful][DietPi]                              |
 | NixOS Image           | N/A              | [Successful][NixOS]                               |
+| eweOS Image           | N/A              | [Successful][eweOS]                               |
+| irradium Image        | N/A              | [Successful][irradium]                            |
 
 [oERV]: ./openEuler/README.md
 [Debian]: ./Debian/README.md
@@ -118,3 +129,5 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 [Alpine]: ./Alpine/README.md
 [DietPi]: ./DietPi/README.md
 [NixOS]: ./NixOS/README.md
+[eweOS]: ./eweOS/README.md
+[irradium]: ./irradium/README.md

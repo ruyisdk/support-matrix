@@ -1,10 +1,10 @@
 ---
 sys: ubuntu
-sys_ver: 24.04.1
+sys_ver: 24.04.2
 sys_var: LTS
 
 status: CFT
-last_update: 2024-10-25
+last_update: 2025-02-25
 ---
 
 # Ubuntu on Microchip Polarfire SoC FPGA Icicle Kit
@@ -20,16 +20,16 @@ last_update: 2024-10-25
 
 ### Operating System Information
 
-- Ubuntu 24.04.1 LTS
-    - Download link: https://cdimage.ubuntu.com/releases/24.04.1/release/
-        - TUNA Mirror: https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.04.1-preinstalled-server-riscv64+icicle.img.xz
+- Ubuntu 24.04.2 LTS
+    - Download link: https://cdimage.ubuntu.com/releases/24.04.2/release/
+        - TUNA Mirror: https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.04.2-preinstalled-server-riscv64+icicle.img.xz
     - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
 
 ### Other Information
 
-- Icicle Kit Reference Design Release v2024.02
-    - Download link: https://github.com/polarfire-soc/icicle-kit-reference-design/releases/tag/v2024.02
-- FlashPro Express v2024.1 (packaged in Programming and Debug Tools)
+- Icicle Kit Reference Design Release v2024.09
+    - Download link: https://github.com/polarfire-soc/icicle-kit-reference-design/releases/tag/v2024.09
+- FlashPro Express v2024.2 (packaged in Programming and Debug Tools)
     - Download link (requires login): https://www.microchip.com/en-us/products/fpgas-and-plds/fpga-and-soc-design-tools/programming-and-debug/lab
 
 ## (Optional, Recommended) Update FPGA Design and Hart Software Services (HSS)
@@ -44,10 +44,10 @@ Visit the mentioned download link and download according to your operating syste
 
 This tool supports:
 
-- Windows 10/11
-- RHEL/CentOS 7.x, RHEL/CentOS 8.0-8.2
-- OpenSUSE Leap 42.3 (SLES 12.3)
-- Ubuntu 18.04 LTS, 20.04.3 LTS, and 22.04.1 LTS
+- Windows 10.0/11
+- Red Hat® Enterprise Linux (RHEL) 8.0-8.10, AlmaLinux® 8.3-8.10
+- Ubuntu 20.04.6 LTS
+- SUSE™ Linux Enterprise Server 12 SP5
 
 I used Windows 11 Home x64, although the installer will prompt an unsupported system, it works fine.
 

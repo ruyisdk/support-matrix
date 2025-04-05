@@ -6,7 +6,7 @@
 
 - 系统版本：Debian bookworm (starfive-jh7110-202403-SD-minimal-desktop-wayland.img.bz2)
 - 下载链接：https://debian.starfivetech.com/
-- 参考安装文档：https://gitee.com/openeuler/RISC-V/blob/master/release/openEuler-23.03/Installation_Book/Visionfive2/README_zh.md
+- 参考安装文档：https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/
 
 ### 硬件信息
 
@@ -64,19 +64,73 @@ StarFive VisionFive 2 提供了多种引导模式，可在上电前通过板载�
 ### 启动信息
 
 ```log
-user@starfive:~$ uname -a                                                                                             
-Linux starfive 6.1.31-starfive #1 SMP Mon Mar  4 21:31:49 CST 2024 riscv64 GNU/Linux                                  
-user@starfive:~$ cat /etc/os-release                                                                                  
-PRETTY_NAME="Debian GNU/Linux bookworm/sid"                                                                           
-NAME="Debian GNU/Linux"                                                                                               
-VERSION_CODENAME=bookworm                                                                                             
-ID=debian                                                                                                             
-HOME_URL="https://www.debian.org/"                                                                                    
-SUPPORT_URL="https://www.debian.org/support"                                                                          
-BUG_REPORT_URL="https://bugs.debian.org/"                                                                             
-BUILD_ID=7                                                                                                            
-user@starfive:~$
+Debian GNU/Linux trixie/sid starfive ttyS0
+
+starfive login: [   37.039220] mipi_0p9: disabling
+
+starfive login: user
+Password: 
+Linux starfive 6.6.20-starfive #41SF SMP Fri Sep 20 17:48:26 CST 2024 riscv64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+user@starfive:~$ uname -a
+Linux starfive 6.6.20-starfive #41SF SMP Fri Sep 20 17:48:26 CST 2024 riscv64 GNU/Linux
+user@starfive:~$ cat /etc/os-release 
+PRETTY_NAME="Debian GNU/Linux trixie/sid"
+NAME="Debian GNU/Linux"
+VERSION_CODENAME=trixie
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+BUILD_ID=32
+BUILD_DATE=T2024-09-23
+user@starfive:~$ cat /proc/cpuinfo 
+processor       : 0
+hart            : 1
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+
+processor       : 1
+hart            : 2
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+
+processor       : 2
+hart            : 3
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+
+processor       : 3
+hart            : 4
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+
+user@starfive:~$ 
 ```
+
+![](./image.png)
 
 屏幕录像（从刷写镜像到登录系统）：
 

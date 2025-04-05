@@ -70,15 +70,3 @@ class PackageIndexProc():
             res[d] = [BoardImages(os.path.join(d_f, x)) for x in images]
             res[d].sort()
         return res
-
-    def create_new_index(self, current: dict[str, list[BoardImages]], index_name: str) -> dict[str, list[BoardImages]]:
-        """
-        Create a new index
-        """
-        b_path = os.path.join(self.path, "manifests", "board-image")
-        new_folder = os.path.join(b_path, index_name)
-        if os.path.exists(new_folder):
-            return current
-        os.mkdir(new_folder)
-        current[index_name] = []
-        return current

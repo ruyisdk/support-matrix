@@ -1,11 +1,11 @@
-# Ubuntu 24.04.1 LTS on Milk-V Mars
+# Ubuntu 24.04.2 LTS on Milk-V Mars
 
 ## 测试环境
 
 ### 操作系统信息
 
-- Ubuntu 24.04.1 LTS
-  - 下载链接：https://cdimage.ubuntu.com/releases/24.04.1/release/ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img.xz
+- Ubuntu 24.04.2 LTS
+  - 下载链接：https://cdimage.ubuntu.com/releases/24.04.2/release/ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img.xz
   - 参考安装文档：https://milkv.io/zh/docs/mars/getting-started/boot
 
 ### 硬件开发板信息
@@ -22,8 +22,8 @@
 其中，`/dev/sdc` 为存储卡对应设备。
 
 ```bash
-unxz -d ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img.xz
-sudo dd if=ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img of=/dev/sdc bs=1M status=progress
+unxz -d ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img.xz
+sudo dd if=ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img of=/dev/sdc bs=1M status=progress
 ```
 
 ### 更新 U-Boot

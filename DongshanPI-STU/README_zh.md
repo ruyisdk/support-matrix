@@ -18,6 +18,15 @@
   - 参考安装文档：https://dongshanpi.com/DongshanNezhaSTU/07-Buildroot-SDK_DevelopmentGuide/
 - Arch Linux
   - 打包脚本：https://github.com/sehraf/d1-riscv-arch-image-builder
+- postmarketOS
+  - 下载链接（pmbootstrap）: https://wiki.postmarketos.org/wiki/Pmbootstrap
+  - 参考安装文档：https://wiki.postmarketos.org/index.php?title=MangoPi_MQ-Pro_(mangopi-mq-pro)&direction=prev&oldid=46021
+- FreeBSD
+  - 下载链接：https://github.com/freebsd-d1/freebsd-d1
+  - 参考安装文档：https://github.com/freebsd-d1/freebsd-d1
+- Fedora
+  - 下载链接：https://mirror.iscas.ac.cn/fedora-riscv/old_dl/Allwinner/Nezha_D1/images-release/Fedora/fedora-riscv64-d1-developer-xfce-rawhide-Rawhide-20220117-135925.n.0-sda.raw.zst
+  - 参考安装文档：https://popolon.org/depots/RISC-V/D1/ovsienko/_index.html
 
 ### 硬件开发板信息
 
@@ -25,16 +34,24 @@
 
 ## 测试结果
 
-| 软件分类                       | 软件包名     | 测试结果（测试报告）        |
-|----------------------------|--------------|---------------------------|
-| Tina-Linux 镜像启动            | N/A          | [CFT][Tina]       |
-| OpenWrt 镜像启动               | N/A          | [CFT][OpenWrt]         |
-| Debian 镜像启动                | N/A          | [CFT][Debian]          |
-| Arch Linux 镜像启动            | N/A          | [CFT][Arch]            |
-| BuildRoot 镜像启动             | N/A          | [CFT][BuildRoot]       |
+| 软件分类                | 软件包名 | 测试结果（测试报告） |
+| ----------------------- | -------- | -------------------- |
+| Tina-Linux 镜像启动     | N/A      | [成功][Tina]         |
+| OpenWrt 镜像启动        | N/A      | [成功][OpenWrt]      |
+| Debian 镜像启动         | N/A      | [成功][Debian]       |
+| Arch Linux 镜像启动     | N/A      | [CFT][Arch]          |
+| BuildRoot 镜像启动      | N/A      | [CFI][BuildRoot]     |
+| postmarketOS 编译和启动 | N/A      | [成功][pmOS]         |
+| FreeBSD 镜像编译和启动  | N/A      | [成功][FreeBSD]      |
+| Fedora 镜像启动         | N/A      | [失败][Fedora]       |
+| Gentoo 镜像启动         | N/A      | [成功][Gentoo]       |
 
 [Tina]: ./TinaLinux/README_zh.md
 [OpenWrt]: ./OpenWrt/README_zh.md
 [Debian]: ./Debian/README_zh.md
 [BuildRoot]: ./BuildRoot/README_zh.md
 [Arch]: ./ArchLinux/README_zh.md
+[pmOS]: ./postmarketOS/README_zh.md
+[FreeBSD]: ./FreeBSD/README_zh.md
+[Fedora]: ./Fedora/README_zh.md
+[Gentoo]: ./Gentoo/README_zh.md

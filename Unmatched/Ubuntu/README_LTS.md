@@ -1,20 +1,20 @@
 ---
 sys: ubuntu
-sys_ver: 24.04.1
+sys_ver: 24.04.2
 sys_var: LTS
 
 status: CFT
-last_update: 2024-10-25
+last_update: 2025-02-25
 ---
 
-# Ubuntu 24.04.1 LTS HiFive Unmatched Test Report
+# Ubuntu 24.04.2 LTS HiFive Unmatched Test Report
 
 ## Test Environment
 
 ### Operating System Information
 
-- System Version: Ubuntu 24.04.1 LTS
-- Download Link: [https://ubuntu.com/download/risc-v](https://ubuntu.com/download/risc-v) | [TUNA mirror](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/noble/release/ubuntu-24.04.1-preinstalled-server-riscv64+unmatched.img.xz)
+- System Version: Ubuntu 24.04.2 LTS
+- Download Link: [https://ubuntu.com/download/risc-v](https://ubuntu.com/download/risc-v) | [TUNA mirror](https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.04.2/release/ubuntu-24.04.2-preinstalled-server-riscv64%2Bunmatched.img.xz)
 - Reference Installation Document: [https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched](https://wiki.ubuntu.com/RISC-V/SiFive%20HiFive%20Unmatched)
 
 ### Hardware Information
@@ -37,7 +37,7 @@ The dip switch should be set as follows: `MSEL[3:0]=1011`
 Download the image, decompress it, and flash it to the microSD card.
 
 ```shell
-xzcat ubuntu-24.04.1-preinstalled-server-riscv64+unmatched.img.xz | sudo dd of=/dev/sdc bs=4M iflag=fullblock status=progress 
+xzcat ubuntu-24.04.2-preinstalled-server-riscv64+unmatched.img.xz | sudo dd of=/dev/sdc bs=4M iflag=fullblock status=progress 
 ```
 
 ### Logging into the System
