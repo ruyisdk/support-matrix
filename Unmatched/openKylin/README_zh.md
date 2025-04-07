@@ -5,7 +5,7 @@
 ### 操作系统信息
 
 - 系统版本：openKylin 1.0
-- 下载链接：https://www.openkylin.top/downloads
+- 下载链接：https://mirrors.163.com/openkylin-cd/1.0/openKylin-1.0-hifive-unmatched-riscv64.img.xz
 - 参考安装文档：https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 
 ### 硬件信息

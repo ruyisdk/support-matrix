@@ -14,7 +14,7 @@ last_update: 2025-04-05
 ### Operating System Information
 
 - System Version: openKylin 1.0
-- Download Link: https://www.openkylin.top/downloads
+- Download Link: https://mirrors.163.com/openkylin-cd/1.0/openKylin-1.0-hifive-unmatched-riscv64.img.xz
 - Reference Installation Document: https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 
 ### Hardware Information
