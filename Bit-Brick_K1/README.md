@@ -15,6 +15,9 @@ cpu_core: SpacemiT X60
     - Reference Installation Document: https://docs.bit-brick.com/docs/k1/getting-started/preparation
 - Armbian 25.2.1 Noble Minimal / IOT
     - Download Links: https://www.armbian.com/bananapi-f3/
+- Fedora 42 minimal
+    - Download Link: https://images.fedoravforce.org/Banana%20Pi%20BPI-F3
+    - Reference Installation Document: https://images.fedoravforce.org/how-to-burn-images-to-sd-cards
 
 ### Hardware Information
 
@@ -26,6 +29,8 @@ cpu_core: SpacemiT X60
 |--------------------|--------------|----------------------------|
 | Bianbu Image Boot  | N/A          | [Successful][Bianbu]       |
 | Armbian Image Boot | N/A          | [Successful][armbian]      |
+| Fedora Image Boot  | N/A          | [Successful][fedora]       |
 
 [Bianbu]: ./Bianbu/README.md
 [armbian]: ./Armbian/README.md
+[fedora]: ./Fedora/README.md

@@ -58,6 +58,9 @@
 - NixOS
   - 源码链接: https://github.com/NickCao/nixos-riscv
   - 参考安装文档: https://github.com/NickCao/nixos-riscv/README.md
+- OpenWrt
+  - 源码链接：https://github.com/draftbottle/VizOS
+  - 参考安装文档：https://community.milkv.io/t/milk-v-duo-openwrt/2399
 
 ### 硬件开发板信息
 
@@ -83,6 +86,7 @@
 | Ubuntu 启动                    | N/A      | [成功][Ubuntu]                                     |
 | Yocto  镜像构建及启动          | N/A      | [成功][Yocto]                                      |
 | NixOS  镜像构建及启动          | N/A      | [成功][NixOS]                                      |
+| OpenWrt  镜像构建及启动        | N/A      | [成功][OpenWrt]                                    |
 
 [Duo]: ./BuildRoot/README_zh.md
 [Duo2]: ./BuildRoot/README_v2_zh.md
@@ -100,3 +104,4 @@
 [Ubuntu]: ./Ubuntu/README_zh.md
 [Yocto]: ./Yocto/README_zh.md
 [NixOS]: ./NixOS/README_zh.md
+[OpenWrt]: ./OpenWrt/README_zh.md

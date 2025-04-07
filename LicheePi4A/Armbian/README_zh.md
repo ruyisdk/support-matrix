@@ -4,7 +4,7 @@
 
 ### 系统信息
 
-- 系统版本：Ubuntu 22.04 LTS 
+- 系统版本：23.09.15
 - 下载链接：[Releases · chainsx/armbian-riscv-build](https://github.com/chainsx/armbian-riscv-build/releases)
   - u-boot:[Releases · chainsx/armbian-riscv-build](https://github.com/chainsx/armbian-riscv-build/releases)
 - fastboot 链接：

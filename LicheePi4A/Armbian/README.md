@@ -1,6 +1,6 @@
 ---
 sys: armbian
-sys_ver: 22.04
+sys_ver: 23.09.15
 sys_var: null
 
 status: basic
@@ -13,7 +13,7 @@ last_update: 2024-03-04
 
 ### System Information
 
-- System Version: Ubuntu 22.04 LTS 
+- System Version: 23.09.15
 - Download Link: [Releases · chainsx/armbian-riscv-build](https://github.com/chainsx/armbian-riscv-build/releases)
   - u-boot: [Releases · chainsx/armbian-riscv-build](https://github.com/chainsx/armbian-riscv-build/releases)
 - Reference Installation Document: [LicheePi 4A Install Guide](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)

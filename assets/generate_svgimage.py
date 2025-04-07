@@ -248,6 +248,7 @@ def gen_color(_, col, content):
     green = 'rgb(203, 255, 203)'
     yellow = 'rgb(255, 255, 203)'
     red = 'rgb(255, 203, 203)'
+    cyan = 'rgb(153, 217, 234)'
     if col < 3:
         return white
     if "Good" in content or "Basic" in content:
@@ -256,6 +257,8 @@ def gen_color(_, col, content):
         return yellow
     if "WIP" in content or "CFH" in content:
         return red
+    if "CFI" in content:
+        return cyan
     return gray
 
 

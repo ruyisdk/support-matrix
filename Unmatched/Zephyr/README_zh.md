@@ -6,7 +6,7 @@
 
 - Host: Arch Linux
 - Board: Zephyr RTOS
-- 参考安装文档：https://docs.zephyrproject.org/latest/boards/riscv/index.html
+- 参考安装文档：https://docs.zephyrproject.org/latest/boards/sifive/hifive_unmatched/doc/index.html
 
 ### 硬件信息
 
