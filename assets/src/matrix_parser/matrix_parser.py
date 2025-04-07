@@ -18,8 +18,9 @@ class ImageStatus:
         'wip': ('WIP', 1),
         'cfh': ('CFH', 2),
         'cft': ('CFT', 3),
-        'basic': ('Basic', 4),
-        'good': ('Good', 5),
+        'cfi': ('CFI', 4),
+        'basic': ('Basic', 5),
+        'good': ('Good', 6),
     }
 
     def __init__(self, status: str):
@@ -290,6 +291,7 @@ class Systems:
         '.git',
         '.vscode',
         '__pycache__',
+        'report-template',
         '~', # ?
     ]
 
@@ -312,8 +314,8 @@ class Systems:
             def mp(x):
                 res = {}
                 for l in x:
-                    for i in l.items():
-                        res[i[0]] = i[1]
+                    for (k, v) in l.items():
+                        res[k.lower()] = v.lower()
                 return res
             data = yaml.load(file, Loader=yaml.FullLoader)
             self.linux = mp(data['linux'])

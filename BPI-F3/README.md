@@ -42,6 +42,9 @@ cpu_core: SpacemiT X60
 - openEuler RISC-V 20241231
   - Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241231/v0.5/k1/
   - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
+- openHarmony
+  - Repo Manifest: [riscv-sig/manifest](https://gitee.com/riscv-sig/manifest)
+  - Reference Installation Document: [spacemit](https://developer.spacemit.com/documentation)
 
 ### Hardware Information
 
@@ -60,6 +63,8 @@ cpu_core: SpacemiT X60
 | Deepin Image Boot           | N/A          | [Successful][Deepin]        |
 | openKylin Image Boot        | N/A          | [Successful][openKylin]     |
 | openEuler Image Boot        | N/A          | [Failed][oERV]              |
+| openKylin Image Boot        | N/A          | [Successful][openKylin]     |
+| openHarmony Image Boot      | N/A          | [Successful][openHarmony]   |
 
 [Bianbu]: ./Bianbu/README.md
 [Armbian_noble]: ./Armbian/README_noble.md
@@ -70,3 +75,4 @@ cpu_core: SpacemiT X60
 [Deepin]: ./Deepin/README.md
 [openKylin]: ./openKylin/README.md
 [oERV]: ./openEuler/README.md
+[openHarmony]: ./openHarmony/README.md

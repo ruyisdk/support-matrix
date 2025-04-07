@@ -65,6 +65,9 @@ cpu_core: XuanTie C906
 - NixOS
   - Source code link: https://github.com/NickCao/nixos-riscv
   - Reference Installation Document: https://github.com/NickCao/nixos-riscv/README.md
+- OpenWrt
+  - Source Code Link: https://github.com/draftbottle/VizOS
+  - Reference Installation Document: https://community.milkv.io/t/milk-v-duo-openwrt/2399
 
 ### Hardware Information
 
@@ -89,6 +92,7 @@ cpu_core: XuanTie C906
 | Ubuntu Boot                          | N/A          | [Success][Ubuntu]                                                |
 | Yocto Image Build and Boot           | N/A          | [Success][Yocto]                                                 |
 | NixOS Image Build and Boot           | N/A          | [Success][NixOS]                                                 |
+| OpenWrt Image Build and Boot         | N/A          | [Success][OpenWrt]                                               |
 
 [Duo]: ./BuildRoot/README.md
 [Arch]: ./ArchLinux/README.md
@@ -105,3 +109,4 @@ cpu_core: XuanTie C906
 [Ubuntu]: ./Ubuntu/README.md
 [Yocto]: ./Yocto/README.md
 [NixOS]: ./NixOS/README.md
+[OpenWrt]: ./OpenWrt/README.md

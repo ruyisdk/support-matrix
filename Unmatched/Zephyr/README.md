@@ -1,6 +1,6 @@
 ---
 sys: zephyr
-sys_ver: null
+sys_ver: v3.6.0
 sys_var: null
 
 status: basic
@@ -15,7 +15,7 @@ last_update: 2024-06-21
 
 - Host: Arch Linux
 - Board: Zephyr RTOS
-- Reference Installation Document: https://docs.zephyrproject.org/latest/boards/riscv/index.html
+- Reference Installation Document: https://docs.zephyrproject.org/latest/boards/sifive/hifive_unmatched/doc/index.html
 
 ### Hardware Information
 

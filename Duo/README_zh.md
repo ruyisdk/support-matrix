@@ -58,6 +58,9 @@
 - NixOS
   - 源码链接: https://github.com/NickCao/nixos-riscv
   - 参考安装文档: https://github.com/NickCao/nixos-riscv/README.md
+- OpenWrt
+  - 源码链接：https://github.com/draftbottle/VizOS
+  - 参考安装文档：https://community.milkv.io/t/milk-v-duo-openwrt/2399
 
 ### 硬件开发板信息
 
@@ -67,7 +70,7 @@
 
 | 软件分类                       | 软件包名 | 测试结果（测试报告）                               |
 | ------------------------------ | -------- | -------------------------------------------------- |
-| BuildRoot 镜像启动             | N/A      | [成功][Duo]（通过 `ruyi` CLI 刷写）                |
+| BuildRoot 镜像启动             | N/A      | [成功][Duo]（通过 `ruyi` CLI 刷写）                    |
 | FreeRTOS 启动                  | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内）      |
 | Arch Linux 镜像启动            | N/A      | [成功][Arch]                                       |
 | Alpine Linux 启动              | N/A      | [成功][Alpine] （可使用社区镜像或手工构建 rootfs） |
@@ -82,6 +85,7 @@
 | Ubuntu 启动                    | N/A      | [成功][Ubuntu]                                     |
 | Yocto  镜像构建及启动          | N/A      | [成功][Yocto]                                      |
 | NixOS  镜像构建及启动          | N/A      | [成功][NixOS]                                      |
+| OpenWrt  镜像构建及启动        | N/A      | [成功][OpenWrt]                                    |
 
 [Duo]: ./BuildRoot/README_zh.md
 [Arch]: ./ArchLinux/README_zh.md
@@ -98,3 +102,4 @@
 [Ubuntu]: ./Ubuntu/README_zh.md
 [Yocto]: ./Yocto/README_zh.md
 [NixOS]: ./NixOS/README_zh.md
+[OpenWrt]: ./OpenWrt/README_zh.md

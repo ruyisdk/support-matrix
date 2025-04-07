@@ -29,7 +29,7 @@ cpu_core: SiFive U74 + SiFive S7
     - Download link: https://mirrors.tuna.tsinghua.edu.cn/OpenBSD/7.4/riscv64/install74.img
     - Reference Installation Document: https://ftp.openbsd.org/pub/OpenBSD/snapshots/riscv64/INSTALL.riscv64
 - Zephyr
-    - Reference Installation Document: https://docs.zephyrproject.org/latest/boards/riscv/index.html
+    - Reference Installation Document: https://docs.zephyrproject.org/latest/boards/sifive/hifive_unmatched/doc/index.html
 - OpenWrt 23.05.2
     - Download link (Firmware Selector): https://firmware-selector.openwrt.org/?version=23.05.2&target=sifiveu%2Fgeneric&id=sifive_unmatched
     - Reference Installation Document: https://openwrt.org/docs/techref/hardware/soc/soc.sifive

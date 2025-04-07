@@ -1,6 +1,6 @@
 ---
 sys: zephyr
-sys_ver: null
+sys_ver: v3.6.0
 sys_var: null
 
 status: basic
@@ -14,7 +14,7 @@ last_update: 2024-06-21
 ### Operating System Information
 
 - Source Code: https://github.com/zephyrproject-rtos/zephyr/tree/main
-- Reference Installation Document: https://docs.zephyrproject.org/latest/develop/getting_started/index.html
+- Reference Installation Document: https://docs.zephyrproject.org/latest/boards/sipeed/longan_nano/doc/index.html
 
 ### Hardware Information
 
