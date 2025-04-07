@@ -67,7 +67,8 @@
 
 | 软件分类                       | 软件包名 | 测试结果（测试报告）                               |
 | ------------------------------ | -------- | -------------------------------------------------- |
-| BuildRoot 镜像启动             | N/A      | [成功][Duo]（通过 `ruyi` CLI 刷写）                |
+| BuildRoot 镜像启动             | N/A      | [成功][Duo]                                        |
+| BuildRoot (v2) 镜像启动        | N/A      | [成功][Duo2]                                       |
 | FreeRTOS 启动                  | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内）      |
 | Arch Linux 镜像启动            | N/A      | [成功][Arch]                                       |
 | Alpine Linux 启动              | N/A      | [成功][Alpine] （可使用社区镜像或手工构建 rootfs） |
@@ -84,6 +85,7 @@
 | NixOS  镜像构建及启动          | N/A      | [成功][NixOS]                                      |
 
 [Duo]: ./BuildRoot/README_zh.md
+[Duo2]: ./BuildRoot/README_v2_zh.md
 [Arch]: ./ArchLinux/README_zh.md
 [Alpine]: ./Alpine/README_zh.md
 [Debian]: ./Debian/README_zh.md
