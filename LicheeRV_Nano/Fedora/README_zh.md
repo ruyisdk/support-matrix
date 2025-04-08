@@ -28,7 +28,7 @@ gzip -d LicheeRV_Nano-fedora-minimal.img.gz
 ### 使用 `dd` 刷写镜像到 microSD 卡
 
 ```shell
-sudo dd if=LicheeRV_Nano-fedora-minimal.img of=/dev/your/device bs=4M status=progress 
+sudo dd if=LicheeRV_Nano-fedora-minimal.img of=/dev/your/device bs=4M status=progress
 ```
 
 ### 登录系统
@@ -45,6 +45,8 @@ sudo dd if=LicheeRV_Nano-fedora-minimal.img of=/dev/your/device bs=4M status=pro
 ## 实际结果
 
 系统正常启动，能够通过串口登录。
+
+> 注：`dnf` 暂时无法工作，提示 `Illegal instruction`; 参见 https://github.com/ruyisdk/support-matrix/issues/215
 
 ### 启动信息
 
@@ -227,7 +229,7 @@ https://fedoraproject.org/wiki/Architectures/RISC-V
 Fedora RISC-V
 -------------
 fedora-riscv login: root
-Password: 
+Password:
 [root@fedora-riscv ~]# uname -a
 Linux fedora-riscv 5.10.4-tag- #1 PREEMPT Tue Jul 9 20:03:10 CST 2024 riscv64 GNU/Linux
 [root@fedora-riscv ~]# cat /etc/os-release

@@ -18,9 +18,9 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 - Debian
   - Download Link: https://github.com/Fishwaldo/sophgo-sg200x-debian
 - Alpine Linux 3.20.3 riscv64
-  - Download Link: 
+  - Download Link:
     - Alpine minirootfs: [https://alpinelinux.org/downloads/](https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz)
-  - Reference Installation Document: 
+  - Reference Installation Document:
     - [Alpine Wiki (Installation)](https://wiki.alpinelinux.org/wiki/Installation)
     - [Alpine Wiki (How to make a cross architecture chroot)](https://wiki.alpinelinux.org/wiki/How_to_make_a_cross_architecture_chroot)
 - Fedora 41
@@ -38,7 +38,7 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 | BuildRoot Image   | N/A          | [Basic][BuildRoot]                                  |
 | FreeRTOS Startup  | N/A          | [Basic][FreeRTOS]                                   |
 | Debian Image      | N/A          | [Basic][Debian]                                     |
-| Fedora Image      | N/A          | [Basic][Fedora]                                     |
+| Fedora Image      | N/A          | [Basic][Fedora] (package manager does not work)     |
 | Alpine Linux Boot | N/A          | [Basic][Alpine] (requires building rootfs manually) |
 
 [BuildRoot]: ./BuildRoot/README.md
