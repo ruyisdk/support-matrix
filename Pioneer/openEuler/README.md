@@ -62,7 +62,7 @@ Default password: `openEuler12#$`
 ### Install Desktop Environment
 
 e.g. GNOME:
-```shelll
+```shell
 sudo dnf update
 sudo dnf install dejavu-fonts liberation-fonts gnu-*-fonts google-*-fonts
 sudo dnf install xorg-*

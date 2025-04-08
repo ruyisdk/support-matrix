@@ -1,7 +1,7 @@
 ---
 sys: ubuntu
 sys_ver: 24.04.2
-sys_var: lts
+sys_var: LTS
 
 status: cft
 last_update: 2025-02-25
