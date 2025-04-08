@@ -11,12 +11,15 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 
 ### System Information
 
-- openEuler RISC-V 24.03 Preview
-    - Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/2403LTS-test/v1/lpi4a/
-    - Reference Installation Document: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
-- RevyOS 20250323
-    - Download link: https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250323/
-    - Reference Installation Document: https://docs.revyos.dev/
+- openEuler RISC-V 24.03 SP1 LTS
+    - Download Link: https://www.openeuler.org/en/download/#openEuler%2024.03%20LTS%20SP1
+    - Reference Installation Document: https://docs.openeuler.org/en/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
+- openEuler RISC-V 25.03
+    - Download Link: https://repo.openeuler.org/openEuler-25.03/embedded_img/riscv64/lpi4a/
+    - Reference Installation Document: https://docs.openeuler.org/en/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
+- RevyOS 20240123
+    - Download link: [RevyOS Images]([Nginx Directory](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250123/))
+    - Reference Installation Document: [RevyOS Documentation](https://docs.revyos.dev/)
 - openKylin 2.0 SP1
     - Download link: https://www.openkylin.top/downloads/index-cn.html
     - Desktop Environment: UKUI
@@ -44,19 +47,21 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 
 ## Test Results
 
-| Software Category             | Software Package | Test Results (Test Report)              |
-| ----------------------------- | ---------------- | --------------------------------------- |
-| openEuler/Base Image Boot     | N/A              | [Success][oERV]                         |
-| openEuler/Xfce Image Boot     | Xfce             | [Success][oERV]                         |
-| RevyOS Desktop Image Boot     | N/A              | [Success][RevyOS] (Official Support)    |
-| Fedora Desktop Image Boot     | N/A              | [Success][Fedora] (Official Support)    |
-| openKylin Desktop Image Boot  | N/A              | [Success][openKylin] (Official Support) |
-| Armbian (Ubuntu) Image Boot   | N/A              | [Success][Armbian]                      |
-| Arch Linux Desktop Image Boot | N/A              | [Success][ArchLinux]                    |
-| Deepin Desktop Image Boot     | N/A              | [Success][Deepin]                       |
-| NixOS Image Boot              | N/A              | [Success][NixOS]                        |
+| Software Category               | Software Package | Test Results (Test Report)              |
+|---------------------------------|------------------|-----------------------------------------|
+| openEuler LTS Image Boot        | N/A              | [Success][oERV]                         |
+| openEuler Innovation Image Boot | N/A              | [Success][openEuler]                    |
+| RevyOS Desktop Image Boot       | N/A              | [Success][RevyOS] (Official Support)    |
+| Fedora Desktop Image Boot       | N/A              | [Success][Fedora] (Official Support)    |
+| openKylin Desktop Image Boot    | N/A              | [Success][openKylin] (Official Support) |
+| Armbian (Ubuntu) Image Boot     | N/A              | [Success][Armbian]                      |
+| OpenWRT Image Boot              | N/A              | [Success][OpenWRT]                      |
+| Arch Linux Desktop Image Boot   | N/A              | [Success][ArchLinux]                    |
+| Deepin Desktop Image Boot       | N/A              | [Success][Deepin]                       |
+| NixOS Image Boot                | N/A              | [Success][NixOS]                        |
 
 [oERV]: ./openEuler/README.md
+[openEuler]: ./openEuler/Innovation.md
 [RevyOS]: ./RevyOS/README.md
 [Fedora]: ./Fedora/README.md
 [Armbian]: ./Armbian/README.md
