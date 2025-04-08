@@ -10,11 +10,11 @@ cpu_core: SiFive U74 + SiFive S7
 
 ### Operating System Information
 
-- openEuler RISC-V 23.09 Preview
-    - Download link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/Unmatched/
-    - Reference Installation Document: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/Unmatched/README.unmatched.txt
+- openEuler RISC-V 24.09 testing
+    - Download link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241105/v0.1/Unmatched/
+    - Reference Installation Document: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241105/v0.1/Unmatched/README.Unmatched.txt
 - openKylin
-    - Download link: https://www.openkylin.top/downloads
+    - Download link: https://mirrors.163.com/openkylin-cd/1.0/openKylin-1.0-hifive-unmatched-riscv64.img.xz
     - Reference Installation Document: https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 - Ubuntu 24.10
     - Download link: https://cdimage.ubuntu.com/releases/24.10/release/
@@ -55,7 +55,6 @@ cpu_core: SiFive U74 + SiFive S7
 | Software Category         | Package Name | Test Results (Test Report)               |
 | ------------------------- | ------------ | ---------------------------------------- |
 | Debian Image Boot         | N/A          | [Successful][Debian]                     |
-| openEuler/Base Image Boot | N/A          | [Successful][oERV]                       |
 | openEuler/Xfce Image Boot | N/A          | [Successful][oERV]                       |
 | openKylin Image Boot      | N/A          | [Successful][oK] (Official Support)      |
 | OpenSUSE Image Boot       | N/A          | [Successful][SUSE]                       |
@@ -66,7 +65,7 @@ cpu_core: SiFive U74 + SiFive S7
 | Zephyr Boot               | N/A          | [Successful][Zephyr] (Official Support)  |
 | OpenWrt Boot              | N/A          | [Successful][OpenWrt] (Official Support) |
 | Fedora Boot               | N/A          | [Successful][Fedora](Official Support)   |
-| Deepin Boot               | N/A          | [CFT][Deepin](Official Support)          |
+| Deepin Boot               | N/A          | [Successful][Deepin](EOL)                |
 
 [Debian]: ./Debian/README.md
 [oERV]: ./openEuler/README.md

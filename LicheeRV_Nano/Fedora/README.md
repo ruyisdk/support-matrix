@@ -37,7 +37,7 @@ gzip -d LicheeRV_Nano-fedora-minimal.img.gz
 ### Flash the image to microSD card via `dd`
 
 ```shell
-sudo dd if=LicheeRV_Nano-fedora-minimal.img of=/dev/your/device bs=4M status=progress 
+sudo dd if=LicheeRV_Nano-fedora-minimal.img of=/dev/your/device bs=4M status=progress
 ```
 
 ### Logging into the System
@@ -54,6 +54,8 @@ The system should boot normally and allow login via the serial port.
 ## Actual Results
 
 The system boots up normally and login through the serial port is successful.
+
+> Note: `dnf` does not work at the moment while yielding `Illegal instruction`; See https://github.com/ruyisdk/support-matrix/issues/215
 
 ### Boot Log
 
@@ -236,7 +238,7 @@ https://fedoraproject.org/wiki/Architectures/RISC-V
 Fedora RISC-V
 -------------
 fedora-riscv login: root
-Password: 
+Password:
 [root@fedora-riscv ~]# uname -a
 Linux fedora-riscv 5.10.4-tag- #1 PREEMPT Tue Jul 9 20:03:10 CST 2024 riscv64 GNU/Linux
 [root@fedora-riscv ~]# cat /etc/os-release

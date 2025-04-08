@@ -4,7 +4,7 @@ sys_ver: v2.0-SP1
 sys_var: null
 
 status: good
-last_update: 2025-1-3
+last_update: 2025-04-07
 ---
 
 # openKylin 2.0 SP1 LPi4A Test Report
@@ -14,12 +14,13 @@ last_update: 2025-1-3
 ### System Information
 
 - System Version: openKylin v2.0-SP1
-- Download Link: [https://www.openkylin.top/downloads/index-cn.html](https://www.openkylin.top/downloads/index-cn.html)
-- Reference Installation Document: [https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8LicheePi4A%E4%B8%8A%E5%AE%89%E8%A3%85openKylin](https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8LicheePi4A%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
+- Download Link: https://www.openkylin.top/downloads/index-cn.html
+- Desktop Environment: UKUI
+- Reference Installation Document: https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8LicheePi4A%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 
 ### Hardware Information
 
-- Lichee Pi 4A (8GB RAM + 32GB eMMC)
+- Lichee Pi 4A (16G RAM + 128G eMMC)
 - Power Adapter
 - A USB to UART Debugger
 
@@ -67,12 +68,13 @@ The system booted up correctly, and login via the onboard serial console was suc
 
 Screen recording (from flashing the image to system login):
 
+
 [![asciicast](https://asciinema.org/a/W0w4KbFDEjvuvPLGIyEYHtFdS.svg)](https://asciinema.org/a/W0w4KbFDEjvuvPLGIyEYHtFdS)
 ```log
 openKylin 2.0 SP1 openkylin ttyS0
 
 openkylin login: openkylin
-密码： 
+密码：
 Welcome to openKylin 2.0 SP1 (GNU/Linux 5.10.113-th1520 riscv64)
 
  * Support:        https://openkylin.top
@@ -99,7 +101,7 @@ VERSION_ID="2.0"
 HOME_URL="https://www.openkylin.top/"
 VERSION_CODENAME=nile
 PRODUCT_FEATURES=3
-openkylin@openkylin:~$ cat /proc/cpuinfo 
+openkylin@openkylin:~$ cat /proc/cpuinfo
 processor       : 0
 hart            : 0
 isa             : rv64imafdcvsu
@@ -148,7 +150,7 @@ cpu-tlb         : 1024 4-ways
 cpu-cacheline   : 64Bytes
 cpu-vector      : 0.7.1
 
-openkylin@openkylin:~$ 
+openkylin@openkylin:~$
  ```
 
 
