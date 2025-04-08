@@ -7,8 +7,8 @@
 - openEuler 24.03 RISC-V LTS-SP1
     - 下载链接：https://www.openeuler.org/zh/download/#openEuler%2024.03%20LTS%20SP1
     - 参考安装文档：https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
-- RevyOS 20240123
-    - 下载链接：https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250123/
+- RevyOS 20250323
+    - 下载链接：https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250323/
     - 参考安装文档：https://docs.revyos.dev/
 - openKylin v2.0-SP1
     - 下载链接：https://www.openkylin.top/downloads/index-cn.html
