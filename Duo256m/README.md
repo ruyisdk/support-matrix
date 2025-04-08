@@ -34,14 +34,14 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
       - https://docs.zephyrproject.org/latest/develop/getting_started/index.html
       - https://github.com/milkv-duo/duo-buildroot-sdk
 - Alpine Linux 3.20.3/edge riscv64
-  - Download Link: 
+  - Download Link:
     - https://drive.google.com/file/d/1zhhB6AdgvjjuzBWjY6TchdX5b0uNWzP-/view
 
     (Alternatively):
-    
+
     - Alpine minirootfs: [https://alpinelinux.org/downloads/](https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz)
     - Latest Duo 256M Debian image (for the kernel and its modules): [https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/](https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/download/v1.4.0/duo256_sd.img.lz4)
-  - Reference Installation Document: 
+  - Reference Installation Document:
     - [Alpine Wiki (Installation)](https://wiki.alpinelinux.org/wiki/Installation)
     - [Alpine Wiki (How to make a cross architecture chroot)](https://wiki.alpinelinux.org/wiki/How_to_make_a_cross_architecture_chroot)
 - Ubuntu 22.04
@@ -63,6 +63,7 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 | Software Category                  | Package Name | Test Result (Report)                                             |
 | ---------------------------------- | ------------ | ---------------------------------------------------------------- |
 | BuildRoot Image Boot               | N/A          | [Success][BuildRoot]                                             |
+| BuildRoot Image Boot               | N/A          | [Success][BuildRootV2]                                           |
 | FreeRTOS Boot                      | N/A          | [Success][FreeRTOS] (Included in BuildRoot image)                |
 | Debian Image Boot                  | N/A          | [Success][Debian]                                                |
 | Fedora Image Boot                  | N/A          | [Success][Fedora]                                                |
@@ -75,6 +76,7 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 | NixOS Image Build and Boot         | N/A          | [Success][NixOS]                                                 |
 
 [BuildRoot]: ./BuildRoot/README.md
+[BuildRootV2]: ./BuildRoot/README_v2.md
 [Debian]: ./Debian/README.md
 [Fedora]: ./Fedora/README.md
 [RT-Thread]: ./RT-Thread/README.md

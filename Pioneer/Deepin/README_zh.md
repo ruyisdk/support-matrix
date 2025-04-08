@@ -35,7 +35,7 @@
 下述 `/dev/sdX`、`/dev/sdY` 分别为 microSD 卡和 NVMe SSD，请自行变更。
 
 ```bash
-unzip sophgo-bootloader-multi-sg2042-dev.zip
+unzip sophgo-bootloader-single-sg2042-dev.zip
 sudo wipefs -af /dev/sdX
 sudo dd if=firmware_single_sg2042-dev.img of=/dev/sdX bs=1M status=progress
 sudo wipefs -af /dev/sdY
@@ -61,6 +61,8 @@ sudo resize2fs /dev/sdX1
 ## 实际结果
 
 系统成功启动，能够进入设置向导，能够进入桌面。
+
+### 启动信息
 
 > 截图为 USB HDMI 采集卡捕获到的画面。
 

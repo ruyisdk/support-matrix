@@ -36,13 +36,13 @@ cpu_core: XuanTie C920
 
 ## Test Results
 
-| Software Category             | Package Name | Test Results (Test Report)                                   |
-| ----------------------------- | ------------ | ------------------------------------------------------------ |
-| openEuler (Image, Linux Boot) | N/A          | [Success][oERV] (Official support)                           |
-| RevyOS Image Boot             | N/A          | [Success][RevyOS] (Official support)                         |
-| openKylin Image Boot          | N/A          | [Success][oK] (Official support)                             |
-| Fedora Image Boot             | N/A          | [Success][Fedora] (Official support & Factory pre-installed) |
-| Deepin                        | N/A          | [Success][Deepin]                                            |
+| Software Category              | Package Name | Test Results (Test Report)                                   |
+| ------------------------------ | ------------ | ------------------------------------------------------------ |
+| openEuler (Image, Legacy Boot) | N/A          | [Success][oERV] (Official support)                           |
+| RevyOS Image Boot              | N/A          | [Success][RevyOS] (Official support)                         |
+| openKylin Image Boot           | N/A          | [Success][oK] (Official support)                             |
+| Fedora Image Boot              | N/A          | [Success][Fedora] (Official support & Factory pre-installed) |
+| Deepin                         | N/A          | [Success][Deepin]                                            |
 
 [oERV]: ./openEuler/README.md
 [RevyOS]: ./RevyOS/README.md

@@ -16,8 +16,6 @@
     - 下载链接：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241105/v0.1/meles/
         - iw-single-line 烧录工具：https://mirror.iscas.ac.cn/revyos/extra/images/meles/20240720/iw-single-line.bin
     - 参考安装文档：https://milkv.io/zh/docs/meles/getting-started/boot
-
-
 ### 硬件开发板信息
 
 - Milk-V Meles 4GB/8GB/16GB

@@ -23,7 +23,6 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
       - Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241105/v0.1/meles/
       - iw-single-line flashing tool: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20240720/iw-single-line.bin
     - Reference Installation Document: https://milkv.io/zh/docs/meles/getting-started/boot
-
 ### Hardware Information
 
 - Milk-V Meles 4GB/8GB/16GB
