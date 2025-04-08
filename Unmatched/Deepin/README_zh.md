@@ -4,7 +4,7 @@
 
 ### 系统信息
 
-- 系统版本：Deepin
+- 系统版本：Deepin (2022.11.11, 已结束支持)
 - 下载链接：https://cdimage.deepin.com/RISC-V/Unmatched-image/deepin-sifive.7z
 - 参考安装文档：https://cdimage.deepin.com/RISC-V/Unmatched-image/README.txt
 
@@ -23,7 +23,7 @@
 
 ### 刷写镜像
 
-**该镜像并不适用于 SD 卡，需要 NVME 硬盘**
+**该镜像并不适用于 SD 卡，需要 NVMe 硬盘**
 
 使用 `7z` 解压镜像。
 使用 `dd` 将镜像写入 microSD 卡。

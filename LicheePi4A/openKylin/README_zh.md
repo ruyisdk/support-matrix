@@ -5,12 +5,13 @@
 ### 系统信息
 
 - 系统版本：openKylin v2.0-SP1
-- 下载链接：[https://www.openkylin.top/downloads/index-cn.html](https://www.openkylin.top/downloads/index-cn.html)
-- 参考安装文档：[https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8LicheePi4A%E4%B8%8A%E5%AE%89%E8%A3%85openKylin](https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8LicheePi4A%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
+- 下载链接：https://www.openkylin.top/downloads/index-cn.html
+- 桌面环境: UKUI
+- 参考安装文档：https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8LicheePi4A%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 
 ### 硬件信息
 
-- Lichee Pi 4A (8G RAM + 32G eMMC)
+- Lichee Pi 4A (16G RAM + 128G eMMC)
 - 电源适配器
 - USB to UART 调试器一个
 
@@ -64,7 +65,7 @@ sudo fastboot flash root openKylin-2.0-sp1-licheepi4a-riscv64.img
 openKylin 2.0 SP1 openkylin ttyS0
 
 openkylin login: openkylin
-密码： 
+密码：
 Welcome to openKylin 2.0 SP1 (GNU/Linux 5.10.113-th1520 riscv64)
 
  * Support:        https://openkylin.top
@@ -91,7 +92,7 @@ VERSION_ID="2.0"
 HOME_URL="https://www.openkylin.top/"
 VERSION_CODENAME=nile
 PRODUCT_FEATURES=3
-openkylin@openkylin:~$ cat /proc/cpuinfo 
+openkylin@openkylin:~$ cat /proc/cpuinfo
 processor       : 0
 hart            : 0
 isa             : rv64imafdcvsu
@@ -140,13 +141,9 @@ cpu-tlb         : 1024 4-ways
 cpu-cacheline   : 64Bytes
 cpu-vector      : 0.7.1
 
-openkylin@openkylin:~$ 
+openkylin@openkylin:~$
  ```
 
-
-### 常见问题
-
-若桌面卡死，尝试使用非 wayland。
 
 ## 测试判定标准
 

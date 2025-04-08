@@ -13,7 +13,7 @@ cpu_core: XuanTie C920
 ### Operating System Information
 
 - openEuler RISC-V 24.03 LTS
-    - Download link: https://www.openeuler.org/en/download/archive/detail/?version=openEuler%2024.03%20LTS
+    - Download link: https://www.openeuler.org/zh/download/
     - Reference Installation Document: https://docs.openeuler.org/en/docs/24.03_LTS/docs/Installation/RISC-V-Pioneer1.3.html
 - RevyOS 20240119
     - Download link: https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/

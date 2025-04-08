@@ -13,7 +13,7 @@ last_update: 2025-04-05
 
 ### System Information
 
-- System Version: Deepin
+- System Version: Deepin (2022.11.11, EOL)
 - Download Link: https://cdimage.deepin.com/RISC-V/Unmatched-image/deepin-sifive.7z
 - Reference Installation Document: https://cdimage.deepin.com/RISC-V/Unmatched-image/README.txt
 
@@ -26,13 +26,13 @@ last_update: 2025-04-05
 - HiFive Unmatched Rev A
 - A microUSB cable (included with HiFive Unmatched)
 - An ATX power supply
-- NVME SSD
+- NVMe SSD
 
 ## Installation Steps
 
 ### Flashing Image
 
-**The image is NOT for SD card, a NVME SSD is needed!**
+**The image is NOT for SD card, a NVMe SSD is needed!**
 
 Use `7z` to decompress the image.
 Use `dd` to write the image to the microSD card.
@@ -44,7 +44,7 @@ sudo dd if=deepin-sifive.img of=/dev/your/device bs=1M status=progress
 
 ### Logging into the System
 
-Logging into the system via the serial port.
+Logging into the system via the serial port or via GUI.
 
 Default Username: `root`
 Default Password: `Riscv2022#`

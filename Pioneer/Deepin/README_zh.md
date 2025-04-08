@@ -26,7 +26,7 @@
 ### 解压并刷写镜像到 microSD 卡
 
 使用 `tar` 和 `unzip` 分别解压系统镜像和固件。
-使用 `dd` 将镜像写入 microSD 卡。
+使用 `dd` 将固件写入 microSD 卡。
 
 解压 `sophgo-bootloader-multi-sg2042-dev.zip`，将 `firmware_single_sg2042-dev.img` 写入 microSD 卡。
 
