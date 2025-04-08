@@ -11,7 +11,7 @@ cpu_core: SpacemiT X60
 ### Operating System Information
 
 - Bianbu
-    - Download Links: https://archive.spacemit.com/image/k1/version/bianbu/v2.1/
+    - Download Links: https://archive.spacemit.com/image/k1/version/bianbu/v2.1.1/
     - Reference Installation Document: https://docs.bit-brick.com/docs/k1/getting-started/preparation
 - Armbian 25.2.1 Noble Minimal / IOT
     - Download Links: https://www.armbian.com/bananapi-f3/

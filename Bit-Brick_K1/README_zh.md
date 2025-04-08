@@ -5,7 +5,7 @@
 ### 操作系统信息
 
 - Bianbu
-    - 下载链接：https://archive.spacemit.com/image/k1/version/bianbu/v2.1/
+    - 下载链接：https://archive.spacemit.com/image/k1/version/bianbu/v2.1.1/
     - 参考安装文档：https://docs.bit-brick.com/docs/k1/getting-started/preparation
 - Armbian 25.2.1 Noble Minimal / IOT
     - 下载链接：https://www.armbian.com/bananapi-f3/
