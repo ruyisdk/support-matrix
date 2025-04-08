@@ -1,16 +1,15 @@
-# Bianbu BIT-BRICK K1 测试报告
+# Alpine BiT-BRICK K1 测试报告
 
 ## 测试环境
 
 ### 系统信息
 
-- 系统版本：v2.1.1
-- 下载链接：https://archive.spacemit.com/image/k1/version/bianbu/v2.1.1/
-- 参考安装文档：https://docs.bit-brick.com/docs/k1/getting-started/preparation
+- 下载链接：https://dev.alpinelinux.org/~mps/riscv64/
+- 参考安装文档：https://arvanta.net/alpine/alpine-on-spacemit/
 
 ### 硬件信息
 
-- BIT-BRICK K1
+- Bit-BRICK K1
 - 电源适配器
 - microSD 卡一张
 - USB to UART 调试器一个
@@ -19,68 +18,93 @@
 
 ### 刷写镜像（sd 卡）
 
-
-**请务必选择以 `.img.zip` 结尾的压缩包**
 下载并解压镜像后，使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
+xz -d spacemit-mmc.img
+dd if=spacemit-mmc.img of=/dev/sdX
+```
+
+### 添加设备树
+
+下载 [Bianbu](https://archive.spacemit.com/image/k1/version/bianbu/) 镜像. 提取它的 `k1-x_bit-brick.dtb` 文件,并放到 `/dtbs-spacemit/spacemit/` 中
+
+``` log
 unzip bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.img.zip
-sudo dd if=bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.img of=/dev/<your-device> bs=1M status=progress 
+sudo losetup -fP --show bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.img
+sudo mount /dev/loop0p5 /mnt
+sudo cp /mnt/spacemit/6.6.63/k1-x_bit-brick.dtb ./
+
+sudo umount /mnt
+sudo losetup -d /dev/loop0
+
+sudo mount /dev/<your-device>1 /mnt
+sudo mv ./k1-x_bit-brick.dtb /mnt/dtbs-spacemit/spacemit/
+```
+
+### 设置 extlinux.conf
+
+修改 `/extlinux/extlinux.conf` 文件
+
+``` log
+menu title Alpine Spacemit
+timeout 5
+default bit-brick
+
+label bit-brick
+	menu label Alpine bit-brick_k1
+	kernel /vmlinuz-spacemit
+	initrd /initramfs-spacemit
+	fdt /dtbs-spacemit/spacemit/k1-x_bit-brick.dtb
+	append earlycon=sbi rw root=UUID=91802200-5d3a-41e8-9c6e-75b561426035 rootfstype=ext4 rootwait console=ttyS0,115200 console=tty0 clk_ignore_unused swiotlb=65536
 ```
 
 ### 登录系统
 
 通过串口登录系统。
 
-默认用户名： `root`
-默认密码： `bianbu`
+显示：[press ENTER to login] 后按回车登录进入 root 用户
 
 ## 预期结果
 
-系统正常启动，能够通过串口或图形界面登录。
+系统正常启动，能够通过板载串口登录。
 
 ## 实际结果
 
-系统正常启动，成功通过串口及图形界面登录。
+系统正常启动，成功通过板载串口登录。
 
 ### 启动信息
 
+
 ```log
 
-spacemit-k1-x-bit-brick-board login: root
-密码： 
-Welcome to Bianbu 2.1.1 (GNU/Linux 6.6.63 riscv64)
+Welcome to Alpine Linux 3.21
+Kernel 6.6.53-1-spacemit on an riscv64 (ttyS0)
 
- * Documentation:  https://bianbu.spacemit.com
- * Support:        https://ticket.spacemit.com
+localhost login: root (automatic login)
 
-0 updates can be applied immediately.
+Welcome to Alpine!
 
+The Alpine Wiki contains a large amount of how-to guides and general
+information about administrating Alpine systems.
+See <https://wiki.alpinelinux.org/>.
 
-The programs included with the Bianbu system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
+You can setup the system with the command: setup-alpine
 
-Bianbu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-applicable law.
+You may change this message by editing /etc/motd.
 
-root@spacemit-k1-x-bit-brick-board:~# uname -a
-Linux spacemit-k1-x-bit-brick-board 6.6.63 #2.1.0.2 SMP PREEMPT Fri Jan 24 03:39:48 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux
-root@spacemit-k1-x-bit-brick-board:~# cat /etc/os-release 
-PRETTY_NAME="Bianbu 2.1.1"
-NAME="Bianbu"
-VERSION_ID="2.1.1"
-VERSION="2.1.1 (Noble Numbat)"
-VERSION_CODENAME=noble
-ID=bianbu
-ID_LIKE=debian
-HOME_URL="https://bianbu.spacemit.com"
-SUPPORT_URL="https://bianbu.spacemit.com"
-BUG_REPORT_URL="https://ticket.spacemit.com"
-PRIVACY_POLICY_URL="https://www.spacemit.com/privacy-policy"
-UBUNTU_CODENAME=noble
-LOGO=ubuntu-logo
-root@spacemit-k1-x-bit-brick-board:~# cat /proc/cpuinfo 
+localhost:~# cat /sys/firmware/devicetree/base/model
+spacemit k1-x bit-brick boardlocalhost:~# 
+localhost:~# uname -a
+Linux localhost 6.6.53-1-spacemit #2-Alpine SMP 2024-11-16 07:35:39 riscv64 Linux
+localhost:~# cat /etc/os-release 
+NAME="Alpine Linux"
+ID=alpine
+VERSION_ID=3.21.0
+PRETTY_NAME="Alpine Linux v3.21"
+HOME_URL="https://alpinelinux.org/"
+BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
+localhost:~# cat /proc/cpuinfo 
 processor       : 0
 hart            : 0
 model name      : Spacemit(R) X60
@@ -160,11 +184,7 @@ uarch           : spacemit,x60
 mvendorid       : 0x710
 marchid         : 0x8000000058000001
 mimpid          : 0x1000000049772200
-
-root@spacemit-k1-x-bit-brick-board:~# 
 ```
-
-![](./gnome.png)
 
 ## 测试判定标准
 
@@ -174,4 +194,4 @@ root@spacemit-k1-x-bit-brick-board:~#
 
 ## 测试结论
 
-测试成功
+成功
