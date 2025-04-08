@@ -4,7 +4,7 @@ sys_ver: 23
 sys_var: null
 
 status: good
-last_update: 2025-03-03
+last_update: 2025-04-05
 ---
 
 # Deepin RISC-V preview Pioneer test report
@@ -42,28 +42,27 @@ Unzip `sophgo-bootloader-multi-sg2042-dev.zip`, write `firmware_single_sg2042-de
 
 Erase all partitions on the NVMe SSD, recreate a GPT partition table, create a new partition and write the ext4 system image to this partition.
 
-
-
 `/dev/sdX`, `/dev/sdY` are microSD card and the NVMe SSD.
 
 ```bash
-unzip sophgo-bootloader-multi-sg2042-dev.zip
+unzip sophgo-bootloader-single-sg2042-dev.zip
 sudo wipefs -af /dev/sdX
 sudo dd if=firmware_single_sg2042-dev.img of=/dev/sdX bs=1M status=progress
 sudo wipefs -af /dev/sdY
 sudo fdisk /dev/sdY
 # Enter g, n, and Enter *3, then enter w to write the changes to disk
-tar -xvf deepin-23-beige-preview-riscv64-sg2042-20240815-125146.tar.xz
+tar xvf deepin-23-beige-preview-riscv64-sg2042-20240613-124856.tar.xz
+# Note the partition number (sdY1) instead of the entire disk (sdY)
 sudo dd if=./deepin-sg2042-riscv64-stable-desktop-installer.root.ext4 of=/dev/sdY1 bs=4M status=progress
-echo ", +" | sudo sfdisk -N 1 /dev/sdY
-sudo resize2fs /dev/sdY1
+echo ", +" | sudo sfdisk -N 1 /dev/sdX
+sudo resize2fs /dev/sdX1
 ```
 
 ### Login
 
-Login via GUI.
+The system should boot to OOBE on first boot.
 
-Choose the language and keyboard layout and complete the installation wizard.
+TTY will be shown briefly upon completion of the setup wizard before automatic login to the desktop.
 
 Default username: `root`
 
@@ -71,36 +70,21 @@ Default password: `deepin`
 
 ## Expected Results
 
-The system boots up normally and we can successfully login to the desktop.
+The system boots up normally and allow login to the desktop.
 
 ## Actual Results
 
-The system boots normally，and we can successfully login to the desktop.
+> The following screenshots are taken from a USB HDMI capture card.
 
-If we switch to another TTY (e.g. Ctrl + Alt + F2) then we can login to the shell.failed
+![](image/2025-01-25-01-42-43.png)
 
-> The following screenshots are from USB HDMI capture card directly from the machine.
+![](image/2025-01-25-01-50-13.png)
 
-![](image/1.png)
+![](image/2025-01-25-01-50-21.png)
 
-If you see the installation wizard jumps to a tty screen, please wait for a few minutes to load the login screen
-
-![](image/2.png)
-
-Desktop
-
-![](image/3.png)
-
-System Info:
-
-![](image/4.png)
+See https://github.com/QA-Team-lo/oscompare/blob/main/Deepin/Pioneer/README.md for our report on its desktop experience.
 
 ### Boot log
-
-Screen recording (from flashing to bootup): 
-[![asciicast](https://asciinema.org/a/8JieNFV9nQP1bYTpRcV3muhbB.svg)](https://asciinema.org/a/8JieNFV9nQP1bYTpRcV3muhbB)
-
-Check the screenshots above.
 
 ## Test criteria
 

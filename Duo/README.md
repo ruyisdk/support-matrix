@@ -19,13 +19,13 @@ cpu_core: XuanTie C906
   - Download link: https://drive.google.com/file/d/1Qf8ioR29KCsvt2MIWre168Um9Q8ot_z5/view?usp=sharing
   - Reference Installation Document: https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/#ArchLinux_Disk_Image
 - Alpine Linux 3.19_alpha20230901 / 3.20.3 riscv64
-  - Download Link: 
+  - Download Link:
     - https://github.com/cwt/duo-buildroot-sdk/releases/download/poc1/MilkV-Duo-alpine.img.xz
 
     (Alternatively):
     - Alpine minirootfs: [https://alpinelinux.org/downloads/](https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz)
     - Official Buildroot image: [https://github.com/milkv-duo/duo-buildroot-sdk/releases](https://github.com/milkv-duo/duo-buildroot-sdk/releases/download/v1.1.3/milkv-duo-sd-v1.1.3-2024-0930.img.zip)
-  - Reference Installation Document: 
+  - Reference Installation Document:
     - [Alpine Wiki (Installation)](https://wiki.alpinelinux.org/wiki/Installation)
     - [Alpine Wiki (How to make a cross architecture chroot)](https://wiki.alpinelinux.org/wiki/How_to_make_a_cross_architecture_chroot)
     - [Milk-V forum thread](https://community.milkv.io/t/alpine-linux-on-the-duo/700/18)
@@ -77,7 +77,8 @@ cpu_core: XuanTie C906
 
 | Software Category                    | Package Name | Test Results (Test Report)                                       |
 | ------------------------------------ | ------------ | ---------------------------------------------------------------- |
-| BuildRoot Image Boot                 | N/A          | [Success][Duo] (flashed via `ruyi` CLI)                          |
+| BuildRoot Image Boot                 | N/A          | [Success][Duo]                                                   |
+| BuildRoot (v2) Image Boot            | N/A          | [Success][Duo]                                                   |
 | FreeRTOS Boot                        | N/A          | [Success][FreeRTOS] (included in BuildRoot image)                |
 | Arch Linux Image Boot                | N/A          | [Success][Arch]                                                  |
 | Alpine Linux Boot                    | N/A          | [Success][Alpine] (use community image or build rootfs manually) |
@@ -95,6 +96,7 @@ cpu_core: XuanTie C906
 | OpenWrt Image Build and Boot         | N/A          | [Success][OpenWrt]                                               |
 
 [Duo]: ./BuildRoot/README.md
+[Duo2]: ./BuildRoot/README_v2.md
 [Arch]: ./ArchLinux/README.md
 [Alpine]: ./Alpine/README.md
 [Debian]: ./Debian/README.md

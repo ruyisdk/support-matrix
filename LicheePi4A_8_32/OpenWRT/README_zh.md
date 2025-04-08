@@ -85,7 +85,7 @@ There is no root password defined on this device!
 Use the "passwd" command to set up a new password
 in order to prevent unauthorized SSH logins.
 --------------------------------------------------
-root@OpenWrt:/# 
+root@OpenWrt:/#
 
 ```
 

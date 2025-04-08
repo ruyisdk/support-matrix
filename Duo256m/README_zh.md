@@ -29,9 +29,9 @@
 - Alpine Linux 3.20.3/edge riscv64
   - 下载链接：
     - https://drive.google.com/file/d/1zhhB6AdgvjjuzBWjY6TchdX5b0uNWzP-/view
-  
+
     或者
-    
+
     - Alpine minirootfs: [https://alpinelinux.org/downloads/](https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz)
     - 最新的 Duo 256M Debian 镜像 (用于提取内核及其模块): [https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/](https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/download/v1.4.0/duo256_sd.img.lz4)
   - 参考安装文档：
@@ -56,6 +56,7 @@
 | 软件分类                       | 软件包名 | 测试结果（测试报告）                               |
 | ------------------------------ | -------- | -------------------------------------------------- |
 | BuildRoot 镜像启动             | N/A      | [成功][BuildRoot]                                  |
+| BuildRoot (v2) 镜像启动        | N/A      | [成功][BuildRootV2]                                |
 | FreeRTOS 启动                  | N/A      | [成功][FreeRTOS]（已包含在 BuildRoot 镜像内）      |
 | Debian 镜像启动                | N/A      | [成功][Debian]                                     |
 | Fedora 镜像启动                | N/A      | [成功][Fedora]                                     |
@@ -68,6 +69,7 @@
 | NixOS  镜像构建及启动          | N/A      | [成功][NixOS]                                      |
 
 [BuildRoot]: ./BuildRoot/README_zh.md
+[BuildRootV2]: ./BuildRoot/README_v2_zh.md
 [Debian]: ./Debian/README_zh.md
 [RT-Thread]: ./RT-Thread/README_zh.md
 [RT-Smart]: ./RT-Thread/README_RTSmart_zh.md

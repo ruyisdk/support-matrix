@@ -31,8 +31,8 @@
 | BuildRoot 镜像启动 | N/A      | [Basic][BuildRoot]                    |
 | FreeRTOS 启动      | N/A      | [Basic][FreeRTOS]                     |
 | Debian 镜像启动    | N/A      | [Basic][Debian]                       |
-| Alpine Linux 启动  | N/A      | [Basic][Alpine] （需手工构建 rootfs） |
-| Fedora 镜像启动    | N/A      | [Basic][Fedora]                       |
+| Alpine Linux 启动  | N/A      | [Basic][Alpine]（需手工构建 rootfs）  |
+| Fedora 镜像启动    | N/A      | [Basic][Fedora]（包管理器暂时不可用） |
 
 [BuildRoot]: ./BuildRoot/README_zh.md
 [FreeRTOS]: ./FreeRTOS/README_zh.md

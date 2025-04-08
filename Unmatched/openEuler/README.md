@@ -1,21 +1,24 @@
 ---
 sys: openeuler
-sys_ver: 23.09
+sys_ver: 24.09
 sys_var: null
 
 status: good
-last_update: 2024-06-21
+last_update: 2025-04-05
 ---
 
-# openEuler RISC-V 23.09 HiFive Unmatched Test Report
+# openEuler RISC-V 24.09 HiFive Unmatched Test Report
 
 ## Test Environment
 
 ### Operating System Information
 
-- System Version: openEuler 23.09 RISC-V preview
-- Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/Unmatched/
-- Reference Installation Document: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/Unmatched/README.unmatched.txt
+- System Version: openEuler 24.09 testing, 20241105 (Xfce)
+- Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241105/v0.1/Unmatched/
+- Reference Installation Document: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241105/v0.1/Unmatched/README.Unmatched.txt
+
+> [!NOTE]
+> This is not the official image, but the one published by the openEuler RISC-V SIG Group.
 
 ### Hardware Information
 
@@ -23,6 +26,12 @@ last_update: 2024-06-21
 - A microUSB cable (included with HiFive Unmatched)
 - An ATX power supply
 - A microSD card (Sandisk Extreme Pro 64G UHS-I)
+
+The following are for users expecting a desktop experience:
+- A PCIe video card
+- USB Keyboard & Mouse
+- HDMI Display / Capture Card & Cable
+- M.2 NVMe SSD (Optional, follow the installation document)
 
 ## Installation Steps
 
@@ -32,9 +41,21 @@ Ensure the dip switch is set to boot from the microSD card. If not changed, the 
 
 The dip switch should be set as follows: `MSEL[3:0]=1011`
 
-### Use `ruyi` CLI to Flash the Image to the microSD Card
+### Use `dd` to Flash the Image to the microSD Card
 
-Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the prompts.
+```shell
+wget https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241105/v0.1/Unmatched/openEuler-24.09-V1-xfce-unmatched-testing.img.zst
+zstd -T0 -dkv openEuler-24.09-V1-xfce-unmatched-testing.img.zst
+sudo dd if=openEuler-24.09-V1-xfce-unmatched-testing.img of=/dev/sdX bs=1M status=progress; sync
+```
+
+### Notes
+
+See the installation document for instructions on booting with SSD. If U-Boot is flashed into the onboard SPI Flash, microSD-free boot setups could be achieved by editing the drive configurations in `extlinux.conf`.
+
+Remember to toggle the DIP switch (boot mode) accordingly.
+
+Refer to the U-Boot official documentation for flashing instructions: https://docs.u-boot.org/en/latest/board/sifive/unmatched.html
 
 ### Logging into the System
 
@@ -54,23 +75,23 @@ The system booted successfully and login through the onboard serial port was suc
 ### Boot Log
 
 ```log
-Welcome to 6.1.0-11.oe2309.riscv64                                                                                    
-                                                                                                                      
-System information as of time:  Mon Sep 18 08:03:17 AM CST 2023                                                       
-                                                                                                                      
-System load:    1.94                                                                                                  
-Processes:      130                                                                                                   
-Memory used:    1.2%                                                                                                  
-Swap used:      0.0%                                                                                                  
-Usage On:       16%                                                                                                   
-Users online:   1                                                                                                     
-To run a command as administrator(user "root"),use "sudo <command>".                                                  
+Welcome to 6.6.0-41.0.0.51.oe2409.riscv64
+
+System information as of time:  Fri Jan 24 09:09:15 PM CST 2025
+
+System load:    2.36
+Memory used:    2.5%
+Swap used:      0.0%
+Usage On:       22%
+IP address:     10.0.0.120
+Users online:   2
+To run a command as administrator(user "root"),use "sudo <command>".
 [openeuler@openeuler-riscv64 ~]$
 ```
 
-Screen recording (From flashing the image to logging):
+![](image/2025-01-24-21-44-34.png)
 
-[![asciicast](https://asciinema.org/a/GzU3kCzrnvFfJMU1cJH30knrx.svg)](https://asciinema.org/a/GzU3kCzrnvFfJMU1cJH30knrx)
+See https://github.com/QA-Team-lo/oscompare/blob/main/openEuler/Unmatched/README.md for our report on its desktop experience.
 
 ## Test Criteria
 

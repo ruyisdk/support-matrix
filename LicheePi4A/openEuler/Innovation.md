@@ -149,7 +149,7 @@ mimpid		: 0x0
 
 ### Install Desktop Environment
 
-Take the example of installing xfce
+We'll take the example of Xfce installation here:
 
 ```
 sudo dnf update

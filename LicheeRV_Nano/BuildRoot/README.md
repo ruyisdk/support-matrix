@@ -1,10 +1,10 @@
 ---
 sys: buildroot
-sys_ver: "20241129"
+sys_ver: "20250319"
 sys_var: null
 
 status: basic
-last_update: 2024-12-13
+last_update: 2025-04-07
 ---
 
 # BuildRoot LicheeRV Nano Test Report
@@ -13,9 +13,9 @@ last_update: 2024-12-13
 
 ### Operating System Information
 
-- System Version: 20241129
-- Download Link: [https://github.com/sipeed/LicheeRV-Nano-Build/releases](https://github.com/sipeed/LicheeRV-Nano-Build/releases)
-- Reference Installation Documentation: [https://github.com/sipeed/LicheeRV-Nano-Build/releases](https://github.com/sipeed/LicheeRV-Nano-Build/releases)
+- System Version: 20250319
+- Download Link: https://github.com/sipeed/LicheeRV-Nano-Build/releases
+- Reference Installation Documentation: https://github.com/sipeed/LicheeRV-Nano-Build
 
 ### Hardware Information
 
@@ -30,16 +30,16 @@ last_update: 2024-12-13
 Download the image, then decompress and flash it:
 
 ```shell
-xz -d 2024-11-29-11-46-540e94.img.xz
-sudo dd if=2024-11-29-11-46-540e94.img of=/dev/your_device bs=1M status=progress
+wget https://github.com/sipeed/LicheeRV-Nano-Build/releases/download/20250319/2025-03-19-15-13-e4e133.img.xz
+xz -d 2025-03-19-15-13-e4e133.img.xz
+sudo dd if=2025-03-19-15-13-e4e133.img of=/dev/your_device bs=1M status=progress
 ```
-
 ### Logging into the System
 
-Logging into the system via serial port.
+Login to the system via serial port.
 
-Default Username: root
-Default Password: root
+Default Username: `root`
+Default Password: `root`
 
 ## Expected Results
 
@@ -51,14 +51,10 @@ The system booted successfully and login via the onboard serial port was also su
 
 ### Boot Log
 
-Screen recording (from flashing image to login):
-
-[![asciicast](https://asciinema.org/a/yNDWWKvYyXReaexbXm1t5dLxi.svg)](https://asciinema.org/a/yNDWWKvYyXReaexbXm1t5dLxi)
-
 ```log
 Starting kernel ...
 
-[    0.000000] Linux version 5.10.4-tag- (neucrack@neucrack-desktop) (riscv64-unknown-linux-musl-gcc (Xuantie-900 linux-5.10.4 musl gcc Toolchain V2.6.1 B-20220906) 10.2.0, GNU ld (GNU Binutils) 2.35) #14 PREEMPT Fri Nov 29 11:40:35 CST 2024
+[    0.000000] Linux version 5.10.4-tag- (neucrack@neucrack-desktop) (riscv64-unknown-linux-musl-gcc (Xuantie-900 linux-5.10.4 musl gcc Toolchain V2.6.1 B-20220906) 10.2.0, GNU ld (GNU Binutils) 2.35) #19 PREEMPT Wed Mar 19 15:08:48 CST 2025
 [    0.000000] earlycon: sbi0 at I/O port 0x0 (options '')
 [    0.000000] printk: bootconsole [sbi0] enabled
 + mkdir -p /dev
@@ -75,8 +71,8 @@ Starting kernel ...
 + '[' -e /boot/rec ]
 + umount /dev/mmcblk0p1
 + grep lo
-+ wc -l
 + grep 'User Key'
++ wc -l
 + cat /sys/kernel/debug/gpio
 + flashkey0=0
 + sleep 0.5
@@ -125,11 +121,11 @@ CDC NCM DHCP OK
 wifi mode: sta
 Successfully initialized wpa_supplicant
 nl80211: kernel reports: Registration to specific type not supported
-Starting iptables: udhcpc: started, v1.36.1
-OK
+udhcpc: started, v1.36.1
+Starting iptables: OK
 Starting bluetoothd: OK
-Starting network: udhcpc: broadcasting discover
-OK
+udhcpc: broadcasting discover
+Starting network: OK
 Starting ntpd: udhcpc: broadcasting discover
 OK
 Starting ssdpd: OK
@@ -139,25 +135,14 @@ udhcpc: broadcasting discover
 udhcpc: broadcasting discover
 udhcpc: broadcasting discover
 udhcpc: broadcasting discover
-udhcpc: broadcasting discover
-udhcpc: broadcasting discover
-udhcpc: broadcasting discover
-udhcpc: broadcasting discover
-udhcpc: broadcasting discover
-udhcpc: broadcasting discover
-udhcpc: broadcasting discover
-udhcpc: broadcasting discover
-udhcpc: broadcasting discover
-udhcpc: broadcasting discover
-udhcpc: broadcasting discover
-udhcpc: no lease, forking to background
-ECDSA ED25519 
+ECDSA ED25519
 Starting sshd: OK
 Starting audtest: OK
 Starting camtest: Starting ednctest: OK
 Starting input-event-daemon: input-event-daemon: fopen(/etc/input-event-daemon.conf): No such file or directory
 done
 Starting ivetest: OK
+udhcpc: broadcasting discover
 Starting lcdtest: OK
 Starting loadtest: OK
 Starting modeltest: OK
@@ -165,33 +150,54 @@ HELLO WORLD
 Starting nettest: OK
 Starting nntest: OK
 Warning: Partition /dev/mmcblk0p2 is being used. Are you sure you want to continue?
-udhcpc: no lease, forking to background
+udhcpc: broadcasting discover
 Warning: Partition /dev/mmcblk0p2 is being used. Are you sure you want to continue?
-                                                                                                                                          Yes/No? yes
+Yes/No? yes
 Information: You may need to update /etc/fstab.
 
-                                                                     Starting temptest: OK
+Starting temptest: OK
 resize2fs 1.47.0 (5-Feb-2023)
 
 Welcome to Linux
 licheervnano-6681 login: Filesystem at /dev/mmcblk0p2 is mounted on /; on-line resizing required
 old_desc_blocks = 1, new_desc_blocks = 2
+udhcpc: broadcasting discover
+udhcpc: broadcasting discover
 The filesystem on /dev/mmcblk0p2 is now 7787647 (4k) blocks long.
 
-root
+udhcpc: broadcasting discover
+udhcpc: broadcasting discover
+udhcpc: broadcasting discover
+udhcpc: broadcasting discover
+udhcpc: broadcasting discover
+udhcpc: broadcasting discover
+udhcpc: broadcasting discover
+udhcpc: no lease, forking to background
+udhcpc: no lease, forking to background
+
+Welcome to Linux
 licheervnano-6681 login: root
-Password: 
+licheervnano-6681 login: root
+Password:
 # uname -a
-Linux licheervnano-6681 5.10.4-tag- #14 PREEMPT Fri Nov 29 11:40:35 CST 2024 riscv64 GNU/Linux
+Linux licheervnano-6681 5.10.4-tag- #19 PREEMPT Wed Mar 19 15:08:48 CST 2025 riscv64 GNU/Linux
 # cat /etc/os-release
 NAME=Buildroot
-VERSION=-g540e9435a
+VERSION=-ge4e133f3d
 ID=buildroot
 VERSION_ID=2023.11.2
 PRETTY_NAME="Buildroot 2023.11.2"
 INIT: Id "acm" respawning too fast: disabled for 5 minutes
 
-# 
+# lscpu
+-sh: lscpu: not found
+# cat /proc/cpuinfo
+processor       : 0
+hart            : 0
+isa             : rv64imafdvcsu
+mmu             : sv39
+
+#
 
 ```
 

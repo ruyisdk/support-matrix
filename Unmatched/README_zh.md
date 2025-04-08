@@ -4,11 +4,11 @@
 
 ### 操作系统信息
 
-- openEuler RISC-V 23.09 Preview
-    - 下载链接：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/Unmatched/
-    - 参考安装文档：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/Unmatched/README.unmatched.txt
+- openEuler RISC-V 24.09 testing
+    - 下载链接：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241105/v0.1/Unmatched/
+    - 参考安装文档：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241105/v0.1/Unmatched/README.Unmatched.txt
 - openKylin 1.0
-    - 下载链接：https://www.openkylin.top/downloads
+    - 下载链接：https://mirrors.163.com/openkylin-cd/1.0/openKylin-1.0-hifive-unmatched-riscv64.img.xz
     - 参考安装文档：https://docs.openkylin.top/zh/%E7%A4%BE%E5%8C%BA%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/riscv%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
 - Ubuntu 24.10
     - 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/
@@ -46,21 +46,20 @@
 
 ## 测试结果
 
-| 软件分类                | 软件包名 | 测试结果（测试报告）        |
-| ----------------------- | -------- | --------------------------- |
-| Debian 镜像启动         | N/A      | [成功][Debian]              |
-| openEuler/Base 镜像启动 | N/A      | [成功][oERV]                |
-| openEuler/Xfce 镜像启动 | N/A      | [成功][oERV]                |
-| openKylin 镜像启动      | N/A      | [成功][oK]（官方支持）      |
-| OpenSUSE 镜像启动       | N/A      | [成功][SUSE]                |
-| Ubuntu 镜像启动         | N/A      | [CFT][Ubuntu]（官方支持）   |
-| Ubuntu LTS 镜像启动     | N/A      | [CFT][Ubuntu LTS]（官方支持）|
-| FreeBSD 镜像启动        | N/A      | [成功][FreeBSD]（官方支持） |
-| OpenBSD 镜像启动        | N/A      | [成功][OpenBSD]（官方支持） |
-| Zephyr 启动             | N/A      | [成功][Zephyr]（官方支持）  |
-| OpenWrt 启动            | N/A      | [成功][OpenWrt]（官方支持） |
-| Fedora 启动             | N/A      | [成功][Fedora]（官方支持）  |
-| Deepin 启动             | N/A      | [CFT][Deepin]（官方支持）   |
+| 软件分类                | 软件包名 | 测试结果（测试报告）          |
+| ----------------------- | -------- | ----------------------------- |
+| Debian 镜像启动         | N/A      | [成功][Debian]                |
+| openEuler/Xfce 镜像启动 | N/A      | [成功][oERV]                  |
+| openKylin 镜像启动      | N/A      | [成功][oK]（官方支持）        |
+| OpenSUSE 镜像启动       | N/A      | [成功][SUSE]                  |
+| Ubuntu 镜像启动         | N/A      | [CFT][Ubuntu]（官方支持）     |
+| Ubuntu LTS 镜像启动     | N/A      | [CFT][Ubuntu LTS]（官方支持） |
+| FreeBSD 镜像启动        | N/A      | [成功][FreeBSD]（官方支持）   |
+| OpenBSD 镜像启动        | N/A      | [成功][OpenBSD]（官方支持）   |
+| Zephyr 启动             | N/A      | [成功][Zephyr]（官方支持）    |
+| OpenWrt 启动            | N/A      | [成功][OpenWrt]（官方支持）   |
+| Fedora 启动             | N/A      | [成功][Fedora]（官方支持）    |
+| Deepin 启动             | N/A      | [成功][Deepin]（EOL）         |
 
 [Debian]: ./Debian/README_zh.md
 [oERV]: ./openEuler/README_zh.md
