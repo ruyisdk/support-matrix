@@ -4,7 +4,7 @@ sys_ver: 41
 sys_var: null
 
 status: basic
-last_update: 2024-11-6
+last_update: 2024-11-06
 ---
 
 # Fedora 41 Milk-V Duo Test Report
