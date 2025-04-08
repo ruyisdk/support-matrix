@@ -36,7 +36,7 @@ dd if=spacemit-mmc.img of=/dev/sdX
 
 ### Add Device Tree
 
-Download the [Bianbu](https://archive.spacemit.com/image/k1/version/bianbu/) image. Extract its `k1-x_bit-brick.dtb` file,and placed in `/dtbs-spacemit/spacemit/`.
+Download the [Bianbu](https://archive.spacemit.com/image/k1/version/bianbu/) image. Extract its `k1-x_bit-brick.dtb` file,and place it in `/dtbs-spacemit/spacemit/`.
 
 ``` log
 unzip bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.img.zip
