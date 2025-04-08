@@ -1,7 +1,7 @@
 ---
 sys: openeuler
 sys_ver: 24.03-sp1
-sys_var: null
+sys_var: LTS
 
 status: good
 last_update: 2025-04-07
@@ -42,7 +42,7 @@ zstd -d openEuler-24.03-LTS-SP1-riscv64-lpi4a-base-boot.ext4.zst
 zstd -d openEuler-24.03-LTS-SP1-riscv64-lpi4a-base-root.ext4.zst
 ```
 
-### Flash to onboard eMMC via `fastboot`F
+### Flash to onboard eMMC via `fastboot`
 
 By default the USB VID/PID of LPi4A are't in the udev rules, you might need to use `sudo` while using `fastboot`.
 

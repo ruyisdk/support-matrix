@@ -52,7 +52,7 @@ unzip uboot-th1520-revyos.zip
 
 ### Flashing the Image
 
-Use `fastboot` flash image. 
+Use `fastboot` flash image.
 
 ```bash
 sudo fastboot flash ram light_lpi4a/u-boot-with-spl.bin
@@ -77,7 +77,7 @@ The system should boot successfully, allowing login via the onboard serial conso
 
 The system boots up successfully, and login via onboard serial port is successful. Can login to the desktop environment.
 
-### 启动信息
+### Boot log
 
 ```log
 Deepin GNU/Linux 23 deepin-riscv64-th1520 ttyS0
@@ -95,7 +95,7 @@ Welcome to deepin 25 GNU/Linux
 
 root@deepin-riscv64-th1520:~# uname -a
 Linux deepin-riscv64-th1520 5.10.113-th1520-revyos-510 #1 SMP PREEMPT Tue Aug 27 10:05:53 UTC 2024 riscv64 GNU/Linux
-root@deepin-riscv64-th1520:~# cat /etc/os-release 
+root@deepin-riscv64-th1520:~# cat /etc/os-release
 PRETTY_NAME="Deepin 25"
 NAME="Deepin"
 VERSION_CODENAME=beige
@@ -104,12 +104,12 @@ HOME_URL="https://www.deepin.org/"
 BUG_REPORT_URL="https://bbs.deepin.org"
 VERSION_ID="25"
 VERSION="25"
-root@deepin-riscv64-th1520:~# lscpu 
+root@deepin-riscv64-th1520:~# lscpu
 Architecture:          riscv64
   Byte Order:          Little Endian
 CPU(s):                4
   On-line CPU(s) list: 0-3
-root@deepin-riscv64-th1520:~# 
+root@deepin-riscv64-th1520:~#
 ```
 
 ## Test Criteria

@@ -1,7 +1,7 @@
 ---
 sys: openeuler
 sys_ver: 24.03-sp1
-sys_var: null
+sys_var: LTS
 
 status: good
 last_update: 2025-04-07
@@ -72,7 +72,7 @@ The system boots up without issues, and both serial console and SSH login are su
 
 ```log
 openeuler-riscv64 login: openeuler
-Password: 
+Password:
 
 Authorized users only. All activities may be monitored and reported.
 
@@ -87,7 +87,7 @@ Swap used:      0.0%
 Usage On:       8%
 Users online:   1
 To run a command as administrator(user "root"),use "sudo <command>".
-[openeuler@openeuler-riscv64 ~]$ cat /etc/os-release 
+[openeuler@openeuler-riscv64 ~]$ cat /etc/os-release
 NAME="openEuler"
 VERSION="24.03 (LTS-SP1)"
 ID="openEuler"
@@ -97,12 +97,12 @@ ANSI_COLOR="0;31"
 
 [openeuler@openeuler-riscv64 ~]$ uname -a
 Linux openeuler-riscv64 6.6.0-72.0.0.76.oe2403sp1.riscv64 #1 SMP PREEMPT Sun Dec 29 15:11:05 UTC 2024 riscv64 riscv64 riscv64 GNU/Linux
-[openeuler@openeuler-riscv64 ~]$ lscpu 
+[openeuler@openeuler-riscv64 ~]$ lscpu
 Architecture:          riscv64
   Byte Order:          Little Endian
 CPU(s):                4
   On-line CPU(s) list: 0-3
-NUMA:                  
+NUMA:
   NUMA node(s):        1
   NUMA node0 CPU(s):   0-3
 ```

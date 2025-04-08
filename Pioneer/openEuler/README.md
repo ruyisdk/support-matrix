@@ -1,7 +1,7 @@
 ---
 sys: openeuler
 sys_ver: 24.03-LTS-SP1
-sys_var: null
+sys_var: LTS
 
 status: good
 last_update: 2025-04-05

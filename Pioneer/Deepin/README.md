@@ -47,7 +47,7 @@ Erase all partitions on the NVMe SSD, recreate a GPT partition table, create a n
 ```bash
 unzip sophgo-bootloader-multi-sg2042-dev.zip
 sudo wipefs -af /dev/sdX
-sudo dd if=firmware_multi_sg2042-dev.img of=/dev/sdX bs=1M status=progress
+sudo dd if=firmware_single_sg2042-dev.img of=/dev/sdX bs=1M status=progress
 sudo wipefs -af /dev/sdY
 sudo fdisk /dev/sdY
 # Enter g, n, and Enter *3, then enter w to write the changes to disk

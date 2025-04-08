@@ -37,7 +37,7 @@
 ```bash
 unzip sophgo-bootloader-multi-sg2042-dev.zip
 sudo wipefs -af /dev/sdX
-sudo dd if=firmware_multi_sg2042-dev.img of=/dev/sdX bs=1M status=progress
+sudo dd if=firmware_single_sg2042-dev.img of=/dev/sdX bs=1M status=progress
 sudo wipefs -af /dev/sdY
 sudo fdisk /dev/sdY
 # 依次输入 g，n，然后回车确认（三次），最后输入 w 将设置写入硬盘
