@@ -14,8 +14,8 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 - openEuler RISC-V 24.03 Preview
     - Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/2403LTS-test/v1/lpi4a/
     - Reference Installation Document: https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
-- RevyOS 20240123
-    - Download link: [RevyOS Images]([Nginx Directory](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250123/))
+- RevyOS 20250323
+    - Download link: [RevyOS Images]([Nginx Directory](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250323/))
     - Reference Installation Document: [RevyOS Documentation](https://docs.revyos.dev/)
 - openKylin 2.0 SP1
     - Download link: [OpenKylin Downloads](https://www.openkylin.top/downloads/index-cn.html)
