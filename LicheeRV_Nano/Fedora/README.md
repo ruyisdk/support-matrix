@@ -55,7 +55,7 @@ The system should boot normally and allow login via the serial port.
 
 The system boots up normally and login through the serial port is successful.
 
-> Note: `dnf` does not work at the moment while yielding `Illegal instruction`; See https://github.com/ruyisdk/support-matrix/issues/215
+> Note: In the event of broken `dnf` that yields `Illegal instruction`, consider replacing `/boot/fip.bin` with the one from [here](https://github.com/Pairman/LicheeRV-Nano-Build/releases/download/20250408/fip.bin); See https://github.com/ruyisdk/support-matrix/issues/215
 
 ### Boot Log
 

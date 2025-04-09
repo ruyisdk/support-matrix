@@ -16,8 +16,8 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
     - Official Milk-V provided BuildRoot SDK, which also includes FreeRTOS.
   - Reference Installation Document: [https://github.com/milkv-duo/duo-buildroot-sdk](https://github.com/milkv-duo/duo-buildroot-sdk)
 - Debian
-  - Download link: [https://github.com/Fishwaldo/sophgo-sg200x-debian](https://github.com/Fishwaldo/sophgo-sg200x-debian)
-  - Reference Installation Document: [https://github.com/Fishwaldo/sophgo-sg200x-debian](https://github.com/Fishwaldo/sophgo-sg200x-debian)
+  - Download link: https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.7/duo256-e_sd.img.lz4
+  - Reference Installation Document: https://github.com/scpcom/sophgo-sg200x-debian/
 - Fedora 41
   - Download Link: https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/Duo256M/images/latest/milkv-duo-256m-fedora-minimal.img.gz
   - Reference Installation Document: https://github.com/chainsx/fedora-riscv-builder

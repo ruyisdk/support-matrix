@@ -16,7 +16,8 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
     - BuildRoot SDK provided by Sipeed, which also includes FreeRTOS
   - Reference Installation Document: https://github.com/sipeed/LicheeRV-Nano-Build
 - Debian
-  - Download Link: https://github.com/Fishwaldo/sophgo-sg200x-debian
+  - Download Link: https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.7/licheervnano-e_sd.img.lz4
+  - Reference Installation Document: https://github.com/scpcom/sophgo-sg200x-debian
 - Alpine Linux 3.20.3 riscv64
   - Download Link:
     - Alpine minirootfs: [https://alpinelinux.org/downloads/](https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz)
@@ -38,7 +39,7 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 | BuildRoot Image   | N/A          | [Basic][BuildRoot]                                  |
 | FreeRTOS Startup  | N/A          | [Basic][FreeRTOS]                                   |
 | Debian Image      | N/A          | [Basic][Debian]                                     |
-| Fedora Image      | N/A          | [Basic][Fedora] (package manager does not work)     |
+| Fedora Image      | N/A          | [Basic][Fedora]                                     |
 | Alpine Linux Boot | N/A          | [Basic][Alpine] (requires building rootfs manually) |
 
 [BuildRoot]: ./BuildRoot/README.md

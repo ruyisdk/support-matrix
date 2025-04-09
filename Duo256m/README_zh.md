@@ -9,8 +9,8 @@
     - Milk-V 官方提供的 BuildRoot SDK，同时包含了 FreeRTOS
   - 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk
 - Debian
-  - 下载链接：https://github.com/Fishwaldo/sophgo-sg200x-debian
-  - 参考安装文档：https://github.com/Fishwaldo/sophgo-sg200x-debian
+  - 下载链接：https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.7/duo256-e_sd.img.lz4
+  - 参考安装文档：https://github.com/scpcom/sophgo-sg200x-debian/
 - Fedora 41
   - 下载链接：https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/Duo256M/images/latest/milkv-duo-256m-fedora-minimal.img.gz
   - 参考安装文档：https://github.com/chainsx/fedora-riscv-builder
