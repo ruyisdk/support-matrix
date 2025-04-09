@@ -19,6 +19,9 @@
 - Deepin 25-beige-preview 20250122
     - 下载链接：https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
     - 参考安装文档：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
+- RevyOS 20250323
+    - 下载链接：https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250323/
+    - 参考安装文档：https://revyos.github.io/docs/
 
 ### 硬件开发板信息
 
@@ -27,17 +30,18 @@
 ## 测试结果
 
 | 软件分类                    | 软件包名 | 测试结果（测试报告）          |
-| --------------------------- | -------- | ----------------------------- |
+|-----------------------------|----------|-------------------------------|
 | openEuler/Base 镜像启动     | N/A      | [成功][oERV]                  |
 | openEuler/Xfce 镜像启动     | Xfce     | [成功][oERV]                  |
 | Fedora chainsx 桌面镜像启动 | N/A      | [成功][Fedora]                |
 | openKylin 桌面镜像启动      | N/A      | [成功][openKylin]（官方支持） |
 | OpenWRT 镜像启动            | N/A      | [成功][OpenWRT]               |
 | Deepin 桌面镜像启动         | N/A      | [成功][Deepin]                |
+| RevyOS 桌面镜像启动         | N/A      | [成功][RevyOS]                |
 
 [oERV]: ./openEuler/README_zh.md
 [Fedora]: ./Fedora/README_chainsx_zh.md
 [openKylin]: ./openKylin/README_zh.md
 [OpenWRT]: ./OpenWRT/README_zh.md
 [Deepin]: ./Deepin/README_zh.md
-
+[RevyOS]: ./RevyOS/README_zh.md

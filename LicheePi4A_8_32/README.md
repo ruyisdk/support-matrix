@@ -11,7 +11,7 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 
 ### System Information
 
-- penEuler 24.03 LTS SP1
+- openEuler 24.03 LTS SP1
     - Download Link：https://mirrors.tuna.tsinghua.edu.cn/openeuler/openEuler-24.03-LTS-SP1/embedded_img/riscv64/lpi4a/
     - Reference Installation Document：https://docs.openeuler.org/zh/docs/24.03_LTS_SP1/docs/Installation/RISC-V-LicheePi4A.html
 - openKylin 2.0 SP1
@@ -26,6 +26,9 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 - Deepin 25-beige-preview 20250122
     - Download Link：https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
     - Reference Installation Document：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
+- RevyOS 20250323
+    - Download Link: https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250323/
+    - Reference Installation Document: https://revyos.github.io/docs/
 
 ### Hardware Information
 
@@ -34,16 +37,18 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 ## Test Results
 
 | Software Category                 | Software Package | Test Results (Test Report)              |
-| --------------------------------- | ---------------- | --------------------------------------- |
+|-----------------------------------|------------------|-----------------------------------------|
 | openEuler/Base Image Boot         | N/A              | [Success][oERV]                         |
 | openEuler/Xfce Image Boot         | Xfce             | [Success][oERV]                         |
 | Fedora chainsx Desktop Image Boot | N/A              | [Success][Fedora]                       |
 | openKylin Desktop Image Boot      | N/A              | [Success][openKylin] (Official Support) |
 | OpenWRT Image Boot                | N/A              | [Success][OpenWRT]                      |
 | Deepin Desktop Image Boot         | N/A              | [Success][Deepin]                       |
+| RevyOS Desktop Image Boot         | N/A              | [Success][RevyOS]                       |
 
-[oERV]: ./openEuler/README_zh.md
-[Fedora]: ./Fedora/README_chainsx_zh.md
-[openKylin]: ./openKylin/README_zh.md
-[OpenWRT]: ./OpenWRT/README_zh.md
-[Deepin]: ./Deepin/README_zh.md
+[oERV]: ./openEuler/README.md
+[Fedora]: ./Fedora/README_chainsx.md
+[openKylin]: ./openKylin/README.md
+[OpenWRT]: ./OpenWRT/README.md
+[Deepin]: ./Deepin/README.md
+[RevyOS]: ./RevyOS/README.md
