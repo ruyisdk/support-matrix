@@ -304,7 +304,6 @@ class RuyiDiff:
             return
 
         files = plug.system_image_files(info)
-        logger.info("Files: %s", files)
         if len(files) <= 0:
             return
 
