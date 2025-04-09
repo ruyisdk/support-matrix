@@ -59,7 +59,7 @@ sudo eject /dev/sda
 ### 安装桌面环境
 
 以 GNOME 为例：
-```shelll
+```shell
 sudo dnf update
 sudo dnf install dejavu-fonts liberation-fonts gnu-*-fonts google-*-fonts
 sudo dnf install xorg-*

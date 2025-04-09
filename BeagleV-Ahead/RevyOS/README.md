@@ -1,5 +1,5 @@
 ---
-sys: RevyOS
+sys: revyos
 sys_ver: 20231210
 sys_var: null
 
