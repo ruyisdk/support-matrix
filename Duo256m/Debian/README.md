@@ -1,6 +1,6 @@
 ---
 sys: debian
-sys_ver: sid
+sys_ver: v1.6.7
 sys_var: null
 
 status: basic

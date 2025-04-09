@@ -304,6 +304,7 @@ class RuyiDiff:
             return
 
         files = plug.system_image_files(info)
+        logger.info("Files: %s", files)
         if len(files) <= 0:
             return
 
@@ -351,6 +352,14 @@ class RuyiDiff:
         """
         filter_plugins = config["plugin_names"]
         for info in self.oldver:
+
+            # Should we skip this system?
+            if info.raw_data.last_update == "eol":
+                continue
+            if info.raw_data.raw_data.get("skip_sync", False):
+                logger.info("Skip update for %s", repr(info))
+                continue
+
             # Mark system update info
 
             setattr(info, "update_info", self.RuyiUpdateInfo())
@@ -380,6 +389,8 @@ class RuyiDiff:
         """
         res = []
         for v in self.oldver:
+            if not hasattr(v, "update_info"):
+                continue
             i = ('/'.join(v.raw_data.link),
                  v.update_info.plug,
                  str(v.update_info))

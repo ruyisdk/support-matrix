@@ -139,8 +139,16 @@ class GithubReleaseGetter(UploadPluginBase):
                 continue
             if board_variant is not None and board_variant != handler.get("board_variant", None):
                 continue
-            name = self.util.file_id(info, board_variant, None)
-            res.append(name)
+            if board_variant is not None:
+                name = self.util.file_id(info, board_variant, None)
+                res.append(name)
+            elif handler.get("board_variant", None) is not None:
+                name = self.util.file_id(info, handler["board_variant"], None)
+                res.append(name)
+            else:
+                for i in info.board_variants:
+                    name = self.util.file_id(info, i, None)
+                    res.append(name)
         return self.unique_list(res)
 
     def handle_version(self, info):
