@@ -14,6 +14,9 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 - openEuler 24.03 LTS SP1
     - Download Link：https://mirrors.tuna.tsinghua.edu.cn/openeuler/openEuler-24.03-LTS-SP1/embedded_img/riscv64/lpi4a/
     - Reference Installation Document：https://docs.openeuler.org/zh/docs/24.03_LTS_SP1/docs/Installation/RISC-V-LicheePi4A.html
+- openEuler RISC-V 25.03
+    - Download Link: https://repo.openeuler.org/openEuler-25.03/embedded_img/riscv64/lpi4a/
+    - Reference Installation Document: https://docs.openeuler.org/en/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
 - openKylin 2.0 SP1
     - Download Link：https://www.openkylin.top/downloads/index-cn.html
     - Reference Installation Document：https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8LicheePi4A%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
@@ -40,6 +43,7 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 |-----------------------------------|------------------|-----------------------------------------|
 | openEuler/Base Image Boot         | N/A              | [Success][oERV]                         |
 | openEuler/Xfce Image Boot         | Xfce             | [Success][oERV]                         |
+| openEuler Innovation Image Boot   | N/A              | [Success][openEuler]                    |
 | Fedora chainsx Desktop Image Boot | N/A              | [Success][Fedora]                       |
 | openKylin Desktop Image Boot      | N/A              | [Success][openKylin] (Official Support) |
 | OpenWRT Image Boot                | N/A              | [Success][OpenWRT]                      |
@@ -47,6 +51,7 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 | RevyOS Desktop Image Boot         | N/A              | [Success][RevyOS]                       |
 
 [oERV]: ./openEuler/README.md
+[openEuler]: ./openEuler/Innovation.md
 [Fedora]: ./Fedora/README_chainsx.md
 [openKylin]: ./openKylin/README.md
 [OpenWRT]: ./OpenWRT/README.md
