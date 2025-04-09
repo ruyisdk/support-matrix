@@ -104,6 +104,18 @@ class MirrorsiteGetter(UploadPluginBase):
                 )
                 self.logger.info("Github Release std loads: %s", _id)
                 self.handler_lst.append(i)
+        for i in self.load_sep_config():
+            if i.get("handler", None) is None:
+                continue
+            for j in i["handler"]:
+                if j.get("plugin", None) != self.get_name():
+                    continue
+                _id = j.get(
+                    "id", f"{j["system"]}-{j["vendor"]}{f"-{j["variant"]}" if j["variant"]
+                                                            != "null" else ""}"
+                )
+                self.logger.info("Github Release std loads: %s", _id)
+                self.handler_lst.append(j)
 
     @staticmethod
     def get_name() -> str:
@@ -172,9 +184,9 @@ class MirrorsiteGetter(UploadPluginBase):
             for fileset in handler["fileset"]:
                 if not self.__match_file_set(board_variant, fileset):
                     continue
-                prepend = fileset.get("prepend")
-                append = fileset.get("append")
-                name = self.util.file_id(
+                prepend=fileset.get("prepend")
+                append=fileset.get("append")
+                name=self.util.file_id(
                     info, board_variant, prepend, append
                 )
                 res.append(name)
@@ -183,11 +195,11 @@ class MirrorsiteGetter(UploadPluginBase):
     def __handle_version(self, info: SystemInfo, handler: InfoDecl) -> str:
         if handler["version_mapper"].get("type") is None or \
                 handler["version_mapper"]["type"] == "regex":
-            r = handler["version_mapper"]["regex"]
-            m = self.re.findall(r, info.version)
+            r=handler["version_mapper"]["regex"]
+            m=self.re.findall(r, info.version)
             return handler["version_mapper"]["mapper"].format(*m)
         elif handler["version_mapper"]["type"] == "lambda":
-            func = self.eval(handler["version_mapper"]["mapper"])
+            func=self.eval(handler["version_mapper"]["mapper"])
             return func(info.version, info)
         else:
             raise ValueError("Unknown MapperDecl type")
@@ -201,18 +213,18 @@ class MirrorsiteGetter(UploadPluginBase):
 
     def __get_one_page(self, info: SystemInfo, handler: InfoDecl, file: FileDecl):
         if file.get("url") is not None:
-            url = file["url"]
+            url=file["url"]
         elif handler.get("url") is not None:
-            url = handler["url"]
+            url=handler["url"]
         else:
             raise ValueError(f"No url found for {info} in file {file["id"]}")
         if url.get("type") is None or \
                 url["type"] == "regex":
-            r = url["regex"]
-            m = self.re.findall(r, info.version)
+            r=url["regex"]
+            m=self.re.findall(r, info.version)
             return url["mapper"].format(*m)
         elif url["type"] == "lambda":
-            func = self.eval(url["mapper"])
+            func=self.eval(url["mapper"])
             return func(info.version, info)
         else:
             raise ValueError("Unknown MapperDecl type")
@@ -220,25 +232,25 @@ class MirrorsiteGetter(UploadPluginBase):
     import bs4
 
     def __get_one_mirrorsite_asset(self, info: SystemInfo, handler: InfoDecl, file: FileDecl):
-        page_url = self.__get_one_page(
+        page_url=self.__get_one_page(
             info, handler, file
         )
-        html = self.requests.get(page_url, timeout=60).text
-        soup = self.bs4.BeautifulSoup(html, "html5lib")
+        html=self.requests.get(page_url, timeout=60).text
+        soup=self.bs4.BeautifulSoup(html, "html5lib")
 
-        hyperlinks = soup.select('a')
+        hyperlinks=soup.select('a')
         for link in hyperlinks:
             if not link.has_attr("href"):
                 continue
-            file_link = self.urljoin(
+            file_link=self.urljoin(
                 page_url, str(link["href"]))
-            file_name = self.urlbasename(file_link)
+            file_name=self.urlbasename(file_link)
             if file["file_filter"].get("type") is None or \
                     file["file_filter"]["type"] == "regex":
                 if self.re.search(file["file_filter"]["filter"], file_name):
                     return file_link
             elif file["file_filter"]["type"] == "lambda":
-                func = self.eval(file["file_filter"]["filter"])
+                func=self.eval(file["file_filter"]["filter"])
                 if func(file_name, info):
                     return file_link
             else:
@@ -254,7 +266,7 @@ class MirrorsiteGetter(UploadPluginBase):
                 fileset["desc_mapper"]["type"] == "regex":
             return fileset["desc_mapper"]["mapper"].format(info=info)
         elif fileset["desc_mapper"]["type"] == "lambda":
-            func = self.eval(fileset["desc_mapper"]["mapper"])
+            func=self.eval(fileset["desc_mapper"]["mapper"])
             return func(info)
         else:
             raise ValueError("Unknown MapperDecl type")
@@ -262,31 +274,31 @@ class MirrorsiteGetter(UploadPluginBase):
     def __handle_one_variant(self, info: SystemInfo,
                              handler: InfoDecl,
                              board_variant: str) -> dict[str, BoardImagesGenerator]:
-        res = {}
+        res={}
         for fileset in handler["fileset"]:
             if not self.__match_file_set(board_variant, fileset):
                 continue
-            distfiles = []
-            partition_map = {}
-            files = self.__all_file_in_fileset(handler, fileset)
+            distfiles=[]
+            partition_map={}
+            files=self.__all_file_in_fileset(handler, fileset)
             for file in files:
-                img_url = self.__get_one_mirrorsite_asset(info, handler, file)
-                img_name = self.urlbasename(img_url)
-                img_path = self.os.path.join(
+                img_url=self.__get_one_mirrorsite_asset(info, handler, file)
+                img_name=self.urlbasename(img_url)
+                img_path=self.os.path.join(
                     self.__tmppath__, img_name
                 )
-                img_file = self.download_file(
+                img_file=self.download_file(
                     img_path, img_url
                 )
-                img_dist = self.gen_distfile(
+                img_dist=self.gen_distfile(
                     img_file, img_url
                 )
-                img_partition = file.get("partition_map", "disk")
+                img_partition=file.get("partition_map", "disk")
                 distfiles.append(img_dist)
-                partition_map[img_partition] = self.util.remove_file_extension(
+                partition_map[img_partition]=self.util.remove_file_extension(
                     img_name)
-            desc = self.__gen_desc(info, fileset)
-            generator = self.BoardImagesGenerator(
+            desc=self.__gen_desc(info, fileset)
+            generator=self.BoardImagesGenerator(
                 version=self.__handle_version(info, handler),
                 desc=desc,
                 vendor=info.vendor,
@@ -298,34 +310,34 @@ class MirrorsiteGetter(UploadPluginBase):
 
             # If a fileset can handle lots of variant, board_variant is no need as it will generate duplicate files
             if fileset["board_variants"] is None or len(fileset["board_variants"]) > 1:
-                use_board_variant = None
+                use_board_variant=None
             else:
-                use_board_variant = board_variant
-            prepend = fileset.get("prepend")
-            append = fileset.get("append")
+                use_board_variant=board_variant
+            prepend=fileset.get("prepend")
+            append=fileset.get("append")
             res[
                 self.util.file_id(info, use_board_variant, prepend, append)
-            ] = generator
+            ]=generator
         return res
 
     def handle_report(self, info):
-        res = {}
+        res={}
         for handler in self.handler_lst:
             if self.__gen_ident(handler) != info:
                 continue
             if handler["board_variants"] is not None and \
                     len(handler["board_variants"]) > 0:
-                board_variants = handler["board_variants"]
+                board_variants=handler["board_variants"]
             else:
-                board_variants = ["generic"]
+                board_variants=["generic"]
             for board_variant in board_variants:
-                new_res = self.__handle_one_variant(
+                new_res=self.__handle_one_variant(
                     info, handler, board_variant)
                 for k, v in new_res.items():
                     if res.get(k) is not None:
                         self.logger.warning("Duplicate key: %s", k)
                         continue
-                    res[k] = v
+                    res[k]=v
         if len(res) <= 0:
             raise RuntimeError(f"No handler found for {info}")
         return res
