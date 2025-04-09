@@ -58,7 +58,7 @@ _cli_configs = CFG([
     {'name': 'path', 'short_name': 'p',
         'explain': 'path to the support matrix', 'default': '.'},
     {'name': 'config', 'short_name': 'c',
-        'explain': 'config file for the tool', 'default': 'assets/renew_config.yaml'},
+        'explain': 'config file for the tool', 'default': None},
     {'name': 'index', 'short_name': 'i',
         'explain': 'path to clone ruyi index, default to a temp dir'},
     {'name': 'pr', 'explain': 'should create a PR for the update', 'action': 'store_true'},
@@ -97,6 +97,10 @@ class CFGdict():
                 else:
                     yaml = YAML()
                     self._cfg = yaml.load(f)
+        else:
+            self._cfg = {
+                "handler": []
+            }
 
     def __getitem__(self, key: str):
         if key in self.__d:

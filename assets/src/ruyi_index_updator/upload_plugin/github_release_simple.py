@@ -82,6 +82,19 @@ class GithubReleaseGetter(UploadPluginBase):
                 )
                 self.logger.info("Github Release Simple loads: %s", _id)
                 self.handler_lst.append(i)
+        for i in self.load_sep_config():
+            if i.get("handler", None) is None:
+                continue
+            for j in i["handler"]:
+                if j.get("plugin", None) != self.get_name():
+                    continue
+                _id = j.get(
+                    "id", f"{j["system"]}-{j["vendor"]}{f"-{j["variant"]}" if j["variant"]
+                                                            != "null" else ""}"
+                )
+                self.logger.info("Github Release Simple loads: %s", _id)
+                self.handler_lst.append(j)
+
 
     @staticmethod
     def get_name() -> str:

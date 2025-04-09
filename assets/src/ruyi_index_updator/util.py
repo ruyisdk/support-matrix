@@ -80,6 +80,8 @@ def system_id(info: SystemInfo | SystemIdentifier, board_variant: str | None) ->
     system = info.system
     if system == 'openeuler':
         system = 'oerv'
+    if system == 'buildroot':
+        system = 'buildroot-sdk'
 
     if info.variant is None or info.variant == '':
         system_variant = ''
