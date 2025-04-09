@@ -37,7 +37,7 @@ class SystemWorker:
         self.info = info
         self.plugin = plugin
         self.repo = repo
-        self.branch_name = util.system_id(info, 'update_branch')
+        self.branch_name = f"{util.system_id(info, None)}-{"_".join(info.board_variants)}_update_branch"
         self.ident = ""
 
         self.repo.local_checkout(self.branch_name)
@@ -109,17 +109,10 @@ This PR is created by program Sync Package Index inside support-matrix
         image_combos: list[ImageComboDecl] = []
         variants_combos: dict[str, str] = {}
 
-        # TODO#1: Hook for duo & duo256m, remove if possible
         vendor = self.info.vendor
-        board_variants = self.info.board_variants or ["generic"]
-        if self.info.vendor == "milkv-duo":
-            vendor = "milkv-duo"
-            board_variants = ["64m"]
-        if self.info.vendor == "milkv-duo256m":
-            vendor = "milkv-duo"
-            board_variants = ["256m"]
 
-        # board_variants = self.info.board_variants or ["generic"] # TODO: uncomment if TODO[#1] solved
+        board_variants = self.info.board_variants or ["generic"]
+
         for board_variant in board_variants:
             variant_id = board_variant
             if board_variant == "generic":
@@ -156,13 +149,11 @@ This PR is created by program Sync Package Index inside support-matrix
         # if device not in devices, add it
         device_idx = None
         for idx, device in enumerate(provisioner["devices"]):
-            # if device["id"] == self.info.vendor: # TODO: uncomment if TODO[#1] solved
             if device["id"] == vendor:
                 device_idx = idx
                 break
         if device_idx is None:
             provisioner["devices"].append({
-                # "id": self.info.vendor, # TODO: uncomment if TODO[#1] solved
                 "id": vendor,
                 "display_name": self.info.product,
                 "variants": []
@@ -204,6 +195,7 @@ This PR is created by program Sync Package Index inside support-matrix
     def __update_manifests(self):
         new_manifests = self.plugin.handle_report(self.info)
         for file, new_manifest in new_manifests.items():
+            print(f"Updating {file} to {new_manifest.version}")
             if isinstance(new_manifest, BoardImagesGenerator):
                 new_manifest = new_manifest.generate(
                     self.plugin.handle_version(self.info)

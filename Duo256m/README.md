@@ -1,9 +1,10 @@
 ---
-vendor: milkv_duo256m
+vendor: milkv-duo
 product: Milk-V Duo (256M)
 cpu: SG2002
 cpu_core: XuanTie C906 + ARM Cortex-A53
 ram: 256MB
+board_variants: [256m]
 ---
 
 # Milk-V Duo 256M

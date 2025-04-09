@@ -126,6 +126,8 @@ class SystemIdentifier:
     """
     vendor: str | None
 
+    board_variant: str | None
+
     system: str
     variant: str | None
 
