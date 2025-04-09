@@ -1,10 +1,10 @@
 ---
 sys: debian
-sys_ver: "v1.4.0"
+sys_ver: sid
 sys_var: null
 
 status: basic
-last_update: 2024-06-21
+last_update: 2025-04-09
 ---
 
 # Debian LicheeRV Nano Test Report
@@ -14,8 +14,8 @@ last_update: 2024-06-21
 ### Operating System Information
 
 - System Version: Initial Release
-- Download Link: [sophgo-sg200x-debian on GitHub](https://github.com/Fishwaldo/sophgo-sg200x-debian)
-- Reference Installation Document: [sophgo-sg200x-debian on GitHub](https://github.com/Fishwaldo/sophgo-sg200x-debian)
+- Download Link: https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.7/licheervnano-e_sd.img.lz4
+- Reference Installation Document: https://github.com/scpcom/sophgo-sg200x-debian/
 
 ### Hardware Information
 
@@ -30,8 +30,9 @@ last_update: 2024-06-21
 Download the image and perform decompression and flashing:
 
 ```shell
-lz4 -dk licheervnano_sd.img.lz4
-sudo dd if=licheervnano_sd.img of=/dev/your_device bs=1M status=progress
+wget https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.7/licheervnano-e_sd.img.lz4
+lz4 -dk licheervnano-e_sd.img.lz4
+sudo dd if=licheervnano-e_sd.img of=/dev/your_device bs=1M status=progress
 ```
 
 ### Logging into the System
@@ -39,7 +40,7 @@ sudo dd if=licheervnano_sd.img of=/dev/your_device bs=1M status=progress
 Logging into the system through the serial port.
 
 | Username | Password |
-|----------|----------|
+| -------- | -------- |
 | root     | rv       |
 | debian   | rv       |
 
@@ -54,40 +55,49 @@ The system booted up successfully, and login through the serial port was success
 
 ### Boot Log
 
-Screen recording (from flashing the image to login):
-
-[![asciicast](https://asciinema.org/a/d6uwAengdlXVbMj0KAdVbPhMX.svg)](https://asciinema.org/a/d6uwAengdlXVbMj0KAdVbPhMX)
-
 ```log
-Debian GNU/Linux trixie/sid licheervnano ttyS0                                                                          
-                                                                                                                        
-licheervnano login: root                                                                                                
-Password:                                                                                                               
-Linux licheervnano 5.10.4-20240329-1+ #1 PREEMPT Sat Apr 13 07:08:27 UTC 2024 riscv64                                   
-                                                                                                                        
-The programs included with the Debian GNU/Linux system are free software;                                               
-the exact distribution terms for each program are described in the                                                      
-individual files in /usr/share/doc/*/copyright.                                                                         
-                                                                                                                        
-Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent                                                       
-permitted by applicable law.                                                                                            
-root@licheervnano:~# cat /proc/cpuinfo                                                                                  
-processor       : 0                                                                                                     
-hart            : 0                                                                                                     
-isa             : rv64imafdvcsu                                                                                         
-mmu             : sv39                                                                                                  
-                                                                                                                        
-root@licheervnano:~# cat /etc/os-release                                                                                
-PRETTY_NAME="Debian GNU/Linux trixie/sid"                                                                               
-NAME="Debian GNU/Linux"                                                                                                 
-VERSION_CODENAME=trixie                                                                                                 
-ID=debian                                                                                                               
-HOME_URL="https://www.debian.org/"                                                                                      
-SUPPORT_URL="https://www.debian.org/support"                                                                            
-BUG_REPORT_URL="https://bugs.debian.org/"                                                                               
-root@licheervnano:~# uname -a                                                                                           
-Linux licheervnano 5.10.4-20240329-1+ #1 PREEMPT Sat Apr 13 07:08:27 UTC 2024 riscv64 GNU/Linux                         
-root@licheervnano:~# 
+Debian GNU/Linux trixie/sid licheervnano-6681 ttyS0
+
+licheervnano-6681 login: [  OK  ] Finished e2scrub_reap.service - Remove Stale Online ext4 Metadata Check Snapshots.
+[  OK  ] Finished finalize-image.service - Finalize the Image.
+         Starting ssh.service - OpenBSD Secure Shell server...
+[  OK  ] Started ssh.service - OpenBSD Secure Shell server.
+[  OK  ] Reached target multi-user.target - Multi-User System.
+[  OK  ] Reached target graphical.target - Graphical Interface.
+
+licheervnano-6681 login: root
+Password:
+Linux licheervnano-6681 5.10.235-20250403-6+licheervnano #1 PREEMPT Sat Apr 5 17:40:58 UTC 2025 riscv64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+root@licheervnano-6681:~# uname -a
+Linux licheervnano-6681 5.10.235-20250403-6+licheervnano #1 PREEMPT Sat Apr 5 17:40:58 UTC 2025 riscv64 GNU/Linux
+root@licheervnano-6681:~# cat /etc/os-release
+PRETTY_NAME="Debian GNU/Linux trixie/sid"
+NAME="Debian GNU/Linux"
+VERSION_CODENAME=trixie
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+root@licheervnano-6681:~# lscpu
+Architecture:          riscv64
+  Byte Order:          Little Endian
+CPU(s):                1
+  On-line CPU(s) list: 0
+root@licheervnano-6681:~# cat /proc/cpuinfo
+processor       : 0
+hart            : 0
+isa             : rv64imafdvcsu
+mmu             : sv39
+
+root@licheervnano-6681:~#
+
 ```
 
 ## Test Criteria

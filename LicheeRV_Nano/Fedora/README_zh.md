@@ -46,7 +46,7 @@ sudo dd if=LicheeRV_Nano-fedora-minimal.img of=/dev/your/device bs=4M status=pro
 
 系统正常启动，能够通过串口登录。
 
-> 注：`dnf` 暂时无法工作，提示 `Illegal instruction`; 参见 https://github.com/ruyisdk/support-matrix/issues/215
+> 注：如出现 `dnf` 无法运行并提示 `Illegal instruction` 的情况，可从[此处](https://github.com/Pairman/LicheeRV-Nano-Build/releases/download/20250408/fip.bin)下载并替换 `/boot/fip.bin`; 参见 https://github.com/ruyisdk/support-matrix/issues/215
 
 ### 启动信息
 
