@@ -103,17 +103,17 @@ class UploadPluginBase(ABC):
         res = []
         for dirpath, _, files in self.os.walk(matrix_path):
             for file_name in files:
-                if file_name == "update_config.json":
+                if file_name == "config.json":
                     file_path = self.os.path.join(dirpath, file_name)
                     with open(file_path, "r", encoding="utf-8") as f:
                         sep_config = self.json.load(f)
                         res.append(sep_config)
-                if file_name == "update_config.yaml" or file_name == "update_config.yml":
+                if file_name == "config.yaml" or file_name == "config.yml":
                     file_path = self.os.path.join(dirpath, file_name)
                     with open(file_path, "r", encoding="utf-8") as f:
                         sep_config = self.yaml.safe_load(f)
                         res.append(sep_config)
-                if file_name == "update_config.toml":
+                if file_name == "config.toml":
                     file_path = self.os.path.join(dirpath, file_name)
                     with open(file_path, "r", encoding="utf-8") as f:
                         sep_config = self.toml.load(f)

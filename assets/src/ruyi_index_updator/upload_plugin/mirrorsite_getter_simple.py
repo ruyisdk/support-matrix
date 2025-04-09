@@ -38,6 +38,7 @@ class MapperDecl(TypedDict):
 class InfoDecl(TypedDict):
     id: Optional[str]
     vendor: Required[str]
+    board_variant: Optional[str]
     system: Required[str]
     variant: Required[str]
 
@@ -119,6 +120,8 @@ class MirrorsiteGetter(UploadPluginBase):
         for handler in self.handler_lst:
             if self.__gen_ident(handler) != info:
                 continue
+            if board_variant is not None and board_variant != handler.get("board_variant", None):
+                continue
             if handler.get("name_mapper") is not None:
                 if handler["name_mapper"].get("type") is None or \
                         handler["name_mapper"]["type"] == "regex":
@@ -134,6 +137,8 @@ class MirrorsiteGetter(UploadPluginBase):
         res = []
         for handler in self.handler_lst:
             if self.__gen_ident(handler) != info:
+                continue
+            if board_variant is not None and board_variant != handler.get("board_variant", None):
                 continue
             name = self.util.file_id(info, board_variant, None)
             res.append(name)
@@ -154,6 +159,9 @@ class MirrorsiteGetter(UploadPluginBase):
     def handle_version(self, info):
         for handler in self.handler_lst:
             if self.__gen_ident(handler) != info:
+                continue
+            if handler.get("board_variant", None) is not None and \
+                handler["board_variant"] not in info.board_variants:
                 continue
             return self.__handle_version(info, handler)
         raise RuntimeError(f"No handler found for {info}")
@@ -214,6 +222,9 @@ class MirrorsiteGetter(UploadPluginBase):
         for handler in self.handler_lst:
             if self.__gen_ident(handler) != info:
                 continue
+            if handler.get("board_variant", None) is not None and \
+                handler["board_variant"] not in info.board_variants:
+                continue
             img_url = self.__get_mirrorsite_asset(info, handler)
             img_name = self.urlbasename(img_url)
             img_path = self.os.path.join(
@@ -241,7 +252,7 @@ class MirrorsiteGetter(UploadPluginBase):
                 status=info.raw_data.status
             )
             return {
-                self.util.file_id(info, None, None): generator
+                self.util.file_id(info, handler.get("board_variant", None), None): generator
             }
 
         raise RuntimeError(f"No handler found for {info}")

@@ -79,7 +79,8 @@ class RuyiGitRepo:
         """
         prs = self.upstream.get_pulls(state="open")
         for pr in prs:
-            if pr.head.ref == head and pr.base.ref == base:
+            head_remove_user = head.split(":")[-1]
+            if pr.head.ref == head_remove_user and pr.base.ref == base:
                 return True
         return False
 

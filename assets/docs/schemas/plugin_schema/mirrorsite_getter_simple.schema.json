@@ -8,6 +8,17 @@
             "type": "string",
             "description": "The vendor of the system which this config represents"
         },
+        "board_variant": {
+            "anyOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "null"
+                }
+            ],
+            "description": "The board variant of the system which this config represents\n"
+        },
         "system": {
             "type": "string",
             "description": "The system's id of the system which this config represents"
@@ -16,7 +27,8 @@
             "anyOf": [
                 {
                     "type": "string"
-                },                 {
+                },
+                {
                     "type": "null"
                 }
             ],

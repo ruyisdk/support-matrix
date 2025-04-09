@@ -83,15 +83,19 @@ def system_id(info: SystemInfo | SystemIdentifier, board_variant: str | None) ->
     if system == 'buildroot':
         system = 'buildroot-sdk'
 
+    system_vendor = info.vendor
+
     if info.variant is None or info.variant == '':
         system_variant = ''
     else:
         system_variant = f"-{info.variant}"
 
     if board_variant is None or board_variant == 'generic':
-        return f"{system}-{info.vendor}{system_variant}"
+        board_variant = ''
+    else:
+        board_variant = f"-{board_variant}"
 
-    return f"{system}-{info.vendor}{system_variant}-{board_variant}"
+    return f"{system}-{system_vendor}{board_variant}{system_variant}"
 
 
 def file_id(info: SystemInfo | SystemIdentifier,
@@ -102,14 +106,8 @@ def file_id(info: SystemInfo | SystemIdentifier,
     # This map should be removed.
     # But some changes in packages-index is needed.
     # So we need to keep it for now.
-    system = info.system
-    if system == 'openeuler':
-        system = 'oerv'
+    sys_id = system_id(info, board_variant)
 
-    if info.variant is None or info.variant == '':
-        system_variant = ''
-    else:
-        system_variant = f"-{info.variant}"
     if file_prepend is None or file_prepend == '':
         prepend = ''
     else:
@@ -118,7 +116,5 @@ def file_id(info: SystemInfo | SystemIdentifier,
         append = ''
     else:
         append = f"{file_append}-"
-    if board_variant is None or board_variant == 'generic':
-        return f"{prepend}{system}-{info.vendor}{system_variant}{append}"
 
-    return f"{prepend}{system}-{info.vendor}{system_variant}-{board_variant}{append}"
+    return f"{prepend}{sys_id}{append}"
