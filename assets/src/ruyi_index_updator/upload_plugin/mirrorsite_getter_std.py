@@ -300,6 +300,7 @@ class MirrorsiteGetter(UploadPluginBase):
             desc=self.__gen_desc(info, fileset)
             generator=self.BoardImagesGenerator(
                 version=self.__handle_version(info, handler),
+                upstream_version=info.version,
                 desc=desc,
                 vendor=info.vendor,
                 distfiles=distfiles,

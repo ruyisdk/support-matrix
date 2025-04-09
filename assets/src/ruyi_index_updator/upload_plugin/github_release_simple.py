@@ -225,6 +225,7 @@ class GithubReleaseGetter(UploadPluginBase):
             }
             generator = self.BoardImagesGenerator(
                 version=self.handle_version(info),
+                upstream_version=info.version,
                 desc=desc,
                 vendor=info.vendor,
                 distfiles=[img_dist],

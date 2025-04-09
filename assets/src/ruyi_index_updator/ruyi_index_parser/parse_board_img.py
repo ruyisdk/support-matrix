@@ -64,6 +64,7 @@ class BoardImages:
 class BoardImagesGenerator:
     def __init__(self,
                  version: str,
+                 upstream_version: str,
                  desc: str,
                  vendor: str,
                  distfiles: list[DistfileDeclType],
@@ -71,6 +72,7 @@ class BoardImagesGenerator:
                  status: ImageStatus,  # Good/CFT/CFH
                  partition_map: dict[str, str]):
         self.version = version
+        self.upstream_version = upstream_version
         self.desc = desc
         self.vendor = vendor
         self.distfiles = distfiles
@@ -98,7 +100,8 @@ class BoardImagesGenerator:
                     "name": self.vendor,
                     "eula": ""
                 },
-                "service_level": service_level
+                "service_level": service_level,
+                "upstream_version": self.upstream_version,
             },
             "distfiles": self.distfiles,
             "blob": {
