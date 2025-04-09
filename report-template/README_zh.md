@@ -1,11 +1,11 @@
-# Report Template Overview
+# 报告模板概述
 
-This section provides report templates for different development boards and operating systems, designed to help contributors document and share their test results. Each template includes the necessary structure and format to ensure clarity and consistency of information.
+这里提供了针对不同开发板和操作系统的报告模板，旨在帮助贡献者记录和分享他们的测试结果。每个模板都包含了必要的结构和格式，以确保信息的清晰和一致性。
 
-## Usage Guidelines
+## 使用说明
 
-1. **Report Template for Development Boards**: Located at `report-template/[board-name]/README.md`, used to record basic information, hardware specifications, supported operating systems, and test results for specific development boards.
+1. **针对开发板的报告模板**：位于 `report-template/[board-name]/README.md`，用于记录特定开发板的基本信息、硬件规格、支持的操作系统及测试结果。
 
-2. **Test Report Template for Operating Systems**: Located at `report-template/[board-name]/[os-name]/README.md`, used to record the testing environment, installation steps, expected results, actual results, and test conclusions for specific operating systems.
+2. **针对操作系统的测试报告模板**：位于 `report-template/[board-name]/[os-name]/README.md`，用于记录特定操作系统的测试环境、安装步骤、预期结果、实际结果及测试结论。
 
-Please fill in and modify the corresponding template content according to the specific development board and operating system.
+请根据具体的开发板和操作系统，填充和修改相应的模板内容。

@@ -3,6 +3,8 @@ product: [Development Board Name]
 vendor: [Vendor Name]
 cpu: [CPU Model]
 cpu_core: [CPU Core Architecture]
+
+board_variant: [Board Variant] # e.g., 8g/16g version
 ---
 
 # [Development Board Name]

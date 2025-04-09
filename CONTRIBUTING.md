@@ -64,6 +64,7 @@ vendor: _     # Vendor identifier (lowercase letters + underscores)
 product: _    # Full product name
 cpu: _        # Processor model
 cpu_core: _   # CPU core architecture
+board_variant: [] # Board variant (optional, like 8g/16g version)
 ---
 ```
 
@@ -72,7 +73,7 @@ Note that some boards currently lack the vendor field, which can be left empty. 
 ```yaml
 # /Board/OS/README.md
 sys: armbian          # System identifier (refer to assets/metadata.yml)
-sys_ver: 24.05        # System version (preferably using semantic versioning)
+sys_ver: "24.05"        # System version (Should be the same as the one of the image, shouldn't add any extra part to match other format like semantic versioning. Prepend `v` is optional. *Notice: something like `24.05` would be seen as a number, so please add quotation if necessary*)
 sys_var: minimal      # Variant identifier (optional)
 status: basic         # Support status (none/wip/cft/cfh/cfi/partial/basic/good)
 last_updated: 2024-03-01  # Last update date
@@ -86,11 +87,9 @@ The LTS identifier exists in some sys_var fields as a variant for historical rea
 Ideally, Ubuntu 24.04.1 in NeZha-D1s/Ubuntu/README_LTS.md should be written as:
 
 ```yaml
-sys_ver: 24.04-LTS-SP1        # System version (preferably using semantic versioning)
+sys_ver: 24.04-LTS-SP1        # System version (Should be the same as the one of the image, shouldn't add any extra part to match other format like semantic versioning. Prepend `v` is optional.)
 sys_var: LTS                  # Variant identifier (optional)
 ```
-
-It's best to ensure that sys_ver can be correctly matched by `(v)?(\d+)\.(\d+)(\.(\d+))?((-(?:(?!SP)\w+))*)(-SP(\d+))?((-(\w+))*)?((\+(\w+))*)?`. Otherwise, you might have to rewrite some CI scripts.
 
 If there are any parts that are still unclear, please contact @wychlw.
 
