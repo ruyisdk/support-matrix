@@ -64,6 +64,7 @@ vendor: _     # 厂商标识（小写字母+下划线）
 product: _    # 产品全称
 cpu: _        # 处理器型号
 cpu_core: _   # CPU 核心架构
+board_variant: [] # 开发板变体（可选，如 8g/16g 版本）
 ---
 ```
 
@@ -72,7 +73,7 @@ vendor 字段目前有部分板子暂缺，可以留空。如需填写，需要�
 ```yaml
 # /开发板/发行版/README.md
 sys: armbian          # 系统标识（参考 assets/metadata.yml）
-sys_ver: 24.05        # 系统版本（尽量采用语义化版本号）
+sys_ver: "24.05"        # 系统版本（应当和镜像的版本相同，不要强行加入其余部分来满足如语义化版本号等格式。前导 `v` 可省略。 *注意：如 `24.05` 会被视为一个数字，必要时请添加引号。*）
 sys_var: minimal      # 变体标识（可选）
 status: basic         # 支持状态（none/wip/cft/cfh/partial/basic/good）
 last_updated: 2024-03-01  # 报告最后更新时间
@@ -86,11 +87,9 @@ LTS 标识因历史原因存在于部分 sys_var 中作为变体，但目前通�
 理想情况下 NeZha-D1s/Ubuntu/README_LTS.md 中 Ubuntu 24.04.1 应当写作：
 
 ```yaml
-sys_ver: 24.04-LTS-SP1        # 系统版本（尽量采用语义化版本号）
+sys_ver: 24.04-LTS-SP1        # 系统版本（应当和镜像的版本相同，不要强行加入其余部分来满足如语义化版本号等格式。前导 `v` 可省略）
 sys_var: LTS                  # 变体标识（可选）
 ```
-
-最好保证 sys_ver 可被 `(v)?(\d+)\.(\d+)(\.(\d+))?((-(?:(?!SP)\w+))*)(-SP(\d+))?((-(\w+))*)?((\+(\w+))*)?` 正确匹配。否则你可能不得不改写一些 CI 脚本。
 
 如还有不清楚的部分，可以联系 @wychlw。
 
