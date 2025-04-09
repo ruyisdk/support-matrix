@@ -1,9 +1,9 @@
 ---
 sys: bianbu
 sys_ver: 2.1.1
-sys_var: minimal
+sys_var: desktop
 
-status: basic
+status: good
 last_update: 2025-04-09
 ---
 
@@ -13,7 +13,7 @@ last_update: 2025-04-09
 
 ### System Information
 
-- System version: v2.1.1-minimal
+- System version: v2.1.1-desktop
 - Download Links: https://archive.spacemit.com/image/k1/version/bianbu/v2.1.1/
 - Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 
@@ -32,8 +32,8 @@ last_update: 2025-04-09
 After downloading and extracting the image, use `dd` to flash the image to the microSD card.
 
 ```bash
-unzip bianbu-24.04-minimal-k1-v2.1.1-release-20250305135614.img.zip
-sudo dd if=/path/to/bianbu-24.04-minimal-k1-v2.1.1-release-20250305135614.img of=/dev/your-device bs=1M status=progress
+unzip bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.img.zip
+sudo dd if=/path/to/bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.img of=/dev/your-device bs=1M status=progress
 ```
 
 ### Flashing the Image (eMMC)
@@ -42,7 +42,7 @@ sudo dd if=/path/to/bianbu-24.04-minimal-k1-v2.1.1-release-20250305135614.img of
 After downloading and extracting the image, use `fastboot` to flash the image to the eMMC.
 
 ```bash
-unzip bianbu-24.04-minimal-k1-v2.1.1-release-20250305135614.zip
+unzip bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.zip
 ```
 
 Hold the left two butten while power on/RST, to enter the fastboot mode. You shall see the dfu-device in your system:
@@ -50,7 +50,6 @@ Hold the left two butten while power on/RST, to enter the fastboot mode. You sha
 ❯ sudo fastboot devices
 dfu-device       DFU download
 ```
-
 
 ```bash
 sudo fastboot stage factory/FSBL.bin
@@ -72,6 +71,10 @@ sudo fastboot flash rootfs rootfs.ext4
 
 ### Logging into the System
 
+Via HDMI, you shall see a installation wizard, follow the steps to finish the installation.
+
+![install](./install.png)
+
 Logging into the system via the serial port.
 
 Default Username: `root`
@@ -87,14 +90,22 @@ The system booted successfully and login via the onboard serial port was also su
 
 ### Boot Log
 
+![desktop](./desktop.png)
+
 Screen recording (from flashing image to login):
-[![asciicast](https://asciinema.org/a/KGqFAwu9El6XgX9oRcLM2lptd.svg)](https://asciinema.org/a/KGqFAwu9El6XgX9oRcLM2lptd)
+[![asciicast](https://asciinema.org/a/DccEGnEWhMhgK5Mn40goFFk2m.svg)](https://asciinema.org/a/DccEGnEWhMhgK5Mn40goFFk2m)
 
 ```log
 Welcome to Bianbu 2.1.1 (GNU/Linux 6.6.63 riscv64)
 
  * Documentation:  https://bianbu.spacemit.com
  * Support:        https://ticket.spacemit.com
+
+0 updates can be applied immediately.
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
 
 The programs included with the Bianbu system are free software;
 the exact distribution terms for each program are described in the
@@ -199,6 +210,7 @@ uarch           : spacemit,x60
 mvendorid       : 0x710
 marchid         : 0x8000000058000001
 mimpid          : 0x1000000049772200
+
 ```
 
 ## Test Criteria

@@ -1,64 +1,56 @@
----
-sys: bianbu
-sys_ver: 2.1.1
-sys_var: minimal
+# Bianbu 香蕉派 BPI-F3 测试报告
 
-status: basic
-last_update: 2025-04-09
----
+## 测试环境
 
-# Bianbu Banana Pi BPI-F3 Test Report
+### 系统信息
 
-## Test Environment
+- 系统版本：v2.1.1-desktop
+- 下载链接：https://archive.spacemit.com/image/k1/version/bianbu/v2.1.1/
+- 参考安装文档：https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
 
-### System Information
+### 硬件信息
 
-- System version: v2.1.1-minimal
-- Download Links: https://archive.spacemit.com/image/k1/version/bianbu/v2.1.1/
-- Reference Installation Document: https://docs.banana-pi.org/en/BPI-F3/GettingStarted_BPI-F3
+- 香蕉派 BPI-F3
+- 电源适配器
+- microSD 卡一张 （如果刷写到 SD 卡）
+- USB to UART 调试器一个
 
-### Hardware Information
+## 安装步骤
 
-- Banana Pi BPI-F3
-- Power Adapter
-- A microSD Card (If flash to SD card)
-- A USB to UART Debugger
+### 刷写镜像（sd 卡）
 
-## Installation Steps
 
-### Flashing the Image (SD Card)
-
-**Please make sure to choose the file ending with `.img.zip`**
-After downloading and extracting the image, use `dd` to flash the image to the microSD card.
+**请务必选择以 `.img.zip` 结尾的压缩包**
+下载并解压镜像后，使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
-unzip bianbu-24.04-minimal-k1-v2.1.1-release-20250305135614.img.zip
-sudo dd if=/path/to/bianbu-24.04-minimal-k1-v2.1.1-release-20250305135614.img of=/dev/your-device bs=1M status=progress
+unzip bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.img.zip
+sudo dd if=/path/to/bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.img of=/dev/your-device bs=1M status=progress
 ```
 
-### Flashing the Image (eMMC)
+### 刷写镜像（eMMC）
 
-**Please make sure to choose the file ending without `img`**
-After downloading and extracting the image, use `fastboot` to flash the image to the eMMC.
+**请务必选择不包含 `img` 的压缩包**
+下载并解压镜像后，使用 `fastboot` 将镜像刷写到 eMMC。
 
 ```bash
-unzip bianbu-24.04-minimal-k1-v2.1.1-release-20250305135614.zip
+unzip bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.zip
 ```
 
-Hold the left two butten while power on/RST, to enter the fastboot mode. You shall see the dfu-device in your system:
+按住左侧两个按键开机/复位，进入 fastboot 模式。你可以在系统中看到 dfu-device：
+
 ```log
 ❯ sudo fastboot devices
 dfu-device       DFU download
 ```
 
-
 ```bash
 sudo fastboot stage factory/FSBL.bin
 sudo fastboot continue
-# Wait for 1 sec
+# 等待 1 秒
 sudo fastboot stage u-boot.itb
 sudo fastboot continue
-# Wait for 1 sec
+# 等待 1 秒
 sudo fastboot flash gpt partition_universal.json
 sudo fastboot flash bootinfo factory/bootinfo_sd.bin
 sudo fastboot flash fsbl factory/FSBL.bin
@@ -69,32 +61,43 @@ sudo fastboot flash bootfs bootfs.ext4
 sudo fastboot flash rootfs rootfs.ext4
 ```
 
+### 登录系统
 
-### Logging into the System
+第一次启动时，通过 HDMI 连接后，能看到安装向导，跟随步骤完成安装。
 
-Logging into the system via the serial port.
+![install](./install.png)
 
-Default Username: `root`
-Default Password: `bianbu`
+通过串口登录系统。
 
-## Expected Results
+默认用户名： `root`
+默认密码： `bianbu`
 
-The system should boot normally and allow login via the onboard serial port.
+## 预期结果
 
-## Actual Results
+系统正常启动，能够通过板载串口登录。
 
-The system booted successfully and login via the onboard serial port was also successful.
+## 实际结果
 
-### Boot Log
+系统正常启动，成功通过板载串口登录。
 
-Screen recording (from flashing image to login):
-[![asciicast](https://asciinema.org/a/KGqFAwu9El6XgX9oRcLM2lptd.svg)](https://asciinema.org/a/KGqFAwu9El6XgX9oRcLM2lptd)
+### 启动信息
+
+![desktop](./desktop.png)
+
+屏幕录像（从刷写镜像到登录系统）：
+[![asciicast](https://asciinema.org/a/DccEGnEWhMhgK5Mn40goFFk2m.svg)](https://asciinema.org/a/DccEGnEWhMhgK5Mn40goFFk2m)
 
 ```log
 Welcome to Bianbu 2.1.1 (GNU/Linux 6.6.63 riscv64)
 
  * Documentation:  https://bianbu.spacemit.com
  * Support:        https://ticket.spacemit.com
+
+0 updates can be applied immediately.
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
 
 The programs included with the Bianbu system are free software;
 the exact distribution terms for each program are described in the
@@ -199,14 +202,15 @@ uarch           : spacemit,x60
 mvendorid       : 0x710
 marchid         : 0x8000000058000001
 mimpid          : 0x1000000049772200
+
 ```
 
-## Test Criteria
+## 测试判定标准
 
-Successful: The actual result matches the expected result.
+测试成功：实际结果与预期结果相符。
 
-Failed: The actual result does not match the expected result.
+测试失败：实际结果与预期结果不符。
 
-## Test Conclusion
+## 测试结论
 
-Test successful.
+成功
