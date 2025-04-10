@@ -101,6 +101,7 @@ irradium 3.7
 | NixOS 镜像构建及启动     | N/A      | [成功][NixOS]                          |
 | eweOS 镜像构建及启动     | N/A      | [成功][eweOS]                          |
 | irradium 镜像启动        | N/A      | [成功][irradium]                       |
+| Guix System 镜像启动        | N/A      | [CFT][guix]                       |
 
 [oERV]: ./openEuler/README_zh.md
 [Debian]: ./Debian/README_zh.md
@@ -125,3 +126,4 @@ irradium 3.7
 [NixOS]: ./NixOS/README_zh.md
 [eweOS]: ./eweOS/README_zh.md
 [irradium]: ./irradium/README.md
+[Guix]: ./Guix/README_zh.md
