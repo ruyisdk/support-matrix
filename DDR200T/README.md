@@ -2,6 +2,7 @@
 product: Nuclei DDR200T
 cpu: GD32VF103
 cpu_core: Nuclei Bumblebee
+ram: 32KB(SRAM) + 128KB(Flash)
 ---
 
 # Nuclei DDR200T

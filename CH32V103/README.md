@@ -2,6 +2,7 @@
 product: CH32V103-EVT
 cpu: CH32V103
 cpu_core: QingKe V3A
+ram: 20KB(SRAM) + 64KB(Flash)
 ---
 
 # CH32V103C

@@ -2,6 +2,7 @@
 product: VisionFive 2
 cpu: JH7110
 cpu_core: SiFive U74 + SiFive S7 + SiFive E24
+ram: 2G/4G/8G
 ---
 
 # StarFive VisionFive 2
@@ -68,14 +69,14 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 - eweOS
     - Source code Link: https://github.com/panglars/eweos-vf2-mainline
     - Reference Installation Document: https://github.com/panglars/eweos-vf2-mainline/blob/main/README.md
-- irradium 3.7 
+- irradium 3.7
     - Download Link: https://dl.irradium.org/irradium/images/visionfive_2/
     - Reference Installation Document: https://dl.irradium.org/irradium/images/visionfive_2/README.TXT
 - Guix System
     - Download Link: https://ci.guix.gnu.org/search/latest?query=spec:images+status:success+system:x86_64-linux+visionfive2-barebones-raw-image
     - Reference Installation Document: https://github.com/Z572/guix-riscv-channel#visionfive2milk-v-mars
-    
-    
+
+
 ### Hardware Information
 
 - StarFive VisionFive 2

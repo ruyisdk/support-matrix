@@ -2,6 +2,7 @@
 product: RV-STAR
 cpu: GD32VF103
 cpu_core: Nuclei Bumblebee
+ram: 32KB(SRAM) + 128KB(Flash)
 ---
 
 # RV-STAR

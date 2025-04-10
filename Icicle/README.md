@@ -2,6 +2,7 @@
 product: PolarFire FPGA SoC Icicle Kit
 cpu: MPFS250T
 cpu_core: SiFive U54 + SiFive E51
+ram: 2G
 ---
 
 # Microchip Polarfire SoC FPGA Icicle Kit
@@ -63,4 +64,3 @@ cpu_core: SiFive U54 + SiFive E51
 [FreeRTOS]: ./FreeRTOS/README.md
 [Zephyr]: ./Zephyr/README.md
 [NuttX]: ./NuttX/README.md
-

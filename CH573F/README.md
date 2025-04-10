@@ -2,6 +2,7 @@
 product: CH573F-EVT
 cpu: CH573F
 cpu_core: QingKe V3A
+ram: 18KB(SRAM) + 512KB(Flash)
 ---
 
 
@@ -31,4 +32,3 @@ cpu_core: QingKe V3A
 
 [FreeRTOS]: ./FreeRTOS/README.md
 [RTThread]: ./RT-Thread/README.md
-
