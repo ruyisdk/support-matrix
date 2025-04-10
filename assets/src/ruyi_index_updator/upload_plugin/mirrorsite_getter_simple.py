@@ -120,7 +120,9 @@ class MirrorsiteGetter(UploadPluginBase):
         for handler in self.handler_lst:
             if self.__gen_ident(handler) != info:
                 continue
-            if board_variant is not None and board_variant != handler.get("board_variant", None):
+            if board_variant is not None \
+                and handler.get("board_variant", None) is not None \
+                and board_variant != handler.get("board_variant", None):
                 continue
             if handler.get("name_mapper") is not None:
                 if handler["name_mapper"].get("type") is None or \
@@ -138,7 +140,9 @@ class MirrorsiteGetter(UploadPluginBase):
         for handler in self.handler_lst:
             if self.__gen_ident(handler) != info:
                 continue
-            if board_variant is not None and board_variant != handler.get("board_variant", None):
+            if board_variant is not None \
+                and handler.get("board_variant", None) is not None \
+                and board_variant != handler.get("board_variant", None):
                 continue
             if board_variant is not None:
                 name = self.util.file_id(info, board_variant, None)
