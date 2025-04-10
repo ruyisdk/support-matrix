@@ -1,0 +1,26 @@
+# $schema: ../../assets/docs/schemas/config.schema.json
+# yaml-language-server: $schema=../../assets/docs/schemas/config.schema.json
+
+# This file has a schema, ypu can read it to get additional definations
+# Suggest use: yaml-language-server in vscode to see comments and auto-complitions
+
+util:
+    date_middle_mapper: &date_middle_mapper
+        version_mapper:
+            regex: '(.*)'
+            mapper: '0.{0}.0'
+
+handler:
+    -   plugin: mirrorsite_getter_simple
+        vendor: milkv-pioneer
+        system: revyos
+        variant: null
+        url:
+            regex: .*
+            mapper: https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/{0}/
+        file_filter:
+            filter: ^revyos-pioneer.*\.img.*(?<!sum)$
+        <<: 
+            - *date_middle_mapper
+        desc_mapper:
+            mapper: RevyOS {info.version} image for Milk-V Pioneer Box with SG2042
