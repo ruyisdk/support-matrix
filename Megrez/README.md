@@ -19,6 +19,9 @@ cpu_core: SiFive P550
 - Fedora 41
     - Download Link: https://images.fedoravforce.org/Megrez
     - Reference Installation Document: https://milkv.io/zh/docs/megrez/getting-started/boot
+- Guix System
+    - Download Link: https://github.com/Z572/guix-riscv-channel/releases
+    - Reference Installation Document: https://github.com/Z572/guix-riscv-channel#megrez
 
 ### Hardware Information
 
@@ -30,6 +33,8 @@ cpu_core: SiFive P550
 |-------------------------|--------------|---------------------------------|
 | RockOS Image Boot       | N/A          | [Good][RockOS]                   |
 | Fedora Image Boot       | N/A          | [CFT][Fedora]                   |
+| Guix System Image Boot  | N/A          | [CFT][Guix]                   |
 
 [RockOS]: ./RockOS/README.md
 [Fedora]: ./Fedora/README.md
+[Guix]: ./Guix/README.md
