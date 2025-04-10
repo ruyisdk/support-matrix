@@ -2,7 +2,7 @@
 product: Sipeed M0 sense
 cpu: BL702
 cpu_core: SiFive E24
-ram: 132KB(RAM) + 192(ROM) + 512KB(Flash)
+ram: 132KB
 ---
 
 # Sipeed M0sense

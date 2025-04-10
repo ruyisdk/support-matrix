@@ -2,7 +2,7 @@
 product: Sipeed M0s Dock
 cpu: BL616
 cpu_core: XuanTie E907
-ram: 480KB(SRAM) + 4MB(Flash)
+ram: 480KB(SRAM)
 ---
 
 # Sipeed M0s

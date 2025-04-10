@@ -2,7 +2,7 @@
 product: Longan Nano
 cpu: GD32VF103
 cpu_core: Nuclei Bumblebee
-ram: 32KB(SRAM) + 128KB(Flash)
+ram: 32KB(SRAM)
 ---
 
 # Longan Nano
