@@ -2,6 +2,7 @@
 product: DongShanPI D1s
 cpu: D1s
 cpu_core: XuanTie C906
+ram: 64MB
 ---
 
 # DongshanPI-D1s

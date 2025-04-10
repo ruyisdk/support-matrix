@@ -3,6 +3,7 @@ vendor: milkv_megrez
 product: Milk-V Megrez
 cpu: EIC7700X
 cpu_core: SiFive P550
+ram: 8G/16G/32G
 ---
 
 # Milk-V Megrez
@@ -14,7 +15,7 @@ cpu_core: SiFive P550
 - RockOS
     - Project Link: https://github.com/rockos-riscv
     - Reference Installation Document
-        - https://milkv.io/zh/docs/megrez/getting-started/boot 
+        - https://milkv.io/zh/docs/megrez/getting-started/boot
         - https://rockos-riscv.github.io/rockos-docs/docs/installation
 - Fedora 41
     - Download Link: https://images.fedoravforce.org/Megrez

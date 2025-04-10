@@ -2,6 +2,7 @@
 product: Sipeed M0s Dock
 cpu: BL616
 cpu_core: XuanTie E907
+ram: 480KB(SRAM)
 ---
 
 # Sipeed M0s
@@ -15,7 +16,7 @@ cpu_core: XuanTie E907
     - Toolchain: [https://gitee.com/bouffalolab/toolchain_gcc_t-head_linux](https://gitee.com/bouffalolab/toolchain_gcc_t-head_linux)
   - Reference Installation Document: [https://github.com/sipeed/M0S_BL616_example](https://github.com/sipeed/M0S_BL616_example)
     - [https://bl-mcu-sdk.readthedocs.io/zh-cn/latest/get_started/get_started.html](https://bl-mcu-sdk.readthedocs.io/zh-cn/latest/get_started/get_started.html)
-  
+
 ### Hardware Information
 
 - Sipeed M0s Dock

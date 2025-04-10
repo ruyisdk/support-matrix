@@ -2,6 +2,7 @@
 product: VisionFive
 cpu: JH7100
 cpu_core: SiFive U74 + SiFive E24
+ram: 2G/4G/8G
 ---
 
 # StarFive VisionFive

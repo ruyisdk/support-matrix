@@ -2,6 +2,7 @@
 product: CH582F-EVT
 cpu: CH582F
 cpu_core: QingKe V4A
+ram: 32KB(SRAM)
 ---
 
 
@@ -29,4 +30,3 @@ cpu_core: QingKe V4A
 
 [FreeRTOS]: ./FreeRTOS/README.md
 [RTThread]: ./RT-Thread/README.md
-

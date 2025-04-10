@@ -3,6 +3,7 @@ vendor: milkv_mars
 product: Milk-V Mars
 cpu: JH7110
 cpu_core: SiFive U74 + SiFive S7 + SiFive E24
+ram: 1G/2G/4G/8G
 ---
 
 # Milk-V Mars
@@ -32,7 +33,7 @@ cpu_core: SiFive U74 + SiFive S7 + SiFive E24
   - Download Link: <https://mirror.iscas.ac.cn/fedora-riscv/dl/StarFive/visionfive2/images/fedora-disk-gnome-workstation_starfive_vf2_f41_20241201091200.raw.gz>
   - Reference Installation Document:
     1. <https://milkv.io/zh/docs/mars/getting-started/boot>
-    2. <https://images.fedoravforce.org/Mars>  
+    2. <https://images.fedoravforce.org/Mars>
 
 ### Hardware Information
 

@@ -2,6 +2,7 @@
 product: CH32V208-EVT
 cpu: CH32V208
 cpu_core: QingKe V4C
+ram: 64KB(SRAM)
 ---
 
 # CH32V208
@@ -31,4 +32,3 @@ cpu_core: QingKe V4C
 [FreeRTOS]: ./FreeRTOS/README.md
 [RTThread]: ./RT-Thread/README.md
 [LiteOS]: ./LiteOS/README.md
-
