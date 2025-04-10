@@ -1,5 +1,5 @@
 ---
-vendor: sipeed_licheervnano
+vendor: sipeed-licheervnano
 product: LicheeRV Nano
 cpu: SG2002
 cpu_core: XuanTie C906 + ARM Cortex-A53
