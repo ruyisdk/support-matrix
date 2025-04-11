@@ -1,0 +1,54 @@
+# $schema: ../../assets/docs/schemas/config.schema.json
+# yaml-language-server: $schema=../../assets/docs/schemas/config.schema.json
+
+# This file has a schema, ypu can read it to get additional definations
+# Suggest use: yaml-language-server in vscode to see comments and auto-complitions
+
+util:
+    general_ver_mapper: &general_ver_mapper
+    # this version mapper cam map any version like (v?)a.b(.c)?(-*)*(-sp*)*(-*)
+        version_mapper:
+            type: lambda
+            mapper: 'lambda ver, info: [(m := re.match(r"(v)?0*(\d+)\.0*(\d+)(\.0*(\d+))?((-(?:(?!SP)\w+))*)(-SP(\d+))?((-(\w+))*)?((\+(\w+))*)?", ver), f"{m[2]}.{m[3]}.{m[5] or 0}-{m[9] or 0}{m[6] or ""}{m[10] or ""}{m[13] or ""}")[-1] for re in [__import__("re")]][0]'
+
+handler:
+    -   plugin: mirrorsite_getter_std
+        vendor: sipeed-lpi4a
+        system: openeuler
+        variant: LTS
+        board_variants: [ 8g ]
+        <<: 
+            - *general_ver_mapper
+        strategy: fastboot-v1
+        fileset:
+            -   id: 'main'
+                board_variants: null
+                desc_mapper:
+                    mapper: 'openEuler {info.version} image for Sipeed LicheePi 4A'
+            -   id: 'uboot-8g'
+                prepend: 'uboot'
+                board_variants: [ 8g ]
+                desc_mapper:
+                    mapper: 'U-Boot image for LicheePi 4A (8G RAM) and openEuler {info.version}'
+        files:
+            -   id: "boot file"
+                fileset: [ main ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "boot" in name and "u-boot" not in name and "sha" not in name'
+                partition_map: "boot"
+            -   id: "root file"
+                fileset: [ main ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "root" in name and "sha" not in name'
+                partition_map: "root"
+            -   id: "uboot 8g file"
+                fileset: [ uboot-8g ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "u-boot" in name and "16g" not in name and "sha" not in name'
+                partition_map: "uboot"
+        url:
+            regex: (.*)
+            mapper: 'https://fast-mirror.isrc.ac.cn/openeuler/openEuler-{0}/embedded_img/riscv64/lpi4a/'
