@@ -84,7 +84,7 @@ ram: 2G/4G/8G
 ## Test Results
 
 | Software Category     | Software Package | Test Results (Test Report)                        |
-|-----------------------|------------------|---------------------------------------------------|
+| --------------------- | ---------------- | ------------------------------------------------- |
 | openEuler/Base Image  | N/A              | [Successful][oERV]                                |
 | openEuler/Xfce Image  | Xfce             | [Successful][oERV]                                |
 | Debian Image          | N/A              | [Successful][Debian] (Official StarFive Image)    |
@@ -110,7 +110,7 @@ ram: 2G/4G/8G
 | NixOS Image           | N/A              | [Successful][NixOS]                               |
 | eweOS Image           | N/A              | [Successful][eweOS]                               |
 | irradium Image        | N/A              | [Successful][irradium]                            |
-| Guix System Image     | N/A              | [CFT][guix]                                       |
+| Guix System Image     | N/A              | [Successful][Guix]                                |
 
 [oERV]: ./openEuler/README.md
 [Debian]: ./Debian/README.md
