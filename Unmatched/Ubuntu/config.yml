@@ -20,7 +20,7 @@ handler:
         variant: null
         url:
             regex: v?(.*)
-            mapper: https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/{0}/release/
+            mapper: https://mirror.iscas.ac.cn/ubuntu-cdimage/releases/{0}/release/
         file_filter:
             type: lambda
             filter: 'lambda name, info: "unmatched" in name and "img" in name and "zsync" not in name'
@@ -33,7 +33,7 @@ handler:
         variant: LTS
         url:
             regex: v?(.*)
-            mapper: https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/{0}/release/
+            mapper: https://mirror.iscas.ac.cn/ubuntu-cdimage/releases/{0}/release/
         file_filter:
             type: lambda
             filter: 'lambda name, info: "unmatched" in name and "img" in name and "zsync" not in name'
