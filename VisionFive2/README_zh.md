@@ -61,13 +61,12 @@
 - eweOS
     - 源码链接：https://github.com/panglars/eweos-vf2-mainline
     - 参考安装文档：https://github.com/panglars/eweos-vf2-mainline/blob/main/README.md
-irradium 3.7
+- irradium 3.7
     - 下载链接：https://dl.irradium.org/irradium/images/visionfive_2/
     - 参考安装文档：https://dl.irradium.org/irradium/images/visionfive_2/README.TXT
-
-
-
-
+- Guix System
+    - 源码链接: https://git.savannah.gnu.org/cgit/guix.git/tree/gnu/system/images/visionfive2.scm
+    - 下载链接: https://ci.guix.gnu.org/search/latest?query=spec:images+status:success+system:x86_64-linux+visionfive2-barebones-raw-image
 ### 硬件开发板信息
 
 - StarFive VisionFive 2
@@ -75,7 +74,7 @@ irradium 3.7
 ## 测试结果
 
 | 软件分类                 | 软件包名 | 测试结果（测试报告）                   |
-|--------------------------|----------|----------------------------------------|
+| ------------------------ | -------- | -------------------------------------- |
 | openEuler/Base 镜像启动  | N/A      | [成功][oERV]                           |
 | openEuler/Xfce 镜像启动  | Xfce     | [成功][oERV]                           |
 | Debian 镜像启动          | N/A      | [成功][Debian]（StarFive 厂商镜像）    |
@@ -101,7 +100,7 @@ irradium 3.7
 | NixOS 镜像构建及启动     | N/A      | [成功][NixOS]                          |
 | eweOS 镜像构建及启动     | N/A      | [成功][eweOS]                          |
 | irradium 镜像启动        | N/A      | [成功][irradium]                       |
-| Guix System 镜像启动        | N/A      | [CFT][guix]                       |
+| Guix System 镜像启动     | N/A      | [成功][Guix]                           |
 
 [oERV]: ./openEuler/README_zh.md
 [Debian]: ./Debian/README_zh.md
