@@ -83,6 +83,16 @@ class RuyiGitRepo:
             if pr.head.ref == head_remove_user and pr.base.ref == base:
                 return True
         return False
+    
+    def get_branch_diff(self, a: str, b: str) -> str:
+        """
+        Get the diff between head and base branch.
+        """
+        diff = self.local_repo.git.execute(
+            ["git", "diff", f"{a}...{b}"],
+            stdout_as_string=True
+        )
+        return diff
 
     def create_pr(self, title: str, body: str, self_branch: str, upstream_branch: str):
         """
@@ -97,11 +107,20 @@ class RuyiGitRepo:
             logger.error("Title: %s", title)
             logger.error("Body: \n%s\n<Body End>", body)
             return
+        diff = self.get_branch_diff(
+            "upstream/main", "HEAD"
+        )
+        if diff is None or len(diff) == 0 or diff == "":
+            logger.info("No diff found, skip PR creation")
+            return
         pr = self.upstream.create_pull(
             title=title, body=body, head=head, base=base)
         logger.info("PR created: %s at %s", pr.title, pr.html_url)
 
     def reset_to_upstream(self):
+        """
+        Reset the local repo to upstream/main.
+        """
         # self.local_repo.remote().set_url(self.upstream.ssh_url)
         # self.local_repo.remote().fetch()
 
