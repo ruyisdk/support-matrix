@@ -1,7 +1,8 @@
 ---
 sys: openeuler
-sys_ver: 24.09
+sys_ver: 24.09-20241105-v0.1
 sys_var: null
+symlink: [base, xfce]
 
 status: good
 last_update: 2025-04-05
