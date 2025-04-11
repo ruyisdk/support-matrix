@@ -93,6 +93,18 @@ sys_var: LTS                  # Variant identifier (optional)
 
 If there are any parts that are still unclear, please contact @wychlw.
 
+---
+
+Notes:
+
+Below are some fields that you may meet in the metadata header, but not listed above. These fields tend to play a specific role other tools to fill up some special demands.
+
+```yaml
+skip_sync: true/false # Whether to skip synchronization with RuyiSDK.
+link: some_link # A link to the image source. Sometimes it's difficult to generate a link to the image source, so this field is used to provide a link directly.
+symlink: [xxx, yyy] # A list which lets tools treat the current file as multiple files. Sometimes a report can cover multiple OS variants, so this field is used to provide a list of OS variants. Like, a image with or with out GUI, or a image with or without some special features.
+```
+
 ### Status Enumeration Description
 
 Refer to [README.md](./README.md) `Notes` part.

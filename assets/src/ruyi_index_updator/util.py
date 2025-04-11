@@ -7,6 +7,7 @@ import tempfile
 import shutil
 
 from awesomeversion import AwesomeVersion
+from awesomeversion.typing import AwesomeVersionStrategy
 
 from ..matrix_parser import SystemInfo, SystemIdentifier
 
@@ -33,8 +34,8 @@ def cmp_version(ver1: str, ver2: str) -> int:
     """
     Compare the version
     """
-    av1 = AwesomeVersion(ver1)
-    av2 = AwesomeVersion(ver2)
+    av1 = AwesomeVersion(ver1, ensure_strategy=AwesomeVersionStrategy.SEMVER)
+    av2 = AwesomeVersion(ver2, ensure_strategy=AwesomeVersionStrategy.SEMVER)
     if av1 > av2:
         return 1
     if av1 < av2:
@@ -44,10 +45,14 @@ def cmp_version(ver1: str, ver2: str) -> int:
 
 def remove_file_extension(name: str) -> str:
     """
-    Remove the last part of a file name,
+    Remove the last part of a file name, only works for compressed files.
     eg: a.img.zstd -> a.img
     """
-    return '.'.join(name.split('.')[:-1])
+    compressed_exts = ['zstd', 'xz', 'gz', 'bz2', 'lzma', 'lz4', 'lzo', 'z', '7z', 'zip']
+    for ext in compressed_exts:
+        if name.endswith(f".{ext}"):
+            return '.'.join(name.split('.')[:-1])
+    return name
 
 
 def board_id(info: SystemInfo | SystemIdentifier) -> str:
@@ -76,6 +81,10 @@ def system_id(info: SystemInfo | SystemIdentifier, board_variant: str | None) ->
     system = info.system
     if system == 'openeuler':
         system = 'oerv'
+    if system == 'buildroot':
+        system = 'buildroot-sdk'
+
+    system_vendor = info.vendor
 
     if info.variant is None or info.variant == '':
         system_variant = ''
@@ -83,9 +92,11 @@ def system_id(info: SystemInfo | SystemIdentifier, board_variant: str | None) ->
         system_variant = f"-{info.variant}"
 
     if board_variant is None or board_variant == 'generic':
-        return f"{system}-{info.vendor}{system_variant}"
+        board_variant = ''
+    else:
+        board_variant = f"-{board_variant}"
 
-    return f"{system}-{info.vendor}{system_variant}-{board_variant}"
+    return f"{system}-{system_vendor}{board_variant}{system_variant}"
 
 
 def file_id(info: SystemInfo | SystemIdentifier,
@@ -96,14 +107,8 @@ def file_id(info: SystemInfo | SystemIdentifier,
     # This map should be removed.
     # But some changes in packages-index is needed.
     # So we need to keep it for now.
-    system = info.system
-    if system == 'openeuler':
-        system = 'oerv'
+    sys_id = system_id(info, board_variant)
 
-    if info.variant is None or info.variant == '':
-        system_variant = ''
-    else:
-        system_variant = f"-{info.variant}"
     if file_prepend is None or file_prepend == '':
         prepend = ''
     else:
@@ -112,7 +117,5 @@ def file_id(info: SystemInfo | SystemIdentifier,
         append = ''
     else:
         append = f"{file_append}-"
-    if board_variant is None or board_variant == 'generic':
-        return f"{prepend}{system}-{info.vendor}{system_variant}{append}"
 
-    return f"{prepend}{system}-{info.vendor}{system_variant}-{board_variant}{append}"
+    return f"{prepend}{sys_id}{append}"

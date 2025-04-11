@@ -15,6 +15,8 @@ def clone_package_index(path: str):
     """
     if os.path.exists(path):
         repo = git.Repo(path)
+    elif config["unprivileged"]:
+        repo = git.Repo.clone_from(config["RUYI_PACKAGE_INDEX_FALLBACK"], path)
     else:
         repo = git.Repo.clone_from(config["RUYI_PACKAGE_INDEX"], path)
     return repo
