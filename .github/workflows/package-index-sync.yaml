@@ -15,6 +15,7 @@ name: Sync Package Index
 
 on:
   push:
+  pull_request:
   workflow_dispatch:
     inputs:
       makepr:
@@ -29,7 +30,6 @@ on:
         description: 'Output Debug'
         required: false
         default: 'false'
-  # push: # Uncomment this line to enable push event, but it is not recommended as it may cause unnecessary PRs. Use workflow_dispatch instead.
 
 jobs:
   check_should_run:
@@ -44,6 +44,37 @@ jobs:
           echo "Inputs: makepr ${{ inputs.makepr }} debuginfo ${{ inputs.debuginfo }} force ${{ inputs.force }}"
           echo "Should Run Auto: ${{ ( github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository_owner == 'ruyisdk' ) }}"
           echo "Should Run Manual: ${{ ( github.event_name == 'workflow_dispatch' ) }}"
+  check_only:
+    name: Check CI Run Only
+    runs-on: ubuntu-latest
+    if: ${{ ( github.event_name == 'pull_request') }}
+    environment: ruyi-sync
+    env:
+      CACHE_DIR: ~/cache
+      PACKAGE_INDEX_OWNER: ${{ vars.PACKAGE_INDEX_OWNER }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+          cache-dependency-path: '**/requirements*.txt'
+      - name: Load Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/cache
+          key: ${{ runner.os }}-package-index-sync
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          pip install -r assets/requirements_ruyinv.txt
+      - name: Run tool to check only
+        run: |
+          export CI_RUN_ID=${{ github.run_id }}
+          export CI_RUN_URL=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          python assets/renew_ruyi_index.py -p . -i $RUNNER_TEMP/cache --log $RUNNER_TEMP/log.txt --warn $RUNNER_TEMP/warn.txt --update_info $RUNNER_TEMP/update_info.txt --unprivileged
+
   build:
     name: Generate and Upload
     runs-on: ubuntu-latest
