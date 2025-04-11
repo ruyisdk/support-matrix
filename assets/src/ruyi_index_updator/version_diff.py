@@ -303,7 +303,11 @@ class RuyiDiff:
         if current_version is None:
             return
 
-        files = plug.system_image_files(info)
+        board_variants = info.board_variants or ["generic"]
+        files = []
+        for board_variant in board_variants:
+            new_files = plug.system_image_files(info, board_variant)
+            files.extend(new_files)
         if len(files) <= 0:
             return
 

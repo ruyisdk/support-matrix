@@ -192,10 +192,16 @@ class GithubReleaseGetter(UploadPluginBase):
             for fileset in handler["fileset"]:
                 if not self.__match_file_set(board_variant, fileset):
                     continue
+                if fileset["board_variants"] is None or len(fileset["board_variants"]) > 1:
+                    use_board_variant = None
+                elif board_variant is None and len(fileset["board_variants"]) == 1:
+                    use_board_variant=fileset["board_variants"][0]
+                else:
+                    use_board_variant = board_variant
                 prepend = fileset.get("prepend")
                 append = fileset.get("append")
                 name = self.util.file_id(
-                    info, board_variant, prepend, append
+                    info, use_board_variant, prepend, append
                 )
                 res.append(name)
         return self.unique_list(res)
