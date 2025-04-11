@@ -1,0 +1,77 @@
+# $schema: ../../assets/docs/schemas/config.schema.json
+# yaml-language-server: $schema=../../assets/docs/schemas/config.schema.json
+
+# This file has a schema, ypu can read it to get additional definations
+# Suggest use: yaml-language-server in vscode to see comments and auto-complitions
+
+util:
+    date_middle_mapper: &date_middle_mapper
+        version_mapper:
+            regex: '(.*)'
+            mapper: '0.{0}.0'
+
+handler:
+    -   plugin: mirrorsite_getter_std
+        vendor: milkv-meles
+        system: revyos
+        variant: null
+        board_variants: [ 8g, 16g ]
+        <<: *date_middle_mapper
+        strategy: fastboot-v1
+        fileset:
+            -   id: 'main'
+                board_variants: null
+                desc_mapper:
+                    mapper: 'RevyOS {info.version} image for Milk-V Meles using EMMC'
+            -   id: 'uboot-4g'
+                prepend: 'uboot'
+                board_variants: [ 4g ]
+                desc_mapper:
+                    mapper: 'U-Boot image for Milk-V Meles (4G RAM) and RevyOS {info.version}'
+            -   id: 'uboot-8g'
+                prepend: 'uboot'
+                board_variants: [ 8g ]
+                desc_mapper:
+                    mapper: 'U-Boot image for Milk-V Meles (8G RAM) and RevyOS {info.version}'
+            -   id: 'uboot-16g'
+                prepend: 'uboot'
+                board_variants: [ 16g ]
+                desc_mapper:
+                    mapper: 'U-Boot image for Milk-V Meles (16G RAM) and RevyOS {info.version}'
+        files:
+            -   id: "boot file"
+                fileset: [ main ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "boot-" in name and "u-boot" not in name'
+                partition_map: "boot"
+            -   id: "root file"
+                fileset: [ main ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "root-" in name'
+                partition_map: "root"
+            -   id: "uboot 4g file"
+                fileset: [ uboot-4g ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "u-boot-" in name and "4g" in name'
+                partition_map: "uboot"
+            -   id: "uboot 8g file"
+                fileset: [ uboot-8g ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "u-boot-" in name and "16g" not in name and "4g" not in name'
+                partition_map: "uboot"
+            -   id: "uboot 16g file"
+                fileset: [ uboot-16g ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "u-boot-" in name and "16g" in name'
+                partition_map: "uboot"
+        url:
+            regex: (.*)
+            mapper: 'https://mirror.iscas.ac.cn/revyos/extra/images/meles/{0}/'
+        name_mapper:
+            regex: (.*)
+            mapper: RevyOS image for Milk-V Meles using EMMC
