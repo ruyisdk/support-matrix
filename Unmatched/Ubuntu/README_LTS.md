@@ -1,6 +1,6 @@
 ---
 sys: ubuntu
-sys_ver: 24.04.2
+sys_ver: "24.04.2"
 sys_var: LTS
 
 status: Basic
