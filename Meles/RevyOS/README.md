@@ -1,10 +1,10 @@
 ---
 sys: revyos
-sys_ver: "20250123"
+sys_ver: 20250323
 sys_var: null
 
 status: good
-last_update: 2025-02-12
+last_update: 2025-04-11
 ---
 
 # RevyOS Meles Version Test Report
@@ -13,8 +13,8 @@ last_update: 2025-02-12
 
 ### Operating System Information
 
-- System Version: RevyOS Meles 20250123
-- Download Link: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250123/
+- System Version: RevyOS Meles 2025323
+- Download Link: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250323/
     - iw-single-line binary: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20240720/iw-single-line.bin
 - Reference Installation Document: https://milkv.io/zh/docs/meles/getting-started/boot
 
@@ -68,7 +68,7 @@ Download the firmware:
 
 ```shell
 wget https://mirror.iscas.ac.cn/revyos/extra/images/meles/20240720/iw-single-line.bin
-wget https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250123/u-boot-with-spl-meles.bin
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250323/u-boot-with-spl-meles.bin
 ```
 
 Note: choose the correct version depending on your board's RAM:
@@ -109,18 +109,24 @@ Next, execute the following commands to download, extract and flash the images t
 > If `fastboot` doesn't pick up the board or you encounter flashing issues, check the device connection and try running `fastboot` as a privileged user (i.e. `sudo`). Doing so is usually required under Linux since the default USB VID/PID is not in the default udev rules.
 
 ```shell
-wget https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250123/boot-meles-20250123_071145.ext4.zst
-wget https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250123/root-meles-20250123_071145.ext4.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250323/boot-meles-20250323_154525.ext4.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250323/root-meles-20250323_154525.ext4.zst
 zstd -T0 -dv *.ext4.zst
 sudo fastboot flash ram u-boot-with-spl-meles.bin
 sudo fastboot reboot
-sudo fastboot flash boot boot-meles-20250123_071145.ext4
-sudo fastboot flash root root-meles-20250123_071145.ext4
+sudo fastboot flash boot boot-meles-20250323_154525.ext4
+sudo fastboot flash root root-meles-20250323_154525.ext4
 ```
 
 After the flashing process, reset the board and you're good to go.
 
-It is recommended to do a system upgrade via `sudo apt update; sudo apt upgrade` after booting into the system.
+Note: the current image comes with an expired `revyos-keyring`, you'll need to the following to use `apt`
+
+```shell
+sudo sh -c 'gpg --keyserver keyserver.ubuntu.com --recv-keys 2FB3A9E77911527E && \
+            gpg --export 2FB3A9E77911527E > /etc/apt/trusted.gpg.d/revyos-keyring.gpg'
+sudo apt update; sudo apt upgrade -y
+```
 
 ### Logging into the System
 
@@ -141,11 +147,11 @@ The actual results matches the expected results.
 
 ### Boot Log
 
-[![asciicast](https://asciinema.org/a/zU5gWcQymoaNWg9Y7Oi8e50TN.svg)](https://asciinema.org/a/zU5gWcQymoaNWg9Y7Oi8e50TN)
+[![asciicast](https://asciinema.org/a/BiMZAncu3nMpoGjmZQwC6HHsQ.svg)](https://asciinema.org/a/BiMZAncu3nMpoGjmZQwC6HHsQ)
 
-![](image/2025-02-12-19-11-55.png)
+![](image/2025-04-11-21-36-34.png)
 
-![](image/2025-02-12-19-11-38.png)
+![](image/2025-04-11-21-36-40.png)
 
 (The screenshots are from an HDMI capture card.)
 
