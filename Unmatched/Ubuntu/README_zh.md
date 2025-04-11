@@ -45,28 +45,19 @@ xzcat ubuntu-24.10-preinstalled-server-riscv64+unmatched.img.xz | sudo dd of=/de
 系统正常启动，能够通过板载串口登录。
 
 ## 实际结果
-<details>
-<summary>结果已过时（24.04）</summary>
+
 系统正常启动，成功通过板载串口登录。
 
 ### 启动信息
 
+（部分 `cloud-init` log 已被去除。）
+
 ```log
-Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic riscv64)
-
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/pro
-
- System information disabled due to load higher than 1.0
-
-Expanded Security Maintenance for Applications is not enabled.
-
 0 updates can be applied immediately.
 
-Enable ESM Apps to receive additional future security updates.
-See https://ubuntu.com/esm or run: sudo pro status
 
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
 
 
 The programs included with the Ubuntu system are free software;
@@ -79,69 +70,68 @@ applicable law.
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
-ubuntu@ubuntu:~$ cat /proc/cpuinfo
-processor       : 0
-hart            : 2
-isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
-mmu             : sv39
-uarch           : sifive,u74-mc
-mvendorid       : 0x489
-marchid         : 0x8000000000000007
-mimpid          : 0x20181004
-hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
-
-processor       : 1
-hart            : 1
-isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
-mmu             : sv39
-uarch           : sifive,u74-mc
-mvendorid       : 0x489
-marchid         : 0x8000000000000007
-mimpid          : 0x20181004
-hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
-
-processor       : 2
-hart            : 3
-isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
-mmu             : sv39
-uarch           : sifive,u74-mc
-mvendorid       : 0x489
-marchid         : 0x8000000000000007
-mimpid          : 0x20181004
-hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
-
-processor       : 3
-hart            : 4
-isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
-mmu             : sv39
-uarch           : sifive,u74-mc
-mvendorid       : 0x489
-marchid         : 0x8000000000000007
-mimpid          : 0x20181004
-hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
-
-ubuntu@ubuntu:~$ uname -a
-Linux ubuntu 6.8.0-31-generic #31.1-Ubuntu SMP PREEMPT_DYNAMIC Sun Apr 21 01:12:53 UTC 2024 riscv64 riscv64 riscv64 GNU/Linux
 ubuntu@ubuntu:~$ cat /etc/os-release
-PRETTY_NAME="Ubuntu 24.04 LTS"
+PRETTY_NAME="Ubuntu 24.10"
 NAME="Ubuntu"
-VERSION_ID="24.04"
-VERSION="24.04 LTS (Noble Numbat)"
-VERSION_CODENAME=noble
+VERSION_ID="24.10"
+VERSION="24.10 (Oracular Oriole)"
+VERSION_CODENAME=oracular
 ID=ubuntu
 ID_LIKE=debian
 HOME_URL="https://www.ubuntu.com/"
 SUPPORT_URL="https://help.ubuntu.com/"
 BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-UBUNTU_CODENAME=noble
+UBUNTU_CODENAME=oracular
 LOGO=ubuntu-logo
-ubuntu@ubuntu:~$
+ubuntu@ubuntu:~$ cat /proc/cpuinfo
+processor       : 0
+hart            : 1
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x20181004
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+
+processor       : 1
+hart            : 2
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x20181004
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+
+processor       : 2
+hart            : 3
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x20181004
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+
+processor       : 3
+hart            : 4
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x20181004
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd
+
+ubuntu@ubuntu:~$ uname -a
+Linux ubuntu 6.11.0-8-generic #8.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Oct  1 11:40:56 UTC 2024 riscv64 riscv64 riscv64 GNU/Linux
 ```
 
 屏幕录像：
 
-[![asciicast](https://asciinema.org/a/Rh773h5eOalKZlzjQRFrQDnjY.svg)](https://asciinema.org/a/Rh773h5eOalKZlzjQRFrQDnjY)
+[![asciicast](https://asciinema.org/a/YGiZPo96BSLnFojaCEwV370z6.svg)](https://asciinema.org/a/YGiZPo96BSLnFojaCEwV370z6)
 
 ## 测试判定标准
 
@@ -152,4 +142,3 @@ ubuntu@ubuntu:~$
 ## 测试结论
 
 测试成功。
-</details>
