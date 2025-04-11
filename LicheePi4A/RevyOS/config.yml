@@ -1,0 +1,53 @@
+# $schema: ../../assets/docs/schemas/config.schema.json
+# yaml-language-server: $schema=../../assets/docs/schemas/config.schema.json
+
+# This file has a schema, ypu can read it to get additional definations
+# Suggest use: yaml-language-server in vscode to see comments and auto-complitions
+
+util:
+    date_middle_mapper: &date_middle_mapper
+        version_mapper:
+            regex: '(.*)'
+            mapper: '0.{0}.0'
+
+handler:
+    -   plugin: mirrorsite_getter_std
+        vendor: sipeed-lpi4a
+        system: revyos
+        variant: null
+        board_variants: [ 16g ]
+        <<: 
+            - *date_middle_mapper
+        strategy: fastboot-v1
+        fileset:
+            -   id: 'main'
+                board_variants: null
+                desc_mapper:
+                    mapper: 'RevyOS {info.version} image for Sipeed LicheePi 4A'
+            -   id: 'uboot-16g'
+                prepend: 'uboot'
+                board_variants: [ 16g ]
+                desc_mapper:
+                    mapper: 'U-Boot image for LicheePi 4A (16G RAM) and RevyOS {info.version}'
+        files:
+            -   id: "boot file"
+                fileset: [ main ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "boot-" in name and "u-boot" not in name'
+                partition_map: "boot"
+            -   id: "root file"
+                fileset: [ main ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "root-" in name'
+                partition_map: "root"
+            -   id: "uboot 16g file"
+                fileset: [ uboot-16g ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "u-boot-" in name and "lpi4a-16g-main" in name'
+                partition_map: "uboot"
+        url:
+            regex: (.*)
+            mapper: 'https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/{0}/'
