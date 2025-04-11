@@ -52,3 +52,43 @@ handler:
         url:
             regex: (.*)
             mapper: 'https://fast-mirror.isrc.ac.cn/openeuler/openEuler-{0}/embedded_img/riscv64/lpi4a/'
+    -   plugin: mirrorsite_getter_std
+        vendor: sipeed-lpi4a
+        system: openeuler
+        variant: Innovation
+        board_variants: [ 8g ]
+        <<: 
+            - *general_ver_mapper
+        strategy: fastboot-v1
+        fileset:
+            -   id: 'main'
+                board_variants: null
+                desc_mapper:
+                    mapper: 'openEuler {info.version} image for Sipeed LicheePi 4A'
+            -   id: 'uboot-8g'
+                prepend: 'uboot'
+                board_variants: [ 8g ]
+                desc_mapper:
+                    mapper: 'U-Boot image for LicheePi 4A (8G RAM) and openEuler {info.version}'
+        files:
+            -   id: "boot file"
+                fileset: [ main ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "boot" in name and "u-boot" not in name and "sha" not in name'
+                partition_map: "boot"
+            -   id: "root file"
+                fileset: [ main ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "root" in name and "sha" not in name'
+                partition_map: "root"
+            -   id: "uboot 8g file"
+                fileset: [ uboot-8g ]
+                file_filter:
+                    type: lambda
+                    filter: 'lambda name, info: "u-boot" in name and "16g" not in name and "sha" not in name'
+                partition_map: "uboot"
+        url:
+            regex: (.*)
+            mapper: 'https://fast-mirror.isrc.ac.cn/openeuler/openEuler-{0}/embedded_img/riscv64/lpi4a/'
