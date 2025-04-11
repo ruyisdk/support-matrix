@@ -4,7 +4,7 @@ sys_ver: 23.03
 sys_var: null
 
 status: basic
-last_update: 2024-06-21
+last_update: 2025-04-11
 ---
 
 # openEuler RISC-V 23.03 D1 Version Test Report
@@ -16,6 +16,11 @@ last_update: 2024-06-21
 - System Version: openEuler 23.03 RISC-V preview
 - Download Link: [Download Link](https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/D1/)
 - Reference Installation Document: [Installation Document](https://gitee.com/openeuler/RISC-V/tree/master/release/openEuler-23.03/Installation_Book/D1_and_Licheerv)
+
+> [!NOTE]
+> This is an old release with BSP kernel from oERV SIG back in 2023.
+> oERV SIG is working on a newer release, while this is the last known bootable image on a real D1 board so far as we've tested.
+> More information [here](https://github.com/ruyisdk/support-matrix/issues/228#issuecomment-2785789283).
 
 ### Hardware Information
 

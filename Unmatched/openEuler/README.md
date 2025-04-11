@@ -4,7 +4,7 @@ sys_ver: 24.09
 sys_var: null
 
 status: good
-last_update: 2025-04-05
+last_update: 2025-04-11
 ---
 
 # openEuler RISC-V 24.09 HiFive Unmatched Test Report
@@ -18,7 +18,9 @@ last_update: 2025-04-05
 - Reference Installation Document: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241105/v0.1/Unmatched/README.Unmatched.txt
 
 > [!NOTE]
-> This is not the official image, but the one published by the openEuler RISC-V SIG Group.
+> This is not an official release image, but one of the CI/dev version images by openEuler RISC-V SIG we found directly on their server, which is NOT listed on oERV SIG's [image download website](https://images.oerv.ac.cn/).
+> oERV SIG is working on a newer release, while this is the last known bootable image on a real Unmatched board so far as we've tested.
+> More information [here](https://github.com/ruyisdk/support-matrix/issues/228#issuecomment-2785789283).
 
 ### Hardware Information
 
