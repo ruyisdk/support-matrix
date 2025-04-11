@@ -1,6 +1,6 @@
 ---
 vendor: sipeed_licheepi4a
-product: LicheePi 4A
+product: LicheePi 4A (16GB RAM)
 cpu: TH1520
 cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 ram: 16G
@@ -49,7 +49,7 @@ ram: 16G
 ## Test Results
 
 | Software Category               | Software Package | Test Results (Test Report)              |
-|---------------------------------|------------------|-----------------------------------------|
+| ------------------------------- | ---------------- | --------------------------------------- |
 | openEuler LTS Image Boot        | N/A              | [Success][oERV]                         |
 | openEuler Innovation Image Boot | N/A              | [Success][openEuler]                    |
 | RevyOS Desktop Image Boot       | N/A              | [Success][RevyOS] (Official Support)    |
