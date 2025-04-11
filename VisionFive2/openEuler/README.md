@@ -4,7 +4,7 @@ sys_ver: 23.09
 sys_var: null
 
 status: good
-last_update: 2024-06-21
+last_update: 2025-04-11
 ---
 
 # openEuler RISC-V 23.09 VisionFive 2 Test Report
@@ -16,6 +16,11 @@ last_update: 2024-06-21
 - System Version: openEuler 23.09 RISC-V preview
 - Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/VisionFive2/
 - Reference Installation Document: https://gitee.com/openeuler/RISC-V/blob/master/release/openEuler-23.03/Installation_Book/Visionfive2/README.md
+
+> [!NOTE]
+> This is an old release with BSP kernel from openEuler RISC-V SIG back in 2023.
+> oERV SIG is working on a newer release, while this is the last known bootable image on a real VisionFive 2 board so far as we've tested.
+> More information [here](https://github.com/ruyisdk/support-matrix/issues/228#issuecomment-2785789283).
 
 ### Hardware Information
 

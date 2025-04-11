@@ -8,6 +8,11 @@
 - 下载链接：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.03-V1-riscv64/D1/
 - 参考安装文档：https://gitee.com/openeuler/RISC-V/tree/master/release/openEuler-23.03/Installation_Book/D1_and_Licheerv
 
+> [!NOTE]
+> 此镜像为使用 BSP 内核的老版本，来自 openEuler RISC-V SIG 组。
+> oERV SIG 正在开发新版本；截止目前为止，经测试，这是最后已知可在 D1 实机启动的镜像。
+> 更多信息请见 [此处](https://github.com/ruyisdk/support-matrix/issues/228#issuecomment-2785789283)。
+
 ### 硬件信息
 
 - AWOL Nezha D1 

@@ -9,7 +9,9 @@
 - 参考安装文档：https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/testing/20241105/v0.1/Unmatched/README.Unmatched.txt
 
 > [!NOTE]
-> 此镜像为 openEuler RISC-V SIG 组自行发布的版本，非官方镜像。
+> 此镜像为 openEuler RISC-V SIG 组自行发布的 CI/开发版本，非官方发布镜像。
+> oERV SIG 正在开发新版本，截止目前为止，经测试，这是最后已知可在 Unmatched 实机启动的镜像。
+> 更多信息请见 [此处](https://github.com/ruyisdk/support-matrix/issues/228#issuecomment-2785789283)。
 
 ### 硬件信息
 
