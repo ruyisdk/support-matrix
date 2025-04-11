@@ -4,8 +4,8 @@
 
 ### 操作系统信息
 
-- 系统版本：RevyOS Meles 20250123
-- 下载链接：https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250123/
+- 系统版本：RevyOS Meles 20250323
+- 下载链接：https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250323/
     - iw-single-line 烧录工具：https://mirror.iscas.ac.cn/revyos/extra/images/meles/20240720/iw-single-line.bin
 - 参考安装文档：https://milkv.io/zh/docs/meles/getting-started/boot
 
@@ -57,7 +57,7 @@ cd meles/bin
 
 ```shell
 wget https://mirror.iscas.ac.cn/revyos/extra/images/meles/20240720/iw-single-line.bin
-wget https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250123/u-boot-with-spl-meles.bin
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250323/u-boot-with-spl-meles.bin
 ```
 
 注意根据开发板内存大小选择正确的 `u-boot-with-spl` 固件：
@@ -99,18 +99,24 @@ Bus 001 Device 045: ID 2345:7654 T-HEAD USB download gadget
 > 通常在 Linux 下是需要使用 `sudo` 的，原因是 USB VID/PID 不在默认的 udev 规则内。
 
 ```shell
-wget https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250123/boot-meles-20250123_071145.ext4.zst
-wget https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250123/root-meles-20250123_071145.ext4.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250323/boot-meles-20250323_154525.ext4.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250323/root-meles-20250323_154525.ext4.zst
 zstd -T0 -dv *.ext4.zst
 sudo fastboot flash ram u-boot-with-spl-meles.bin
 sudo fastboot reboot
-sudo fastboot flash boot boot-meles-20250123_071145.ext4
-sudo fastboot flash root root-meles-20250123_071145.ext4
+sudo fastboot flash boot boot-meles-20250323_154525.ext4
+sudo fastboot flash root root-meles-20250323_154525.ext4
 ```
 
 刷写完成后，重启开发板即可。
 
-进入系统后，建议执行一次系统升级（`sudo apt update; sudo apt upgrade`）。
+提示：当前版本附带的 `revyos-keyring` 已过期，你需要进行如下操作才能使用 `apt`：
+
+```shell
+sudo sh -c 'gpg --keyserver keyserver.ubuntu.com --recv-keys 2FB3A9E77911527E && \
+            gpg --export 2FB3A9E77911527E > /etc/apt/trusted.gpg.d/revyos-keyring.gpg'
+sudo apt update; sudo apt upgrade -y
+```
 
 ### 登录系统
 
@@ -129,11 +135,11 @@ sudo fastboot flash root root-meles-20250123_071145.ext4
 
 ### 启动信息
 
-[![asciicast](https://asciinema.org/a/zU5gWcQymoaNWg9Y7Oi8e50TN.svg)](https://asciinema.org/a/zU5gWcQymoaNWg9Y7Oi8e50TN)
+[![asciicast](https://asciinema.org/a/BiMZAncu3nMpoGjmZQwC6HHsQ.svg)](https://asciinema.org/a/BiMZAncu3nMpoGjmZQwC6HHsQ)
 
-![](image/2025-02-12-19-11-55.png)
+![](image/2025-04-11-21-36-34.png)
 
-![](image/2025-02-12-19-11-38.png)
+![](image/2025-04-11-21-36-40.png)
 
 （截图来自 HDMI 采集卡）
 
