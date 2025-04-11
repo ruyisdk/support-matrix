@@ -83,7 +83,7 @@ class RuyiGitRepo:
             if pr.head.ref == head_remove_user and pr.base.ref == base:
                 return True
         return False
-    
+
     def get_branch_diff(self, a: str, b: str) -> str:
         """
         Get the diff between head and base branch.
@@ -223,3 +223,140 @@ class RuyiGitRepo:
         self.local_repo.git.execute(
             ["git", "push", "--set-upstream", "origin", branch, "-f"]
         )
+
+
+class RuyiGitRepoUnprivilege:
+    """
+    Your Github index repo, no token require.
+    """
+
+    def check_pr_exist(self, identifer: str) -> bool:
+        """
+        Check if the PR with identifer exist.
+
+        The identifer is the hash of the image index. In the PR body, it should be like:
+        [HASH[<hash>]]
+        """
+        logger.warning(
+            "PR check is not supported in unprivileged mode"
+        )
+        return False
+
+    def check_pr_updated(self, head: str, base: str) -> bool:
+        """
+        Check if the PR with head and base exist.
+        Different from check_pr_exist, this senerio is for the PR is already exist,
+        but identifier is not the same.
+        Maybe the PR is manually created, or something went wrong.
+        Neverthless, manual interraction is needed.
+        """
+        logger.warning(
+            "PR check is not supported in unprivileged mode"
+        )
+        return False
+
+    def get_branch_diff(self, a: str, b: str) -> str:
+        """
+        Get the diff between head and base branch.
+        """
+        diff = self.local_repo.git.execute(
+            ["git", "diff", f"{a}...{b}"],
+            stdout_as_string=True
+        )
+        return diff
+
+    def create_pr(self, title: str, body: str, self_branch: str, upstream_branch: str):
+        """
+        Create a pull request.
+        """
+        logger.warning(
+            "PR creation is not supported in unprivileged mode"
+        )
+        return
+
+    def reset_to_upstream(self):
+        """
+        Reset the local repo to upstream/main.
+        """
+
+        flag = False
+        for ref in self.local_repo.remotes:
+            if ref.name == "upstream":
+                flag = True
+                break
+        if not flag:
+            self.local_repo.git.execute(
+                ["git", "remote", "add", "upstream",
+                    config["RUYI_PACKAGE_INDEX_FALLBACK"]]
+            )
+
+        self.local_repo.git.execute(
+            ["git", "remote", "set-url", "upstream",
+                config["RUYI_PACKAGE_INDEX_FALLBACK"]]
+        )
+        self.local_repo.git.execute(
+            ["git", "fetch", "upstream"]
+        )
+        self.local_repo.git.execute(
+            ["git", "reset", "--hard", "upstream/main"]
+        )
+        self.local_repo.git.execute(
+            ["git", "clean", "-xdf"]
+        )
+
+    def clean(self):
+        self.local_repo.git.execute(
+            ["git", "clean", "-xdf"]
+        )
+
+    def __init__(self, repo_dir: str):
+        repo_dir = os.path.join(repo_dir, config["PACKAGE_INDEX_REPO"])
+        if not os.path.exists(repo_dir):
+            self.local_repo = git.Repo.clone_from(
+                config["RUYI_PACKAGE_INDEX_FALLBACK"], repo_dir)
+            logger.info("Repo cloned from %s to %s",
+                        config["RUYI_PACKAGE_INDEX_FALLBACK"], repo_dir)
+        else:
+            self.local_repo = git.Repo(repo_dir)
+            self.reset_to_upstream()
+            logger.info("Repo updated to %s: %s", config["RUYI_PACKAGE_INDEX_FALLBACK"],
+                        self.local_repo.head.commit)
+
+    def local_checkout(self, branch: str):
+        """
+        Checkout to a branch.
+        """
+        self.local_repo.git.execute(
+            ["git", "checkout", "main"]
+        )
+        for ref in self.local_repo.branches:
+            if branch in ref.name:
+                self.local_repo.git.branch("-D", ref.name)
+        self.reset_to_upstream()
+        head = self.local_repo.create_head(branch)
+        head.checkout()
+        self.clean()
+        logger.info("Checkout to %s", branch)
+
+    def local_add(self, file: str):
+        """
+        Add a file to the repo.
+        """
+        logger.info("Add: %s", file)
+        self.local_repo.git.execute(
+            ["git", "add", file]
+        )
+
+    def local_commit(self, message: str):
+        """
+        Commit the changes.
+        """
+        logger.info("Commit: %s", message)
+        message = f"{message}\n\nThis commit is made by ruyi-index-updator"
+        self.local_repo.index.commit(message)
+
+    def local_push(self, branch: str):
+        """
+        Push the changes to remote.
+        """
+        logger.warning("Push to remote is not supported in unprivileged mode!")

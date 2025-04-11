@@ -66,11 +66,13 @@ _cli_configs = CFG([
     {'name': 'warn', 'explain': 'output the warn to the file', 'default': None},
     {'name': 'update_info', 'explain': 'output the update info to the file', 'default': None},
     {'name': 'force', 'explain': 'force to update the index', 'action': 'store_true'},
+    {'name': 'unprivileged', 'explain': 'run the tool in unprivileged mode', 'action': 'store_true'},
     {'name': 'plugin_names', 'explain': 'the plugins to run, default to all', 'nargs': '*'}
 ])
 
 _internal_configs = {
     "RUYI_PACKAGE_INDEX": "git@github.com:ruyisdk/packages-index.git",
+    "RUYI_PACKAGE_INDEX_FALLBACK": "https://github.com/ruyisdk/packages-index.git",
     "CACHE_DIR": os.getenv("CACHE_DIR", None),
     "PACKAGE_INDEX_OWNER": os.getenv("PACKAGE_INDEX_OWNER", "ruyisdk"),
     "PACKAGE_INDEX_REPO": "packages-index",

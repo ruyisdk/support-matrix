@@ -8,7 +8,7 @@ import colorlog
 
 from .config import config
 from .version_diff import RuyiDiff
-from .index_handler import RuyiGitRepo
+from .index_handler import RuyiGitRepo, RuyiGitRepoUnprivilege
 
 __version__ = "1.0.0"
 
