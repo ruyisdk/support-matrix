@@ -7,6 +7,7 @@ import tempfile
 import shutil
 
 from awesomeversion import AwesomeVersion
+from awesomeversion.typing import AwesomeVersionStrategy
 
 from ..matrix_parser import SystemInfo, SystemIdentifier
 
@@ -33,8 +34,8 @@ def cmp_version(ver1: str, ver2: str) -> int:
     """
     Compare the version
     """
-    av1 = AwesomeVersion(ver1)
-    av2 = AwesomeVersion(ver2)
+    av1 = AwesomeVersion(ver1, ensure_strategy=AwesomeVersionStrategy.SEMVER)
+    av2 = AwesomeVersion(ver2, ensure_strategy=AwesomeVersionStrategy.SEMVER)
     if av1 > av2:
         return 1
     if av1 < av2:

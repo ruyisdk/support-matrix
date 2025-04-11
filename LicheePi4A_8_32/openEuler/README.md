@@ -1,6 +1,6 @@
 ---
 sys: openeuler
-sys_ver: 24.03-sp1
+sys_ver: 24.03-LTS-SP1
 sys_var: LTS
 
 status: good
