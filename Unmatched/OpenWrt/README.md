@@ -1,30 +1,30 @@
 ---
 sys: openwrt
-sys_ver: 23.05.2
+sys_ver: 24.10.0
 sys_var: null
 
 status: basic
-last_update: 2024-06-21
+last_update: 2025-04-11
 ---
 
-# OpenWrt 23.05.2 HiFive Unmatched Test Report
+# OpenWrt 24.10.0 HiFive Unmatched Test Report
 
 ## Test Environment
 
 ### Operating System Information
 
-- System Version: OpenWrt 23.05.2
-- Download Link (OpenWrt Firmware Selector): https://firmware-selector.openwrt.org/?version=23.05.2&target=sifiveu%2Fgeneric&id=sifive_unmatched
+- System Version: OpenWrt 24.10.0
+- Download Link (OpenWrt Firmware Selector): https://firmware-selector.openwrt.org/?version=24.10.0&target=sifiveu%2Fgeneric&id=sifive_unmatched
 - Reference Installation Document: https://openwrt.org/docs/techref/hardware/soc/soc.sifive
 
-> In OpenWrt Firmware Selector, you can customize the system image online, adding necessary pre-installed packages. For this test, we used an **unmodified** original image provided by the `ruyi` package manager.
+> In OpenWrt Firmware Selector, you can customize the system image online, adding necessary pre-installed packages. For this test, we use the **unmodified** original image.
 
 ### Hardware Information
 
 - HiFive Unmatched Rev A
 - A microUSB cable (included with HiFive Unmatched)
 - An ATX power supply
-- A microSD card (Sandisk Extreme Pro 64G UHS-I)
+- A microSD card
 
 ## Installation Steps
 
@@ -34,9 +34,16 @@ Ensure the DIP switch is set to boot from the microSD card. If you haven't chang
 
 The DIP switch should be set as follows: `MSEL[3:0]=1011`
 
-### Using `ruyi` CLI to Flash the Image to the microSD Card
+### Using dd to flash the image to the microSD card
 
-Install the [`ruyi`](https://github.com/ruyisdk/ruyi) package manager, run `ruyi device provision`, and follow the prompts.
+`/dev/sdX` is the microSD card. Change accordingly.
+
+```shell
+wget https://downloads.openwrt.org/releases/24.10.0/targets/sifiveu/generic/openwrt-24.10.0-sifiveu-generic-sifive_unmatched-ext4-sdcard.img.gz
+gzip -d openwrt-24.10.0-sifiveu-generic-sifive_unmatched-ext4-sdcard.img.gz
+sudo dd if=openwrt-24.10.0-sifiveu-generic-sifive_unmatched-ext4-sdcard.img of=/dev/sdX bs=1M status=progress; sync
+sudo eject /dev/sdX
+```
 
 ### Logging into the System
 
@@ -53,43 +60,7 @@ The system booted successfully, and login through the onboard serial port was su
 ### Boot Log
 
 ```log
-[    3.585478] init: - preinit -
-[    4.187220] random: jshn: uninitialized urandom read (4 bytes read)
-[    4.211546] random: jshn: uninitialized urandom read (4 bytes read)
-[    4.227475] random: jshn: uninitialized urandom read (4 bytes read)
-[    4.276587] macb 10090000.ethernet eth0: PHY [10090000.ethernet-ffffffff:00] driver [Generic PHY] (irq=POLL)
-[    4.285668] macb 10090000.ethernet eth0: configuring for phy/gmii link mode
-Press the [f] key and hit [enter] to enter failsafe mode
-Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
-[    6.372369] mount_root: mounting /dev/root
-[    6.385001] EXT4-fs (mmcblk0p4): re-mounted. Opts: (null). Quota mode: disabled.
-[    6.442366] urandom-seed: Seed file not found (/etc/urandom.seed)
-[    6.496980] procd: - early -
-[    7.136220] procd: - ubus -
-[    7.169138] random: ubusd: uninitialized urandom read (4 bytes read)
-[    7.187663] random: ubusd: uninitialized urandom read (4 bytes read)
-[    7.193446] random: ubusd: uninitialized urandom read (4 bytes read)
-[    7.200886] procd: - init -
-Please press Enter to activate this console.
-[    7.526267] kmodloader: loading kernel modules from /etc/modules.d/*
-[    7.540236] i2c_dev: i2c /dev entries driver
-[    7.609264] hwmon hwmon0: temp1_input not attached to any thermal zone
-[    7.615055] hwmon hwmon0: temp2_input not attached to any thermal zone
-[    7.956942] PPP generic driver version 2.4.2
-[    7.961025] NET: Registered PF_PPPOX protocol family
-[    7.969043] kmodloader: done loading kernel modules from /etc/modules.d/*
-[    8.000916] urngd: v1.0.2 started.
-[    8.187850] random: crng init done
-[    8.190467] random: 24 urandom warning(s) missed due to ratelimiting
-[   14.796276] macb 10090000.ethernet eth0: PHY [10090000.ethernet-ffffffff:00] driver [Generic PHY] (irq=POLL)
-[   14.805440] macb 10090000.ethernet eth0: configuring for phy/gmii link mode
-[   14.813676] br-lan: port 1(eth0) entered blocking state
-[   14.818128] br-lan: port 1(eth0) entered disabled state
-[   14.823658] device eth0 entered promiscuous mode
-
-
-
-BusyBox v1.36.1 (2023-11-14 13:38:11 UTC) built-in shell (ash)
+BusyBox v1.36.1 (2025-02-03 23:09:37 UTC) built-in shell (ash)
 
   _______                     ________        __
  |       |.-----.-----.-----.|  |  |  |.----.|  |_
@@ -97,27 +68,24 @@ BusyBox v1.36.1 (2023-11-14 13:38:11 UTC) built-in shell (ash)
  |_______||   __|_____|__|__||________||__|  |____|
           |__| W I R E L E S S   F R E E D O M
  -----------------------------------------------------
- OpenWrt 23.05.2, r23630-842932a63d
+ OpenWrt 24.10.0, r28427-6df0e3d02a
  -----------------------------------------------------
 === WARNING! =====================================
 There is no root password defined on this device!
 Use the "passwd" command to set up a new password
 in order to prevent unauthorized SSH logins.
 --------------------------------------------------
-root@OpenWrt:/# cat /etc/o
-odhcp6c.user     openwrt_release  opkg.conf        os-release
-odhcp6c.user.d/  openwrt_version  opkg/
-root@OpenWrt:/# cat /etc/os-release 
+root@OpenWrt:~# cat /etc/os-release
 NAME="OpenWrt"
-VERSION="23.05.2"
+VERSION="24.10.0"
 ID="openwrt"
 ID_LIKE="lede openwrt"
-PRETTY_NAME="OpenWrt 23.05.2"
-VERSION_ID="23.05.2"
+PRETTY_NAME="OpenWrt 24.10.0"
+VERSION_ID="24.10.0"
 HOME_URL="https://openwrt.org/"
 BUG_URL="https://bugs.openwrt.org/"
 SUPPORT_URL="https://forum.openwrt.org/"
-BUILD_ID="r23630-842932a63d"
+BUILD_ID="r28427-6df0e3d02a"
 OPENWRT_BOARD="sifiveu/generic"
 OPENWRT_ARCH="riscv64_riscv64"
 OPENWRT_TAINTS=""
@@ -125,38 +93,65 @@ OPENWRT_DEVICE_MANUFACTURER="OpenWrt"
 OPENWRT_DEVICE_MANUFACTURER_URL="https://openwrt.org/"
 OPENWRT_DEVICE_PRODUCT="Generic"
 OPENWRT_DEVICE_REVISION="v0"
-OPENWRT_RELEASE="OpenWrt 23.05.2 r23630-842932a63d"
-root@OpenWrt:/# cat /proc/cpuinfo 
+OPENWRT_RELEASE="OpenWrt 24.10.0 r28427-6df0e3d02a"
+OPENWRT_BUILD_DATE="1738624177"
+root@OpenWrt:~# cat /etc/openwrt_
+openwrt_release  openwrt_version
+root@OpenWrt:~# cat /etc/openwrt_version
+r28427-6df0e3d02a
+root@OpenWrt:~# cat /etc/openwrt_release
+DISTRIB_ID='OpenWrt'
+DISTRIB_RELEASE='24.10.0'
+DISTRIB_REVISION='r28427-6df0e3d02a'
+DISTRIB_TARGET='sifiveu/generic'
+DISTRIB_ARCH='riscv64_riscv64'
+DISTRIB_DESCRIPTION='OpenWrt 24.10.0 r28427-6df0e3d02a'
+DISTRIB_TAINTS=''
+root@OpenWrt:~# uname -a
+Linux OpenWrt 6.6.73 #0 SMP Mon Feb  3 23:09:37 2025 riscv64 GNU/Linux
+root@OpenWrt:~# cat /proc/cpuinfo
 processor       : 0
+hart            : 4
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x20181004
+
+processor       : 1
 hart            : 1
-isa             : rv64imafdc
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
 mmu             : sv39
 uarch           : sifive,u74-mc
-                                                                        
-processor       : 1                                                       
-hart            : 2                                                     
-isa             : rv64imafdc                                            
-mmu             : sv39
-uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x20181004
 
 processor       : 2
-hart            : 3
-isa             : rv64imafdc
+hart            : 2
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
 mmu             : sv39
 uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x20181004
 
 processor       : 3
-hart            : 4
-isa             : rv64imafdc
+hart            : 3
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
 mmu             : sv39
 uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x20181004
 
-root@OpenWrt:/#
+root@OpenWrt:~#
 ```
 
-Screen recording (From flashing the image to logging into the system):
+Screen record:
 
-[![asciicast](https://asciinema.org/a/cAMBxvAP8iqIrdf1xCiQ3clJP.svg)](https://asciinema.org/a/cAMBxvAP8iqIrdf1xCiQ3clJP)
+[![asciicast](https://asciinema.org/a/kWBM8bOzlgglxaWfDXBe9fEiQ.svg)](https://asciinema.org/a/kWBM8bOzlgglxaWfDXBe9fEiQ)
 
 ## Test Criteria
 
