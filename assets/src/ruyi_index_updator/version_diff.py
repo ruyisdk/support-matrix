@@ -6,6 +6,7 @@ import os
 import logging
 import hashlib
 import traceback
+import copy
 from typing import Generator, Literal
 
 import toml
@@ -362,6 +363,16 @@ class RuyiDiff:
             if info.raw_data.raw_data.get("skip_sync", False):
                 logger.info("Skip update for %s", repr(info))
                 continue
+            if info.raw_data.raw_data.get("symlink", None):
+                for symlink in info.raw_data.raw_data["symlink"]:
+                    link_dummy_info = copy.deepcopy(info)
+                    link_dummy_info.variant = symlink
+                    # delete symlink to avoid infinite loop
+                    link_dummy_info.raw_data.raw_data["symlink"] = None
+                    del link_dummy_info.raw_data.raw_data["symlink"]
+
+                    self.oldver.append(link_dummy_info)
+                    # Yes, it changes the loop variable.
 
             # Mark system update info
 
