@@ -45,11 +45,12 @@ ram: 1G/2G/4G/8G
 | ---------------------- | ------------ | -------------------------------------------- |
 | Debian Image Boot      | N/A          | [Successful][Debian] (Milk-V Official Image) |
 | BuildRoot Build & Boot | N/A          | [Successful][BuildRoot]                      |
-| Ubuntu Image Boot      | N/A          | [CFT][Ubuntu]                                |
+| Ubuntu Image Boot      | N/A          | [Successful][Ubuntu]                                |
 | Ubuntu LTS Image Boot  | N/A          | [Successful][Ubuntu LTS]                            |
 | Deepin Image Boot      | N/A          | [Successful][Deepin]                                |
 | eweOS Image Boot       | N/A          | [Successful][eweOS]                                |
 | Fedora Image Boot       | N/A          | [Successful][Fedora]                                |
+| Guix Image Boot       | N/A          | [Successful][Guix]                                |
 
 [Debian]: ./Debian/README.md
 [BuildRoot]: ./BuildRoot/README.md
@@ -58,3 +59,4 @@ ram: 1G/2G/4G/8G
 [Deepin]: ./Deepin/README.md
 [eweOS]: ./eweOS/README.md
 [Fedora]: ./Fedora/README.md
+[Guix]: ./Guix/README.md

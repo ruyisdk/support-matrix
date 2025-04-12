@@ -26,6 +26,9 @@
   - 参考安装文档：
     1. <https://milkv.io/zh/docs/mars/getting-started/boot>
     2. <https://images.fedoravforce.org/Mars>
+- Guix
+  - 下载链接：<https://ci.guix.gnu.org/search/latest?query=spec:images+status:success+system:x86_64-linux+visionfive2-barebones-raw-image>
+  - 参考安装文档：<https://milkv.iso/zh/docs/mars/getting-started/boot>
 
 ### 硬件开发板信息
 
@@ -37,11 +40,12 @@
 | -------------------- | -------- | --------------------------------- |
 | Debian 镜像启动      | N/A      | [成功][Debian]（Milk-V 厂商镜像） |
 | BuildRoot 构建及启动 | N/A      | [成功][BuildRoot]                 |
-| Ubuntu 镜像启动      | N/A      | [CFT][Ubuntu]                     |
+| Ubuntu 镜像启动      | N/A      | [成功][Ubuntu]                     |
 | Ubuntu LTS 镜像启动  | N/A      | [成功][Ubuntu LTS]                 |
 | Deepin 镜像启动      | N/A      | [成功][Deepin]                     |
 | eweOS 镜像启动       | N/A      | [成功][eweOS]                     |
-| Fedora 镜像启动       | N/A      | [成功][Fedora]                     |
+| Fedora 镜像启动      | N/A      | [成功][Fedora]                     |
+| Guix 镜像启动        | N/A      | [成功][Guix]                     |
 
 [Debian]: ./Debian/README_zh.md
 [BuildRoot]: ./BuildRoot/README_zh.md
@@ -50,3 +54,4 @@
 [Deepin]: ./Deepin/README_zh.md
 [eweOS]: ./eweOS/README_zh.md
 [Fedora]: ./Fedora/README_zh.md
+[Guix]: ./Guix/README_zh.md
