@@ -31,7 +31,7 @@ last_update: 2025-04-11
 
 ### Flashing the Image
 
-Use `unxz` to decompress the image. And use `dd` command or `balenaEtcher` softwave to flash the image to the microSD card.
+Use `unxz` to decompress the image. And use `dd` command or `balenaEtcher` software to flash the image to the microSD card.
 
 Here, `/dev/sdc` corresponds to the storage device.
 
