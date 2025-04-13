@@ -11,6 +11,7 @@ linux:
   - eweos: eweOS
   - fedora: Fedora
   - gentoo: Gentoo
+  - guix: Guix
   - irradium: irradium
   - nixos: NixOS
   - openanlios: openAnolis
@@ -23,7 +24,6 @@ linux:
   - slackware: Slackware
   - ubuntu: Ubuntu
   - yocto: Yocto
-  - guix: Guix
 
 bsd:
   - freebsd: FreeBSD
