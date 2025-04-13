@@ -4,7 +4,7 @@ sys_ver: 24.04.01
 sys_var: LTS
 
 status: CFT
-last_update: 2025.04.9
+last_update: 2025-04-09
 ---
 
 # Ubuntu 24.04.01 LTS HiFive Premier P550 Test Report
