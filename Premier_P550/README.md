@@ -1,8 +1,8 @@
 ---
 product: HiFive Premier P550
-vendor: SiFive
-cpu: ESWIN EIC7700X
+cpu: EIC7700X
 cpu_core: SiFive P550
+ram: 16G/32G
 ---
 
 # HiFive Premier P550

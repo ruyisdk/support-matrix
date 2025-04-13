@@ -4,7 +4,7 @@ sys_ver: null
 sys_var: null
 
 status: CFT
-last_update: 2025.04.9
+last_update: 2025-04-09
 ---
 
 # Yocto HiFive Premier P550 Test Report
