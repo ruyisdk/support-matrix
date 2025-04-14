@@ -2,7 +2,7 @@
 product: TTGO T-Display-GD32
 cpu: GD32VF103
 cpu_core: Nuclei Bumblebee
-ram: 4MB/16MB
+ram: 32KB(SRAM)
 ---
 
 # TTGO T-Display-GD32
