@@ -39,17 +39,95 @@ support-matrix
     |--- others.yml # Metadata for systems without documentation
 ```
 
+## Code of Conduct
+
+Please be respectful and considerate of others when contributing to RuyiSDK. We aim to foster an open and welcoming environment for all contributors.
+
+Please follow [the RuyiSDK Code of Conduct](https://ruyisdk.org/en/code_of_conduct).
+
 ## Quick Start
 
 ### Creating a PR Workflow
 
 1. Fork and clone the repository locally
 2. Create a branch and update/add board, test reports
-3. Commit your changes, ensuring commit messages are clear and understandable (Better to squash your commits before pushing.)
+3. Commit your changes, ensuring commit messages are clear and understandable, and contains a `Signed-off-by` tag (see below)
+    * It's better to squash your commits before pushing.
 4. Push your commits to your forked repository and create a Pull Request
 
 > [!Note]
 > If the metadata cannot be parsed or the document content does not meet requirements, your pull request may require modifications.
+
+### Developer's Certificate of Origin (DCO)
+
+We require that all contributions to RuyiSDK are covered under the [Developer's Certificate of Origin (DCO)](https://developercertificate.org/). The DCO is a lightweight way for contributors to certify that they wrote or otherwise have the right to submit the code they are contributing.
+
+#### What is the DCO?
+
+The DCO is a declaration that you make when you sign-off a commit, simple
+enough that the original text is fully reproduced below.
+
+```
+Developer Certificate of Origin
+Version 1.1
+
+Copyright (C) 2004, 2006 The Linux Foundation and its contributors.
+
+Everyone is permitted to copy and distribute verbatim copies of this
+license document, but changing it is not allowed.
+
+
+Developer's Certificate of Origin 1.1
+
+By making a contribution to this project, I certify that:
+
+(a) The contribution was created in whole or in part by me and I
+    have the right to submit it under the open source license
+    indicated in the file; or
+
+(b) The contribution is based upon previous work that, to the best
+    of my knowledge, is covered under an appropriate open source
+    license and I have the right under that license to submit that
+    work with modifications, whether created in whole or in part
+    by me, under the same open source license (unless I am
+    permitted to submit under a different license), as indicated
+    in the file; or
+
+(c) The contribution was provided directly to me by some other
+    person who certified (a), (b) or (c) and I have not modified
+    it.
+
+(d) I understand and agree that this project and the contribution
+    are public and that a record of the contribution (including all
+    personal information I submit with it, including my sign-off) is
+    maintained indefinitely and may be redistributed consistent with
+    this project or the open source license(s) involved.
+```
+
+#### How to Sign-Off Commits
+
+You need to add a `Signed-off-by` line to each commit message, which certifies that you agree with the DCO:
+
+```
+Signed-off-by: Your Name <your.email@example.com>
+```
+
+You can add this automatically by using the `-s` or `--signoff` flag when committing:
+
+```
+git commit -s -m "Your commit message"
+```
+
+Make sure that the name and email in the signature matches your Git configuration. You can set your Git name and email with:
+
+```
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+```
+
+#### DCO enforcement in CI
+
+All pull requests go through an automated DCO check in our continuous integration (CI) pipeline. This check verifies that all commits in your pull request have a proper DCO sign-off. If any commits are missing the sign-off, the CI check will fail, and your pull request cannot be merged until the issue is fixed.
 
 ## Data Structure Specifications
 
