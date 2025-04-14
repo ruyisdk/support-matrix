@@ -24,11 +24,14 @@
 - Ubuntu
   - 下载链接：https://drive.google.com/file/d/1mkzLhvtjJup3GbgWKZdwL80PZMMXg7n1/view
   - 参考文档：https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/
-- OpenWrt:
+- OpenWrt
   - 下载链接：https://github.com/draftbottle/Milkv-duo-openwrt/releases/download/v4.0/milkv-duos.img
   - 参考文档：
 	  - https://community.milkv.io/t/milk-v-duo-openwrt/2399/10
 	  - https://github.com/draftbottle/VizOS
+- NixOS
+  - 源码链接: https://github.com/NickCao/nixos-riscv
+  - 参考安装文档: https://github.com/NickCao/nixos-riscv/README.md
 
 ### 硬件开发板信息
 
@@ -36,20 +39,24 @@
 
 ## 测试结果
 
-| 软件分类                | 软件包名     | 测试结果（测试报告）    |
-|-------------------------|--------------|-------------------------|
-| BuildRoot 镜像启动      | N/A          | [Successful][BuildRoot] |
-| Debian 镜像启动         | N/A          | [Successful][Debian]    |
-| FreeRTOS 启动           | mailbox-test | [Successful][FreeRTOS]  |
-| Apache NuttX 构建及启动 | N/A          | [Successful][NuttX]     |
-| Zephyr 镜像构建及启动   | N/A          | [Successful][Zephyr]    |
-| Ubuntu 镜像启动         | N/A          | [Successful][Ubuntu]    |
-| OpenWrt 镜像构建及启动  | N/A          | [Successful][OpenWrt]   |
+| 软件分类                | 软件包名     | 测试结果（测试报告） |
+| ----------------------- | ------------ | -------------------- |
+| BuildRoot 镜像启动      | N/A          | [成功][BuildRoot]    |
+| BuildRoot 镜像启动      | N/A          | [成功][BuildRootV2]  |
+| Debian 镜像启动         | N/A          | [成功][Debian]       |
+| FreeRTOS 启动           | mailbox-test | [成功][FreeRTOS]     |
+| Apache NuttX 构建及启动 | N/A          | [成功][NuttX]        |
+| Zephyr 镜像构建及启动   | N/A          | [成功][Zephyr]       |
+| Ubuntu 镜像启动         | N/A          | [成功][Ubuntu]       |
+| OpenWrt 镜像构建及启动  | N/A          | [成功][OpenWrt]      |
+| NixOS 镜像构建及启动    | N/A          | [成功][NixOS]        |
 
 [BuildRoot]: ./BuildRoot/README_zh.md
+[BuildRootV2]: ./BuildRoot/README_v2_zh.md
 [Debian]: ./Debian/README_zh.md
 [FreeRTOS]: ./FreeRTOS/README_zh.md
 [NuttX]: ./NuttX/README_zh.md
 [Zephyr]: ./Zephyr/README_zh.md
 [Ubuntu]: ./Ubuntu/README_zh.md
-[OpenWrt]: ./OpenWrt/README.md
+[OpenWrt]: ./OpenWrt/README_zh.md
+[NixOS]: ./NixOS/README_zh.md

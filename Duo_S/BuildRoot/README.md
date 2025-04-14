@@ -1,10 +1,10 @@
 ---
 sys: buildroot
-sys_ver: v2.0.0
+sys_ver: v1.1.4
 sys_var: null
 
 status: basic
-last_update: 2025-01-14
+last_update: 2025-04-14
 ---
 
 # BuildRoot Milk-V Duo S Test Report
@@ -13,9 +13,9 @@ last_update: 2025-01-14
 
 ### Operating System Information
 
-- System Version: DuoS-V2.0.0 (musl riscv64 version)
-- Download Link: https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
-- Reference Installation Document: https://github.com/milkv-duo/duo-buildroot-sdk-v2
+- System Version: DuoS-V1.1.4
+- Download Link: https://github.com/milkv-duo/duo-buildroot-sdk/releases/
+- Reference Installation Document: https://github.com/milkv-duo/duo-buildroot-sdk/
 
 ### Hardware Information
 
@@ -31,15 +31,14 @@ last_update: 2025-01-14
 ### Download DuoS Image and extract
 
 ```bash
-wget https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/download/v2.0.0/milkv-duos-musl-riscv64-sd_v2.0.0.img.zip
-unzip milkv-duos-musl-riscv64-sd_v2.0.0.img.zip
+wget https://github.com/milkv-duo/duo-buildroot-sdk/releases/download/v1.1.4/milkv-duos-sd-v1.1.4.img.zip
+unzip milkv-duos-sd-v1.1.4.img.zip
 ```
 
 ### Flashing the Image
 
-Use `dd` to flash the image to the SD card:
 ```bash
-sudo dd if=milkv-duos-musl-riscv64-sd_v2.0.0.img of=/dev/your/device bs=1M status=progress
+sudo dd if=milkv-duos-sd-v1.1.4.img of=/dev/your/device bs=1M status=progress
 ```
 
 ### Logging into the System
@@ -48,46 +47,39 @@ Log into the system via the serial port.
 
 ## Expected Results
 
-The system should boot normally and allow login via the onboard serial port and ssh.
+The system should boot normally and allow login via the onboard serial port.
 
 ## Actual Results
 
-The system booted successfully and login via the onboard serial port and ssh was also successful.
+The system booted successfully and login via the onboard serial port was also successful.
 
 ### Boot Information
 
 > The aic8800 insmod failure occurred because the Duo S used in the test does not have a Wi-Fi chip.
-> 
+>
 > This is normal.
 
 ```log
 Starting app...
 
-[root@milkv-duo]~# [    5.417921] aicbsp: sdio_err:<aicwf_sdio_bus_pwrctl,1431>: bus down
-[    6.149662] ieee80211 phy0: 
-[    6.149662] *******************************************************
-[    6.149662] ** CAUTION: USING PERMISSIVE CUSTOM REGULATORY RULES **
-[    6.149662] *******************************************************
-
+[root@milkv-duo]~# insmod: can't insert '/mnt/system/ko/aic8800_fdrv.ko': No such device
 [root@milkv-duo]~# uname -a
-Linux milkv-duo 5.10.4-tag- #1 PREEMPT Mon Dec 9 10:28:13 CST 2024 riscv64 GNU/Linux
-[root@milkv-duo]~# cat /etc/os-release 
+Linux milkv-duo 5.10.4-tag- #1 PREEMPT Fri Nov 22 13:36:20 CST 2024 riscv64 GNU/Linux
+[root@milkv-duo]~# cat /etc/os-release
 NAME=Buildroot
-VERSION=-g2b4e5fdbc
+VERSION=20241122-1345
 ID=buildroot
-VERSION_ID=2024.02.3
-PRETTY_NAME="Buildroot 2024.02.3"
-[root@milkv-duo]~# cat /proc/cpuinfo 
+VERSION_ID=2021.05
+PRETTY_NAME="Buildroot 2021.05"
+[root@milkv-duo]~# cat /proc/cpuinfo
 processor       : 0
 hart            : 0
 isa             : rv64imafdvcsu
 mmu             : sv39
 
+[root@milkv-duo]~#
+
 ```
-
-Screen recording (From flashing image to login):
-
-[![asciicast](https://asciinema.org/a/48Jw8Gwh6NqCJpnVejBntLIxd.svg)](https://asciinema.org/a/48Jw8Gwh6NqCJpnVejBntLIxd)
 
 ## Test Criteria
 
