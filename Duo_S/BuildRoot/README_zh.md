@@ -4,9 +4,9 @@
 
 ### 操作系统信息
 
-- 系统版本：DuoS-V2.0.0 (musl   版本)
-- 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
-- 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk-v2
+- 系统版本：DuoS-V1.1.4
+- 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk/releases/
+- 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk/
 
 ### 硬件信息
 
@@ -23,8 +23,8 @@
 ###  下载 Duo S 镜像并解压
 
 ```bash
-wget https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/download/v2.0.0/milkv-duos-musl-riscv64-sd_v2.0.0.img.zip
-unzip milkv-duos-musl-riscv64-sd_v2.0.0.img.zip
+wget https://github.com/milkv-duo/duo-buildroot-sdk/releases/download/v1.1.4/milkv-duos-sd-v1.1.4.img.zip
+unzip milkv-duos-sd-v1.1.4.img.zip
 ```
 
 ###  刷写镜像
@@ -32,7 +32,7 @@ unzip milkv-duos-musl-riscv64-sd_v2.0.0.img.zip
 使用 `dd` 命令将镜像刷写到 SD 卡：
 
 ```bash
-sudo dd if=milkv-duos-musl-riscv64-sd_v2.0.0.img of=/dev/your/device bs=1M status=progress
+sudo dd if=milkv-duos-sd-v1.1.4.img of=/dev/your/device bs=1M status=progress
 ```
 
 ### 登录系统
@@ -41,46 +41,39 @@ sudo dd if=milkv-duos-musl-riscv64-sd_v2.0.0.img of=/dev/your/device bs=1M statu
 
 ## 预期结果
 
-系统正常启动，能够通过板载串口和ssh登录。
+系统正常启动，能够通过板载串口登录。
 
 ## 实际结果
 
-系统正常启动，成功通过板载串口与ssh登录。
+系统正常启动，成功通过板载串登录。
 
 ### 启动信息
 
 > 出现 aic8800 insmod 失败是因为测试时使用的是不带 Wi-Fi 芯片的 Duo S。
-> 
+>
 > 这是正常情况。
 
 ```log
 Starting app...
 
-[root@milkv-duo]~# [    5.417921] aicbsp: sdio_err:<aicwf_sdio_bus_pwrctl,1431>: bus down
-[    6.149662] ieee80211 phy0: 
-[    6.149662] *******************************************************
-[    6.149662] ** CAUTION: USING PERMISSIVE CUSTOM REGULATORY RULES **
-[    6.149662] *******************************************************
-
+[root@milkv-duo]~# insmod: can't insert '/mnt/system/ko/aic8800_fdrv.ko': No such device
 [root@milkv-duo]~# uname -a
-Linux milkv-duo 5.10.4-tag- #1 PREEMPT Mon Dec 9 10:28:13 CST 2024 riscv64 GNU/Linux
-[root@milkv-duo]~# cat /etc/os-release 
+Linux milkv-duo 5.10.4-tag- #1 PREEMPT Fri Nov 22 13:36:20 CST 2024 riscv64 GNU/Linux
+[root@milkv-duo]~# cat /etc/os-release
 NAME=Buildroot
-VERSION=-g2b4e5fdbc
+VERSION=20241122-1345
 ID=buildroot
-VERSION_ID=2024.02.3
-PRETTY_NAME="Buildroot 2024.02.3"
-[root@milkv-duo]~# cat /proc/cpuinfo 
+VERSION_ID=2021.05
+PRETTY_NAME="Buildroot 2021.05"
+[root@milkv-duo]~# cat /proc/cpuinfo
 processor       : 0
 hart            : 0
 isa             : rv64imafdvcsu
 mmu             : sv39
 
+[root@milkv-duo]~#
+
 ```
-
-屏幕录像（从刷写镜像到登录系统）：
-
-[![asciicast](https://asciinema.org/a/48Jw8Gwh6NqCJpnVejBntLIxd.svg)](https://asciinema.org/a/48Jw8Gwh6NqCJpnVejBntLIxd)
 
 ## 测试判定标准
 

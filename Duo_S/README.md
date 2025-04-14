@@ -37,6 +37,10 @@ ram: 512MB
   - Reference Installation Document:
 	  - https://community.milkv.io/t/milk-v-duo-openwrt/2399/10
 	  - https://github.com/draftbottle/VizOS
+- NixOS
+  - Source code link: https://github.com/NickCao/nixos-riscv
+  - Reference Installation Document: https://github.com/NickCao/nixos-riscv/README.md
+
 
 ### Hardware Information
 
@@ -44,20 +48,24 @@ ram: 512MB
 
 ## Test Results
 
-| Software Category           | Package Name | Test Result (Report)    |
-|-----------------------------|--------------|-------------------------|
-| BuildRoot Image Boot        | N/A          | [Successful][BuildRoot] |
-| Debian Image Boot           | N/A          | [Successful][Debian]    |
-| FreeRTOS Boot               | mailbox-test | [Successful][FreeRTOS]  |
-| Apache NuttX Build and Boot | N/A          | [Successful][NuttX]     |
-| Zephyr Image Build and Boot | N/A          | [Successful][Zephyr]    |
-| Ubuntu Image Boot           | N/A          | [Successful][Ubuntu]    |
-| OpenWrt Build and Boot      | N/A          | [Successful][OpenWrt]   |
+| Software Category            | Package Name | Test Result (Report)      |
+| ---------------------------- | ------------ | ------------------------- |
+| BuildRoot Image Boot         | N/A          | [Successful][BuildRoot]   |
+| BuildRoot Image Boot         | N/A          | [Successful][BuildRootV2] |
+| Debian Image Boot            | N/A          | [Successful][Debian]      |
+| FreeRTOS Boot                | mailbox-test | [Successful][FreeRTOS]    |
+| Apache NuttX Build and Boot  | N/A          | [Successful][NuttX]       |
+| Zephyr Image Build and Boot  | N/A          | [Successful][Zephyr]      |
+| Ubuntu Image Boot            | N/A          | [Successful][Ubuntu]      |
+| OpenWrt Image Build and Boot | N/A          | [Successful][OpenWrt]     |
+| NixOS Image Build and Boot   | N/A          | [Successful][NixOS]       |
 
 [BuildRoot]: ./BuildRoot/README.md
+[BuildRootV2]: ./BuildRoot/README_v2_.md
 [Debian]: ./Debian/README.md
 [FreeRTOS]: ./FreeRTOS/README.md
 [NuttX]: ./NuttX/README.md
 [Zephyr]: ./Zephyr/README.md
 [Ubuntu]: ./Ubuntu/README.md
 [OpenWrt]: ./OpenWrt/README.md
+[NixOS]: ./NixOS/README.md
