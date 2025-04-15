@@ -45,6 +45,7 @@ rtos:
 others:
   - android: Android
   - openharmony: OpenHarmony
+  - xv6: xv6
 
 customized:
   - bianbu: Bianbu

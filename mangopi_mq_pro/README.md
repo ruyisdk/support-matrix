@@ -58,6 +58,9 @@ ram: 512MB/1G
 - irradium
   - Download Link: https://dl.irradium.org/irradium/images/visionfive_2/
   - Reference Installation Document: https://dl.irradium.org/irradium/images/visionfive_2/README.TXT
+- xv6
+  - Source code link: https://github.com/michaelengel/xv6-d1
+  - Reference Installation Document: https://github.com/michaelengel/xv6-d1
 
 ### Hardware Information
 
@@ -82,6 +85,7 @@ ram: 512MB/1G
 | Gentoo Image Boot               | N/A          | [Success][Gentoo]         |
 | NixOS Image Boot                | N/A          | [Success][NixOS]          |
 | irradium Image Boot             | N/A          | [Success][irradium]       |
+| xv6 Build & Boot                | N/A          | [Success][xv6]            |
 
 [Tina]: ./TinaLinux/README.md
 [OpenWrt]: ./OpenWrt/README.md
@@ -98,3 +102,4 @@ ram: 512MB/1G
 [Gentoo]: ./Gentoo/README.md
 [NixOS]: ./NixOS/README.md
 [irradium]: ./irradium/README.md
+[xv6]: ./xv6/README.md

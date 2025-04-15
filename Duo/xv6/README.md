@@ -7,7 +7,7 @@ status: basic
 last_update: 2025-04-15
 ---
 
-# Debian Milk-V Duo Test Report
+# xv6 Milk-V Duo Test Report
 
 ## Test Environment
 
