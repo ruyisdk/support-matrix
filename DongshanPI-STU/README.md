@@ -37,6 +37,9 @@ ram: 256MB
 - Gentoo
   - Download Link: https://github.com/RevySR/riscv-calculate/releases/download/v20220929/gentoo-d1-20220929153235.img.zst
   - Reference Installation Document: https://github.com/RevySR/riscv-calculate
+- xv6
+  - Source code link: https://github.com/michaelengel/xv6-d1
+  - Reference Installation Document: https://github.com/michaelengel/xv6-d1
 
 ### Hardware Information
 
@@ -55,6 +58,7 @@ ram: 256MB
 | FreeBSD Image Compile & Boot  | N/A          | [Success][FreeBSD]         |
 | Fedora Image Compile & Boot   | N/A          | [Failed][Fedora]           |
 | Gentoo Image Compile & Boot   | N/A          | [Success][Gentoo]          |
+| xv6 Compile & Boot            | N/A          | [Success][xv6]             |
 
 [Tina]: ./TinaLinux/README.md
 [OpenWrt]: ./OpenWrt/README.md
@@ -65,3 +69,4 @@ ram: 256MB
 [FreeBSD]: ./FreeBSD/README.md
 [Fedora]: ./Fedora/README.md
 [Gentoo]: ./Gentoo/README.md
+[xv6]: ./xv6/README.md

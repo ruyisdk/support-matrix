@@ -7,7 +7,7 @@ status: cfh
 last_update: 2025-04-15
 ---
 
-# Debian Milk-V Duo 256M Test Report
+# xv6 Milk-V Duo 256M Test Report
 
 ## Test Environment
 
