@@ -69,6 +69,9 @@ ram: 64MB
 - OpenWrt
   - Source Code Link: https://github.com/draftbottle/VizOS
   - Reference Installation Document: https://community.milkv.io/t/milk-v-duo-openwrt/2399
+- xv6
+  - Download Link: https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/blob/riscv/duo-imgtools/milkv-duo_sdcard.img
+  - Reference Installation Document: https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/
 
 ### Hardware Information
 
@@ -91,6 +94,7 @@ ram: 64MB
 | ThreadX Image Build and Boot         | N/A          | [Success][ThreadX]                                               |
 | Zephyr Image Build and Boot          | N/A          | [Success][Zephyr]                                                |
 | UniProton Boot                       | N/A          | [Success][UniProton]                                             |
+| xv6 Boot                             | N/A          | [Success][xv6]                                                   |
 | Ubuntu Boot                          | N/A          | [Success][Ubuntu]                                                |
 | Yocto Image Build and Boot           | N/A          | [Success][Yocto]                                                 |
 | NixOS Image Build and Boot           | N/A          | [Success][NixOS]                                                 |
@@ -109,6 +113,7 @@ ram: 64MB
 [ThreadX]: ./ThreadX/README.md
 [Zephyr]: ./Zephyr/README.md
 [UniProton]: ./UniProton/README.md
+[xv6]: ./xv6/README.md
 [Ubuntu]: ./Ubuntu/README.md
 [Yocto]: ./Yocto/README.md
 [NixOS]: ./NixOS/README.md
