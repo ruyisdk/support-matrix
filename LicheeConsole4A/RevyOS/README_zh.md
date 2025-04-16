@@ -10,7 +10,7 @@
 
 ### 硬件信息
 
-- Lichee Cluster 4A 8G / 16G
+- Lichee Console 4A 8G / 16G
 - 随机电源
 - USB A to C 线一根
 
@@ -29,18 +29,18 @@ ID 2345:7654 T-HEAD USB download gadget
 
 使用 lz4 解压镜像：
 ```bash
-lz4 -d path/to/boot.ext4.lz4
-lz4 -d path/to/root.ext4.lz4
+zstd -d boot-console-20240720_171948.ext4.zst
+zstd -d root-console-20240720_171948.ext4.zst
 ```
 
 连接 USB 线至机身后端的 type-C 口，使用 `fastboot` 烧录。
 
 ```bash
-fastboot flash ram u-boot-with-spl-console-ramsize.bin
+fastboot flash ram u-boot-with-spl-lcon4a-$(ramsize).bin
 fastboot reboot
-fastboot flash uboot u-boot-with-spl-console-ramsize.bin
-fastboot flash boot path/to/boot.ext4
-fastboot flash root path/to/root.ext4
+fastboot flash uboot u-boot-with-spl-lcon4a-$(ramsize).bin
+fastboot flash boot boot-console-20240720_171948.ext4
+fastboot flash root root-console-20240720_171948.ext4
 ```
 
 ### 登录系统
@@ -67,10 +67,10 @@ root 账户默认没有设置密码。
 
 屏幕录像（刷写系统）：
 
-[![asciicast](https://asciinema.org/a/hZHlwXaPj9W1AQgADtrgYRB4m.svg)](https://asciinema.org/a/hZHlwXaPj9W1AQgADtrgYRB4m)
+[![asciicast](https://asciinema.org/a/8nPSD9mkfabBKQLRPOkqAu8oI.svg)](https://asciinema.org/a/8nPSD9mkfabBKQLRPOkqAu8oI)
 
 ```log
-debian@lpi4a:~$ cat /etc/os-release 
+debian@revyos-console:~$ cat /etc/os-release 
 PRETTY_NAME="Debian GNU/Linux 12 (bookworm)"
 NAME="Debian GNU/Linux"
 VERSION_ID="12"
@@ -80,15 +80,16 @@ ID=debian
 HOME_URL="https://www.debian.org/"
 SUPPORT_URL="https://www.debian.org/support"
 BUG_REPORT_URL="https://bugs.debian.org/"
-debian@lpi4a:~$ uname -a
-Linux lpi4a 5.10.113-sipeed-20240312+ #10 SMP PREEMPT Tue Mar 12 14:33:06 HKT 2024 riscv64 GNU/Linux
-debian@lpi4a:~$ cat /etc/revyos-release 
-BUILD_ID=20240202_141632
-BUILD_DATE=20240202
-RELEASE_ID=20240202
-COMMIT_ID=09f8aabe9ed5ca28639a4df84bad507e746118d3
-RUNNER_ID=7757184473
-debian@lpi4a:~$ 
+debian@revyos-console:~$ uname -a
+Linux revyos-console 5.10.113-th1520 #2024.07.20.13.28+d8f77de53 SMP PREEMPT Sat Jul 20 13:29:42 UTC  riscv64 GNU/Linux
+debian@revyos-console:~$ cat /etc/revyos-release 
+BUILD_ID=20240720_171948
+BUILD_DATE=20240720
+BOARD_NAME=console
+RELEASE_ID=20240720
+COMMIT_ID=40e0de7b829084698dc825c623a52e66e178ad37
+RUNNER_ID=10021766410
+
 ```
 
 ![machine](image-1.png)
