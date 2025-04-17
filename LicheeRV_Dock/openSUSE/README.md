@@ -1,6 +1,6 @@
 ---
 sys: opensuse
-sys_ver: 20240115
+sys_ver: "20240115"
 sys_var: null
 
 status: basic

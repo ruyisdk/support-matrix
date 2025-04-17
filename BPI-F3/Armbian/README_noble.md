@@ -1,7 +1,7 @@
 ---
 sys: armbian
 sys_ver: 25.2.0
-sys_var: null
+sys_var: noble
 
 status: basic
 last_update: 2025-01-20

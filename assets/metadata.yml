@@ -24,7 +24,6 @@ linux:
   - slackware: Slackware
   - ubuntu: Ubuntu
   - yocto: Yocto
-  - guix: Guix
 
 bsd:
   - freebsd: FreeBSD

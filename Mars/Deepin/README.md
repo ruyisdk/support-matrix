@@ -1,6 +1,6 @@
 ---
 sys: deepin
-sys_ver: 25
+sys_ver: "25"
 sys_var: null
 
 status: good

@@ -1,6 +1,6 @@
 ---
 sys: ubuntu
-sys_ver: 23.10
+sys_ver: "23.10"
 sys_var: null
 
 status: basic

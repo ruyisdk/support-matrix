@@ -1,6 +1,6 @@
 ---
 sys: gentoo
-sys_ver: 2.13
+sys_ver: "2.13"
 sys_var: null
 
 status: basic

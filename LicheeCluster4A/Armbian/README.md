@@ -1,6 +1,6 @@
 ---
 sys: armbian
-sys_ver: 20.04
+sys_ver: "20.04"
 sys_var: null
 
 status: basic
