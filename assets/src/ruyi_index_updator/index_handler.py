@@ -210,8 +210,11 @@ class RuyiGitRepo:
         Commit the changes.
         """
         logger.info("Commit: %s", message)
-        message = f"{message}\n\nThis commit is made by ruyi-index-updator"
-        self.local_repo.index.commit(message)
+        message = f"{message}\n\nThis commit is made by ruyi-index-updator\n\n"
+        # self.local_repo.index.commit(message)
+        self.local_repo.git.execute(
+            ["git", "commit", "-s", "-m", message]
+        )
 
     def local_push(self, branch: str):
         """

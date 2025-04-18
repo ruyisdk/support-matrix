@@ -104,6 +104,8 @@ jobs:
         run: |
           sudo apt-get update
           pip install -r assets/requirements_ruyinv.txt
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
       - name: Run tool to generate and upload
         if: ${{ ( github.event_name == 'workflow_dispatch' && inputs.makepr == 'false' ) }}
         run: |
