@@ -63,8 +63,10 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            ~/cache
+            ${{ env.CACHE_DIR }}
           key: ${{ runner.os }}-package-index-sync
+          restore-keys: |
+            ${{ runner.os }}-package-index-sync
       - name: Install Dependencies
         run: |
           sudo apt-get update
@@ -95,11 +97,14 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE }}
       - name: Load Cache
+        id: load-cache
         uses: actions/cache@v4
         with:
           path: |
-            ~/cache
+            ${{ env.CACHE_DIR }}
           key: ${{ runner.os }}-package-index-sync
+          restore-keys: |
+            ${{ runner.os }}-package-index-sync
       - name: Install Dependencies
         run: |
           sudo apt-get update
