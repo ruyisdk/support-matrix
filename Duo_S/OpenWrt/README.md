@@ -1,6 +1,6 @@
 ---
 sys: openwrt
-sys_ver: 23.05
+sys_ver: "23.05"
 sys_var: null
 
 status: basic

@@ -1,6 +1,6 @@
 ---
 sys: openeuler
-sys_ver: 23.03
+sys_ver: "23.03"
 sys_var: null
 
 status: basic

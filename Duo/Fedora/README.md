@@ -1,6 +1,6 @@
 ---
 sys: fedora
-sys_ver: 41
+sys_ver: "41"
 sys_var: null
 
 status: basic

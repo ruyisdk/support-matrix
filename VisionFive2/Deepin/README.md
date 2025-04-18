@@ -1,6 +1,6 @@
 ---
 sys: deepin
-sys_ver: 23
+sys_ver: "23"
 sys_var: null
 
 status: basic

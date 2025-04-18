@@ -1,6 +1,6 @@
 ---
 sys: ubuntu
-sys_ver: 23.02
+sys_ver: "23.02"
 sys_var: null
 
 status: CFT

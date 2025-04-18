@@ -1,0 +1,32 @@
+name: Metadata Check
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+
+jobs:
+  do_check:
+    name: Check Metadata
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Prepare Environment
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: ninja-build cairosvg libcairo2-dev libjpeg-dev libgif-dev
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+          cache: 'pip'
+          cache-dependency-path: '**/requirements_*.txt'
+      - name: Install Dependencies
+        run: |
+          pip install -qr assets/requirements_svg.txt
+          pip install -q --upgrade pydantic
+
+      - name: Check Metadata
+        run: |
+          python3 assets/metadata_check.py -p .

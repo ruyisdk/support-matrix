@@ -1,6 +1,6 @@
 ---
 sys: rockos
-sys_ver: 20250219
+sys_ver: "20250219"
 sys_var: null
 
 status: good
