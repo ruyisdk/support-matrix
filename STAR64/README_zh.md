@@ -20,6 +20,9 @@
 - Yocto
     - 下载链接：https://github.com/Fishwaldo/meta-pine64/releases/tag/v2.1
     - 参考安装文档：https://github.com/Fishwaldo/meta-pine64
+- Ubuntu 25.04:
+  - 下载链接：https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz
+  - 参考安装文档：https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/pine64-star64/
 
 ### 硬件开发板信息
 
@@ -32,7 +35,9 @@
 | NuttX 镜像构建及启动     | N/A      | [CFT][NuttX]                |
 | Armbian 镜像启动        | N/A      | [CFT][Armbian]              |
 | Yocto 镜像启动          | N/A      | [CFT][Yocto]                |
+| Ubuntu 镜像启动         | N/A      | [CFT][Ubuntu]               |
 
 [NuttX]: ./NuttX/README_zh.md
 [Armbian]: ./Armbian/README_zh.md
 [Yocto]: ./Yocto/README_zh.md
+[Ubuntu]: ./Ubuntu/README_zh.md
