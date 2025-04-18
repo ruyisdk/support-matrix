@@ -11,7 +11,15 @@ util:
     # this version mapper cam map any version like (v?)a.b(.c)?(-*)*(-sp*)*(-*)
         version_mapper:
             type: lambda
-            mapper: 'lambda ver, info: [(m := re.match(r"(v)?0*(\d+)\.0*(\d+)(\.0*(\d+))?((-(?:(?!SP)[\w\.]+))*)(-SP(\d+))?((-([\w\.]+))*)?((\+([\w\.]+))*)?", ver), f"{m[2]}.{m[3]}.{m[5] or 0}-{m[9] or 0}{m[6] or ""}{m[10] or ""}{m[13] or ""}")[-1] for re in [__import__("re")]][0]'
+            mapper: |
+                lambda ver, info: [
+                    (
+                        m := re.match(r"(v)?0*(?P<major>\d+)(\.0*(?P<minor>\d+))?(\.0*(?P<patch>\d+))?(?P<pre_release_1>(-(?:(?!(SP|trunk\.|LTS))[\w\.]+))*)(-LTS)?(-(SP|trunk\.)(?P<sp_part>\d+))?(-LTS)?(?P<pre_release_2>(-([\w\.]+))*)?(?P<build>(\+([\w\.]+))*)?", ver),
+                        f"0.{m["major"]}.0" if not m["minor"] else 
+                            f"{m["major"]}{int(m["minor"]):02d}.{m["patch"] or 0}.{m["sp_part"] or 0}{f"{m["pre_release_1"] or ""}{m["pre_release_2"] or ""}".replace('-', '.').replace('.', '-', 1)}{m["build"] or ""}"
+                    )[-1] 
+                    for re in [__import__("re")]
+                ][0]
 
 handler:
     -   plugin: doc_only # dummy config cooperate with symlink 
