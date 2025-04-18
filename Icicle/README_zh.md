@@ -4,12 +4,12 @@
 
 ### 操作系统信息
 
-- Ubuntu 24.10
-    - 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/
-    - 参考安装文档：https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
+- Ubuntu 25.04
+    - 下载链接：https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+icicle.img.xz
+    - 参考安装文档：https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/microchip-polarfire-icicle/
 - Ubuntu 24.04.2 LTS
     - 下载链接：https://cdimage.ubuntu.com/releases/24.04.2/release/
-    - 参考安装文档：https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
+    - 参考安装文档：https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/microchip-polarfire-icicle/
 - BuildRoot 24.02.2
     - 源码下载链接：https://buildroot.org/downloads/buildroot-2024.02.2.tar.gz
     - 参考安装文档：https://gitlab.com/buildroot.org/buildroot/-/tree/master/board/microchip/mpfs_icicle?ref_type=heads
