@@ -11,10 +11,10 @@
 
 ### 操作系统信息
 
-- Ubuntu 24.10 LTS
-    - 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/
-        - TUNA 镜像源：https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/oracular/release/ubuntu-24.10-preinstalled-server-riscv64+icicle.img.xz
-    - 参考安装文档：https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
+- Ubuntu 25.04
+    - 下载链接：https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+icicle.img.xz
+        - TUNA 镜像源：https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+icicle.img.xz
+    - 参考安装文档：https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/microchip-polarfire-icicle/
 
 ### 其他信息
 
@@ -121,7 +121,7 @@ usbdmsc
 直接使用 Rufus/Win32DiskImager/dd 等工具写入镜像至 SD 卡即可。
 
 ```shell
-xzcat ubuntu-24.10-preinstalled-server-riscv64+icicle.img.xz | sudo dd of=/dev/sdX bs=4M iflag=fullblock status=progress 
+xzcat ubuntu-25.04-preinstalled-server-riscv64+icicle.img.xz | sudo dd of=/dev/sdX bs=4M iflag=fullblock status=progress 
 ```
 
 ## 启动开发板
