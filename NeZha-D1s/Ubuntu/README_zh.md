@@ -4,9 +4,9 @@
 
 ### 操作系统信息
 
-- 系统版本：Ubuntu 24.10
-- 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64+nezha.img.xz
-- 参考安装文档：https://wiki.ubuntu.com/RISC-V/Nezha%20D1
+- 系统版本：Ubuntu 25.04
+- 下载链接：https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+nezha.img.xz
+- 参考安装文档：https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/allwinner-nezha-d1/
 
 ### 硬件信息
 
@@ -23,8 +23,8 @@
 假定 `/dev/sdc` 为存储卡。
 
 ```bash
-xz -d ubuntu-24.10-preinstalled-server-riscv64+nezha.img.xz
-sudo dd if=ubuntu-24.10-preinstalled-server-riscv64+nezha.img of=/dev/sdc bs=1m status=progress
+xz -d ubuntu-25.04-preinstalled-server-riscv64+nezha.img.xz
+sudo dd if=ubuntu-25.04-preinstalled-server-riscv64+nezha.img of=/dev/sdc bs=1m status=progress
 ```
 
 ### 登录系统
