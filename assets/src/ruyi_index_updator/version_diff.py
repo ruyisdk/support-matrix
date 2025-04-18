@@ -38,7 +38,7 @@ class SystemWorker:
         self.info = info
         self.plugin = plugin
         self.repo = repo
-        self.branch_name = f"{util.system_id(info, None)}-{"_".join(info.board_variants)}_update_branch"
+        self.branch_name = f"{util.system_id(info, None)}-{"_".join(info.board_variants)}_{info.version}_update_branch"
         self.ident = ""
 
         self.repo.local_checkout(self.branch_name)
