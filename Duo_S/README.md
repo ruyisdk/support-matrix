@@ -40,7 +40,9 @@ ram: 512MB
 - NixOS
   - Source code link: https://github.com/NickCao/nixos-riscv
   - Reference Installation Document: https://github.com/NickCao/nixos-riscv/README.md
-
+- xv6
+  - Download Link: https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/blob/riscv/duo-imgtools/milkv-duo_sdcard.img
+  - Reference Installation Document: https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/
 
 ### Hardware Information
 
@@ -56,6 +58,7 @@ ram: 512MB
 | FreeRTOS Boot                | mailbox-test | [Successful][FreeRTOS]    |
 | Apache NuttX Build and Boot  | N/A          | [Successful][NuttX]       |
 | Zephyr Image Build and Boot  | N/A          | [Successful][Zephyr]      |
+| xv6 Image Boot               | N/A          | [Failed][xv6]             |
 | Ubuntu Image Boot            | N/A          | [Successful][Ubuntu]      |
 | OpenWrt Image Build and Boot | N/A          | [Successful][OpenWrt]     |
 | NixOS Image Build and Boot   | N/A          | [Successful][NixOS]       |
@@ -69,3 +72,4 @@ ram: 512MB
 [Ubuntu]: ./Ubuntu/README.md
 [OpenWrt]: ./OpenWrt/README.md
 [NixOS]: ./NixOS/README.md
+[xv6]: ./xv6/README.md

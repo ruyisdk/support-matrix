@@ -61,6 +61,9 @@
 - OpenWrt
   - 源码链接：https://github.com/draftbottle/VizOS
   - 参考安装文档：https://community.milkv.io/t/milk-v-duo-openwrt/2399
+- xv6
+  - 下载链接：https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/blob/riscv/duo-imgtools/milkv-duo_sdcard.img
+  - 参考安装文档：https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/
 
 ### 硬件开发板信息
 
@@ -83,6 +86,7 @@
 | ThreadX 镜像构建及启动         | N/A      | [成功][ThreadX]                                    |
 | Zephyr  镜像构建及启动         | N/A      | [成功][Zephyr]                                     |
 | UniProton 启动                 | N/A      | [成功][UniProton]                                  |
+| xv6 启动                       | N/A      | [成功][xv6]                                        |
 | Ubuntu 启动                    | N/A      | [成功][Ubuntu]                                     |
 | Yocto  镜像构建及启动          | N/A      | [成功][Yocto]                                      |
 | NixOS  镜像构建及启动          | N/A      | [成功][NixOS]                                      |
@@ -105,3 +109,4 @@
 [Yocto]: ./Yocto/README_zh.md
 [NixOS]: ./NixOS/README_zh.md
 [OpenWrt]: ./OpenWrt/README_zh.md
+[xv6]: ./xv6/README_zh.md

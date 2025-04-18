@@ -46,6 +46,9 @@
 - NixOS
   - 源码链接: https://github.com/NickCao/nixos-riscv
   - 参考安装文档: https://github.com/NickCao/nixos-riscv/README.md
+- xv6
+  - 下载链接：https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/blob/riscv/duo-imgtools/milkv-duo_sdcard.img
+  - 参考安装文档：https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/
 
 ### 硬件开发板信息
 
@@ -63,6 +66,7 @@
 | RT-Thread 镜像构建及启动       | N/A      | [成功][RT-Thread]                                  |
 | RT-Thread Smart 镜像构建及启动 | N/A      | [成功][RT-Thread]                                  |
 | Zephyr 镜像构建及启动          | N/A      | [成功][Zephyr]                                     |
+| xv6 镜像启动                   | N/A      | [失败][xv6]                                        |
 | Alpine Linux 启动              | N/A      | [成功][Alpine] （可使用社区镜像或手工构建 rootfs） |
 | Ubuntu 启动                    | N/A      | [成功][Ubuntu]                                     |
 | Yocto  镜像构建及启动          | N/A      | [成功][Yocto]                                      |
@@ -80,3 +84,4 @@
 [Ubuntu]: ./Ubuntu/README_zh.md
 [Yocto]: ./Yocto/README_zh.md
 [NixOS]: ./NixOS/README_zh.md
+[xv6]: ./xv6/README_zh.md

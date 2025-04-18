@@ -54,6 +54,9 @@ ram: 256MB
 - NixOS
   - Source code link: https://github.com/NickCao/nixos-riscv
   - Reference Installation Document: https://github.com/NickCao/nixos-riscv/README.md
+- xv6
+  - Download Link: https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/blob/riscv/duo-imgtools/milkv-duo_sdcard.img
+  - Reference Installation Document: https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/
 
 ### Hardware Information
 
@@ -71,6 +74,7 @@ ram: 256MB
 | RT-Thread Image Build & Boot       | N/A          | [Success][RT-Thread]                                             |
 | RT-Thread Smart Image Build & Boot | N/A          | [Success][RT-Smart]                                              |
 | Zephyr Image Build & Boot          | N/A          | [Success][Zephyr]                                                |
+| xv6 Image Boot                     | N/A          | [Failed][Zephyr]                                                 |
 | Alpine Linux Boot                  | N/A          | [Success][Alpine] (use community image or build rootfs manually) |
 | Ubuntu Boot                        | N/A          | [Success][Alpine] (use community image or build rootfs manually) |
 | Yocto Image Build and Boot         | N/A          | [Success][Yocto]                                                 |
@@ -88,3 +92,4 @@ ram: 256MB
 [Ubuntu]: ./Ubuntu/README.md
 [Yocto]: ./Yocto/README.md
 [NixOS]: ./NixOS/README.md
+[xv6]: ./xv6/README.md

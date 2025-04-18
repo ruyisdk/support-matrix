@@ -32,6 +32,9 @@
 - NixOS
   - 源码链接: https://github.com/NickCao/nixos-riscv
   - 参考安装文档: https://github.com/NickCao/nixos-riscv/README.md
+- xv6
+  - 下载链接：https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/blob/riscv/duo-imgtools/milkv-duo_sdcard.img
+  - 参考安装文档：https://github.com/xhackerustc/rvspoc-p2308-xv6-riscv/
 
 ### 硬件开发板信息
 
@@ -47,6 +50,7 @@
 | FreeRTOS 启动           | mailbox-test | [成功][FreeRTOS]     |
 | Apache NuttX 构建及启动 | N/A          | [成功][NuttX]        |
 | Zephyr 镜像构建及启动   | N/A          | [成功][Zephyr]       |
+| xv6 镜像启动            | N/A          | [失败][xv6]          |
 | Ubuntu 镜像启动         | N/A          | [成功][Ubuntu]       |
 | OpenWrt 镜像构建及启动  | N/A          | [成功][OpenWrt]      |
 | NixOS 镜像构建及启动    | N/A          | [成功][NixOS]        |
@@ -60,3 +64,4 @@
 [Ubuntu]: ./Ubuntu/README_zh.md
 [OpenWrt]: ./OpenWrt/README_zh.md
 [NixOS]: ./NixOS/README_zh.md
+[xv6]: ./xv6/README_zh.md
