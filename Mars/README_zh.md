@@ -29,6 +29,11 @@
 - Guix
   - 下载链接：<https://ci.guix.gnu.org/search/latest?query=spec:images+status:success+system:x86_64-linux+visionfive2-barebones-raw-image>
   - 参考安装文档：<https://milkv.iso/zh/docs/mars/getting-started/boot>
+- NixOS 25.05
+  - 下载链接：<https://hydra.nichi.co/build/1426425/download/1/nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img.zst>
+  - 参考安装文档：
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://github.com/NickCao/nixos-riscv>
 
 ### 硬件开发板信息
 
@@ -46,6 +51,7 @@
 | eweOS 镜像启动       | N/A      | [成功][eweOS]                     |
 | Fedora 镜像启动      | N/A      | [成功][Fedora]                     |
 | Guix 镜像启动        | N/A      | [成功][Guix]                     |
+| NixOS 镜像启动       | N/A      | [成功][NixOS]                     |
 
 [Debian]: ./Debian/README_zh.md
 [BuildRoot]: ./BuildRoot/README_zh.md
@@ -55,3 +61,4 @@
 [eweOS]: ./eweOS/README_zh.md
 [Fedora]: ./Fedora/README_zh.md
 [Guix]: ./Guix/README_zh.md
+[NixOS]: ./NixOS/README.md
