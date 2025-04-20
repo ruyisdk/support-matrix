@@ -34,6 +34,11 @@ ram: 1G/2G/4G/8G
   - Reference Installation Document:
     1. <https://milkv.io/zh/docs/mars/getting-started/boot>
     2. <https://images.fedoravforce.org/Mars>
+- NixOS 25.05
+  - Download Link: <https://hydra.nichi.co/build/1426425/download/1/nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img.zst>
+  - Reference Installation Document:
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://github.com/NickCao/nixos-riscv>
 
 ### Hardware Information
 
@@ -45,12 +50,13 @@ ram: 1G/2G/4G/8G
 | ---------------------- | ------------ | -------------------------------------------- |
 | Debian Image Boot      | N/A          | [Successful][Debian] (Milk-V Official Image) |
 | BuildRoot Build & Boot | N/A          | [Successful][BuildRoot]                      |
-| Ubuntu Image Boot      | N/A          | [Successful][Ubuntu]                                |
-| Ubuntu LTS Image Boot  | N/A          | [Successful][Ubuntu LTS]                            |
-| Deepin Image Boot      | N/A          | [Successful][Deepin]                                |
-| eweOS Image Boot       | N/A          | [Successful][eweOS]                                |
-| Fedora Image Boot       | N/A          | [Successful][Fedora]                                |
-| Guix Image Boot       | N/A          | [Successful][Guix]                                |
+| Ubuntu Image Boot      | N/A          | [Successful][Ubuntu]                         |
+| Ubuntu LTS Image Boot  | N/A          | [Successful][Ubuntu LTS]                     |
+| Deepin Image Boot      | N/A          | [Successful][Deepin]                         |
+| eweOS Image Boot       | N/A          | [Successful][eweOS]                          |
+| Fedora Image Boot      | N/A          | [Successful][Fedora]                         |
+| Guix Image Boot        | N/A          | [Successful][Guix]                           |
+| NixOS Image Boot       | N/A          | [Successful][NixOS]                          |
 
 [Debian]: ./Debian/README.md
 [BuildRoot]: ./BuildRoot/README.md
@@ -60,3 +66,4 @@ ram: 1G/2G/4G/8G
 [eweOS]: ./eweOS/README.md
 [Fedora]: ./Fedora/README.md
 [Guix]: ./Guix/README.md
+[NixOS]: ./NixOS/README.md
