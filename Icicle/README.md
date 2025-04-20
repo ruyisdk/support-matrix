@@ -11,7 +11,7 @@ ram: 2G
 
 ### Operating System Information
 
-- Ubuntu 24.10
+- Ubuntu 25.04
     - Download Link: https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+icicle.img.xz
     - Reference Installation Document: https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/microchip-polarfire-icicle/
 - Ubuntu 24.04.2 LTS
