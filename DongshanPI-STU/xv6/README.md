@@ -27,7 +27,7 @@ last_update: 2025-04-15
 
 Fetch the source code:
 ```shell
-dd if=milkv-duo_sdcard.img of=/dev/your/device bs=1M status=progress
+git clone https://github.com/michaelengel/xv6-d1.git
 ```
 
 Modify `Makefile` to avoid compilation errors:
@@ -53,7 +53,7 @@ make fs.img
 make
 ```
 
-### 通过 FEL 刷写固件
+### Flash the kernel with `xfel`
 
 Install [xfel](https://github.com/xboot/xfel). e.g. on Arch Linux via AUR: `paru -S xfel`
 

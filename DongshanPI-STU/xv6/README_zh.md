@@ -18,7 +18,7 @@
 
 拉取源码：
 ```shell
-dd if=milkv-duo_sdcard.img of=/dev/your/device bs=1M status=progress
+git clone https://github.com/michaelengel/xv6-d1.git
 ```
 
 修改 `Makefile` 以避免编译错误：

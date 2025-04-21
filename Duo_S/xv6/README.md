@@ -35,6 +35,8 @@ last_update: 2025-04-15
 dd if=milkv-duo_sdcard.img of=/dev/your/device bs=1M status=progress
 ```
 
+You might want to replace the `fip.bin` in the image with the one from Milk-V's official Buildroot SDK.
+
 ## Expected Results
 
 The system boots up normally and has output through the serial port.
