@@ -6,7 +6,8 @@
 
 - 系统版本：23.09.15
 - 下载链接：[Releases · chainsx/armbian-riscv-build](https://github.com/chainsx/armbian-riscv-build/releases)
-  - u-boot:[Releases · chainsx/armbian-riscv-build](https://github.com/chainsx/armbian-riscv-build/releases)
+  - u-boot: [Releases · chainsx/armbian-riscv-build](https://github.com/chainsx/armbian-riscv-build/releases)
+- 参考安装文档：[LicheePi 4A Install Guide](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
 
 ### 硬件信息
 

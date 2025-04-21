@@ -48,7 +48,7 @@ ram: 8G
 | openEuler/Base Image Boot          | N/A              | [Success][oERV]                         |
 | openEuler/Xfce Image Boot          | Xfce             | [Success][oERV]                         |
 | openEuler Innovation Image Boot    | N/A              | [Success][openEuler]                    |
-| Armbian(Ubuntu) Desktop Image Boot | N/A              | [Success][Armbian]                      |
+| Armbian(Ubuntu) Desktop Image Boot | Xfce             | [Success][Armbian]                      |
 | Fedora chainsx Desktop Image Boot  | N/A              | [Success][Fedora]                       |
 | openKylin Desktop Image Boot       | N/A              | [Success][openKylin] (Official Support) |
 | OpenWRT Image Boot                 | N/A              | [Success][OpenWRT]                      |
