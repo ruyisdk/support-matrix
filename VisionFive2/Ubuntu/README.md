@@ -1,19 +1,19 @@
 ---
 sys: ubuntu
-sys_ver: 24.10
+sys_ver: 25.04
 sys_var: null
 
 status: basic
-last_update: 2024-10-21
+last_update: 2025-04-19
 ---
 
-# Ubuntu 24.10 VisionFive 2 Version Test Report
+# Ubuntu 25.04 VisionFive 2 Version Test Report
 
 ## Test Environment
 
 ### Operating System Information
 
-- System Version: Ubuntu 24.10
+- System Version: Ubuntu 25.04
 - Download Link: https://ubuntu.com/download/risc-v
 - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/StarFive%20VisionFive%202
 
@@ -31,7 +31,7 @@ last_update: 2024-10-21
 ### Decompress and Flash Image to microSD Card
 
 ```bash
-xzcat ubuntu-24.10-preinstalled-server-riscv64+visionfive2.img.xz | sudo dd bs=1M conv=fsync of=/dev/<your-device>
+xzcat ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz | sudo dd bs=1M conv=fsync of=/dev/<your-device>
 ```
 
 ### Boot Mode Selection
@@ -73,30 +73,27 @@ The system should boot normally and allow login via the serial port.
 
 The system booted normally, and login via the serial port was successful.
 
-### Boot log 
+### Boot log
 
 ```log
-
-Ubuntu 24.10 ubuntu ttyS0
-
 ubuntu login: ubuntu
-Password: 
+Password:
 You are required to change your password immediately (administrator enforced).
 Changing password for ubuntu.
-Current password: 
-New password: 
-Retype new password: 
-Welcome to Ubuntu 24.10 (GNU/Linux 6.11.0-8-generic riscv64)
+Current password:
+New password:
+Retype new password:
+Welcome to Ubuntu 25.04 (GNU/Linux 6.14.0-13-generic riscv64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/pro
 
- System information as of Mon Oct  7 18:55:05 UTC 2024
+ System information as of Tue Apr 15 02:59:18 UTC 2025
 
-  System load:    1.01      Processes:             27
+  System load:    1.02      Processes:             27
   Usage of /home: unknown   Users logged in:       0
-  Memory usage:   5%        IPv4 address for eth0: 10.10.10.2
+  Memory usage:   2%        IPv4 address for eth0: 10.10.10.2
   Swap usage:     0%
 
 0 updates can be applied immediately.
@@ -113,22 +110,88 @@ applicable law.
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
-ubuntu@ubuntu:~$ cat /etc/os-release 
-PRETTY_NAME="Ubuntu 24.10"
-NAME="Ubuntu"
-VERSION_ID="24.10"
-VERSION="24.10 (Oracular Oriole)"
-VERSION_CODENAME=oracular
-ID=ubuntu
-ID_LIKE=debian
-HOME_URL="https://www.ubuntu.com/"
-SUPPORT_URL="https://help.ubuntu.com/"
-BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
-PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-UBUNTU_CODENAME=oracular
-LOGO=ubuntu-logo
 ubuntu@ubuntu:~$ uname -a
-Linux ubuntu 6.11.0-8-generic #8.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Oct  1 11:40:56 UTC 2024 riscv64 riscv64 riscv64 GNU/Linux
+Linux ubuntu 6.14.0-13-generic #13.2-Ubuntu SMP PREEMPT_DYNAMIC Sun Apr  6 05:26:54 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux
+ubuntu@ubuntu:~$ lscpu
+Architecture:             riscv64
+  Byte Order:             Little Endian
+CPU(s):                   4
+  On-line CPU(s) list:    0-3
+Vendor ID:                0x489
+  Model name:             sifive,u74-mc
+    CPU family:           0x8000000000000007
+    Model:                0x4210427
+    Thread(s) per core:   1
+    Core(s) per socket:   4
+    Socket(s):            1
+    CPU(s) scaling MHz:   100%
+    CPU max MHz:          1500.0000
+    CPU min MHz:          375.0000
+Caches (sum of all):
+  L1d:                    128 KiB (4 instances)
+  L1i:                    128 KiB (4 instances)
+  L2:                     2 MiB (1 instance)
+NUMA:
+  NUMA node(s):           1
+  NUMA node0 CPU(s):      0-3
+Vulnerabilities:
+  Gather data sampling:   Not affected
+  Ghostwrite:             Not affected
+  Itlb multihit:          Not affected
+  L1tf:                   Not affected
+  Mds:                    Not affected
+  Meltdown:               Not affected
+  Mmio stale data:        Not affected
+  Reg file data sampling: Not affected
+  Retbleed:               Not affected
+  Spec rstack overflow:   Not affected
+  Spec store bypass:      Not affected
+  Spectre v1:             Not affected
+  Spectre v2:             Not affected
+  Srbds:                  Not affected
+  Tsx async abort:        Not affected
+ubuntu@ubuntu:~$ cat /proc/cpuinfo
+processor       : 0
+hart            : 4
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd_zba_zbb
+
+processor       : 1
+hart            : 1
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd_zba_zbb
+
+processor       : 2
+hart            : 2
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd_zba_zbb
+
+processor       : 3
+hart            : 3
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd_zba_zbb
+mmu             : sv39
+uarch           : sifive,u74-mc
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x4210427
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd_zba_zbb
+
+ubuntu@ubuntu:~$
 
 ```
 
