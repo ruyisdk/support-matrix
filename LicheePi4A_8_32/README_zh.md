@@ -40,7 +40,7 @@
 | openEuler/Base 镜像启动        | N/A      | [成功][oERV]                  |
 | openEuler/Xfce 镜像启动        | Xfce     | [成功][oERV]                  |
 | openEuler 社区创新版本镜像启动 | N/A      | [成功][openEuler]             |
-| Armbian(Ubuntu) 桌面镜像启动   | N/A      | [成功][Armbian]            |
+| Armbian(Ubuntu) 桌面镜像启动   | Xfce     | [成功][Armbian]               |
 | Fedora chainsx 桌面镜像启动    | N/A      | [成功][Fedora]                |
 | openKylin 桌面镜像启动         | N/A      | [成功][openKylin]（官方支持） |
 | OpenWRT 镜像启动               | N/A      | [成功][OpenWRT]               |
