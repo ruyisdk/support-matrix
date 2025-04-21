@@ -26,6 +26,8 @@
 dd if=milkv-duo_sdcard.img of=/dev/your/device bs=1M status=progress
 ```
 
+可能需要使用官方 Buildroot SDK 中的 fip.bin 替换镜像中的相应文件。
+
 ## 预期结果
 
 系统正常启动，能够看到串口输出。
