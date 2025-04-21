@@ -56,7 +56,7 @@ index 11e51cd..6fc61d5 100644
  # sun20i-d1-nezha
 -export DEVICE_TREE=sun20i-d1-lichee-rv-dock
 +export DEVICE_TREE=sun20i-d1-mangopi-mq-pro
- 
+
  # folder to mount rootfs
  export MNT="${PWD}/mnt"
 
@@ -71,7 +71,7 @@ index 4fcbc7c..bf62caf 100755
 +++ b/1_compile.sh
 @@ -80,6 +80,7 @@ if [ ! -f "${OUT_DIR}/u-boot-sunxi-with-spl.bin" ]; then
      clean_dir ${DIR}
- 
+
      git clone --depth 1 "${SOURCE_UBOOT}" -b "${TAG_UBOOT}"
 +    sed -i 's/SWIG_Python_AppendOutput/SWIG_AppendOutput/g' u-boot/scripts/dtc/pylibfdt/libfdt.i_shipped
      cd ${DIR}
@@ -92,6 +92,8 @@ Run `2_create_sd.sh`:
 ```bash
 2_create_sd.sh /dev/your/device
 ```
+
+**If `USE_CHROOT` is enabled (by default), it will automatically chroot into the image for configuration. It's recommended to install basic applications like vim at this step.**
 
 ### Logging into the System
 
@@ -123,7 +125,7 @@ Unable to use mmc 0:1...
 In:    serial@2500000
 Out:   serial@2500000
 Err:   serial@2500000
-Net:   
+Net:
 Warning: ethernet@4500000 (eth0) using random MAC address - 52:e9:78:d2:2a:ec
 eth0: ethernet@4500000
 starting USB...
@@ -136,7 +138,7 @@ scanning bus usb@4101400 for devices... 1 USB Device(s) found
 scanning bus usb@4200000 for devices... 1 USB Device(s) found
 scanning bus usb@4200400 for devices... 1 USB Device(s) found
        scanning usb for storage devices... 0 Storage Device(s) found
-Hit any key to stop autoboot:  0 
+Hit any key to stop autoboot:  0
 PLL reg = 0xf8216300, freq = 1200000000
 switch to partitions #0, OK
 mmc0 is current device
@@ -180,7 +182,7 @@ sun8i_emac_eth_start: Timeout
 Config file not found
 sun8i_emac_eth_start: Timeout
 sun8i_emac_eth_start: Timeout
-=> 
+=>
 
 ```
 

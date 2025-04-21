@@ -26,7 +26,7 @@
 pacman -Sy riscv64-linux-gnu-gcc swig cpio python3 python-setuptools base-devel bc arch-install-scripts qemu-user-static qemu-user-static-binfmt
 ```
 
-### 选择 dtb 文件
+### 编译设置
 
 下载 builder 后，更改 consts.sh:
 ```bash
@@ -47,7 +47,7 @@ index 11e51cd..6fc61d5 100644
  # sun20i-d1-nezha
 -export DEVICE_TREE=sun20i-d1-lichee-rv-dock
 +export DEVICE_TREE=sun20i-d1-mangopi-mq-pro
- 
+
  # folder to mount rootfs
  export MNT="${PWD}/mnt"
 
@@ -61,7 +61,7 @@ index 4fcbc7c..bf62caf 100755
 +++ b/1_compile.sh
 @@ -80,6 +80,7 @@ if [ ! -f "${OUT_DIR}/u-boot-sunxi-with-spl.bin" ]; then
      clean_dir ${DIR}
- 
+
      git clone --depth 1 "${SOURCE_UBOOT}" -b "${TAG_UBOOT}"
 +    sed -i 's/SWIG_Python_AppendOutput/SWIG_AppendOutput/g' u-boot/scripts/dtc/pylibfdt/libfdt.i_shipped
      cd ${DIR}
@@ -82,6 +82,8 @@ index 4fcbc7c..bf62caf 100755
 ```bash
 2_create_sd.sh /dev/your/device
 ```
+
+**若开启了 USE_CHROOT（默认开启），其会之后自动 chroot 进镜像等待配置。建议使用这步安装如 vim 等基本应用。**
 
 ### 登录系统
 
@@ -113,7 +115,7 @@ Unable to use mmc 0:1...
 In:    serial@2500000
 Out:   serial@2500000
 Err:   serial@2500000
-Net:   
+Net:
 Warning: ethernet@4500000 (eth0) using random MAC address - 52:e9:78:d2:2a:ec
 eth0: ethernet@4500000
 starting USB...
@@ -126,7 +128,7 @@ scanning bus usb@4101400 for devices... 1 USB Device(s) found
 scanning bus usb@4200000 for devices... 1 USB Device(s) found
 scanning bus usb@4200400 for devices... 1 USB Device(s) found
        scanning usb for storage devices... 0 Storage Device(s) found
-Hit any key to stop autoboot:  0 
+Hit any key to stop autoboot:  0
 PLL reg = 0xf8216300, freq = 1200000000
 switch to partitions #0, OK
 mmc0 is current device
@@ -170,7 +172,7 @@ sun8i_emac_eth_start: Timeout
 Config file not found
 sun8i_emac_eth_start: Timeout
 sun8i_emac_eth_start: Timeout
-=> 
+=>
 
 ```
 
