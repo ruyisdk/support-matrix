@@ -21,6 +21,9 @@ ram: 8G
 - openKylin 2.0 SP1
     - Download Link：https://www.openkylin.top/downloads/index-cn.html
     - Reference Installation Document：https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8LicheePi4A%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+- Armbian 23.09.15
+    - Download Link: https://github.com/chainsx/armbian-riscv-build/releases
+    - Reference Installation Document: https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md
 - Fedora 38
     - Download Link：https://github.com/chainsx/fedora-riscv-builder/releases
     - Reference Installation Document：https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html
@@ -40,19 +43,21 @@ ram: 8G
 
 ## Test Results
 
-| Software Category                 | Software Package | Test Results (Test Report)              |
-| --------------------------------- | ---------------- | --------------------------------------- |
-| openEuler/Base Image Boot         | N/A              | [Success][oERV]                         |
-| openEuler/Xfce Image Boot         | Xfce             | [Success][oERV]                         |
-| openEuler Innovation Image Boot   | N/A              | [Success][openEuler]                    |
-| Fedora chainsx Desktop Image Boot | N/A              | [Success][Fedora]                       |
-| openKylin Desktop Image Boot      | N/A              | [Success][openKylin] (Official Support) |
-| OpenWRT Image Boot                | N/A              | [Success][OpenWRT]                      |
-| Deepin Desktop Image Boot         | N/A              | [Success][Deepin]                       |
-| RevyOS Desktop Image Boot         | N/A              | [Success][RevyOS]                       |
+| Software Category                  | Software Package | Test Results (Test Report)              |
+|------------------------------------|------------------|-----------------------------------------|
+| openEuler/Base Image Boot          | N/A              | [Success][oERV]                         |
+| openEuler/Xfce Image Boot          | Xfce             | [Success][oERV]                         |
+| openEuler Innovation Image Boot    | N/A              | [Success][openEuler]                    |
+| Armbian(Ubuntu) Desktop Image Boot | N/A              | [Success][Armbian]                      |
+| Fedora chainsx Desktop Image Boot  | N/A              | [Success][Fedora]                       |
+| openKylin Desktop Image Boot       | N/A              | [Success][openKylin] (Official Support) |
+| OpenWRT Image Boot                 | N/A              | [Success][OpenWRT]                      |
+| Deepin Desktop Image Boot          | N/A              | [Success][Deepin]                       |
+| RevyOS Desktop Image Boot          | N/A              | [Success][RevyOS]                       |
 
 [oERV]: ./openEuler/README.md
 [openEuler]: ./openEuler/Innovation.md
+[Armbian]: ./Armbian/README.md
 [Fedora]: ./Fedora/README_chainsx.md
 [openKylin]: ./openKylin/README.md
 [OpenWRT]: ./OpenWRT/README.md
