@@ -15,16 +15,19 @@ ram: 1G/2G/4G/8G
 - BuildRoot/Debian (officially provided)
   - Download Link: <https://github.com/milkv-mars/mars-buildroot-sdk/releases/>
   - Reference Installation Document: <https://milkv.io/zh/docs/mars/getting-started/boot>
-- Ubuntu 24.10
-  - Download Link: <https://cdimage.ubuntu.com/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64+milkvmars.img.xz>
+- Ubuntu 25.04
+  - Download Link: <https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz>
+  - Reference Installation Document:
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/milk-v-mars/>
 - Ubuntu 24.04.2 LTS
   - Download Link: <https://cdimage.ubuntu.com/releases/24.04.2/release/ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img.xz>
   - Reference Installation Document: <https://milkv.io/zh/docs/mars/getting-started/boot>
 - Deepin 25 preview
   - Download Link: <https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250122/riscv64/deepin-25-beige-preview-riscv64-jh7110-20250122-110620.tar.xz>
   - Reference Installation Document:
-    1. <https://milkv.io/zh/docs/mars/getting-started/boot>
-    2. <https://deepin-community.github.io/sig-deepin-ports/docs/install/riscv/jh7110>
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://deepin-community.github.io/sig-deepin-ports/docs/install/riscv/jh7110>
 - eweOS 6.13.8
   - Download Link: <https://github.com/panglars/eweos-vf2-mainline>
   - Reference Installation Document: <https://github.com/panglars/eweos-vf2-mainline/blob/main/README.md>
@@ -32,8 +35,8 @@ ram: 1G/2G/4G/8G
 - Fedora 41
   - Download Link: <https://mirror.iscas.ac.cn/fedora-riscv/dl/StarFive/visionfive2/images/fedora-disk-gnome-workstation_starfive_vf2_f41_20241201091200.raw.gz>
   - Reference Installation Document:
-    1. <https://milkv.io/zh/docs/mars/getting-started/boot>
-    2. <https://images.fedoravforce.org/Mars>
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://images.fedoravforce.org/Mars>
 - NixOS 25.05
   - Download Link: <https://hydra.nichi.co/build/1426425/download/1/nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img.zst>
   - Reference Installation Document:
