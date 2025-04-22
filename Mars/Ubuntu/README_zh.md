@@ -1,4 +1,4 @@
-# Ubuntu 24.10 Milk-V Mars 测试报告
+# Ubuntu 25.04 Milk-V Mars 测试报告
 
 ## 测试环境
 
@@ -12,8 +12,8 @@
 
 ### 操作系统信息
 
-- 操作系统版本：Ubuntu 24.10
-- 下载链接：<https://cdimage.ubuntu.com/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64+milkvmars.img.xz>
+- 操作系统版本：Ubuntu 25.04
+- 下载链接：<https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz>
 - 参考安装文档：
   - <https://milkv.io/zh/docs/mars/getting-started/boot>
   - <https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/milk-v-mars/>
@@ -27,9 +27,9 @@
 其中，`/dev/sdc` 为存储卡对应设备。
 
 ```bash
-unxz -d ubuntu-24.10-preinstalled-server-riscv64+milkvmars.img.xz
+unxz -d ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz
 
-sudo dd if=ubuntu-24.10-preinstalled-server-riscv64+milkvmars.img of=/dev/sdc bs=1M status=progress
+sudo dd if=ubuntu-25.04-preinstalled-server-riscv64+jh7110.img of=/dev/sdc bs=1M status=progress
 ```
 
 ### 更新 U-Boot
@@ -66,7 +66,7 @@ sf update $kernel_addr_r 0x100000 $filesize
 ### 启动信息
 
 ```log
-Ubuntu 24.10 ubuntu ttyS0
+Ubuntu 25.04 ubuntu ttyS0
 
 ubuntu login: ubuntu
 Password:
@@ -75,20 +75,17 @@ Changing password for ubuntu.
 Current password:
 New password:
 Retype new password:
-The password has not been changed.
-New password:
-Retype new password:
-Welcome to Ubuntu 24.10 (GNU/Linux 6.11.0-8-generic riscv64)
+Welcome to Ubuntu 25.04 (GNU/Linux 6.14.0-13-generic riscv64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/pro
 
- System information as of Mon Oct  7 18:55:27 UTC 2024
+ System information as of Tue Apr 15 02:59:18 UTC 2025
 
-  System load:    1.27      Processes:             27
+  System load:    1.02      Processes:             27
   Usage of /home: unknown   Users logged in:       0
-  Memory usage:   5%        IPv4 address for eth0: 10.10.10.2
+  Memory usage:   2%        IPv4 address for eth0: 10.10.10.2
   Swap usage:     0%
 
 0 updates can be applied immediately.
@@ -106,26 +103,26 @@ To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
 ubuntu@ubuntu:~$ cat /etc/os-release
-PRETTY_NAME="Ubuntu 24.10"
+PRETTY_NAME="Ubuntu 25.04"
 NAME="Ubuntu"
-VERSION_ID="24.10"
-VERSION="24.10 (Oracular Oriole)"
-VERSION_CODENAME=oracular
+VERSION_ID="25.04"
+VERSION="25.04 (Plucky Puffin)"
+VERSION_CODENAME=plucky
 ID=ubuntu
 ID_LIKE=debian
 HOME_URL="https://www.ubuntu.com/"
 SUPPORT_URL="https://help.ubuntu.com/"
 BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-UBUNTU_CODENAME=oracular
+UBUNTU_CODENAME=plucky
 LOGO=ubuntu-logo
 
 ubuntu@ubuntu:~$ uname -a
-Linux ubuntu 6.11.0-8-generic #8.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Oct  1 11:40:56 UTC 2024 riscv64 riscv64 riscv64 GNU/Linux
+Linux ubuntu 6.14.0-13-generic #13.2-Ubuntu SMP PREEMPT_DYNAMIC Sun Apr  6 05:26:54 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux
 
 ubuntu@ubuntu:~$ cat /proc/cpuinfo
 processor       : 0
-hart            : 3
+hart            : 4
 isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd_zba_zbb
 mmu             : sv39
 uarch           : sifive,u74-mc
@@ -155,7 +152,7 @@ mimpid          : 0x4210427
 hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd_zba_zbb
 
 processor       : 3
-hart            : 4
+hart            : 3
 isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_zca_zcd_zba_zbb
 mmu             : sv39
 uarch           : sifive,u74-mc
