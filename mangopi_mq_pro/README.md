@@ -74,7 +74,7 @@ ram: 512MB/1G
 | OpenWrt Image Boot              | N/A          | [Success][OpenWrt]        |
 | Armbian Image Boot              | N/A          | [Failed][Armbian]         |
 | Debian Image Boot               | N/A          | [Success][Debian]         |
-| Arch Linux Image Compile & Boot | N/A          | [Failed][Archlinux]       |
+| Arch Linux Image Compile & Boot | N/A          | [Success][Archlinux]      |
 | Fedora Image Boot               | N/A          | [Success][Fedora]         |
 | FreeBSD Image Boot              | N/A          | [Success][FreeBSD]        |
 | openSUSE Image Boot             | N/A          | [Success][openSUSE]       |

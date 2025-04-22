@@ -98,81 +98,41 @@ index 4fcbc7c..bf62caf 100755
 
 ## 实际结果
 
-U-Boot 启动时出错，无法进入系统。
+系统正常启动，能够通过板载串口登录。
 
 ### 启动信息
 
 ```log
-U-Boot 2022.10-dirty (Mar 04 2025 - 12:39:02 +0800) Allwinner Technology
+Arch Linux 6.8.0 (ttyS0)
 
-DRAM:  1 GiB
-sunxi_set_gate: (CLK#24) unhandled
-Core:  54 devices, 20 uclasses, devicetree: separate
-WDT:   Started watchdog@6011000 with servicing every 1000ms (16s timeout)
-MMC:   mmc@4020000: 0, mmc@4021000: 1
-Loading Environment from FAT... PLL reg = 0xf8216300, freq = 1200000000
-Unable to use mmc 0:1...
-In:    serial@2500000
-Out:   serial@2500000
-Err:   serial@2500000
-Net:
-Warning: ethernet@4500000 (eth0) using random MAC address - 52:e9:78:d2:2a:ec
-eth0: ethernet@4500000
-starting USB...
-Bus usb@4101000: USB EHCI 1.00
-Bus usb@4101400: USB OHCI 1.0
-Bus usb@4200000: USB EHCI 1.00
-Bus usb@4200400: USB OHCI 1.0
-scanning bus usb@4101000 for devices... 1 USB Device(s) found
-scanning bus usb@4101400 for devices... 1 USB Device(s) found
-scanning bus usb@4200000 for devices... 1 USB Device(s) found
-scanning bus usb@4200400 for devices... 1 USB Device(s) found
-       scanning usb for storage devices... 0 Storage Device(s) found
-Hit any key to stop autoboot:  0
-PLL reg = 0xf8216300, freq = 1200000000
-switch to partitions #0, OK
-mmc0 is current device
-Scanning mmc 0:1...
-Card did not respond to voltage select! : -110
-** Bad device specification host 0 **
-Couldn't find partition host 0:0
-Cannot read EFI system partition
-BootOrder not defined
-EFI boot manager: Cannot load any image
+licheerv login: root
+Password:
+[root@licheerv ~]# uname -a
+Linux licheerv 6.8.0 #1 SMP Tue Apr 22 16:32:18 CST 2025 riscv64 GNU/Linux
+[root@licheerv ~]# cat /etc/os-release
+NAME="Arch Linux"
+PRETTY_NAME="Arch Linux"
+ID=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+HOME_URL="https://archlinux.org/"
+DOCUMENTATION_URL="https://wiki.archlinux.org/"
+SUPPORT_URL="https://bbs.archlinux.org/"
+BUG_REPORT_URL="https://gitlab.archlinux.org/groups/archlinux/-/issues"
+PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
+LOGO=archlinux-logo
+[root@licheerv ~]# cat /proc/cpuinfo
+processor       : 0
+hart            : 0
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : thead,c906
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
 
-Device 0: unknown device
-sun8i_emac_eth_start: Timeout
-missing environment variable: pxeuuid
-Retrieving file: pxelinux.cfg/01-52-e9-78-d2-2a-ec
-sun8i_emac_eth_start: Timeout
-Retrieving file: pxelinux.cfg/00000000
-sun8i_emac_eth_start: Timeout
-Retrieving file: pxelinux.cfg/0000000
-sun8i_emac_eth_start: Timeout
-Retrieving file: pxelinux.cfg/000000
-sun8i_emac_eth_start: Timeout
-Retrieving file: pxelinux.cfg/00000
-sun8i_emac_eth_start: Timeout
-Retrieving file: pxelinux.cfg/0000
-sun8i_emac_eth_start: Timeout
-Retrieving file: pxelinux.cfg/000
-sun8i_emac_eth_start: Timeout
-Retrieving file: pxelinux.cfg/00
-sun8i_emac_eth_start: Timeout
-Retrieving file: pxelinux.cfg/0
-sun8i_emac_eth_start: Timeout
-Retrieving file: pxelinux.cfg/default-riscv-sunxi-sunxi
-sun8i_emac_eth_start: Timeout
-Retrieving file: pxelinux.cfg/default-riscv-sunxi
-sun8i_emac_eth_start: Timeout
-Retrieving file: pxelinux.cfg/default-riscv
-sun8i_emac_eth_start: Timeout
-Retrieving file: pxelinux.cfg/default
-sun8i_emac_eth_start: Timeout
-Config file not found
-sun8i_emac_eth_start: Timeout
-sun8i_emac_eth_start: Timeout
-=>
+[root@licheerv ~]#
 
 ```
 
@@ -184,4 +144,4 @@ sun8i_emac_eth_start: Timeout
 
 ## 测试结论
 
-测试失败。
+测试成功。

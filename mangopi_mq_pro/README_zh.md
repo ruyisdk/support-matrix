@@ -66,7 +66,7 @@
 | OpenWrt 镜像启动          | N/A      | [成功][OpenWrt]      |
 | Armbian 镜像启动          | N/A      | [失败][Armbian]      |
 | Debian 镜像启动           | N/A      | [成功][Debian]       |
-| Arch Linux 镜像编译和启动 | N/A      | [失败][Archlinux]    |
+| Arch Linux 镜像编译和启动 | N/A      | [成功][Archlinux]    |
 | Fedora 镜像启动           | N/A      | [成功][Fedora]       |
 | FreeBSD 镜像编译和启动    | N/A      | [成功][FreeBSD]      |
 | openSUSE 镜像启动         | N/A      | [成功][openSUSE]     |
