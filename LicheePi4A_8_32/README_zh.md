@@ -13,6 +13,9 @@
 - openKylin 2.0 SP1
     - 下载链接：https://www.openkylin.top/downloads/index-cn.html
     - 参考安装文档：https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8LicheePi4A%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
+- Armbian 23.09.15
+    - 下载链接：https://github.com/chainsx/armbian-riscv-build/releases
+    - 参考安装文档：https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md
 - Fedora 38
     - 下载链接：https://github.com/chainsx/fedora-riscv-builder/releases
     - 参考安装文档：https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html
@@ -37,6 +40,7 @@
 | openEuler/Base 镜像启动        | N/A      | [成功][oERV]                  |
 | openEuler/Xfce 镜像启动        | Xfce     | [成功][oERV]                  |
 | openEuler 社区创新版本镜像启动 | N/A      | [成功][openEuler]             |
+| Armbian(Ubuntu) 桌面镜像启动   | Xfce     | [成功][Armbian]               |
 | Fedora chainsx 桌面镜像启动    | N/A      | [成功][Fedora]                |
 | openKylin 桌面镜像启动         | N/A      | [成功][openKylin]（官方支持） |
 | OpenWRT 镜像启动               | N/A      | [成功][OpenWRT]               |
@@ -47,6 +51,7 @@
 [oERV]: ./openEuler/README_zh.md
 [openEuler]: ./openEuler/Innovation_zh.md
 [Fedora]: ./Fedora/README_chainsx_zh.md
+[Armbian]: ./Armbian/README_zh.md
 [openKylin]: ./openKylin/README_zh.md
 [OpenWRT]: ./OpenWRT/README_zh.md
 [Deepin]: ./Deepin/README_zh.md

@@ -1,6 +1,6 @@
 ---
 sys: fedora
-sys_ver: 42
+sys_ver: "42"
 sys_var: minimal
 
 status: basic 

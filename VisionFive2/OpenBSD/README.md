@@ -1,6 +1,6 @@
 ---
 sys: openbsd
-sys_ver: 7.5
+sys_ver: "7.5"
 sys_var: null
 
 status: basic

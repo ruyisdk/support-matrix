@@ -1,6 +1,6 @@
 ---
 sys: ubuntu
-sys_ver: 22.04
+sys_ver: "22.04"
 sys_var: null
 
 status: basic

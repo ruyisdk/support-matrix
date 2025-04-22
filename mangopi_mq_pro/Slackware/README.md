@@ -1,6 +1,6 @@
 ---
 sys: slackware
-sys_ver: 15
+sys_ver: "15"
 sys_var: null
 
 status: basic

@@ -1,6 +1,6 @@
 ---
 sys: openeuler
-sys_ver: 25.03
+sys_ver: "25.03"
 sys_var: Innovation
 
 status: good

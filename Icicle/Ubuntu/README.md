@@ -1,10 +1,10 @@
 ---
 sys: ubuntu
-sys_ver: 24.10
+sys_ver: "25.04"
 sys_var: null
 
 status: CFT
-last_update: 2024-10-25
+last_update: 2025-04-18
 ---
 
 # Ubuntu on Microchip Polarfire SoC FPGA Icicle Kit
@@ -20,10 +20,10 @@ last_update: 2024-10-25
 
 ### Operating System Information
 
-- Ubuntu 24.10
-    - Download link: https://cdimage.ubuntu.com/releases/24.10/release/
-        - TUNA Mirror: https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/oracular/release/ubuntu-24.10-preinstalled-server-riscv64+icicle.img.xz
-    - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
+- Ubuntu 25.04
+    - Download link: https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+icicle.img.xz
+        - TUNA Mirror: https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+icicle.img.xz
+    - Reference Installation Document: https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/microchip-polarfire-icicle/
 
 ### Other Information
 
@@ -130,7 +130,7 @@ After writing the image, press Ctrl+C in the HSS console to exit USB storage mod
 Directly use Rufus/Win32DiskImager/dd and other tools to write the image to the SD card.
 
 ```shell
-xzcat ubuntu-24.10-preinstalled-server-riscv64+icicle.img.xz | sudo dd of=/dev/sdX bs=4M iflag=fullblock status=progress 
+xzcat ubuntu-25.04-preinstalled-server-riscv64+icicle.img.xz | sudo dd of=/dev/sdX bs=4M iflag=fullblock status=progress 
 ```
 
 ## Booting the Development Board

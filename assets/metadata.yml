@@ -24,7 +24,6 @@ linux:
   - slackware: Slackware
   - ubuntu: Ubuntu
   - yocto: Yocto
-  - guix: Guix
 
 bsd:
   - freebsd: FreeBSD
@@ -45,6 +44,7 @@ rtos:
 others:
   - android: Android
   - openharmony: OpenHarmony
+  - xv6: xv6
 
 customized:
   - bianbu: Bianbu

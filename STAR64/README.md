@@ -28,6 +28,9 @@ ram: 2G/4G/8G
 - Yocto
     - Download Link: https://github.com/Fishwaldo/meta-pine64/releases/tag/v2.1
     - Reference Installation Document: https://github.com/Fishwaldo/meta-pine64
+- Ubuntu 25.04:
+  - Download Link: https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz
+  - Reference Installation Document: https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/pine64-star64/
 
 ### Hardware Information
 
@@ -40,7 +43,9 @@ ram: 2G/4G/8G
 | NuttX Image Build & Boot| N/A          | [CFT][NuttX]                    |
 | Armbian Image Boot      | N/A          | [CFT][Armbian]                  |
 | Yocto Image Boot        | N/A          | [CFT][Yocto]                    |
+| Ubuntu Image Boot       | N/A          | [CFT][Ubuntu]                   |
 
 [NuttX]: ./NuttX/README.md
 [Armbian]: ./Armbian/README.md
 [Yocto]: ./Yocto/README.md
+[Ubuntu]: ./Ubuntu/README.md

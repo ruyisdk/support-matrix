@@ -1,6 +1,6 @@
 ---
 sys: revyos
-sys_ver: 12
+sys_ver: "12"
 sys_var: sipeed
 
 status: basic

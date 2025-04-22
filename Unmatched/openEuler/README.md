@@ -1,6 +1,6 @@
 ---
 sys: openeuler
-sys_ver: 24.09
+sys_ver: "24.09"
 sys_var: null
 
 status: good

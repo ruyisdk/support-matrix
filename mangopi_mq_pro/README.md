@@ -61,6 +61,9 @@ ram: 512MB/1G
 - Deepin 23 beige 20221209
   - Download Link: https://github.com/deepin-community/deepin-riscv-board/releases/download/v20221209/deepin-d1-20221208175445.img.zst.0
   - Reference Installation Document: https://github.com/deepin-community/deepin-riscv-board/
+- xv6
+  - Source code link: https://github.com/michaelengel/xv6-d1
+  - Reference Installation Document: https://github.com/michaelengel/xv6-d1
 
 ### Hardware Information
 
@@ -86,6 +89,7 @@ ram: 512MB/1G
 | NixOS Image Boot                | N/A          | [Success][NixOS]          |
 | irradium Image Boot             | N/A          | [Success][irradium]       |
 | Deepin Image Boot               | N/A          | [Success][Deepin]         |
+| xv6 Build & Boot                | N/A          | [Success][xv6]            |
 
 [Tina]: ./TinaLinux/README.md
 [OpenWrt]: ./OpenWrt/README.md
@@ -103,3 +107,4 @@ ram: 512MB/1G
 [NixOS]: ./NixOS/README.md
 [irradium]: ./irradium/README.md
 [Deepin]: ./Deepin/README.md
+[xv6]: ./xv6/README.md

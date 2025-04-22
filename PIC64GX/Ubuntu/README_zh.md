@@ -10,9 +10,9 @@
 
 ### 操作系统信息
 
-- Ubuntu 24.10
-    - 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64+pic64gx.img.xz
-        - TUNA 镜像源：https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/oracular//release/ubuntu-24.10-preinstalled-server-riscv64%2Bpic64gx.img.xz
+- Ubuntu 25.04
+    - 下载链接：https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+pic64gx.img.xz
+        - TUNA 镜像源：https://mirror.tuna.tinsghua.edu.cn/ubuntu-cdimage/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64%2Bpic64gx.img.xz
     - 参考安装文档：https://wiki.ubuntu.com/RISC-V/Microchip%20PIC64GX1000%20Curiosity%20Kit
 
 ### 其他信息
@@ -36,7 +36,7 @@
 直接使用 Rufus/Win32DiskImager/dd 等工具写入镜像至 SD 卡即可。
 
 ```shell
-xzcat ubuntu-24.10-preinstalled-server-riscv64+pic64gx.img.xz | sudo dd bs=1M conv=fsync status=progress of=/dev/sdX
+xzcat ubuntu-25.04-preinstalled-server-riscv64+pic64gx.img.xz | sudo dd bs=1M conv=fsync status=progress of=/dev/sdX
 ```
 
 ## 启动开发板

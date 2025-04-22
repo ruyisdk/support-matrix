@@ -1,10 +1,10 @@
 ---
 sys: ubuntu
-sys_ver: 24.10
+sys_ver: "25.04"
 sys_var: null
 
 status: CFT
-last_update: 2024-10-24
+last_update: 2025-04-18
 ---
 
 # Ubuntu D1s NeZha Test Report
@@ -13,9 +13,9 @@ last_update: 2024-10-24
 
 ### Operating System Information
 
-- System Version: Ubuntu 24.10
-- Download Link: https://cdimage.ubuntu.com/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64+nezha.img.xz
-- Reference Installation Document: https://wiki.ubuntu.com/RISC-V/Nezha%20D1
+- System Version: Ubuntu 25.04
+- Download Link: https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+nezha.img.xz
+- Reference Installation Document: https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/allwinner-nezha-d1/
 
 ### Hardware Information
 
@@ -32,8 +32,8 @@ last_update: 2024-10-24
 Assume `/dev/sdc` is the storage card.
 
 ```bash
-xz -d ubuntu-24.10-preinstalled-server-riscv64+nezha.img.xz
-sudo dd if=ubuntu-24.10-preinstalled-server-riscv64+nezha.img of=/dev/sdc bs=1m status=progress
+xz -d ubuntu-25.04-preinstalled-server-riscv64+nezha.img.xz
+sudo dd if=ubuntu-25.04-preinstalled-server-riscv64+nezha.img of=/dev/sdc bs=1m status=progress
 ```
 
 ### Logging into the System

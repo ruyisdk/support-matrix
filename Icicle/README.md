@@ -11,12 +11,12 @@ ram: 2G
 
 ### Operating System Information
 
-- Ubuntu 24.10
-    - Download Link: https://cdimage.ubuntu.com/releases/24.10/release/
-    - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
+- Ubuntu 25.04
+    - Download Link: https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+icicle.img.xz
+    - Reference Installation Document: https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/microchip-polarfire-icicle/
 - Ubuntu 24.04.2 LTS
     - Download Link: https://cdimage.ubuntu.com/releases/24.04.2/release/
-    - Reference Installation Document: https://wiki.ubuntu.com/RISC-V/PolarFire%20SoC%20FPGA%20Icicle%20Kit
+    - Reference Installation Document: https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/microchip-polarfire-icicle/
 - BuildRoot 24.02.2
     - Source Code Download Link: https://buildroot.org/downloads/buildroot-2024.02.2.tar.gz
     - Reference Installation Document: https://gitlab.com/buildroot.org/buildroot/-/tree/master/board/microchip/mpfs_icicle?ref_type=heads

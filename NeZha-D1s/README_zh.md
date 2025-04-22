@@ -10,12 +10,12 @@
 - RT-Thread:
   - 下载链接：https://github.com/RT-Thread/rt-thread
   - 参考安装文档：https://github.com/RT-Thread/rt-thread/blob/master/bsp/allwinner/d1s/README-M7_zh.md
-- Ubuntu 24.10:
-  - 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/
-  - 参考安装文档：https://wiki.ubuntu.com/RISC-V/Nezha%20D1
+- Ubuntu 25.04:
+  - 下载链接：https://cdimage.ubuntu.com/releases/25.04/release/
+  - 参考安装文档：https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/allwinner-nezha-d1/
 - Ubuntu 24.04.1 LTS:
   - 下载链接：https://cdimage.ubuntu.com/releases/24.04.1/release/
-  - 参考安装文档：https://wiki.ubuntu.com/RISC-V/Nezha%20D1
+  - 参考安装文档：https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/allwinner-nezha-d1/
 ### 硬件开发板信息
 
 - D1s NeZha

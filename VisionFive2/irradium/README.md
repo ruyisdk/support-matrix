@@ -1,6 +1,6 @@
 ---
 sys: irradium
-sys_ver: 3.7
+sys_ver: "3.7"
 sys_var: core
 
 status: basic

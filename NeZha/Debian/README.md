@@ -1,6 +1,6 @@
 ---
 sys: debian
-sys_ver: 11
+sys_ver: "11"
 sys_var: null
 
 status: good
