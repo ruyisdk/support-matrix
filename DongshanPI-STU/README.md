@@ -37,6 +37,9 @@ ram: 256MB
 - Gentoo
   - Download Link: https://github.com/RevySR/riscv-calculate/releases/download/v20220929/gentoo-d1-20220929153235.img.zst
   - Reference Installation Document: https://github.com/RevySR/riscv-calculate
+- Deepin 23 beige 20221209
+  - Download Link: https://github.com/deepin-community/deepin-riscv-board/releases/download/v20221209/deepin-d1-20221208175445.img.zst.0
+  - Reference Installation Document: https://github.com/deepin-community/deepin-riscv-board/
 
 ### Hardware Information
 
@@ -49,12 +52,13 @@ ram: 256MB
 | Tina Linux Image Boot         | N/A          | [Success][Tina]            |
 | OpenWrt Image Boot            | N/A          | [Success][OpenWrt]         |
 | Debian Image Boot             | N/A          | [Success][Debian]          |
-| Arch Linux Image Boot         | N/A          | [CFT][Arch]                |
+| Arch Linux Image Boot         | N/A          | [Success][Arch]            |
 | BuildRoot Image Boot          | N/A          | [CFI][BuildRoot]           |
 | postmarketOS Bootstrap & Boot | N/A          | [Success][pmOS]            |
 | FreeBSD Image Compile & Boot  | N/A          | [Success][FreeBSD]         |
 | Fedora Image Compile & Boot   | N/A          | [Failed][Fedora]           |
 | Gentoo Image Compile & Boot   | N/A          | [Success][Gentoo]          |
+| Deepin Image Boot             | N/A          | [Success][Deepin]          |
 
 [Tina]: ./TinaLinux/README.md
 [OpenWrt]: ./OpenWrt/README.md
@@ -65,3 +69,4 @@ ram: 256MB
 [FreeBSD]: ./FreeBSD/README.md
 [Fedora]: ./Fedora/README.md
 [Gentoo]: ./Gentoo/README.md
+[Deepin]: ./Deepin/README.md

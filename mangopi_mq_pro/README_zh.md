@@ -51,7 +51,9 @@
 - irradium 3.7
   - 下载链接：https://dl.irradium.org/irradium/images/mangopi_mq_pro/
   - 参考安装文档：https://dl.irradium.org/irradium/images/mangopi_mq_pro/README.TXT
-
+- Deepin 23 beige 20221209
+  - 下载链接：https://github.com/deepin-community/deepin-riscv-board/releases/download/v20221209/deepin-d1-20221208175445.img.zst.0
+  - 参考安装文档：https://github.com/deepin-community/deepin-riscv-board/
 ### 硬件开发板信息
 
 - MangoPi MQ Pro (Allwinner D1/D1-H)
@@ -75,6 +77,7 @@
 | Gentoo 镜像启动           | N/A      | [成功][Gentoo]       |
 | NixOS 镜像启动            | N/A      | [成功][NixOS]        |
 | irradium 镜像启动         | N/A      | [成功][irradium]     |
+| Deepin 镜像启动           | N/A      | [成功][Deepin]       |
 
 [Tina]: ./TinaLinux/README_zh.md
 [OpenWrt]: ./OpenWrt/README_zh.md
@@ -91,3 +94,4 @@
 [Gentoo]: ./Gentoo/README_zh.md
 [NixOS]: ./NixOS/README_zh.md
 [irradium]: ./irradium/README_zh.md
+[Deepin]: ./Deepin/README_zh.md
