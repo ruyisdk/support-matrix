@@ -1,4 +1,4 @@
-# Arch Linux DongshanPI-哪吒 STU 测试报告
+# Arch Linux DongshanPI-Nezha STU 测试报告
 
 ## 测试环境
 
@@ -9,55 +9,62 @@
 
 ### 硬件信息
 
-- DongshanPI-哪吒 ST
+- DongshanPI-Nezha STU
 - Type-C 电源线一根
 - UART 转 USB 调试器一个
 - SD 卡
 
 ## 安装步骤
 
-### 使用打包脚本
+### 安装依赖
 
 使用 Arch Linux 安装依赖如下：
 ```bash
 pacman -Sy riscv64-linux-gnu-gcc swig cpio python3 python-setuptools base-devel bc arch-install-scripts qemu-user-static qemu-user-static-binfmt
 ```
 
+### 编译设置
 
-社区创建了自动打包 Arch Linux 的脚本。您若想使用，可直接跳过以下所有安装过程。
-
-clone 对应仓库：
+下载源码后，更改 consts.sh:
 ```bash
 git clone https://github.com/sehraf/d1-riscv-arch-image-builder.git
 cd d1-riscv-arch-image-builder
+vim consts.sh
 ```
 
-根据具体的板子，修改 `consts.sh` 中的 `DEVICE_TREE`，如：
+选择 dtb：
+```shell
+export DEVICE_TREE=sun20i-d1-dongshan-nezha-stu
+```
+
+同时修改 `1_compile.sh` 以修复类似 https://github.com/The-OpenROAD-Project/OpenROAD/issues/6451 的问题：
 ```diff
-diff --git a/consts.sh b/consts.sh
-index 11e51cd..0b990ad 100644
---- a/consts.sh
-+++ b/consts.sh
-@@ -25,7 +25,7 @@ export KERNEL='defconfig'
- # sun20i-d1-lichee-rv
- # sun20i-d1-mangopi-mq-pro
- # sun20i-d1-nezha
--export DEVICE_TREE=sun20i-d1-lichee-rv-dock
-+export DEVICE_TREE=sun20i-d1-dongshan-nezha-stu
- 
- # folder to mount rootfs
- export MNT="${PWD}/mnt"
+diff --git a/1_compile.sh b/1_compile.sh
+index 4fcbc7c..bf62caf 100755
+--- a/1_compile.sh
++++ b/1_compile.sh
+@@ -80,6 +80,7 @@ if [ ! -f "${OUT_DIR}/u-boot-sunxi-with-spl.bin" ]; then
+     clean_dir ${DIR}
 
+     git clone --depth 1 "${SOURCE_UBOOT}" -b "${TAG_UBOOT}"
++    sed -i 's/SWIG_Python_AppendOutput/SWIG_AppendOutput/g' u-boot/scripts/dtc/pylibfdt/libfdt.i_shipped
+     cd ${DIR}
+     pin_commit "${COMMIT_UBOOT}"
 ```
 
-运行 `1_compile.sh` 编译镜像；
-运行 `2_create_sd.sh /dev/your/device` 烧写到 SD 卡。
+### 生成镜像
 
-注：若其自动配置 rootfs，需要：`arch-install-scripts`, `qemu-user-static-bin (AUR)`, `binfmt-qemu-static (AUR)`。不需要此环节可以将 `consts.sh` 中的 `USE_CHROOT` 设为 0。
-
+运行 `1_compile.sh`：
 ```bash
 ./1_compile.sh
-./2_create_sd.sh /dev/your/device
+```
+
+### 刷写镜像
+
+运行 `2_create_sd.sh`：
+
+```bash
+2_create_sd.sh /dev/your/device
 ```
 
 **若开启了 USE_CHROOT（默认开启），其会之后自动 chroot 进镜像等待配置。建议这步安装如 vim 等基本应用。**
@@ -76,14 +83,42 @@ index 11e51cd..0b990ad 100644
 
 ## 实际结果
 
-CFT
+系统正常启动，能够通过板载串口登录。
 
 ### 启动信息
 
-屏幕录像（从刷写镜像到登录系统）：
-
-
 ```log
+Arch Linux 6.8.0 (ttyS0)
+
+licheerv login: root
+Password:
+
+[root@licheerv ~]# uname -a
+Linux licheerv 6.8.0 #1 SMP Wed Apr 16 14:52:24 CST 2025 riscv64 GNU/Linux
+[root@licheerv ~]# cat /etc/os-release
+NAME="Arch Linux"
+PRETTY_NAME="Arch Linux"
+ID=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+HOME_URL="https://archlinux.org/"
+DOCUMENTATION_URL="https://wiki.archlinux.org/"
+SUPPORT_URL="https://bbs.archlinux.org/"
+BUG_REPORT_URL="https://gitlab.archlinux.org/groups/archlinux/-/issues"
+PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
+LOGO=archlinux-logo
+[root@licheerv ~]# cat /proc/cpuinfo
+processor       : 0
+hart            : 0
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : thead,c906
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+
+[root@licheerv ~]#
 
 ```
 
@@ -95,4 +130,4 @@ CFT
 
 ## 测试结论
 
-CFT
+测试成功。

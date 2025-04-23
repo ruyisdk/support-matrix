@@ -51,6 +51,9 @@
 - irradium 3.7
   - 下载链接：https://dl.irradium.org/irradium/images/mangopi_mq_pro/
   - 参考安装文档：https://dl.irradium.org/irradium/images/mangopi_mq_pro/README.TXT
+- Deepin 23 beige 20221209
+  - 下载链接：https://github.com/deepin-community/deepin-riscv-board/releases/download/v20221209/deepin-d1-20221208175445.img.zst.0
+  - 参考安装文档：https://github.com/deepin-community/deepin-riscv-board/
 - xv6
   - 源码链接：https://github.com/michaelengel/xv6-d1
   - 参考安装文档：https://github.com/michaelengel/xv6-d1
@@ -67,7 +70,7 @@
 | OpenWrt 镜像启动          | N/A      | [成功][OpenWrt]      |
 | Armbian 镜像启动          | N/A      | [失败][Armbian]      |
 | Debian 镜像启动           | N/A      | [成功][Debian]       |
-| Arch Linux 镜像编译和启动 | N/A      | [失败][Archlinux]    |
+| Arch Linux 镜像编译和启动 | N/A      | [成功][Archlinux]    |
 | Fedora 镜像启动           | N/A      | [成功][Fedora]       |
 | FreeBSD 镜像编译和启动    | N/A      | [成功][FreeBSD]      |
 | openSUSE 镜像启动         | N/A      | [成功][openSUSE]     |
@@ -78,6 +81,7 @@
 | Gentoo 镜像启动           | N/A      | [成功][Gentoo]       |
 | NixOS 镜像启动            | N/A      | [成功][NixOS]        |
 | irradium 镜像启动         | N/A      | [成功][irradium]     |
+| Deepin 镜像启动           | N/A      | [成功][Deepin]       |
 | xv6 镜像启动              | N/A      | [成功][xv6]          |
 
 [Tina]: ./TinaLinux/README_zh.md
@@ -95,4 +99,5 @@
 [Gentoo]: ./Gentoo/README_zh.md
 [NixOS]: ./NixOS/README_zh.md
 [irradium]: ./irradium/README_zh.md
+[Deepin]: ./Deepin/README_zh.md
 [xv6]: ./xv6/README_zh.md

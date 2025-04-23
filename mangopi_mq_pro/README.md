@@ -58,6 +58,9 @@ ram: 512MB/1G
 - irradium
   - Download Link: https://dl.irradium.org/irradium/images/visionfive_2/
   - Reference Installation Document: https://dl.irradium.org/irradium/images/visionfive_2/README.TXT
+- Deepin 23 beige 20221209
+  - Download Link: https://github.com/deepin-community/deepin-riscv-board/releases/download/v20221209/deepin-d1-20221208175445.img.zst.0
+  - Reference Installation Document: https://github.com/deepin-community/deepin-riscv-board/
 - xv6
   - Source code link: https://github.com/michaelengel/xv6-d1
   - Reference Installation Document: https://github.com/michaelengel/xv6-d1
@@ -74,7 +77,7 @@ ram: 512MB/1G
 | OpenWrt Image Boot              | N/A          | [Success][OpenWrt]        |
 | Armbian Image Boot              | N/A          | [Failed][Armbian]         |
 | Debian Image Boot               | N/A          | [Success][Debian]         |
-| Arch Linux Image Compile & Boot | N/A          | [Failed][Archlinux]       |
+| Arch Linux Image Compile & Boot | N/A          | [Success][Archlinux]      |
 | Fedora Image Boot               | N/A          | [Success][Fedora]         |
 | FreeBSD Image Boot              | N/A          | [Success][FreeBSD]        |
 | openSUSE Image Boot             | N/A          | [Success][openSUSE]       |
@@ -85,6 +88,7 @@ ram: 512MB/1G
 | Gentoo Image Boot               | N/A          | [Success][Gentoo]         |
 | NixOS Image Boot                | N/A          | [Success][NixOS]          |
 | irradium Image Boot             | N/A          | [Success][irradium]       |
+| Deepin Image Boot               | N/A          | [Success][Deepin]         |
 | xv6 Build & Boot                | N/A          | [Success][xv6]            |
 
 [Tina]: ./TinaLinux/README.md
@@ -102,4 +106,5 @@ ram: 512MB/1G
 [Gentoo]: ./Gentoo/README.md
 [NixOS]: ./NixOS/README.md
 [irradium]: ./irradium/README.md
+[Deepin]: ./Deepin/README.md
 [xv6]: ./xv6/README.md
