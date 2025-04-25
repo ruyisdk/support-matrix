@@ -5,19 +5,15 @@
 # Suggest use: yaml-language-server in vscode to see comments and auto-complitions
 
 util:
-    general_ver_mapper: &general_ver_mapper
-    # this version mapper cam map any version like (v?)a.b(.c)?(-*)*(-sp*)*(-*)
+    symver_ver_mapper: &symver_ver_mapper
         version_mapper:
             type: lambda
             mapper: |
-                lambda ver, info: [
-                    (
-                        m := re.match(r"(v)?0*(?P<major>\d+)(\.0*(?P<minor>\d+))?(\.0*(?P<patch>\d+))?(?P<pre_release_1>(-(?:(?!(SP|trunk\.|LTS))[\w\.]+))*)(-LTS)?(-(SP|trunk\.)(?P<sp_part>\d+))?(-LTS)?(?P<pre_release_2>(-([\w\.]+))*)?(?P<build>(\+([\w\.]+))*)?", ver),
-                        f"0.{m["major"]}.0" if not m["minor"] else 
-                            f"{m["major"]}{int(m["minor"]):02d}.{m["patch"] or 0}.{m["sp_part"] or 0}{f"{m["pre_release_1"] or ""}{m["pre_release_2"] or ""}".replace('-', '.').replace('.', '-', 1)}{m["build"] or ""}"
-                    )[-1] 
-                    for re in [__import__("re")]
-                ][0]
+                lambda ver, info: (
+                    re:=__import__("re"),
+                    m := re.match(r"(v)?0*(?P<major>\d+)(\.0*(?P<minor>\d+))?(\.0*(?P<patch>\d+))?(?P<pre_release>(([\w\.-]+))*)?(?P<build>(\+([\w\.]+))*)?", ver),
+                    f"{m["major"]}.{m["minor"] or 0}.{m["patch"] or 0}{f"-{m["pre_release"]}" if m["pre_release"] else ""}{m["build"] or ""}"
+                )[-1]
     filter_version_in_release: &release_in_filter
         release_filter:
             type: lambda
@@ -32,7 +28,7 @@ handler:
         repo: milkv-duo/duo-buildroot-sdk-v2
         <<: 
             - *release_in_filter
-            - *general_ver_mapper
+            - *symver_ver_mapper
         asset_filter:
             filter: ^milkv-duo-.*riscv64.*sd.*\.img.*$
 
@@ -44,6 +40,6 @@ handler:
         repo: milkv-duo/duo-buildroot-sdk
         <<: 
             - *release_in_filter
-            - *general_ver_mapper
+            - *symver_ver_mapper
         asset_filter:
             filter: ^milkv-duo-.*sd.*\.img.*$
