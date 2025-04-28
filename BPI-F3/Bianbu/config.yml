@@ -1,0 +1,46 @@
+# $schema: ../../assets/docs/schemas/config.schema.json
+# yaml-language-server: $schema=../../assets/docs/schemas/config.schema.json
+
+# This file has a schema, ypu can read it to get additional definations
+# Suggest use: yaml-language-server in vscode to see comments and auto-complitions
+
+util:
+    symver_ver_mapper: &symver_ver_mapper
+        version_mapper:
+            type: lambda
+            mapper: |
+                lambda ver, info: (
+                    re:=__import__("re"),
+                    m := re.match(r"(v)?0*(?P<major>\d+)(\.0*(?P<minor>\d+))?(\.0*(?P<patch>\d+))?(?P<pre_release>(([\w\.-]+))*)?(?P<build>(\+([\w\.]+))*)?", ver),
+                    f"{m["major"]}.{m["minor"] or 0}.{m["patch"] or 0}{f"-{m["pre_release"]}" if m["pre_release"] else ""}{m["build"] or ""}"
+                )[-1]
+
+handler:
+    -   plugin: mirrorsite_getter_simple
+        vendor: bpi-f3
+        system: bianbu
+        variant: minimal
+        url:
+            regex: v?(.*)
+            mapper: https://archive.spacemit.com/image/k1/version/bianbu/v{0}/
+        file_filter:
+            type: lambda
+            filter: 'lambda name, info: "minimal" in name and "k1" in name and "img" in name and "md5" not in name'
+        <<: *symver_ver_mapper
+        desc_mapper:
+            mapper: Official bianbu minimal image for Banana Pi F3 version {info.version}
+    -   plugin: mirrorsite_getter_simple
+        vendor: bpi-f3
+        system: bianbu
+        variant: desktop
+        url:
+            regex: v?(.*)
+            mapper: https://archive.spacemit.com/image/k1/version/bianbu/v{0}/
+        file_filter:
+            type: lambda
+            filter: 'lambda name, info: "desktop" in name and "k1" in name and "img" in name and "md5" not in name'
+        <<: *symver_ver_mapper
+        desc_mapper:
+            mapper: Official bianbu desktop image for Banana Pi F3 version {info.version}
+
+# TODO: Add emmc version

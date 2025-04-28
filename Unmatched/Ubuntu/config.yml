@@ -1,0 +1,50 @@
+# $schema: ../../assets/docs/schemas/config.schema.json
+# yaml-language-server: $schema=../../assets/docs/schemas/config.schema.json
+
+# This file has a schema, ypu can read it to get additional definations
+# Suggest use: yaml-language-server in vscode to see comments and auto-complitions
+
+# You shall rename this file to config.yml
+
+util:
+    general_ver_mapper: &general_ver_mapper
+    # this version mapper cam map any version like (v?)a.b(.c)?(-*)*(-sp*)*(-*)
+        version_mapper:
+            type: lambda
+            mapper: |
+                lambda ver, info: [
+                    (
+                        m := re.match(r"(v)?0*(?P<major>\d+)(\.0*(?P<minor>\d+))?(\.0*(?P<patch>\d+))?(?P<pre_release_1>(-(?:(?!(SP|trunk\.|LTS))[\w\.]+))*)(-LTS)?(-(SP|trunk\.)(?P<sp_part>\d+))?(-LTS)?(?P<pre_release_2>(-([\w\.]+))*)?(?P<build>(\+([\w\.]+))*)?", ver),
+                        f"0.{m["major"]}.0" if not m["minor"] else 
+                            f"{m["major"]}{int(m["minor"]):02d}.{m["patch"] or 0}.{m["sp_part"] or 0}{f"{m["pre_release_1"] or ""}{m["pre_release_2"] or ""}".replace('-', '.').replace('.', '-', 1)}{m["build"] or ""}"
+                    )[-1] 
+                    for re in [__import__("re")]
+                ][0]
+
+handler:
+    -   plugin: mirrorsite_getter_simple
+        vendor: sifive-unmatched
+        system: ubuntu
+        variant: null
+        url:
+            regex: v?(.*)
+            mapper: https://mirror.iscas.ac.cn/ubuntu-cdimage/releases/{0}/release/
+        file_filter:
+            type: lambda
+            filter: 'lambda name, info: "unmatched" in name and "img" in name and "zsync" not in name'
+        <<: *general_ver_mapper
+        desc_mapper:
+            mapper: Official Ubuntu {info.version} Server image for SiFive HiFive Unmatched
+    -   plugin: mirrorsite_getter_simple
+        vendor: sifive-unmatched
+        system: ubuntu
+        variant: LTS
+        url:
+            regex: v?(.*)
+            mapper: https://mirror.iscas.ac.cn/ubuntu-cdimage/releases/{0}/release/
+        file_filter:
+            type: lambda
+            filter: 'lambda name, info: "unmatched" in name and "img" in name and "zsync" not in name'
+        <<: *general_ver_mapper
+        desc_mapper:
+            mapper: Official Ubuntu {info.version} LTS Server image for SiFive HiFive Unmatched

@@ -5,9 +5,6 @@ sys_var: null
 
 status: cft
 last_update: 2025-04-07
-
-# Due to the complexcity in armbian mirror naming, we needs to provide the download link for sync tools in the metadata.
-link: https://github.com/armbian/community/releases/download/25.2.0-trunk.124/Armbian_community_25.2.0-trunk.124_Star64_noble_edge_5.15.0_xfce_desktop.img.xz
 ---
 
 # Armbian Star64 Test Report

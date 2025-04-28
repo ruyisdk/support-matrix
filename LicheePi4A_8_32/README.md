@@ -1,9 +1,10 @@
 ---
-vendor: sipeed_licheepi4a
+vendor: sipeed-lpi4a
 product: LicheePi 4A (8GB RAM)
 cpu: TH1520
 cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 ram: 8G
+board_variants: [ 8g ]
 ---
 
 # Lichee Pi 4A

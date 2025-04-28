@@ -1,7 +1,7 @@
 ---
 sys: buildroot
 sys_ver: v2.0.0
-sys_var: null
+sys_var: v2
 
 status: basic
 last_update: 2025-01-08

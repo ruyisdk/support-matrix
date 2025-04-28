@@ -6,6 +6,7 @@ import os
 import logging
 import hashlib
 import traceback
+import copy
 from typing import Generator, Literal
 
 import toml
@@ -37,7 +38,7 @@ class SystemWorker:
         self.info = info
         self.plugin = plugin
         self.repo = repo
-        self.branch_name = util.system_id(info, 'update_branch')
+        self.branch_name = f"{util.system_id(info, None)}-{"_".join(info.board_variants)}_{info.version}_update_branch"
         self.ident = ""
 
         self.repo.local_checkout(self.branch_name)
@@ -109,17 +110,10 @@ This PR is created by program Sync Package Index inside support-matrix
         image_combos: list[ImageComboDecl] = []
         variants_combos: dict[str, str] = {}
 
-        # TODO#1: Hook for duo & duo256m, remove if possible
         vendor = self.info.vendor
-        board_variants = self.info.board_variants or ["generic"]
-        if self.info.vendor == "milkv-duo":
-            vendor = "milkv-duo"
-            board_variants = ["64m"]
-        if self.info.vendor == "milkv-duo256m":
-            vendor = "milkv-duo"
-            board_variants = ["256m"]
 
-        # board_variants = self.info.board_variants or ["generic"] # TODO: uncomment if TODO[#1] solved
+        board_variants = self.info.board_variants or ["generic"]
+
         for board_variant in board_variants:
             variant_id = board_variant
             if board_variant == "generic":
@@ -156,13 +150,11 @@ This PR is created by program Sync Package Index inside support-matrix
         # if device not in devices, add it
         device_idx = None
         for idx, device in enumerate(provisioner["devices"]):
-            # if device["id"] == self.info.vendor: # TODO: uncomment if TODO[#1] solved
             if device["id"] == vendor:
                 device_idx = idx
                 break
         if device_idx is None:
             provisioner["devices"].append({
-                # "id": self.info.vendor, # TODO: uncomment if TODO[#1] solved
                 "id": vendor,
                 "display_name": self.info.product,
                 "variants": []
@@ -204,6 +196,7 @@ This PR is created by program Sync Package Index inside support-matrix
     def __update_manifests(self):
         new_manifests = self.plugin.handle_report(self.info)
         for file, new_manifest in new_manifests.items():
+            print(f"Updating {file} to {new_manifest.version}")
             if isinstance(new_manifest, BoardImagesGenerator):
                 new_manifest = new_manifest.generate(
                     self.plugin.handle_version(self.info)
@@ -311,7 +304,11 @@ class RuyiDiff:
         if current_version is None:
             return
 
-        files = plug.system_image_files(info)
+        board_variants = info.board_variants or ["generic"]
+        files = []
+        for board_variant in board_variants:
+            new_files = plug.system_image_files(info, board_variant)
+            files.extend(new_files)
         if len(files) <= 0:
             return
 
@@ -359,6 +356,24 @@ class RuyiDiff:
         """
         filter_plugins = config["plugin_names"]
         for info in self.oldver:
+
+            # Should we skip this system?
+            if info.raw_data.last_update == "eol":
+                continue
+            if info.raw_data.raw_data.get("skip_sync", False):
+                logger.info("Skip update for %s", repr(info))
+                continue
+            if info.raw_data.raw_data.get("symlink", None):
+                for symlink in info.raw_data.raw_data["symlink"]:
+                    link_dummy_info = copy.deepcopy(info)
+                    link_dummy_info.variant = symlink
+                    # delete symlink to avoid infinite loop
+                    link_dummy_info.raw_data.raw_data["symlink"] = None
+                    del link_dummy_info.raw_data.raw_data["symlink"]
+
+                    self.oldver.append(link_dummy_info)
+                    # Yes, it changes the loop variable.
+
             # Mark system update info
 
             setattr(info, "update_info", self.RuyiUpdateInfo())
@@ -388,6 +403,8 @@ class RuyiDiff:
         """
         res = []
         for v in self.oldver:
+            if not hasattr(v, "update_info"):
+                continue
             i = ('/'.join(v.raw_data.link),
                  v.update_info.plug,
                  str(v.update_info))

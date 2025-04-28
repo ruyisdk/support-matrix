@@ -94,6 +94,7 @@ class SystemVar:
             self.status = ImageStatus(kwargs['status'])
             self.last_update = kwargs['last_update']
             self.link = kwargs['link']
+            self.raw_data = {}
         else:
             self.__init_by_file(*args, **kwargs)
 
