@@ -87,12 +87,40 @@ class UploadPluginBase(ABC):
     import hashlib
     import copy
     import re
+    import json
+    import yaml
+    import toml
     from awesomeversion import AwesomeVersion
     import urllib.parse as urllib_parse
     from src.ruyi_index_updator import config
     from src.ruyi_index_updator import util
 
-    def eval(self, source, /, globals=None, locals=None):
+    def load_sep_config(self) -> list:
+        """
+        Load all config from the matrix path
+        """
+        matrix_path = self.config["path"]
+        res = []
+        for dirpath, _, files in self.os.walk(matrix_path):
+            for file_name in files:
+                if file_name == "update_config.json":
+                    file_path = self.os.path.join(dirpath, file_name)
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        sep_config = self.json.load(f)
+                        res.append(sep_config)
+                if file_name == "update_config.yaml" or file_name == "update_config.yml":
+                    file_path = self.os.path.join(dirpath, file_name)
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        sep_config = self.yaml.safe_load(f)
+                        res.append(sep_config)
+                if file_name == "update_config.toml":
+                    file_path = self.os.path.join(dirpath, file_name)
+                    with open(file_path, "r", encoding="utf-8") as f:
+                        sep_config = self.toml.load(f)
+                        res.append(sep_config)
+        return res
+
+    def eval(self, source, /, globals=None, locals=None): # pylint: disable=redefined-builtin
         """
         Same as python's built-in eval, but pass locals properly
         """

@@ -97,6 +97,10 @@ class CFGdict():
                 else:
                     yaml = YAML()
                     self._cfg = yaml.load(f)
+        else:
+            self._cfg = {
+                "handler": []
+            }
 
     def __getitem__(self, key: str):
         if key in self.__d:
