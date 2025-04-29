@@ -12,7 +12,7 @@ Ubuntu 20.04
 
 ### Hardware Information
 
-- Loatos ESP32-C3
+- LUATOS ESP32-C3
 - One USB to UART Debugger
 
 ## Installation Steps

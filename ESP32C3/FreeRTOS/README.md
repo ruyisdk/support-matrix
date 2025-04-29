@@ -10,7 +10,7 @@
 
 ### Hardware Information
 
-- Loatos ESP32-C3
+- LUATOS ESP32-C3
 - One USB to UART Debugger
 
 ## Installation Steps
@@ -52,11 +52,11 @@ Connect the development board via serial port.
 
 ## Expected Result
 
-The system starts normally, and information can be viewed through the onboard serial port or USB_SERIAL_JTAG.
+The system starts normally, and information can be viewed through the onboard serial port.
 
 ## Actual Result
 
-The system starts normally, and information can be viewed through the onboard serial port or USB_SERIAL_JTAG.
+The system starts normally, and information can be viewed through the onboard serial port.
 
 ### Startup Information
 
