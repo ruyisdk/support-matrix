@@ -4,7 +4,7 @@ sys_ver: "12.9.0"
 sys_var: null
 
 status: cft
-last_update: 2024-06-21
+last_update: 2025-05-01
 ---
 
 # NuttX Star64 Test Report
