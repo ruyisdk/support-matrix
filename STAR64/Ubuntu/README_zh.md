@@ -1,16 +1,16 @@
-# Ubuntu D1s Nezha 测试报告
+# Ubuntu Pine64 Star64 测试报告
 
 ## 测试环境
 
 ### 操作系统信息
 
-- 系统版本：Ubuntu 24.10
-- 下载链接：https://cdimage.ubuntu.com/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64+nezha.img.xz
+- 系统版本：Ubuntu 25.04
+- 下载链接：https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz
 - 参考安装文档：https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/pine64-star64/
 
 ### 硬件信息
 
-- D1s NeZha
+- Pine64 Star64
 - microSD 卡一张
 - USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
 - 杜邦线三根
