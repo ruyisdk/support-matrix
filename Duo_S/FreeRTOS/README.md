@@ -4,7 +4,7 @@ sys_ver: null
 sys_var: null
 
 status: basic
-last_update: 2024-06-21
+last_update: 2025-04-28
 ---
 
 # FreeRTOS Milk-V Duo S Test Report
@@ -13,8 +13,8 @@ last_update: 2024-06-21
 
 ### Operating System Information
 
-- Build System: Ubuntu 22.04.4 LTS x86_64
-- System Version: Duo-V1.1.0
+- Build System: Ubuntu 24.04 LTS x86_64
+- System Version: Duo-V1.1.4
 - Download Link: https://github.com/milkv-duo/duo-buildroot-sdk/releases
 - Reference Installation Document: https://github.com/milkv-duo/duo-buildroot-sdk
     - FreeRTOS: https://milkv.io/zh/docs/duo/getting-started/rtoscore
@@ -71,27 +71,35 @@ The system should boot normally. Upon logging in via the onboard serial port and
 
 ## Actual Results
 
-The system booted successfully, and login via the onboard serial port was successful. The official Duo S image does not currently support wiringX, so `mailbox_test` did not run correctly, though the system detected the RTOS device.
+The system booted successfully, and login via the onboard serial port was achieved without issues.
+
+The mailbox_test binary executed successfully, and the behavior of the LED matched expectations.
 
 ### Boot Information
 
 ```log
+[root@milkv-duo]~#
 [root@milkv-duo]~# ls
 mailbox_test
-[root@milkv-duo]~# insmod: can't insert '/mnt/system/ko/aic8800_fdrv.ko': No such device
 [root@milkv-duo]~# ./mailbox_test
-Error loading shared library libwiringx.so: No such file or directory (needed by ./mailbox_test)
 [root@milkv-duo]~# find / -name *rtos*
-find: /proc/338: No such file or directory
+find: /proc/355: No such file or directory
+/sys/class/misc/cvi-rtos-cmdqu
+/sys/class/cvi-rtos-cmdqu
 /sys/devices/platform/1900000.rtos_cmdqu
+/sys/devices/virtual/misc/cvi-rtos-cmdqu
 /sys/bus/platform/devices/1900000.rtos_cmdqu
+/sys/bus/platform/drivers/cvi-rtos-cmdqu
+/sys/bus/platform/drivers/cvi-rtos-cmdqu/1900000.rtos_cmdqu
 /sys/firmware/devicetree/base/rtos_cmdqu
+/sys/firmware/devicetree/base/reserved-memory/rtos_dram@0x9fe00000
+/dev/cvi-rtos-cmdqu
 [root@milkv-duo]~#
 ```
 
 Screen recording:
 
-[![asciicast](https://asciinema.org/a/y8YaDpY5YnKWgw4ydZPVDf4YB.svg)](https://asciinema.org/a/y8YaDpY5YnKWgw4ydZPVDf4YB)
+[![asciicast](https://asciinema.org/a/3JlGE9DBVemEnRqIffzKhNKcT.svg)](https://asciinema.org/a/3JlGE9DBVemEnRqIffzKhNKcT)
 
 ## Test Criteria
 
@@ -101,4 +109,4 @@ Failed: The actual result does not match the expected result.
 
 ## Test Conclusion
 
-Test partial success.
+Test successful.

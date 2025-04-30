@@ -4,8 +4,8 @@
 
 ### 操作系统信息
 
-- 构建系统：Ubuntu 22.04.4 LTS x86_64
-- 系统版本：Duo-V1.1.0
+- 构建系统：Ubuntu 24.04 LTS x86_64
+- 系统版本：Duo-V1.1.4
 - 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk/releases
 - 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk
     - FreeRTOS: https://milkv.io/zh/docs/duo/getting-started/rtoscore
@@ -62,27 +62,35 @@ sudo eject /dev/sdX2
 
 ## 实际结果
 
-系统正常启动，成功通过板载串口登录，Duo S 官方镜像目前暂不支持 wiringX，`mailbox_test` 未能正常运行，但系统已检测到 rtos 设备。
+系统启动正常，并能顺利通过板载串口登录。
+
+`mailbox_test` 测试程序可以成功执行，LED 灯的行为符合预期。
 
 ### 启动信息
 
 ```log
+[root@milkv-duo]~#
 [root@milkv-duo]~# ls
 mailbox_test
-[root@milkv-duo]~# insmod: can't insert '/mnt/system/ko/aic8800_fdrv.ko': No such device
 [root@milkv-duo]~# ./mailbox_test
-Error loading shared library libwiringx.so: No such file or directory (needed by ./mailbox_test)
 [root@milkv-duo]~# find / -name *rtos*
-find: /proc/338: No such file or directory
+find: /proc/355: No such file or directory
+/sys/class/misc/cvi-rtos-cmdqu
+/sys/class/cvi-rtos-cmdqu
 /sys/devices/platform/1900000.rtos_cmdqu
+/sys/devices/virtual/misc/cvi-rtos-cmdqu
 /sys/bus/platform/devices/1900000.rtos_cmdqu
+/sys/bus/platform/drivers/cvi-rtos-cmdqu
+/sys/bus/platform/drivers/cvi-rtos-cmdqu/1900000.rtos_cmdqu
 /sys/firmware/devicetree/base/rtos_cmdqu
+/sys/firmware/devicetree/base/reserved-memory/rtos_dram@0x9fe00000
+/dev/cvi-rtos-cmdqu
 [root@milkv-duo]~#
 ```
 
 屏幕录像：
 
-[![asciicast](https://asciinema.org/a/y8YaDpY5YnKWgw4ydZPVDf4YB.svg)](https://asciinema.org/a/y8YaDpY5YnKWgw4ydZPVDf4YB)
+[![asciicast](https://asciinema.org/a/3JlGE9DBVemEnRqIffzKhNKcT.svg)](https://asciinema.org/a/3JlGE9DBVemEnRqIffzKhNKcT)
 
 ## 测试判定标准
 
@@ -92,4 +100,4 @@ find: /proc/338: No such file or directory
 
 ## 测试结论
 
-测试部分成功。
+测试成功。
