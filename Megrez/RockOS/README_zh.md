@@ -28,8 +28,8 @@
 ### 下载并解压镜像
 
 ```shell
-wget https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/boot-rockos-20250219-091803.ext4.zst \
-     https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/root-rockos-20250219-091803.ext4.zst \
+wget https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/boot-rockos-20250423-145338.ext4.zst \
+     https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/root-rockos-20250423-145338.ext4.zst \
      https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/bootloader_secboot_ddr5_milkv-megrez.bin
 # 假设您已安装了 zstd
 zstd -d *.zst
@@ -39,7 +39,7 @@ zstd -d *.zst
 
 ```shell
 wget https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/bootloader_secboot_ddr5_milkv-megrez.bin \
-     https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/sdcard-rockos-20250219-091803.img.zst
+     https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/sdcard-rockos-20250423-145338.img.zst
 zstd -d *.zst
 ```
 
@@ -142,8 +142,8 @@ env default -a -f; env save; reset
 （在 Linux 上你将需要 `sudo`，或者将 VID:PID 3452:7700 添加进你的 udev 规则。）
 
 ```shell
-fastboot flash boot boot-rockos-20250219-091803.ext4
-fastboot flash root root-rockos-20250219-091803.ext4
+fastboot flash boot boot-rockos-20250423-145338.ext4
+fastboot flash root root-rockos-20250423-145338.ext4
 ```
 
 4. 等待刷写过程结束。结束后，在 U-Boot 控制台按 Ctrl+C，然后输入 `reset` 重启。
@@ -155,7 +155,7 @@ fastboot flash root root-rockos-20250219-091803.ext4
 使用 `etcher` 或 `dd` 来将 sdcard 镜像写入 SSD 或 microSD 即可。
 
 ```shell
-sudo dd if=sdcard-rockos-20250219-091803.img of=/dev/sdX bs=1M status=progress; sync
+sudo dd if=sdcard-rockos-20250423-145338.img of=/dev/sdX bs=1M status=progress; sync
 ```
 
 ### 其它说明
@@ -191,6 +191,9 @@ sudo apt update; sudo apt upgrade -y; sudo reboot
 
 ### 启动信息
 
+<details>
+<summary>已过期（20250219）</summary>
+
 [![asciicast](https://asciinema.org/a/NrY2moN5tJAYMaGpr6g4Bl8tl.svg)](https://asciinema.org/a/NrY2moN5tJAYMaGpr6g4Bl8tl)
 
 （屏幕截图来自 HDMI 采集卡）
@@ -198,6 +201,8 @@ sudo apt update; sudo apt upgrade -y; sudo reboot
 ![](image/2025-02-22-03-44-31.png)
 
 ![](image/2025-02-22-03-44-06.png)
+
+</details>
 
 ## 测试判定标准
 
