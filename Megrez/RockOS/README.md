@@ -3,8 +3,8 @@ sys: rockos
 sys_ver: "20250423"
 sys_var: null
 
-status: cft
-last_update: 2025-05-01
+status: good
+last_update: 2025-05-02
 ---
 
 # Milk-V Megrez RockOS Test Report
@@ -161,6 +161,10 @@ fastboot flash root root-rockos-20250423-145338.ext4
 
 5. You're good to go.
 
+> [!NOTE]
+> Although U-Boot also supports `fastboot udp` to flash via network, but this would be much slower.
+> Flashing via network is generally not recommended, unless you're doing it remotely and cannot flip the switch.
+
 #### Flash to SSD or microSD
 
 Just use `etcher` or `dd` to write the sdcard image into SSD or microSD.
@@ -171,13 +175,7 @@ sudo dd if=sdcard-rockos-20250423-145338.img of=/dev/sdX bs=1M status=progress; 
 
 ### Other Notes
 
-Do a system upgrade after booting into the system.
-
-The preinstalled kernel version is okay for use but it will keep dumping logs into dmesg, which might be quite annoying for debugging purposes.
-
-The latest kernel inside the repo has already fixed this, and the system image is expected to update to fix this issue soon.
-
-For now:
+It is recommended to do a system upgrade after booting into the system.
 
 ```shell
 sudo apt update; sudo apt upgrade -y; sudo reboot
@@ -202,18 +200,13 @@ Same as expected.
 
 ### Boot Log
 
-<details>
-<summary>outdated(20250219)</summary>
-
-[![asciicast](https://asciinema.org/a/NrY2moN5tJAYMaGpr6g4Bl8tl.svg)](https://asciinema.org/a/NrY2moN5tJAYMaGpr6g4Bl8tl)
+[![asciicast](https://asciinema.org/a/F2eSOsYUPToNhzwGB72U6pVWR.svg)](https://asciinema.org/a/F2eSOsYUPToNhzwGB72U6pVWR)
 
 （Screenshots are from an HDMI capture card）
 
-![](image/2025-02-22-03-44-31.png)
+![](image/2025-05-02-17-31-16.png)
 
-![](image/2025-02-22-03-44-06.png)
-
-</details>
+![](image/2025-05-02-17-32-35.png)
 
 ## Test Criteria
 
@@ -223,4 +216,4 @@ Failed: The actual result does not match the expected result.
 
 ## Test Conclusion
 
-CFT
+Test successful.

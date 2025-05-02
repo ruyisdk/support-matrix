@@ -150,6 +150,10 @@ fastboot flash root root-rockos-20250423-145338.ext4
 
 5. 至此，一切就绪。
 
+> [!NOTE]
+> 虽然 U-Boot 也支持通过 `fastboot udp` 从网络刷写，但速度相对要慢很多。
+> 通常不推荐从网络刷写，除非您完全远程操作，无法拨动板子上的开关。
+
 #### 烧录至 SSD 或 microSD
 
 使用 `etcher` 或 `dd` 来将 sdcard 镜像写入 SSD 或 microSD 即可。
@@ -160,13 +164,7 @@ sudo dd if=sdcard-rockos-20250423-145338.img of=/dev/sdX bs=1M status=progress; 
 
 ### 其它说明
 
-开机进入系统后请进行一次系统更新。
-
-预装的内核版本虽然能够正常使用，但会不断向内核中打印日志，不便于调试。
-
-软件仓库中的最新版内核已经修复了这一问题，下一版本的系统镜像将很快修复这一问题。
-
-请执行：
+开机进入系统后，推荐进行一次系统更新。
 
 ```shell
 sudo apt update; sudo apt upgrade -y; sudo reboot
@@ -191,18 +189,13 @@ sudo apt update; sudo apt upgrade -y; sudo reboot
 
 ### 启动信息
 
-<details>
-<summary>已过期（20250219）</summary>
-
-[![asciicast](https://asciinema.org/a/NrY2moN5tJAYMaGpr6g4Bl8tl.svg)](https://asciinema.org/a/NrY2moN5tJAYMaGpr6g4Bl8tl)
+[![asciicast](https://asciinema.org/a/F2eSOsYUPToNhzwGB72U6pVWR.svg)](https://asciinema.org/a/F2eSOsYUPToNhzwGB72U6pVWR)
 
 （屏幕截图来自 HDMI 采集卡）
 
-![](image/2025-02-22-03-44-31.png)
+![](image/2025-05-02-17-31-16.png)
 
-![](image/2025-02-22-03-44-06.png)
-
-</details>
+![](image/2025-05-02-17-32-35.png)
 
 ## 测试判定标准
 
