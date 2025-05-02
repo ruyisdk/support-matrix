@@ -1,10 +1,10 @@
 ---
 sys: nuttx
-sys_ver: null
+sys_ver: "12.9.0"
 sys_var: null
 
 status: cft
-last_update: 2024-06-21
+last_update: 2025-05-01
 ---
 
 # NuttX Star64 Test Report
@@ -33,6 +33,7 @@ last_update: 2024-06-21
 
 Get the toolchain:
 ```bash
+sudo apt install kconfig-frontends genromfs u-boot-tools
 wget https://static.dev.sifive.com/dev-tools/freedom-tools/v2020.12/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8-x86_64-linux-ubuntu14.tar.gz
 tar -xvzf riscv64-unknown-elf-toolchain-10.2.0-2020.12.8-x86_64-linux-ubuntu14.tar.gz
 export PATH=path/to/toolchain/bin:$PATH
@@ -41,8 +42,8 @@ export PATH=path/to/toolchain/bin:$PATH
 Clone the repository and configure:
 ```bash
 mkdir nuttx && cd nuttx
-git clone https://github.com/apache/nuttx.git nuttx
-git clone https://github.com/apache/nuttx-apps.git apps
+git clone -b nuttx-12.9.0 https://github.com/apache/nuttx.git nuttx
+git clone -b nuttx-12.9.0 https://github.com/apache/nuttx-apps.git apps
 ```
 
 ### Building NuttX
@@ -50,7 +51,6 @@ git clone https://github.com/apache/nuttx-apps.git apps
 Compile nuttx.bin:
 ```bash
 cd nuttx
-make distclean
 ./tools/configure.sh star64:nsh
 make -j$(nproc)
 riscv64-unknown-elf-objcopy -O binary nuttx nuttx.bin
@@ -131,13 +131,6 @@ cat << EOF > nuttx.its
 EOF
 ```
 
-Ensure you have u-boot-tools installed on your system:
-```bash
-# sudo apt install u-boot-tools
-# sudo pacman -S uboot-tools
-# sudo dnf install u-boot-tools
-```
-
 Create the fit:
 ```bash
 mkimage -f nuttx.its -A riscv -O linux -T flat_dt starfiveu.fit
@@ -149,14 +142,6 @@ Download the SD card image and flash:
 ```bash
 wget https://github.com/starfive-tech/VisionFive2/releases/download/JH7110_VF2_515_v5.11.3/sdcard.img
 sudo dd if=sdcard.img of=/dev/your/device bs=1M status=progress
-```
-
-### Flashing the Image
-
-Flash the SBI environment onto the SD card:
-```bash
-unxz -k canmv230-sdcard.img.xz
-sudo dd if=canmv230-sdcard.img of=/dev/your/sdcard bs=1M status=progress
 ```
 
 Replace the fit file:
