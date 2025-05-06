@@ -1,3 +1,12 @@
+---
+sys: freertos
+sys_ver: null
+sys_var: null
+
+status: basic
+last_update: 2025-05-4
+---
+
 # FreeRTOS ESP32-C2 Test Report
 
 ## Test Environment

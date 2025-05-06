@@ -1,7 +1,7 @@
 ---
 product: ESP32-C2
-cpu: ESP32-C3
-cpu_core: ESP32-C2 RISC-V 32bit(?)
+cpu: ESP32-C2
+cpu_core: null
 ram: 272K SRAM
 ---
 

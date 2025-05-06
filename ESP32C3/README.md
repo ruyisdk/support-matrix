@@ -1,7 +1,7 @@
 ---
 product: LUATOS ESP32-C3
 cpu: ESP32-C3
-cpu_core: ESP32-C3 RISC-V 32bit(?)
+cpu_core: null
 ram: 400K SRAM
 ---
 
