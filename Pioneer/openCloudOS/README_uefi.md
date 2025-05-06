@@ -33,7 +33,7 @@ Write the image to the microSD card using `dd`.
 
 ```bash
 xz -d ocs_developer_sdcard-uefi.img.xz
-dd if=ocs_developer_sdcard-uefi.img of=/dev/yout-device bs=4M status=progress
+dd if=ocs_developer_sdcard-uefi.img of=/dev/your-device bs=4M status=progress
 ```
 
 ### Logging into the System

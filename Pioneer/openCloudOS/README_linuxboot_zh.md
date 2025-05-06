@@ -25,7 +25,7 @@
 
 ```bash
 xz -d ocs_developer_sdcard-linuxboot.img.xz
-dd if=ocs_developer_sdcard-linuxboot.img of=/dev/yout-device bs=4M status=progress
+dd if=ocs_developer_sdcard-linuxboot.img of=/dev/your-device bs=4M status=progress
 ```
 
 ### 登录系统
