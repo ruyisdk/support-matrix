@@ -24,6 +24,9 @@ ram: 8G
 - Armbian 23.09.15
     - Download Link: https://github.com/chainsx/armbian-riscv-build/releases
     - Reference Installation Document: https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md
+- Arch Linux
+    - Download link: https://mirror.iscas.ac.cn/archriscv/images/
+    - Reference Installation Document: https://wiki.archlinux.org/title/General_recommendations
 - Fedora 38
     - Download Link：https://github.com/chainsx/fedora-riscv-builder/releases
     - Reference Installation Document：https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html
@@ -52,6 +55,7 @@ ram: 8G
 | Fedora chainsx Desktop Image Boot  | N/A              | [Success][Fedora]                       |
 | openKylin Desktop Image Boot       | N/A              | [Success][openKylin] (Official Support) |
 | OpenWRT Image Boot                 | N/A              | [Success][OpenWRT]                      |
+| Arch Linux Desktop Image Boot      | N/A              | [Success][ArchLinux]                    |
 | Deepin Desktop Image Boot          | N/A              | [Success][Deepin]                       |
 | RevyOS Desktop Image Boot          | N/A              | [Success][RevyOS]                       |
 
@@ -62,4 +66,5 @@ ram: 8G
 [openKylin]: ./openKylin/README.md
 [OpenWRT]: ./OpenWRT/README.md
 [Deepin]: ./Deepin/README.md
+[ArchLinux]: ./ArchLinux/README.md
 [RevyOS]: ./RevyOS/README.md
