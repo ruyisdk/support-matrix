@@ -49,6 +49,12 @@
   - 参考安装文档：
     - <https://milkv.io/zh/docs/mars/getting-started/boot>
     - <https://nuttx.apache.org/docs/latest/platforms/risc-v/jh7110/boards/star64/index.html>
+- ArchLinux (VF2_6.12_v5.14.0-cwt24)
+  - 下载链接：<https://github.com/cwt-vf2/archlinux-image-vf2/releases/download/cwt24/ArchLinux-VF2_6.12_v5.14.0-cwt24.img.zst>
+  - 参考安装文档：
+    - <https://forum.rvspace.org/t/arch-linux-image-for-visionfive-2/1459>
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://doc.rvspace.org/VisionFive2/Application_Notes/VisionFive2_OpenWrt/VisionFive_2/openwrt/compile.html>
 
 ### 硬件开发板信息
 
@@ -69,6 +75,7 @@
 | NixOS 镜像启动       | N/A      | [成功][NixOS]                    |
 | OpenWRT 镜像启动     | N/A      | [成功][OpenWRT]                  |
 | NuttX 镜像启动       | N/A      | [成功][NuttX]                    |
+| ArchLinux 镜像启动   | N/A      | [成功][ArchLinux]                |
 
 [Debian]: ./Debian/README_zh.md
 [BuildRoot]: ./BuildRoot/README_zh.md
@@ -81,3 +88,4 @@
 [NixOS]: ./NixOS/README_zh.md
 [OpenWRT]: ./OpenWRT/README_zh.md
 [NuttX]: ./NuttX/README_zh.md
+[ArchLinux]: ./ArchLinux/README_zh.md
