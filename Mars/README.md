@@ -57,6 +57,12 @@ ram: 1G/2G/4G/8G
   - Reference Installation Document:
     - <https://milkv.io/zh/docs/mars/getting-started/boot>
     - <https://nuttx.apache.org/docs/latest/platforms/risc-v/jh7110/boards/star64/index.html>
+- ArchLinux (VF2_6.12_v5.14.0-cwt24)
+  - Download Link: <https://github.com/cwt-vf2/archlinux-image-vf2/releases/download/cwt24/ArchLinux-VF2_6.12_v5.14.0-cwt24.img.zst>
+  - Reference Installation Document:
+    - <https://forum.rvspace.org/t/arch-linux-image-for-visionfive-2/1459>
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://doc.rvspace.org/VisionFive2/Application_Notes/VisionFive2_OpenWrt/VisionFive_2/openwrt/compile.html>
 
 ### Hardware Information
 
@@ -76,7 +82,8 @@ ram: 1G/2G/4G/8G
 | Guix Image Boot        | N/A          | [Successful][Guix]                           |
 | NixOS Image Boot       | N/A          | [Successful][NixOS]                          |
 | OpenWRT Image Boot     | N/A          | [Successful][OpenWRT]                        |
-| NuttX Image Boot     | N/A          | [Successful][NuttX]                        |
+| NuttX Image Boot       | N/A          | [Successful][NuttX]                          |
+| ArchLinux Image Boot   | N/A          | [Successful][ArchLinux]                      |
 
 [Debian]: ./Debian/README.md
 [BuildRoot]: ./BuildRoot/README.md
@@ -89,3 +96,4 @@ ram: 1G/2G/4G/8G
 [NixOS]: ./NixOS/README.md
 [OpenWRT]: ./OpenWRT/README.md
 [NuttX]: ./NuttX/README.md
+[ArchLinux]: ./ArchLinux/README.md
