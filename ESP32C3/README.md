@@ -1,10 +1,11 @@
 ---
+vendor: espressif
 product: LUATOS ESP32-C3
 cpu: ESP32-C3
-cpu_core: null
+cpu_core: "null"
 ram: 400K SRAM
 ---
-
+e
 # ESP32-C3
 
 ## Test Environment

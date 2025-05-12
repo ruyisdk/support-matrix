@@ -1,7 +1,8 @@
 ---
+vendor: espressif
 product: ESP32-C2
 cpu: ESP32-C2
-cpu_core: null
+cpu_core: "null"
 ram: 272K SRAM
 ---
 
