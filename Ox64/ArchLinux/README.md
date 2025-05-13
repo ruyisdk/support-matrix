@@ -91,54 +91,40 @@ The system started successfully, with serial output.
 ### Boot Information
 
 ```log
-swapon: /dev/mmcblk0p1: read swap header failed
-Resizing Rootfs
-CHANGED: partition=3 start=2506786 old: size=1048576 end=3555361 new: size=59827133 end=62333918
-Partition Resized
-resize2fs 1.46.5 (30-Dec-2021)
-Filesystem at /dev/mmcblk0p3 is mounted on /; on-line resizing required
-old_desc_blocks = 1, new_desc_blocks = 2
-[    3.120120] EXT4-fs (mmcblk0p3): resizing filesystem from 131072 to 7478391 blocks
-[    3.805460] EXT4-fs (mmcblk0p3): resized filesystem to 7478391
-The filesystem on /dev/mmcblk0p3 is now 7478391 (4k) blocks long.
+Arch Linux 6.5.11 (hvc0)
 
-Rootfs Resized
-Running mkswap
-Setting up swapspace version 1, size = 1024 MiB (1073737728 bytes)
-no label, UUID=d4bded1e-1d6b-44f1-a861-45c71d817090
-[    4.139249] Adding 1048572k swap on /dev/mmcblk0p1.  Priority:-2 extents:1 across:1048572k SS
-Swap Partition Formatted
-Starting syslogd: OK
-Starting klogd: OK
-Running sysctl: OK
-Starting mdev... OK
-Saving random seed: OK
-Starting rpcbind: OK
-Starting iptables: OK
-Starting network: OK
-Starting dhcpcd...
-dhcpcd-9.4.1 starting
-dhcp_vendor: Invalid argument
-forked to background, child pid 131
-Starting sntp: sntp 4.2.8p15@1.3728-o Mon Mar  6 10:45:15 UTC 2023 (1)
-pool.ntp.org lookup error Temporary failure in name resolution
-FAIL
-Starting ntpd: OK
-Starting dropbear sshd: OK
+buildroot login:
+Arch Linux 6.5.11 (ttyS0)
 
-Welcome to Buildroot
-ox64 login: root
-Last login: Thu Jan  1 00:00:35 on console
-# uname -a
-Linux ox64 6.2.0 #1 Mon Mar  6 11:17:27 UTC 2023 riscv64 GNU/Linux
-# cat /etc/os-release
-NAME=Buildroot
-VERSION=2022.11.1
-ID=buildroot
-VERSION_ID=2022.11.1
-PRETTY_NAME="Buildroot 2022.11.1"
-#
-
+buildroot login: root
+Password:
+[root@buildroot ~]# uname -a
+Linux buildroot 6.5.11 #1 Fri Jun 28 00:07:35 MSK 2024 riscv64 GNU/Linux
+[root@buildroot ~]# cat /etc/os-release
+NAME="Arch Linux"
+PRETTY_NAME="Arch Linux"
+ID=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+HOME_URL="https://archlinux.org/"
+DOCUMENTATION_URL="https://wiki.archlinux.org/"
+SUPPORT_URL="https://bbs.archlinux.org/"
+BUG_REPORT_URL="https://gitlab.archlinux.org/groups/archlinux/-/issues"
+PRIVACY_POLICY_URL="https://terms.archlinux.org/docs/privacy-policy/"
+LOGO=archlinux-logo
+[root@buildroot ~]# lscpu
+Architecture:           riscv64
+  Byte Order:           Little Endian
+CPU(s):                 1
+  On-line CPU(s) list:  0
+Vendor ID:              0x5b7
+  Model name:           -
+    CPU family:         0x0
+    Model:              0x0
+    Thread(s) per core: 1
+    Core(s) per socket: 1
+    Socket(s):          1
+[root@buildroot ~]#
 ```
 
 ## Test Criteria
