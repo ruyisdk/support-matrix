@@ -1,4 +1,4 @@
-# RT-Thread RV-STAR 测试报告
+# ThreadX RV-STAR 测试报告
 
 ## 测试环境
 
@@ -53,9 +53,9 @@ source setup.sh
 
 ### 编译代码
 
-编译 RT-Thread:
+编译 ThreadX:
 ```bash
-cd application/rtthread/msh/
+cd application/threadx/demo/
 make SOC=gd32vf103 BOARD=gd32vf103v_rvstar clean
 make SOC=gd32vf103 BOARD=gd32vf103v_rvstar all
 ```
@@ -128,36 +128,38 @@ make SOC=gd32vf103 BOARD=gd32vf103v_rvstar upload
 ### 启动信息
 
 ```log
-Nuclei SDK Build Time: May 13 2025, 23:42:43
+Nuclei SDK Build Time: May 13 2025, 23:44:33
 Download Mode: FLASHXIP
 CPU Frequency 108000000 Hz
-
- \ | /
-- RT -     Thread Operating System
- / | \     3.1.5 build May 13 2025
- 2006 - 2020 Copyright by rt-thread team
-Hello RT-Thread!
-msh >help
-RT-Thread shell commands:
-list_timer       - list timer in system
-list_mailbox     - list mail box in system
-list_sem         - list semaphore in system
-list_thread      - list thread
-version          - show RT-Thread version information
-ps               - List threads in the system.
-help             - RT-Thread shell help.
-nsdk             - msh nuclei sdk demo
-
-msh >ps
-thread   pri  status      sp     stack size max used left tick  error
--------- ---  ------- ---------- ----------  ------  ---------- ---
-tshell     6  ready   0x000001d8 0x00001000    11%   0x0000000a 000
-tidle      7  ready   0x00000078 0x00000200    23%   0x00000020 000
-main       2  suspend 0x000000b8 0x00000400    17%   0x00000013 000
-msh >nsdk
-Hello Nuclei SDK!
-msh >
-
+thread 6_7 is running, current is 6, thread 6 counter 1, thread 7 counter 1
+thread 6_7 is running, current is 7, thread 6 counter 2, thread 7 counter 1
+thread 6_7 is running, current is 6, thread 6 counter 2, thread 7 counter 2
+thread 6_7 is running, current is 7, thread 6 counter 3, thread 7 counter 2
+thread 6_7 is running, current is 6, thread 6 counter 3, thread 7 counter 3
+thread 6_7 is running, current is 7, thread 6 counter 4, thread 7 counter 3
+thread 6_7 is running, current is 6, thread 6 counter 4, thread 7 counter 4
+thread 6_7 is running, current is 7, thread 6 counter 5, thread 7 counter 4
+thread 6_7 is running, current is 6, thread 6 counter 5, thread 7 counter 5
+thread 6_7 is running, current is 7, thread 6 counter 6, thread 7 counter 5
+thread 6_7 is running, current is 6, thread 6 counter 6, thread 7 counter 6
+thread 6_7 is running, current is 7, thread 6 counter 7, thread 7 counter 6
+thread 6_7 is running, current is 6, thread 6 counter 7, thread 7 counter 7
+thread 6_7 is running, current is 7, thread 6 counter 8, thread 7 counter 7
+thread 6_7 is running, current is 6, thread 6 counter 8, thread 7 counter 8
+thread 6_7 is running, current is 7, thread 6 counter 9, thread 7 counter 8
+thread 6_7 is running, current is 6, thread 6 counter 9, thread 7 counter 9
+thread 6_7 is running, current is 7, thread 6 counter 10, thread 7 counter 9
+thread 6_7 is running, current is 6, thread 6 counter 10, thread 7 counter 10
+thread 6_7 is running, current is 7, thread 6 counter 11, thread 7 counter 10
+thread 6_7 is running, current is 6, thread 6 counter 11, thread 7 counter 11
+thread 6_7 is running, current is 7, thread 6 counter 12, thread 7 counter 11
+thread 6_7 is running, current is 6, thread 6 counter 12, thread 7 counter 12
+thread 6_7 is running, current is 7, thread 6 counter 13, thread 7 counter 12
+thread 6_7 is running, current is 6, thread 6 counter 13, thread 7 counter 13
+thread 6_7 is running, current is 7, thread 6 counter 14, thread 7 counter 13
+thread 6_7 is running, current is 6, thread 6 counter 14, thread 7 counter 14
+...
+(truncated)
 ```
 
 ## 测试判定标准

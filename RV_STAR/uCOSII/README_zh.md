@@ -1,4 +1,4 @@
-# RT-Thread RV-STAR 测试报告
+# μC/OS-II RV-STAR 测试报告
 
 ## 测试环境
 
@@ -53,9 +53,9 @@ source setup.sh
 
 ### 编译代码
 
-编译 RT-Thread:
+编译 μC/OS-II:
 ```bash
-cd application/rtthread/msh/
+cd application/ucosii/demo/
 make SOC=gd32vf103 BOARD=gd32vf103v_rvstar clean
 make SOC=gd32vf103 BOARD=gd32vf103v_rvstar all
 ```
@@ -128,36 +128,47 @@ make SOC=gd32vf103 BOARD=gd32vf103v_rvstar upload
 ### 启动信息
 
 ```log
-Nuclei SDK Build Time: May 13 2025, 23:42:43
+Nuclei SDK Build Time: May 13 2025, 23:45:30
 Download Mode: FLASHXIP
 CPU Frequency 108000000 Hz
-
- \ | /
-- RT -     Thread Operating System
- / | \     3.1.5 build May 13 2025
- 2006 - 2020 Copyright by rt-thread team
-Hello RT-Thread!
-msh >help
-RT-Thread shell commands:
-list_timer       - list timer in system
-list_mailbox     - list mail box in system
-list_sem         - list semaphore in system
-list_thread      - list thread
-version          - show RT-Thread version information
-ps               - List threads in the system.
-help             - RT-Thread shell help.
-nsdk             - msh nuclei sdk demo
-
-msh >ps
-thread   pri  status      sp     stack size max used left tick  error
--------- ---  ------- ---------- ----------  ------  ---------- ---
-tshell     6  ready   0x000001d8 0x00001000    11%   0x0000000a 000
-tidle      7  ready   0x00000078 0x00000200    23%   0x00000020 000
-main       2  suspend 0x000000b8 0x00000400    17%   0x00000013 000
-msh >nsdk
-Hello Nuclei SDK!
-msh >
-
+Start ucosii...
+create start task success
+start all task...
+task3 is running... 1
+task2 is running... 1
+task1 is running... 1
+task3 is running... 2
+task2 is running... 2
+task1 is running... 2
+task3 is running... 3
+task2 is running... 3
+task3 is running... 4
+task2 is running... 4
+task1 is running... 3
+task3 is running... 5
+task2 is running... 5
+task3 is running... 6
+task2 is running... 6
+task1 is running... 4
+task3 is running... 7
+task2 is running... 7
+task3 is running... 8
+task2 is running... 8
+task1 is running... 5
+task3 is running... 9
+task2 is running... 9
+task3 is running... 10
+task2 is running... 10
+task1 is running... 6
+task3 is running... 11
+task2 is running... 11
+task3 is running... 12
+task2 is running... 12
+task1 is running... 7
+task3 is running... 13
+task2 is running... 13
+...
+(truncated)
 ```
 
 ## 测试判定标准
