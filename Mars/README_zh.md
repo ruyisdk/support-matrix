@@ -29,7 +29,7 @@
   - 参考安装文档：
     - <https://milkv.io/zh/docs/mars/getting-started/boot>
     - <https://images.fedoravforce.org/Mars>
-- Guix
+- Guix (Build ID: 9893288)
   - 下载链接：<https://ci.guix.gnu.org/search/latest?query=spec:images+status:success+system:x86_64-linux+visionfive2-barebones-raw-image>
   - 参考安装文档：<https://milkv.iso/zh/docs/mars/getting-started/boot>
 - NixOS 25.05
@@ -37,6 +37,24 @@
   - 参考安装文档：
     - <https://milkv.io/zh/docs/mars/getting-started/boot>
     - <https://github.com/NickCao/nixos-riscv>
+- OpenWRT 24.10.1
+  - 下载链接：<https://downloads.openwrt.org/releases/24.10.1/targets/starfive/generic/openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img.gz>
+  - 参考安装文档：
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://doc.rvspace.org/VisionFive2/Application_Notes/VisionFive2_OpenWrt/VisionFive_2/openwrt/compile.html>
+    - <https://firmware-selector.openwrt.org/?version=24.10.1&target=starfive%2Fgeneric&id=visionfive2-v1.3b>
+- NuttX 12.9.0
+  - 下载链接：
+    - <https://nuttx.apache.org/download/>
+  - 参考安装文档：
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://nuttx.apache.org/docs/latest/platforms/risc-v/jh7110/boards/star64/index.html>
+- ArchLinux (VF2_6.12_v5.14.0-cwt24)
+  - 下载链接：<https://github.com/cwt-vf2/archlinux-image-vf2/releases/download/cwt24/ArchLinux-VF2_6.12_v5.14.0-cwt24.img.zst>
+  - 参考安装文档：
+    - <https://forum.rvspace.org/t/arch-linux-image-for-visionfive-2/1459>
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://doc.rvspace.org/VisionFive2/Application_Notes/VisionFive2_OpenWrt/VisionFive_2/openwrt/compile.html>
 
 ### 硬件开发板信息
 
@@ -44,17 +62,20 @@
 
 ## 测试结果
 
-| 软件分类             | 软件包名 | 测试结果（测试报告）              |
-| -------------------- | -------- | --------------------------------- |
+| 软件分类             | 软件包名 | 测试结果（测试报告）               |
+| -------------------- | -------- | ------------------------------- |
 | Debian 镜像启动      | N/A      | [成功][Debian]（Milk-V 厂商镜像） |
-| BuildRoot 构建及启动 | N/A      | [成功][BuildRoot]                 |
-| Ubuntu 镜像启动      | N/A      | [成功][Ubuntu]                     |
-| Ubuntu LTS 镜像启动  | N/A      | [成功][Ubuntu LTS]                 |
-| Deepin 镜像启动      | N/A      | [成功][Deepin]                     |
-| eweOS 镜像启动       | N/A      | [成功][eweOS]                     |
-| Fedora 镜像启动      | N/A      | [成功][Fedora]                     |
+| BuildRoot 构建及启动 | N/A      | [成功][BuildRoot]                |
+| Ubuntu 镜像启动      | N/A      | [成功][Ubuntu]                   |
+| Ubuntu LTS 镜像启动  | N/A      | [成功][Ubuntu LTS]               |
+| Deepin 镜像启动      | N/A      | [成功][Deepin]                   |
+| eweOS 镜像启动       | N/A      | [成功][eweOS]                    |
+| Fedora 镜像启动      | N/A      | [成功][Fedora]                   |
 | Guix 镜像启动        | N/A      | [成功][Guix]                     |
-| NixOS 镜像启动       | N/A      | [成功][NixOS]                     |
+| NixOS 镜像启动       | N/A      | [成功][NixOS]                    |
+| OpenWRT 镜像启动     | N/A      | [成功][OpenWRT]                  |
+| NuttX 镜像启动       | N/A      | [成功][NuttX]                    |
+| ArchLinux 镜像启动   | N/A      | [成功][ArchLinux]                |
 
 [Debian]: ./Debian/README_zh.md
 [BuildRoot]: ./BuildRoot/README_zh.md
@@ -64,4 +85,7 @@
 [eweOS]: ./eweOS/README_zh.md
 [Fedora]: ./Fedora/README_zh.md
 [Guix]: ./Guix/README_zh.md
-[NixOS]: ./NixOS/README.md
+[NixOS]: ./NixOS/README_zh.md
+[OpenWRT]: ./OpenWRT/README_zh.md
+[NuttX]: ./NuttX/README_zh.md
+[ArchLinux]: ./ArchLinux/README_zh.md

@@ -24,6 +24,7 @@
 
 获取工具链：
 ```bash
+sudo apt install kconfig-frontends genromfs u-boot-tools
 wget https://static.dev.sifive.com/dev-tools/freedom-tools/v2020.12/riscv64-unknown-elf-toolchain-10.2.0-2020.12.8-x86_64-linux-ubuntu14.tar.gz
 tar -xvzf riscv64-unknown-elf-toolchain-10.2.0-2020.12.8-x86_64-linux-ubuntu14.tar.gz
 export PATH=path/to/toolchain/bin:$PATH
@@ -32,15 +33,14 @@ export PATH=path/to/toolchain/bin:$PATH
 clone 仓库并进行配置：
 ```bash
 mkdir nuttx && cd nuttx
-git clone https://github.com/apache/nuttx.git nuttx
-git clone https://github.com/apache/nuttx-apps.git apps
+git clone -b nuttx-12.9.0 https://github.com/apache/nuttx.git nuttx
+git clone -b nuttx-12.9.0 https://github.com/apache/nuttx-apps.git apps
 ```
 ### 构建 NuttX
 
 编译 nuttx.bin：
 ```bash
 cd nuttx
-make distclean
 ./tools/configure.sh star64:nsh
 make -j$(nproc)
 riscv64-unknown-elf-objcopy -O binary nuttx nuttx.bin
@@ -121,13 +121,6 @@ cat << EOF > nuttx.its
 EOF
 ```
 
-确认你系统上安装了 u-boot-tools：
-```bash
-# sudo apt install u-boot-tools
-# sudo pacman -S uboot-tools
-# sudo dnf install u-boot-tools
-```
-
 创建 fit：
 ```bash
 mkimage -f nuttx.its -A riscv -O linux -T flat_dt starfiveu.fit
@@ -139,14 +132,6 @@ mkimage -f nuttx.its -A riscv -O linux -T flat_dt starfiveu.fit
 ```bash
 wget https://github.com/starfive-tech/VisionFive2/releases/download/JH7110_VF2_515_v5.11.3/sdcard.img
 sudo dd if=sdcard.img of=/dev/your/device bs=1M status=progress
-```
-
-### 烧写镜像
-
-在 SD 卡上烧写 SBI 环境：
-```bash
-unxz -k canmv230-sdcard.img.xz
-sudo dd if=canmv230-sdcard.img of=/dev/your/sdcard bs=1M status=progress
 ```
 
 替换 fit 文件：

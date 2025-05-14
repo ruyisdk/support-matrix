@@ -1,10 +1,10 @@
 ---
 sys: rockos
-sys_ver: "20250219"
+sys_ver: "20250423"
 sys_var: null
 
 status: good
-last_update: 2025-02-22
+last_update: 2025-05-02
 ---
 
 # Milk-V Megrez RockOS Test Report
@@ -37,8 +37,8 @@ last_update: 2025-02-22
 ### Download and decompress the files
 
 ```shell
-wget https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/boot-rockos-20250219-091803.ext4.zst \
-     https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/root-rockos-20250219-091803.ext4.zst \
+wget https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/boot-rockos-20250423-145338.ext4.zst \
+     https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/root-rockos-20250423-145338.ext4.zst \
      https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/bootloader_secboot_ddr5_milkv-megrez.bin
 # Assume you have zstd installed
 zstd -d *.zst
@@ -48,7 +48,7 @@ If you want to flash the firmware to an SSD or microSD card, download these file
 
 ```shell
 wget https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/bootloader_secboot_ddr5_milkv-megrez.bin \
-     https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/sdcard-rockos-20250219-091803.img.zst
+     https://fast-mirror.isrc.ac.cn/rockos/images/generic/latest/sdcard-rockos-20250423-145338.img.zst
 zstd -d *.zst
 ```
 
@@ -153,31 +153,29 @@ After upgrading the bootchain, power on the board, type `s` to interrupt autoboo
 (On Linux, you'll need `sudo`, or add VID:PID 3452:7700 to your udev rules.)
 
 ```shell
-fastboot flash boot boot-rockos-20250219-091803.ext4
-fastboot flash root root-rockos-20250219-091803.ext4
+fastboot flash boot boot-rockos-20250423-145338.ext4
+fastboot flash root root-rockos-20250423-145338.ext4
 ```
 
 4. Wait for the flashing process to complete. After that, press Ctrl+C in U-Boot console, then type `reset` to reboot.
 
 5. You're good to go.
 
+> [!NOTE]
+> Although U-Boot also supports `fastboot udp` to flash via network, but this would be much slower.
+> Flashing via network is generally not recommended, unless you're doing it remotely and cannot flip the switch.
+
 #### Flash to SSD or microSD
 
 Just use `etcher` or `dd` to write the sdcard image into SSD or microSD.
 
 ```shell
-sudo dd if=sdcard-rockos-20250219-091803.img of=/dev/sdX bs=1M status=progress; sync
+sudo dd if=sdcard-rockos-20250423-145338.img of=/dev/sdX bs=1M status=progress; sync
 ```
 
 ### Other Notes
 
-Do a system upgrade after booting into the system.
-
-The preinstalled kernel version is okay for use but it will keep dumping logs into dmesg, which might be quite annoying for debugging purposes.
-
-The latest kernel inside the repo has already fixed this, and the system image is expected to update to fix this issue soon.
-
-For now:
+It is recommended to do a system upgrade after booting into the system.
 
 ```shell
 sudo apt update; sudo apt upgrade -y; sudo reboot
@@ -202,13 +200,13 @@ Same as expected.
 
 ### Boot Log
 
-[![asciicast](https://asciinema.org/a/NrY2moN5tJAYMaGpr6g4Bl8tl.svg)](https://asciinema.org/a/NrY2moN5tJAYMaGpr6g4Bl8tl)
+[![asciicast](https://asciinema.org/a/F2eSOsYUPToNhzwGB72U6pVWR.svg)](https://asciinema.org/a/F2eSOsYUPToNhzwGB72U6pVWR)
 
 （Screenshots are from an HDMI capture card）
 
-![](image/2025-02-22-03-44-31.png)
+![](image/2025-05-02-17-31-16.png)
 
-![](image/2025-02-22-03-44-06.png)
+![](image/2025-05-02-17-32-35.png)
 
 ## Test Criteria
 

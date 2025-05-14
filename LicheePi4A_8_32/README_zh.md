@@ -16,6 +16,9 @@
 - Armbian 23.09.15
     - 下载链接：https://github.com/chainsx/armbian-riscv-build/releases
     - 参考安装文档：https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md
+- Arch Linux
+    - 下载链接：https://mirror.iscas.ac.cn/archriscv/images/
+    - 参考安装文档：https://wiki.archlinux.org/title/General_recommendations
 - Fedora 38
     - 下载链接：https://github.com/chainsx/fedora-riscv-builder/releases
     - 参考安装文档：https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html
@@ -44,6 +47,7 @@
 | Fedora chainsx 桌面镜像启动    | N/A      | [成功][Fedora]                |
 | openKylin 桌面镜像启动         | N/A      | [成功][openKylin]（官方支持） |
 | OpenWRT 镜像启动               | N/A      | [成功][OpenWRT]               |
+| Arch Linux 桌面镜像启动        | N/A      | [成功][ArchLinux]             |
 | Deepin 桌面镜像启动            | N/A      | [成功][Deepin]                |
 | RevyOS 桌面镜像启动            | N/A      | [成功][RevyOS]                |
 
@@ -54,5 +58,6 @@
 [Armbian]: ./Armbian/README_zh.md
 [openKylin]: ./openKylin/README_zh.md
 [OpenWRT]: ./OpenWRT/README_zh.md
+[ArchLinux]: ./ArchLinux/README_zh.md
 [Deepin]: ./Deepin/README_zh.md
 [RevyOS]: ./RevyOS/README_zh.md

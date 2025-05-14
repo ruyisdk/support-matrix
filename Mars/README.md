@@ -37,11 +37,32 @@ ram: 1G/2G/4G/8G
   - Reference Installation Document:
     - <https://milkv.io/zh/docs/mars/getting-started/boot>
     - <https://images.fedoravforce.org/Mars>
+- Guix (Build ID: 9893288)
+  - Download Link: <https://ci.guix.gnu.org/search/latest?query=spec:images+status:success+system:x86_64-linux+visionfive2-barebones-raw-image>
+  - Reference Installation Document: <https://milkv.io/zh/docs/mars/getting-started/boot>
 - NixOS 25.05
   - Download Link: <https://hydra.nichi.co/build/1426425/download/1/nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img.zst>
   - Reference Installation Document:
     - <https://milkv.io/zh/docs/mars/getting-started/boot>
     - <https://github.com/NickCao/nixos-riscv>
+- OpenWRT 24.10.1
+  - Download Link: <https://downloads.openwrt.org/releases/24.10.1/targets/starfive/generic/openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img.gz>
+  - Reference Installation Document:
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://doc.rvspace.org/VisionFive2/Application_Notes/VisionFive2_OpenWrt/VisionFive_2/openwrt/compile.html>
+    - <https://firmware-selector.openwrt.org/?version=24.10.1&target=starfive%2Fgeneric&id=visionfive2-v1.3b>
+- NuttX 12.9.0
+  - Download Link:
+    - <https://nuttx.apache.org/download/>
+  - Reference Installation Document:
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://nuttx.apache.org/docs/latest/platforms/risc-v/jh7110/boards/star64/index.html>
+- ArchLinux (VF2_6.12_v5.14.0-cwt24)
+  - Download Link: <https://github.com/cwt-vf2/archlinux-image-vf2/releases/download/cwt24/ArchLinux-VF2_6.12_v5.14.0-cwt24.img.zst>
+  - Reference Installation Document:
+    - <https://forum.rvspace.org/t/arch-linux-image-for-visionfive-2/1459>
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://doc.rvspace.org/VisionFive2/Application_Notes/VisionFive2_OpenWrt/VisionFive_2/openwrt/compile.html>
 
 ### Hardware Information
 
@@ -60,6 +81,9 @@ ram: 1G/2G/4G/8G
 | Fedora Image Boot      | N/A          | [Successful][Fedora]                         |
 | Guix Image Boot        | N/A          | [Successful][Guix]                           |
 | NixOS Image Boot       | N/A          | [Successful][NixOS]                          |
+| OpenWRT Image Boot     | N/A          | [Successful][OpenWRT]                        |
+| NuttX Image Boot       | N/A          | [Successful][NuttX]                          |
+| ArchLinux Image Boot   | N/A          | [Successful][ArchLinux]                      |
 
 [Debian]: ./Debian/README.md
 [BuildRoot]: ./BuildRoot/README.md
@@ -70,3 +94,6 @@ ram: 1G/2G/4G/8G
 [Fedora]: ./Fedora/README.md
 [Guix]: ./Guix/README.md
 [NixOS]: ./NixOS/README.md
+[OpenWRT]: ./OpenWRT/README.md
+[NuttX]: ./NuttX/README.md
+[ArchLinux]: ./ArchLinux/README.md
