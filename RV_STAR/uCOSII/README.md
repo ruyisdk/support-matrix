@@ -1,5 +1,5 @@
 ---
-sys: freertos
+sys: ucosii
 sys_ver: null
 sys_var: null
 
@@ -7,7 +7,7 @@ status: basic
 last_update: 2025-05-14
 ---
 
-# FreeRTOS RV-STAR Test Report
+# μC/OS-II RV-STAR Test Report
 
 ## Test Environment
 
@@ -62,9 +62,9 @@ Note that power supply is required through **both** the 3V3 pin and the Type-C p
 
 ### Compiling the Code
 
-Compile FreeRTOS:
+Compile μC/OS-II:
 ```bash
-cd application/freertos/demo/
+cd application/ucosii/demo/
 make SOC=gd32vf103 BOARD=gd32vf103v_rvstar clean
 make SOC=gd32vf103 BOARD=gd32vf103v_rvstar all
 ```
@@ -137,44 +137,45 @@ The system booted normally, with information available through the onboard seria
 ### Boot Log
 
 ```log
-Nuclei SDK Build Time: May 13 2025, 20:32:20
+Nuclei SDK Build Time: May 13 2025, 23:45:30
 Download Mode: FLASHXIP
 CPU Frequency 108000000 Hz
-Before StartScheduler
-Enter to task_1
-task1 is running 0.....
-Enter to task_2
-task2 is running 0.....
-task1 is running 1.....
-task2 is running 1.....
-task1 is running 2.....
-task2 is running 2.....
-task1 is running 3.....
-task2 is running 3.....
-task1 is running 4.....
-task2 is running 4.....
-timers Callback 0
-task1 is running 5.....
-task2 is running 5.....
-task1 is running 6.....
-task2 is running 6.....
-task1 is running 7.....
-task2 is running 7.....
-task1 is running 8.....
-task2 is running 8.....
-task1 is running 9.....
-task2 is running 9.....
-timers Callback 1
-task1 is running 10.....
-task2 is running 10.....
-task1 is running 11.....
-task2 is running 11.....
-task1 is running 12.....
-task2 is running 12.....
-task1 is running 13.....
-task2 is running 13.....
-task1 is running 14.....
-task2 is running 14.....
+Start ucosii...
+create start task success
+start all task...
+task3 is running... 1
+task2 is running... 1
+task1 is running... 1
+task3 is running... 2
+task2 is running... 2
+task1 is running... 2
+task3 is running... 3
+task2 is running... 3
+task3 is running... 4
+task2 is running... 4
+task1 is running... 3
+task3 is running... 5
+task2 is running... 5
+task3 is running... 6
+task2 is running... 6
+task1 is running... 4
+task3 is running... 7
+task2 is running... 7
+task3 is running... 8
+task2 is running... 8
+task1 is running... 5
+task3 is running... 9
+task2 is running... 9
+task3 is running... 10
+task2 is running... 10
+task1 is running... 6
+task3 is running... 11
+task2 is running... 11
+task3 is running... 12
+task2 is running... 12
+task1 is running... 7
+task3 is running... 13
+task2 is running... 13
 ...
 (truncated)
 ```

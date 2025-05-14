@@ -1,13 +1,12 @@
-# RT-Thread RV-STAR 测试报告
+# LiteOS RV-STAR 测试报告
 
 ## 测试环境
 
 ### 操作系统信息
 
-- 源码链接：https://github.com/Nuclei-Software/nuclei-sdk
-- 参考文档：https://doc.nucleisys.com/nuclei_sdk/design/board/gd32vf103v_rvstar.html
+- 源码链接：https://github.com/riscv-mcu/kernel_liteos_m
+- 参考文档：https://github.com/riscv-mcu/kernel_liteos_m/blob/nuclei/OpenHarmony-3.0-LTS/targets/riscv_nuclei_gd32vf103_soc_gcc/README.md
 - 下载链接：
-    - SDK：https://github.com/Nuclei-Software/nuclei-sdk
     - toolchain：https://www.nucleisys.com/download.php
         - https://download.nucleisys.com/upload/files/toolchain/gcc/nuclei_riscv_newlibc_prebuilt_linux64_nuclei-2024.tar.bz2
     - OpenOCD：https://www.nucleisys.com/download.php
@@ -35,12 +34,8 @@ export NUCLEI_TOOL_ROOT=$(pwd)
 
 下载 SDK：
 ```bash
-git clone https://github.com/Nuclei-Software/nuclei-sdk.git
-cd nuclei-sdk
-cat << EOF > setup_config.sh
-NUCLEI_TOOL_ROOT=$(echo $NUCLEI_TOOL_ROOT)
-EOF
-source setup.sh
+git clone https://github.com/riscv-mcu/kernel_liteos_m.git
+cd kernel_liteos_m/targets/riscv_nuclei_gd32vf103_soc_gcc/GCC
 ```
 
 ### 连接开发板
@@ -53,22 +48,21 @@ source setup.sh
 
 ### 编译代码
 
-编译 RT-Thread:
+编译 LiteOS:
 ```bash
-cd application/rtthread/msh/
-make SOC=gd32vf103 BOARD=gd32vf103v_rvstar clean
-make SOC=gd32vf103 BOARD=gd32vf103v_rvstar all
+PREFIX=riscv64-unknown-elf- make all
 ```
 
 ### 烧写镜像
 
 请确保所使用的调试器和 OpenOCD 版本和编译系统兼容。对于前者，可在 `../../../SoC/gd32vf103/Board/gd32vf103v_rvstar/openocd_gd32vf103.cfg` 参考所使用的调试器种类编辑相应的 OpenOCD 参数。
+
 例如，使用 Sipeed SLogic Combo 8 调试器 （DAP-Link 模式）时:
 ```diff
-diff --git a/SoC/gd32vf103/Board/gd32vf103v_rvstar/openocd_gd32vf103.cfg b/SoC/gd32vf103/Board/gd32vf103v_rvstar/openocd_gd32vf103.cfg
+diff --git a/targets/riscv_nuclei_gd32vf103_soc_gcc/GCC/openocd_gd32vf103.cfg b/targets/riscv_nuclei_gd32vf103_soc_gcc/GCC/openocd_gd32vf103.cfg
 index 019218da..66895b18 100644
---- a/SoC/gd32vf103/Board/gd32vf103v_rvstar/openocd_gd32vf103.cfg
-+++ b/SoC/gd32vf103/Board/gd32vf103v_rvstar/openocd_gd32vf103.cfg
+--- a/targets/riscv_nuclei_gd32vf103_soc_gcc/GCC/openocd_gd32vf103.cfg
++++ b/targets/riscv_nuclei_gd32vf103_soc_gcc/GCC/openocd_gd32vf103.cfg
 @@ -2,8 +2,8 @@ adapter speed     5000
  reset_config    srst_only
  adapter srst pulse_width 100
@@ -103,14 +97,33 @@ index 019218da..66895b18 100644
 
  set _CHIPNAME riscv
 ```
+
 如有必要可添加对应的 udev 规则 （参考 https://github.com/arduino/OpenOCD/blob/master/contrib/60-openocd.rules）。
 
 对于后者，工具链中提供的 OpenOCD 版本可能不兼容某些种类的调试器。一个已知可用的版本在 https://github.com/xpack-dev-tools/openocd-xpack/releases/tag/v0.12.0-4 。
 
-准备就绪后，使用如下命令烧写：
+可能需要修改 Makefile 中的 OpenOCD 参数：
+
+```diff
+diff --git a/targets/riscv_nuclei_gd32vf103_soc_gcc/GCC/Makefile b/targets/riscv_nuclei_gd32vf103_soc_gcc/GCC/Makefile
+index 74b9bf9..785c169 100644
+--- a/targets/riscv_nuclei_gd32vf103_soc_gcc/GCC/Makefile
++++ b/targets/riscv_nuclei_gd32vf103_soc_gcc/GCC/Makefile
+@@ -133,7 +133,7 @@ GDB_PORT ?= 3333
+ ## in remote machine(ipaddr 192.168.43.199, port 3333) which connect the hardware board,
+ ## then you can change the GDBREMOTE to 192.168.43.199:3333
+ ## GDBREMOTE ?= 192.168.43.199:3333
+-GDBREMOTE ?= | $(OPENOCD) --pipe -f $(OPENOCD_CFG)
++GDBREMOTE ?= | $(OPENOCD) -c \"gdb_port pipe; log_output openocd.log\" -f $(OPENOCD_CFG)
+
+ GDB_UPLOAD_ARGS ?= --batch
+ GDB_UPLOAD_CMDS += -ex "monitor halt"
+```
+
+准备就绪后，使用如下命令烧写（开发板需上电）：
 
 ```bash
-make SOC=gd32vf103 BOARD=gd32vf103v_rvstar upload
+make upload
 ```
 
 ### 启动系统
@@ -128,36 +141,38 @@ make SOC=gd32vf103 BOARD=gd32vf103v_rvstar upload
 ### 启动信息
 
 ```log
-Nuclei SDK Build Time: May 13 2025, 23:42:43
+Nuclei SDK Build Time: May 14 2025, 18:44:20
 Download Mode: FLASHXIP
 CPU Frequency 108000000 Hz
-
- \ | /
-- RT -     Thread Operating System
- / | \     3.1.5 build May 13 2025
- 2006 - 2020 Copyright by rt-thread team
-Hello RT-Thread!
-msh >help
-RT-Thread shell commands:
-list_timer       - list timer in system
-list_mailbox     - list mail box in system
-list_sem         - list semaphore in system
-list_thread      - list thread
-version          - show RT-Thread version information
-ps               - List threads in the system.
-help             - RT-Thread shell help.
-nsdk             - msh nuclei sdk demo
-
-msh >ps
-thread   pri  status      sp     stack size max used left tick  error
--------- ---  ------- ---------- ----------  ------  ---------- ---
-tshell     6  ready   0x000001d8 0x00001000    11%   0x0000000a 000
-tidle      7  ready   0x00000078 0x00000200    23%   0x00000020 000
-main       2  suspend 0x000000b8 0x00000400    17%   0x00000013 000
-msh >nsdk
-Hello Nuclei SDK!
-msh >
-
+entering kernel init...
+Entering scheduler
+TaskSampleEntry1 running...
+TaskSampleEntry2 running...
+TaskSampleEntry1 running...
+TaskSampleEntry1 running...
+TaskSampleEntry1 running...
+TaskSampleEntry1 running...
+TaskSampleEntry2 running...
+TaskSampleEntry1 running...
+TaskSampleEntry1 running...
+TaskSampleEntry1 running...
+TaskSampleEntry1 running...
+TaskSampleEntry1 running...
+TaskSampleEntry2 running...
+TaskSampleEntry1 running...
+TaskSampleEntry1 running...
+TaskSampleEntry1 running...
+TaskSampleEntry1 running...
+TaskSampleEntry1 running...
+TaskSampleEntry2 running...
+TaskSampleEntry1 running...
+TaskSampleEntry1 running...
+TaskSampleEntry1 running...
+TaskSampleEntry1 running...
+TaskSampleEntry1 running...
+TaskSampleEntry2 running...
+...
+(truncated)
 ```
 
 ## 测试判定标准
