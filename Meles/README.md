@@ -13,7 +13,7 @@ ram: 8G/16G
 ### Operating System Information
 
 - RevyOS
-    - Download link: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20241229/
+    - Download link: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250420/
     - Reference Installation Document: https://milkv.io/zh/docs/meles/getting-started/boot
 - Deepin TH1520 20250122
     - Download Link: https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250122/riscv64/deepin-25-beige-preview-riscv64-th1520-20250122-113934.tar.xz
