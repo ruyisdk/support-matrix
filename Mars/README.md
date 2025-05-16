@@ -63,6 +63,11 @@ ram: 1G/2G/4G/8G
     - <https://forum.rvspace.org/t/arch-linux-image-for-visionfive-2/1459>
     - <https://milkv.io/zh/docs/mars/getting-started/boot>
     - <https://doc.rvspace.org/VisionFive2/Application_Notes/VisionFive2_OpenWrt/VisionFive_2/openwrt/compile.html>
+- Alpine Linux 3.20.0_alpha20231219 (edge)
+  - Download Link: <https://dev.alpinelinux.org/~mps/riscv64/visionfive-v2-mmc.img.xz>
+  - Reference Installation Document:
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://arvanta.net/alpine/alpine-on-visionfive>
 
 ### Hardware Information
 
@@ -82,8 +87,9 @@ ram: 1G/2G/4G/8G
 | Guix Image Boot        | N/A          | [Successful][Guix]                           |
 | NixOS Image Boot       | N/A          | [Successful][NixOS]                          |
 | OpenWRT Image Boot     | N/A          | [Successful][OpenWRT]                        |
-| NuttX Image Boot       | N/A          | [Successful][NuttX]                          |
+| NuttX Build & Boot     | N/A          | [Successful][NuttX]                          |
 | ArchLinux Image Boot   | N/A          | [Successful][ArchLinux]                      |
+| Alpine Image Boot      | N/A          | [Successful][Alpine]                         |
 
 [Debian]: ./Debian/README.md
 [BuildRoot]: ./BuildRoot/README.md
@@ -97,3 +103,4 @@ ram: 1G/2G/4G/8G
 [OpenWRT]: ./OpenWRT/README.md
 [NuttX]: ./NuttX/README.md
 [ArchLinux]: ./ArchLinux/README.md
+[Alpine]: ./Alpine/README.md

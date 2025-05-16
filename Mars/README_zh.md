@@ -55,6 +55,11 @@
     - <https://forum.rvspace.org/t/arch-linux-image-for-visionfive-2/1459>
     - <https://milkv.io/zh/docs/mars/getting-started/boot>
     - <https://doc.rvspace.org/VisionFive2/Application_Notes/VisionFive2_OpenWrt/VisionFive_2/openwrt/compile.html>
+- Alpine Linux 3.20.0_alpha20231219 (edge)
+  - 下载链接：<https://dev.alpinelinux.org/~mps/riscv64/visionfive-v2-mmc.img.xz>
+  - 参考安装文档：
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://arvanta.net/alpine/alpine-on-visionfive>
 
 ### 硬件开发板信息
 
@@ -74,8 +79,9 @@
 | Guix 镜像启动        | N/A      | [成功][Guix]                     |
 | NixOS 镜像启动       | N/A      | [成功][NixOS]                    |
 | OpenWRT 镜像启动     | N/A      | [成功][OpenWRT]                  |
-| NuttX 镜像启动       | N/A      | [成功][NuttX]                    |
+| NuttX 构建及启动     | N/A      | [成功][NuttX]                    |
 | ArchLinux 镜像启动   | N/A      | [成功][ArchLinux]                |
+| Alpine 镜像启动      | N/A      | [成功][Alpine]                   |
 
 [Debian]: ./Debian/README_zh.md
 [BuildRoot]: ./BuildRoot/README_zh.md
@@ -89,3 +95,4 @@
 [OpenWRT]: ./OpenWRT/README_zh.md
 [NuttX]: ./NuttX/README_zh.md
 [ArchLinux]: ./ArchLinux/README_zh.md
+[Alpine]: ./Alpine/README_zh.md
