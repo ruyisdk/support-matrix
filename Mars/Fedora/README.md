@@ -13,7 +13,7 @@ last_update: 2025-03-31
 
 ### Operating System Information
 
-- System Version: Deepin 41 Workstation (20241201-091200 update version)
+- System Version: Fedora 41 Workstation (20241201-091200 update version)
 - Download Link: <https://mirror.iscas.ac.cn/fedora-riscv/dl/StarFive/visionfive2/images/fedora-disk-gnome-workstation_starfive_vf2_f41_20241201091200.raw.gz>
 - Reference Installation Document:
   1. <https://milkv.io/zh/docs/mars/getting-started/boot>
