@@ -1,25 +1,25 @@
 ---
 sys: ubuntu
-sys_ver: 24.04.1
+sys_ver: 24.04.2
 sys_var: LTS
 
 status: basic
-last_update: 2024-12-04
+last_update: 2025-05-17
 ---
 
-# Ubuntu 24.04.1 LTS D1 Test Report
+# Ubuntu 24.04.2 LTS D1 Test Report
 
 ## Test Environment
 
 ### Operating System Information
 
-- System Version: Ubuntu 24.04.1 LTS
-- Download Link: https://ubuntu.com/download/risc-v
-- Reference Installation Document: https://wiki.ubuntu.com/RISC-V/Nezha%20D1
+- System Version: Ubuntu 24.04.2 LTS
+- Download Link: <https://ubuntu.com/download/risc-v>
+- Reference Installation Document: <https://wiki.ubuntu.com/RISC-V/Nezha%20D1>
 
 ### Hardware Information
 
-- AWOL Nezha D1 
+- AWOL Nezha D1
 - A USB-A Power Adapter
 - A USB-A to C Cable
 - A microSD Card
@@ -52,27 +52,28 @@ The system booted successfully and login via the onboard serial port was also su
 ### Boot Log
 
 ```log
+Ubuntu 24.04.2 LTS ubuntu ttyS0
+
 ubuntu login: ubuntu
-Password: 
-You are required to change your password immediately (administrator enforced).
-Changing password for ubuntu.
-Current password: 
-New password: 
-Retype new password: 
-The password has not been changed.
-New password: 
-Retype new password: 
-Welcome to Ubuntu 24.04.1 LTS (GNU/Linux 6.8.0-41-generic riscv64)
+Password:
+
+You are required to change your password immediately (administrator enforced).Changing password for ubuntu.
+Current password:
+New password:
+Retype new password:
+
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-52-generic riscv64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/pro
 
- System information as of Tue Aug 27 15:32:33 UTC 2024
+ System information as of Sat Feb 15 09:08:11 UTC 2025
 
-  System load:    1.15      Processes:             27
+
+  System load:    1.05      Processes:             29
   Usage of /home: unknown   Users logged in:       0
-  Memory usage:   5%        IPv4 address for eth0: 10.10.10.2
+  Memory usage:   2%        IPv4 address for eth0: 10.10.10.2
   Swap usage:     0%
 
 Expanded Security Maintenance for Applications is not enabled.
@@ -82,6 +83,9 @@ Expanded Security Maintenance for Applications is not enabled.
 Enable ESM Apps to receive additional future security updates.
 See https://ubuntu.com/esm or run: sudo pro status
 
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
 
 
 The programs included with the Ubuntu system are free software;
@@ -94,13 +98,11 @@ applicable law.
 To run a command as administrator (user "root"), use "sudo <command>".
 See "man sudo_root" for details.
 
-ubuntu@ubuntu:~$ uname -a
-Linux ubuntu 6.8.0-41-generic #41.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Aug 13 09:58:43 UTC 2024 riscv64 riscv64 riscv64 GNU/Linux
-ubuntu@ubuntu:~$ cat /etc/os-release 
-PRETTY_NAME="Ubuntu 24.04.1 LTS"
+ubuntu@ubuntu:~$ cat /etc/os-release
+PRETTY_NAME="Ubuntu 24.04.2 LTS"
 NAME="Ubuntu"
 VERSION_ID="24.04"
-VERSION="24.04.1 LTS (Noble Numbat)"
+VERSION="24.04.2 LTS (Noble Numbat)"
 VERSION_CODENAME=noble
 ID=ubuntu
 ID_LIKE=debian
@@ -110,17 +112,46 @@ BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
 UBUNTU_CODENAME=noble
 LOGO=ubuntu-logo
-ubuntu@ubuntu:~$ cat /proc/cpuinfo 
-processor       : 0
-hart            : 0
+
+ubuntu@ubuntu:~$ cat /proc/cpuinfo
+processor       : 0                                     
+hart            : 0                                     
 isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
-mmu             : sv39
-uarch           : thead,c906
-mvendorid       : 0x5b7
-marchid         : 0x0
-mimpid          : 0x0
+mmu             : sv39                                  
+uarch           : thead,c906                            
+mvendorid       : 0x5b7                                 
+marchid         : 0x0                                   
+mimpid          : 0x0                                   
 hart isa        : rv64imafdc_zicntr_zicsr_zifencei_zihpm
 
+ubuntu@ubuntu:~$ uname -a
+Linux ubuntu 6.8.0-52-generic #53.1-Ubuntu SMP PREEMPT_DYNAMIC Sun Jan 26 04:38:25 UTC 2025 riscv64 riscv6
+4 riscv64 GNU/Linux 
+
+ubuntu@ubuntu:~$ sudo apt update
+ubuntu@ubuntu:~$ sudo apt install neofetch --no-install-recommends
+ubuntu@ubuntu:~$ neofetch
+            .-/+oossssoo+/-.               ubuntu@ubuntu                 
+        `:+ssssssssssssssssss+:`           -------------                 
+      -+ssssssssssssssssssyyssss+-         OS: Ubuntu 24.04.2 LTS riscv64
+    .ossssssssssssssssssdMMMNysssso.       Host: Allwinner D1 Nezha      
+   /ssssssssssshdmmNNmmyNMMMMhssssss/      Kernel: 6.8.0-52-generic      
+  +ssssssssshmydMMMMMMMNddddyssssssss+     Uptime: 10 mins               
+ /sssssssshNMMMyhhyyyyhmNMMMNhssssssss/    Packages: 618 (dpkg)          
+.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Shell: bash 5.2.21            
++sssshhhyNMMNyssssssssssssyNMMMysssssss+   Terminal: /dev/ttyS0          
+ossyNMMMNyMMhsssssssssssssshmmmhssssssso   CPU: (1) @ 1.008GHz           
+ossyNMMMNyMMhsssssssssssssshmmmhssssssso   Memory: 142MiB / 955MiB       
++sssshhhyNMMNyssssssssssssyNMMMysssssss+                                 
+.ssssssssdMMMNhsssssssssshNMMMdssssssss.                                 
+ /sssssssshNMMMyhhyyyyhdNMMMNhssssssss/                                  
+  +sssssssssdmydMMMMMMMMddddyssssssss+                                   
+   /ssssssssssshdmNNNNmyNMMMMhssssss/                                    
+    .ossssssssssssssssssdMMMNysssso.                                     
+      -+sssssssssssssssssyyyssss+-                                       
+        `:+ssssssssssssssssss+:`                                         
+            .-/+oossssoo+/-.                                             
+                                        
 ubuntu@ubuntu:~$ 
 ```
 
