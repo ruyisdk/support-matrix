@@ -1,5 +1,5 @@
 ---
-sys: NixOS 
+sys: nixos 
 sys_ver: "23.05"
 sys_var: null
 
