@@ -21,10 +21,9 @@ ram: 512MB
   - Reference Installation Document:
     - Sipeed Lichee RV: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
 - Ubuntu
-  - 24.10 Download link: https://ubuntu.com/download/risc-v
+  - 25.04 Download link: https://ubuntu.com/download/risc-v
   - 24.04.2 LTS Download link: https://ubuntu.com/download/risc-v
-  - Reference Installation Document:
-      - Sipeed Lichee RV Dock: https://wiki.ubuntu.com/RISC-V/LicheeRV
+  - Reference Installation Document: https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/sipeed-licheerv-dock/
 - OpenWrt 23.05.2
   - Download links (OpenWrt Firmware Selector):
     - Sipeed Lichee RV Dock: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock

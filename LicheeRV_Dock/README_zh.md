@@ -14,10 +14,9 @@
   - 参考安装文档：
     - Sipeed Lichee RV: https://wiki.sipeed.com/hardware/zh/lichee/RV/flash.html
 - Ubuntu 
-  - 24.10 下载链接: https://ubuntu.com/download/risc-v
+  - 25.04 下载链接: https://ubuntu.com/download/risc-v
   - 24.04.2 LTS 下载链接: https://ubuntu.com/download/risc-v
-  - 参考安装文档：
-    - Sipeed Lichee RV Dock: https://wiki.ubuntu.com/RISC-V/LicheeRV
+  - 参考安装文档：https://wiki.ubuntu.com/RISC-V/LicheeRVhttps://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/sipeed-licheerv-dock/
 - OpenWrt 23.05.2
   - 下载链接（OpenWrt Firmware Selector）：
     - Sipeed Lichee RV Dock: https://firmware-selector.openwrt.org/?version=SNAPSHOT&target=d1%2Fgeneric&id=lichee_rv_dock
