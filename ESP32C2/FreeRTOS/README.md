@@ -15,7 +15,7 @@ last_update: 2025-05-04
 
 - Source Code Link: https://github.com/espressif/esp-idf/tree/v5.4/examples/system/freertos/real_time_stats
 - Reference Documents:
-  - ESP32-C3: https://docs.espressif.com/projects/esp-idf/en/v5.4/esp32c2/
+  - ESP32-C2: https://docs.espressif.com/projects/esp-idf/en/v5.4/esp32c2/
 
 ### Hardware Information
 
@@ -26,7 +26,7 @@ last_update: 2025-05-04
 ### Install ESP-IDF
 
 The environment installation for ESP32-IDF can mainly refer to the official website link:
-https://docs.espressif.com/projects/esp-idf/en/v5.4/esp32c3/get-started/index.html#get-started-how-to-get-esp-idf
+https://docs.espressif.com/projects/esp-idf/en/v5.4/esp32C2/get-started/index.html#get-started-how-to-get-esp-idf
 Both graphical interface and command line development have good results.
 
 ### Prepare Project Repository
