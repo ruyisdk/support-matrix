@@ -1,5 +1,5 @@
 ---
-sys: eweOS
+sys: eweos
 sys_ver: null
 sys_var: null
 
