@@ -30,6 +30,9 @@ ram: 8G
 - NixOS
     - Download link: https://github.com/ryan4yin/nixos-licheepi4a/releases
     - Reference Installation Document: https://github.com/ryan4yin/nixos-licheepi4a
+- Slackware
+    - Download link: http://dl.slarm64.org/slackware/images/lichee_pi_4a/
+    - Reference Installation Document: http://dl.slarm64.org/slackware/images/lichee_pi_4a/README.TXT
 - Fedora 38
     - Download Link：https://github.com/chainsx/fedora-riscv-builder/releases
     - Reference Installation Document：https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html
@@ -60,6 +63,7 @@ ram: 8G
 | OpenWRT Image Boot                 | N/A              | [Success][OpenWRT]                      |
 | Arch Linux Desktop Image Boot      | N/A              | [Success][ArchLinux]                    |
 | NixOS Image Boot                   | N/A              | [Success][NixOS]                        |
+| Slackware Image Boot               | N/A              | [Success][Slackware]                    |
 | Deepin Desktop Image Boot          | N/A              | [Success][Deepin]                       |
 | RevyOS Desktop Image Boot          | N/A              | [Success][RevyOS]                       |
 
@@ -73,3 +77,4 @@ ram: 8G
 [ArchLinux]: ./ArchLinux/README.md
 [RevyOS]: ./RevyOS/README.md
 [NixOS]: ./NixOS/README.md
+[Slackware]: ./Slackware/README.md
