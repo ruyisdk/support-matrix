@@ -27,6 +27,9 @@ ram: 8G
 - Arch Linux
     - Download link: https://mirror.iscas.ac.cn/archriscv/images/
     - Reference Installation Document: https://wiki.archlinux.org/title/General_recommendations
+- NixOS
+    - Download link: https://github.com/ryan4yin/nixos-licheepi4a/releases
+    - Reference Installation Document: https://github.com/ryan4yin/nixos-licheepi4a
 - Fedora 38
     - Download Link：https://github.com/chainsx/fedora-riscv-builder/releases
     - Reference Installation Document：https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html
@@ -56,6 +59,7 @@ ram: 8G
 | openKylin Desktop Image Boot       | N/A              | [Success][openKylin] (Official Support) |
 | OpenWRT Image Boot                 | N/A              | [Success][OpenWRT]                      |
 | Arch Linux Desktop Image Boot      | N/A              | [Success][ArchLinux]                    |
+| NixOS Image Boot                   | N/A              | [Success][NixOS]                        |
 | Deepin Desktop Image Boot          | N/A              | [Success][Deepin]                       |
 | RevyOS Desktop Image Boot          | N/A              | [Success][RevyOS]                       |
 
@@ -68,3 +72,4 @@ ram: 8G
 [Deepin]: ./Deepin/README.md
 [ArchLinux]: ./ArchLinux/README.md
 [RevyOS]: ./RevyOS/README.md
+[NixOS]: ./NixOS/README.md

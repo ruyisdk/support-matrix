@@ -19,6 +19,9 @@
 - Arch Linux
     - 下载链接：https://mirror.iscas.ac.cn/archriscv/images/
     - 参考安装文档：https://wiki.archlinux.org/title/General_recommendations
+- NixOS
+    - 下载链接：https://github.com/ryan4yin/nixos-licheepi4a/releases
+    - 参考安装文档：https://github.com/ryan4yin/nixos-licheepi4a
 - Fedora 38
     - 下载链接：https://github.com/chainsx/fedora-riscv-builder/releases
     - 参考安装文档：https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html
@@ -48,6 +51,7 @@
 | openKylin 桌面镜像启动         | N/A      | [成功][openKylin]（官方支持） |
 | OpenWRT 镜像启动               | N/A      | [成功][OpenWRT]               |
 | Arch Linux 桌面镜像启动        | N/A      | [成功][ArchLinux]             |
+| NixOS 镜像启动                 | N/A      | [成功][NixOS]                 |
 | Deepin 桌面镜像启动            | N/A      | [成功][Deepin]                |
 | RevyOS 桌面镜像启动            | N/A      | [成功][RevyOS]                |
 
@@ -61,3 +65,4 @@
 [ArchLinux]: ./ArchLinux/README_zh.md
 [Deepin]: ./Deepin/README_zh.md
 [RevyOS]: ./RevyOS/README_zh.md
+[NixOS]: ./NixOS/README_zh.md
