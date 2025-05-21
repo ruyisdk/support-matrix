@@ -1,48 +1,60 @@
-# SpacemiT MusePi Pro, Bianbu UEFI v1.2 测试报告
+---
+sys: bianbu
+sys_ver: v1.2
+sys_var: null
 
-## 系统信息
+status: Good
+last_update: 2025-05-21
+---
 
-- 下载链接：https://archive.spacemit.com/image/k1/version/bianbu-computer-uefi/v1.2/
-- 安装文档参考：https://developer.spacemit.com/documentation?token=EIk1wVY9NinD95kMsw0cFM89npd
+# SpacemiT Muse Pi Pro, Bianbu UEFI v1.2 Test Report
 
-### 硬件信息
+## Test Environment
 
-- SpacemiT MusePi Pro 开发板
-- USB 充电器
-- USB Type-C 数据线
-- UART to USB 调试线
-- microSD 卡（如果刷写到 SD 卡）
+### System Information
 
-## 安装步骤
+- Download Link: https://archive.spacemit.com/image/k1/version/bianbu-computer-uefi/v1.2/
+- Reference Install Document: https://developer.spacemit.com/documentation?token=QSfGwmkhqiHwqQkHmCicH2Qnnyg
 
-### 刷写镜像（microSD 卡）
 
-**请务必选择以 `.img.zip` 结尾的压缩包**
+### Hardware Information
 
-**注意：请注意使用 UEFI 镜像，而不是其他 k1/m1 设备使用的 uboot 镜像。**
+- SpacemiT Muse Pi Pro Board
+- USB Charger
+- USB Type-C cables
+- UART to USB Debugger
+- microSD Card (If flash to SD card)
 
-下载并解压镜像后，使用 `dd` 将镜像写入 microSD 卡。
+## Installation Steps
+
+### Flashing the Image (SD Card)
+
+**Please make sure to choose the file ending with `.img.zip`**
+
+**Note: Please pay attention to use the uefi image, instead uboot image used by other k1/m1 devices.**
+
+After downloading and extracting the image, use `dd` to flash the image to the microSD card.
 
 ```bash
 unzip bianbu-computer-s1-uefi-release-for-pipro-v1.2-release-20250421182705.img.zip
 sudo dd if=bianbu-computer-s1-uefi-release-for-pipro-v1.2-release-20250421182705.img of=/dev/your-device bs=1M status=progress
 ```
 
-请将 `/dev/your-device` 替换为实际的 microSD 卡设备名称。请务必仔细检查设备名称，以免覆盖自己的磁盘。
+Please replace `/dev/your-device` with the actual device name of your microSD card. Make sure to double-check the device name to avoid overwriting your own disk.
 
-### 刷写镜像（eMMC）
+### Flashing the Image (eMMC)
 
-**请务必选择不带 `.img` 的 zip 压缩包**
+**Please make sure to choose the file ending without `.img`**
 
-**注意：请注意使用 UEFI 镜像，而不是其他 k1/m1 设备使用的 uboot 镜像。**
+**Note: Please pay attention to use the uefi image, instead uboot image used by other k1/m1 devices.**
 
-下载并解压镜像后，使用 `fastboot` 将镜像烧录到 eMMC。
+After downloading and extracting the image, use `fastboot` to flash the image to the eMMC.
 
 ```bash
 unzip bianbu-computer-s1-uefi-release-for-pipro-v1.2-release-20250421182705.zip
 ```
 
-在 USB Type-A 端口下方，可以看到三个按键。让以网口朝上，从上到下，分别是 **PWR**、**RST** 和 **FDL**。你需要在上电/复位时按住 **FDL** 按键，进入 fastboot 模式。你应该能在系统中看到 dfu-device：
+Under the USB Type-A port, you can see three buttons. Let the ethernet port facing up, from top to bottom, the buttons are **PWR**, **RST**, and **FDL** . You shall hold the **FDL** button while power on/RST, to enter the fastboot mode. You shall see the dfu-device in your system:
 
 ```log
 ❯ sudo fastboot devices
@@ -69,26 +81,27 @@ sudo fastboot flash bootfs bootfs.ext4
 sudo fastboot flash rootfs rootfs.ext4
 ```
 
-### 启动系统
 
-通过串口登录系统。
+### Logging into the System
 
-> 提示：若初次从桌面登录系统，会进入安装向导，跟随提示完成设置即可。
+Logging into the system via the serial port.
 
-默认用户名： `root`
-默认密码： `bianbu`
+> Note: If you boot into the desktop, you can see a install wizard. Follow the wizard to setup the account and password.
 
-## 预期结果
+Default Username: `root`
+Default Password: `bianbu`
 
-系统正常启动，能够通过板载串口登录。能使用桌面登录系统。
+## Expected Results
 
-## 实际结果
+The system should boot normally and allow login via the onboard serial port. Can also login via the desktop.
 
-系统正常启动，成功通过板载串口登录。能使用桌面登录系统。
+## Actual Results
 
-### 启动信息
+The system booted successfully and login via the onboard serial port was also successful. Can also login via the desktop.
 
-串口录制（从刷写镜像到启动）：
+### Boot Log
+
+Screen recording (from flashing image to login):
 [![asciicast](https://asciinema.org/a/6ZcuURjMvgO4BJVTTaQWGwcve.svg)](https://asciinema.org/a/6ZcuURjMvgO4BJVTTaQWGwcve)
 
 ```log
@@ -146,12 +159,12 @@ root@k1:~#
 ![](./images/1.png)
 ![](./images/2.png)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-成功
+Test successful.
