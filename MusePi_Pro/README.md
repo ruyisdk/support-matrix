@@ -55,14 +55,14 @@ It can be powered by a standard PD charger, supporting 5V/3A 9V/3A and 12V/3A.
 
 ## Supported Operating Systems
 
-- Bianbu v2.2rc2
-  - Download Link: https://archive.spacemit.com/image/k1/version/bianbu/v2.2rc2/
+- Bianbu v1.2
+  - Download Link: https://archive.spacemit.com/image/k1/version/bianbu-computer-uefi/v1.2/
   - Reference Install Document: https://developer.spacemit.com/documentation?token=QSfGwmkhqiHwqQkHmCicH2Qnnyg
 
 ## Test Results
 
-| Software Category     | Package Name | Test Results (Test Report) |
-|-----------------------|--------------|----------------------------|
-| Bianbu v2.2rc2        | N/A          | [Basic][Bianbu] |
+| Software Category | Package Name | Test Results (Test Report) |
+| ----------------- | ------------ | -------------------------- |
+| Bianbu v1.2       | N/A          | [Basic][Bianbu]            |
 
 [Bianbu]: ./Bianbu/README.md

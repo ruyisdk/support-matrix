@@ -48,7 +48,15 @@ MusePi Pro 是 SpacemiT 提供的一款 RISC-V 单板计算机，尺寸为标准
 
 ## 支持的操作系统
 
+- Bianbu v1.2
+  - 下载链接：https://archive.spacemit.com/image/k1/version/bianbu-computer-uefi/v1.2/
+  - 安装文档参考：https://developer.spacemit.com/documentation?token=EIk1wVY9NinD95kMsw0cFM89npd
+
 ## 测试结果
 
-| 软件类别             | 包名称       | 测试结果 (测试报告)    |
-|---------------------|--------------|----------------------|
+| 软件类别    | 包名称 | 测试结果 (测试报告) |
+| ----------- | ------ | ------------------- |
+| Bianbu v1.2 | N/A    | [Basic][Bianbu]     |
+
+
+[Bianbu]: ./Bianbu/README.md
