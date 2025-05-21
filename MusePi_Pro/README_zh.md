@@ -51,12 +51,18 @@ MusePi Pro 是 SpacemiT 提供的一款 RISC-V 单板计算机，尺寸为标准
 - Bianbu v1.2
   - 下载链接：https://archive.spacemit.com/image/k1/version/bianbu-computer-uefi/v1.2/
   - 安装文档参考：https://developer.spacemit.com/documentation?token=EIk1wVY9NinD95kMsw0cFM89npd
+- openEuler 24.03-LTS-SP1
+  - 下载链接：https://images.oerv.ac.cn/board?uri=products/spacemit/muse_pi_pro.json&name=MUSE+Pi+Pro
+  - 安装文档参考：https://developer.spacemit.com/documentation?token=EIk1wVY9NinD95kMsw0cFM89npd
+  - 安装文档参考：https://images.oerv.ac.cn/board?uri=products/spacemit/muse_pi_pro.json&name=MUSE+Pi+Pro
+
 
 ## 测试结果
 
 | 软件类别    | 包名称 | 测试结果 (测试报告) |
 | ----------- | ------ | ------------------- |
 | Bianbu v1.2 | N/A    | [Basic][Bianbu]     |
-
+| openEuler 24.03-LTS-SP1 | N/A          | [Basic][openEuler]         |
 
 [Bianbu]: ./Bianbu/README.md
+[openEuler]: ./openEuler/README.md
