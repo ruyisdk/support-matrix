@@ -3,6 +3,14 @@ product: Nuclei DDR200T
 cpu: GD32VF103
 cpu_core: Nuclei Bumblebee
 ram: 32KB(SRAM)
+
+vendor: nuclei-ddr200t
+board_variant: [
+    generic,
+]
+cpu_arch: [
+    nuclei-bumblebee,
+]
 ---
 
 # Nuclei DDR200T
@@ -24,10 +32,10 @@ ram: 32KB(SRAM)
 
 ## Test Results
 
-| Software Category | Package Name | Test Results (Test Report)   |
-|-------------------|--------------|------------------------------|
-| FreeRTOS          | N/A          | [CFT][FreeRTOS]              |
-| RT-Thread         | N/A          | [CFT][RTThread]              |
+| Software Category | Package Name | Test Results (Test Report) |
+| ----------------- | ------------ | -------------------------- |
+| FreeRTOS          | N/A          | [CFT][FreeRTOS]            |
+| RT-Thread         | N/A          | [CFT][RTThread]            |
 
 [FreeRTOS]: ./FreeRTOS/README.md
 [RTThread]: ./RT-Thread/README.md

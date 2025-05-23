@@ -3,6 +3,17 @@ product: CH32V303-EVT
 cpu: CH32V303
 cpu_core: QingKe V4F
 ram: 64KB(SRAM)
+
+vendor: wch-ch32v303-evb
+board_variant: [
+    cbt6,
+    rbt6,
+    rct6,
+    vct6,
+]
+cpu_arch: [
+    wch-v4f,
+]
 ---
 
 

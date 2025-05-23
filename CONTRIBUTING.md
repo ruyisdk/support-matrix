@@ -143,6 +143,9 @@ product: _    # Full product name
 cpu: _        # Processor model
 cpu_core: _   # CPU core architecture
 board_variant: [] # Board variant (optional, like 8g/16g version)
+cpu_arch: [] # Supported CPU architectures (like xuantie-e902, armv8-a...)
+# Supported CPU architectures are listed in assets/metadata.yml:arches
+# If none of the above, add a new one in assets/metadata.yml:arches
 ---
 ```
 
