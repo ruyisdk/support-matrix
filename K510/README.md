@@ -3,6 +3,14 @@ product: Canaan K510-CRB-V1.2 KIT
 cpu: K510
 cpu_core: K510 (?)
 ram: 512MB
+
+vendor: canaan-k510
+board_variant: [
+    generic,
+]
+cpu_arch: [
+    rv64-unknown,
+]
 ---
 
 # Canaan Kendryte K510

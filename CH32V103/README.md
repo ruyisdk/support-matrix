@@ -3,6 +3,17 @@ product: CH32V103-EVT
 cpu: CH32V103
 cpu_core: QingKe V3A
 ram: 20KB(SRAM)
+
+vendor: wch-ch32v103-evb
+board_variant: [
+    c6t6,
+    c8t6,
+    c8u6,
+    r8t6,
+]
+cpu_arch: [
+    wch-v3a,
+]
 ---
 
 # CH32V103C

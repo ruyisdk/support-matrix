@@ -3,6 +3,14 @@ product: MangoPi MQ Pro
 cpu: D1 (D1-H)
 cpu_core: XuanTie C906
 ram: 512MB/1G
+
+vendor: mangopi-mq-pro
+board_variant: [
+    generic,
+]
+cpu_arch: [
+    xuantie-c906,
+]
 ---
 
 # MangoPi MQ Pro
