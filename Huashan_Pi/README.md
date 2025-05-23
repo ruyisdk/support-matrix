@@ -3,6 +3,12 @@ product: Huashan Pi
 cpu: CV1812H
 cpu_core: XuanTie C906
 ram: 1G/2G/4G
+
+vendor: huashanpi
+board_variant: [1g, 2g, 4g]
+cpu_arch: [
+    xuantie-c906,
+]
 ---
 
 # Huashan Pi

@@ -1,9 +1,18 @@
 ---
-vendor: pine64_star64
 product: Star64
 cpu: JH7110
 cpu_core: SiFive U74 + SiFive S7 + SiFive E24
 ram: 2G/4G/8G
+
+vendor: pine64-star64
+board_variant: [
+    generic,
+]
+cpu_arch: [
+    sifive-u74,
+    sifive-s7,
+    sifive-e24,
+]
 ---
 
 # Star64

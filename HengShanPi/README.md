@@ -4,6 +4,12 @@ product: HengShanPi D133EBS
 cpu: D133EBS
 cpu_core: E907
 ram: 1MB SRAM + 8MB PSRAM
+
+vendor: hengshanpi
+board_variant: [generic]
+cpu_arch: [
+    xuantie-e907,
+]
 ---
 
 # HengShanPi

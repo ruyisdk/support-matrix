@@ -4,6 +4,12 @@ product: OrangePi RV2
 cpu: Ky X1
 cpu_core: "null"
 ram: 2G/4G/8G
+
+vendor: orangepi-rv2
+board_variant: [generic]
+cpu_arch: [
+    ky-x1,
+]
 ---
 
 # OrangePi RV2

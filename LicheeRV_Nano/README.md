@@ -1,9 +1,17 @@
 ---
-vendor: sipeed_licheervnano
 product: LicheeRV Nano
 cpu: SG2002
 cpu_core: XuanTie C906 + ARM Cortex-A53
 ram: 256MB
+
+vendor: sipeed-licheervnano
+board_variant: [
+    generic,
+]
+cpu_arch: [
+    armv8-a,
+    xuantie-c906,
+]
 ---
 
 # LicheeRV Nano

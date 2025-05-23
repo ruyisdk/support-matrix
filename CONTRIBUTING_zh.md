@@ -142,6 +142,10 @@ product: _    # 产品全称
 cpu: _        # 处理器型号
 cpu_core: _   # CPU 核心架构
 board_variant: [] # 开发板变体（可选，如 8g/16g 版本）
+cpu_arch: [ # 支持的 CPU 架构列表在 assets/metadata.yml:arches 中
+    CPU 架构, # eg: xuantie-e902, armv8-a...
+    # 如果没有上述选项，请在 assets/metadata.yml:arches 中添加一个新的
+]
 ---
 ```
 
