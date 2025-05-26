@@ -28,6 +28,36 @@ xz -d ocs_developer_sdcard-uefi.img.xz
 dd if=ocs_developer_sdcard-uefi.img of=/dev/your-device bs=4M status=progress
 ```
 
+
+### 安装桌面环境
+
+你需要在使用桌面环境之前更新 mesa 驱动。
+
+```bash
+sudo dnf update -y
+```
+
+
+```bash
+sudo dnf install -y xorg-x11*
+sudo dnf install -y gnome*
+sudo dnf install -y gtk3 clutter-gtk xdg-user-dirs-gtk colord-gtk
+```
+
+我们强烈建议安装以下字体以获得更好的体验：
+
+```bash
+sudo dnf install -y google-noto-fonts-common google-noto-cjk-fonts-common google-noto-sans-cjk-sc-fonts google-noto-serif-sc-fonts
+```
+
+*如果您使用其他语言，请将 sc 字体更改为您的语言*
+
+应用以下更改以启动默认进入桌面环境：
+
+```bash
+sudo systemctl set-default graphical.target
+```
+
 ### 登录系统
 
 通过串口登录系统。
@@ -54,14 +84,26 @@ dd if=ocs_developer_sdcard-uefi.img of=/dev/your-device bs=4M status=progress
 *注：uefi的grub启动可能较慢，需要耐心等待*
 
 ```log
-User 'riscv' with password 'riscv666!' in 'wheel' and 'mock' groups
+Welcome to the OpenCloudOS-Stream/RISC-V disk image
+
+Build date: Thu Apr 24 12:41:27 UTC 2025
+
+Kernel 6.6.68 on an riscv64 (ttyS0)
+
+The root password is 'riscv666!'.
+root password logins are disabled in SSH.
+User 'riscv' with password 'riscv666!' in 'wheel' and 'mock' groups 
 is provided.
+
 To install new packages use 'dnf install ...'
+
 To upgrade disk image use 'dnf upgrade --best'
+
 If DNS isn’t working, try editing ‘/etc/yum.repos.d/OpenCloudOS-Stream.repo’.
-riscv64 login: riscv
-Password:
-[riscv@riscv64 ~]$ cat /etc/os-release
+
+riscv64 login: root
+Password: 
+[root@riscv64 ~]# cat /etc/os-release 
 NAME="OpenCloudOS Stream"
 VERSION="23"
 RELEASE="2410"
@@ -74,24 +116,32 @@ ANSI_COLOR="0;31"
 CPE_NAME="cpe:/o:opencloudos:opencloudos:23"
 HOME_URL="https://www.opencloudos.org/"
 BUG_REPORT_URL="https://bugs.opencloudos.tech/"
-[riscv@riscv64 ~]$ uname -a
-Linux riscv64.developer.ocs23 6.6.68 #1 SMP Thu Apr 10 17:26:47 CST 2025 riscv64 riscv64 riscv64 GNU/Linux
-[riscv@riscv64 ~]$ lscpu
+[root@riscv64 ~]# lscpu
 Architecture:          riscv64
-Byte Order:          Little Endian
+  Byte Order:          Little Endian
 CPU(s):                64
-On-line CPU(s) list: 0-63
-NUMA:
-NUMA node(s):        4
-NUMA node0 CPU(s):   0-7,16-23
-NUMA node1 CPU(s):   8-15,24-31
-NUMA node2 CPU(s):   32-39,48-55
-NUMA node3 CPU(s):   40-47,56-63         
+  On-line CPU(s) list: 0-63
+NUMA:                  
+  NUMA node(s):        4
+  NUMA node0 CPU(s):   0-7,16-23
+  NUMA node1 CPU(s):   8-15,24-31
+  NUMA node2 CPU(s):   32-39,48-55
+  NUMA node3 CPU(s):   40-47,56-63
+[root@riscv64 ~]# uname -a
+Linux riscv64.developer.ocs23 6.6.68 #1 SMP Thu Apr 10 17:26:47 CST 2025 riscv64 riscv64 riscv64 GNU/Linux
+[root@riscv64 ~]# cat /etc/opencloudos-release 
+OpenCloudOS Stream release 23
+[root@riscv64 ~]# cat /etc/opencloudos-stream-release 
+OpenCloudOS Stream release 23
+             
 ```
 
 串口日志（从刷写系统到启动系统）：
 
-[![asciicast](https://asciinema.org/a/GWK8TtUXpzK4IsTvCNY4Vng9X.svg)](https://asciinema.org/a/GWK8TtUXpzK4IsTvCNY4Vng9X)
+[![asciicast](https://asciinema.org/a/GcjWbifW4xMC2hLwPtn2BeobG.svg)](https://asciinema.org/a/GcjWbifW4xMC2hLwPtn2BeobG)
+
+![](./images/image_uefi.png)
+
 
 ## 测试结论
 

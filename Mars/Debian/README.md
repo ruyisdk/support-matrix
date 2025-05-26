@@ -118,14 +118,14 @@ Linux milkv 5.15.0 #1 SMP Mon Nov 13 18:56:24 CST 2023 riscv64 GNU/Linux
 user@milkv:~$
 ```
 
-GUI for login ：
+GUI for login:
 
 ![GUI for login](./image_login.jpg)
 
 > [!Note]
 > Since the image is Milk-V's official custom system, the login screen here shows `Debian 11`, not `Debian 12`.
 
-GUI for desktop：
+GUI for desktop:
 
 ![GUI for desktop](./image_desktop.jpg)
 

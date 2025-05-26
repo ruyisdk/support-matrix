@@ -25,6 +25,8 @@ ram: 272K SRAM
 | Software Category     | Software Package | Test Results (Test Report)                        |
 | --------------------- | ---------------- | ------------------------------------------------- |
 | FreeRTOS  | N/A              | [Successful][FreeRTOS]                                |
+| Zephyr  | N/A             | [Successful][Zephyr]                                |
                              |
 
 [FreeRTOS]: ./FreeRTOS/README.md
+[Zephyr]: ./Zephyr/README.md

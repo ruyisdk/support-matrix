@@ -18,6 +18,8 @@
 | 软件分类       | 软件包名 | 测试结果（测试报告）                        |
 | --------------------- | ---------------- | ------------------------------------------------- |
 | FreeRTOS  | N/A              | [成功][FreeRTOS]                                |
-
+| Zephyr  | N/A             | [成功][Zephyr]                                |
+                             |
 
 [FreeRTOS]: ./FreeRTOS/README.md
+[Zephyr]: ./Zephyr/README.md

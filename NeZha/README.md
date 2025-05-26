@@ -23,7 +23,7 @@ ram: 1G/2G
 - Ubuntu
   - 24.10 Download link: https://ubuntu.com/download/risc-v
     - Mirror: [Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.10/release/ubuntu-24.10-preinstalled-server-riscv64%2Bnezha.img.xz)
-  - 24.04.1 LTS Download link: https://ubuntu.com/download/risc-v
+  - 24.04.2 LTS Download link: https://ubuntu.com/download/risc-v
     - Mirror: [Nezha](https://mirror.tuna.tsinghua.edu.cn/ubuntu-cdimage/releases/24.04.1/release/ubuntu-24.04.1-preinstalled-server-riscv64%2Bnezha.img.xz)
   - Reference Installation Document:
     - Nezha D1: https://wiki.ubuntu.com/RISC-V/Nezha%20D1
