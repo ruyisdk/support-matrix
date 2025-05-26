@@ -1,6 +1,7 @@
 ---
 sys: deepin
 sys_ver: eic7700-riscv64-25
+sys_var: null
 status: good
 last_update: 2025-05-26
 ---
