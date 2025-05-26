@@ -48,6 +48,9 @@ The HiFive Premier P550 is a high-performance RISC-V single-board computer in a 
 - Yocto - 2024.11.00-HFP550 (SiFive official support)
   - Download link: <https://github.com/sifiveinc/freedom-u-sdk/releases/tag/2024.11.00-HFP550>
   - Reference Installation Document: <https://www.sifive.com/document-file/hifive-premier-p550-image-update-procedure>
+- Deepin - 20250422-122731-EIC7700 (Deepin 25 Preview)
+  - Download link: <https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250422/riscv64/deepin-25-crimson-preview-riscv64-eic7700-20250422-122731.tar.xz>
+  - Reference Installation Document: [README.md](./Deepin/README.md)
 
 ## Test Results
 
@@ -56,7 +59,9 @@ The HiFive Premier P550 is a high-performance RISC-V single-board computer in a 
 | Ubuntu LTS image boot | N/A          | [CFT][Ubuntu LTS]          |
 | Debian image boot     | N/A          | [CFT][Debian]              |
 | Yocto image boot      | N/A          | [CFT][Yocto]               |
+| Deepin                | N/A          | [Success][Deepin]          |
 
 [Ubuntu LTS]: ./Ubuntu/README_LTS.md
 [Debian]: ./Debian/README.md
 [Yocto]: ./Yocto/README.md
+[Deepin]: ./Deepin/README.md
