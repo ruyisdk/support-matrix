@@ -1,12 +1,12 @@
 ---
-vendor: pine64_star64
+vendor: pine64
 product: Star64
 cpu: JH7110
 cpu_core: SiFive U74 + SiFive S7 + SiFive E24
-ram: 2G/4G/8G
+ram: 4GB/8GB
 ---
 
-# Star64
+# Pine64 Star64
 
 ## Test Environment
 
@@ -31,21 +31,26 @@ ram: 2G/4G/8G
 - Ubuntu 25.04:
   - Download Link: https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz
   - Reference Installation Document: https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/pine64-star64/
+- Arch Linux
+    - Source code Link: https://github.com/yogo1212/arch-linux-star64
+    - Reference Installation Document: https://github.com/yogo1212/arch-linux-star64
 
 ### Hardware Information
 
-- Star64
+- Pine64 Star64
 
 ## Test Results
 
-| Software Category       | Package Name | Test Result (Test Report)       |
-|-------------------------|--------------|---------------------------------|
-| NuttX Image Build & Boot| N/A          | [CFT][NuttX]                    |
-| Armbian Image Boot      | N/A          | [CFT][Armbian]                  |
-| Yocto Image Boot        | N/A          | [CFT][Yocto]                    |
-| Ubuntu Image Boot       | N/A          | [CFT][Ubuntu]                   |
+| Software Category             | Package Name | Test Result (Test Report) |
+| ----------------------------- | ------------ | ------------------------- |
+| NuttX Image Build & Boot      | N/A          | [CFT][NuttX]              |
+| Armbian Image Boot            | N/A          | [CFH][Armbian]            |
+| Yocto Image Boot              | N/A          | [CFT][Yocto]              |
+| Ubuntu Image Boot             | N/A          | [Basic][Ubuntu]           |
+| Arch Linux Image Build & Boot | N/A          | [CFH][ArchLinux]          |
 
 [NuttX]: ./NuttX/README.md
 [Armbian]: ./Armbian/README.md
 [Yocto]: ./Yocto/README.md
 [Ubuntu]: ./Ubuntu/README.md
+[ArchLinux]: ./ArchLinux/README.md
