@@ -16,7 +16,7 @@
 - Guix System
     - 镜像链接: https://github.com/Z572/guix-riscv-channel/releases
     - 参考安装文档: https://github.com/Z572/guix-riscv-channel#megrez
-- Deepin
+- deepin
     - 镜像链接: https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
     - 参考安装文档: https://milkv.io/zh/docs/megrez/getting-started/boot
 

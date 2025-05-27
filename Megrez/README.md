@@ -23,7 +23,7 @@ ram: 8G/16G/32G
 - Guix System
     - Download Link: https://github.com/Z572/guix-riscv-channel/releases
     - Reference Installation Document: https://github.com/Z572/guix-riscv-channel#megrez
-- Deepin
+- deepin
     - Download Link: https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
     - Reference Installation Document: https://milkv.io/zh/docs/megrez/getting-started/boot
 
