@@ -38,9 +38,9 @@ ram: 8G/16G/32G
 | RockOS Image Boot       | N/A          | [Good][RockOS]                  |
 | Fedora Image Boot       | N/A          | [CFT][Fedora]                   |
 | Guix System Image Boot  | N/A          | [CFT][Guix]                     |
-| Deepin Image Boot       | N/A          | [Good][Deepin]                  |
+| deepin Image Boot       | N/A          | [Good][deepin]                  |
 
 [RockOS]: ./RockOS/README.md
 [Fedora]: ./Fedora/README.md
 [Guix]: ./Guix/README.md
-[Deepin]: ./Deepin/README.md
+[deepin]: ./deepin/README.md

@@ -1,5 +1,5 @@
 ---
-sys: Deepin
+sys: deepin
 sys_ver: eic7700-riscv64-25
 sys_var: null
 
@@ -11,7 +11,7 @@ last_update: 2025-05-27
 
 ### Operating System Information
 
-- System Version: Deepin 25-crimson-preview EIC7700 20250422
+- System Version: deepin 25-crimson-preview EIC7700 20250422
 - Download Link: https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
 - Reference Installation Document: https://milkv.io/zh/docs/megrez/getting-started/boot
 
@@ -34,7 +34,7 @@ sudo dd if=deepin-eic7700-riscv64-25-desktop-installer.root.ext4 of=/dev/sdd2 st
 
 ### Initialize the System
 
-If you've connected a display, you can complete the Deepin Installation guide
+If you've connected a display, you can complete the deepin Installation guide
 
 If you don't have a GUI interface, you can login via UART:
 

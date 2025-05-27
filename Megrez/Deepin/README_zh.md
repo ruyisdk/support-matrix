@@ -1,17 +1,8 @@
----
-sys: Deepin
-sys_ver: eic7700-riscv64-25
-sys_var: null
-
-status: good
-last_update: 2025-05-27
----
-
 ## 测试环境
 
 ### 操作系统信息
 
-- 系统版本：Deepin 25-crimson-preview EIC7700 20250422
+- 系统版本：deepin 25-crimson-preview EIC7700 20250422
 - 下载链接：https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
 - 参考安装文档：https://milkv.io/zh/docs/megrez/getting-started/boot
 
@@ -36,7 +27,7 @@ sudo dd if=deepin-eic7700-riscv64-25-desktop-installer.root.ext4 of=/dev/sdd2 st
 
 ### 初始化系统
 
-如果连接了显示器，则可以通过Deepin安装引导完成初始化；
+如果连接了显示器，则可以通过deepin安装引导完成初始化；
 
 同时也可以通过UART进行登录：
 

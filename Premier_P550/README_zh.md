@@ -52,9 +52,9 @@ HiFive Premier P550 是一款由 ESWIN EIC7700X SoC 驱动的 Mini-DTX 规格的
 | Ubuntu LTS 镜像启动  | N/A          | [CFT][Ubuntu LTS]    |
 | Debian 镜像启动      | N/A          | [CFT][Debian]        |
 | Yocto 镜像启动       | N/A          | [CFT][Yocto]         |
-| Deepin 镜像启动      | N/A          | [Success][Deepin]    |
+| deepin 镜像启动      | N/A          | [Success][deepin]    |
 
 [Ubuntu LTS]: ./Ubuntu/README_LTS_zh.md
 [Debian]: ./Debian/README_zh.md
 [Yocto]: ./Yocto/README_zh.md
-[Deepin]: ./Deepin/README.md
+[deepin]: ./deepin/README.md

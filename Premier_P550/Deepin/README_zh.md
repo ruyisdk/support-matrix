@@ -1,16 +1,8 @@
----
-sys: deepin
-sys_ver: eic7700-riscv64-25
-sys_var: null
-status: good
-last_update: 2025-05-26
----
-
 ## 测试环境
 
 ### 系统信息
 
-- 系统版本: Deepin 25-crimson-preview EIC7700 20250422
+- 系统版本: deepin 25-crimson-preview EIC7700 20250422
 - 下载链接: https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
 
 ### Hardware Information
@@ -24,7 +16,7 @@ last_update: 2025-05-26
 
 ### 获取系统镜像
 
-从 Deepin 官网下载系统镜像 Deepin 25-crimson-preview EIC7700 20250422 ：https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
+从 deepin 官网下载系统镜像 deepin 25-crimson-preview EIC7700 20250422 ：https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
 
 ### 刷入镜像并启动
 
@@ -65,7 +57,7 @@ Writing 'root'                                     OKAY [  2.338s]
 
 ### 初始化系统
 
-如果连接了显示器，则可以通过Deepin安装引导完成初始化；
+如果连接了显示器，则可以通过deepin安装引导完成初始化；
 
 同时也可以通过UART进行登录：
 

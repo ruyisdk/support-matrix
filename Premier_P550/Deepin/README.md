@@ -10,7 +10,7 @@ last_update: 2025-05-26
 
 ### System Information
 
-- System Version: Deepin 25-crimson-preview EIC7700 20250422
+- System Version: deepin 25-crimson-preview EIC7700 20250422
 - Download Link: https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
 
 ### Hardware Information
@@ -63,7 +63,7 @@ After running complete, `Ctrl-C` to exit fastboot, and type `boot` to enter boot
 
 ### Initialize the System
 
-If you've connected a display, you can complete the Deepin Installation guide
+If you've connected a display, you can complete the deepin Installation guide
 
 If you don't have a GUI interface, you can login via UART:
 

@@ -59,9 +59,9 @@ The HiFive Premier P550 is a high-performance RISC-V single-board computer in a 
 | Ubuntu LTS image boot | N/A          | [CFT][Ubuntu LTS]          |
 | Debian image boot     | N/A          | [CFT][Debian]              |
 | Yocto image boot      | N/A          | [CFT][Yocto]               |
-| Deepin                | N/A          | [Success][Deepin]          |
+| deepin                | N/A          | [Success][deepin]          |
 
 [Ubuntu LTS]: ./Ubuntu/README_LTS.md
 [Debian]: ./Debian/README.md
 [Yocto]: ./Yocto/README.md
-[Deepin]: ./Deepin/README.md
+[deepin]: ./deepin/README.md
