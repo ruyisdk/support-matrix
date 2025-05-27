@@ -72,11 +72,11 @@ Password: `deepin`
 
 ## Expected Results
 
-The system should boot successfully, allowing login via the onboard serial console.
+The system should boot successfully, allowing login via the GUI. RuyiSDK IDE Running successful.
 
 ## Actual Results
 
-The system boots up successfully, and login via onboard serial port is successful.
+The system boots up successfully, and login via the GUI is successful. RuyiSDK IDE Running successful.
 
 ![screenshot](./screenshot.png)
 

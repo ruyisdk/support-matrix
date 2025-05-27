@@ -74,11 +74,11 @@ Writing 'root'                                     OKAY [  2.338s]
 
 ## 预期结果
 
-系统正常启动，能够通过板载串口登录。
+系统正常启动，能够通过图形界面登录，能够运行RuyiSDK IDE。
 
 ## 实际结果
 
-系统正常启动，成功通过板载串口登录。
+系统正常启动，成功通过图形界面登录，成功运行RuyiSDK IDE。
 
 ![screenshot](./screenshot.png)
 
