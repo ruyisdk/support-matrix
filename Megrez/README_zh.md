@@ -16,6 +16,9 @@
 - Guix System
     - 镜像链接: https://github.com/Z572/guix-riscv-channel/releases
     - 参考安装文档: https://github.com/Z572/guix-riscv-channel#megrez
+- Deepin
+    - 镜像链接: https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
+    - 参考安装文档: https://milkv.io/zh/docs/megrez/getting-started/boot
 
 ### 硬件开发板信息
 
@@ -24,11 +27,13 @@
 ## 测试结果
 
 | 软件分类                | 软件包名 | 测试结果（测试报告）             |
-|------------------------|----------|-----------------------------|
-| RockOS 镜像启动          | N/A      | [Good][RockOS]               |
-| Fedora 镜像启动          | N/A      | [CFT][Fedora]               |
-| Guix System 镜像启动  | N/A          | [CFT][Guix]                   |
+|-------------------------|----------|----------------------------------|
+| RockOS 镜像启动         | N/A      | [Good][RockOS]                   |
+| Fedora 镜像启动         | N/A      | [CFT][Fedora]                    |
+| Guix System 镜像启动    | N/A      | [CFT][Guix]                      |
+| Deepin 镜像启动         | N/A      | [Good][Deepin]                   |
 
 [RockOS]: ./RockOS/README.md
 [Fedora]: ./Fedora/README.md
 [Guix]: ./Guix/README.md
+[Deepin]: ./Deepin/README.md
