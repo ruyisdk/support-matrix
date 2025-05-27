@@ -68,6 +68,16 @@ ram: 1G/2G/4G/8G
   - Reference Installation Document:
     - <https://milkv.io/zh/docs/mars/getting-started/boot>
     - <https://arvanta.net/alpine/alpine-on-visionfive>
+- Armbian 25.8.0 (Armbian_community 25.8.0-trunk.38 noble)
+  - Download Link: <https://www.armbian.com/visionfive2>
+  - Reference Installation Document:
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://www.armbian.com/visionfive2>
+- DietPi v9.12.1
+  - Download Link: <https://dietpi.com/downloads/images/testing/DietPi_VisionFive2-RISC-V-Trixie.img.xz>
+  - Reference Installation Document:
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://dietpi.com/blog/?p=2629>
 
 ### Hardware Information
 
@@ -90,6 +100,8 @@ ram: 1G/2G/4G/8G
 | NuttX Build & Boot     | N/A          | [Successful][NuttX]                          |
 | ArchLinux Image Boot   | N/A          | [Successful][ArchLinux]                      |
 | Alpine Image Boot      | N/A          | [Successful][Alpine]                         |
+| Armbian Image Boot     | N/A          | [Successful][Armbian]                        |
+| DietPi Image Boot      | N/A          | [Successful][DietPi]                         |
 
 [Debian]: ./Debian/README.md
 [BuildRoot]: ./BuildRoot/README.md
@@ -104,3 +116,5 @@ ram: 1G/2G/4G/8G
 [NuttX]: ./NuttX/README.md
 [ArchLinux]: ./ArchLinux/README.md
 [Alpine]: ./Alpine/README.md
+[Armbian]: ./Armbian/README.md
+[DietPi]: ./DietPi/README.md

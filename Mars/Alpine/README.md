@@ -7,7 +7,7 @@ status: basic
 last_update: 2025-05-16
 ---
 
-# Fedora Milk-V Mars Test Report
+# Alpine Milk-V Mars Test Report
 
 ## Test Environment
 
@@ -25,7 +25,6 @@ last_update: 2025-05-16
 - A USB power adapter and A USB-A to C or C to C cable
 - A microSD card
 - A USB to UART debugger (e.g., CH340, CH341, FT2232, etc.)
-- A HDMI cable, A USB Mouse and A USB Keyboard
 
 ## Installation Steps
 

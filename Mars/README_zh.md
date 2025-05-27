@@ -60,6 +60,16 @@
   - 参考安装文档：
     - <https://milkv.io/zh/docs/mars/getting-started/boot>
     - <https://arvanta.net/alpine/alpine-on-visionfive>
+- Armbian 25.8.0
+  - 下载链接：<https://www.armbian.com/visionfive2>
+  - 参考安装文档：
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://www.armbian.com/visionfive2>
+- DietPi v9.12.1
+  - 下载链接：<https://dietpi.com/downloads/images/testing/DietPi_VisionFive2-RISC-V-Trixie.img.xz>
+  - 参考安装文档：
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://dietpi.com/blog/?p=2629>
 
 ### 硬件开发板信息
 
@@ -82,6 +92,8 @@
 | NuttX 构建及启动     | N/A      | [成功][NuttX]                    |
 | ArchLinux 镜像启动   | N/A      | [成功][ArchLinux]                |
 | Alpine 镜像启动      | N/A      | [成功][Alpine]                   |
+| Armbian 镜像启动     | N/A      | [成功][Armbian]                  |
+| DietPi 镜像启动      | N/A      | [成功][DietPi]                   |
 
 [Debian]: ./Debian/README_zh.md
 [BuildRoot]: ./BuildRoot/README_zh.md
@@ -96,3 +108,5 @@
 [NuttX]: ./NuttX/README_zh.md
 [ArchLinux]: ./ArchLinux/README_zh.md
 [Alpine]: ./Alpine/README_zh.md
+[Armbian]: ./Armbian/README_zh.md
+[DietPi]: ./DietPi/README_zh.md

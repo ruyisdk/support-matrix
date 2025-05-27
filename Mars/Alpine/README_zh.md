@@ -16,7 +16,6 @@
 - USB 电源适配器和USB-A to C 或 C to C 线缆一条
 - microSD 卡一张
 - USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
-- HDMI线缆、USB鼠标、USB键盘
 
 ## 安装步骤
 
