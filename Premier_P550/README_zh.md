@@ -41,15 +41,20 @@ HiFive Premier P550 是一款由 ESWIN EIC7700X SoC 驱动的 Mini-DTX 规格的
 - Yocto - 2024.11.00-HFP550 (SiFive 官方支持)
   - 下载链接：<https://github.com/sifiveinc/freedom-u-sdk/releases/tag/2024.11.00-HFP550>
   - 参考安装文档：<https://www.sifive.com/document-file/hifive-premier-p550-image-update-procedure>
+- Deepin - 20250422-122731-EIC7700 (Deepin 25 Preview)
+  - 下载链接：<https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250422/riscv64/deepin-25-crimson-preview-riscv64-eic7700-20250422-122731.tar.xz>
+  - 参考安装文档：[README.md](./Deepin/README.md)
 
 ## 测试结果
 
-| 软件类别             | 包名称       | 测试结果 (测试报告)    |
-|---------------------|--------------|----------------------|
+| 软件类别             | 包名称       | 测试结果 (测试报告)  |
+|----------------------|--------------|----------------------|
 | Ubuntu LTS 镜像启动  | N/A          | [CFT][Ubuntu LTS]    |
 | Debian 镜像启动      | N/A          | [CFT][Debian]        |
 | Yocto 镜像启动       | N/A          | [CFT][Yocto]         |
+| deepin 镜像启动      | N/A          | [Success][deepin]    |
 
 [Ubuntu LTS]: ./Ubuntu/README_LTS_zh.md
 [Debian]: ./Debian/README_zh.md
 [Yocto]: ./Yocto/README_zh.md
+[deepin]: ./deepin/README.md

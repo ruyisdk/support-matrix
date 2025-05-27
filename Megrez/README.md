@@ -23,6 +23,9 @@ ram: 8G/16G/32G
 - Guix System
     - Download Link: https://github.com/Z572/guix-riscv-channel/releases
     - Reference Installation Document: https://github.com/Z572/guix-riscv-channel#megrez
+- deepin
+    - Download Link: https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
+    - Reference Installation Document: https://milkv.io/zh/docs/megrez/getting-started/boot
 
 ### Hardware Information
 
@@ -32,10 +35,12 @@ ram: 8G/16G/32G
 
 | Software Category       | Package Name | Test Result (Test Report)       |
 |-------------------------|--------------|---------------------------------|
-| RockOS Image Boot       | N/A          | [Good][RockOS]                   |
+| RockOS Image Boot       | N/A          | [Good][RockOS]                  |
 | Fedora Image Boot       | N/A          | [CFT][Fedora]                   |
-| Guix System Image Boot  | N/A          | [CFT][Guix]                   |
+| Guix System Image Boot  | N/A          | [CFT][Guix]                     |
+| deepin Image Boot       | N/A          | [Good][deepin]                  |
 
 [RockOS]: ./RockOS/README.md
 [Fedora]: ./Fedora/README.md
 [Guix]: ./Guix/README.md
+[deepin]: ./deepin/README.md
