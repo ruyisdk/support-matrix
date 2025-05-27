@@ -10,7 +10,7 @@
 - SiFive HiFive Premier P550
 - 电源适配器
 - Type-C 调试线一根
-- USB-A 调试线一根
+- USB-A 数据线一根
 
 ## 安装步骤
 
