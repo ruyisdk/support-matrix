@@ -16,6 +16,10 @@
 - USB to UART 调试器一个
 - 杜邦线
 
+开发板引脚图：
+
+![](oz64_pinout.webp)
+
 ## 安装步骤
 
 ### 使用 `dd` 刷写镜像到 microSD 卡

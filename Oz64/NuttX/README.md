@@ -29,6 +29,10 @@ last_update: 2025-05-28
 - A USB to UART Debugger
 - DuPont wires
 
+Board pinout:
+
+![](oz64_pinout.webp)
+
 ## Installation Steps
 
 ### Using Precompiled Kernel Image
