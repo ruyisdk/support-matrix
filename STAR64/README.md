@@ -45,7 +45,7 @@ ram: 4GB/8GB
 | ----------------------------- | ------------ | ------------------------- |
 | NuttX Image Build & Boot      | N/A          | [CFT][NuttX]              |
 | Armbian Image Boot            | N/A          | [CFH][Armbian]            |
-| Yocto Image Boot              | N/A          | [CFT][Yocto]              |
+| Yocto Image Boot              | N/A          | [CFH][Yocto]              |
 | Ubuntu Image Boot             | N/A          | [Basic][Ubuntu]           |
 | Arch Linux Image Build & Boot | N/A          | [CFH][ArchLinux]          |
 
