@@ -4,10 +4,10 @@ sys_ver: null
 sys_var: null
 
 status: basic
-last_update: 2025-05-29
+last_update: 2025-05-28
 ---
 
-# NuttX on Milk-V Duo S Test Report
+# NuttX Pine64 Oz64 Test Report
 
 ## Test Environment
 
@@ -22,16 +22,16 @@ last_update: 2025-05-29
 
 ### Hardware Information
 
-Hardware Information
-
-- Milk-V Duo S (512M, SG2000)
-- A USB Power Adapter
-- A USB-A to C or USB C to C cable for powering the development board
+- Pine64 Oz64
+- 5V3A DC Barrel power adapter
 - A microSD card
 - A USB card reader
-- A USB to UART Debugger (e.g., CP2102, FT2232, etc. Be aware that WCH CH340/341 series will cause garbled text output, DO NOT USE)
-- Three DuPont wires
-- Ethernet access for TFTP Boot
+- A USB to UART Debugger
+- DuPont wires
+
+Board pinout:
+
+![](oz64_pinout.webp)
 
 ## Installation Steps
 
@@ -206,30 +206,19 @@ The system booted successfully, and the NuttX shell was accessible via the seria
 
 ### Boot Information
 
+Boot log:
 ```log
 Starting kernel ...
 
 ABC
 NuttShell (NSH) NuttX-12.5.1
-nsh> help
-help usage:  help [-v] [<cmd>]
-
-    .           cp          exit        mkdir       rmdir       umount
-    [           cmp         expr        mkrd        set         unset
-    ?           dirname     false       mount       sleep       uptime
-    alias       dd          fdinfo      mv          source      usleep
-    unalias     df          free        pidof       test        xd
-    basename    dmesg       help        printf      time
-    break       echo        hexdump     ps          true
-    cat         env         kill        pwd         truncate
-    cd          exec        ls          rm          uname
 nsh> uname -a
-NuttX 12.5.1 adc0fbe65c Jun 17 2024 11:18:41 risc-v duos
-nsh> cat /proc/cpuinfo
-processor       : 0
-hart            : 0
-isa             : rv64imafdc
-mmu             : none
+NuttX 12.5.1 84e91fd52c Jun 17 2024 15:40:03 risc-v milkv_duos
+nsh> ls
+/:
+ dev/
+ proc/
+ system/
 nsh>
 ```
 

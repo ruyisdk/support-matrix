@@ -1,4 +1,4 @@
-# NuttX on Milk-V Duo S 测试报告
+# NuttX Pine64 Oz64 测试报告
 
 ## 测试环境
 
@@ -10,16 +10,18 @@
 - dtb 文件：https://github.com/lupyuen2/wip-nuttx/releases/download/sg2000-1/cv181x_milkv_duos_sd.dtb
 - 参考安装文档: https://nuttx.apache.org/docs/latest/quickstart/install.html
 
-
 ### 硬件信息
 
-- Milk-V Duo S (512M, SG2000)
-- USB-A to C 或 USB C to C 线缆一条，用于给开发板供电
-- microSD 卡一张，用于启动
-- USB 读卡器一个，用于为microSD烧录
-- USB to UART 调试器一个（如：CP2102, FT2232 等，注意不可使用 CH340/341 系列，会出现乱码）
-- 杜邦线三根，用于uart接口
-- 网线一根，用于以太网接入（TFTP Boot 无法使用USB网络）
+- Pine64 Oz64
+- 5V3A DC 圆口电源适配器一个
+- microSD 卡一张
+- USB 读卡器一个
+- USB to UART 调试器一个
+- 杜邦线
+
+开发板引脚图：
+
+![](oz64_pinout.webp)
 
 ## 安装步骤
 
@@ -133,7 +135,6 @@ head -c 65536 /dev/zero >/tmp/nuttx.pad
 cat nuttx.bin /tmp/nuttx.pad initrd >Image-sg2000
 ```
 
-
 ## 启动系统
 
 ### 从 SD 卡启动
@@ -190,36 +191,21 @@ booti ${kernel_addr_r} - ${fdt_addr_r}
 
 ### 启动信息
 
+Boot log:
 ```log
 Starting kernel ...
 
 ABC
 NuttShell (NSH) NuttX-12.5.1
-nsh> help
-help usage:  help [-v] [<cmd>]
-
-    .           cp          exit        mkdir       rmdir       umount
-    [           cmp         expr        mkrd        set         unset
-    ?           dirname     false       mount       sleep       uptime
-    alias       dd          fdinfo      mv          source      usleep
-    unalias     df          free        pidof       test        xd
-    basename    dmesg       help        printf      time
-    break       echo        hexdump     ps          true
-    cat         env         kill        pwd         truncate
-    cd          exec        ls          rm          uname
 nsh> uname -a
-NuttX 12.5.1 adc0fbe65c Jun 17 2024 11:18:41 risc-v duos
-nsh> cat /proc/cpuinfo
-processor       : 0
-hart            : 0
-isa             : rv64imafdc
-mmu             : none
+NuttX 12.5.1 84e91fd52c Jun 17 2024 15:40:03 risc-v milkv_duos
+nsh> ls
+/:
+ dev/
+ proc/
+ system/
 nsh>
 ```
-
-屏幕录像：
-
-[![asciinema](https://asciinema.org/a/Eai0QwU5y9USbr3FsYq7L1Mxf)](https://asciinema.org/a/Eai0QwU5y9USbr3FsYq7L1Mxf)
 
 
 ## 测试判定标准

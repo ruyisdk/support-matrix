@@ -39,14 +39,70 @@ Xfce 版本需要配置完成后方可进入桌面。
 
 ## 实际结果
 
-CFT
+启动过程出现 `Boot failed (err=-14)`, 无法启动。
 
 ### 启动信息
 
-屏幕录像（从刷写系统到启动）：
-
-
 ```log
+
+U-Boot 2025.01-1~0ubuntu2 (Feb 27 2025 - 17:08:21 +0000)
+
+CPU:   sifive,u74-mc
+Model: Pine64 Star64
+DRAM:  8 GiB
+Core:  158 devices, 29 uclasses, devicetree: board
+WDT:   Not starting watchdog@13070000
+MMC:   mmc@16010000: 0, mmc@16020000: 1
+Loading Environment from SPIFlash... SF: Detected gd25lq128 with page size 256 Bytes, erase size 4 KiB, total 16 MiB
+OK
+StarFive EEPROM format v2
+
+--------EEPROM INFO--------
+Vendor : PINE64
+Product full SN: STAR64V1-2310-D008E000-00000005
+data version: 0x2
+PCB revision: 0xc1
+BOM revision: A
+Ethernet MAC0 address: 6c:cf:39:00:75:61
+Ethernet MAC1 address: 6c:cf:39:00:75:62
+--------EEPROM INFO--------
+
+starfive_7110_pcie pcie@9c0000000: Starfive PCIe bus probed.
+In:    serial@10000000
+Out:   serial@10000000
+Err:   serial@10000000
+Net:   eth0: ethernet@16030000, eth1: ethernet@16040000
+starting USB...
+No USB controllers found
+resetting USB...
+No USB controllers found
+Working FDT set to ff71ca10
+Hit any key to stop autoboot:  0
+Card did not respond to voltage select! : -110
+Cannot persist EFI variables without system partition
+** Booting bootflow '<NULL>' with efi_mgr
+Loading Boot0000 'mmc 1' failed
+EFI boot manager: Cannot load any image
+Boot failed (err=-14)
+Card did not respond to voltage select! : -110
+** Booting bootflow 'mmc@16020000.bootdev.part_1' with extlinux
+1:      Armbian_community
+Retrieving file: /boot/Image
+Retrieving file: /boot/uInitrd
+bootarg overflow 265+0+0+1 > 256
+Boot failed (err=-14)
+No USB controllers found
+ethernet@16030000 Waiting for PHY auto negotiation to complete......... TIMEOUT !
+phy_startup() failed: -110
+FAILED: -110
+ethernet@16040000 Waiting for PHY auto negotiation to complete......... TIMEOUT !
+phy_startup() failed: -110
+FAILED: -110
+BOOTP broadcast 1
+BOOTP broadcast 2
+BOOTP broadcast 3
+BOOTP broadcast 4
+
 ```
 
 ## 测试判定标准
@@ -57,4 +113,4 @@ CFT
 
 ## 测试结论
 
-CFT
+测试失败。
