@@ -4,7 +4,7 @@ sys_ver: null
 sys_var: null
 
 status: basic
-last_update: 2024-11-16
+last_update: 2025-05-29
 ---
 
 # NuttX on Milk-V Duo S Test Report
@@ -13,7 +13,8 @@ last_update: 2024-11-16
 
 ### Operating System Information
 
-- Debian Linux Image + U-Boot: https://github.com/Fishwaldo/sophgo-sg200x-debian/releases
+- Debian Linux Image + U-Boot: https://github.com/scpcom/sophgo-sg200x-debian/releases
+- Precompiled NuttX Image: https://github.com/lupyuen2/wip-nuttx/releases/tag/sg2000c-1
 - Toolchain: xPack https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases
 - dtb file: https://github.com/lupyuen2/wip-nuttx/releases/download/sg2000-1/cv181x_milkv_duos_sd.dtb
 - Reference Installation Document: https://nuttx.apache.org/docs/latest/quickstart/install.html
@@ -32,12 +33,29 @@ Hardware Information
 - Three DuPont wires
 - Ethernet access for TFTP Boot
 
-
-
-
 ## Installation Steps
 
-### Install Build Dependencies
+### Using Precompiled Kernel Image
+
+Download the Debian Image and the NuttX kernel to do a manual kernel swap following something like the steps below:
+
+```shell
+wget https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.10/duos-e_sd.img.lz4
+wget https://github.com/lupyuen2/wip-nuttx/releases/download/sg2000c-1/Image
+lz4 -dk duos-e_sd.img.lz4
+sudo losetup /dev/loop14 duos-e_sd.img
+sudo kpartx -av /dev/loop14
+sudo mount /dev/mapper/loop14p1 /mnt
+sudo mv Image /mnt/vmlinuz-*+duos
+sudo umount /mnt
+sudo kpartx -d /dev/loop14
+sudo losetup -d /dev/loop14
+sudo dd if=duos-e_sd.img of=/dev/sdX bs=1M status=progress
+```
+
+### Compiling Manually
+
+#### Install Build Dependencies
 
 Debian based:
 ```bash
@@ -78,7 +96,7 @@ paru -S kconfig-frontends genromfs
 # yay -S kconfig-frontends genromfs
 ```
 
-### Retrieve the Source Code
+#### Retrieve the Source Code
 
 ```shell
 mkdir nuttxspace
@@ -87,7 +105,7 @@ git clone https://github.com/apache/nuttx.git nuttx
 git clone https://github.com/apache/nuttx-apps apps
 ```
 
-### Configure Toolchain and Build NuttX
+#### Configure Toolchain and Build NuttX
 
 The xPack toolchain is needed for the compilation, get the toolchain first from the Github, suggest 13.3.0 version as it has been tested, change the version to match your system:
 ```bash
@@ -129,6 +147,13 @@ Finally , padding the image:
 head -c 65536 /dev/zero >/tmp/nuttx.pad
 cat nuttx.bin /tmp/nuttx.pad initrd >Image-sg2000
 ```
+
+
+## System Boot
+
+### Booting from SD card
+
+See the chapter "Installation Steps/Using Precompiled Kernel Image".
 
 ### Booting NuttX RTOS from TFTP Server
 
@@ -179,44 +204,34 @@ The system should boot normally, and you should be able to access the NuttX shel
 
 The system booted successfully, and the NuttX shell was accessible via the serial connection.
 
-Commands like `uname`, `ls`, and `ostest` were executed successfully.
-
 ### Boot Information
 
-Boot log:
 ```log
 Starting kernel ...
 
 ABC
-NuttShell (NSH) NuttX-12.6.0-RC1
+NuttShell (NSH) NuttX-12.5.1
 nsh> help
 help usage:  help [-v] [<cmd>]
 
-    .           cp          exit        mkdir       rmdir       umount      
-    [           cmp         expr        mkrd        set         unset       
-    ?           dirname     false       mount       sleep       uptime      
-    alias       dd          fdinfo      mv          source      usleep      
-    unalias     df          free        pidof       test        xd          
-    basename    dmesg       help        printf      time        
-    break       echo        hexdump     ps          true        
-    cat         env         kill        pwd         truncate    
-    cd          exec        ls          rm          uname       
+    .           cp          exit        mkdir       rmdir       umount
+    [           cmp         expr        mkrd        set         unset
+    ?           dirname     false       mount       sleep       uptime
+    alias       dd          fdinfo      mv          source      usleep
+    unalias     df          free        pidof       test        xd
+    basename    dmesg       help        printf      time
+    break       echo        hexdump     ps          true
+    cat         env         kill        pwd         truncate
+    cd          exec        ls          rm          uname
 nsh> uname -a
-NuttX 12.6.0-RC1 98f5d6adc5 Jul 29 2024 00:32:01 risc-v milkv_duos
+NuttX 12.5.1 adc0fbe65c Jun 17 2024 11:18:41 risc-v duos
 nsh> cat /proc/cpuinfo
 processor       : 0
 hart            : 0
 isa             : rv64imafdc
 mmu             : none
-nsh> 
- 
-
+nsh>
 ```
-
-
-Screen recording:
-
-[![asciinema](https://asciinema.org/a/Eai0QwU5y9USbr3FsYq7L1Mxf)](https://asciinema.org/a/Eai0QwU5y9USbr3FsYq7L1Mxf)
 
 ## Test Criteria
 

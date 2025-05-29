@@ -4,10 +4,12 @@
 
 ### 操作系统信息
 
-- Debian Linux 镜像 + U-Boot:https://github.com/Fishwaldo/sophgo-sg200x-debian/releases
+- Debian Linux 镜像 + U-Boot: https://github.com/scpcom/sophgo-sg200x-debian/releases
+- 预编译 NuttX 镜像: https://github.com/lupyuen2/wip-nuttx/releases/tag/sg2000c-1
 - 工具链:xPack https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases
 - dtb 文件：https://github.com/lupyuen2/wip-nuttx/releases/download/sg2000-1/cv181x_milkv_duos_sd.dtb
 - 参考安装文档: https://nuttx.apache.org/docs/latest/quickstart/install.html
+
 
 ### 硬件信息
 
@@ -21,7 +23,27 @@
 
 ## 安装步骤
 
-### 构建依赖安装
+### 使用预编译镜像
+
+下载 Debian 镜像和 NuttX 内核， 并参照如下步骤进行内核替换：
+
+```shell
+wget https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.10/duos-e_sd.img.lz4
+wget https://github.com/lupyuen2/wip-nuttx/releases/download/sg2000c-1/Image
+lz4 -dk duos-e_sd.img.lz4
+sudo losetup /dev/loop14 duos-e_sd.img
+sudo kpartx -av /dev/loop14
+sudo mount /dev/mapper/loop14p1 /mnt
+sudo mv Image /mnt/vmlinuz-*+duos
+sudo umount /mnt
+sudo kpartx -d /dev/loop14
+sudo losetup -d /dev/loop14
+sudo dd if=duos-e_sd.img of=/dev/sdX bs=1M status=progress
+```
+
+### 手动编译
+
+#### 构建依赖安装
 
 Debian based:
 ```bash
@@ -62,7 +84,7 @@ paru -S kconfig-frontends genromfs
 # yay -S kconfig-frontends genromfs
 ```
 
-### 获取源码
+#### 获取源码
 
 ```shell
 mkdir nuttxspace
@@ -71,7 +93,7 @@ git clone https://github.com/apache/nuttx.git nuttx
 git clone https://github.com/apache/nuttx-apps apps
 ```
 
-### 配置工具链并构建 NuttX
+#### 配置工具链并构建 NuttX
 
 Nuttx 需要使用 xPack 工具链进行编译，首先获取工具链，从 Github 下载，自行改变版本以匹配你的系统：
 ```bash
@@ -110,6 +132,13 @@ genromfs -f initrd -d ../apps/bin -V "NuttXBootVol"
 head -c 65536 /dev/zero >/tmp/nuttx.pad
 cat nuttx.bin /tmp/nuttx.pad initrd >Image-sg2000
 ```
+
+
+## 启动系统
+
+### 从 SD 卡启动
+
+参见上文 "安装步骤/使用预编译镜像" 一节。
 
 ### 从 TFTP Server 启动 NuttX RTOS
 
@@ -159,38 +188,33 @@ booti ${kernel_addr_r} - ${fdt_addr_r}
 
 系统正常启动，通过串口连接时能成功进入 NuttX Shell。
 
-能够执行 `uname`, `ls`, `ostest` 等指令。
-
 ### 启动信息
 
-Boot log:
 ```log
 Starting kernel ...
 
 ABC
-NuttShell (NSH) NuttX-12.6.0-RC1
+NuttShell (NSH) NuttX-12.5.1
 nsh> help
 help usage:  help [-v] [<cmd>]
 
-    .           cp          exit        mkdir       rmdir       umount      
-    [           cmp         expr        mkrd        set         unset       
-    ?           dirname     false       mount       sleep       uptime      
-    alias       dd          fdinfo      mv          source      usleep      
-    unalias     df          free        pidof       test        xd          
-    basename    dmesg       help        printf      time        
-    break       echo        hexdump     ps          true        
-    cat         env         kill        pwd         truncate    
-    cd          exec        ls          rm          uname       
+    .           cp          exit        mkdir       rmdir       umount
+    [           cmp         expr        mkrd        set         unset
+    ?           dirname     false       mount       sleep       uptime
+    alias       dd          fdinfo      mv          source      usleep
+    unalias     df          free        pidof       test        xd
+    basename    dmesg       help        printf      time
+    break       echo        hexdump     ps          true
+    cat         env         kill        pwd         truncate
+    cd          exec        ls          rm          uname
 nsh> uname -a
-NuttX 12.6.0-RC1 98f5d6adc5 Jul 29 2024 00:32:01 risc-v milkv_duos
+NuttX 12.5.1 adc0fbe65c Jun 17 2024 11:18:41 risc-v duos
 nsh> cat /proc/cpuinfo
 processor       : 0
 hart            : 0
 isa             : rv64imafdc
 mmu             : none
-nsh> 
- 
-
+nsh>
 ```
 
 屏幕录像：

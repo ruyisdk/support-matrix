@@ -46,7 +46,7 @@ lz4 -dk duos-e_sd.img.lz4
 sudo losetup /dev/loop14 duos-e_sd.img
 sudo kpartx -av /dev/loop14
 sudo mount /dev/mapper/loop14p1 /mnt
-sudo mv Image /mnt/root/
+sudo mv Image /mnt/vmlinuz-*+duos
 sudo umount /mnt
 sudo kpartx -d /dev/loop14
 sudo losetup -d /dev/loop14

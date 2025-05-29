@@ -25,6 +25,10 @@ last_update: 2025-05-20
 - A USB to UART Debugger
 - DuPont wires
 
+Board pinout:
+
+![](oz64_pinout.webp)
+
 ## Installation Steps
 
 ### Using `dd` to Flash the Image to the microSD Card
