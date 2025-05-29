@@ -34,6 +34,9 @@ ram: 4GB/8GB
 - Arch Linux
     - Source code Link: https://github.com/yogo1212/arch-linux-star64
     - Reference Installation Document: https://github.com/yogo1212/arch-linux-star64
+- NixOS
+    - Source code link: https://git.sr.ht/~fgaz/nixos-star64
+    - Reference Installation Document: https://git.sr.ht/~fgaz/nixos-star64
 
 ### Hardware Information
 
@@ -48,8 +51,10 @@ ram: 4GB/8GB
 | Yocto Image Boot              | N/A          | [CFH][Yocto]              |
 | Ubuntu Image Boot             | N/A          | [Basic][Ubuntu]           |
 | Arch Linux Image Build & Boot | N/A          | [CFH][ArchLinux]          |
+| NixOS Image Build & Boot      | N/A          | [CFH][NixOS]              |
 
 [NuttX]: ./NuttX/README.md
+[NixOS]: ./NixOS/README.md
 [Armbian]: ./Armbian/README.md
 [Yocto]: ./Yocto/README.md
 [Ubuntu]: ./Ubuntu/README.md
