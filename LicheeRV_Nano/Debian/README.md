@@ -4,7 +4,7 @@ sys_ver: sid
 sys_var: null
 
 status: basic
-last_update: 2025-04-09
+last_update: 2025-05-29
 ---
 
 # Debian LicheeRV Nano Test Report
@@ -13,8 +13,7 @@ last_update: 2025-04-09
 
 ### Operating System Information
 
-- System Version: Initial Release
-- Download Link: https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.7/licheervnano-e_sd.img.lz4
+- Download Link: https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.25/licheervnano-e_sd.img.lz4
 - Reference Installation Document: https://github.com/scpcom/sophgo-sg200x-debian/
 
 ### Hardware Information
@@ -30,7 +29,7 @@ last_update: 2025-04-09
 Download the image and perform decompression and flashing:
 
 ```shell
-wget https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.7/licheervnano-e_sd.img.lz4
+wget https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.25/licheervnano-e_sd.img.lz4
 lz4 -dk licheervnano-e_sd.img.lz4
 sudo dd if=licheervnano-e_sd.img of=/dev/your_device bs=1M status=progress
 ```
