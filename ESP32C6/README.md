@@ -1,5 +1,4 @@
 ---
-vendor: espressif
 product: ESP32-C6
 cpu: ESP32-C6
 cpu_core: "null"

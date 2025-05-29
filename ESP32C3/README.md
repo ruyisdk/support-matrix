@@ -1,5 +1,4 @@
 ---
-vendor: espressif
 product: LUATOS ESP32-C3
 cpu: ESP32-C3
 cpu_core: "null"
