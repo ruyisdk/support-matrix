@@ -5,7 +5,7 @@
 
 - 源码链接：https://github.com/espressif/esp-idf/tree/v5.4/examples/system/freertos/real_time_stats
 - 参考文档：
-  - ESP32-C6：https://docs.espressif.com/projects/esp-idf/zh_CN/v5.4/esp32C6/
+  - ESP32-C6：https://docs.espressif.com/projects/esp-idf/zh_CN/v5.4/esp32c6/
 
 ### 硬件信息
 
@@ -16,7 +16,7 @@
 ### 安装 ESP-IDF
 
 ESP-IDF的环境安装可以主要参考官网连接：
-https://docs.espressif.com/projects/esp-idf/zh_CN/v5.4/esp32c3/get-started/index.html#get-started-how-to-get-esp-idf
+https://docs.espressif.com/projects/esp-idf/zh_CN/v5.4/esp32c6/get-started/index.html#get-started-how-to-get-esp-idf
 不管是图形化界面还是命令行开发都有不错的效果。
 
 ### 准备工程仓库
