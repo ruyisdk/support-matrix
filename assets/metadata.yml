@@ -1,5 +1,5 @@
+### Supported OS ###
 # id: pretty name
-
 linux:
   - alpine: Alpine
   - archlinux: Arch Linux
@@ -53,3 +53,39 @@ customized:
   - rockos: RockOS
   - tina: Tina-Linux
 ### END ###
+
+### arch mapper ###
+arches:
+  - rv64-unknown: rv64
+  - rv32-unknown: rv32
+  - armv7-a: armv7-a
+  - armv8-a: armv8-a
+  - xuantie-e902: rv32emc
+  - xuantie-e907: rv32imafdcp
+  - xuantie-c906: rv64imafdc_xtheadba_xtheadbb_xtheadbs_xtheadcmo_xtheadcondmov_xtheadfmemidx_xtheadmac_xtheadmemidx_xtheadmempair_xtheadsync
+  - xuantie-c908: rv64gcb
+  - xuantie-c910: rv64imafdc_zfh_xtheadc
+  - xuantie-c920: rv64gc_xtheadba_xtheadbb_xtheadbs_xtheadvector
+  - xuantie-c920-v2: rv64gcvb
+  - sifive-e24: rv32imafc
+  - sifive-e51: rv64imac
+  - sifive-u54: rv64imafdc
+  - sifive-u74: rv64imafdc
+  - sifive-s7: rv64imafdc
+  - sifive-p500: rv64gcb
+  - spacemit-x60: rv64imafdvc_sscofpmf_sstc_svinval_svnapot_svpbmt_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zfhmin_zkt_zba_zbb_zbc_zbs_zbkc_zvfh_zvfhmin_zvkt_zvl32b_zvl64b_zvl128b_zvl256b_spacemitvmadot_spacemitvmadotn
+  - ky-x1: rv64imafdcv_zicbom_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zfhmin_zba_zbb_zbc_zbs_zkt_zvfh_zvfhmin_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt
+  - wch-v3a: rv32imac
+  - wch-v3b: rv32imcb
+  - wch-v3c: rv32imcb
+  - wch-v4: rv32imac
+  - wch-v4f: rv32imacf
+  - nuclei-n30x: rv32imacfdbpkc_zcxlcz
+  - nuclei-z60x: rv32imafdbpkv_zfh_zcxlcz
+  - nuclei-zx60x: rv64imacfdpbkv_zfh_zcxlcz
+  - nuclei-bumblebee: rv32imac
+  - esp32-c2: rv32imac
+  - esp32-c3: rv32imc
+  - esp32-c6: rv32imac
+  - esp32-h2: rv32imac
+  - andescore-ax45: rv64gcp

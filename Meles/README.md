@@ -4,6 +4,18 @@ vendor: milkv_meles
 cpu: TH1520
 cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 ram: 8G/16G
+
+vendor: milkv-meles
+board_variant: [
+    4g,
+    8g,
+    16g,
+]
+cpu_arch: [
+    xuantie-c910,
+    xuantie-c906,
+    xuantie-e902,
+]
 ---
 
 # Milk-V Meles
