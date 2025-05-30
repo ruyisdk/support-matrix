@@ -88,4 +88,5 @@ arches:
   - esp32-c3: rv32imc
   - esp32-c6: rv32imac
   - esp32-h2: rv32imac
+  - esp32-p4: rv32imafc
   - andescore-ax45: rv64gcp
