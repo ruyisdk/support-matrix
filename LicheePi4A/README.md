@@ -63,10 +63,10 @@ cpu_arch: [
 | Fedora Desktop Image Boot       | N/A              | [Success][Fedora] (Official Support)    |
 | openKylin Desktop Image Boot    | N/A              | [Success][openKylin] (Official Support) |
 | Armbian (Ubuntu) Image Boot     | N/A              | [Success][Armbian]                      |
-| OpenWRT Image Boot              | N/A              | [Success][OpenWRT]                      |
 | Arch Linux Desktop Image Boot   | N/A              | [Success][ArchLinux]                    |
 | Deepin Desktop Image Boot       | N/A              | [Success][Deepin]                       |
 | NixOS Image Boot                | N/A              | [Success][NixOS]                        |
+| irradium Image Boot             | N/A              | [CFT][irradium]                        |
 
 [oERV]: ./openEuler/README.md
 [openEuler]: ./openEuler/Innovation.md
@@ -77,3 +77,4 @@ cpu_arch: [
 [ArchLinux]: ./ArchLinux/README.md
 [Deepin]: ./Deepin/README.md
 [NixOS]: ./NixOS/README.md
+[irradium]: ./irradium/README.md
