@@ -46,10 +46,10 @@
 | Fedora 桌面镜像启动            | N/A      | [成功][Fedora]（官方支持）    |
 | openKylin 桌面镜像启动         | N/A      | [成功][openKylin]（官方支持） |
 | Armbian (Ubuntu) 镜像启动      | N/A      | [成功][Armbian]               |
-| OpenWRT 镜像启动               | N/A      | [成功][OpenWRT]               |
 | Arch Linux 桌面镜像启动        | N/A      | [成功][ArchLinux]             |
 | Deepin 桌面镜像启动            | N/A      | [成功][Deepin]                |
 | NixOS 镜像启动                 | N/A      | [成功][NixOS]                 |
+| irradium 镜像启动              | N/A      | [CFT][irradium]              |
 
 [oERV]: ./openEuler/README_zh.md
 [openEuler]: ./openEuler/Innovation_zh.md
@@ -60,3 +60,4 @@
 [ArchLinux]: ./ArchLinux/README_zh.md
 [Deepin]: ./Deepin/README_zh.md
 [NixOS]: ./NixOS/README_zh.md
+[irradium]: ./irradium/README_zh.md
