@@ -1,9 +1,9 @@
 ---
+vendor: [Vendor identifier - Board identifier]
 product: [Development Board Name]
-vendor: [Vendor Name]
 cpu: [CPU Model]
 cpu_core: [CPU Core Architecture]
-
+ram: [Memory and flash information]
 board_variant: [Board Variant] # e.g., 8g/16g version. If you don't have a variant, use generic instead.
 cpu_arch: [ # Supported CPU Architectures lists are in assets/metadata.yml:arches
     CPU Architectures, # eg: xuantie-e902, armv8-a...
