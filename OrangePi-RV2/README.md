@@ -29,13 +29,20 @@ cpu_arch: [
 - OpenWRT 24.10.0 (official suport)
   - Download link: <http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html>
   - Reference Installation Document: <http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html>
+- irradium 3.8
+  - Download link: <https://mirror.serverion.com/irradium/images/orange_pi_rv2/irradium-3.8-riscv64-core-orange_pi_rv2-6.14.4-build-20250503.img.zst>
+  - Reference Installation Document:
+    - <http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html>
+    - <https://mirror.serverion.com/irradium/images/orange_pi_rv2/README.TXT>
 
 ## Test Results
 
 | Software Category     | Package Name     | Test Results (Test Report)                        |
 | --------------------- | ---------------- | ------------------------------------------------- |
 | Ubuntu LTS image boot | N/A              | [Successful][Ubuntu LTS]                          |
-| OpenWRT image boot    | N/A              | [Successful][OpenWRT]                          |
+| OpenWRT image boot    | N/A              | [Successful][OpenWRT]                             |
+| irradium image boot   | N/A              | [Successful][irradium]                            |
 
 [Ubuntu LTS]: ./Ubuntu/README_LTS.md
 [OpenWRT]: ./OpenWRT/README.md
+[irradium]: ./irradium/README.md
