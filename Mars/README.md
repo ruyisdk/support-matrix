@@ -87,6 +87,21 @@ cpu_arch: [
   - Reference Installation Document:
     - <https://milkv.io/zh/docs/mars/getting-started/boot>
     - <https://dietpi.com/blog/?p=2629>
+- irradium 3.8
+  - Download Link: <https://mirror.serverion.com/irradium/images/visionfive_2/irradium-3.8-riscv64-core-visionfive_2-6.12.28-build-20250512.img.zst>
+  - Reference Installation Document:
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://mirror.serverion.com/irradium/images/visionfive_2/README.TXT>
+- openKylin 2.0 SP1
+  - Download Link: <https://www.openkylin.top/downloads/>
+  - Reference Installation Document:
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8VisionFive2%E4%B8%8A%E5%AE%89%E8%A3%85openKylin>
+- openSUSE Tumbleweed 20250527
+  - Download Link: <https://downloadcontent.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/StarFive:/VisionFive2/images/openSUSE-Tumbleweed-RISC-V-JeOS-starfivevisionfive2.riscv64-2025.04.28-Build1.26.raw.xz>
+  - Reference Installation Document:
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://en.opensuse.org/HCL:VisionFive2>
 
 ### Hardware Information
 
@@ -111,6 +126,9 @@ cpu_arch: [
 | Alpine Image Boot      | N/A          | [Successful][Alpine]                         |
 | Armbian Image Boot     | N/A          | [Successful][Armbian]                        |
 | DietPi Image Boot      | N/A          | [Successful][DietPi]                         |
+| irradium Image Boot    | N/A          | [Successful][irradium]                       |
+| openKylin Image Boot   | N/A          | [Successful][openKylin]                      |
+| openSUSE Image Boot    | N/A          | [Successful][openSUSE]                       |
 
 [Debian]: ./Debian/README.md
 [BuildRoot]: ./BuildRoot/README.md
@@ -127,3 +145,6 @@ cpu_arch: [
 [Alpine]: ./Alpine/README.md
 [Armbian]: ./Armbian/README.md
 [DietPi]: ./DietPi/README.md
+[irradium]: ./irradium/README.md
+[openKylin]: ./openKylin/README.md
+[openSUSE]: ./openSUSE/README.md
