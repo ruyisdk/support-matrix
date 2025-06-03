@@ -1,4 +1,4 @@
-# Star64
+# Pine64 Star64
 
 ## 测试环境
 
@@ -21,8 +21,14 @@
     - 下载链接：https://github.com/Fishwaldo/meta-pine64/releases/tag/v2.1
     - 参考安装文档：https://github.com/Fishwaldo/meta-pine64
 - Ubuntu 25.04:
-  - 下载链接：https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz
-  - 参考安装文档：https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/pine64-star64/
+    - 下载链接：https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz
+    - 参考安装文档：https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/pine64-star64/
+-  Arch Linux
+    - 源码链接：https://github.com/yogo1212/arch-linux-star64
+    - 参考安装文档：https://github.com/yogo1212/arch-linux-star64
+- NixOS
+    - 源码链接：https://git.sr.ht/~fgaz/nixos-star64
+    - 参考安装文档：https://git.sr.ht/~fgaz/nixos-star64
 
 ### 硬件开发板信息
 
@@ -30,14 +36,18 @@
 
 ## 测试结果
 
-| 软件分类                | 软件包名 | 测试结果（测试报告）             |
-|------------------------|----------|-----------------------------|
-| NuttX 镜像构建及启动     | N/A      | [CFT][NuttX]                |
-| Armbian 镜像启动        | N/A      | [CFT][Armbian]              |
-| Yocto 镜像启动          | N/A      | [CFT][Yocto]                |
-| Ubuntu 镜像启动         | N/A      | [CFT][Ubuntu]               |
+| 软件分类                  | 软件包名 | 测试结果（测试报告） |
+| ------------------------- | -------- | -------------------- |
+| NuttX 镜像构建及启动      | N/A      | [CFT][NuttX]         |
+| Armbian 镜像启动          | N/A      | [CFH][Armbian]       |
+| Yocto 镜像启动            | N/A      | [CFH][Yocto]         |
+| Ubuntu 镜像启动           | N/A      | [Basic][Ubuntu]      |
+| Arch Linux 镜像构建及启动 | N/A      | [CFH][ArchLinux]     |
+| NixOS 镜像构建及启动      | N/A      | [CFH][NixOS]         |
 
+[NixOS]: ./NixOS/README_zh.md
 [NuttX]: ./NuttX/README_zh.md
 [Armbian]: ./Armbian/README_zh.md
 [Yocto]: ./Yocto/README_zh.md
 [Ubuntu]: ./Ubuntu/README_zh.md
+[ArchLinux]: ./ArchLinux/README_zh.md

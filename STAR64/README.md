@@ -15,7 +15,7 @@ cpu_arch: [
 ]
 ---
 
-# Star64
+# Pine64 Star64
 
 ## Test Environment
 
@@ -40,21 +40,31 @@ cpu_arch: [
 - Ubuntu 25.04:
   - Download Link: https://cdimage.ubuntu.com/releases/25.04/release/ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz
   - Reference Installation Document: https://canonical-ubuntu-boards.readthedocs-hosted.com/en/latest/how-to/pine64-star64/
+- Arch Linux
+    - Source code Link: https://github.com/yogo1212/arch-linux-star64
+    - Reference Installation Document: https://github.com/yogo1212/arch-linux-star64
+- NixOS
+    - Source code link: https://git.sr.ht/~fgaz/nixos-star64
+    - Reference Installation Document: https://git.sr.ht/~fgaz/nixos-star64
 
 ### Hardware Information
 
-- Star64
+- Pine64 Star64
 
 ## Test Results
 
-| Software Category       | Package Name | Test Result (Test Report)       |
-|-------------------------|--------------|---------------------------------|
-| NuttX Image Build & Boot| N/A          | [CFT][NuttX]                    |
-| Armbian Image Boot      | N/A          | [CFT][Armbian]                  |
-| Yocto Image Boot        | N/A          | [CFT][Yocto]                    |
-| Ubuntu Image Boot       | N/A          | [CFT][Ubuntu]                   |
+| Software Category             | Package Name | Test Result (Test Report) |
+| ----------------------------- | ------------ | ------------------------- |
+| NuttX Image Build & Boot      | N/A          | [CFT][NuttX]              |
+| Armbian Image Boot            | N/A          | [CFH][Armbian]            |
+| Yocto Image Boot              | N/A          | [CFH][Yocto]              |
+| Ubuntu Image Boot             | N/A          | [Basic][Ubuntu]           |
+| Arch Linux Image Build & Boot | N/A          | [CFH][ArchLinux]          |
+| NixOS Image Build & Boot      | N/A          | [CFH][NixOS]              |
 
 [NuttX]: ./NuttX/README.md
+[NixOS]: ./NixOS/README.md
 [Armbian]: ./Armbian/README.md
 [Yocto]: ./Yocto/README.md
 [Ubuntu]: ./Ubuntu/README.md
+[ArchLinux]: ./ArchLinux/README.md

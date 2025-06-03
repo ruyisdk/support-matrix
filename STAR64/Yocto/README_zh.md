@@ -9,9 +9,11 @@
 
 ### 硬件信息
 
-- 开发板：Star64
-- USB A to C / USB C to C 线缆
-- SD 卡
+- Pine64 Star64
+- microSD 卡一张
+- DC 12V5A 圆头电源适配器
+- USB to UART 调试器一个（如：CH340, CH341, FT2232 等）
+- 杜邦线三根
 
 ## 安装步骤
 
@@ -40,14 +42,43 @@ Xfce 版本需要配置完成后方可进入桌面。
 
 ## 实际结果
 
-CFT
+U-Boot 启动时出错，无法进入系统。
 
 ### 启动信息
 
-屏幕录像（从刷写系统到启动）：
-
-
 ```log
+
+U-Boot 2021.10 (Jun 05 2023 - 16:23:55 +0000)05062023
+
+CPU:   rv64imacu_zba_zbb
+Model: Pine64 Star64
+DRAM:  8 GiB
+MMC:   sdio0@16010000: 0, sdio1@16020000: 1
+Loading Environment from SPIFlash... SF: Detected gd25lq128 with page size 256 Bytes, erase size 4 KiB, total 16 MiB
+OK
+StarFive EEPROM format v2
+
+--------EEPROM INFO--------
+Vendor : PINE64
+Product full SN: STAR64V1-2310-D008E000-00000005
+data version: 0x2
+PCB revision: 0xc1
+BOM revision: A
+Ethernet MAC0 address: 6c:cf:39:00:75:61
+Ethernet MAC1 address: 6c:cf:39:00:75:62
+--------EEPROM INFO--------
+
+In:    serial
+Out:   serial
+Err:   serial
+Model: Pine64 Star64
+Net:   eth0: ethernet@16030000, eth1: ethernet@16040000
+Unknown command 'usb' - try 'help'
+Hit any key to stop autoboot:  0
+Unknown command 'bootflow' - try 'help'
+Star64 #
+Star64 #
+
 ```
 
 ## 测试判定标准
@@ -58,4 +89,4 @@ CFT
 
 ## 测试结论
 
-CFT
+测试失败。
