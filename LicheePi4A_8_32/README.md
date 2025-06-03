@@ -1,9 +1,16 @@
 ---
-vendor: sipeed_licheepi4a
 product: LicheePi 4A (8GB RAM)
 cpu: TH1520
 cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 ram: 8G
+
+vendor: sipeed-lpi4a
+board_variant: [8g]
+cpu_arch: [
+    xuantie-c910,
+    xuantie-c906,
+    xuantie-e902,
+]
 ---
 
 # Lichee Pi 4A
@@ -27,6 +34,12 @@ ram: 8G
 - Arch Linux
     - Download link: https://mirror.iscas.ac.cn/archriscv/images/
     - Reference Installation Document: https://wiki.archlinux.org/title/General_recommendations
+- NixOS
+    - Download link: https://github.com/ryan4yin/nixos-licheepi4a/releases
+    - Reference Installation Document: https://github.com/ryan4yin/nixos-licheepi4a
+- Slackware
+    - Download link: http://dl.slarm64.org/slackware/images/lichee_pi_4a/
+    - Reference Installation Document: http://dl.slarm64.org/slackware/images/lichee_pi_4a/README.TXT
 - Fedora 38
     - Download Link：https://github.com/chainsx/fedora-riscv-builder/releases
     - Reference Installation Document：https://wiki.sipeed.com/hardware/zh/lichee/th1520/lpi4a/4_burn_image.html
@@ -56,6 +69,8 @@ ram: 8G
 | openKylin Desktop Image Boot       | N/A              | [Success][openKylin] (Official Support) |
 | OpenWRT Image Boot                 | N/A              | [Success][OpenWRT]                      |
 | Arch Linux Desktop Image Boot      | N/A              | [Success][ArchLinux]                    |
+| NixOS Image Boot                   | N/A              | [Success][NixOS]                        |
+| Slackware Image Boot               | N/A              | [Success][Slackware]                    |
 | Deepin Desktop Image Boot          | N/A              | [Success][Deepin]                       |
 | RevyOS Desktop Image Boot          | N/A              | [Success][RevyOS]                       |
 
@@ -68,3 +83,5 @@ ram: 8G
 [Deepin]: ./Deepin/README.md
 [ArchLinux]: ./ArchLinux/README.md
 [RevyOS]: ./RevyOS/README.md
+[NixOS]: ./NixOS/README.md
+[Slackware]: ./Slackware/README.md

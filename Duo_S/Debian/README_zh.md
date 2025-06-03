@@ -4,7 +4,7 @@
 
 ### 操作系统信息
 
-- 下载链接：https://github.com/scpcom/sophgo-sg200x-debian/releases/tag/v1.6.10
+- 下载链接：https://github.com/scpcom/sophgo-sg200x-debian/releases/tag/v1.6.23
 - 参考安装文档：https://github.com/scpcom/sophgo-sg200x-debian
 
 ### 硬件信息
@@ -41,11 +41,11 @@ sudo dd if=duos-e_sd.img of=/dev/sdX bs=1M status=progress
 ### 启动信息
 
 ```log
-Debian GNU/Linux trixie/sid duos-ee00 ttyS0
+Debian GNU/Linux 13 duos-a0d7 ttyS0
 
-duos-ee00 login: debian
+duos-a0d7 login: debian
 Password:
-Linux duos-ee00 5.10.235-20250403-6+duos #1 PREEMPT Sun Apr 13 01:35:51 UTC 2025 riscv64
+Linux duos-a0d7 5.10.235-20250430-6+duos #1 PREEMPT Sun May 25 13:36:19 UTC 2025 riscv64
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -53,24 +53,31 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-debian@duos-ee00:~$ cat /etc/os-release
-PRETTY_NAME="Debian GNU/Linux trixie/sid"
+debian@duos-a0d7:~$ cat /etc/os-release
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
 NAME="Debian GNU/Linux"
+VERSION_ID="13"
+VERSION="13 (trixie)"
 VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13.0
 ID=debian
 HOME_URL="https://www.debian.org/"
 SUPPORT_URL="https://www.debian.org/support"
 BUG_REPORT_URL="https://bugs.debian.org/"
-debian@duos-ee00:~$ uname -a
-Linux duos-ee00 5.10.235-20250403-6+duos #1 PREEMPT Sun Apr 13 01:35:51 UTC 2025 riscv64 GNU/Linux
-debian@duos-ee00:~$ cat /proc/cpuinfo
+debian@duos-a0d7:~$ uname -a
+Linux duos-a0d7 5.10.235-20250430-6+duos #1 PREEMPT Sun May 25 13:36:19 UTC 2025 riscv64 GNU/Linux
+debian@duos-a0d7:~$ cat /proc/cpuinfo
 processor       : 0
 hart            : 0
 isa             : rv64imafdvcsu
 mmu             : sv39
 
-debian@duos-ee00:~$
+debian@duos-a0d7:~$
 ```
+
+屏幕录像：
+
+[![asciicast](https://asciinema.org/a/CbWcHhsyLKZ8jjPRV4WRYOILd.svg)](https://asciinema.org/a/CbWcHhsyLKZ8jjPRV4WRYOILd)
 
 ## 测试判定标准
 

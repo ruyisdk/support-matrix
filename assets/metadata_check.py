@@ -19,6 +19,37 @@ parser.add_argument('-p', '--path', dest="path",
 args = parser.parse_args()
 
 
+def cpu_arch_validator_generator():
+    """
+    cpu_arch_validator
+    """
+    meta_path = os.path.join(args.path, 'assets', 'metadata.yml')
+    with open(meta_path, 'r', encoding="utf-8") as f:
+        meta = yaml.safe_load(f)
+    support_arches = []
+    for item in meta['arches']:
+        for p, q in item.items():
+            # Check the key should only contains alphanumeric and underscore
+            if not all(c.isalnum() or c in '_-' for c in p):
+                raise ValueError(f"Invalid cpu arch name: {p}.")
+            if not all(c.isalnum() or c in '_-' for c in q):
+                raise ValueError(f"Invalid cpu arch: {q}.")
+            support_arches.append(p.lower())
+
+    def cpu_arch_validator_fn(v: str):
+        """
+        cpu_arch_validator
+        """
+        if v.lower() not in support_arches:
+            raise ValueError(f"Invalid system name: {v}.")
+        return v
+    return cpu_arch_validator_fn
+
+
+CpuArchValidator = Annotated[str, AfterValidator(
+    cpu_arch_validator_generator())]
+
+
 class BoardMetadata(BaseModel):
     """
     BoardMetadata
@@ -31,6 +62,7 @@ class BoardMetadata(BaseModel):
 
     vendor: Optional[str] = None
     board_variants: Optional[list[str]] = None
+    cpu_arch: list[CpuArchValidator]
 
     @field_validator('vendor', mode='before')
     @classmethod
@@ -39,7 +71,7 @@ class BoardMetadata(BaseModel):
         check_vendor
         """
         if v is not None and \
-            not all(c.isalnum() or c in '_-' for c in v):
+                not all(c.isalnum() or c in '_-' for c in v):
             raise ValueError(f"Invalid vendor name: {v}.")
         return v
 
@@ -75,7 +107,7 @@ def system_validator_generator():
     support_systems = []
     for k, v in meta.items():
         if k not in AllowSystemTypes:
-            raise ValueError(f"Invalid system type: {k}.")
+            continue
         for pq in v:
             if len(pq) == 0:
                 raise ValueError(f"Invalid system name: {pq}.")

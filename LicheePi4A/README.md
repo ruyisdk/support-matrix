@@ -1,9 +1,16 @@
 ---
-vendor: sipeed_licheepi4a
 product: LicheePi 4A (16GB RAM)
 cpu: TH1520
 cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 ram: 16G
+
+vendor: sipeed-lpi4a
+board_variant: [16g]
+cpu_arch: [
+    xuantie-c910,
+    xuantie-c906,
+    xuantie-e902,
+]
 ---
 
 # Lichee Pi 4A
@@ -56,10 +63,10 @@ ram: 16G
 | Fedora Desktop Image Boot       | N/A              | [Success][Fedora] (Official Support)    |
 | openKylin Desktop Image Boot    | N/A              | [Success][openKylin] (Official Support) |
 | Armbian (Ubuntu) Image Boot     | N/A              | [Success][Armbian]                      |
-| OpenWRT Image Boot              | N/A              | [Success][OpenWRT]                      |
 | Arch Linux Desktop Image Boot   | N/A              | [Success][ArchLinux]                    |
 | Deepin Desktop Image Boot       | N/A              | [Success][Deepin]                       |
 | NixOS Image Boot                | N/A              | [Success][NixOS]                        |
+| irradium Image Boot             | N/A              | [CFT][irradium]                        |
 
 [oERV]: ./openEuler/README.md
 [openEuler]: ./openEuler/Innovation.md
@@ -70,3 +77,4 @@ ram: 16G
 [ArchLinux]: ./ArchLinux/README.md
 [Deepin]: ./Deepin/README.md
 [NixOS]: ./NixOS/README.md
+[irradium]: ./irradium/README.md

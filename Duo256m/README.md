@@ -1,9 +1,18 @@
 ---
-vendor: milkv_duo256m
 product: Milk-V Duo (256M)
 cpu: SG2002
 cpu_core: XuanTie C906 + ARM Cortex-A53
 ram: 256MB
+
+
+vendor: milkv-duo
+board_variant: [
+    256m, # historical reason
+]
+cpu_arch: [
+    xuantie-c906,
+    armv8-a,
+]
 ---
 
 # Milk-V Duo 256M
@@ -16,9 +25,9 @@ ram: 256MB
   - Download link: [https://github.com/milkv-duo/duo-buildroot-sdk/releases](https://github.com/milkv-duo/duo-buildroot-sdk/releases)
     - Official Milk-V provided BuildRoot SDK, which also includes FreeRTOS.
   - Reference Installation Document: [https://github.com/milkv-duo/duo-buildroot-sdk](https://github.com/milkv-duo/duo-buildroot-sdk)
-- Debian
-  - Download link: https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.7/duo256-e_sd.img.lz4
-  - Reference Installation Document: https://github.com/scpcom/sophgo-sg200x-debian/
+- Debian 13.0
+  - Download link: <https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.23/duo256-e_sd.img.lz4>
+  - Reference Installation Document: <https://github.com/scpcom/sophgo-sg200x-debian/>
 - Fedora 41
   - Download Link: https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/Duo256M/images/latest/milkv-duo-256m-fedora-minimal.img.gz
   - Reference Installation Document: https://github.com/chainsx/fedora-riscv-builder
@@ -74,9 +83,9 @@ ram: 256MB
 | RT-Thread Image Build & Boot       | N/A          | [Success][RT-Thread]                                             |
 | RT-Thread Smart Image Build & Boot | N/A          | [Success][RT-Smart]                                              |
 | Zephyr Image Build & Boot          | N/A          | [Success][Zephyr]                                                |
-| xv6 Image Boot                     | N/A          | [Failed][Zephyr]                                                 |
+| xv6 Image Boot                     | N/A          | [Failed][xv6]                                                 |
 | Alpine Linux Boot                  | N/A          | [Success][Alpine] (use community image or build rootfs manually) |
-| Ubuntu Boot                        | N/A          | [Success][Alpine] (use community image or build rootfs manually) |
+| Ubuntu Boot                        | N/A          | [Success][Ubuntu] (use community image or build rootfs manually) |
 | Yocto Image Build and Boot         | N/A          | [Success][Yocto]                                                 |
 | NixOS Image Build and Boot         | N/A          | [Success][NixOS]                                                 |
 

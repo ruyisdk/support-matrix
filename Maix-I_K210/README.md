@@ -3,6 +3,14 @@ product: Sipeed Maix-Bit
 cpu: K210
 cpu_core: K210 (?)
 ram: 8MB(SRAM)
+
+vendor: sipeed-maix1
+board_variant: [
+    generic,
+]
+cpu_arch: [
+    rv64-unknown,
+]
 ---
 
 # Sipeed Maix-I

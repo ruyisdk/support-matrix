@@ -1,9 +1,13 @@
 ---
-vendor: jlc
+vendor: jlc-hengshanpi
 product: HengShanPi D133EBS
 cpu: D133EBS
 cpu_core: E907
 ram: 1MB SRAM + 8MB PSRAM
+board_variant: [generic]
+cpu_arch: [
+    xuantie-e907,
+]
 ---
 
 # HengShanPi

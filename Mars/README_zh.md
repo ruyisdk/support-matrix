@@ -60,6 +60,31 @@
   - 参考安装文档：
     - <https://milkv.io/zh/docs/mars/getting-started/boot>
     - <https://arvanta.net/alpine/alpine-on-visionfive>
+- Armbian 25.8.0
+  - 下载链接：<https://www.armbian.com/visionfive2>
+  - 参考安装文档：
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://www.armbian.com/visionfive2>
+- DietPi v9.12.1
+  - 下载链接：<https://dietpi.com/downloads/images/testing/DietPi_VisionFive2-RISC-V-Trixie.img.xz>
+  - 参考安装文档：
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://dietpi.com/blog/?p=2629>
+- irradium 3.8
+  - 下载链接：<https://mirror.serverion.com/irradium/images/visionfive_2/irradium-3.8-riscv64-core-visionfive_2-6.12.28-build-20250512.img.zst>
+  - 参考安装文档：
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://mirror.serverion.com/irradium/images/visionfive_2/README.TXT>
+- openKylin 2.0 SP1
+  - 下载链接：<https://www.openkylin.top/downloads/>
+  - 参考安装文档：
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8VisionFive2%E4%B8%8A%E5%AE%89%E8%A3%85openKylin>
+- openSUSE Tumbleweed 20250527
+  - 下载链接：<https://downloadcontent.opensuse.org/repositories/devel:/RISCV:/Factory:/Contrib:/StarFive:/VisionFive2/images/openSUSE-Tumbleweed-RISC-V-JeOS-starfivevisionfive2.riscv64-2025.04.28-Build1.26.raw.xz>
+  - 参考安装文档：
+    - <https://milkv.io/zh/docs/mars/getting-started/boot>
+    - <https://en.opensuse.org/HCL:VisionFive2>
 
 ### 硬件开发板信息
 
@@ -82,6 +107,11 @@
 | NuttX 构建及启动     | N/A      | [成功][NuttX]                    |
 | ArchLinux 镜像启动   | N/A      | [成功][ArchLinux]                |
 | Alpine 镜像启动      | N/A      | [成功][Alpine]                   |
+| Armbian 镜像启动     | N/A      | [成功][Armbian]                  |
+| DietPi 镜像启动      | N/A      | [成功][DietPi]                   |
+| irradium 镜像启动    | N/A      | [成功][irradium]                 |
+| openKylin镜像启动    | N/A      | [成功][openKylin]                |
+| openSUSE镜像启动     | N/A      | [成功][openSUSE]                 |
 
 [Debian]: ./Debian/README_zh.md
 [BuildRoot]: ./BuildRoot/README_zh.md
@@ -96,3 +126,8 @@
 [NuttX]: ./NuttX/README_zh.md
 [ArchLinux]: ./ArchLinux/README_zh.md
 [Alpine]: ./Alpine/README_zh.md
+[Armbian]: ./Armbian/README_zh.md
+[DietPi]: ./DietPi/README_zh.md
+[irradium]: ./irradium/README_zh.md
+[openKylin]: ./openKylin/README_zh.md
+[openSUSE]: ./openSUSE/README_zh.md

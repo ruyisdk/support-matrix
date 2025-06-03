@@ -8,9 +8,9 @@
   - 下载链接：https://github.com/milkv-duo/duo-buildroot-sdk/releases
     - Milk-V 官方提供的 BuildRoot SDK，同时包含了 FreeRTOS
   - 参考安装文档：https://github.com/milkv-duo/duo-buildroot-sdk
-- Debian
-  - 下载链接：https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.7/duo256-e_sd.img.lz4
-  - 参考安装文档：https://github.com/scpcom/sophgo-sg200x-debian/
+- Debian 13.0
+  - 下载链接：<https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.23/duo256-e_sd.img.lz4>
+  - 参考安装文档：<https://github.com/scpcom/sophgo-sg200x-debian/>
 - Fedora 41
   - 下载链接：https://mirror.iscas.ac.cn/fedora-riscv/dl/Milk-V/Duo256M/images/latest/milkv-duo-256m-fedora-minimal.img.gz
   - 参考安装文档：https://github.com/chainsx/fedora-riscv-builder
@@ -64,7 +64,7 @@
 | Debian 镜像启动                | N/A      | [成功][Debian]                                     |
 | Fedora 镜像启动                | N/A      | [成功][Fedora]                                     |
 | RT-Thread 镜像构建及启动       | N/A      | [成功][RT-Thread]                                  |
-| RT-Thread Smart 镜像构建及启动 | N/A      | [成功][RT-Thread]                                  |
+| RT-Thread Smart 镜像构建及启动 | N/A      | [成功][RT-Smart]                                  |
 | Zephyr 镜像构建及启动          | N/A      | [成功][Zephyr]                                     |
 | xv6 镜像启动                   | N/A      | [失败][xv6]                                        |
 | Alpine Linux 启动              | N/A      | [成功][Alpine] （可使用社区镜像或手工构建 rootfs） |

@@ -26,17 +26,17 @@
  |
  |--- 开发板
     |
-    |--- README.md # 开发板的说明文档，开发板的基本metadata包含其中
+    |--- README.md # 开发板的说明文档，开发板的基本 metadata 包含其中
     |
     |--- 各个系统
     |    |
-    |    |--- README.md # 该系统主变体的说明文档，系统的基本metadata包含其中
+    |    |--- README.md # 该系统主变体的说明文档，系统的基本 metadata 包含其中
     |    |
-    |    |--- README_变体.md # 该系统的其他变体的说明文档，变体的metadata包含其中
+    |    |--- README_变体.md # 该系统的其他变体的说明文档，变体的 metadata 包含其中
     |    |
-    |    |--- README(_变体)_lang.yaml # 各种语言的翻译，**不包含metadata！**
+    |    |--- README(_变体)_lang.yaml # 各种语言的翻译，**不包含 metadata！**
     |
-    |--- others.yml # 没有文档的系统的metadata
+    |--- others.yml # 没有文档的系统的 metadata
 ```
 
 ## 行为准则
@@ -137,11 +137,16 @@ git config --global user.email "your.email@example.com"
 ```yaml
 # /开发板/README.md
 ---
-vendor: _     # 厂商标识（小写字母+下划线）
+vendor: _     # 厂商标识-开发板名称 （小写字母）
 product: _    # 产品全称
 cpu: _        # 处理器型号
 cpu_core: _   # CPU 核心架构
+ram: _        # 内存和闪存信息
 board_variant: [] # 开发板变体（可选，如 8g/16g 版本）
+cpu_arch: [ # 支持的 CPU 架构列表在 assets/metadata.yml:arches 中
+    CPU 架构, # eg: xuantie-e902, armv8-a...
+    # 如果没有上述选项，请在 assets/metadata.yml:arches 中添加一个新的
+]
 ---
 ```
 
