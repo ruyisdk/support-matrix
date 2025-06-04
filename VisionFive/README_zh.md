@@ -59,7 +59,7 @@
 | OpenBSD 镜像启动         | N/A      | [成功][OpenBSD]            |
 | Buildroot 镜像构建及启动 | N/A      | [成功][Buildroot]          |
 | Deepin 镜像启动          | N/A      | [成功][Deepin]             |
-| Alpine 镜像启动          | N/A      | [CFT][Alpine]             |
+| Alpine 镜像启动          | N/A      | [成功][Alpine]             |
 
 [oERVBase]: ./openEuler/README_zh.md
 [oERVXfce]: ./openEuler/README_zh.md

@@ -39,12 +39,45 @@ dd if=visionfive-v1-mmc.img of=/dev/<your-device>
 
 ## 实际结果
 
-CFT
+系统正常启动，能够通过板载串口登录。
 
 ### 启动信息
 
-```log
+屏幕录制（从刷写到登录）：
+[![asciicast](https://asciinema.org/a/ui1P6rp5yjFTxO7YehuV7jC8s.svg)](https://asciinema.org/a/ui1P6rp5yjFTxO7YehuV7jC8s)
 
+```log
+Welcome to Alpine Linux 3.20.0_alpha20231219 (edge)
+Kernel 6.8.0-rc2-0-vf1 on an riscv64 (ttyS0)
+
+[press ENTER to login]
+localhost login: root (automatic login)
+
+Welcome to Alpine!
+
+The Alpine Wiki contains a large amount of how-to guides and general
+information about administrating Alpine systems.
+See <https://wiki.alpinelinux.org/>.
+
+You can setup the system with the command: setup-alpine
+
+You may change this message by editing /etc/motd.
+
+localhost:~# cat /etc/os-release 
+NAME="Alpine Linux"
+ID=alpine
+VERSION_ID=3.20.0_alpha20231219
+PRETTY_NAME="Alpine Linux edge"
+HOME_URL="https://alpinelinux.org/"
+BUG_REPORT_URL="https://gitlab.alpinelinux.org/alpine/aports/-/issues"
+localhost:~# uname -a
+Linux localhost 6.8.0-rc2-0-vf1 #1-Alpine SMP PREEMPT Fri, 02 Feb 2024 18:42:11 +0000 riscv64 Linux
+localhost:~# lscpu
+Architecture:          riscv64
+  Byte Order:          Little Endian
+CPU(s):                2
+  On-line CPU(s) list: 0,1
+localhost:~# 
 ```
 
 ## 测试判定标准
@@ -55,4 +88,4 @@ CFT
 
 ## 测试结论
 
-CFT
+测试成功
