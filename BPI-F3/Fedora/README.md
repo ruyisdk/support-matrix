@@ -29,10 +29,12 @@ last_update: 2024-10-28
 
 ### Flashing the Image (SD Card)
 
+
 After downloading and extracting the image, use `dd` to flash the image to the microSD card.
 
+```bash
 xz -kd Fedora.riscv64-40-20240429.n.0.raw.zst-bpi-f3-3356MB.img.xz
-sudo dd if=/path/to/Fedora.riscv64-40-20240429.n.0.raw.zst-bpi-f3-3356MB.img of=/dev/your-device bs=1M status=progress```bash
+sudo dd if=/path/to/Fedora.riscv64-40-20240429.n.0.raw.zst-bpi-f3-3356MB.img of=/dev/your-device bs=1M status=progress
 
 ```
 
