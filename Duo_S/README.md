@@ -30,7 +30,7 @@ cpu_arch: [
     - NuttX Apps: https://github.com/lupyuen2/wip-nuttx-apps/tree/sg2000
   - Reference Installation Document: https://github.com/lupyuen/nuttx-sg2000
 - Debian
-  - Download Link: https://github.com/scpcom/sophgo-sg200x-debian/releases/tag/v1.6.23
+  - Download Link: https://github.com/scpcom/sophgo-sg200x-debian/releases/tag/v1.6.31
   - Reference Installation Document: https://github.com/Fishwaldo/sophgo-sg200x-debian
 - Zephyr
   - Source Code Link: https://github.com/zephyrproject-rtos/zephyr/tree/main

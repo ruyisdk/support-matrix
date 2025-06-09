@@ -13,7 +13,7 @@ last_update: 2025-05-27
 
 ### Operating System Information
 
-- Download Link: https://github.com/scpcom/sophgo-sg200x-debian/releases/tag/v1.6.23
+- Download Link: https://github.com/scpcom/sophgo-sg200x-debian/releases/tag/v1.6.31
 - Reference Installation Document: https://github.com/scpcom/sophgo-sg200x-debian
 
 ### Hardware Information
@@ -54,7 +54,7 @@ Debian GNU/Linux 13 duos-a0d7 ttyS0
 
 duos-a0d7 login: debian
 Password:
-Linux duos-a0d7 5.10.235-20250430-6+duos #1 PREEMPT Sun May 25 13:36:19 UTC 2025 riscv64
+Linux duos-a0d7 5.10.235-20250531-6+duos #1 PREEMPT Sun Jun 8 03:30:58 UTC 2025 riscv64
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -74,7 +74,7 @@ HOME_URL="https://www.debian.org/"
 SUPPORT_URL="https://www.debian.org/support"
 BUG_REPORT_URL="https://bugs.debian.org/"
 debian@duos-a0d7:~$ uname -a
-Linux duos-a0d7 5.10.235-20250430-6+duos #1 PREEMPT Sun May 25 13:36:19 UTC 2025 riscv64 GNU/Linux
+Linux duos-a0d7 5.10.235-20250531-6+duos #1 PREEMPT Sun Jun 8 03:30:58 UTC 2025 riscv64 GNU/Linux
 debian@duos-a0d7:~$ cat /proc/cpuinfo
 processor       : 0
 hart            : 0
@@ -86,7 +86,7 @@ debian@duos-a0d7:~$
 
 Screen recording:
 
-[![asciicast](https://asciinema.org/a/CbWcHhsyLKZ8jjPRV4WRYOILd.svg)](https://asciinema.org/a/CbWcHhsyLKZ8jjPRV4WRYOILd)
+[![asciicast](https://asciinema.org/a/f2rfBYYV0SuSLxsjZSJ8VHNLV.svg)](https://asciinema.org/a/f2rfBYYV0SuSLxsjZSJ8VHNLV)
 
 ## Test Criteria
 
