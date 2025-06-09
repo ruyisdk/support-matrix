@@ -73,7 +73,7 @@ arches:
   - sifive-u74: rv64imafdc
   - sifive-s7: rv64imafdc
   - sifive-p500: rv64gcb
-  - spacemit-x60: rv64imafdvc_sscofpmf_sstc_svinval_svnapot_svpbmt_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zfhmin_zkt_zba_zbb_zbc_zbs_zbkc_zvfh_zvfhmin_zvkt_zvl32b_zvl64b_zvl128b_zvl256b_spacemitvmadot_spacemitvmadotn
+  - spacemit-x60: rv64imafdcv_sscofpmf_sstc_svinval_svnapot_svpbmt_zicbom_zicbop_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zfhmin_zkt_zba_zbb_zbc_zbs_zbkc_zvfh_zvfhmin_zvkt_zvl32b_zvl64b_zvl128b_zvl256b_spacemitvmadot_spacemitvmadotn
   - ky-x1: rv64imafdcv_zicbom_zicboz_zicntr_zicond_zicsr_zifencei_zihintpause_zihpm_zfh_zfhmin_zba_zbb_zbc_zbs_zkt_zvfh_zvfhmin_zvkt_sscofpmf_sstc_svinval_svnapot_svpbmt
   - wch-v3a: rv32imac
   - wch-v3b: rv32imcb
