@@ -13,8 +13,8 @@ last_update: 2025-04-08
 
 ### System Information
 
-- System Version: RevyOS 20250323
-- Download Link: [Nginx Directory](https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250323/)
+- System Version: RevyOS 20250526
+- Download Link: [Nginx Directory](https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250526/)
 - Reference Installation Document: [Visit here](https://revyos.github.io/docs/)
 
 ### Hardware Information
@@ -30,11 +30,11 @@ last_update: 2025-04-08
 Download the image, use `zstd` to decompress the image:
 
 ```shell
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250323/u-boot-with-spl-lpi4a-16g-main.bin
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250323/boot-lpi4a-20250323_154524.ext4.zst
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250323/root-lpi4a-20250323_154524.ext4.zst
-zstd -d boot-lpi4a-20250323_195216.ext4.zst
-zstd -d root-lpi4a-20250323_195216.ext4.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250526/u-boot-with-spl-lpi4a-16g-main.bin
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250526/boot-lpi4a-20250526_182059.ext4.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250526/root-lpi4a-20250526_182059.ext4.zst
+zstd -d boot-lpi4a-20250526_182059.ext4.zst
+zstd -d root-lpi4a-20250526_182059.ext4.zst
 ```
 
 ### Flash to onboard eMMC via `fastboot`
@@ -50,8 +50,8 @@ sudo fastboot devices
 sudo fastboot flash ram u-boot-with-spl-lpi4a-16g-main.bin
 sudo fastboot reboot
 sudo fastboot flash uboot u-boot-with-spl-lpi4a-16g-main.bin
-sudo fastboot flash boot boot-lpi4a-20250323_154524.ext4.zst
-sudo fastboot flash root root-lpi4a-20250323_154524.ext4.zst
+sudo fastboot flash boot boot-lpi4a-20250526_182059.ext4.zst
+sudo fastboot flash root root-lpi4a-20250526_182059.ext4.zst
 ```
 
 ### Logging into the System
@@ -73,7 +73,7 @@ The system boots up successfully and login via the serial console is successful.
 
 Screen recording (from flashing image to logging into system):
 
-[![asciicast](https://asciinema.org/a/WTxl99ekFwDbqjZoZo5vjduJy.svg)](https://asciinema.org/a/WTxl99ekFwDbqjZoZo5vjduJy)
+[![asciicast](https://asciinema.org/a/NI5udds5YK0GqgpJ0XVKop5tV.svg)](https://asciinema.org/a/NI5udds5YK0GqgpJ0XVKop5tV)
 
 ![A](A.jpg)
 
@@ -86,9 +86,9 @@ Screen recording (from flashing image to logging into system):
                |___/                    
                    -- Presented by ISCAS
 
-  Debian GNU/Linux trixie/sid (kernel 6.6.82-th1520)
+  Debian GNU/Linux trixie/sid (kernel 6.6.92-th1520)
 
-Linux revyos-lpi4a 6.6.82-th1520 #2025.03.11.14.28+9292e379e SMP Tue Mar 11 14:48:30 UTC 2025 riscv64
+Linux revyos-lpi4a 6.6.92-th1520 #2025.05.26.14.02+c9a17b235 SMP Mon May 26 14:22:33 UTC 2025 riscv64
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -96,10 +96,6 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-[   32.015381] audit: type=1130 audit(1725224610.200:101): pid=1 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='unit=user-runtime-dir@1000 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
-[   32.081580] audit: type=1101 audit(1725224610.268:102): pid=2022 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:accounting grantors=pam_permit acct="debian" exe="/usr/lib/systemd/systemd-executor" hostname=? addr=? terminal=? res=success'
-[   32.104664] audit: type=1103 audit(1725224610.268:103): pid=2022 uid=0 auid=4294967295 ses=4294967295 subj=unconfined msg='op=PAM:setcred grantors=pam_permit acct="debian" exe="/usr/lib/systemd/systemd-executor" hostname=? addr=? terminal=? res=success'
-debian@revyos-lpi4a:~$
 ```
 
 ## Test Criteria
