@@ -1,11 +1,11 @@
 ---
-product: LicheePi 4A (16GB RAM)
+product: Lichee Pi 4A
 cpu: TH1520
 cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
-ram: 16G
+ram: 8G/16G
 
 vendor: sipeed-lpi4a
-board_variant: [16g]
+board_variant: [8g, 16g]
 cpu_arch: [
     xuantie-c910,
     xuantie-c906,
@@ -47,16 +47,21 @@ cpu_arch: [
 - NixOS 23.05
     - Download Link：https://github.com/ryan4yin/nixos-licheepi4a/releases
     - Reference Installation Document：https://github.com/ryan4yin/nixos-licheepi4a?tab=readme-ov-file
-
+- OpenWRT
+    - Download Link：https://github.com/chainsx/openwrt-th1520/releases
+    - Reference Installation Document：https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide_ch.md
+- Slackware
+    - Download link: http://dl.slarm64.org/slackware/images/lichee_pi_4a/
+    - Reference Installation Document: http://dl.slarm64.org/slackware/images/lichee_pi_4a/README.TXT
 ### Hardware Information
 
-- Lichee Pi 4A 16GB RAM + 128GB eMMC
+- Lichee Pi 4A 8/16GB RAM + 32/128GB eMMC
 
 
 ## Test Results
 
 | Software Category               | Software Package | Test Results (Test Report)              |
-| ------------------------------- | ---------------- | --------------------------------------- |
+|---------------------------------|------------------|-----------------------------------------|
 | openEuler LTS Image Boot        | N/A              | [Success][oERV]                         |
 | openEuler Innovation Image Boot | N/A              | [Success][openEuler]                    |
 | RevyOS Desktop Image Boot       | N/A              | [Success][RevyOS] (Official Support)    |
@@ -66,7 +71,9 @@ cpu_arch: [
 | Arch Linux Desktop Image Boot   | N/A              | [Success][ArchLinux]                    |
 | Deepin Desktop Image Boot       | N/A              | [Success][Deepin]                       |
 | NixOS Image Boot                | N/A              | [Success][NixOS]                        |
-| irradium Image Boot             | N/A              | [CFT][irradium]                        |
+| irradium Image Boot             | N/A              | [CFT][irradium]                         |
+| Slackware Image Boot            | N/A              | [Success][Slackware]                    |
+| OpenWRT Image Boot              | N/A              | [Success][OpenWRT]                      |
 
 [oERV]: ./openEuler/README.md
 [openEuler]: ./openEuler/Innovation.md
@@ -78,3 +85,5 @@ cpu_arch: [
 [Deepin]: ./Deepin/README.md
 [NixOS]: ./NixOS/README.md
 [irradium]: ./irradium/README.md
+[Slackware]: ./Slackware/README.md
+[OpenWRT]: ./OpenWRT/README.md
