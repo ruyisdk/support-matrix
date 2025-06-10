@@ -31,7 +31,12 @@
 - NixOS 23.05
     - 下载链接：https://github.com/ryan4yin/nixos-licheepi4a/releases
     - 参考安装文档：https://github.com/ryan4yin/nixos-licheepi4a?tab=readme-ov-file
-    
+- Slackware
+    - 下载链接：http://dl.slarm64.org/slackware/images/lichee_pi_4a/
+    - 参考安装文档：http://dl.slarm64.org/slackware/images/lichee_pi_4a/README.TXT
+- OpenWRT
+    - 下载链接：https://github.com/chainsx/openwrt-th1520/releases
+    - 参考安装文档：https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide_ch.md
 ### 硬件开发板信息
 
 - Lichee Pi 4A 16GB RAM + 128GB eMMC
@@ -49,7 +54,9 @@
 | Arch Linux 桌面镜像启动        | N/A      | [成功][ArchLinux]             |
 | Deepin 桌面镜像启动            | N/A      | [成功][Deepin]                |
 | NixOS 镜像启动                 | N/A      | [成功][NixOS]                 |
-| irradium 镜像启动              | N/A      | [CFT][irradium]              |
+| irradium 镜像启动              | N/A      | [CFT][irradium]               |
+| Slackware 镜像启动             | N/A      | [成功][Slackware]             |
+| OpenWRT 镜像启动               | N/A      | [成功][OpenWRT]               |
 
 [oERV]: ./openEuler/README_zh.md
 [openEuler]: ./openEuler/Innovation_zh.md
@@ -61,3 +68,5 @@
 [Deepin]: ./Deepin/README_zh.md
 [NixOS]: ./NixOS/README_zh.md
 [irradium]: ./irradium/README_zh.md
+[Slackware]: ./Slackware/README_zh.md
+[OpenWRT]: ./OpenWRT/README_zh.md
