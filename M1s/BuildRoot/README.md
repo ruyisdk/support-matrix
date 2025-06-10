@@ -3,8 +3,8 @@ sys: buildroot
 sys_ver: null
 sys_var: null
 
-status: basic
-last_update: 2024-06-21
+status: cfh
+last_update: 2025-06-12
 ---
 
 # BuildRoot Sipeed M1s Dock Test Report
@@ -13,10 +13,11 @@ last_update: 2024-06-21
 
 ### Operating System Information
 
-- System Version: 20240401
-- Download Link: https://github.com/sipeed/LicheeRV-Nano-Build/releases
-    - Precompiled Image: https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/m1sdock_linux_20221116.zip
-- Reference Installation Document: https://github.com/sipeed/LicheeRV-Nano-Build/releases
+- BuildRoot
+  - Download Link: https://github.com/openbouffalo/buildroot_bouffalo/releases/download/v1.0.1/bl808-linux-pine64_ox64_full_defconfig.tar.gz
+    - SDK: https://github.com/bouffalolab/bl_mcu_sdk
+    - Flashing Tool: https://openbouffalo.org/static-assets/bldevcube/BouffaloLabDevCube-v1.8.3.zip
+  - Reference Installation Document: https://wiki.postmarketos.org/wiki/Sipeed_M1s_DOCK_(sipeed-m1sdock)
 
 ### Hardware Information
 
@@ -27,32 +28,49 @@ last_update: 2024-06-21
 
 ### Get the Image
 
-Download and extract the precompiled image:
+Download and extract the precompiled image and firmware:
 ```bash
-wget https://dl.sipeed.com/fileList/MAIX/M1s/M1s_Dock/7_Firmware/m1sdock_linux_20221116.zip
-unzip m1sdock_linux_20221116.zip
-
+wget https://github.com/openbouffalo/buildroot_bouffalo/releases/download/v1.0.1/bl808-linux-pine64_ox64_full_defconfig.tar.gz
+tar -xvf bl808-linux-pine64_ox64_full_defconfig.tar.gz
+cd bl808-linux-pine64_ox64_full_defconfig/firmware
+xz -d sdcard-pine64_ox64_full_defconfig.img.xz
 ```
 
-### Flashing the Program via Serial Port
+### Flashing the Firmware via UART
 
-Connect the computer and the **UART-labeled** C port using the Type-C cable.
+Power on the board through the Type-C UART port while holding down the BOOT button.
 
-Download the flashing tool and use the appropriate version for your system to flash the firmware.
+Download the flashing tool and use the appropriate version for your system to flash the firmware. Make sure your BLDevCube binary is of version 1.8.3 **or lower**.
 
-After powering on, press and hold the boot button, then press the reset button, and finally release the boot button.
+Enter the MCU tab and set the parameters as shown below:
 
-Enter the MCU page, and flash m0 and d0 (files named low_load_bl808_m0/d0@0x58000000.bin) at address 0x58000000, with group set to group0. Ensure to select the high serial port!
+M0: Group: group0, Image Addr: `0x58000000`, and choose `m0_lowload_bl808_m0.bin` from the above archive
 
-![mcu](./mcu.png)
+D0: Group: group0, Image Addr: `0x58100000`, and choose `d0_lowload_bl808_d0.bin` from the above archive
 
-Next, enter the IOT page, check the Single Download Options box, fill in the start address with the address in the filename, and flash the whole_img file.
+Choose the UART port with a **larger** device number among the two ports labeled with "(PROG)" correspondingly and set the "Uart Rate" to 2000000.
 
-![iot](./iot.png)
+Click "Create & Download" and wait for it to complete.
 
-### Connecting via Serial Port
+![](mcu.png)
 
-Connect the Type-C cable to the **UART-labeled** C port.
+Next, Enter the IOT tab and set the parameters as shown below:
+
+Enable "Single Download", set address to `0x800000` and choose `bl808-firmware.bin` from the above archive.
+
+Click "Create & Download" and wait for it to complete.
+
+![](iot.png)
+
+### Flash the image to SD card
+
+```shell
+dd if=sdcard-pine64_ox64_full_defconfig.img of=/dev/your/device status=progress
+```
+
+### Boot
+
+Insert the SD card, and power on the board through the Type-C UART port.
 
 ## Expected Results
 
@@ -60,46 +78,113 @@ The system should start normally with serial output.
 
 ## Actual Results
 
-The system started successfully, with serial output.
+U-Boot is unable to detect the SD card used for booting.
 
 ### Boot Information
 
 ```log
---------Start Local Services--------
-********************************
-********************************
+[I][]
+[I][]   ____                   ____               __  __      _
+[I][]  / __ \                 |  _ \             / _|/ _|    | |
+[I][] | |  | |_ __   ___ _ __ | |_) | ___  _   _| |_| |_ __ _| | ___
+[I][] | |  | | '_ \ / _ \ '_ \|  _ < / _ \| | | |  _|  _/ _` | |/ _ \
+[I][] | |__| | |_) |  __/ | | | |_) | (_) | |_| | | | || (_| | | (_) |
+[I][]  \____/| .__/ \___|_| |_|____/ \___/ \__,_|_| |_| \__,_|_|\___/
+[I][]        | |
+[I][]        |_|
+[I][]
+[I][] Powered by BouffaloLab
+[I][] Build:11:52:04,Mar  6 2023
+[I][] Copyright (c) 2023 OpenBouffalo team
+[I][] Copyright (c) 2022 Bouffalolab team
+[I][] dynamic memory init success,heap s[I][LowLoad] D0 start...
+[I][LowLoad] low_load start...
+[I][LowLoad] Header at 0x5d5ff000
+[I][LowLoad] Section dtb(1) - Start 0x5d5ff100, Size 14314
+[I][LowLoad] Copying DTB to 0x51ff8000...0x51ffb7ea
+[I][LowLoad] Done!
+[I][LowLoad] Section OpenSBI(2) - Start 0x5d60f100, Size 109864
+[I][LowLoad] Copying OpenSBI to 0x3ef80000...0x3ef9ad28
+[I][LowLoad] Done!
+[I][LowLoad] Section Kernel(3) - Start 0x5d62f100, Size 315597
+[I][LowLoad] Uncompressing Kernel to 0x50000000...
+[I][LowLoad] Done!
+[I][LowLoad] CRC: 00000000
+[I][LowLoad] load time: 61310 us
+[I][LowLoad] Setting PMP
+[I][LowLoad] Booting OpenSBI at 0x000000003ef80000 with DTB at 0x51ff8000
 
-Linux login: root
-login[40]: root login on 'ttyS0'
-Processing /etc/profile ... 
-Set search library path in /etc/profile
-Set user path in /etc/profile
-id: unknown ID 0
-Welcome to Linux
-[@Linux root]#uname -a
-Linux Linux 5.10.4 #4 SMP Fri Nov 4 18:23:30 CST 2022 riscv64 GNU/Linux
-[@Linux root]#cat /proc/cpuinfo 
-processor       : 0
-hart            : 0
-isa             : rv64imafdcvsu
-mmu             : sv39
-model name      : T-HEAD C910
-freq            : 1.2GHz
-icache          : 64kB
-dcache          : 64kB
-l2cache         : 2MB
-tlb             : 1024 4-ways
-cache line      : 64Bytes
-address sizes   : 40 bits physical, 39 bits virtual
-vector version  : 0.7.1
+OpenSBI v1.2
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
 
-[@Linux root]#
+Platform Name             : Pine64 Ox64 (D0)
+Platform Features         : medeleg
+Platform HART Count       : 1
+Platform IPI Device       : aclint-mswi
+Platform Timer Device     : aclint-mtimer @ 1000000Hz
+Platform Console Device   : bflb_uart
+Platform HSM Device       : ---
+Platform PMU Device       : ---
+Platform Reboot Device    : ---
+Platform Shutdown Device  : ---
+Firmware Base             : 0x3ef80000
+Firmware Size             : 200 KB
+Runtime SBI Version       : 1.0
+
+Domain0 Name              : root
+Domain0 Boot HART         : 0
+Domain0 HARTs             : 0*
+Domain0 Region00          : 0x00000000e4008000-0x00000000e400bfff (I)
+Domain0 Region01          : 0x00000000e4000000-0x00000000e4007fff (I)
+Domain0 Region02          : 0x000000003ef80000-0x000000003efbffff ()
+Domain0 Region03          : 0x0000000000000000-0xffffffffffffffff (R,W,X)
+Domain0 Next Address      : 0x0000000050000000
+Domain0 Next Arg1         : 0x0000000051ff8000
+Domain0 Next Mode         : S-mode
+Domain0 SysReset          : yes
+
+Boot HART ID              : 0
+Boot HART Domain          : root
+Boot HART Priv Version    : v1.11
+Boot HART Base ISA        : rv64imafdcvx
+Boot HART ISA Extensions  : time
+Boot HART PMP Count       : 8
+Boot HART PMP Granularity : 4096
+Boot HART PMP Address Bits: 38
+Boot HART MHPM Count      : 8
+Boot HART MIDELEG         : 0x0000000000000222
+Boot HART MEDELEG         : 0x000000000000b109
+
+
+U-Boot 2023.04-rc2 (Mar 06 2023 - 11:48:40 +0000)
+
+DRAM:  64 MiB
+Core:  36 devices, 17 uclasses, devicetree: board
+MMC:   mmc@20060000: 0
+Loading Environment from FAT... Card did not respond to voltage select! : -110
+** Bad device specification mmc 0 **
+Loading Environment from nowhere... OK
+In:    serial@30002000
+Out:   serial@30002000
+Err:   serial@30002000
+Net:
+Warning: emac@20070000 (eth0) using random MAC address - da:20:0d:12:b7:5e
+eth0: emac@20070000
+Hit any key to stop autoboot:  0
+Card did not respond to voltage select! : -110
+Card did not respond to voltage select! : -110
+Card did not respond to voltage select! : -110
+BOOTP broadcast 1
+BOOTP broadcast 2
 
 ```
-
-Screen recording (entering the system):
-
-[![asciicast](https://asciinema.org/a/R5eNAV87OGvoJfoNcpVCtMKRO.svg)](https://asciinema.org/a/R5eNAV87OGvoJfoNcpVCtMKRO)
 
 ## Test Criteria
 
