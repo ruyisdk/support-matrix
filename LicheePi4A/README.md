@@ -25,8 +25,8 @@ cpu_arch: [
 - openEuler RISC-V 25.03
     - Download Link: https://repo.openeuler.org/openEuler-25.03/embedded_img/riscv64/lpi4a/
     - Reference Installation Document: https://docs.openeuler.org/en/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
-- RevyOS 20240123
-    - Download link: [RevyOS Images]([Nginx Directory](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250123/))
+- RevyOS 20250526
+    - Download link: [RevyOS Images](https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250526/)
     - Reference Installation Document: [RevyOS Documentation](https://docs.revyos.dev/)
 - openKylin 2.0 SP1
     - Download link: https://www.openkylin.top/downloads/index-cn.html

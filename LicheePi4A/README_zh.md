@@ -10,8 +10,8 @@
 - openEuler 25.03
     - 下载链接：https://repo.openeuler.org/openEuler-25.03/embedded_img/riscv64/lpi4a/
     - 参考安装文档：https://docs.openeuler.org/zh/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
-- RevyOS 20250323
-    - 下载链接：https://mirror.iscas.ac.cn/revyos/extra/images/lpi4a/20250323/
+- RevyOS 20250526
+    - 下载链接：https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250526/
     - 参考安装文档：https://docs.revyos.dev/
 - openKylin v2.0-SP1
     - 下载链接：https://www.openkylin.top/downloads/index-cn.html
