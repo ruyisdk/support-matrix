@@ -55,7 +55,7 @@ cpu_arch: [
     - Reference Installation Document: http://dl.slarm64.org/slackware/images/lichee_pi_4a/README.TXT
 ### Hardware Information
 
-- Lichee Pi 4A 16GB RAM + 128GB eMMC
+- Lichee Pi 4A 8/16GB RAM + 32/128GB eMMC
 
 
 ## Test Results

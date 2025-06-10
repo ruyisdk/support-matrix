@@ -39,7 +39,7 @@
     - 参考安装文档：https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide_ch.md
 ### 硬件开发板信息
 
-- Lichee Pi 4A 16GB RAM + 128GB eMMC
+- Lichee Pi 4A 8/16GB RAM + 32/128GB eMMC
 
 ## 测试结果
 
