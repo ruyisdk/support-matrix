@@ -7,6 +7,7 @@
 - 下载链接：https://github.com/openbouffalo/buildroot_bouffalo/releases/download/v1.0.1/bl808-linux-pine64_ox64_full_defconfig.tar.gz
   - SDK：https://github.com/bouffalolab/bl_mcu_sdk
   - 烧录工具：https://openbouffalo.org/static-assets/bldevcube/BouffaloLabDevCube-v1.8.3.zip
+  - pmbootstrap: https://wiki.postmarketos.org/wiki/Pmbootstrap
 - 参考安装文档：https://wiki.postmarketos.org/wiki/Sipeed_M1s_DOCK_(sipeed-m1sdock)
 
 ### 硬件信息
@@ -23,7 +24,6 @@
 wget https://github.com/openbouffalo/buildroot_bouffalo/releases/download/v1.0.1/bl808-linux-pine64_ox64_full_defconfig.tar.gz
 tar -xvf bl808-linux-pine64_ox64_full_defconfig.tar.gz
 cd bl808-linux-pine64_ox64_full_defconfig/firmware
-xz -d sdcard-pine64_ox64_full_defconfig.img.xz
 ```
 
 ### 串口方式刷写程序
@@ -48,11 +48,20 @@ M0: Group: group0, Image Addr: `0x58100000`, 选择 `d0_lowload_bl808_d0.bin`
 
 ![iot](./iot.png)
 
-### 将镜像烧写至 SD 卡
+### 通过 `pmbootstrap` 安装系统至 SD 卡
 
-```shell
-dd if=sdcard-pine64_ox64_full_defconfig.img of=/dev/your/device status=progress
+安装 `pmbootstrap` ，如在 Arch Linux 下：
+```bash
+pacman -S pmbootstrap
 ```
+
+使用 `pmbootstrap` 安装和刷写镜像：
+```bash
+pmbootstrap init
+pmbootstrap install --sdcard=/dev/sdX
+pmbootstrap shutdown
+```
+安装过程中同时会进行系统配置，请选择 target vendor 为 `sipeed`, target board 为 `m1sdock`。
 
 ### 启动系统
 

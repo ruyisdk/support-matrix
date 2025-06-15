@@ -1,72 +1,96 @@
-# BuildRoot Sipeed M1s Dock 测试报告
+---
+sys: buildroot
+sys_ver: null
+sys_var: null
 
-## 测试环境
+status: cfh
+last_update: 2025-06-12
+---
 
-### 操作系统信息
+# BuildRoot Sipeed M1s Dock Test Report
 
-- 下载链接：https://github.com/openbouffalo/buildroot_bouffalo/releases/download/v1.0.1/bl808-linux-pine64_ox64_full_defconfig.tar.gz
-  - SDK：https://github.com/bouffalolab/bl_mcu_sdk
-  - 烧录工具：https://openbouffalo.org/static-assets/bldevcube/BouffaloLabDevCube-v1.8.3.zip
-- 参考安装文档：https://wiki.postmarketos.org/wiki/Sipeed_M1s_DOCK_(sipeed-m1sdock)
+## Test Environment
 
-### 硬件信息
+### Operating System Information
+
+- BuildRoot
+  - Download Link: https://github.com/openbouffalo/buildroot_bouffalo/releases/download/v1.0.1/bl808-linux-pine64_ox64_full_defconfig.tar.gz
+    - SDK: https://github.com/bouffalolab/bl_mcu_sdk
+    - Flashing Tool: https://openbouffalo.org/static-assets/bldevcube/BouffaloLabDevCube-v1.8.3.zip
+    - pmbootstrap: https://wiki.postmarketos.org/wiki/Pmbootstrap
+  - Reference Installation Document: https://wiki.postmarketos.org/wiki/Sipeed_M1s_DOCK_(sipeed-m1sdock)
+
+### Hardware Information
 
 - Sipeed M1s Dock
-- Type-C 线一根
+- A Type-C cable
 
-## 安装步骤
+## Installation Steps
 
-### 获取镜像
+### Get the Image
 
-下载并解压预编译镜像和固件：
+Download and extract the precompiled image and firmware:
 ```bash
 wget https://github.com/openbouffalo/buildroot_bouffalo/releases/download/v1.0.1/bl808-linux-pine64_ox64_full_defconfig.tar.gz
 tar -xvf bl808-linux-pine64_ox64_full_defconfig.tar.gz
 cd bl808-linux-pine64_ox64_full_defconfig/firmware
-xz -d sdcard-pine64_ox64_full_defconfig.img.xz
 ```
 
-### 串口方式刷写程序
+### Flashing the Firmware via UART
 
-按住 BOOT 按钮的同时通过 Type-C UART 接口上电。
+Power on the board through the Type-C UART port while holding down the BOOT button.
 
-下载烧录工具后使用对应系统的工具烧录。请确保所使用的 BLDevCube 版本为 1.8.3 **或更早**。
+Download the flashing tool and use the appropriate version for your system to flash the firmware. Make sure your BLDevCube binary is of version 1.8.3 **or lower**.
 
-进入 MCU 页面，按如下所示设置参数：
+Enter the MCU tab and set the parameters as shown below:
 
-M0: Group: group0, Image Addr: `0x58000000`, 选择 `m0_lowload_bl808_m0.bin`
+M0: Group: group0, Image Addr: `0x58000000`, and choose `m0_lowload_bl808_m0.bin` from the above archive
 
-M0: Group: group0, Image Addr: `0x58100000`, 选择 `d0_lowload_bl808_d0.bin`
+D0: Group: group0, Image Addr: `0x58100000`, and choose `d0_lowload_bl808_d0.bin` from the above archive
 
-选择两个写有 "(PROG)" 后缀的 UART 接口中设备号**较大的**，波特率 2000000。点击 "Create & Download" 进行刷写。
+Choose the UART port with a **larger** device number among the two ports labeled with "(PROG)" correspondingly and set the "Uart Rate" to 2000000.
 
-![mcu](./mcu.png)
+Click "Create & Download" and wait for it to complete.
 
-然后进入 IOT 页面，按如下所示设置参数：
+![](mcu.png)
 
-选中 "Single Download", 地址 `0x800000`， 选择 `bl808-firmware.bin`。点击 "Create & Download" 进行刷写。
+Next, Enter the IOT tab and set the parameters as shown below:
 
-![iot](./iot.png)
+Enable "Single Download", set address to `0x800000` and choose `bl808-firmware.bin` from the above archive.
 
-### 将镜像烧写至 SD 卡
+Click "Create & Download" and wait for it to complete.
 
-```shell
-dd if=sdcard-pine64_ox64_full_defconfig.img of=/dev/your/device status=progress
+![](iot.png)
+
+### Install the system to SD card via `pmbootstrap`
+
+Get `pmbootstrap`, e.g. under Arch Linux:
+```bash
+pacman -S pmbootstrap
 ```
 
-### 启动系统
+Bootstrap and flash the system via `pmbootstrap`:
+```bash
+pmbootstrap init
+pmbootstrap install --sdcard=/dev/sdX
+pmbootstrap shutdown
+```
 
-插入 SD 卡，通过 Type-C UART 接口上电。
+Various configurations would also be made in the above process. Remember to select the target vendor as `sipeed`, and the target board as `m1sdock`。
 
-## 预期结果
+### Boot
 
-系统正常启动，能够看到串口输出。
+Insert the SD card, and power on the board through the Type-C UART port.
 
-## 实际结果
+## Expected Results
 
-U-Boot 无法识别 SD 卡，无法启动系统。
+The system should start normally with serial output.
 
-### 启动信息
+## Actual Results
+
+U-Boot is unable to detect the SD card used for booting.
+
+### Boot Information
 
 ```log
 [I][]
@@ -170,15 +194,15 @@ Card did not respond to voltage select! : -110
 BOOTP broadcast 1
 BOOTP broadcast 2
 
-
 ```
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功。
+Test successful.
+
