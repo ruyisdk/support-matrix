@@ -1,0 +1,696 @@
+-----------------------------------------
+  _____             _  _____ _____  _  __
+ |  __ \           (_)/ ____|  __ \| |/ /
+ | |__) |   _ _   _ _| (___ | |  | | ' / 
+ |  _  / | | | | | | |\___ \| |  | |  <  
+ | | \ \ |_| | |_| | |____) | |__| | . \ 
+ |_|  \_\__,_|\__, |_|_____/|_____/|_|\_\
+               __/ |                     
+              |___/                      
+                    -- Presented by ISCAS
+-----------------------------------------
+
+U-Boot SPL 2020.01-th1520 (May 10 2025 - 15:27:41 +0300)
+FM[1] lpddr4x dualrank freq=3733 64bit dbi_off=n sdram init
+found ddr boundary <0x400000000>
+ddr initialized, jump to uboot
+image has no header
+
+
+U-Boot 2020.01-th1520 (May 10 2025 - 15:27:41 +0300)
+
+CPU:   rv64imafdcvsu
+Model: T-HEAD c910 light
+DRAM:  16 GiB
+aon wakeup by gpio enabled
+aon wakeup by rtc enabled
+iic id:0 addr_mode:0 speed:2
+C910 CPU FREQ: 750MHz
+MMC:   sdhci@ffe7080000: 0, sd@ffe7090000: 1
+Loading Environment from MMC... OK
+Read payload FIFO is empty
+enable panel dsi_panel0 backlight err : -110
+video bridge fail to set backlight : -110
+splash screen startup cost 93 ms
+In:    serial
+Out:   serial
+Err:   serial
+light_c910_set_gpio_output_high: trying to set gpio output high
+light_c910_set_gpio_output_high: could not find a /config/select-gpio
+light_c910_set_gpio_output_high: trying to set gpio output high
+light_c910_set_gpio_output_high: could not find a /config/fan-gpio
+ethaddr: 48:da:35:60:00:1e
+eth1addr: 48:da:35:60:00:1f
+Net:   ethernet@ffe7070000 (eth0) using MAC address - 48:da:35:60:00:1e
+eth0: ethernet@ffe7070000ethernet@ffe7070000:0 is connected to ethernet@ffe7070000.  Reconnecting to ethernet@ffe7060000
+ethernet@ffe7060000 (eth1) using MAC address - 48:da:35:60:00:1f
+, eth1: ethernet@ffe7060000
+Hit any key to stop autoboot:  0 
+starting USB...
+Bus usb@ffe7040000: Register 2000140 NbrPorts 2
+Starting the controller
+USB XHCI 1.10
+scanning bus usb@ffe7040000 for devices... 1 USB Device(s) found
+       scanning usb for storage devices... 0 Storage Device(s) found
+Booting from SDcard ...
+53192 bytes read in 5 ms (10.1 MiB/s)
+pmic_dev_num:2 offset:60 addr:1099510546492
+regu_num:17 offset:178 addr:1099510546610
+-->pmic_dev_num:2 offset:60
+-->regu_num:17 offset:178
+5281216 bytes read in 228 ms (22.1 MiB/s)
+1736 bytes read in 2 ms (847.7 KiB/s)
+271256 bytes read in 9 ms (28.7 MiB/s)
+** Unrecognized filesystem type **
+ not find hibernate sign
+fixup memory region from [0x000200000 ~ 0x200000000] to [0x000200000 ~ 0x400000000]
+113 bytes read in 2 ms (54.7 KiB/s)
+67138 bytes read in 6 ms (10.7 MiB/s)
+29135360 bytes read in 1221 ms (22.8 MiB/s)
+7634814 bytes read in 322 ms (22.6 MiB/s)
+## Loading init Ramdisk from Legacy Image at 06000000 ...
+   Image Name:   uInitrd
+   Image Type:   RISC-V Linux RAMDisk Image (gzip compressed)
+   Data Size:    7634750 Bytes = 7.3 MiB
+   Load Address: 00000000
+   Entry Point:  00000000
+   Verifying Checksum ... OK
+   Loading Ramdisk to 198b8000, end 19ffff3e ... OK
+   Using Device Tree in place at 0000000003800000, end 0000000003878fff
+
+Starting kernel ...
+
+## fdt has no reset_sample
+
+OpenSBI v1.4
+Build time: 2025-05-10 15:26:56 +0300
+Build compiler: gcc version 12.2.0 (g2ee5e430018)
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+
+core:0 thead_generic_final_init: line:408 enter. cold_boot:1
+fdt addr get 58720256
+Mbox icu_cpu_id: 3
+Platform Name             : Sipeed Lichee Pi 4A
+Platform Features         : medeleg
+Platform HART Count       : 4
+Platform IPI Device       : aclint-mswi
+Platform Timer Device     : aclint-mtimer @ 3000000Hz
+Platform Console Device   : uart8250
+Platform HSM Device       : light-ppu
+Platform PMU Device       : thead,c900-pmu
+Platform Reboot Device    : ---
+Platform Shutdown Device  : ---
+Platform Suspend Device   : th1520-susp
+Platform CPPC Device      : ---
+Firmware Base             : 0x0
+Firmware Size             : 357 KB
+Firmware RW Offset        : 0x40000
+Firmware RW Size          : 101 KB
+Firmware Heap Offset      : 0x4f000
+Firmware Heap Size        : 41 KB (total), 2 KB (reserved), 9 KB (used), 29 KB (free)
+Firmware Scratch Size     : 4096 B (total), 328 B (used), 3768 B (free)
+Runtime SBI Version       : 2.0
+
+Domain0 Name              : root
+Domain0 Boot HART         : 0
+Domain0 HARTs             : 0*,1*,2*,3*
+Domain0 Region00          : 0x000000ffe7014000-0x000000ffe7014fff M: (I,R,W) S/U: (R,W)
+Domain0 Region01          : 0x000000ffdc008000-0x000000ffdc00bfff M: (I,R,W) S/U: ()
+Domain0 Region02          : 0x000000ffdc000000-0x000000ffdc007fff M: (I,R,W) S/U: ()
+Domain0 Region03          : 0x0000000000040000-0x000000000005ffff M: (R,W) S/U: ()
+Domain0 Region04          : 0x0000000000000000-0x000000000003ffff M: (R,X) S/U: ()
+Domain0 Region05          : 0x000000ffd8000000-0x000000ffd8ffffff M: (I,R,W) S/U: (R,W)
+Domain0 Region06          : 0x0000000000000000-0xffffffffffffffff M: () S/U: (R,W,X)
+Domain0 Next Address      : 0x0000000000200000
+Domain0 Next Arg1         : 0x0000000003800000
+Domain0 Next Mode         : S-mode
+Domain0 SysReset          : yes
+Domain0 SysSuspend        : yes
+
+Boot HART ID              : 0
+Boot HART Domain          : root
+Boot HART Priv Version    : v1.11
+Boot HART Base ISA        : rv64imafdcvx
+Boot HART ISA Extensions  : zicntr,zihpm
+Boot HART PMP Count       : 0
+Boot HART PMP Granularity : 0 bits
+Boot HART PMP Address Bits: 0
+Boot HART MHPM Info       : 16 (0x0007fff8)
+Boot HART MIDELEG         : 0x0000000000020222
+Boot HART MEDELEG         : 0x000000000000b109
+[    0.193109] th1520-iopmp iopmp: invalid iopmp tap:-22
+[    0.193178] th1520-iopmp iopmp: invalid iopmp tap:-22
+[    0.626045] xuantie,th1520-mbox-client mbox_910t_client2: Successfully registered
+[    0.928390] spi-nor spi0.0: unrecognized JEDEC id bytes: ff ff ff ff ff ff
+[    1.073615] dw-apb-uart fff7f08000.serial: Failed to create device link (0x180) with 1-0018
+[    1.084452] dw-apb-uart fff7f08000.serial: Failed to create device link (0x180) with 1-0018
+[    1.135651] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    1.144809] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    1.151255] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    1.157705] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    1.164151] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    1.170598] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[    1.177049] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    1.183495] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+[    1.189939] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    1.196385] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    1.202828] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    1.209273] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[    1.215719] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[    1.222163] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[    1.228607] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    1.235054] mmc2: sdhci: Host ctl2: 0x00001008
+[    1.239502] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    1.246645] mmc2: sdhci: ============================================
+[    1.254531] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    1.263683] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    1.270129] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    1.276572] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    1.283019] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    1.289462] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[    1.295906] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    1.302350] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+[    1.308794] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    1.315239] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    1.321683] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    1.328128] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[    1.334573] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[    1.341017] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[    1.347462] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    1.353907] mmc2: sdhci: Host ctl2: 0x00001008
+[    1.358353] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    1.365492] mmc2: sdhci: ============================================
+[    1.373334] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    1.382479] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    1.388924] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    1.395368] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    1.401812] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    1.408257] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[    1.414701] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    1.421145] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+[    1.427588] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    1.434032] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    1.440476] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    1.446920] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[    1.453365] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[    1.459809] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[    1.466253] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    1.472697] mmc2: sdhci: Host ctl2: 0x00001008
+[    1.477144] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    1.484283] mmc2: sdhci: ============================================
+[    1.492114] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    1.501254] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    1.507698] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    1.514144] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    1.520587] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    1.527031] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[    1.533477] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    1.539922] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+[    1.546368] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    1.552811] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    1.559255] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    1.565700] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[    1.572144] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[    1.578588] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[    1.585033] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    1.591477] mmc2: sdhci: Host ctl2: 0x00001008
+[    1.595926] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    1.603066] mmc2: sdhci: ============================================
+Successfully mounted device UUID=32539e08-a5c0-4084-9f32-0932043d95e3
+Loading kernel modules from initramfs image:
+insmod /lib/modules/6.6.90/kernel/drivers/net/tun.ko 
+insmod /lib/modules/6.6.90/kernel/lib/libcrc32c.ko 
+insmod /lib/modules/6.6.90/kernel/lib/raid6/raid6_pq.ko 
+insmod /lib/modules/6.6.90/kernel/crypto/xor.ko 
+insmod /lib/modules/6.6.90/kernel/crypto/blake2b_generic.ko 
+insmod /lib/modules/6.6.90/kernel/fs/btrfs/btrfs.ko 
+[    3.131735] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    3.140910] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    3.147360] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    3.153810] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    3.160259] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    3.166705] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[    3.173150] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    3.179595] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+[    3.186040] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    3.192485] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    3.198932] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    3.205376] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[    3.211820] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[    3.218263] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[    3.224709] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    3.231154] mmc2: sdhci: Host ctl2: 0x00001008
+[    3.235604] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    3.242743] mmc2: sdhci: ============================================
+insmod /lib/modules/6.6.90/kernel/fs/xfs/xfs.ko 
+[    4.763678] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    4.772846] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    4.779295] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    4.785743] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    4.792190] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    4.798636] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[    4.805081] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    4.811524] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+[    4.817970] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    4.824414] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    4.830858] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    4.837308] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[    4.843754] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[    4.850198] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[    4.856645] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    4.863091] mmc2: sdhci: Host ctl2: 0x00001008
+[    4.867538] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    4.874677] mmc2: sdhci: ============================================
+[    4.882549] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    4.891702] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    4.898148] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    4.904595] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    4.911041] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    4.917485] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[    4.923931] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    4.930377] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+[    4.936820] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    4.943265] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    4.949710] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    4.956154] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[    4.962599] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[    4.969043] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[    4.975488] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    4.981933] mmc2: sdhci: Host ctl2: 0x00001008
+[    4.986380] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    4.993519] mmc2: sdhci: ============================================
+[    6.393393] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    6.402544] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    6.408989] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    6.415438] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    6.421880] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    6.428327] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[    6.434770] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    6.441216] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000ef4f
+[    6.447660] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    6.454104] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    6.460549] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    6.466993] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[    6.473439] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[    6.479883] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[    6.486327] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    6.492772] mmc2: sdhci: Host ctl2: 0x00001008
+[    6.497219] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    6.504360] mmc2: sdhci: ============================================
+[    6.512941] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    6.522087] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    6.528531] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    6.534975] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    6.541420] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    6.547866] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[    6.554311] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    6.560755] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000ef4f
+[    6.567200] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    6.573644] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    6.580088] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    6.586534] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[    6.592979] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[    6.599424] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[    6.605869] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    6.612313] mmc2: sdhci: Host ctl2: 0x00001008
+[    6.616760] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    6.623900] mmc2: sdhci: ============================================
+[    6.759633] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    6.768799] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    6.775247] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    6.781692] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    6.788139] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    6.794583] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[    6.801026] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    6.807472] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+[    6.813915] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    6.820360] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    6.826805] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    6.833251] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[    6.839695] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[    6.846140] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[    6.852587] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    6.859030] mmc2: sdhci: Host ctl2: 0x00001008
+[    6.863478] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    6.870617] mmc2: sdhci: ============================================
+[    6.878493] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    6.887636] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    6.894078] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    6.900525] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    6.906968] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    6.913412] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[    6.919857] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    6.926301] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+[    6.932745] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    6.939191] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    6.945636] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    6.952080] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[    6.958524] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[    6.964969] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[    6.971413] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    6.977858] mmc2: sdhci: Host ctl2: 0x00001008
+[    6.982305] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    6.989447] mmc2: sdhci: ============================================
+[    8.409386] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    8.418537] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    8.424984] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    8.431428] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    8.437872] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    8.444316] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[    8.450760] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    8.457207] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000ef4f
+[    8.463652] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    8.470095] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    8.476540] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    8.482984] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[    8.489429] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[    8.495876] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[    8.502319] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    8.508765] mmc2: sdhci: Host ctl2: 0x00001008
+[    8.513212] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    8.520352] mmc2: sdhci: ============================================
+[    8.528228] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    8.537371] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    8.543814] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    8.550259] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    8.556703] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    8.563147] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[    8.569592] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    8.576036] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000ef4f
+[    8.582480] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    8.588925] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    8.595370] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    8.601814] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[    8.608259] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[    8.614703] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[    8.621148] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    8.627592] mmc2: sdhci: Host ctl2: 0x00001008
+[    8.632039] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    8.639179] mmc2: sdhci: ============================================
+[    8.646346] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    8.655493] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    8.661938] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    8.668383] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    8.674829] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    8.681275] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[    8.687719] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    8.694164] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000ef4f
+[    8.700608] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    8.707052] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    8.713507] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    8.719954] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[    8.726398] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[    8.732844] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[    8.739292] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    8.745736] mmc2: sdhci: Host ctl2: 0x00001008
+[    8.750184] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    8.757325] mmc2: sdhci: ============================================
+INIT: version 3.14 booting
+The system is coming up. Please wait.
+[    8.891739] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[    8.900903] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[    8.907350] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[    8.913796] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[    8.920242] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[    8.926687] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[    8.933131] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[    8.939575] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+[    8.946019] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[    8.952466] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[    8.958909] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[    8.965353] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[    8.971797] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[    8.978241] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[    8.984687] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[    8.991130] mmc2: sdhci: Host ctl2: 0x00001008
+[    8.995577] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[    9.002716] mmc2: sdhci: ============================================
+[    9.236894] udevd[194]: specified group 'netdev' unknown
+[   10.527767] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[   10.536941] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[   10.543389] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[   10.549838] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[   10.556287] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[   10.562734] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[   10.569181] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[   10.575626] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+[   10.582072] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[   10.588517] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[   10.594962] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[   10.601409] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[   10.607855] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[   10.614301] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[   10.620748] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[   10.627197] mmc2: sdhci: Host ctl2: 0x00001008
+[   10.631647] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[   10.638789] mmc2: sdhci: ============================================
+[   11.805390] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[   11.814556] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[   11.821006] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[   11.827455] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[   11.833901] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[   11.840346] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[   11.846793] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[   11.853237] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000f80f
+[   11.859682] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[   11.866127] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[   11.872573] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[   11.879016] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[   11.885462] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[   11.891905] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[   11.898350] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[   11.904796] mmc2: sdhci: Host ctl2: 0x00001008
+[   11.909243] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[   11.916383] mmc2: sdhci: ============================================
+[   12.178376] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[   12.187549] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[   12.193999] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[   12.200447] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[   12.206892] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[   12.213335] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[   12.219780] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[   12.226227] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000ef4f
+[   12.232672] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[   12.239117] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[   12.245563] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[   12.252005] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[   12.258453] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[   12.264897] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[   12.271341] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[   12.277789] mmc2: sdhci: Host ctl2: 0x00001008
+[   12.282237] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[   12.289376] mmc2: sdhci: ============================================
+[   12.296673] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[   12.305830] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[   12.312278] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[   12.318724] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[   12.325169] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[   12.331615] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[   12.338058] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[   12.344503] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000ef4f
+[   12.350947] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[   12.357393] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[   12.363836] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[   12.370282] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[   12.376727] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[   12.383170] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[   12.389615] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[   12.396060] mmc2: sdhci: Host ctl2: 0x00001008
+[   12.400508] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[   12.407647] mmc2: sdhci: ============================================
+[   12.543655] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[   12.552810] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[   12.559258] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[   12.565705] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[   12.572150] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[   12.578594] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[   12.585039] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[   12.591485] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+[   12.597930] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[   12.604373] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[   12.610818] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[   12.617264] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[   12.623708] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[   12.630151] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[   12.636595] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[   12.643039] mmc2: sdhci: Host ctl2: 0x00001008
+[   12.647489] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[   12.654628] mmc2: sdhci: ============================================
+[   12.665284] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[   12.674454] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[   12.680904] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[   12.687349] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[   12.693795] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[   12.700240] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[   12.706686] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[   12.713130] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+[   12.719573] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[   12.726019] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[   12.732461] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[   12.738906] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[   12.745350] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[   12.751794] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[   12.758242] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[   12.764686] mmc2: sdhci: Host ctl2: 0x00001008
+[   12.769133] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[   12.776272] mmc2: sdhci: ============================================
+linuxroot: clean, 59515/3807168 files, 992326/15513856 blocks
+boot: recovering journal
+boot: clean, 72/76912 files, 78596/307200 blocks
+
+Hostname: lichee-pi-4a
+hwclock: settimeofday() failed: Invalid argument
+LANG: C.UTF-8
+Font: default
+setfont: ERROR kdfontop.c:212 put_font_kdfontop: Unable to load such font with such kernel version
+Keyboard: us
+Screen Timeout: 15
+[   14.041697] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[   14.050866] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[   14.057314] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[   14.063763] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[   14.070206] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[   14.076654] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[   14.083098] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[   14.089543] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x00004a4f
+[   14.095986] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[   14.102432] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[   14.108877] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[   14.115321] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[   14.121766] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[   14.128211] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[   14.134658] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[   14.141102] mmc2: sdhci: Host ctl2: 0x00001008
+[   14.145547] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[   14.152689] mmc2: sdhci: ============================================
+[   14.291438] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[   14.300606] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[   14.307055] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[   14.313504] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[   14.319948] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[   14.326394] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[   14.332838] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[   14.339283] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000ef4f
+[   14.345728] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[   14.352172] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[   14.358619] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[   14.365062] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[   14.371506] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[   14.377950] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[   14.384396] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[   14.390840] mmc2: sdhci: Host ctl2: 0x00001008
+[   14.395288] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[   14.402427] mmc2: sdhci: ============================================
+[   14.541141] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[   14.550310] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[   14.556760] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[   14.563206] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[   14.569652] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[   14.576096] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[   14.582544] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[   14.588988] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+[   14.595432] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[   14.601878] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[   14.608322] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[   14.614767] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[   14.621210] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[   14.627654] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[   14.634099] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[   14.640545] mmc2: sdhci: Host ctl2: 0x00001008
+[   14.644992] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[   14.652131] mmc2: sdhci: ============================================
+[   14.661431] mmc2: Got command interrupt 0x00000001 even though no command operation was in progress.
+[   14.670598] mmc2: sdhci: ============ SDHCI REGISTER DUMP ===========
+[   14.677046] mmc2: sdhci: Sys addr:  0x00000000 | Version:  0x00000005
+[   14.683493] mmc2: sdhci: Blk size:  0x00000000 | Blk cnt:  0x00000000
+[   14.689939] mmc2: sdhci: Argument:  0x00000000 | Trn mode: 0x00000000
+[   14.696382] mmc2: sdhci: Present:   0x03fa0000 | Host ctl: 0x00000001
+[   14.702828] mmc2: sdhci: Power:     0x0000000f | Blk gap:  0x00000000
+[   14.709271] mmc2: sdhci: Wake-up:   0x00000000 | Clock:    0x0000decf
+[   14.715717] mmc2: sdhci: Timeout:   0x00000000 | Int stat: 0x00000000
+[   14.722160] mmc2: sdhci: Int enab:  0x00ff1003 | Sig enab: 0x00ff1003
+[   14.728606] mmc2: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+[   14.735052] mmc2: sdhci: Caps:      0x3f69c881 | Caps_1:   0x08008177
+[   14.741495] mmc2: sdhci: Cmd:       0x00000502 | Max curr: 0x00191919
+[   14.747939] mmc2: sdhci: Resp[0]:   0x0000100a | Resp[1]:  0x00000000
+[   14.754386] mmc2: sdhci: Resp[2]:   0x00000000 | Resp[3]:  0x00000000
+[   14.760830] mmc2: sdhci: Host ctl2: 0x00001008
+[   14.765280] mmc2: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0000000000000000
+[   14.772421] mmc2: sdhci: ============================================
+INIT: Entering runlevel: 2
+Compiling GSettings XML schema files:
+  /usr/bin/glib-compile-schemas /usr/share/glib-2.0/schemas &
+Starting services: sysklogd lo net sshd crond
+
+
+irradium  (lichee-pi-4a) (ttyS0)
+
+lichee-pi-4a login: root
+Password: 
+Last login: Thu Jan  1 00:00:26 UTC 1970 on ttyS0
+ _                   _  _             
+|_| ___  ___  ___  _| ||_| _ _  _____ 
+| ||  _||  _|| .'|| . || || | ||     |
+|_||_|  |_|  |__,||___||_||___||_|_|_|
+ _  _       _                     _    ___      
+| ||_| ___ | |_  ___  ___    ___ |_|  | | | ___ 
+| || ||  _||   || -_|| -_|  | . || |  |_  || .'|
+|_||_||___||_|_||___||___|  |  _||_|    |_||__,|
+                            |_|                 
+
+# uname -a
+Linux lichee-pi-4a 6.6.90 #1 SMP PREEMPT Sat May 10 16:34:28 EEST 2025 riscv64 GNU/Linux
+# cat /proc/cpuinfo 
+processor       : 0
+hart            : 0
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+
+processor       : 1
+hart            : 1
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+
+processor       : 2
+hart            : 2
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+
+processor       : 3
+hart            : 3
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+
+# cat /proc/version 
+Linux version 6.6.90 (root@firefly-rk3399) (riscv64-unknown-linux-gnu-gcc (g2ee5e430018) 12.2.0, G5
+# cat /etc/os-release
+NAME=irradium
+VERSION="3.8"
+ID=irradium
+PRETTY_NAME="irradium"
+HOME_URL="https://irradium.org/"
+BUG_REPORT_URL="https://irradium.org/bugs/"
+# 
