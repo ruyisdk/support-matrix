@@ -20,7 +20,6 @@ last_update: 2025-04-15
 
 - MangoPi MQ Pro
 - Power Adapter
-- A microSD card
 - A USB to UART Debugger
 
 ## Installation Steps
@@ -55,7 +54,7 @@ make fs.img
 make
 ```
 
-### 通过 FEL 刷写固件
+### Flash the firmware via FEL
 
 Install [xfel](https://github.com/xboot/xfel). e.g. on Arch Linux via AUR: `paru -S xfel`
 

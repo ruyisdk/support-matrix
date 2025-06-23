@@ -11,7 +11,6 @@
 
 - MangoPi MQ Pro
 - 电源适配器
-- microSD 卡一张
 - USB to UART 调试器一个
 
 ## 安装步骤
