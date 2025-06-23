@@ -20,7 +20,10 @@ cpu_arch: [
 ### Operating System Information
 
 - FreeRTOS Demo
-- Source Code: https://github.com/sipeed/M0P_BL618_examples
+  - Source Code: https://github.com/sipeed/M0P_BL618_examples
+- RT-Thread
+    - Source Code Link: https://github.com/RT-Thread/rt-thread
+    - Reference Installation Document: https://github.com/RT-Thread/rt-thread/blob/master/bsp/bouffalo_lab/README.md
 
 ### Hardware Information
 
@@ -29,7 +32,9 @@ cpu_arch: [
 ## Test Results
 
 | Software Category | Software Package | Test Results (Test Report) |
-|-------------------|------------------|----------------------------|
+| ----------------- | ---------------- | -------------------------- |
 | FreeRTOS Demo     | wifi_screen      | [Successful][FreeRTOS]     |
+| RT-Thread         | N/A              | [Successful][RT-Thread]    |
 
 [FreeRTOS]: ./FreeRTOS/README.md
+[RT-Thread]: ./RT-Thread/README.md
