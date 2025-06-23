@@ -49,6 +49,9 @@
     - 参考安装文档：https://cdimage.deepin.com/RISC-V/VisionFive-v2-image/README.txt
 - NetBSD
     - 下载链接：https://nyftp.netbsd.org/pub/NetBSD-daily/HEAD/latest/riscv-riscv64/binary/gzimg/
+- FreeBSD 14.3
+    - 源码链接：https://github.com/robn/freebsd-vf2
+    - 参考安装文档：https://github.com/robn/freebsd-vf2
 - Alpine
     - 下载链接：https://dev.alpinelinux.org/~mps/riscv64/visionfive-v2-mmc.img.xz
     - 参考安装文档：https://arvanta.net/alpine/alpine-on-visionfive/
@@ -95,6 +98,7 @@
 | NuttX 镜像构建及启动     | N/A      | [成功][NuttX]                          |
 | Deepin 镜像启动          | N/A      | [成功][Deepin]                         |
 | NetBSD 镜像启动          | N/A      | [成功][NetBSD]                         |
+| FreeBSD 镜像启动         | N/A      | [CFH][FreeBSD]                         |
 | Alpine 镜像启动          | N/A      | [成功][Alpine]                         |
 | DietPi 镜像启动          | N/A      | [成功][DietPi]                         |
 | NixOS 镜像构建及启动     | N/A      | [成功][NixOS]                          |
@@ -120,6 +124,7 @@
 [NuttX]: ./NuttX/README_zh.md
 [Deepin]: ./Deepin/README_zh.md
 [NetBSD]: ./NetBSD/README_zh.md
+[FreeBSD]: ./FreeBSD/README_zh.md
 [Alpine]: ./Alpine/README_zh.md
 [DietPi]: ./DietPi/README_zh.md
 [NixOS]: ./NixOS/README_zh.md

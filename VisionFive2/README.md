@@ -67,6 +67,9 @@ cpu_arch: [
     - Reference Installation Document: https://cdimage.deepin.com/RISC-V/VisionFive-v2-image/README.txt
 - NetBSD
     - Download Link: https://nyftp.netbsd.org/pub/NetBSD-daily/HEAD/latest/riscv-riscv64/binary/gzimg/
+- FreeBSD 14.3
+    - Source code Link: https://github.com/robn/freebsd-vf2
+    - Reference Installation Document: https://github.com/robn/freebsd-vf2
 - Alpine
     - Download Link: https://dev.alpinelinux.org/~mps/riscv64/visionfive-v2-mmc.img.xz
     - Reference INstallation Document: https://arvanta.net/alpine/alpine-on-visionfive/
@@ -115,6 +118,7 @@ cpu_arch: [
 | NuttX Image           | N/A              | [Successful][NuttX]                               |
 | Deepin Image          | N/A              | [Successful][Deepin]                              |
 | NetBSD Image          | N/A              | [Successful][NetBSD]                              |
+| FreeBSD Image         | N/A              | [CFH][FreeBSD]                                    |
 | Alpine Image          | N/A              | [Successful][Alpine]                              |
 | DietPi Image          | N/A              | [Successful][DietPi]                              |
 | NixOS Image           | N/A              | [Successful][NixOS]                               |
@@ -140,6 +144,7 @@ cpu_arch: [
 [NuttX]: ./NuttX/README.md
 [Deepin]: ./Deepin/README.md
 [NetBSD]: ./NetBSD/README.md
+[FreeBSD]: ./FreeBSD/README.md
 [Alpine]: ./Alpine/README.md
 [DietPi]: ./DietPi/README.md
 [NixOS]: ./NixOS/README.md

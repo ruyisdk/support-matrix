@@ -1,7 +1,3 @@
-- sys: freebsd
-  sys_ver: null
-  sys_var: null
-  status: wip
 - sys: android
   sys_ver: null
   sys_var: null
