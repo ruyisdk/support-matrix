@@ -25,7 +25,7 @@ cpu_arch: [
 - Zephyr
     - Source Code: https://github.com/zephyrproject-rtos/zephyr/tree/main
       - Flashing tool: https://github.com/cnlohr/ch32fun/tree/master/minichlink
-        - Precompiled binary: https://github.com/AlexanderMandera/minichlink-binaries/
+      - Precompiled binary of the flashing tool: https://github.com/AlexanderMandera/minichlink-binaries/
     - Reference Installation Document: https://docs.zephyrproject.org/latest/boards/wch/ch32v003evt/doc/index.html
 
 ### Hardware Information
