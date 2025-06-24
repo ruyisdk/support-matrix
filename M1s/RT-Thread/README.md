@@ -94,11 +94,6 @@ python merge_rtsmart.py
 
 ### Flashing Image
 
-Use `dd` to flash the image to the SD card:
-```bash
-sudo dd if=dongshannezhastu-sdcard.img of=/dev/your/device bs=1M status=progress
-```
-
 ### Logging into the System
 
 Login to the system via the serial port.
