@@ -54,6 +54,9 @@
 - Deepin 23 beige 20221209
   - 下载链接：https://github.com/deepin-community/deepin-riscv-board/releases/download/v20221209/deepin-d1-20221208175445.img.zst.0
   - 参考安装文档：https://github.com/deepin-community/deepin-riscv-board/
+- RT-Thread
+  - 源码链接：https://github.com/bigmagic123/d1-nezha-rtthread
+  - 参考安装文档：https://github.com/bigmagic123/d1-nezha-rtthread
 - xv6
   - 源码链接：https://github.com/michaelengel/xv6-d1
   - 参考安装文档：https://github.com/michaelengel/xv6-d1
@@ -82,7 +85,8 @@
 | NixOS 镜像启动            | N/A      | [成功][NixOS]        |
 | irradium 镜像启动         | N/A      | [成功][irradium]     |
 | Deepin 镜像启动           | N/A      | [成功][Deepin]       |
-| xv6 镜像启动              | N/A      | [成功][xv6]          |
+| RT-Thread 编译和启动      | N/A      | [成功][RT-Thread]    |
+| xv6 编译和启动            | N/A      | [成功][xv6]          |
 
 [Tina]: ./TinaLinux/README_zh.md
 [OpenWrt]: ./OpenWrt/README_zh.md
@@ -100,4 +104,5 @@
 [NixOS]: ./NixOS/README_zh.md
 [irradium]: ./irradium/README_zh.md
 [Deepin]: ./Deepin/README_zh.md
+[RT-Thread]: ./RT-Thread/README_zh.md
 [xv6]: ./xv6/README_zh.md

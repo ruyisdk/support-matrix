@@ -48,6 +48,9 @@ cpu_arch: [
 - Deepin 23 beige 20221209
   - Download Link: https://github.com/deepin-community/deepin-riscv-board/releases/download/v20221209/deepin-d1-20221208175445.img.zst.0
   - Reference Installation Document: https://github.com/deepin-community/deepin-riscv-board/
+- RT-Thread
+  - Source code link: https://github.com/bigmagic123/d1-nezha-rtthread
+  - Reference Installation Document: https://github.com/bigmagic123/d1-nezha-rtthread
 - xv6
   - Source code link: https://github.com/michaelengel/xv6-d1
   - Reference Installation Document: https://github.com/michaelengel/xv6-d1
@@ -70,6 +73,7 @@ cpu_arch: [
 | Fedora Image Compile & Boot   | N/A          | [Failed][Fedora]           |
 | Gentoo Image Compile & Boot   | N/A          | [Success][Gentoo]          |
 | Deepin Image Boot             | N/A          | [Success][Deepin]          |
+| RT-Thread Compile & Boot      | N/A          | [Success][RT-Thread]       |
 | xv6 Compile & Boot            | N/A          | [Success][xv6]             |
 
 [Tina]: ./TinaLinux/README.md
@@ -82,4 +86,5 @@ cpu_arch: [
 [Fedora]: ./Fedora/README.md
 [Gentoo]: ./Gentoo/README.md
 [Deepin]: ./Deepin/README.md
+[RT-Thread]: ./RT-Thread/README.md
 [xv6]: ./xv6/README.md
