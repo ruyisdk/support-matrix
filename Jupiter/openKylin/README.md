@@ -1,6 +1,6 @@
 ---
 sys: openkylin
-sys_ver: "2.0"
+sys_ver: "2.0-SP1"
 sys_var: null
 
 status: cfh
