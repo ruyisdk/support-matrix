@@ -42,7 +42,7 @@ cpu_arch: [
     - Download link: https://mirror.iscas.ac.cn/archriscv/images/
     - Reference Installation Document: https://wiki.archlinux.org/title/General_recommendations
 - Deepin 25-beige-preview 20250122
-    - Download Link: https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
+    - Download Link: https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250122/riscv64/deepin-25-beige-preview-riscv64-th1520-20250122-113934.tar.xz
     - Reference Installation Document: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
 - NixOS 23.05
     - Download Link：https://github.com/ryan4yin/nixos-licheepi4a/releases

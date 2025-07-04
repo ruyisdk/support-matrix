@@ -5,7 +5,7 @@
 ### 系统信息
 
 - 系统版本：Deepin 25-beige-preview 20250122
-- 下载链接：https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
+- 下载链接：https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250122/riscv64/deepin-25-beige-preview-riscv64-th1520-20250122-113934.tar.xz
 - 参考安装文档：https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
 
 ### 硬件信息
@@ -36,7 +36,7 @@ tar -xvf deepin-25-beige-preview-riscv64-th1520-20250122-113934.tar.xz
 sudo fastboot flash ram u-boot-with-spl.bin
 sudo fastboot reboot
 sudo fastboot flash uboot u-boot-with-spl.bin
-sudo fastboot flash boot deepin-th1520-riscv64-25-desktop-installer.boot.ext4 
+sudo fastboot flash boot deepin-th1520-riscv64-25-desktop-installer.boot.ext4
 ```
 
 ### 刷写镜像
@@ -44,7 +44,7 @@ sudo fastboot flash boot deepin-th1520-riscv64-25-desktop-installer.boot.ext4
 将 root 分区刷入 eMMC 中。
 
 ```bash
-sudo fastboot flash root deepin-th1520-riscv64-25-desktop-installer.root.ext4 
+sudo fastboot flash root deepin-th1520-riscv64-25-desktop-installer.root.ext4
 ```
 
 ### 登录系统
@@ -89,7 +89,7 @@ HOME_URL="https://www.deepin.org/"
 BUG_REPORT_URL="https://bbs.deepin.org"
 VERSION_ID="25"
 VERSION="25"
-root@plct-PC:~# cat /proc/cpuinfo 
+root@plct-PC:~# cat /proc/cpuinfo
 processor       : 0
 hart            : 0
 isa             : rv64imafdcvsu
@@ -138,7 +138,7 @@ cpu-tlb         : 1024 4-ways
 cpu-cacheline   : 64Bytes
 cpu-vector      : 0.7.1
 
-root@plct-PC:~# 
+root@plct-PC:~#
 ```
 
 ![](./image.png)
