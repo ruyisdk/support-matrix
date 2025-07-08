@@ -1,10 +1,10 @@
 ---
 sys: revyos
-sys_ver: "20250420"
+sys_ver: "20250526"
 sys_var: null
 
 status: good
-last_update: 2025-05-13
+last_update: 2025-07-08
 ---
 
 # RevyOS Meles Version Test Report
@@ -13,8 +13,8 @@ last_update: 2025-05-13
 
 ### Operating System Information
 
-- System Version: RevyOS Meles 20250420
-- Download Link: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250420/
+- System Version: RevyOS Meles 20250526
+- Download Link: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250526/
     - iw-single-line binary: https://mirror.iscas.ac.cn/revyos/extra/images/meles/20240720/iw-single-line.bin
 - Reference Installation Document: https://milkv.io/zh/docs/meles/getting-started/boot
 
@@ -71,7 +71,7 @@ Download the firmware:
 
 ```shell
 wget https://mirror.iscas.ac.cn/revyos/extra/images/meles/20240720/iw-single-line.bin
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250323/u-boot-with-spl-meles.bin
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250526/u-boot-with-spl-meles.bin
 ```
 
 Note: choose the correct version depending on your board's RAM:
@@ -107,7 +107,7 @@ This section is only required if you want to use SD card as the boot device.
 You shall download the sd card image.
 
 ```shell
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250420/sdcard-meles-20250420_084525.img.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250526/sdcard-meles-20250526_182249.img.zst
 ```
 
 Then extract and flash the image to your SD card.
@@ -137,13 +137,13 @@ Next, execute the following commands to download, extract and flash the images t
 > If `fastboot` doesn't pick up the board or you encounter flashing issues, check the device connection and try running `fastboot` as a privileged user (i.e. `sudo`). Doing so is usually required under Linux since the default USB VID/PID is not in the default udev rules.
 
 ```shell
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250323/boot-meles-20250420_084525.ext4.zst
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250323/root-meles-20250420_084525.ext4.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250526/boot-meles-20250526_182249.ext4.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250526/root-meles-20250526_182249.ext4.zst
 zstd -T0 -dv *.ext4.zst
 sudo fastboot flash ram u-boot-with-spl-meles.bin
 sudo fastboot reboot
-sudo fastboot flash boot boot-meles-20250420_084525.ext4
-sudo fastboot flash root root-meles-20250420_084525.ext4
+sudo fastboot flash boot boot-meles-20250526_182249.ext4
+sudo fastboot flash root root-meles-20250526_182249.ext4
 ```
 
 After the flashing process, reset the board and you're good to go.
@@ -154,18 +154,6 @@ Logging into the system via serial port or graphical interface.
 
 Default Username: `debian`
 Default Password: `debian`
-
-## Common Issues
-
-### Keyring Expired before image 20250420
-
-Note: if you use image before 20250420, `revyos-keyring` is expired, you'll need to the following to use `apt`
-
-```shell
-sudo sh -c 'gpg --keyserver keyserver.ubuntu.com --recv-keys 2FB3A9E77911527E && \
-            gpg --export 2FB3A9E77911527E > /etc/apt/trusted.gpg.d/revyos-keyring.gpg'
-sudo apt update; sudo apt upgrade -y
-```
 
 ## Expected Results
 
@@ -179,50 +167,9 @@ The actual results matches the expected results.
 
 ### Boot Log
 
-[![asciicast](https://asciinema.org/a/eQdlxABqmDudoXqXvKQxxN0E2.svg)](https://asciinema.org/a/eQdlxABqmDudoXqXvKQxxN0E2)
+[![asciicast](https://asciinema.org/a/lFwTHk9jN5hQQ0ZQbxynDq43y.svg)](https://asciinema.org/a/lFwTHk9jN5hQQ0ZQbxynDq43y)
 
-![](image/1.png)
-
-![](image/2.png)
-
-```log
-Debian GNU/Linux trixie/sid revyos-meles ttyS0
-
-revyos-meles login: debian
-Password: 
-
-The programs included with the Debian GNU/Linux system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-permitted by applicable law.
-debian@revyos-meles:~$ uname -a
-Linux revyos-meles 6.6.82-th1520 #2025.03.11.14.28+9292e379e SMP Tue Mar 11 14:48:30 UTC 2025 riscv64 GNU/Linux
-debian@revyos-meles:~$ cat /etc/os-release 
-PRETTY_NAME="Debian GNU/Linux trixie/sid"
-NAME="Debian GNU/Linux"
-VERSION_CODENAME=trixie
-ID=debian
-HOME_URL="https://www.debian.org/"
-SUPPORT_URL="https://www.debian.org/support"
-BUG_REPORT_URL="https://bugs.debian.org/"
-debian@revyos-meles:~$ cat /etc/revyos-release 
-BUILD_ID=20250420_084525
-BUILD_DATE=20250420
-BOARD_NAME=meles
-RELEASE_ID=20250420
-COMMIT_ID=6f20979cd755b75345a67f5ce91a0232a46cb200
-RUNNER_ID=14557676768
-debian@revyos-meles:~$ lscpu
-Architecture:          riscv64
-  Byte Order:          Little Endian
-CPU(s):                4
-  On-line CPU(s) list: 0-3
-NUMA:                  
-  NUMA node(s):        1
-  NUMA node0 CPU(s):   0-3
-```
+![](image/20250708-183540.png)
 
 ## Test Criteria
 
