@@ -27,6 +27,9 @@ cpu_arch: [
 - Debian
   - Download Link: https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.7/licheervnano-e_sd.img.lz4
   - Reference Installation Document: https://github.com/scpcom/sophgo-sg200x-debian
+- Ubuntu
+  - Download Link: https://github.com/Z841973620/licheervnano-ubuntu/releases/tag/jammy
+  - Reference Installation Document: https://github.com/Z841973620/licheervnano-ubuntu
 - Alpine Linux 3.20.3 riscv64
   - Download Link:
     - Alpine minirootfs: [https://alpinelinux.org/downloads/](https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz)
@@ -48,11 +51,13 @@ cpu_arch: [
 | BuildRoot Image   | N/A          | [Basic][BuildRoot]                                  |
 | FreeRTOS Startup  | N/A          | [Basic][FreeRTOS]                                   |
 | Debian Image      | N/A          | [Basic][Debian]                                     |
+| Ubuntu Image      | N/A          | [Basic][Ubuntu]                                     |
 | Fedora Image      | N/A          | [Basic][Fedora]                                     |
 | Alpine Linux Boot | N/A          | [Basic][Alpine] (requires building rootfs manually) |
 
 [BuildRoot]: ./BuildRoot/README.md
 [FreeRTOS]: ./FreeRTOS/README.md
+[Ubuntu]: ./Ubuntu/README.md
 [Debian]: ./Debian/README.md
 [Alpine]: ./Alpine/README.md
 [Fedora]: ./Fedora/README.md

@@ -11,6 +11,9 @@
 - Debian
   - 下载链接：https://github.com/scpcom/sophgo-sg200x-debian/releases/download/v1.6.7/licheervnano-e_sd.img.lz4
   - 参考安装文档：https://github.com/scpcom/sophgo-sg200x-debian
+- Ubuntu
+  - 下载链接：https://github.com/Z841973620/licheervnano-ubuntu/releases/tag/jammy
+  - 参考安装文档：https://github.com/Z841973620/licheervnano-ubuntu
 - Alpine Linux 3.20.3 riscv64
   - 下载链接：
     - Alpine minirootfs: [https://alpinelinux.org/downloads/](https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz)
@@ -32,11 +35,13 @@
 | BuildRoot 镜像启动 | N/A      | [Basic][BuildRoot]                   |
 | FreeRTOS 启动      | N/A      | [Basic][FreeRTOS]                    |
 | Debian 镜像启动    | N/A      | [Basic][Debian]                      |
+| Ubuntu 镜像启动    | N/A      | [Basic][Ubuntu]                      |
 | Alpine Linux 启动  | N/A      | [Basic][Alpine]（需手工构建 rootfs） |
 | Fedora 镜像启动    | N/A      | [Basic][Fedora]                      |
 
 [BuildRoot]: ./BuildRoot/README_zh.md
 [FreeRTOS]: ./FreeRTOS/README_zh.md
 [Debian]: ./Debian/README_zh.md
+[Ubuntu]: ./Ubuntu/README_zh.md
 [Alpine]: ./Alpine/README_zh.md
 [Fedora]: ./Fedora/README_zh.md
