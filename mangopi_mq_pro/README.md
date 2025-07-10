@@ -93,7 +93,7 @@ cpu_arch: [
 | FreeBSD Image Boot              | N/A          | [Success][FreeBSD]        |
 | openSUSE Image Boot             | N/A          | [Success][openSUSE]       |
 | Ubuntu Image Boot               | N/A          | [Success][Ubuntu]         |
-| NetBSD Image Boot               | N/A          | [CFT][NetBSD]             |
+| NetBSD Image Boot               | N/A          | [CFH][NetBSD]             |
 | Slackware Image Boot            | N/A          | [Success][Slackware]      |
 | postmarketOS Bootstrap & Boot   | N/A          | [Success][pmOS]           |
 | Gentoo Image Boot               | N/A          | [Success][Gentoo]         |

@@ -3,8 +3,8 @@ sys: netbsd
 sys_ver: null
 sys_var: null
 
-status: cft
-last_update: 2024-10-08
+status: cfh
+last_update: 2025-07-10
 ---
 
 # NetBSD MangoPi MQ Pro Test Report
@@ -45,14 +45,9 @@ The system boots up normally and allows login through the onboard serial port.
 
 ## Actual Results
 
-CFT
+No output from the serial port. U-Boot is not loaded.
 
 ### Boot Log
-
-Screen recording (From flashing image to login):
-
-```log
-```
 
 ## Test Criteria
 
@@ -62,5 +57,5 @@ Failed: The actual result does not match the expected result.
 
 ## Test Conclusion
 
-CFT
+Test failed.
 

@@ -78,7 +78,7 @@
 | FreeBSD 镜像编译和启动    | N/A      | [成功][FreeBSD]      |
 | openSUSE 镜像启动         | N/A      | [成功][openSUSE]     |
 | Ubuntu 镜像启动           | N/A      | [成功][Ubuntu]       |
-| NetBSD 镜像启动           | N/A      | [CFT][NetBSD]        |
+| NetBSD 镜像启动           | N/A      | [CFH][NetBSD]        |
 | Slackware 镜像启动        | N/A      | [成功][Slackware]    |
 | postmarketOS 编译和启动   | N/A      | [成功][pmOS]         |
 | Gentoo 镜像启动           | N/A      | [成功][Gentoo]       |

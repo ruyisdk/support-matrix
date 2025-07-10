@@ -36,14 +36,9 @@ sudo dd if=riscv64.img of=/dev/<your-device> bs=1M status=progress
 
 ## 实际结果
 
-CFT
+串口无任何输出，未进入 U-Boot.
 
 ### 启动信息
-
-屏幕录像（从刷写镜像到登录系统）：
-
-```log
-```
 
 ## 测试判定标准
 
@@ -53,4 +48,4 @@ CFT
 
 ## 测试结论
 
-CFT
+测试失败。
