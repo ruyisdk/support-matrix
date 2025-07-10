@@ -1,5 +1,5 @@
 ---
-sys: buildroot
+sys: pmos
 sys_ver: null
 sys_var: null
 
@@ -7,7 +7,7 @@ status: cfh
 last_update: 2025-06-12
 ---
 
-# BuildRoot Sipeed M1s Dock Test Report
+# postmarketOS Sipeed M1s Dock Test Report
 
 ## Test Environment
 

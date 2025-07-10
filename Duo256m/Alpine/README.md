@@ -3,7 +3,7 @@ sys: alpine
 sys_ver: null
 sys_var: null
 
-status: cfh
+status: basic
 last_update: 2024-11-05
 ---
 
@@ -14,14 +14,14 @@ last_update: 2024-11-05
 ### Operating System Information
 
 - System Version: 3.20.3/edge riscv64
-- Download Link: 
+- Download Link:
   - https://drive.google.com/file/d/1zhhB6AdgvjjuzBWjY6TchdX5b0uNWzP-/view
   > Note: This image is provided by community developers and is not an official image.
 
   (Alternatively):
   - Alpine minirootfs: [https://alpinelinux.org/downloads/](https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/riscv64/alpine-minirootfs-3.20.3-riscv64.tar.gz)
   - Latest Duo 256M Debian image (for the kernel and its modules): [https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/](https://github.com/Fishwaldo/sophgo-sg200x-debian/releases/download/v1.4.0/duo256_sd.img.lz4)
-- Reference Installation Document: 
+- Reference Installation Document:
   - [Alpine Wiki (Installation)](https://wiki.alpinelinux.org/wiki/Installation)
   - [Alpine Wiki (How to make a cross architecture chroot)](https://wiki.alpinelinux.org/wiki/How_to_make_a_cross_architecture_chroot)
   - https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/#AlpineLinux_Disk_Image
@@ -89,7 +89,7 @@ sudo apk add -p . --initdb -U --arch riscv64 --allow-untrusted alpine-base
 
     Remove the `x` in `root:x:0:0:root:/root:/bin/sh`.
 
-    (Alternatively, edit `/etc/shadow` and remove the `*` in `root:*::0:::::`). 
+    (Alternatively, edit `/etc/shadow` and remove the `*` in `root:*::0:::::`).
 
 #### Flash Debian image (to install the kernel and its modules)
 
@@ -123,7 +123,7 @@ Default username: `root`
 Default password: none
 
 ##### Optional post-installation setups
-Setup the password and hostname with `passwd` and `hostname` after login. 
+Setup the password and hostname with `passwd` and `hostname` after login.
 
 Setup the system time with `date -s`, then install `cronyd`:
 ```bash
@@ -178,7 +178,7 @@ milkv-duo:~# [   21.712522] bm-dwmac 4070000.ethernet eth0: Link is Up - 100Mbps
 
 milkv-duo:~# uname -a
 Linux milkv-duo 5.10.4-tag- #1 PREEMPT Sun Dec 31 12:38:36 UTC 2023 riscv64 Linux
-milkv-duo:~# 
+milkv-duo:~#
 ```
 
 #### Method B example
@@ -407,7 +407,7 @@ Starting kernel ...
 [    1.291448] usb 1-1: new high-speed USB device number 2 using dwc2
 [    1.298011] Waiting for root device /dev/mmcblk0p2...
 [    1.332481] mmc0: new high speed SDHC card at address aaaa
-[    1.338962] mmcblk0: mmc0:aaaa SD32G 29.7 GiB 
+[    1.338962] mmcblk0: mmc0:aaaa SD32G 29.7 GiB
 [    1.346733]  mmcblk0: p1 p2
 [    1.436207] random: fast init done
 [    1.459028] EXT4-fs (mmcblk0p2): recovery complete
@@ -465,7 +465,7 @@ Welcome to Alpine Linux 3.20
 Kernel 5.10.4-20240527-2+ on an riscv64 (/dev/ttyS0)
 
 duo256-alpine login: root
-Password: 
+Password:
 Welcome to Alpine!
 
 The Alpine Wiki contains a large amount of how-to guides and general
@@ -479,7 +479,7 @@ You may change this message by editing /etc/motd.
 login[684]: root login on 'ttyS0'
 duo256-alpine:~# uname -a
 Linux duo256-alpine 5.10.4-20240527-2+ #1 Sat Jun 1 14:15:29 UTC 2024 riscv64 Linux
-duo256-alpine:~# 
+duo256-alpine:~#
 
 ```
 

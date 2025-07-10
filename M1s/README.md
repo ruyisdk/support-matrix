@@ -54,5 +54,5 @@ cpu_arch: [
 
 [BuildRoot]: ./BuildRoot/README.md
 [RT-Thread]: ./RT-Thread/README.md
-[pmOS]: ./pmOS/README.md
+[pmOS]: ./postmarketOS/README.md
 [FreeRTOS]: ./FreeRTOS/README.md

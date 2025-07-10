@@ -1,4 +1,4 @@
-# BuildRoot Sipeed M1s Dock 测试报告
+# postmarketOS Sipeed M1s Dock 测试报告
 
 ## 测试环境
 
