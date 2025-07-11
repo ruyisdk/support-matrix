@@ -55,7 +55,7 @@
 | Deepin 桌面镜像启动            | N/A      | [成功][Deepin]                |
 | NixOS 镜像启动                 | N/A      | [成功][NixOS]                 |
 | irradium 镜像启动              | N/A      | [CFT][irradium]               |
-| Slackware 镜像启动             | N/A      | [成功][Slackware]             |
+| Slackware 桌面镜像启动         | N/A      | [成功][Slackware]             |
 | OpenWRT 镜像启动               | N/A      | [成功][OpenWRT]               |
 
 [oERV]: ./openEuler/README_zh.md
