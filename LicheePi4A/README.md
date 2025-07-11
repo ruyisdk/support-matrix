@@ -72,7 +72,7 @@ cpu_arch: [
 | Deepin Desktop Image Boot       | N/A              | [Success][Deepin]                       |
 | NixOS Image Boot                | N/A              | [Success][NixOS]                        |
 | irradium Image Boot             | N/A              | [CFT][irradium]                         |
-| Slackware Image Boot            | N/A              | [Success][Slackware]                    |
+| Slackware Desktop Image Boot    | N/A              | [Success][Slackware]                    |
 | OpenWRT Image Boot              | N/A              | [Success][OpenWRT]                      |
 
 [oERV]: ./openEuler/README.md
