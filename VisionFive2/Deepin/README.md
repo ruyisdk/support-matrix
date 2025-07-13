@@ -44,7 +44,7 @@ If you see something like:
 Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
 ```
 
-A fix in the boot file is needed. 
+A fix in the boot file is needed.
 
 Run `sudo blkid` on your machine, you shall see something like:
 ```log
@@ -64,15 +64,15 @@ Umount and reboot on the board, now you should boot up normally.
 
 StarFive VisionFive 2 offers multiple boot modes, configurable via onboard DIP switches before powering on. The board itself also has silk-screen labels.
 
-To boot the original Debian image, select the 1-bit QSPI Nor Flash mode (i.e., `RGPIO_0 = 0`, `RGPIO_1 = 0`). Note that this mode may require updating the firmware in the Flash beforehand. If the boot is unsuccessful, please refer to the official documentation for firmware upgrade details: [Updating SPL and U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
+To boot the image, select the 1-bit QSPI Nor Flash mode (i.e., `RGPIO_0 = 0`, `RGPIO_1 = 0`). Note that this mode may require updating the firmware in the Flash beforehand. If the boot is unsuccessful, please refer to the official documentation for firmware upgrade details: [Updating SPL and U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
 
 If not updating the firmware, choose the microSD card boot mode (i.e., `RGPIO_0 = 1`, `RGPIO_1 = 0`).
 
 > Note: There is a slight chance that the system may fail to boot in this mode. If boot failure occurs, the serial output might resemble the following:
 >
 >```log
->dwmci_s: Response Timeout.                                                                                            
->dwmci_s: Response Timeout.                                                                                            
+>dwmci_s: Response Timeout.
+>dwmci_s: Response Timeout.
 >BOOT fail,Error is 0xffffffff
 >```
 >
@@ -114,8 +114,8 @@ Welcome to Deepin 23 GNU/Linux
 root@deepin-riscv64-visionfive2:~# uname -a
 Linux deepin-riscv64-visionfive2 6.6.20-visionfive2-66y #1 SMP Tue May 28 03:46:53 UTC 2024 riscv64 GNU/Linux
 root@deepin-riscv64-visionfive2:~# cat /etc/os
-os-release  os-version  ostree/     
-root@deepin-riscv64-visionfive2:~# cat /etc/os-release 
+os-release  os-version  ostree/
+root@deepin-riscv64-visionfive2:~# cat /etc/os-release
 PRETTY_NAME="Deepin 23"
 NAME="Deepin"
 VERSION_ID="23"
