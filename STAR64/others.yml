@@ -1,7 +1,3 @@
-- sys: archlinux
-  sys_ver: null
-  sys_var: null
-  status: cft
 - sys: debian
   sys_ver: null
   sys_var: null
@@ -27,10 +23,6 @@
   sys_var: null
   status: cft
 - sys: openwrt
-  sys_ver: null
-  sys_var: null
-  status: cft
-- sys: deepin
   sys_ver: null
   sys_var: null
   status: cft
