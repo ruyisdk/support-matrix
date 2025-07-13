@@ -19,11 +19,22 @@ last_update: 2025-05-27
 
 - Development Board: Milk-V Megrez
 - USB A to C / USB C to C Cable
-- SD Card
+- One of the following storage device:
+  - MicroSD Card
+  - SATA M.2 SSD
+  - SATA3 hard drive + 7-pin SATA connector + 15-pin SATA power connector
 
 ## Installation Steps
 
-### Flashing Image
+Figure 1: Position of each interface
+
+![Megrez View](megrez-view.png)
+
+Figure 2: SATA SEL Switch
+
+![Megrez SATA SEL](megrez-sata-sel.png)
+
+### Flashing Image to the SD Card
 
 First, partition your SD Card into `boot` and `root`. Then flash the corresponding image into the partition:
 
@@ -32,9 +43,19 @@ sudo dd if=deepin-eic7700-riscv64-25-desktop-installer.boot.ext4 of=/dev/sdd1 st
 sudo dd if=deepin-eic7700-riscv64-25-desktop-installer.root.ext4 of=/dev/sdd2 status=progress
 ```
 
+Finally, Insert the SD card into the card slot shown with No.1 of figure 1.
+
+### Flashing Image to the SATA M.2 SSD
+
+Follow the same procedure with Flashing Image to the SD Card to flash the image into your SATA M.2 SSD. Insert the SATA M.2 SSD into the SATA M.2 interface shown with No.2 of figure 1. Finally, switch the SATA SEL to the downside shown in figure 2.
+
+### Flasing Image to the SATA3 Hard Drive
+
+Follow the same procedure with Flashing Image to the SD Card to flash the image into your SATA3 hard drive. Connect the 7-pin SATA interface with the SATA3 interface shown with No.3 of figure 1. Connect the 15-pin SATA power connector individually. Finally, switch the SATA SEL to the upside shown in figure 2.
+
 ### Initialize the System
 
-If you've connected a display, you can complete the deepin Installation guide
+Power on the machine. If you've connected a display, you can complete the deepin Installation guide
 
 If you don't have a GUI interface, you can login via UART:
 

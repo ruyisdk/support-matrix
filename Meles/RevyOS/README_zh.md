@@ -4,8 +4,8 @@
 
 ### 操作系统信息
 
-- 系统版本：RevyOS Meles 20250323
-- 下载链接：https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250420/
+- 系统版本：RevyOS Meles 20250526
+- 下载链接：https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250526/
     - iw-single-line 烧录工具：https://mirror.iscas.ac.cn/revyos/extra/images/meles/20240720/iw-single-line.bin
 - 参考安装文档：https://milkv.io/zh/docs/meles/getting-started/boot
 
@@ -60,7 +60,7 @@ cd meles/bin
 
 ```shell
 wget https://mirror.iscas.ac.cn/revyos/extra/images/meles/20240720/iw-single-line.bin
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250323/u-boot-with-spl-meles.bin
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250526/u-boot-with-spl-meles.bin
 ```
 
 注意根据开发板内存大小选择正确的 `u-boot-with-spl` 固件：
@@ -96,7 +96,7 @@ sudo ./cct download -u /dev/ttyUSB0 -d qspi0 -f ./u-boot-with-spl-meles.bin -v c
 你应当下载 SD 卡镜像。
 
 ```shell
-wget https://mirror.iscas.ac.cn/revyos/extra/images/meles/20250323/sdcard-meles-20250420_084525.img.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250526/sdcard-meles-20250526_182249.img.zst
 ```
 
 然后解压并刷写镜像至 SD 卡。
@@ -124,16 +124,14 @@ Bus 001 Device 045: ID 2345:7654 T-HEAD USB download gadget
 > 通常在 Linux 下是需要使用 `sudo` 的，原因是 USB VID/PID 不在默认的 udev 规则内。
 
 ```shell
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250323/boot-meles-20250420_084525.ext4.zst
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250323/root-meles-20250420_084525.ext4.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250526/boot-meles-20250526_182249.ext4.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/meles/20250526/root-meles-20250526_182249.ext4.zst
 zstd -T0 -dv *.ext4.zst
 sudo fastboot flash ram u-boot-with-spl-meles.bin
 sudo fastboot reboot
-sudo fastboot flash boot boot-meles-20250420_084525.ext4
-sudo fastboot flash root root-meles-20250420_084525.ext4
+sudo fastboot flash boot boot-meles-20250526_182249.ext4
+sudo fastboot flash root root-meles-20250526_182249.ext4
 ```
-
-
 
 ### 登录系统
 
@@ -141,20 +139,6 @@ sudo fastboot flash root root-meles-20250420_084525.ext4
 
 默认用户名：`debian`
 默认密码：`debian`
-
-## 常见问题
-
-### 20250420 前的系统 keyring 过期
-
-刷写完成后，重启开发板即可。
-
-提示：20250420前版本附带的 `revyos-keyring` 已过期，你需要进行如下操作才能使用 `apt`：
-
-```shell
-sudo h -c 'gpg --keyserver keyserver.ubuntu.com --recv-keys 2FB3A9E77911527E && \
-            gpg --export 2FB3A9E77911527E > /etc/apt/trusted.gpg.d/revyos-keyring.gpg'
-sudo apt update; sudo apt upgrade -y
-```
 
 ## 预期结果
 
@@ -166,50 +150,9 @@ sudo apt update; sudo apt upgrade -y
 
 ### 启动信息
 
-[![asciicast](https://asciinema.org/a/eQdlxABqmDudoXqXvKQxxN0E2.svg)](https://asciinema.org/a/eQdlxABqmDudoXqXvKQxxN0E2)
+[![asciicast](https://asciinema.org/a/lFwTHk9jN5hQQ0ZQbxynDq43y.svg)](https://asciinema.org/a/lFwTHk9jN5hQQ0ZQbxynDq43y)
 
-![](image/1.png)
-
-![](image/2.png)
-
-```log
-Debian GNU/Linux trixie/sid revyos-meles ttyS0
-
-revyos-meles login: debian
-Password: 
-
-The programs included with the Debian GNU/Linux system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-permitted by applicable law.
-debian@revyos-meles:~$ uname -a
-Linux revyos-meles 6.6.82-th1520 #2025.03.11.14.28+9292e379e SMP Tue Mar 11 14:48:30 UTC 2025 riscv64 GNU/Linux
-debian@revyos-meles:~$ cat /etc/os-release 
-PRETTY_NAME="Debian GNU/Linux trixie/sid"
-NAME="Debian GNU/Linux"
-VERSION_CODENAME=trixie
-ID=debian
-HOME_URL="https://www.debian.org/"
-SUPPORT_URL="https://www.debian.org/support"
-BUG_REPORT_URL="https://bugs.debian.org/"
-debian@revyos-meles:~$ cat /etc/revyos-release 
-BUILD_ID=20250420_084525
-BUILD_DATE=20250420
-BOARD_NAME=meles
-RELEASE_ID=20250420
-COMMIT_ID=6f20979cd755b75345a67f5ce91a0232a46cb200
-RUNNER_ID=14557676768
-debian@revyos-meles:~$ lscpu
-Architecture:          riscv64
-  Byte Order:          Little Endian
-CPU(s):                4
-  On-line CPU(s) list: 0-3
-NUMA:                  
-  NUMA node(s):        1
-  NUMA node0 CPU(s):   0-3
-```
+![](image/20250708-183540.png)
 
 ## 测试判定标准
 

@@ -14,7 +14,7 @@ last_update: 2025-01-24
 ### System Information
 
 - System Version: Deepin 25-beige-preview 20250122
-- Download Link: https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
+- Download Link: https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250122/riscv64/deepin-25-beige-preview-riscv64-th1520-20250122-113934.tar.xz
 - Reference Installation Document: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
 
 ### Hardware Information
@@ -45,7 +45,7 @@ tar -xvf deepin-25-beige-preview-riscv64-th1520-20250122-113934.tar.xz
 sudo fastboot flash ram u-boot-with-spl.bin
 sudo fastboot reboot
 sudo fastboot flash uboot u-boot-with-spl.bin
-sudo fastboot flash boot deepin-th1520-riscv64-25-desktop-installer.boot.ext4 
+sudo fastboot flash boot deepin-th1520-riscv64-25-desktop-installer.boot.ext4
 ```
 
 ### Flashing the Image
@@ -53,7 +53,7 @@ sudo fastboot flash boot deepin-th1520-riscv64-25-desktop-installer.boot.ext4
 Flash the root partition into the eMMC.
 
 ```bash
-sudo fastboot flash root deepin-th1520-riscv64-25-desktop-installer.root.ext4 
+sudo fastboot flash root deepin-th1520-riscv64-25-desktop-installer.root.ext4
 ```
 
 ### Logging into the System
@@ -98,7 +98,7 @@ HOME_URL="https://www.deepin.org/"
 BUG_REPORT_URL="https://bbs.deepin.org"
 VERSION_ID="25"
 VERSION="25"
-root@plct-PC:~# cat /proc/cpuinfo 
+root@plct-PC:~# cat /proc/cpuinfo
 processor       : 0
 hart            : 0
 isa             : rv64imafdcvsu

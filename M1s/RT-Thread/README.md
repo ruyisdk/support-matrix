@@ -26,7 +26,7 @@ last_update: 2025-06-24
 
 ## Installation Steps
 
-### Compiling the Firmware
+### Compiling the Firmwarehh
 
 Clone repo:
 ```bash

@@ -10,11 +10,22 @@
 
 - 开发板：Milk-V Megrez
 - USB A to C / USB C to C 线缆
-- SD 卡
+- 以下存储设备之一：
+  - MicroSD 卡
+  - SATA M.2 SSD 硬盘
+  - SATA3 硬盘 + SATA 连接线 + SATA 供电线
 
 ## 安装步骤
 
-### 烧写镜像
+图一：各接口位置
+
+![Megrez View](megrez-view.png)
+
+图二：SATA 接口切换器
+
+![Megrez SATA SEL](megrez-sata-sel.png)
+
+### 烧写镜像至 SD 卡
 
 首先将SD卡分为`boot`和`root`两个分区，随后刷入对应镜像：
 
@@ -23,11 +34,19 @@ sudo dd if=deepin-eic7700-riscv64-25-desktop-installer.boot.ext4 of=/dev/sdd1 st
 sudo dd if=deepin-eic7700-riscv64-25-desktop-installer.root.ext4 of=/dev/sdd2 status=progress
 ```
 
-### 初始化系统
+最后，将 SD 卡插入如图一标号 1 所示的 SD 卡槽中。
+
+### 烧写镜像至 SATA M.2 SSD 硬盘
+
+步骤同上。成功后，将 SATA M.2 SSD 硬盘插入设备的 SATA M.2 接口，如图一标号 2 所示，再将如图二所示所示的 SATA SEL 开关拨至图中的下方。
+
+### 刷写操作系统至 SATA3 硬盘
+
+步骤同上。成功后，将 SATA3 硬盘的 7-pin SATA 端子插入如图一标号 3 所示的 SATA接口，并单独连接 15 pin 供电线。最后，再将如图二所示的 SATA SEL 开关拨至图中的上方。
 
 ### 初始化系统
 
-如果连接了显示器，则可以通过deepin安装引导完成初始化；
+接通电源。如果连接了显示器，则可以通过deepin安装引导完成初始化；
 
 同时也可以通过UART进行登录：
 
