@@ -28,13 +28,7 @@ sudo dd if=star64-image-plasma-star64.wic of=/dev/your/sdcard bs=1M status=progr
 
 ### 登录系统
 
-通过串口连接开发板。
-
-启动后，系统会要求用户手动配置用户名、密码、时区、语言等。
-
-Xfce 版本需要配置完成后方可进入桌面。
-
-可通过串口配置。若接入了键盘和显示器，亦可通过键盘配置。
+通过串口或 GUI 连接开发板。
 
 ## 预期结果
 
@@ -42,42 +36,47 @@ Xfce 版本需要配置完成后方可进入桌面。
 
 ## 实际结果
 
-U-Boot 启动时出错，无法进入系统。
+开发板正常输出启动信息。
 
 ### 启动信息
 
 ```log
+Starting kernel ...
 
-U-Boot 2021.10 (Jun 05 2023 - 16:23:55 +0000)05062023
+clk u2_dw_i2c_clk_core already disabled
+clk u2_dw_i2c_clk_apb already disabled
+clk u5_dw_i2c_clk_core already disabled
+clk u5_dw_i2c_clk_apb already disabled
+[    0.091531] Initramfs unpacking failed: invalid magic at start of compressed archive
+[    0.244231] L2CACHE: DataError @ 0x00000000.08040270
+[    0.249128] L2CACHE: DataFail @ 0x00000000.08040074
+[    0.822920] jh7110-sec 16000000.crypto: Unable to request sec_m dma channel in DMA channel
+[    0.831143] jh7110-sec 16000000.crypto: Cannot initial dma chan
+[    0.874439] debugfs: Directory '16008000.sec_dma' with parent 'dmaengine' already present!
+[    0.888560] rtc-hym8563 2-0051: hctosys: unable to read the hardware clock
+�[    1.398847] starfive-i2s 120b0000.i2stx_4ch0: designware: i2s master mode supported
+[    1.407277] cdns-dsi 295d0000.mipi: starfive dsi bind end
+[    6.711817] mailbox_test mailbox_client: invalid resource
+[    6.717238] mailbox_test mailbox_client: invalid resource
 
-CPU:   rv64imacu_zba_zbb
-Model: Pine64 Star64
-DRAM:  8 GiB
-MMC:   sdio0@16010000: 0, sdio1@16020000: 1
-Loading Environment from SPIFlash... SF: Detected gd25lq128 with page size 256 Bytes, erase size 4 KiB, total 16 MiB
-OK
-StarFive EEPROM format v2
 
---------EEPROM INFO--------
-Vendor : PINE64
-Product full SN: STAR64V1-2310-D008E000-00000005
-data version: 0x2
-PCB revision: 0xc1
-BOM revision: A
-Ethernet MAC0 address: 6c:cf:39:00:75:61
-Ethernet MAC1 address: 6c:cf:39:00:75:62
---------EEPROM INFO--------
+PinIx 2.1 star64 hvc0
 
-In:    serial
-Out:   serial
-Err:   serial
-Model: Pine64 Star64
-Net:   eth0: ethernet@16030000, eth1: ethernet@16040000
-Unknown command 'usb' - try 'help'
-Hit any key to stop autoboot:  0
-Unknown command 'bootflow' - try 'help'
-Star64 #
-Star64 #
+star64 login: PinIx 2.1 star64 ttyS0
+
+star64 login: root
+Password:
+root@star64:~# uname -a
+Linux star64 5.15.131 #1 SMP Thu Sep 21 04:12:12 UTC 2023 riscv64 riscv64 riscv64 GNU/Linux
+root@star64:~# cat /etc/os-release
+ID=pinix
+NAME="PinIx"
+VERSION="2.1 (pinix)"
+VERSION_ID=2.1
+PRETTY_NAME="PinIx 2.1 (pinix)"
+DISTRO_CODENAME="pinix"
+root@star64:~#
+
 
 ```
 
@@ -89,4 +88,4 @@ Star64 #
 
 ## 测试结论
 
-测试失败。
+测试成功。

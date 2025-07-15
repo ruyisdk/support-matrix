@@ -28,10 +28,10 @@
 | --------------------- | ----------- | -------------------- |
 | BuildRoot 镜像启动    | N/A         | [CFH][BuildRoot]     |
 | postmarketOS 镜像启动 | N/A         | [CFH][pmOS]          |
-| FreeRTOS 启动         | hello_world | [成功][BuildRoot]    |
+| FreeRTOS 启动         | hello_world | [成功][FreeRTOS]     |
 | RT-Thread 启动        | N/A         | [CFH][RT-Thread]     |
 
 [BuildRoot]: ./BuildRoot/README_zh.md
 [RT-Thread]: ./RT-Thread/README_zh.md
-[pmOS]: ./pmOS/README_zh.md
+[pmOS]: ./postmarketOS/README_zh.md
 [FreeRTOS]: ./FreeRTOS/README_zh.md

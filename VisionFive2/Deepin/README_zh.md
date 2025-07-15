@@ -1,4 +1,4 @@
-# Debian VisionFive 2 版本测试报告
+# Deepin VisionFive 2 版本测试报告
 
 ## 测试环境
 
@@ -54,15 +54,15 @@ Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
 
 StarFive VisionFive 2 提供了多种引导模式，可在上电前通过板载拨码开关进行配置；开发板本体上亦有丝印标注。
 
-为了启动原厂 Debian 镜像，可以选择 1-bit QSPI Nor Flash 模式（即：`RGPIO_0 = 0`, `RGPIO_1 = 0`）。注意，此模式可能需要提前更新 Flash 内的固件，若您启动不成功，请参考官方文档进行固件升级：[更新 SPL 和 U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
+为了启动镜像，可以选择 1-bit QSPI Nor Flash 模式（即：`RGPIO_0 = 0`, `RGPIO_1 = 0`）。注意，此模式可能需要提前更新 Flash 内的固件，若您启动不成功，请参考官方文档进行固件升级：[更新 SPL 和 U-Boot](https://doc.rvspace.org/VisionFive2/Quick_Start_Guide/VisionFive2_QSG/spl_u_boot_0.html)
 
 若不更新固件，请选择 microSD 卡引导（即：`RGPIO_0 = 1`, `RGPIO_1 = 0`）。
 
 > 注意，此模式下有小概率出现启动失败的情况，如遇到启动失败，串口输出类似如下信息：
 >
 >```log
->dwmci_s: Response Timeout.                                                                                            
->dwmci_s: Response Timeout.                                                                                            
+>dwmci_s: Response Timeout.
+>dwmci_s: Response Timeout.
 >BOOT fail,Error is 0xffffffff
 >```
 >
@@ -102,8 +102,8 @@ Welcome to Deepin 23 GNU/Linux
 root@deepin-riscv64-visionfive2:~# uname -a
 Linux deepin-riscv64-visionfive2 6.6.20-visionfive2-66y #1 SMP Tue May 28 03:46:53 UTC 2024 riscv64 GNU/Linux
 root@deepin-riscv64-visionfive2:~# cat /etc/os
-os-release  os-version  ostree/     
-root@deepin-riscv64-visionfive2:~# cat /etc/os-release 
+os-release  os-version  ostree/
+root@deepin-riscv64-visionfive2:~# cat /etc/os-release
 PRETTY_NAME="Deepin 23"
 NAME="Deepin"
 VERSION_ID="23"
