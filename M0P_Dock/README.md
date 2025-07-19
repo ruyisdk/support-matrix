@@ -5,12 +5,6 @@ cpu_core: XuanTie E907
 ram: 480KB(SRAM)
 
 vendor: sipeed-m0p
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    xuantie-e907,
-]
 ---
 
 # Sipeed M0P Dock

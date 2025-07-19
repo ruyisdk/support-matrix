@@ -5,13 +5,6 @@ cpu_core: XuanTie E907 + ARM Cortex-A7
 ram: 64MB
 
 vendor: yuzukihd-lizard
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    xuantie-e907,
-    armv7-a,
-]
 ---
 
 # Yuzuki PI-Lizard

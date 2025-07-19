@@ -5,10 +5,6 @@ cpu_core: SpacemiT X60
 ram: 4G/8G/16G
 
 vendor: milkv-jupiter
-board_variant: [4g, 8g, 16g]
-cpu_arch: [
-    spacemit-x60,
-]
 ---
 
 # Milk-V Jupiter

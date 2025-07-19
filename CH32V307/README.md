@@ -5,14 +5,6 @@ cpu_core: QingKe V4F
 ram: 64KB(SRAM)
 
 vendor: wch-ch32v307-evb
-board_variant: [
-    rct6,
-    vct6,
-    wcu6,
-]
-cpu_arch: [
-    wch-v4f,
-]
 ---
 
 

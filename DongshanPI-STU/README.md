@@ -5,12 +5,6 @@ cpu_core: XuanTie C906
 ram: 256MB
 
 vendor: dongshanpi-nezha-stu
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    xuantie-c906,
-]
 ---
 
 # DongshanPI-Nezha STU

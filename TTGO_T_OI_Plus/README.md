@@ -5,12 +5,6 @@ cpu_core: RV32IMC
 ram: 400K SRAM
 
 vendor: ttgo-toiplus
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    esp32-c3,
-]
 ---
 
 # Lilygo TTGO T-OI-Plus

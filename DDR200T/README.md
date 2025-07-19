@@ -5,12 +5,6 @@ cpu_core: Nuclei Bumblebee
 ram: 32KB(SRAM)
 
 vendor: nuclei-ddr200t
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    nuclei-bumblebee,
-]
 ---
 
 # Nuclei DDR200T

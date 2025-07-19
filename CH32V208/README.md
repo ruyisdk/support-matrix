@@ -5,15 +5,6 @@ cpu_core: QingKe V4C
 ram: 64KB(SRAM)
 
 vendor: wch-ch32v208-evb
-board_variant: [
-    cbu6,
-    gbu6,
-    rbt6,
-    wbu6,
-]
-cpu_arch: [
-    wch-v4,
-]
 ---
 
 # CH32V208

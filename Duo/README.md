@@ -5,12 +5,6 @@ cpu_core: XuanTie C906
 ram: 64MB
 
 vendor: milkv-duo
-board_variant: [
-    64m, # historical reason
-]
-cpu_arch: [
-    xuantie-c906,
-]
 ---
 
 # Milk-V Duo

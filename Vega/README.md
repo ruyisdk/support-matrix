@@ -5,10 +5,6 @@ cpu_core: Nuclei UX608
 ram: /
 
 vendor: milkv-vega
-board_variant: [generic]
-cpu_arch: [
-    nuclei-zx60x,
-]
 ---
 
 # Milk-V Vega

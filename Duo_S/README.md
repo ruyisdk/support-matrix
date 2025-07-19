@@ -5,13 +5,6 @@ cpu_core: XuanTie C906 + ARM Cortex-A53
 ram: 512MB
 
 vendor: milkv-duos
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    xuantie-c906,
-    armv8-a,
-]
 ---
 
 # Milk-V Duo S

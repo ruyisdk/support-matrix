@@ -5,13 +5,6 @@ cpu_core: SiFive P550
 ram: 16G/32G
 
 vendor: hifive-premier-p550
-board_variant: [
-    16g,
-    32g,
-]
-cpu_arch: [
-    sifive-p500,
-]
 ---
 
 # HiFive Premier P550

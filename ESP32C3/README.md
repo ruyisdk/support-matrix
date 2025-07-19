@@ -5,12 +5,6 @@ cpu_core: RV32IMC
 ram: 400K SRAM
 
 vendor: espressif-esp32-c3
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    esp32-c3,
-]
 ---
 
 # ESP32-C3

@@ -5,12 +5,6 @@ cpu_core: SiFive P550
 ram: 8G/16G/32G
 
 vendor: milkv-megrez
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    sifive-p500,
-]
 ---
 
 # Milk-V Megrez

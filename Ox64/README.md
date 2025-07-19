@@ -5,14 +5,6 @@ cpu_core: XuanTie C906 + XuanTie E907 + XuanTie E902
 ram: 768KB(SRAM) + 64MB(PSRAM)
 
 vendor: pine64-ox64
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    xuantie-c906,
-    xuantie-e907,
-    xuantie-e902,
-]
 ---
 
 # Pine64 Ox64
