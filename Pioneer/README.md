@@ -5,14 +5,6 @@ cpu_core: XuanTie C920
 ram: 128G
 
 vendor: milkv-pioneer
-board_variant: [
-    v1.1,
-    v1.2,
-    v1.3,
-]
-cpu_arch: [
-    xuantie-c920,
-]
 ---
 
 

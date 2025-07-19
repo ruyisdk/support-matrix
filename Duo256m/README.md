@@ -6,13 +6,6 @@ ram: 256MB
 
 
 vendor: milkv-duo
-board_variant: [
-    256m, # historical reason
-]
-cpu_arch: [
-    xuantie-c906,
-    armv8-a,
-]
 ---
 
 # Milk-V Duo 256M

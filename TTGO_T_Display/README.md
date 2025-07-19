@@ -5,12 +5,6 @@ cpu_core: Nuclei Bumblebee
 ram: 32KB(SRAM)
 
 vendor: ttgo-t-display
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    nuclei-bumblebee,
-]
 ---
 
 # TTGO T-Display-GD32

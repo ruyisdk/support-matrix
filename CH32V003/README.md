@@ -5,15 +5,6 @@ cpu_core: QingKe V2A
 ram: 2KB(SRAM)
 
 vendor: wch-ch32v003-evt
-board_variant: [
-    j4m6,
-    a4m6,
-    f4p6,
-    f4u6,
-]
-cpu_arch: [
-    wch-v2a,
-]
 ---
 
 # CH32V003

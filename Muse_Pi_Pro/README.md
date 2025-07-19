@@ -5,12 +5,6 @@ cpu_core: SpacemiT X60
 ram: LPDDR4X 8G/16G
 
 vendor: spacemit-muse-pi-pro
-board_variant: [
-    generic
-]
-cpu_arch: [
-    spacemit-x60,
-]
 ---
 
 # Muse Pi  Pro

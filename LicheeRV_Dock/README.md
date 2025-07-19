@@ -5,12 +5,6 @@ cpu_core: XuanTie C906
 ram: 512MB
 
 vendor: sipeed-licheerv
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    xuantie-c906,
-]
 ---
 
 # Lichee RV Dock

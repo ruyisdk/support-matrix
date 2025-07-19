@@ -5,13 +5,6 @@ cpu_core: SiFive U74 + SiFive E24
 ram: 8G
 
 vendor: starfive-visionfive
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    sifive-u74,
-    sifive-e24,
-]
 ---
 
 # StarFive VisionFive

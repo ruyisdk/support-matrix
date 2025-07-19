@@ -5,12 +5,6 @@ cpu_core: QingKe V4C
 ram: 26KB(SRAM)
 
 vendor: wch-ch592x-evb
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    wch-v4,
-]
 ---
 
 

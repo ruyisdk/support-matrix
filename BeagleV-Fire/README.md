@@ -5,11 +5,6 @@ cpu_core: SiFive U54 + SiFive E51
 ram: 2G
 
 vendor: beaglev-fire
-board_variant: [2g]
-cpu_arch: [
-    sifive-u54,
-    sifive-e51,
-]
 ---
 
 # BeagleV-Fire

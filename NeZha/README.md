@@ -5,12 +5,6 @@ cpu_core: XuanTie C906
 ram: 1G/2G
 
 vendor: awol-d1dev # historical name
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    xuantie-c906,
-]
 ---
 
 # Allwinner Nezha

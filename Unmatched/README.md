@@ -5,13 +5,6 @@ cpu_core: SiFive U74 + SiFive S7
 ram: 16GB
 
 vendor: sifive-unmatched
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    sifive-u74,
-    sifive-s7,
-]
 ---
 
 # HiFive Unmatched

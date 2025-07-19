@@ -5,12 +5,6 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 ram: 4G
 
 vendor: beaglev-ahead
-board_variant: [4g]
-cpu_arch: [
-    xuantie-c910,
-    xuantie-c906,
-    xuantie-e902,
-]
 ---
 
 # BeagleV-Ahead

@@ -5,13 +5,6 @@ cpu_core: XuanTie E907 + ARM Cortex-A7
 ram: 512MB
 
 vendor: allwinner-v853
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    xuantie-e907,
-    armv7-a,
-]
 ---
 
 # Allwinner V853 Development Board

@@ -5,12 +5,6 @@ cpu_core: XuanTie C906
 ram: 64MB
 
 vendor: mangopi-mq
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    xuantie-c906,
-]
 ---
 
 # Mangopi MQ

@@ -5,10 +5,6 @@ cpu_core: SpacemiT X60
 ram: 2G/4G/8G/16G
 
 vendor: bpi-f3
-board_variant: [2g, 4g, 8g, 16g]
-cpu_arch: [
-    spacemit-x60,
-]
 ---
 
 # Banana Pi BPI-F3

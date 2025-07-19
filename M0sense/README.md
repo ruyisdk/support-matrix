@@ -5,12 +5,6 @@ cpu_core: SiFive E24
 ram: 132KB
 
 vendor: sipeed-m0sense
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    sifive-e24,
-]
 ---
 
 # Sipeed M0sense
