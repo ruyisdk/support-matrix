@@ -143,10 +143,6 @@ product: _    # Full product name
 cpu: _        # Processor model
 cpu_core: _   # CPU core architecture
 ram: _        # Memory and flash information
-board_variant: [] # Board variant (optional, like 8g/16g version)
-cpu_arch: [] # Supported CPU architectures (like xuantie-e902, armv8-a...)
-# Supported CPU architectures are listed in assets/metadata.yml:arches
-# If none of the above, add a new one in assets/metadata.yml:arches
 ---
 ```
 
@@ -157,7 +153,7 @@ Note that some boards currently lack the vendor field, which can be left empty. 
 sys: armbian          # System identifier (refer to assets/metadata.yml)
 sys_ver: "24.05"        # System version (Should be the same as the one of the image, shouldn't add any extra part to match other format like semantic versioning. Prepend `v` is optional. *Notice: something like `24.05` would be seen as a number, so please add quotation if necessary*)
 sys_var: minimal      # Variant identifier (optional)
-status: basic         # Support status (none/wip/cft/cfh/cfi/partial/basic/good)
+status: basic         # Support status (wip/cft/cfh/cfi/partial/basic/good)
 last_updated: 2024-03-01  # Last update date
 ---
 ```
