@@ -8,22 +8,3 @@ vendor: espressif-esp32-p4
 
 # ESP32-P4 
 
-## Test Environment
-
-### Operating System Information
-
-- FreeRTOS(ESP-IDF)
-    - Source Code: https://github.com/espressif/esp-idf
-    - Reference Installation Document: https://docs.espressif.com/projects/esp-idf/zh_CN/stable/esp32p4/get-started/index.html
-
-### Hardware Information
-
-- ESP32-P4-Function-EV-Board
-
-## Test Results
-
-| Software Category     | Software Package | Test Results (Test Report)                        |
-| --------------------- | ---------------- | ------------------------------------------------- |
-| FreeRTOS  | N/A              | [Successful][FreeRTOS]                                |
-
-[FreeRTOS]: ./FreeRTOS/README.md
