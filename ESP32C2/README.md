@@ -5,35 +5,7 @@ cpu_core: RV32IMAC
 ram: 272K SRAM
 
 vendor: espressif-esp32-c2
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    esp32-c2,
-]
 ---
 
 # ESP32-C3
 
-## Test Environment
-
-### Operating System Information
-
-- FreeRTOS(ESP-IDF)
-    - Source Code: https://github.com/espressif/esp-idf
-    - Reference Installation Document: https://docs.espressif.com/projects/esp-idf/zh_CN/v5.4.1/esp32c2/get-started/index.html
-    
-### Hardware Information
-
-- ESP8684-WROOM-01C
-
-## Test Results
-
-| Software Category     | Software Package | Test Results (Test Report)                        |
-| --------------------- | ---------------- | ------------------------------------------------- |
-| FreeRTOS  | N/A              | [Successful][FreeRTOS]                                |
-| Zephyr  | N/A             | [Successful][Zephyr]                                |
-                             |
-
-[FreeRTOS]: ./FreeRTOS/README.md
-[Zephyr]: ./Zephyr/README.md

@@ -238,7 +238,7 @@ def proc_onesys(system_arr: dict[str], system: Systems,
 
     return res
 
-
+# TODO: unified to frontend color
 def gen_color(_, col, content):
     """
     gen svg color

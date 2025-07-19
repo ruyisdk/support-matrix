@@ -5,33 +5,7 @@ cpu_core: RV32IMAC
 ram: 320K SRAM
 
 vendor: espressif-esp32-h2
-board_variant: [
-    generic,
-]
-cpu_arch: [
-    esp32-h2,
-]
 ---
 
 # ESP32-H2
 
-## Test Environment
-
-### Operating System Information
-
-- FreeRTOS(ESP-IDF)
-    - Source Code: https://github.com/espressif/esp-idf
-    - Reference Installation Document: https://docs.espressif.com/projects/esp-idf/zh_CN/v5.4.1/esp32h2/get-started/index.html
-    
-### Hardware Information
-
-- ESP32-H2-DevKitM-1
-
-## Test Results
-
-| Software Category     | Software Package | Test Results (Test Report)                        |
-| --------------------- | ---------------- | ------------------------------------------------- |
-| FreeRTOS  | N/A              | [Successful][FreeRTOS]                                |
-
-
-[FreeRTOS]: ./FreeRTOS/README.md

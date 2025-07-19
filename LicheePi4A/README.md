@@ -5,12 +5,6 @@ cpu_core: XuanTie C910 + XuanTie C906 + XuanTie E902
 ram: 8G/16G
 
 vendor: sipeed-lpi4a
-board_variant: [8g, 16g]
-cpu_arch: [
-    xuantie-c910,
-    xuantie-c906,
-    xuantie-e902,
-]
 ---
 
 # Lichee Pi 4A
