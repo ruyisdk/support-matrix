@@ -2,12 +2,8 @@
 sys: [OS Identifier]
 sys_ver: [OS Version]
 sys_var: [Variant Identifier]
-
 status: [Support Status]
 last_update: [Last Update Date]
-
-# Below is optional, please fill in if necessary
-skip_sync: false/*true* # If true, skip the sync process
 ---
 
 # [Operating System Name]
