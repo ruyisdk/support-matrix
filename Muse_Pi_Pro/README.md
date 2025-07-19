@@ -55,23 +55,3 @@ The detailed specifications are as follows:
 
 It can be powered by a standard PD charger, supporting 5V/3A 9V/3A and 12V/3A.
 
-## Supported Operating Systems
-
-- Bianbu v1.2
-  - Download Link: https://archive.spacemit.com/image/k1/version/bianbu-computer-uefi/v1.2/
-  - Reference Install Document: https://developer.spacemit.com/documentation?token=QSfGwmkhqiHwqQkHmCicH2Qnnyg
-- openEuler 24.03-LTS-SP1
-  - Download Link: https://images.oerv.ac.cn/board?uri=products/spacemit/muse_pi_pro.json&name=MUSE+Pi+Pro
-  - Reference Install Document: https://developer.spacemit.com/documentation?token=QSfGwmkhqiHwqQkHmCicH2Qnnyg
-  - Reference Install Document: https://images.oerv.ac.cn/board?uri=products/spacemit/muse_pi_pro.json&name=MUSE+Pi+Pro
-
-
-## Test Results
-
-| Software Category | Package Name | Test Results (Test Report) |
-| ----------------- | ------------ | -------------------------- |
-| Bianbu v1.2       | N/A          | [Basic][Bianbu]            |
-| openEuler 24.03-LTS-SP1 | N/A          | [Basic][openEuler]         |
-
-[Bianbu]: ./Bianbu/README.md
-[openEuler]: ./openEuler/README.md

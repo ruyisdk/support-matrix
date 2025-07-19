@@ -17,28 +17,3 @@ ram: 2G/4G/8G
 (PCIe 2.0 2-lane), USB3.0, USB2.0, MIPI DSI, MIPI CSI, Ethernet, PWM, I2C, SPI, CAN, UART, GPIO, RTC Connector
 - **Power**: 5V/5A
 
-## Supported Operating Systems
-
-- Ubuntu 24.04.01 LTS (official support)
-  - Download link: <http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html>
-  - Reference Installation Document: <http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html>
-- OpenWRT 24.10.0 (official suport)
-  - Download link: <http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html>
-  - Reference Installation Document: <http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html>
-- irradium 3.8
-  - Download link: <https://mirror.serverion.com/irradium/images/orange_pi_rv2/irradium-3.8-riscv64-core-orange_pi_rv2-6.14.4-build-20250503.img.zst>
-  - Reference Installation Document:
-    - <http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html>
-    - <https://mirror.serverion.com/irradium/images/orange_pi_rv2/README.TXT>
-
-## Test Results
-
-| Software Category     | Package Name     | Test Results (Test Report)                        |
-| --------------------- | ---------------- | ------------------------------------------------- |
-| Ubuntu LTS image boot | N/A              | [Successful][Ubuntu LTS]                          |
-| OpenWRT image boot    | N/A              | [Successful][OpenWRT]                             |
-| irradium image boot   | N/A              | [Successful][irradium]                            |
-
-[Ubuntu LTS]: ./Ubuntu/README_LTS.md
-[OpenWRT]: ./OpenWRT/README.md
-[irradium]: ./irradium/README.md

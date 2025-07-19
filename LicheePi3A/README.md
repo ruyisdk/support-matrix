@@ -27,31 +27,3 @@ It has a variety of interfaces as follows:
 
 It can be powered by a standard PD charger, or a DC power supply is also supported.
 
-## Supported Operating Systems
-
-- Bianbu v2.2-minimal
-  - Download Links: https://archive.spacemit.com/image/k1/version/bianbu/v2.2/
-  - Reference Installation Document: https://wiki.sipeed.com/hardware/en/lichee/K1/lpi3a/1_intro.html
-- Fedora Minimal 41 (From Fedora V Force)
-  - Download Links: https://mirror.iscas.ac.cn/fedora-riscv/dl/SpacemiT/K1_M1/images/latest/k1-fedora-minimal.img.gz
-  - Reference Installation Document: https://wiki.sipeed.com/hardware/en/lichee/K1/lpi3a/1_intro.html
-- Fedora Xfce Desktop 41 (From Fedora V Force)
-  - Download Links: https://mirror.iscas.ac.cn/fedora-riscv/dl/SpacemiT/K1_M1/images/latest/k1-fedora-multi-desktops.img.gz
-  - Reference Installation Document: https://wiki.sipeed.com/hardware/en/lichee/K1/lpi3a/1_intro.html
-- openKylin v2.0 SP1
-  - Download Link: [https://www.openkylin.top/downloads/index.html](https://www.openkylin.top/downloads/index.html) **Choose k1 version**
-  - Reference Installation Document: [https://docs.openkylin.top/en/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8SpacemiT_K1%E4%B8%8A%E5%AE%89%E8%A3%85openKylin](https://docs.openkylin.top/en/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8SpacemiT_K1%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
-
-## Test Results
-
-| Software Category | Package Name           | Test Results (Test Report) |
-| ----------------- | ---------------------- | -------------------------- |
-| Bianbu            | minimal                | [CFH][bianbu-minimal]      |
-| Fedora minimal    | fedora v force         | [Basic][fedora-fvf]        |
-| Fedora desktop    | fedora v force desktop | [Good][fedora-fvf_desktop] |
-| openKylin         | N/A                    | [Good][openkylin]          |
-
-[bianbu-minimal]: ./Bianbu/README.md
-[fedora-fvf]: ./Fedora/README.md
-[fedora-fvf_desktop]: ./Fedora/README_desktop.md
-[openkylin]: ./openKylin/README.md
