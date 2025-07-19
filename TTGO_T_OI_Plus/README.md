@@ -9,22 +9,3 @@ vendor: ttgo-toiplus
 
 # Lilygo TTGO T-OI-Plus
 
-## Test Environment
-
-### System Information
-
-- Zephyr
-    - Source Code: https://github.com/zephyrproject-rtos/zephyr/tree/main
-    - Reference Installation Document: https://docs.zephyrproject.org/latest/boards/lilygo/ttgo_toiplus/doc/index.html
-
-### Hardware Information
-
-- LilyGO T-OI-Plus (ESP32-C3)
-
-## Test Results
-
-| Software Category | Package Name | Test Result (Test Report) |
-| ----------------- | ------------ | ------------------------- |
-| Zephyr            | N/A          | [Success][Zephyr]         |
-
-[Zephyr]: ./Zephyr/README.md

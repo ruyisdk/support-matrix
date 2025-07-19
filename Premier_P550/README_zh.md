@@ -2,7 +2,7 @@
 
 ## 概述
 
-HiFive Premier P550 是一款由 ESWIN EIC7700X SoC 驱动的 Mini-DTX 规格的高性能 RISC-V 单板计算机，配备运行频率为 1.4 GHz 的 SiFive 四核 P550 64 位 RISC-V 处理器和集成的 Imagination AXM-8-256 GPU以及 ~20 TOPS 的硬件加速 AI NPU。其具有完备的 PC IO 并预装 Ubuntu 24.04 操作系统。
+HiFive Premier P550 是一款由 ESWIN EIC7700X SoC 驱动的 Mini-DTX 规格的高性能 RISC-V 单板计算机，配备运行频率为 1.4 GHz 的 SiFive 四核 P550 64 位 RISC-V 处理器和集成的 Imagination AXM-8-256 GPU 以及 ~20 TOPS 的硬件加速 AI NPU。其具有完备的 PC IO 并预装 Ubuntu 24.04 操作系统。
 
 ## 硬件规格
 
@@ -30,31 +30,3 @@ HiFive Premier P550 是一款由 ESWIN EIC7700X SoC 驱动的 Mini-DTX 规格的
   - 1 个 40-pin 外设 I/O 接口
 - **电源**: 标准 ATX 电源
 
-## 支持的操作系统
-
-- Ubuntu - 2025.02.00 (基于Ubuntu 24.04.01 LTS) (SiFive 官方支持)
-  - 下载链接：<https://github.com/sifiveinc/hifive-premier-p550-ubuntu/releases/tag/2025.02.00>
-  - 参考安装文档：<https://www.sifive.com/document-file/hifive-premier-p550-image-update-procedure>
-- Debian - Debian-v1.0.0-20250228 (ESWIN 官方支持)
-  - 下载链接：<https://github.com/eswincomputing/eic7x-images/releases/tag/Debian-v1.0.0-20250228>
-  - 参考安装文档：<https://github.com/eswincomputing/eic7x-images/releases/download/Yocto-v1.0.0-20241021/EIC7700_Debian_Yocto_Ubuntu_System_Burnning_Guide.pdf>
-- Yocto - 2024.11.00-HFP550 (SiFive 官方支持)
-  - 下载链接：<https://github.com/sifiveinc/freedom-u-sdk/releases/tag/2024.11.00-HFP550>
-  - 参考安装文档：<https://www.sifive.com/document-file/hifive-premier-p550-image-update-procedure>
-- Deepin - 20250422-122731-EIC7700 (Deepin 25 Preview)
-  - 下载链接：<https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250422/riscv64/deepin-25-crimson-preview-riscv64-eic7700-20250422-122731.tar.xz>
-  - 参考安装文档：[README.md](./Deepin/README.md)
-
-## 测试结果
-
-| 软件类别             | 包名称       | 测试结果 (测试报告)  |
-|----------------------|--------------|----------------------|
-| Ubuntu LTS 镜像启动  | N/A          | [CFT][Ubuntu LTS]    |
-| Debian 镜像启动      | N/A          | [CFT][Debian]        |
-| Yocto 镜像启动       | N/A          | [CFT][Yocto]         |
-| deepin 镜像启动      | N/A          | [Success][deepin]    |
-
-[Ubuntu LTS]: ./Ubuntu/README_LTS_zh.md
-[Debian]: ./Debian/README_zh.md
-[Yocto]: ./Yocto/README_zh.md
-[deepin]: ./deepin/README.md
