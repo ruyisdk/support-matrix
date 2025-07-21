@@ -37,48 +37,46 @@ export RTT_EXEC_PATH=/opt/Xuantie-900-gcc-elf-newlib-x86_64-V2.8.1/bin
 获取依赖：
 ```bash
 sudo apt install -y scons libncurses5-dev device-tree-compiler
-# 在 Arch Linux 上为：sudo pacman -S scons dtc ncurses
+# 在 Arch Linux 上为：sudo pacman -S scons dtc ncurses uboot-tools
 ```
 
 ```shell
-git clone --depth=1 https://github.com/RT-Thread/rt-thread
-cd rt-thread/bsp/cvitek/cv18xx_risc-v
+m@n:~/.../tmp/rt-thread-5.2.1$ ls
+bsp           components     examples  Kconfig  LICENSE      README_de.md  README.md     src
+ChangeLog.md  documentation  include   libcpu   MAINTAINERS  README_es.md  README_zh.md  tools
+m@n:~/.../tmp/rt-thread-5.2.1$ cd bsp/cvitek/
+c906_little  cv18xx_aarch64  cv18xx_risc-v  drivers  output  rttpkgtool  README.md  build.sh  tools.sh
+m@n:~/.../bsp/cvitek$ cd cv18xx_risc-v/
 # 生成配置文件
-scons --menuconfig
-source ~/.env/env.sh
-pkgs --update
-scons -j$(nproc) --verbose
-cd ../
-./combine-fip.sh $(pwd)/cv18xx_risc-v Image
+m@n:~/.../cvitek/cv18xx_risc-v$ scons --menuconfig
+m@n:~/.../cvitek/cv18xx_risc-v$ source ~/.env/env.sh
+m@n:~/.../cvitek/cv18xx_risc-v$ pkgs --update
+Failed to read env.json: [Errno 2] No such file or directory: 'env.json'
+Failed to read env.json: [Errno 2] No such file or directory: 'env.json'
+[Use Github server - auto decision based on IP location]
+/home/mitchell/Documents/tmp/rt-thread-5.2.1/bsp/cvitek/cv18xx_risc-v/packages/zlib-latest
+==============================>  zlib update done
+
+Operation completed successfully.
+# 构建 boot.sd
+m@n:~/.../cvitek/cv18xx_risc-v$ scons -j$(nproc) --verbose
+
+m@n:~/.../cvitek/cv18xx_risc-v$ cd ../c906_little/
+# 生成配置文件
+m@n:~/.../cvitek/c906_little$ scons --menuconfig
+m@n:~/.../cvitek/c906_little$ source ~/.env/env.sh
+m@n:~/.../cvitek/c906_little$ pkgs --update
+Failed to read env.json: [Errno 2] No such file or directory: 'env.json'
+Failed to read env.json: [Errno 2] No such file or directory: 'env.json'
+Operation completed successfully.
+
+# 构建 fip.bin
+m@n:~/.../cvitek/c906_little$ scons -j$(nproc) --verbose
 ```
 
-menuconfig 中的 Board Type 请选择 `milkv-duos`。
+menuconfig 中的 Board Type 请选择 `milkv-duos`，并关闭 `Enable RT-Thread Smart (microkernel on kernel/userland)` 选项。
 
 执行结束后，会在 `output` 目录下生成 boot.sd 和 fip.bin 两个文件。
-
-### 拉取源码并编译 RT-Smart 用户态应用
-
-获取依赖：
-```bash
-sudo apt install -y unzip xmake
-```
-
-编译：
-```bash
-git clone https://github.com/RT-Thread/userapps.git
-cd userapps
-source env.sh
-cd apps
-xmake f -a riscv64gc
-xmake -j$(nproc)
-```
-
-构建镜像：
-```bash
-xmake smart-rootfs
-xmake smart-image -f ext4 
-```
-生成的应用镜像位于 `userapps/apps/build/ext4.img`。
 
 ### 准备 microSD 卡
 
@@ -105,7 +103,7 @@ mkfs.fat /path/to/your-card
 ### 启动信息
 
 屏幕录像（从编译到启动）：
-[![asciicast](https://asciinema.org/a/i7ZhlS8WrHBRPIkIVUffXN64a.svg)](https://asciinema.org/a/i7ZhlS8WrHBRPIkIVUffXN64a)
+[![asciicast](https://asciinema.org/a/WvrrTMHJyKlhT2GLEKolzIzw0.svg)](https://asciinema.org/a/WvrrTMHJyKlhT2GLEKolzIzw0)
 
 ```log
 Starting kernel ...
@@ -114,17 +112,16 @@ Starting kernel ...
 
 [I/drv.pinmux] Pin Name = "UART0_TX", Func Type = 282, selected Func [0]
 
-heap: [0x0x000000008029a810 - 0x0x0000000080a9a810]
+heap: [0x0x000000008029b968 - 0x0x0000000080a9b968]
 
  \ | /
 - RT -     Thread Operating System
- / | \     5.2.0 build Nov 28 2024 11:45:48
+ / | \     5.2.1 build Jul 21 2025 14:03:06
  2006 - 2024 Copyright by RT-Thread team
 lwIP-2.1.2 initialized!
 [I/sal.skt] Socket Abstraction Layer initialize success.
-Hello RISC-V!
+Hello RISC-V/C906B !
 msh />
- 
 
 ```
 
