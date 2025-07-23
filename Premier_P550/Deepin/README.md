@@ -11,7 +11,7 @@ last_update: 2025-05-26
 ### System Information
 
 - System Version: deepin 25-crimson-preview EIC7700 20250422
-- Download Link: https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
+- Download Link: https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250422/riscv64/deepin-25-crimson-preview-riscv64-eic7700-20250422-122731.tar.xz
 
 ### Hardware Information
 
@@ -48,7 +48,7 @@ Sending sparse 'boot' 1/1 (107313 KB)              OKAY [  3.390s]
 Writing 'boot'                                     OKAY [  5.965s]
 Finished. Total time: 9.583s
 
-april@Aprils-MacBook-Air deepin-eic7700 % fastboot flash root deepin-eic7700-riscv64-25-desktop-installer.root.ext4 
+april@Aprils-MacBook-Air deepin-eic7700 % fastboot flash root deepin-eic7700-riscv64-25-desktop-installer.root.ext4
 Sending sparse 'root' 1/38 (260442 KB)             OKAY [  8.067s]
 Writing 'root'                                     OKAY [  2.739s]
 Sending sparse 'root' 2/38 (234405 KB)             OKAY [  7.272s]
