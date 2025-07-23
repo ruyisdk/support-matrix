@@ -12,7 +12,7 @@ last_update: 2025-05-27
 ### Operating System Information
 
 - System Version: deepin 25-crimson-preview EIC7700 20250422
-- Download Link: https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
+- Download Link: https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250422/riscv64/deepin-25-crimson-preview-riscv64-eic7700-20250422-122731.tar.xz
 - Reference Installation Document: https://milkv.io/zh/docs/megrez/getting-started/boot
 
 ### Hardware Information

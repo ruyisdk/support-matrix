@@ -3,7 +3,7 @@
 ### 操作系统信息
 
 - 系统版本：deepin 25-crimson-preview EIC7700 20250422
-- 下载链接：https://deepin-community.github.io/sig-deepin-ports/images/riscv/download
+- 下载链接：https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250422/riscv64/deepin-25-crimson-preview-riscv64-eic7700-20250422-122731.tar.xz
 - 参考安装文档：https://milkv.io/zh/docs/megrez/getting-started/boot
 
 ### 硬件信息
