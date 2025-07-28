@@ -2,11 +2,11 @@ import os
 import logging
 import datetime
 import argparse
-from typing import Annotated, Optional
+from typing import Annotated
 import yaml
 
 
-from pydantic import BaseModel, AfterValidator, field_validator
+from pydantic import BaseModel, AfterValidator
 
 from src.matrix_parser import Systems, ImageStatus
 
@@ -28,21 +28,9 @@ class BoardMetadata(BaseModel):
     cpu: str
     cpu_core: str
     ram: str
+    vendor: str
 
-    vendor: Optional[str] = None
-
-    @field_validator('vendor', mode='before')
-    @classmethod
-    def check_vendor(cls, v):
-        """
-        check_vendor
-        """
-        if v is not None and \
-                not all(c.isalnum() or c in '_-' for c in v):
-            raise ValueError(f"Invalid vendor name: {v}.")
-        return v
-
-
+    
 def status_validator(v: str):
     """
     status_validator

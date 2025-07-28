@@ -137,15 +137,13 @@ git config --global user.email "your.email@example.com"
 ```yaml
 # /开发板/README.md
 ---
-vendor: _     # 厂商标识-开发板名称 （小写字母）
+vendor: _     # 开发板制造商
 product: _    # 产品全称
 cpu: _        # 处理器型号
 cpu_core: _   # CPU 核心架构
 ram: _        # 内存和闪存信息
 ---
 ```
-
-vendor 字段目前有部分板子暂缺，可以留空。如需填写，需要遵照 RuyiSDK 命名规则。
 
 ```yaml
 # /开发板/发行版/README.md
