@@ -1,8 +1,8 @@
 ---
-vendor: [Vendor identifier - Board identifier]
+vendor: [Board Manufacturer]
 product: [Development Board Name]
 cpu: [CPU Model]
-cpu_core: [CPU Core Architecture]
+cpu_core: [CPU Core]
 ram: [Memory and flash information]
 ---
 

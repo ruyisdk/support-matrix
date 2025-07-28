@@ -138,15 +138,13 @@ All documents must include a YAML metadata header, with fields defined as follow
 ```yaml
 # /Board/README.md
 ---
-vendor: _     # Vendor identifier - board identifier (lowercase letters)
+vendor: _     # Board Manufacturer
 product: _    # Full product name
 cpu: _        # Processor model
 cpu_core: _   # CPU core architecture
 ram: _        # Memory and flash information
 ---
 ```
-
-Note that some boards currently lack the vendor field, which can be left empty. If you need to fill it in, please follow the RuyiSDK naming convention.
 
 ```yaml
 # /Board/OS/README.md
