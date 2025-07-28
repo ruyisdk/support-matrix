@@ -1,5 +1,5 @@
 ---
-vendor: pine64-pinecone
+vendor: Pine64
 product: Pine64 Pinecone
 cpu: BL602
 cpu_core: SiFive E24

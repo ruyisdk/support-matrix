@@ -3,8 +3,7 @@ product: Muse Pi Pro
 cpu: Key Stone M1
 cpu_core: SpacemiT X60
 ram: LPDDR4X 8G/16G
-
-vendor: spacemit-muse-pi-pro
+vendor: SpacemiT
 ---
 
 # Muse Pi  Pro

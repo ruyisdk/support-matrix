@@ -1,10 +1,9 @@
 ---
-product: Pioneer Box
+product: Milk-V Pioneer
 cpu: SG2042
 cpu_core: XuanTie C920
-ram: 128G
-
-vendor: milkv-pioneer
+ram: DDR4 DIMM Slot
+vendor: Milk-V
 ---
 
 

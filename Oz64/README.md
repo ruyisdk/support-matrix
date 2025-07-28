@@ -1,5 +1,5 @@
 ---
-vendor: pine64-oz64
+vendor: Pine64
 product: Pine64 Oz64
 cpu: SG2000
 cpu_core: XuanTie C906 + ARM Cortex-A53
