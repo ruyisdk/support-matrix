@@ -3,8 +3,7 @@ product: Lichee Pi 3A
 cpu: Key Stone K1
 cpu_core: SpacemiT X60
 ram: LPDDR4X 8G/16G
-
-vendor: spacemit-lpi3a
+vendor: Sipeed
 ---
 
 # Lichee Pi 3A

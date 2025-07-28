@@ -1,5 +1,5 @@
 ---
-vendor: orangepi-rv2
+vendor: OrangePi
 product: OrangePi RV2
 cpu: Ky X1
 cpu_core: "null"
