@@ -238,29 +238,21 @@ def proc_onesys(system_arr: dict[str], system: Systems,
 
     return res
 
-# TODO: unified to frontend color
 def gen_color(_, col, content):
-    """
-    gen svg color
-    """
-    white = 'rgb(255, 255, 255)'
-    gray = 'rgb(220, 220, 220)'
-    green = 'rgb(203, 255, 203)'
-    yellow = 'rgb(255, 255, 203)'
-    red = 'rgb(255, 203, 203)'
-    cyan = 'rgb(153, 217, 234)'
     if col < 3:
-        return white
-    if "Good" in content or "Basic" in content:
-        return green
-    if "CFT" in content:
-        return yellow
-    if "WIP" in content or "CFH" in content:
-        return red
-    if "CFI" in content:
-        return cyan
-    return gray
+        return 'rgb(226, 232, 240)' # slate
+    
+    status = content.split(':')[-1].strip()
 
+    color_map = {
+        "Good": 'rgb(184, 230, 254)',   # blue
+        "Basic": 'rgb(185, 248, 207)',  # green
+        "CFH": 'rgb(255, 201, 201)',    # red
+        "CFT": 'rgb(229, 231, 235)',    # gray
+        "WIP": 'rgb(246, 207, 255)',    # fuchsia
+        "CFI": 'rgb(255, 240, 133)',   # yellow
+    }
+    return color_map.get(status, 'rgb(249, 250, 251)') # white
 
 def gen_gen_link(lang: str):
     """
