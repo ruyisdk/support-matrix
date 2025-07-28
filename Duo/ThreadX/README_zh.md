@@ -19,15 +19,17 @@
 - 杜邦线三根
 - Milk-V Duo 本体上预先焊接好调试所需的排针
 
-## 构建步骤
+## 测试示例 2
 
-### 准备系统环境
+### 构建步骤
+
+#### 准备系统环境
 
 ```bash
 sudo apt install -y pkg-config build-essential ninja-build automake autoconf libtool wget curl git gcc libssl-dev bc slib squashfs-tools android-sdk-libsparse-utils jq python3-distutils scons parallel tree python3-dev python3-pip device-tree-compiler ssh cpio fakeroot libncurses5 flex bison libncurses5-dev genext2fs rsync unzip dosfstools mtools tcl openssh-client cmake expect -y
 ```
 
-### 下载和构建
+#### 下载和构建
 
 ```bash
 git clone https://github.com/milkv-duo/duo-buildroot-sdk.git --depth=1
@@ -76,11 +78,11 @@ git clone https://github.com/saicogn/ThreadX-to-RISC-V64.git --depth=1
 
 通过串口登录系统。
 
-## 预期结果
+### 预期结果
 
 系统正常启动，输出 threadx 相关信息。
 
-## 实际结果
+### 实际结果
 
 系统正常启动，输出 threadx 相关信息。
 
@@ -114,6 +116,64 @@ RT: [37.417046]float cal: 232
 屏幕截图：
 
 ![uart](./img/uart.png)
+
+## 测试示例 2
+
+### 准备系统环境
+
+```bash
+sudo apt install -y pkg-config build-essential ninja-build automake autoconf libtool wget curl git gcc libssl-dev bc slib squashfs-tools android-sdk-libsparse-utils jq python3-distutils scons parallel tree python3-dev python3-pip device-tree-compiler ssh cpio fakeroot libncurses5 flex bison libncurses5-dev genext2fs rsync unzip dosfstools mtools tcl openssh-client cmake expect -y
+```
+
+### 下载和构建
+
+```bash
+sudo apt-get install wget git make
+git clone https://github.com/milkv-duo/duo-examples.git --depth=1
+cd duo-examples
+source envsetup.sh
+cd mailbox-test
+make
+```
+
+此时会产生 `mailbox_test` 的可执行文件。
+
+如此过程不正常，请参考 [项目简介](https://milkv.io/zh/docs/duo/getting-started/rtoscore) 排除故障。
+
+### 部署可执行文件
+
+将可执行文件拷贝到用户家目录下。
+
+```bash
+chmod +x mailbox_test
+./mailbox_test
+```
+
+在串口中运行输出如下。
+
+```log
+[root@milkv-duo]~# ./mailbox_test 
+RT: [507.950049]prvQueueISR
+RT: [507.952485]recv cmd(19) from C906B, param_ptr [0x00000002]
+RT: [507.958306]recv cmd(19) from C906B...send [0x00000004] to C906B
+C906B: cmd.param_ptr = 0x4
+RT: [511.965433]prvQueueISR
+RT: [511.967867]recv cmd(19) from C906B, param_ptr [0x00000003]
+RT: [511.973689]recv cmd(19) from C906B...send [0x00000004] to C906B
+C906B: cmd.param_ptr = 0x3
+```
+
+### 预期结果
+
+灯亮起三秒后熄灭。
+
+### 实际结果
+
+灯亮起三秒后熄灭。
+
+录像：
+
+https://github.com/ruyisdk/support-matrix/assets/17025286/c0350c17-5e94-4c07-96f7-a6b3f66c531c
 
 ## 测试判定标准
 
