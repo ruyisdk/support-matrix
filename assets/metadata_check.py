@@ -5,7 +5,6 @@ import argparse
 from typing import Annotated
 import yaml
 
-
 from pydantic import BaseModel, AfterValidator
 
 from src.matrix_parser import Systems, ImageStatus

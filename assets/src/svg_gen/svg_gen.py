@@ -1,78 +1,209 @@
 #!/usr/bin/env python3
 """
-This script is specilized for generating svg table for support matrix,
-adding functionality to generate sa sub-column in a cell...
-If you want to use the original version, see: wychlw/plct/misc
+SVG table generator for support matrix with sub-column support.
 
-Generate svg table from csv file
+This module provides classes and functions to generate SVG tables with
+color-coded cells, links, and HTML image maps. It's specialized for
+support matrix tables but can be used for general SVG table generation.
+
+If you want to use the original version, see: wychlw/plct/misc
 """
 from abc import ABC, abstractmethod
+from contextlib import contextmanager
+import logging
 import tempfile
-import os
+import threading
+from typing import List, Optional, Union, Iterator, Protocol
 from numbers import Number
 from math import sqrt
 import cairo
 
+# Constants
+DEFAULT_FONT_SIZE = 12
+DEFAULT_FONT_FAMILY = 'Arial'
+DEFAULT_STROKE_WIDTH = 2
+DEFAULT_PADDING_X = 5
+DEFAULT_PADDING_Y = 4
+TEXT_WIDTH_SCALE_FACTOR = 1.5  # Scaling factor for text width calculation
+LINE_HEIGHT_RATIO = 20 / 12  # Ratio for calculating line height from font size
+
 
 class SvgConf:
     """
-    Configuration for svg table
+    Configuration for SVG table generation.
+    
+    This class holds all the styling and layout configuration for SVG tables,
+    including font settings, stroke widths, and padding values.
     """
 
-    def __init__(self, font_size=12, font_family='Arial', stroke_width=2,
-                 padding_x=5, padding_y=4):
+    def __init__(self, 
+                 font_size: int = DEFAULT_FONT_SIZE, 
+                 font_family: str = DEFAULT_FONT_FAMILY, 
+                 stroke_width: int = DEFAULT_STROKE_WIDTH,
+                 padding_x: int = DEFAULT_PADDING_X, 
+                 padding_y: int = DEFAULT_PADDING_Y) -> None:
+        """Initialize SVG configuration.
+        
+        Args:
+            font_size: Font size in points
+            font_family: Font family name
+            stroke_width: Width of strokes/borders
+            padding_x: Horizontal padding
+            padding_y: Vertical padding
+        """
         self.font_size = font_size
         self.font_family = font_family
         self.stroke_width = stroke_width
         self.padding_x = padding_x
         self.padding_y = padding_y
+        self._text_width_cache = {}
 
-    def line_height(self):
+    def line_height(self) -> float:
         """
-        Get the line height
+        Calculate line height based on font size.
+        
+        Returns:
+            Line height in the same units as font_size
         """
-        return self.font_size * 20 / 12
+        return self.font_size * LINE_HEIGHT_RATIO
 
-    def text_width(self, text: str, blod=False):
+    @contextmanager
+    def _create_cairo_surface(self):
+        """Create a temporary Cairo surface for text measurement."""
+        with tempfile.NamedTemporaryFile(suffix='.svg', delete=False) as temp_file:
+            temp_path = temp_file.name
+        
+        try:
+            surface = cairo.SVGSurface(temp_path, 1280, 200)
+            yield surface
+        finally:
+            surface.finish()
+            try:
+                import os
+                os.unlink(temp_path)
+            except OSError:
+                logging.warning(f"Failed to remove temporary file: {temp_path}")
+
+    def text_width(self, text: str, bold: bool = False) -> float:
         """
-        Get the width of the text
+        Calculate the width of text when rendered.
+        
+        Args:
+            text: Text to measure
+            bold: Whether the text should be bold
+            
+        Returns:
+            Width of the text in the same units as font_size
+            
+        Raises:
+            RuntimeError: If Cairo operations fail
         """
-        f =  tempfile.mktemp()
-        surface = cairo.SVGSurface(f, 1280, 200)
-        cr = cairo.Context(surface)
-        cr.select_font_face(self.font_family, cairo.FONT_SLANT_NORMAL,
-                            cairo.FONT_WEIGHT_BOLD if blod else cairo.FONT_WEIGHT_NORMAL)
-        cr.set_font_size(self.font_size)
-        _, _, width, _, _, _ = cr.text_extents(text)
-        surface.finish()
-        os.remove(f)
-        return width * 1.5
-        # return len(text) * self.font_size * (0.7 if blod else 0.65)
+        if not text:
+            return 0.0
+            
+        # Use cache to avoid repeated Cairo operations
+        cache_key = (text, bold, self.font_size, self.font_family)
+        if cache_key in self._text_width_cache:
+            return self._text_width_cache[cache_key]
+        
+        try:
+            with self._create_cairo_surface() as surface:
+                cr = cairo.Context(surface)
+                cr.select_font_face(
+                    self.font_family, 
+                    cairo.FONT_SLANT_NORMAL,
+                    cairo.FONT_WEIGHT_BOLD if bold else cairo.FONT_WEIGHT_NORMAL
+                )
+                cr.set_font_size(self.font_size)
+                _, _, width, _, _, _ = cr.text_extents(text)
+                
+                # Reason: Scale factor accounts for rendering differences and padding
+                result = width * TEXT_WIDTH_SCALE_FACTOR
+                self._text_width_cache[cache_key] = result
+                return result
+                
+        except Exception as e:
+            logging.error(f"Failed to calculate text width for '{text}': {e}")
+            # Fallback to approximate calculation
+            return len(text) * self.font_size * (0.7 if bold else 0.65)
 
 
-class _Singleton:
-    instance = None
-
-
-def getconf():
+class SvgConfManager:
     """
-    SvgConf singleton
+    Thread-safe singleton manager for SvgConf instances.
+    
+    This class provides a safe way to manage global SVG configuration
+    while avoiding the pitfalls of traditional singleton patterns.
     """
-    if _Singleton.instance is None:
-        _Singleton.instance = SvgConf()
-    return _Singleton.instance
+    _instance: Optional['SvgConf'] = None
+    _lock = threading.Lock()
+
+    @classmethod
+    def get_config(cls) -> 'SvgConf':
+        """
+        Get the current SVG configuration instance.
+        
+        Returns:
+            Current SvgConf instance, creating default if none exists
+        """
+        if cls._instance is None:
+            with cls._lock:
+                if cls._instance is None:  # Double-check locking
+                    cls._instance = SvgConf()
+        return cls._instance
+
+    @classmethod
+    def set_config(cls, conf: SvgConf) -> None:
+        """
+        Set a new SVG configuration instance.
+        
+        Args:
+            conf: New SvgConf instance to use globally
+        """
+        if not isinstance(conf, SvgConf):
+            raise TypeError("conf must be an instance of SvgConf")
+        
+        with cls._lock:
+            cls._instance = conf
+
+    @classmethod
+    def reset_config(cls) -> None:
+        """
+        Reset configuration to default values.
+        """
+        with cls._lock:
+            cls._instance = None
 
 
-def putconf(conf: SvgConf):
+def getconf() -> SvgConf:
     """
-    Put a new conf
+    Get the current SVG configuration.
+    
+    Returns:
+        Current SvgConf instance
     """
-    _Singleton.instance = conf
+    return SvgConfManager.get_config()
+
+
+def putconf(conf: SvgConf) -> None:
+    """
+    Set a new SVG configuration.
+    
+    Args:
+        conf: New configuration to use
+    
+    Raises:
+        TypeError: If conf is not an SvgConf instance
+    """
+    SvgConfManager.set_config(conf)
 
 
 class SvgNode(ABC):
     """
-    A node in the svg
+    Abstract base class for all SVG nodes.
+    
+    This class provides the basic structure for building SVG elements
+    in a tree-like structure with automatic layout calculation.
     """
     w: Number = 0
     h: Number = 0
@@ -81,42 +212,67 @@ class SvgNode(ABC):
     x2: Number = 0
     y2: Number = 0
 
-    def __init__(self, conf: SvgConf = getconf()):
-        self.children = []
-        self.conf = conf
+    def __init__(self, conf: Optional[SvgConf] = None) -> None:
+        """Initialize SVG node.
+        
+        Args:
+            conf: SVG configuration to use. If None, uses global config.
+        """
+        self.children: List['SvgNode'] = []
+        self.conf = conf or getconf()
 
     @abstractmethod
     def gen_begin(self) -> str:
         """
-        Generate content before the children
+        Generate SVG content before children are rendered.
+        
+        Returns:
+            SVG markup string
         """
         return ''
 
     @abstractmethod
     def gen_end(self) -> str:
         """
-        Generate content after the children
+        Generate SVG content after children are rendered.
+        
+        Returns:
+            SVG markup string
         """
         return ''
 
-    def add_child(self, child):
+    def add_child(self, child: 'SvgNode') -> None:
         """
-        Add a child node
+        Add a child node to this node.
+        
+        Args:
+            child: Child node to add
+            
+        Raises:
+            TypeError: If child is not an SvgNode instance
         """
+        if not isinstance(child, SvgNode):
+            raise TypeError("Child must be an SvgNode instance")
         self.children.append(child)
 
     def __str__(self) -> str:
         """
-        What to return when generate the svg
+        Generate SVG markup for this node and its children.
+        
+        Returns:
+            Complete SVG markup string
         """
         return self.generate()
 
-    def walk(self):
+    def walk(self) -> Iterator['SvgNode']:
         """
-        Walk through the tree
+        Walk through the node tree in depth-first order.
+        
+        Yields:
+            SvgNode: Each node in the tree
         """
-        for i in self.children:
-            yield from i.walk()
+        for child in self.children:
+            yield from child.walk()
         yield self
 
     def width(self) -> Number:

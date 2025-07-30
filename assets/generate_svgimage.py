@@ -1,22 +1,55 @@
 """
-main
+SVG image generator for support matrix tables.
+Generates SVG tables with color-coded status information.
 """
 
 import argparse
+import logging
 import os
-from typing import Callable, Any
+import sys
+from pathlib import Path
+from typing import Callable, Any, Dict, List, Union
 from urllib.parse import urljoin
-from src.svg_gen import SvgConf, SvgNode, SvgXml, gen_html, putconf, SvgRectContainer
-from src.svg_gen import SvgText, SvgTextCenter, SvgMoveTo, SvgCR, SvgLF, SvgGroup
-from src.svg_gen import SvgAdvancer, SvgSvg, SvgLine, SvgLink
-from src.matrix_parser import Systems
+
+try:
+    from src.svg_gen import SvgConf, SvgNode, SvgXml, gen_html, putconf, SvgRectContainer
+    from src.svg_gen import SvgText, SvgTextCenter, SvgMoveTo, SvgCR, SvgLF, SvgGroup
+    from src.svg_gen import SvgAdvancer, SvgSvg, SvgLine, SvgLink
+    from src.matrix_parser import Systems
+except ImportError as e:
+    # Try alternative import path
+    try:
+        sys.path.append(str(Path(__file__).parent / 'src'))
+        from svg_gen.svg_gen import SvgConf, SvgNode, SvgXml, gen_html, putconf, SvgRectContainer
+        from svg_gen.svg_gen import SvgText, SvgTextCenter, SvgMoveTo, SvgCR, SvgLF, SvgGroup
+        from svg_gen.svg_gen import SvgAdvancer, SvgSvg, SvgLine, SvgLink
+        from matrix_parser import Systems
+    except ImportError:
+        logging.error(f"Failed to import required modules: {e}")
+        logging.error("Make sure the required modules are available in the Python path")
+        sys.exit(1)
+
+# Configuration constants
+DEFAULT_BG_COLOR = 'rgb(255, 128, 255)'
+DEFAULT_HEAD_BG_COLOR = 'rgb(200, 200, 200)'
+SUPPORTED_LANGUAGES = ['en', 'zh']
 
 
-def gen_svg_table(conf: SvgConf, systems: Systems, need_systems: dict[str],
-                  link_func: Callable[[Any, Any, object], str],
+def gen_svg_table(conf: SvgConf, systems: Systems, need_systems: Dict[str, str],
+                  link_func: Callable[[Any, Any, object], Union[str, None]],
                   color_func: Callable[[Any, Any, object], str]) -> SvgNode:
     """
-    Generate a svg table with the given systems
+    Generate an SVG table with the given systems.
+    
+    Args:
+        conf: SVG configuration object
+        systems: System data container
+        need_systems: Dictionary mapping system keys to display names
+        link_func: Function to generate links for cells
+        color_func: Function to determine cell colors
+    
+    Returns:
+        SvgNode: Complete SVG document node
     """
     putconf(conf)
 
@@ -105,7 +138,7 @@ def gen_svg_table(conf: SvgConf, systems: Systems, need_systems: dict[str],
     doc = SvgXml()
     svg = SvgSvg()
 
-    bg = SvgRectContainer('rgb(255, 128, 255)')
+    bg = SvgRectContainer(DEFAULT_BG_COLOR)
 
     top_border = SvgLine(
         sum(col_width) + conf.stroke_width * (len(col_width) + 3), 0,
@@ -115,7 +148,7 @@ def gen_svg_table(conf: SvgConf, systems: Systems, need_systems: dict[str],
     bg.add_child(SvgLF())
 
     # Head:
-    head_bg = SvgRectContainer('rgb(200, 200, 200)')
+    head_bg = SvgRectContainer(DEFAULT_HEAD_BG_COLOR)
     for idx, i in enumerate(table[0]):
         a = SvgAdvancer(conf.stroke_width * 2 if idx ==
                         0 else conf.stroke_width, 0)
@@ -225,23 +258,41 @@ def gen_svg_table(conf: SvgConf, systems: Systems, need_systems: dict[str],
     return doc
 
 
-def proc_onesys(system_arr: dict[str], system: Systems,
-                link_func: Callable[[Any, Any, object], str],
-                color_func: Callable[[Any, Any, object], str]):
+def proc_onesys(system_arr: Dict[str, str], system: Systems,
+                link_func: Callable[[Any, Any, object], Union[str, None]],
+                color_func: Callable[[Any, Any, object], str]) -> SvgNode:
     """
-    process one type of system
-    """
-
-    conf = SvgConf()
-
-    res = gen_svg_table(conf, system, system_arr, link_func, color_func)
-
-    return res
-
-def gen_color(_, col, content):
-    if col < 3:
-        return 'rgb(226, 232, 240)' # slate
+    Process one type of system and generate SVG table.
     
+    Args:
+        system_arr: Dictionary of systems to process
+        system: Systems data container
+        link_func: Function to generate links
+        color_func: Function to determine colors
+    
+    Returns:
+        SvgNode: Generated SVG table
+    """
+    conf = SvgConf()
+    return gen_svg_table(conf, system, system_arr, link_func, color_func)
+
+def gen_color(_, col: int, content: str) -> str:
+    """
+    Generate color based on content status.
+    
+    Args:
+        _: Unused parameter (kept for compatibility)
+        col: Column index
+        content: Cell content string
+    
+    Returns:
+        str: RGB color string
+    """
+    # Reason: First 3 columns are metadata (CPU, IP Core, Product/Model)
+    if col < 3:
+        return 'rgb(226, 232, 240)'  # slate
+    
+    # Extract status from content (format: "variant: status")
     status = content.split(':')[-1].strip()
 
     color_map = {
@@ -250,105 +301,152 @@ def gen_color(_, col, content):
         "CFH": 'rgb(255, 201, 201)',    # red
         "CFT": 'rgb(229, 231, 235)',    # gray
         "WIP": 'rgb(246, 207, 255)',    # fuchsia
-        "CFI": 'rgb(255, 240, 133)',   # yellow
+        "CFI": 'rgb(255, 240, 133)',    # yellow
     }
-    return color_map.get(status, 'rgb(249, 250, 251)') # white
+    return color_map.get(status, 'rgb(249, 250, 251)')  # white as default
 
-def gen_gen_link(lang: str):
+def gen_gen_link(lang: str) -> Callable[[Any, Any, object], Union[str, None]]:
     """
-    gen gen_link
+    Generate a link generator function for the specified language.
+    
+    Args:
+        lang: Language code ('en', 'zh', etc.)
+    
+    Returns:
+        Function that generates links for table cells
+    
+    Raises:
+        ValueError: If language is not supported
     """
+    if lang not in SUPPORTED_LANGUAGES:
+        raise ValueError(f"Unsupported language: {lang}. Supported: {SUPPORTED_LANGUAGES}")
+    
     lang_end = ".md" if lang == "en" else f"_{lang}.md"
 
-    def gen_link(_, __, content):
-        if hasattr(content, 'link') and content.link is not None:
+    def gen_link(_, __, content) -> Union[str, None]:
+        """Generate link URL for content object."""
+        if not hasattr(content, 'link') or content.link is None:
+            return None
+        
+        try:
             url = "https://github.com/ruyisdk/support-matrix/tree/main/"
             for i in content.link:
                 if i.endswith('.md'):
                     i = i[:-3] + lang_end
                 url = urljoin(url + '/', i)
             return url
-        return None
+        except (AttributeError, TypeError) as e:
+            logging.warning(f"Failed to generate link for content: {e}")
+            return None
+    
     return gen_link
 
 
-def main():
+def _write_svg_files(systems_dict: Dict[str, Any], systems: Systems, 
+                    link_func: Callable, color_func: Callable,
+                    output_dir: Path, file_suffix: str, html_path: Union[str, None]) -> None:
     """
-    main
+    Write SVG and HTML files for all system types.
+    
+    Args:
+        systems_dict: Dictionary of system types to process
+        systems: Systems data container  
+        link_func: Function to generate links
+        color_func: Function to determine colors
+        output_dir: Output directory path
+        file_suffix: File suffix for localization
+        html_path: HTML output path (optional)
     """
-    parser = argparse.ArgumentParser()
+    for system_type, system_data in systems_dict.items():
+        try:
+            svg = proc_onesys(system_data, systems, link_func, color_func)
+            
+            # Write SVG file
+            svg_file = output_dir / f'{system_type}{file_suffix}.svg'
+            with open(svg_file, 'w', encoding="utf-8") as f:
+                f.write(str(svg))
+            logging.info(f"Generated SVG: {svg_file}")
+            
+            # Write HTML file if requested
+            if html_path:
+                html_file = output_dir / f'{system_type}{file_suffix}.html'
+                svg_path = os.path.join(html_path, f'{system_type}{file_suffix}.svg')
+                with open(html_file, 'w', encoding="utf-8") as f:
+                    f.write(gen_html(svg, svg_path))
+                logging.info(f"Generated HTML: {html_file}")
+                    
+        except Exception as e:
+            logging.error(f"Failed to generate {system_type} files: {e}")
+            raise
+
+
+def main() -> None:
+    """
+    Main function to generate SVG images for support matrix.
+    """
+    # Setup logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
+    
+    parser = argparse.ArgumentParser(
+        description="Generate SVG tables for support matrix",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+    )
     parser.add_argument('-p', '--path', dest="path",
-                        help="support matrix path", type=str, default='.')
+                        help="Support matrix path", type=str, default='.')
     parser.add_argument('-o', '--output', dest="output",
-                        help="output path", type=str, default='assets/output')
+                        help="Output directory path", type=str, default='assets/output')
     parser.add_argument('-l', '--lang', dest="lang",
-                        help="language", type=str, default='en')
+                        help=f"Language ({'/'.join(SUPPORTED_LANGUAGES)})", 
+                        type=str, default='en', choices=SUPPORTED_LANGUAGES)
     parser.add_argument('--html', dest="html",
-                        help="output html, with svg assets at arg", type=str, default=None)
+                        help="Output HTML files with SVG assets at specified path", 
+                        type=str, default=None)
 
-    args = parser.parse_args()
-
-    p = args.path
-    systems = Systems(p)
-
-    color_func = gen_color
-    link_func = gen_gen_link(args.lang)
-
-    file_suffix = "" if args.lang == "en" else f"_{args.lang}"
-    html_path = args.html
-    if not os.path.exists(args.output):
-        os.mkdir(args.output)
-
-    svg = proc_onesys(systems.linux, systems, link_func, color_func)
-    with open(os.path.join(args.output, f'linux{file_suffix}.svg'), 'w', encoding="utf-8") as f:
-        f.write(str(svg))
-    if html_path:
-        with open(os.path.join(args.output,
-                               f'linux{file_suffix}.html'), 'w', encoding="utf-8") as f:
-            f.write(gen_html(svg, os.path.join(
-                html_path, f'linux{file_suffix}.svg')))
-
-    svg = proc_onesys(systems.bsd, systems, link_func, color_func)
-    with open(os.path.join(args.output, f'bsd{file_suffix}.svg'), 'w', encoding="utf-8") as f:
-        f.write(str(svg))
-    if html_path:
-        with open(os.path.join(args.output,
-                               f'bsd{file_suffix}.html'), 'w', encoding="utf-8") as f:
-            f.write(gen_html(svg, os.path.join(
-                html_path, f'bsd{file_suffix}.svg')))
-
-    svg = proc_onesys(systems.rtos, systems, link_func, color_func)
-    with open(os.path.join(args.output, f'rtos{file_suffix}.svg'), 'w', encoding="utf-8") as f:
-        f.write(str(svg))
-    if html_path:
-        with open(os.path.join(args.output,
-                               f'rtos{file_suffix}.html'), 'w', encoding="utf-8") as f:
-            f.write(gen_html(svg, os.path.join(
-                html_path, f'rtos{file_suffix}.svg')))
-
-    svg = proc_onesys(systems.others, systems, link_func, color_func)
-    with open(os.path.join(args.output, f'others{file_suffix}.svg'), 'w', encoding="utf-8") as f:
-        f.write(str(svg))
-    if html_path:
-        with open(os.path.join(args.output,
-                               f'others{file_suffix}.html'), 'w', encoding="utf-8") as f:
-            f.write(gen_html(svg, os.path.join(
-                html_path, f'others{file_suffix}.svg')))
-
-    svg = proc_onesys(systems.customized, systems, link_func, color_func)
-    with open(os.path.join(args.output, f'customized{file_suffix}.svg'), 'w', encoding="utf-8") as f:
-        f.write(str(svg))
-    if html_path:
-        with open(os.path.join(args.output,
-                               f'customized{file_suffix}.html'), 'w', encoding="utf-8") as f:
-            f.write(gen_html(svg, os.path.join(
-                html_path, f'customized{file_suffix}.svg')))
+    try:
+        args = parser.parse_args()
+        
+        # Validate and setup paths
+        input_path = Path(args.path)
+        if not input_path.exists():
+            raise FileNotFoundError(f"Input path does not exist: {input_path}")
+        
+        output_dir = Path(args.output)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Load systems data
+        logging.info(f"Loading systems data from: {input_path}")
+        systems = Systems(str(input_path))
+        
+        # Setup functions
+        color_func = gen_color
+        link_func = gen_gen_link(args.lang)
+        
+        # Generate file suffix for localization
+        file_suffix = "" if args.lang == "en" else f"_{args.lang}"
+        
+        # Define system types to process
+        systems_to_process = {
+            'linux': systems.linux,
+            'bsd': systems.bsd, 
+            'rtos': systems.rtos,
+            'others': systems.others,
+            'customized': systems.customized
+        }
+        
+        # Generate all SVG and HTML files
+        logging.info("Starting SVG generation...")
+        _write_svg_files(systems_to_process, systems, link_func, color_func,
+                        output_dir, file_suffix, args.html)
+        
+        logging.info(f"Successfully generated all files in: {output_dir}")
+        
+    except Exception as e:
+        logging.error(f"Error during execution: {e}")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except Exception as e:
-        print("Raise:", e)
-        import sys as __sys
-        __sys.exit(1)
+    main()
