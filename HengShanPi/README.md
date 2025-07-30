@@ -1,5 +1,5 @@
 ---
-vendor: LCSC
+vendor: JLC
 product: HengShanPi D133EBS
 cpu: D133EBS
 cpu_core: XuanTie E907
