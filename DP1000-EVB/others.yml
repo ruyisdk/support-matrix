@@ -1,0 +1,12 @@
+- sys: fedora
+  sys_ver: null
+  sys_var: null
+  status: wip
+- sys: deepin
+  sys_ver: null
+  sys_var: null
+  status: cft
+- sys: opencloudos
+  sys_ver: null
+  sys_var: null
+  status: wip
