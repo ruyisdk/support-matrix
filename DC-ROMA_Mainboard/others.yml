@@ -1,0 +1,12 @@
+- sys: ubuntu
+  sys_ver: 24.04
+  sys_var: DeepComputing
+  status: cft
+- sys: ubuntu
+  sys_ver: 25.04
+  sys_var: ubuntu
+  status: cft
+- sys: fedora
+  sys_ver: 41
+  sys_var: null
+  status: cft
