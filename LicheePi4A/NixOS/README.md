@@ -2,7 +2,7 @@
 sys: nixos 
 sys_ver: "23.05"
 sys_var: null
-
+provider: ryan4yin
 status: basic
 last_update: 2025-03-04
 ---
