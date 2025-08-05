@@ -1,0 +1,12 @@
+- sys: fedora
+  sys_ver: 42
+  sys_var: Workstation
+  status: cft
+- sys: bianbu
+  sys_ver: 3.0
+  sys_var: Desktop
+  status: cft
+- sys: bianbu
+  sys_ver: 3.0
+  sys_var: Desktop Lite
+  status: cft

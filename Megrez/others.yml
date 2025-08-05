@@ -1,0 +1,16 @@
+- sys: openkylin
+  sys_ver: 2.0
+  sys_var: null
+  status: cft
+- sys: fedora
+  sys_ver: 42
+  sys_var: Xfce Desktop
+  status: CFT
+- sys: fedora
+  sys_ver: 42
+  sys_var: BootC
+  status: CFT
+- sys: fedora
+  sys_ver: 42
+  sys_var: minimal
+  status: CFT

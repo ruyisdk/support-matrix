@@ -1,0 +1,5 @@
+- sys: fedora
+  sys_ver: 41
+  sys_var: Xfce Desktop
+  provider: Fedora-V Force
+  status: cft

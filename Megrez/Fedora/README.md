@@ -1,10 +1,9 @@
 ---
 sys: fedora
-sys_ver: "41"
-sys_var: null
-
+sys_ver: "42"
+sys_var: Workstation
 status: cft
-last_update: 2025-01-23
+last_update: 2025-08-01
 ---
 
 # Milk-V Megrez Test Report
@@ -26,10 +25,10 @@ last_update: 2025-01-23
 
 ### Flashing Image
 
-After downloading, extract and flash the image (example is using the desktop version):
+After downloading, extract and flash the image (example is using the workstation version):
 ```bash
-gzip -d fedora-disk-multi-desktops_eswin_eic7700-sda.raw.gz
-sudo dd if=fedora-disk-multi-desktops_eswin_eic7700-sda.raw of=/dev/your/sdcard bs=1M status=progress
+gzip -d Fedora-GNOME-42-20250606045542.riscv64.ESWIN-EIC7700.ESWIN-EIC7700EVB.raw.gz
+sudo dd if=Fedora-GNOME-42-20250606045542.riscv64.ESWIN-EIC7700.ESWIN-EIC7700EVB.raw of=/dev/your/sdcard bs=1M status=progress
 ```
 
 ### Logging into the System
