@@ -1,0 +1,16 @@
+- sys: fedora
+  sys_ver: 42
+  sys_var: minimal
+  status: CFT
+- sys: fedora
+  sys_ver: 42
+  sys_var: Workstation
+  status: CFT
+- sys: fedora
+  sys_ver: 42
+  sys_var: Xfce Desktop
+  status: CFT
+- sys: fedora
+  sys_ver: 42
+  sys_var: BootC
+  status: CFT

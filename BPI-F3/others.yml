@@ -1,3 +1,7 @@
+- sys: pmos
+  sys_ver: null
+  sys_var: null
+  status: cft
 - sys: fedora
   sys_ver: 42
   sys_var: minimal
@@ -10,15 +14,3 @@
   sys_ver: 41
   sys_var: Xfce Desktop
   status: cft
-- sys: bianbu
-  sys_ver: 3.0
-  sys_var: minimal
-  status: wip
-- sys: bianbu
-  sys_ver: 3.0
-  sys_var: Desktop
-  status: wip
-- sys: bianbu
-  sys_ver: 3.0
-  sys_var: Desktop Lite
-  status: wip

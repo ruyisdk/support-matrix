@@ -2,7 +2,7 @@
 sys: eweos
 sys_ver: null
 sys_var: null
-
+provider: panglars
 status: basic
 last_update: 2025-03-02
 ---
