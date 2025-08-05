@@ -5,7 +5,7 @@
 - sys: deepin
   sys_ver: null
   sys_var: null
-  status: cft
+  status: wip
 - sys: opencloudos
   sys_ver: null
   sys_var: null
