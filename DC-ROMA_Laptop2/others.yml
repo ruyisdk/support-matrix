@@ -1,0 +1,4 @@
+- sys: ubuntu
+  sys_ver: 24.04
+  sys_var: LTS
+  status: cft
