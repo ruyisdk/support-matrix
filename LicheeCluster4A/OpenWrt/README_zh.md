@@ -1,10 +1,10 @@
-# OpenWRT Lichee Cluster 4A 版本测试报告
+# OpenWrt Lichee Cluster 4A 版本测试报告
 
 ## 测试环境
 
 ### 操作系统信息
 
-- 系统版本：OpenWRT
+- 系统版本：OpenWrt
 - 下载链接：[https://github.com/chainsx/openwrt-th1520/releases](https://github.com/chainsx/openwrt-th1520/releases)
 - 参考安装文档：[https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide_zh.md](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide_zh.md)
 - fastboot 链接：

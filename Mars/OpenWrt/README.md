@@ -7,7 +7,7 @@ status: basic
 last_update: 2025-04-26
 ---
 
-# OpenWRT Milk-V Mars Test Report
+# OpenWrt Milk-V Mars Test Report
 
 ## Test Environment
 
@@ -21,7 +21,7 @@ last_update: 2025-04-26
 
 ### Operating System Information
 
-- OS Version: OpenWRT 24.10.1 (Build ID: r28597-0425664679)
+- OS Version: OpenWrt 24.10.1 (Build ID: r28597-0425664679)
 - Download Link: <https://downloads.openwrt.org/releases/24.10.1/targets/starfive/generic/openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img.gz>
 - Reference Installation Document:
   - <https://milkv.io/zh/docs/mars/getting-started/boot>
@@ -54,7 +54,7 @@ Default username: `root` (automatic login)
 
 No password by default
 
-Since the image does not have SPL and U-Boot, the dip switch of the board needs to be set to `00` in order to use the built-in SPL and U-Boot in the SPI-Flash on the board to boot the OpenWRT image in the MicroSD card.
+Since the image does not have SPL and U-Boot, the dip switch of the board needs to be set to `00` in order to use the built-in SPL and U-Boot in the SPI-Flash on the board to boot the OpenWrt image in the MicroSD card.
 
 ## Expected Results
 

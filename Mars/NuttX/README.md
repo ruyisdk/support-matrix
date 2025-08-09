@@ -330,7 +330,7 @@ Default username: `root` (automatic login)
 
 No password by default
 
-Since the image does not have SPL and U-Boot, the dip switch of the board needs to be set to `00` in order to use the built-in SPL and U-Boot in the SPI-Flash on the board to boot the OpenWRT image in the MicroSD card.
+Since the image does not have SPL and U-Boot, the dip switch of the board needs to be set to `00` in order to use the built-in SPL and U-Boot in the SPI-Flash on the board to boot the OpenWrt image in the MicroSD card.
 
 ## Expected Results
 

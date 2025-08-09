@@ -7,13 +7,13 @@ status: basic
 last_update: 2024-06-21
 ---
 
-# OpenWRT LPi4A Test Report
+# OpenWrt LPi4A Test Report
 
 ## Test Environment
 
 ### System Information
 
-- System Version: OpenWRT
+- System Version: OpenWrt
 - Download Link: [https://github.com/chainsx/openwrt-th1520/releases](https://github.com/chainsx/openwrt-th1520/releases)
 - Reference Installation Document: [https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md](https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md)
 - fastboot Links:
