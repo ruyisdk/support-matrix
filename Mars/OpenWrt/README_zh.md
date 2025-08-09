@@ -1,4 +1,4 @@
-# OpenWRT Milk-V Mars 测试报告
+# OpenWrt Milk-V Mars 测试报告
 
 ## 测试环境
 
@@ -12,7 +12,7 @@
 
 ### 操作系统信息
 
-- 操作系统版本：OpenWRT 24.10.1 (Build ID: r28597-0425664679)
+- 操作系统版本：OpenWrt 24.10.1 (Build ID: r28597-0425664679)
 - 下载链接：<https://downloads.openwrt.org/releases/24.10.1/targets/starfive/generic/openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img.gz>
 - 参考安装文档：
   - <https://milkv.io/zh/docs/mars/getting-started/boot>
@@ -45,7 +45,7 @@ sync
 
 默认无密码
 
-由于镜像没有SPL和U-Boot，所以需要将板子的拨码开关设置为 `00`，以此来使用板上SPI-Flash中内置的SPL和U-Boot来引导启动MicroSD卡中的OpenWRT镜像。
+由于镜像没有SPL和U-Boot，所以需要将板子的拨码开关设置为 `00`，以此来使用板上SPI-Flash中内置的SPL和U-Boot来引导启动MicroSD卡中的OpenWrt镜像。
 
 ## 预期结果
 

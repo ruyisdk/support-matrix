@@ -7,7 +7,7 @@ status: basic
 last_update: 2025-05-22
 ---
 
-# OpenWRT 24.10.0 OrangePi RV2 Test Report
+# OpenWrt 24.10.0 OrangePi RV2 Test Report
 
 ## Test Environment
 
@@ -21,7 +21,7 @@ last_update: 2025-05-22
 
 ### Operating System Information
 
-- OS Version: OpenWRT 24.10.0
+- OS Version: OpenWrt 24.10.0
 - Download link: <http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html>
 - Reference Installation Document: <http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html>
 

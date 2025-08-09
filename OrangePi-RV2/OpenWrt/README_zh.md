@@ -1,4 +1,4 @@
-# OpenWRT OrangePi RV2 测试报告
+# OpenWrt OrangePi RV2 测试报告
 
 ## 测试环境
 
@@ -12,7 +12,7 @@
 
 ### 操作系统信息
 
-- 系统版本：OpenWRT 24.10.0
+- 系统版本：OpenWrt 24.10.0
 - 下载链接：<http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html>
 - 参考安装文档：<http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-RV2.html>
 

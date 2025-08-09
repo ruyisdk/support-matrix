@@ -19,7 +19,7 @@ linux:
   - openeuler: openEuler
   - openkylin: openKylin
   - opensuse: openSUSE
-  - openwrt: OpenWRT
+  - openwrt: OpenWrt
   - pmos: postmarketOS
   - slackware: Slackware
   - ubuntu: Ubuntu
