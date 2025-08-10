@@ -22,6 +22,7 @@ linux:
   - opensuse: openSUSE
   - openwrt: OpenWrt
   - pmos: postmarketOS
+  - rhel: RHEL
   - slackware: Slackware
   - ubuntu: Ubuntu
   - yocto: Yocto
@@ -33,7 +34,7 @@ bsd:
 
 rtos:
   - freertos: FreeRTOS
-  - LiteOS: LiteOS
+  - liteos: LiteOS
   - melis: Melis
   - nuttx: NuttX
   - rtthread: RT-Thread

@@ -22,3 +22,7 @@
   sys_ver: null
   sys_var: null
   status: CFT
+- sys: rhel
+  sys_ver: 10
+  sys_var: null
+  status: CFT
