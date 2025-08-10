@@ -5,12 +5,19 @@
 - sys: fedora
   sys_ver: 42
   sys_var: minimal
+  provider: Fedora-V Force
   status: cft
 - sys: fedora
   sys_ver: 42
   sys_var: Workstation
+  provider: Fedora-V Force
   status: cft
 - sys: fedora
   sys_ver: 41
   sys_var: Xfce Desktop
+  provider: Fedora-V Force
+  status: cft
+- sys: irradium
+  sys_ver: 3.8
+  sys_var: null
   status: cft

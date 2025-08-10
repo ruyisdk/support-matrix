@@ -1,16 +1,28 @@
 - sys: fedora
   sys_ver: 42
   sys_var: minimal
+  provider: Fedora-V Force
   status: CFT
 - sys: fedora
   sys_ver: 42
   sys_var: Workstation
+  provider: Fedora-V Force
   status: CFT
 - sys: fedora
   sys_ver: 42
   sys_var: Xfce Desktop
+  provider: Fedora-V Force
   status: CFT
 - sys: fedora
   sys_ver: 42
   sys_var: BootC
+  provider: Fedora-V Force
+  status: CFT
+- sys: rockos
+  sys_ver: null
+  sys_var: null
+  status: CFT
+- sys: rhel
+  sys_ver: 10
+  sys_var: null
   status: CFT

@@ -1,14 +1,17 @@
 - sys: fedora
   sys_ver: 42
   sys_var: minimal
+  provider: Fedora-V Force
   status: cft
 - sys: fedora
   sys_ver: 42
   sys_var: Workstation
+  provider: Fedora-V Force
   status: cft
 - sys: fedora
   sys_ver: 41
   sys_var: Xfce Desktop
+  provider: Fedora-V Force
   status: cft
 - sys: bianbu
   sys_ver: 3.0
