@@ -1,10 +1,7 @@
-- sys: rtthread
+- sys: debian
   sys_ver: null
   sys_var: null
-  status: cft
-- sys: openharmony
-  sys_ver: null
-  sys_var: null
+  provider: OrangePi
   status: cft
 - sys: irradium
   sys_ver: 3.8

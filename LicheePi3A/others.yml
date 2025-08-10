@@ -1,6 +1,7 @@
 - sys: fedora
   sys_ver: 42
   sys_var: Workstation
+  provider: Fedora-V Force
   status: cft
 - sys: bianbu
   sys_ver: 3.0
@@ -12,5 +13,9 @@
   status: cft
 - sys: deepin
   sys_ver: 25 preview
+  sys_var: null
+  status: cft
+- sys: irradium
+  sys_ver: 3.8
   sys_var: null
   status: cft
