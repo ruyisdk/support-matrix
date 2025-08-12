@@ -24,7 +24,7 @@ last_update: 2025-06-16
 - Power adapter
 - USB to UART debugger
 - Three DuPont wires
-- MicroSD card
+- microSD card
 
 ## Installation Steps
 
@@ -78,8 +78,8 @@ Writing 'uboot'                                    OKAY [  0.021s]
 Finished. Total time: 0.104s
 ```
 
-### Writing System Image to MicroSD Card
-The author used the `dd` command:
+### Writing System Image to microSD Card
+You can used the `dd` command:
 ```bash
 sudo dd if=images/irradium-3.8-riscv64-core-lichee_pi_4a-6.6.90-build-20250510.img of=/dev/mmcblk0 bs=1M
 ```
@@ -91,8 +91,8 @@ Log:
 ```
 
 ## Logging into the System
-Insert the MicroSD card into LPi4A and reboot.
-Use a serial connection to log in; the author used `minicom`.
+Insert the microSD card into LPi4A and reboot.
+Use a serial connection to log in; e.g. `minicom`.
 ```bash
 minicom -D /dev/ttyACM0 -c on
 ```
@@ -175,7 +175,7 @@ BUG_REPORT_URL="https://irradium.org/bugs/"
 ```
 
 ## Desktop Environment
-The official release includes an **XFCE** desktop image. Simply write it to the MicroSD card to use it.
+The official release includes an **Xfce** desktop image. Simply write it to the microSD card to use it.
 ```bash
 sudo dd if=images/irradium-3.8-riscv64-xfce-lichee_pi_4a-6.6.90-build-20250510.img of=/dev/mmcblk0 bs=1M
 ```
