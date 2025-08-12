@@ -24,6 +24,7 @@ linux:
   - slackware: Slackware
   - ubuntu: Ubuntu
   - yocto: Yocto
+  - bredos: BredOS
 
 bsd:
   - freebsd: FreeBSD
