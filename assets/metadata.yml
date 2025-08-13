@@ -4,6 +4,7 @@ linux:
   - alpine: Alpine
   - archlinux: Arch Linux
   - armbian: Armbian
+  - bredos: BredOS
   - buildroot: BuildRoot
   - debian: Debian
   - deepin: Deepin
@@ -24,7 +25,6 @@ linux:
   - slackware: Slackware
   - ubuntu: Ubuntu
   - yocto: Yocto
-  - bredos: BredOS
 
 bsd:
   - freebsd: FreeBSD
