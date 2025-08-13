@@ -46,15 +46,15 @@ After downloading and extracting the image, use `fastboot` to flash the image to
 unzip bianbu-25.04-minimal-k1-v3.0-release-20250725114639.zip
 ```
 
-Hold the BOOT button while powering on/RST, to enter the fastboot mode. You shall see the dfu-device in your system:
+Hold the BOOT button while powering on/RST, to enter the fastboot mode. You shall see the dfu-device in your system.
+
+> Note: for the steps below, `sudo` might be needed.
+> Otherwise `fastboot` might not pick up the board since it's default USB VID/PID is not in the default udev rules.
 
 ```log
 ❯ sudo fastboot devices
 dfu-device       DFU download
 ```
-
-> Note: for the steps below, `sudo` might be needed.
-> Otherwise `fastboot` might not pick up the board since it's default USB VID/PID is not in the default udev rules.
 
 ```bash
 fastboot stage factory/FSBL.bin
