@@ -168,6 +168,10 @@ mimpid          : 0x1000000049772200
 root@spacemit-k1-x-bit-brick-board:~# 
 ```
 
+## Desktop Environment
+
+This image comes pre-installed with the **Gnome** desktop environment, which starts automatically as a desktop session when a monitor is connected.
+
 ![](./gnome.jpeg)
 
 ## Test Criteria
