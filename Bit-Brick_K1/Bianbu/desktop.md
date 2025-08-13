@@ -1,55 +1,63 @@
-# Bianbu BIT-BRICK K1 测试报告
+---
+sys: bianbu
+sys_ver: 3.0
+sys_var: desktop
+status: good
+last_update: 2025-08-13
+---
 
-## 测试环境
+# Bianbu BIT-BRICK K1 Test Report
 
-### 系统信息
+## Test Environment
 
-- 系统版本：v2.1.1
-- 下载链接：https://archive.spacemit.com/image/k1/version/bianbu/v2.1.1/
-- 参考安装文档：https://docs.bit-brick.com/docs/k1/getting-started/preparation
+### System Information
 
-### 硬件信息
+- System version: v3.0
+- Download Links: https://archive.spacemit.com/image/k1/version/bianbu/v3.0/
+- Reference Installation Document: https://docs.bit-brick.com/docs/k1/getting-started/preparation
+
+### Hardware Information
 
 - BIT-BRICK K1
-- 电源适配器
-- microSD 卡一张
-- USB to UART 调试器一个
+- Power Adapter
+- A microSD Card
+- A USB to UART Debugger
 
-## 安装步骤
+## Installation Steps
 
-### 刷写镜像（sd 卡）
+### Flashing the Image (SD Card)
 
-
-**请务必选择以 `.img.zip` 结尾的压缩包**
-下载并解压镜像后，使用 `dd` 将镜像写入 microSD 卡。
+**Please make sure to choose the file ending with `.img.zip`**
+After downloading and extracting the image, use `dd` to flash the image to the microSD card.
 
 ```bash
-unzip bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.img.zip
-sudo dd if=bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.img of=/dev/<your-device> bs=1M status=progress 
+unzip bianbu-25.04-desktop-k1-v3.0-release-20250725125828.img.zip
+sudo dd if=bianbu-25.04-desktop-k1-v3.0-release-20250725125828.img of=/dev/sdX bs=1M status=progress 
 ```
 
-### 登录系统
+### Logging into the System
 
-通过串口登录系统。
+Logging into the system via the serial port.
 
-默认用户名： `root`
-默认密码： `bianbu`
+Default Username: `root`
+Default Password: `bianbu`
 
-## 预期结果
+## Expected Results
 
-系统正常启动，能够通过串口或图形界面登录。
+The system should boot up normally and allow login through the onboard serial port and through GUI.
 
-## 实际结果
+## Actual Results
 
-系统正常启动，成功通过串口及图形界面登录。
+The system booted successfully and login through the onboard serial port as well as the GUI was successful.
 
-### 启动信息
+### Boot Log
 
 ```log
 
+Bianbu 3.0 spacemit-k1-x-bit-brick-board ttyS0
 spacemit-k1-x-bit-brick-board login: root
 密码： 
-Welcome to Bianbu 2.1.1 (GNU/Linux 6.6.63 riscv64)
+Welcome to Bianbu 3.0 (GNU/Linux 6.6.63 riscv64)
 
  * Documentation:  https://bianbu.spacemit.com
  * Support:        https://ticket.spacemit.com
@@ -57,29 +65,25 @@ Welcome to Bianbu 2.1.1 (GNU/Linux 6.6.63 riscv64)
 0 updates can be applied immediately.
 
 
-The programs included with the Bianbu system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Bianbu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-applicable law.
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
 
 root@spacemit-k1-x-bit-brick-board:~# uname -a
-Linux spacemit-k1-x-bit-brick-board 6.6.63 #2.1.0.2 SMP PREEMPT Fri Jan 24 03:39:48 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux
+Linux spacemit-k1-x-bit-brick-board 6.6.63 #2.2.6.3 SMP PREEMPT Thu Jul 17 11:38:53 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux
 root@spacemit-k1-x-bit-brick-board:~# cat /etc/os-release 
-PRETTY_NAME="Bianbu 2.1.1"
+PRETTY_NAME="Bianbu 3.0"
 NAME="Bianbu"
-VERSION_ID="2.1.1"
-VERSION="2.1.1 (Noble Numbat)"
-VERSION_CODENAME=noble
+VERSION_ID="3.0"
+VERSION="3.0 (Plucky Puffin)"
+VERSION_CODENAME=plucky
 ID=bianbu
 ID_LIKE=debian
 HOME_URL="https://bianbu.spacemit.com"
 SUPPORT_URL="https://bianbu.spacemit.com"
 BUG_REPORT_URL="https://ticket.spacemit.com"
 PRIVACY_POLICY_URL="https://www.spacemit.com/privacy-policy"
-UBUNTU_CODENAME=noble
-LOGO=ubuntu-logo
+UBUNTU_CODENAME=plucky
+LOGO=bianbu-logo
 root@spacemit-k1-x-bit-brick-board:~# cat /proc/cpuinfo 
 processor       : 0
 hart            : 0
@@ -164,14 +168,14 @@ mimpid          : 0x1000000049772200
 root@spacemit-k1-x-bit-brick-board:~# 
 ```
 
-![](./gnome.png)
+![](./gnome.jpeg)
 
-## 测试判定标准
+## Test Criteria
 
-测试成功：实际结果与预期结果相符。
+Successful: The actual result matches the expected result.
 
-测试失败：实际结果与预期结果不符。
+Failed: The actual result does not match the expected result.
 
-## 测试结论
+## Test Conclusion
 
-测试成功
+Test Successful
