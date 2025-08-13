@@ -33,13 +33,13 @@ sudo dd if=/path/to/bianbu-25.04-minimal-k1-v3.0-release-20250725114639.img of=/
 **请务必选择不包含 `img` 的压缩包**
 下载并解压镜像后，使用 `fastboot` 将镜像刷写到 eMMC。
 
-```bash
-❯ sudo fastboot devices
-dfu-device       DFU download
-```
-
 > 注意：下面的步骤可能需要使用 `sudo`。
 > 否则 `fastboot` 可能不会正确识别设备，因为默认的 USB VID/PID 不在 udev 规则内。
+
+```bash
+❯ fastboot devices
+dfu-device       DFU download
+```
 
 ```bash
 fastboot stage factory/FSBL.bin

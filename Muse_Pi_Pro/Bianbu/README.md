@@ -1,29 +1,30 @@
 ---
 sys: bianbu
-sys_ver: v1.2
-sys_var: null
+sys_ver: v1.3
+sys_var: bianbu-computer
 
 status: Good
-last_update: 2025-05-21
+last_update: 2025-08-13
 ---
 
-# SpacemiT Muse Pi Pro, Bianbu UEFI v1.2 Test Report
+# SpacemiT MUSE Pi Pro, Bianbu-Compupter UEFI v1.3 Test Report
 
 ## Test Environment
 
 ### System Information
 
-- Download Link: https://archive.spacemit.com/image/k1/version/bianbu-computer-uefi/v1.2/
+- Download Link: https://archive.spacemit.com/image/k1/version/bianbu-computer-uefi/v1.3/
 - Reference Install Document: https://developer.spacemit.com/documentation?token=QSfGwmkhqiHwqQkHmCicH2Qnnyg
 
+> This version is based on Bianbu Star v2.1.
 
 ### Hardware Information
 
-- SpacemiT Muse Pi Pro Board
+- SpacemiT MUSE Pi Pro Board
 - USB Charger
 - USB Type-C cables
 - UART to USB Debugger
-- microSD Card (If flash to SD card)
+- microSD Card (if flash to microSD card)
 
 ## Installation Steps
 
@@ -36,7 +37,7 @@ last_update: 2025-05-21
 After downloading and extracting the image, use `dd` to flash the image to the microSD card.
 
 ```bash
-unzip bianbu-computer-s1-uefi-release-for-pipro-v1.2-release-20250421182705.img.zip
+unzip	bianbu-computer-s1-uefi-release-for-pipro-v1.3-release-20250529141832.img.zip
 sudo dd if=bianbu-computer-s1-uefi-release-for-pipro-v1.2-release-20250421182705.img of=/dev/your-device bs=1M status=progress
 ```
 
@@ -46,39 +47,42 @@ Please replace `/dev/your-device` with the actual device name of your microSD ca
 
 **Please make sure to choose the file ending without `.img`**
 
-**Note: Please pay attention to use the uefi image, instead uboot image used by other k1/m1 devices.**
+**Note: Please pay attention to use the UEFI image, instead u-boot image used by other K1/M1 devices.**
 
 After downloading and extracting the image, use `fastboot` to flash the image to the eMMC.
 
 ```bash
-unzip bianbu-computer-s1-uefi-release-for-pipro-v1.2-release-20250421182705.zip
+unzip bianbu-computer-s1-uefi-release-for-pipro-v1.3-release-20250529141832.zip
 ```
 
 Under the USB Type-A port, you can see three buttons. Let the ethernet port facing up, from top to bottom, the buttons are **PWR**, **RST**, and **FDL** . You shall hold the **FDL** button while power on/RST, to enter the fastboot mode. You shall see the dfu-device in your system:
 
 ```log
-❯ sudo fastboot devices
+$ fastboot devices
 dfu-device       DFU download
 ```
 
+> Note: for the steps below, `sudo` might be needed.
+> Otherwise `fastboot` might not pick up the board since it's default USB VID/PID is not in the default udev rules.
+
 ```bash
-sudo fastboot stage factory/FSBL.bin
-sudo fastboot continue
+fastboot stage factory/FSBL.bin
+fastboot continue
 sleep 1 # Wait for 1 sec
-sudo fastboot stage u-boot.itb
-sudo fastboot continue
+fastboot stage u-boot.itb
+fastboot continue
 sleep 1 # Wait for 1 sec
-sudo fastboot flash gpt partition_universal.json
-sudo fastboot flash bootinfo factory/bootinfo_sd.bin
-sudo fastboot flash fsbl factory/FSBL.bin
-sudo fastboot flash env env.bin
-sudo fastboot flash opensbi fw_dynamic.itb
-sudo fastboot flash uboot u-boot.itb
-sudo fastboot flash ESP efi.img
-sudo fastboot flash bootfs_linux bootfs_linux.img
-sudo fastboot flash rootfs_linux rootfs_linux.ext4
-sudo fastboot flash bootfs bootfs.ext4
-sudo fastboot flash rootfs rootfs.ext4
+fastboot flash gpt partition_universal.json
+fastboot flash bootinfo factory/bootinfo_sd.bin
+fastboot flash fsbl factory/FSBL.bin
+fastboot flash env env.bin
+fastboot flash opensbi fw_dynamic.itb
+fastboot flash uboot u-boot.itb
+fastboot flash ESP efi.img
+fastboot flash bootfs_linux bootfs_linux.img
+fastboot flash rootfs_linux rootfs_linux.ext4
+fastboot flash bootfs bootfs.ext4
+fastboot flash rootfs rootfs.ext4
 ```
 
 
@@ -102,62 +106,44 @@ The system booted successfully and login via the onboard serial port was also su
 ### Boot Log
 
 Screen recording (from flashing image to login):
-[![asciicast](https://asciinema.org/a/6ZcuURjMvgO4BJVTTaQWGwcve.svg)](https://asciinema.org/a/6ZcuURjMvgO4BJVTTaQWGwcve)
+
+[![asciicast](https://asciinema.org/a/TpzxQ4x8CCxDm4RS3ym04D8hk.svg)](https://asciinema.org/a/TpzxQ4x8CCxDm4RS3ym04D8hk)
 
 ```log
-Bianbu 2.1 k1 ttyS0
-                                             
-k1 login: root
-密码： 
-Welcome to Bianbu 2.1 (GNU/Linux 6.6.63 riscv64)
-
- * Documentation:  https://bianbu.spacemit.com
- * Support:        https://ticket.spacemit.com
-
-The programs included with the Bianbu system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Bianbu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-applicable law.
-
-root@k1:~# uname -a
-Linux k1 6.6.63 #2.2~rc3.2 SMP PREEMPT Thu Apr  3 06:53:27 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux
-root@k1:~# cat /etc/os-release 
-PRETTY_NAME="Bianbu Star 2.1"
-NAME="Bianbu"
-VERSION_ID="2.1"
-VERSION="2.1 (Noble Numbat)"
-VERSION_CODENAME=noble
-ID=bianbu
-ID_LIKE=debian
-HOME_URL="https://bianbu.spacemit.com"
-SUPPORT_URL="https://bianbu.spacemit.com"
-BUG_REPORT_URL="https://ticket.spacemit.com"
-PRIVACY_POLICY_URL="https://www.spacemit.com/privacy-policy"
-UBUNTU_CODENAME=noble
-LOGO=ubuntu-logo
-root@k1:~# lscpu
-架构：                riscv64
-  字节序：            Little Endian
-CPU:                  8
-  在线 CPU 列表：     0-7
-型号名称：            Spacemit(R) X60
-  每个核的线程数：    1
-  每个座的核数：      8
-  座：                1
-  CPU(s) scaling MHz: 100%
-  CPU 最大 MHz：      1600.0000
-  CPU 最小 MHz：      614.4000
-Caches (sum of all):  
-  L1d:                256 KiB (8 instances)
-  L1i:                256 KiB (8 instances)
-  L2:                 1 MiB (2 instances)
-root@k1:~# 
+Welcome to Bianbu 2.1 (GNU/Linux 6.6.63 riscv64)                                                                        
+                                                                                                                        
+ * Documentation:  https://bianbu.spacemit.com                                                                          
+ * Support:        https://ticket.spacemit.com                                                                          
+                                                                                                                        
+The programs included with the Bianbu system are free software;                                                         
+the exact distribution terms for each program are described in the                                                      
+individual files in /usr/share/doc/*/copyright.                                                                         
+                                                                                                                        
+Bianbu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by                                                    
+applicable law.                                                                                                         
+                                                                                                                        
+root@k1:~# uname -a                                                                                                     
+Linux k1 6.6.63 #2.2~rc3.2 SMP PREEMPT Thu Apr  3 06:53:27 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux                   
+root@k1:~# cat /etc/os-release                                                                                          
+PRETTY_NAME="Bianbu Star 2.1"                                                                                           
+NAME="Bianbu"                                                                                                           
+VERSION_ID="2.1"                                                                                                        
+VERSION="2.1 (Noble Numbat)"                                                                                            
+VERSION_CODENAME=noble                                                                                                  
+ID=bianbu                                                                                                               
+ID_LIKE=debian                                                                                                          
+HOME_URL="https://bianbu.spacemit.com"                                                                                  
+SUPPORT_URL="https://bianbu.spacemit.com"                                                                               
+BUG_REPORT_URL="https://ticket.spacemit.com"                                                                            
+PRIVACY_POLICY_URL="https://www.spacemit.com/privacy-policy"                                                            
+UBUNTU_CODENAME=noble                                                                                                   
+LOGO=ubuntu-logo                                                                                                        
+root@k1:~#
 ```
 
-![](./images/1.png)
-![](./images/2.png)
+![](image/2025-08-13-13-40-05.png)
+![](image/2025-08-13-13-40-14.png)
+![](image/2025-08-13-13-40-21.png)
 
 ## Test Criteria
 
