@@ -1,80 +1,99 @@
 ---
 sys: fedora
-sys_ver: "41"
-sys_var: minimal
+sys_ver: "42"
+sys_var: fvf
 
-status: basic 
-last_update: 2025-02-26
+status: good
+last_update: 2025-08-13
 ---
 
-# Fedora 41 LPi4A Minimal Test Report
+# Fedora 42 LicheePi 4A Test Report
 
 ## Test Environment
 
-### System Information
-
-- System Version: Fedora 41
-- Download Link: https://images.fedoravforce.org/LicheePi%204A
-- Reference Installation Document: https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head
+### Operating System Information
+- OS Version: [Fedora 42 (Fedora-V Force)](https://www.fedoravforce.org/)
+- Download Links:
+  - Fedora Minimal 42: <https://mirror.iscas.ac.cn/fedora-riscv/releases/42/Spins/riscv64/images/Xuantie-TH1520/Sipeed-Lichee-Pi-4A/Fedora-Minimal-42-20250730014843.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw.gz>
+  - Fedora Xfce 42: <https://mirror.iscas.ac.cn/fedora-riscv/releases/42/Spins/riscv64/images/Xuantie-TH1520/Sipeed-Lichee-Pi-4A/Fedora-Xfce-42-20250730015659.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw.gz>
+  - U-Boot: <https://mirror.iscas.ac.cn/fedora-riscv/dl/Sipeed/LicheePi4A/fw/u-boot-with-spl.bin>
+- Installation Reference: <https://images.fedoravforce.org/LicheePi%204A>
 
 ### Hardware Information
-
 - Lichee Pi 4A (16GB RAM + 128GB eMMC)
-- Power Adapter
-- A USB to UART Debugger
+- USB to UART debugger
+- Three DuPont wires
+- microSD card
 
 ## Installation Steps
 
-### Flashing Image
-
-Use `gzip` to extract the image.
-Use `dd` to flash the image to the microSD card.
-
+### Download and Extract Image & U-Boot
+Download the images from the [download page](https://images.fedoravforce.org/LicheePi%204A).
+**Extract files:**
 ```bash
-gzip -d Fedora-Minimal-41-20250209114910.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw.gz 
-sudo dd if=Fedora-Minimal-41-20250209114910.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw of=/dev/<your_device> bs=4M status=progress
+gzip -dc Fedora-Minimal-42-20250730014843.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw.gz > Fedora-Minimal-42-20250730014843.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw
+❯gzip -dc Fedora-Xfce-42-20250730015659.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw.gz > Fedora-Xfce-42-20250730015659.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw 
 ```
 
-### Flashing Bootloader
+Download U-Boot from the <https://mirror.iscas.ac.cn/fedora-riscv/dl/Sipeed/LicheePi4A/fw/u-boot-with-spl.bin>.
 
-**Booting Fedora in LicheePi 4A requires a special uboot, which can be downloaded here** : https://mirror.iscas.ac.cn/fedora-riscv/dl/Sipeed/LicheePi4A/fw/u-boot-with-spl.bin
-
-Enter fastboot.
-- Make sure the boot switch on the production version is set to eMMC.
-- Press BOOT while powering on.
-- (Refer to official tutorials)
-Use fastboot command to flash u-boot.
+### Flashing u-boot using fastboot
+Connect LPi4A via USB, hold the BOOT button and press reset (next to Type-C port) to enter USB burning mode.
 
 ```bash
-sudo fastboot flash ram u-boot-with-spl.bin 
-sudo fastboot reboot
-
-sudo fastboot flash uboot u-boot-with-spl.bin 
+sudo ./fastboot flash ram u-boot-with-spl.bin
+sudo ./fastboot reboot
+# Wait a few seconds for the board to reboot.
+sudo ./fastboot flash uboot u-boot-with-spl.bin
 ```
 
-### Logging into the System
+log:
+```bash
+Projects/riscv/Burn
+❯ sudo ./fastboot flash ram u-boot-with-spl.bin
+Sending 'ram' (1069 KB)                            OKAY [  0.286s]
+Writing 'ram'                                      OKAY [  0.002s]
+Finished. Total time: 0.294s
 
-Logging into the System via serial port.
+Projects/riscv/Burn
+❯ sudo ./fastboot reboot
+Rebooting                                          OKAY [  0.001s]
+Finished. Total time: 0.352s
 
-Default Username: `root`
-Default Password: `riscv`
+Projects/riscv/Burn
+❯ sudo ./fastboot flash uboot u-boot-with-spl.bin
+Sending 'uboot' (1069 KB)                          OKAY [  0.049s]
+Writing 'uboot'                                    OKAY [  0.022s]
+Finished. Total time: 0.103s
+```
+
+### Writing System Image to microSD Card
+You can use the `dd` command or other flash tools like [balenaEtcher](https://etcher.balena.io/).
+```bash
+sudo dd if=Fedora-Minimal-42-20250730014843.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw of=/dev/mmcblk0 bs=1M
+```
+
+## Logging into the System
+Insert the microSD card into LPi4A and reboot.
+Use a serial connection to log in; e.g. `minicom`.
+```bash
+minicom -D /dev/ttyACM0 -c on
+```
+Default username: `root`
+Default password: `riscv` 
 
 ## Expected Results
-
-The system boots up correctly and can be accessed via the onboard serial port.
+System boots normally and allows login via onboard serial port.
+If network is connected, SSH login should also work.
 
 ## Actual Results
-
-The system boots up correctly, successfully logged in via the onboard serial port, and can access the desktop.
-
-### Boot Log
+System booted successfully and allowed login via serial.
 
 ```log
-
 Welcome to the Fedora-V Force disk image
-https://images.fedoravforce.org/
+https://www.fedoravforce.org
 
-Build date: Sun Feb  9 11:55:21 UTC 2025
+Build date: Wed Jul 30 02:02:24 UTC 2025
 
 Kernel 6.6.66-g1c6721ec2918-dirty on an riscv64 (ttyS0)
 
@@ -84,37 +103,41 @@ root password logins are disabled in SSH starting Fedora.
 If DNS isn’t working, try editing ‘/etc/resolv.conf’ or using 'resolvctl'.
 
 For updates and latest information read:
-https://fedoraproject.org/wiki/Architectures/RISC-V
+https://images.fedoravforce.org
 
 Fedora RISC-V
 -------------
 fedora login: root
-Password: 
+Password:
+
+Last failed login: Fri Jun 27 00:06:46 UTC 2025 from 192.168.1.106 on ssh:notty
+There were 4 failed login attempts since the last successful login.
+Last login: Fri Jun 27 00:02:13 on tty1
 [root@fedora ~]# uname -a
 Linux fedora 6.6.66-g1c6721ec2918-dirty #1 SMP PREEMPT Thu Jan 16 20:49:59 CST 2025 riscv64 GNU/Linux
-[root@fedora ~]# cat /etc/os-release 
+[root@fedora ~]# cat /etc/os-release
 NAME="Fedora Linux"
-VERSION="41 (Forty One)"
-RELEASE_TYPE=stable
+VERSION="42 (Adams Prerelease)"
+RELEASE_TYPE=development
 ID=fedora
-VERSION_ID=41
+VERSION_ID=42
 VERSION_CODENAME=""
-PLATFORM_ID="platform:f41"
-PRETTY_NAME="Fedora Linux 41 (Forty One)"
+PLATFORM_ID="platform:f42"
+PRETTY_NAME="Fedora Linux 42 (Adams Prerelease)"
 ANSI_COLOR="0;38;2;60;110;180"
 LOGO=fedora-logo-icon
-CPE_NAME="cpe:/o:fedoraproject:fedora:41"
+CPE_NAME="cpe:/o:fedoraproject:fedora:42"
 DEFAULT_HOSTNAME="fedora"
 HOME_URL="https://fedoraproject.org/"
-DOCUMENTATION_URL="https://docs.fedoraproject.org/en-US/fedora/f41/system-administrators-guide/"
+DOCUMENTATION_URL="https://docs.fedoraproject.org/en-US/fedora/f42/system-administrators-guide/"
 SUPPORT_URL="https://ask.fedoraproject.org/"
 BUG_REPORT_URL="https://bugzilla.redhat.com/"
 REDHAT_BUGZILLA_PRODUCT="Fedora"
-REDHAT_BUGZILLA_PRODUCT_VERSION=41
+REDHAT_BUGZILLA_PRODUCT_VERSION=42
 REDHAT_SUPPORT_PRODUCT="Fedora"
-REDHAT_SUPPORT_PRODUCT_VERSION=41
-SUPPORT_END=2025-12-15
-[root@fedora ~]# cat /proc/cpuinfo 
+REDHAT_SUPPORT_PRODUCT_VERSION=42
+SUPPORT_END=2026-05-13
+[root@fedora ~]# cat /proc/cpuinfo
 processor       : 0
 hart            : 0
 isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm_xtheadvector
@@ -150,17 +173,20 @@ uarch           : thead,c910
 mvendorid       : 0x5b7
 marchid         : 0x0
 mimpid          : 0x0
-
-[root@fedora ~]# 
 ```
 
-## Test Criteria
+## Desktop Environment
+The Fedora-V Force Images release includes an **Xfce** desktop image. Simply write it to the microSD card to use it.
+```bash
+sudo dd if=Fedora-Xfce-42-20250730015659.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw of=/dev/mmcblk0 bs=1M
+```
+Screenshots of Xfce desktop:
+![](Fedora_42_Xfce.png)
 
+## Test Criteria
 Successful: The actual result matches the expected result.
 
 Failed: The actual result does not match the expected result.
 
 ## Test Conclusion
-
 Test successful.
-
