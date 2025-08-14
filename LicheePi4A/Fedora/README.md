@@ -37,31 +37,31 @@ gzip -dc Fedora-Minimal-42-20250730014843.riscv64.Xuantie-TH1520.Sipeed-Lichee-P
 
 Download U-Boot from the <https://mirror.iscas.ac.cn/fedora-riscv/dl/Sipeed/LicheePi4A/fw/u-boot-with-spl.bin>.
 
-### Flashing u-boot using fastboot
+### Flashing U-Boot using fastboot
 Connect LPi4A via USB, hold the BOOT button and press reset (next to Type-C port) to enter USB burning mode.
 
 ```bash
-sudo ./fastboot flash ram u-boot-with-spl.bin
-sudo ./fastboot reboot
+sudo fastboot flash ram u-boot-with-spl.bin
+sudo fastboot reboot
 # Wait a few seconds for the board to reboot.
-sudo ./fastboot flash uboot u-boot-with-spl.bin
+sudo fastboot flash uboot u-boot-with-spl.bin
 ```
 
 log:
 ```bash
 Projects/riscv/Burn
-❯ sudo ./fastboot flash ram u-boot-with-spl.bin
+❯ sudo fastboot flash ram u-boot-with-spl.bin
 Sending 'ram' (1069 KB)                            OKAY [  0.286s]
 Writing 'ram'                                      OKAY [  0.002s]
 Finished. Total time: 0.294s
 
 Projects/riscv/Burn
-❯ sudo ./fastboot reboot
+❯ sudo fastboot reboot
 Rebooting                                          OKAY [  0.001s]
 Finished. Total time: 0.352s
 
 Projects/riscv/Burn
-❯ sudo ./fastboot flash uboot u-boot-with-spl.bin
+❯ sudo fastboot flash uboot u-boot-with-spl.bin
 Sending 'uboot' (1069 KB)                          OKAY [  0.049s]
 Writing 'uboot'                                    OKAY [  0.022s]
 Finished. Total time: 0.103s
@@ -70,7 +70,7 @@ Finished. Total time: 0.103s
 ### Writing System Image to microSD Card
 You can use the `dd` command or other flash tools like [balenaEtcher](https://etcher.balena.io/).
 ```bash
-sudo dd if=Fedora-Minimal-42-20250730014843.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw of=/dev/mmcblk0 bs=1M
+sudo dd if=Fedora-Minimal-42-20250730014843.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw of=/dev/mmcblkX bs=1M
 ```
 
 ## Logging into the System
@@ -178,7 +178,7 @@ mimpid          : 0x0
 ## Desktop Environment
 The Fedora-V Force Images release includes an **Xfce** desktop image. Simply write it to the microSD card to use it.
 ```bash
-sudo dd if=Fedora-Xfce-42-20250730015659.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw of=/dev/mmcblk0 bs=1M
+sudo dd if=Fedora-Xfce-42-20250730015659.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw of=/dev/mmcblkX bs=1M
 ```
 Screenshots of Xfce desktop:
 ![](Fedora_42_Xfce.png)

@@ -19,40 +19,40 @@
 
 ## 安装步骤
 
-### 下载并解压镜像与 u-boot
+### 下载并解压镜像与 U-Boot
 从[下载页面](https://images.fedoravforce.org/LicheePi%204A)下载镜像。
 **解压相关文件**
 ```bash
 gzip -dc Fedora-Minimal-42-20250730014843.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw.gz > Fedora-Minimal-42-20250730014843.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw
-❯gzip -dc Fedora-Xfce-42-20250730015659.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw.gz > Fedora-Xfce-42-20250730015659.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw 
+gzip -dc Fedora-Xfce-42-20250730015659.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw.gz > Fedora-Xfce-42-20250730015659.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw 
 ```
 
 从 <https://mirror.iscas.ac.cn/fedora-riscv/dl/Sipeed/LicheePi4A/fw/u-boot-with-spl.bin> 下载 U-Boot。
 
-### 使用 fastboot 工具刷写 u-boot
+### 使用 fastboot 工具刷写 U-Boot
 用 USB 线连接 LPi4A，按住板上的 **BOOT** 按键不放，然后点按 **reset** 按键（Type-C 口旁边），即可进入 USB 烧录模式。
 
 ```bash
-sudo ./fastboot flash ram u-boot-with-spl.bin
-sudo ./fastboot reboot
+sudo fastboot flash ram u-boot-with-spl.bin
+sudo fastboot reboot
 # 稍等几秒，等待开发板重启。
-sudo ./fastboot flash uboot u-boot-with-spl.bin
+sudo fastboot flash uboot u-boot-with-spl.bin
 ```
 Log:
 ```bash
 Projects/riscv/Burn
-❯ sudo ./fastboot flash ram u-boot-with-spl.bin
+❯ sudo fastboot flash ram u-boot-with-spl.bin
 Sending 'ram' (1069 KB)                            OKAY [  0.286s]
 Writing 'ram'                                      OKAY [  0.002s]
 Finished. Total time: 0.294s
 
 Projects/riscv/Burn
-❯ sudo ./fastboot reboot
+❯ sudo fastboot reboot
 Rebooting                                          OKAY [  0.001s]
 Finished. Total time: 0.352s
 
 Projects/riscv/Burn
-❯ sudo ./fastboot flash uboot u-boot-with-spl.bin
+❯ sudo fastboot flash uboot u-boot-with-spl.bin
 Sending 'uboot' (1069 KB)                          OKAY [  0.049s]
 Writing 'uboot'                                    OKAY [  0.022s]
 Finished. Total time: 0.103s
@@ -61,7 +61,7 @@ Finished. Total time: 0.103s
 ### 向 microSD 卡烧录系统镜像
 可使用 `dd` 命令或其他烧录工具如 [balenaEtcher](https://etcher.balena.io/)。
 ```bash
-sudo dd if=Fedora-Minimal-42-20250730014843.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw of=/dev/mmcblk0 bs=1M
+sudo dd if=Fedora-Minimal-42-20250730014843.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw of=/dev/mmcblkX bs=1M
 ```
 
 ### 登录系统
@@ -169,7 +169,7 @@ mimpid          : 0x0
 ## 桌面环境
 Fedora-V Force 提供了附带 **Xfce** 桌面环境的系统镜像，烧录进 microSD 卡即可使用。
 ```bash
-sudo dd if=Fedora-Xfce-42-20250730015659.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw of=/dev/mmcblk0 bs=1M
+sudo dd if=Fedora-Xfce-42-20250730015659.riscv64.Xuantie-TH1520.Sipeed-Lichee-Pi-4A.raw of=/dev/mmcblkX bs=1M
 ```
 桌面环境截图：
 ![](Fedora_42_Xfce.png)
