@@ -25,7 +25,7 @@ xz -dk BredOS-riscv64-OPI-RV2-2025-07-16.img.xz
 ### 向 microSD 卡烧录系统镜像
 可使用 `dd` 命令
 ```bash
-sudo dd if=BredOS-riscv64-OPI-RV2-2025-07-16.img of=/dev/mmcblk0 bs=1M
+sudo dd if=BredOS-riscv64-OPI-RV2-2025-07-16.img of=/dev/mmcblkX bs=1M
 ```
 
 Log:

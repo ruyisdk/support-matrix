@@ -34,7 +34,7 @@ xz -dk BredOS-riscv64-OPI-RV2-2025-07-16.img.xz
 ### Writing System Image to microSD Card
 You can used the `dd` command:
 ```bash
-sudo dd if=BredOS-riscv64-OPI-RV2-2025-07-16.img of=/dev/mmcblk0 bs=1M
+sudo dd if=BredOS-riscv64-OPI-RV2-2025-07-16.img of=/dev/mmcblkX bs=1M
 ```
 
 Log:
