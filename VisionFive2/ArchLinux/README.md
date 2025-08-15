@@ -2,7 +2,7 @@
 sys: archlinux
 sys_ver: null
 sys_var: null
-
+provider: cwt
 status: basic
 last_update: 2024-10-25
 ---

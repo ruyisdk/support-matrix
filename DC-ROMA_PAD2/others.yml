@@ -1,0 +1,12 @@
+- sys: ubuntu
+  sys_ver: 24.04
+  sys_var: null
+  status: cft
+- sys: android
+  sys_ver: 15
+  sys_var: null
+  status: wip
+- sys: pmos
+  sys_ver: null
+  sys_var: null
+  status: cft

@@ -4,8 +4,8 @@
 
 ### 系统信息
 
-- 系统版本：v2.1.1
-- 下载链接：https://archive.spacemit.com/image/k1/version/bianbu/v2.1.1/
+- 系统版本：v3.0 Desktop Lite
+- 下载链接：https://archive.spacemit.com/image/k1/version/bianbu/v3.0/
 - 参考安装文档：https://docs.bit-brick.com/docs/k1/getting-started/preparation
 
 ### 硬件信息
@@ -24,8 +24,8 @@
 下载并解压镜像后，使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
-unzip bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.img.zip
-sudo dd if=bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.img of=/dev/<your-device> bs=1M status=progress 
+unzip bianbu-25.04-desktop-lite-k1-v3.0-release-20250725124256.img.zip
+sudo dd if=bianbu-25.04-desktop-lite-k1-v3.0-release-20250725124256.img of=/dev/sdX bs=1M status=progress 
 ```
 
 ### 登录系统
@@ -47,14 +47,13 @@ sudo dd if=bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.img of=/dev/<yo
 
 ```log
 
-spacemit-k1-x-bit-brick-board login: root
+Bianbu 3.0 k1 ttyS0
+k1 login: root  
 密码： 
-Welcome to Bianbu 2.1.1 (GNU/Linux 6.6.63 riscv64)
+Welcome to Bianbu 3.0 (GNU/Linux 6.6.63 riscv64)
 
  * Documentation:  https://bianbu.spacemit.com
  * Support:        https://ticket.spacemit.com
-
-0 updates can be applied immediately.
 
 
 The programs included with the Bianbu system are free software;
@@ -64,23 +63,23 @@ individual files in /usr/share/doc/*/copyright.
 Bianbu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-root@spacemit-k1-x-bit-brick-board:~# uname -a
-Linux spacemit-k1-x-bit-brick-board 6.6.63 #2.1.0.2 SMP PREEMPT Fri Jan 24 03:39:48 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux
-root@spacemit-k1-x-bit-brick-board:~# cat /etc/os-release 
-PRETTY_NAME="Bianbu 2.1.1"
+root@k1:~# uname -a
+Linux k1 6.6.63 #2.2.6.3 SMP PREEMPT Thu Jul 17 11:38:53 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux
+root@k1:~# cat /etc/os-release 
+PRETTY_NAME="Bianbu 3.0"
 NAME="Bianbu"
-VERSION_ID="2.1.1"
-VERSION="2.1.1 (Noble Numbat)"
-VERSION_CODENAME=noble
+VERSION_ID="3.0"
+VERSION="3.0 (Plucky Puffin)"
+VERSION_CODENAME=plucky
 ID=bianbu
 ID_LIKE=debian
 HOME_URL="https://bianbu.spacemit.com"
 SUPPORT_URL="https://bianbu.spacemit.com"
 BUG_REPORT_URL="https://ticket.spacemit.com"
 PRIVACY_POLICY_URL="https://www.spacemit.com/privacy-policy"
-UBUNTU_CODENAME=noble
-LOGO=ubuntu-logo
-root@spacemit-k1-x-bit-brick-board:~# cat /proc/cpuinfo 
+UBUNTU_CODENAME=plucky
+LOGO=bianbu-logo
+root@k1:~# cat /proc/cpuinfo 
 processor       : 0
 hart            : 0
 model name      : Spacemit(R) X60
@@ -161,10 +160,14 @@ mvendorid       : 0x710
 marchid         : 0x8000000058000001
 mimpid          : 0x1000000049772200
 
-root@spacemit-k1-x-bit-brick-board:~# 
+root@k1:~# 
 ```
 
-![](./gnome.png)
+## 桌面环境
+
+该镜像已预装 **LXQt** 桌面环境，连接显示器会以桌面会话自动启动。
+
+![](./lxqt.jpeg)
 
 ## 测试判定标准
 

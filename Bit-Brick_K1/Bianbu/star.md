@@ -1,10 +1,9 @@
 ---
 sys: bianbu
-sys_ver: 2.1.1
-sys_var: desktop
-
+sys_ver: 2.1.5
+sys_var: Star
 status: good
-last_update: 2025-04-08
+last_update: 2025-08-13
 ---
 
 # Bianbu BIT-BRICK K1 Test Report
@@ -13,8 +12,8 @@ last_update: 2025-04-08
 
 ### System Information
 
-- System version: v2.1.1
-- Download Links: https://archive.spacemit.com/image/k1/version/bianbu/v2.1.1/
+- System version: v2.1.5 Bianbu Star
+- Download Links: https://archive.spacemit.com/image/k1/version/bianbu-computer/v2.1.5/
 - Reference Installation Document: https://docs.bit-brick.com/docs/k1/getting-started/preparation
 
 ### Hardware Information
@@ -32,8 +31,8 @@ last_update: 2025-04-08
 After downloading and extracting the image, use `dd` to flash the image to the microSD card.
 
 ```bash
-unzip bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.img.zip
-sudo dd if=bianbu-24.04-desktop-k1-v2.1.1-release-20250305144026.img of=/dev/<your-device> bs=1M status=progress 
+unzip bianbu-computer-s1_v2.1.5.img.zip
+sudo dd if=bianbu-computer-s1_v2.1.5.img of=/dev/sdX bs=1M status=progress 
 ```
 
 ### Logging into the System
@@ -55,15 +54,13 @@ The system booted successfully and login through the onboard serial port as well
 
 ```log
 
-spacemit-k1-x-bit-brick-board login: root
+Bianbu 2.1.5 k1 ttyS0
+k1 login: root
 密码： 
-Welcome to Bianbu 2.1.1 (GNU/Linux 6.6.63 riscv64)
+Welcome to Bianbu 2.1.5 (GNU/Linux 6.6.63 riscv64)
 
  * Documentation:  https://bianbu.spacemit.com
  * Support:        https://ticket.spacemit.com
-
-0 updates can be applied immediately.
-
 
 The programs included with the Bianbu system are free software;
 the exact distribution terms for each program are described in the
@@ -72,13 +69,13 @@ individual files in /usr/share/doc/*/copyright.
 Bianbu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-root@spacemit-k1-x-bit-brick-board:~# uname -a
-Linux spacemit-k1-x-bit-brick-board 6.6.63 #2.1.0.2 SMP PREEMPT Fri Jan 24 03:39:48 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux
-root@spacemit-k1-x-bit-brick-board:~# cat /etc/os-release 
-PRETTY_NAME="Bianbu 2.1.1"
+root@k1:~# uname -a
+Linux k1 6.6.63 #2.2.1.2+20250520010743 SMP PREEMPT Mon May 19 20:29:16 UTC 2025 riscv64 riscv64 riscv64 GNU/Linux
+root@k1:~# cat /etc/os-release 
+PRETTY_NAME="Bianbu Star 2.1.5"
 NAME="Bianbu"
-VERSION_ID="2.1.1"
-VERSION="2.1.1 (Noble Numbat)"
+VERSION_ID="2.1.5"
+VERSION="2.1.5 (Noble Numbat)"
 VERSION_CODENAME=noble
 ID=bianbu
 ID_LIKE=debian
@@ -88,7 +85,7 @@ BUG_REPORT_URL="https://ticket.spacemit.com"
 PRIVACY_POLICY_URL="https://www.spacemit.com/privacy-policy"
 UBUNTU_CODENAME=noble
 LOGO=ubuntu-logo
-root@spacemit-k1-x-bit-brick-board:~# cat /proc/cpuinfo 
+root@k1:~# cat /proc/cpuinfo 
 processor       : 0
 hart            : 0
 model name      : Spacemit(R) X60
@@ -169,10 +166,18 @@ mvendorid       : 0x710
 marchid         : 0x8000000058000001
 mimpid          : 0x1000000049772200
 
-root@spacemit-k1-x-bit-brick-board:~# 
+root@k1:~# 
 ```
 
-![](./gnome.png)
+## Desktop Environment
+
+This image comes pre-installed with the **Gnome** desktop environment, which starts automatically as a desktop session when a monitor is connected.
+
+![](./star.jpeg)
+
+Run local LLM
+
+![](./star2.jpeg)
 
 ## Test Criteria
 

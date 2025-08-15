@@ -2,7 +2,7 @@
 sys: archlinux
 sys_ver: null
 sys_var: null
-
+provider: yogo1212
 status: cfh
 last_update: 2025-05-26
 ---

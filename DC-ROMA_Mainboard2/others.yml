@@ -1,0 +1,16 @@
+- sys: ubuntu
+  sys_ver: 24.04
+  sys_var: null
+  status: cft
+- sys: fedora
+  sys_ver: 41
+  sys_var: DeepComputing
+  status: cft
+- sys: fedora
+  sys_ver: 42
+  sys_var: Workstation
+  status: cft
+- sys: fedora
+  sys_ver: 41
+  sys_var: Xfce Desktop
+  status: cft

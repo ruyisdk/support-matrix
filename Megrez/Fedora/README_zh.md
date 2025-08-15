@@ -17,10 +17,10 @@
 
 ### 烧写镜像
 
-下载后，解压并烧写镜像（以下以 desktop 版为例）：
+下载后，解压并烧写镜像（以下以 Workstation 版为例）：
 ```bash
-gzip -d fedora-disk-multi-desktops_eswin_eic7700-sda.raw.gz
-sudo dd if=fedora-disk-multi-desktops_eswin_eic7700-sda.raw of=/dev/your/sdcard bs=1M status=progress
+gzip -d Fedora-GNOME-42-20250606045542.riscv64.ESWIN-EIC7700.ESWIN-EIC7700EVB.raw.gz
+sudo dd if=Fedora-GNOME-42-20250606045542.riscv64.ESWIN-EIC7700.ESWIN-EIC7700EVB.raw of=/dev/your/sdcard bs=1M status=progress
 ```
 
 ### 登录系统

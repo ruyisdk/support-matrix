@@ -1,5 +1,5 @@
 ---
-sys: LiteOS
+sys: liteos
 sys_ver: null
 sys_var: null
 

@@ -2,3 +2,13 @@
   sys_ver: null
   sys_var: null
   status: cft
+- sys: fedora
+  sys_ver: 42
+  sys_var: Workstation
+  provider: Fedora-V Force
+  status: cft
+- sys: fedora
+  sys_ver: 42
+  sys_var: Xfce Desktop
+  provider: Fedora-V Force
+  status: cft
