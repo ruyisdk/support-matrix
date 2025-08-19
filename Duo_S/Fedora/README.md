@@ -35,7 +35,7 @@ last_update: 2024-11-24
 ### Flashing the Image to microSD Card Using `dd`
 
 ```shell
-zcat milkv-duos-fedora-minimal.img.gz | sudo dd of=/dev/sda bs=4M iflag=fullblock status=progress 
+zcat milkv-duos-fedora-minimal.img.gz | sudo dd of=/dev/sdX bs=4M iflag=fullblock status=progress 
 ```
 
 ### Logging into the System

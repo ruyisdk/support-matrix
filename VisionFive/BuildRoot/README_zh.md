@@ -50,11 +50,11 @@ Note: 请确保您的互联网连接正常，编译过程中会自动下载依�
 
 使用 `dd` 将镜像写入 microSD 卡。
 
-此处以 `/dev/sdc` 为存储卡位置。
+此处以 `/dev/sdX` 为存储卡位置。
 
 ```shell
-sudo wipefs -af /dev/sdc
-sudo dd if=~/buildroot-2024.02.1/output/images/sdcard.img of=/dev/sdc bs=1M status=progress oflag=direct
+sudo wipefs -af /dev/sdX
+sudo dd if=~/buildroot-2024.02.1/output/images/sdcard.img of=/dev/sdX bs=1M status=progress oflag=direct
 ```
 
 ### 登录系统

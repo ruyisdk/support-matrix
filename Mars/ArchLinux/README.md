@@ -34,14 +34,14 @@ last_update: 2025-05-10
 
 Use `zstd` command to decompress the image,  and then use `dd` command or `balenaEtcher` software to flash the image to the microSD card.
 
-Here, `/dev/sdc` corresponds to the storage device.
+Here, `/dev/sdX` corresponds to the storage device.
 
 ```bash
 wget https://github.com/cwt-vf2/archlinux-image-vf2/releases/download/cwt24/ArchLinux-VF2_6.12_v5.14.0-cwt24.img.zst
 
 zstd -d ArchLinux-VF2_6.12_v5.14.0-cwt24.img.zst
 
-sudo dd if=ArchLinux-VF2_6.12_v5.14.0-cwt24.img of=/dev/sdc bs=1M status=progress
+sudo dd if=ArchLinux-VF2_6.12_v5.14.0-cwt24.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

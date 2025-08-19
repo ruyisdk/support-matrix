@@ -22,14 +22,14 @@
 
 ### 解压并刷写镜像到 microSD 卡
 
-假定 `/dev/sdc` 为存储卡。
+假定 `/dev/sdX` 为存储卡。
 
 ```bash
-wipefs -af /dev/sdc
+wipefs -af /dev/sdX
 # Jammy Xfce
-xzcat Armbian_community_24.5.0-trunk.278_Visionfive2_jammy_edge_5.15.0_xfce_desktop.img.xz | sudo dd of=/dev/sdc iflag=fullblock status=progress bs=4M
+xzcat Armbian_community_24.5.0-trunk.278_Visionfive2_jammy_edge_5.15.0_xfce_desktop.img.xz | sudo dd of=/dev/sdX iflag=fullblock status=progress bs=4M
 # Edge minimal
-xzcat Armbian_community_24.5.0-trunk.278_Visionfive2_noble_edge_5.15.0_minimal.img.xz | sudo dd of=/dev/sdc iflag=fullblock status=progress bs=4M
+xzcat Armbian_community_24.5.0-trunk.278_Visionfive2_noble_edge_5.15.0_minimal.img.xz | sudo dd of=/dev/sdX iflag=fullblock status=progress bs=4M
 ```
 
 ### 引导模式选择

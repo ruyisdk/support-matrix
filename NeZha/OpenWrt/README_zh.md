@@ -28,7 +28,7 @@
 
 ```bash
 xz -dkv openwrt-d1-generic-nezha-squashfs-sdcard.img.gz
-sudo dd if=openwrt-d1-generic-nezha-squashfs-sdcard.img of=/dev/sdc status=progress
+sudo dd if=openwrt-d1-generic-nezha-squashfs-sdcard.img of=/dev/sdX status=progress
 ```
 
 ### 登录系统

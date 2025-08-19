@@ -25,12 +25,12 @@ last_update: 2024-06-21
 
 ### Flashing the Image to the microSD Card
 
-Use `dd` to flash the image to the microSD card. Assuming the microSD card device is `/dev/sdb`.
+Use `dd` to flash the image to the microSD card. Assuming the microSD card device is `/dev/sdX`.
 
 ```bash
 wget https://kendryte-download.canaan-creative.com/developer/k230/canmv_ubuntu_sdcard_1.3.img.gz
 gzip -d canmv_ubuntu_sdcard_1.3.img.gz
-sudo dd if=canmv_ubuntu_sdcard_1.3.img of=/dev/sdb bs=1M status=progress oflag=sync
+sudo dd if=canmv_ubuntu_sdcard_1.3.img of=/dev/sdX bs=1M status=progress oflag=sync
 ```
 
 ### Logging into the System

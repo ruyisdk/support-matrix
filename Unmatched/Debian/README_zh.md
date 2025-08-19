@@ -31,7 +31,7 @@
 
 ### U-Boot 烧录至 microSD 卡
 
-`/dev/sdc` 为 microSD 卡所在位置，`/dev/sdY` 为 M.2 NVMe SSD，请根据实际情况更改。
+`/dev/sdX` 为 microSD 卡所在位置，`/dev/sdY` 为 M.2 NVMe SSD，请根据实际情况更改。
 
 ```bash
 wget https://github.com/yuzibo/Unmatched-Debian-image/releases/download/0.0.5-beta/sd-uboot.img.xz \

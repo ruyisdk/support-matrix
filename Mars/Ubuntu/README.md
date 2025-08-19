@@ -33,12 +33,12 @@ last_update: 2025-04-22
 
 Use `unxz` to decompress the image. And use `dd` command or `balenaEtcher` software to flash the image to the microSD card.
 
-Here, `/dev/sdc` corresponds to the storage device.
+Here, `/dev/sdX` corresponds to the storage device.
 
 ```bash
 unxz -d ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz
 
-sudo dd if=ubuntu-25.04-preinstalled-server-riscv64+jh7110.img of=/dev/sdc bs=1M status=progress
+sudo dd if=ubuntu-25.04-preinstalled-server-riscv64+jh7110.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### Updating U-Boot

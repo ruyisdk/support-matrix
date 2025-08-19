@@ -33,12 +33,12 @@ last_update: 2025-05-22
 Use `7z` to decompress the image.
 Use `dd` command or use the `balenaEtcher` software to flash the image to the microSD card.
 
-Here, `/dev/sdc` corresponds to the storage device.
+Here, `/dev/sdX` corresponds to the storage device.
 
 ```bash
 7z x Orangepirv2_1.0.0_ubuntu_noble_desktop_gnome_linux6.6.63.7z
 
-sudo dd if=Orangepirv2_1.0.0_ubuntu_noble_desktop_gnome_linux6.6.63.img of=/dev/sdc bs=1M status=progress
+sudo dd if=Orangepirv2_1.0.0_ubuntu_noble_desktop_gnome_linux6.6.63.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

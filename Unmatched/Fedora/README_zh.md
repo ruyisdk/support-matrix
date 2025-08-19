@@ -25,11 +25,11 @@
 
 ### 解压并烧录镜像到 microSD 卡
 
-`/dev/sdc` 为 microSD 卡所在位置，请根据实际情况更改。
+`/dev/sdX` 为 microSD 卡所在位置，请根据实际情况更改。
 
 ```bash
-sudo wipefs -af /dev/sdc
-xzcat Fedora-Developer-38-20230519.n.0-mmc.raw.img.xz | sudo dd of=/dev/sdc iflag=fullblock bs=4M status=progress
+sudo wipefs -af /dev/sdX
+xzcat Fedora-Developer-38-20230519.n.0-mmc.raw.img.xz | sudo dd of=/dev/sdX iflag=fullblock bs=4M status=progress
 ```
 
 ### 登录系统

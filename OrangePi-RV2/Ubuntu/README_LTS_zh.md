@@ -21,12 +21,12 @@
 
 ### 刷写镜像
 
-使用 `7z` 解压镜像。然后使用 `dd`命令或者使用 `balenaEther` 软件将镜像写入 microSD 卡 (假设 `/dev/sdc` 为 microSD卡设备)
+使用 `7z` 解压镜像。然后使用 `dd`命令或者使用 `balenaEther` 软件将镜像写入 microSD 卡 (假设 `/dev/sdX` 为 microSD卡设备)
 
 ```bash
 7z x Orangepirv2_1.0.0_ubuntu_noble_desktop_gnome_linux6.6.63.7z
 
-sudo dd if=Orangepirv2_1.0.0_ubuntu_noble_desktop_gnome_linux6.6.63.img of=/dev/sdc bs=1M status=progress
+sudo dd if=Orangepirv2_1.0.0_ubuntu_noble_desktop_gnome_linux6.6.63.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

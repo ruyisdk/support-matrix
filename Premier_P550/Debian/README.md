@@ -37,10 +37,10 @@ last_update: 2025-04-09
     7z x EIC7x_Release_Images_20250228.zip.001
     ```
 
-2. Mount the MicroSD card and use the `cp` command to copy the image files to the MicroSD card. (Assuming `/dev/sdc` is the MicroSD card device)
+2. Mount the MicroSD card and use the `cp` command to copy the image files to the MicroSD card. (Assuming `/dev/sdX` is the MicroSD card device)
 
     ```bash
-    sudo mount /dev/sdc /mnt/sd
+    sudo mount /dev/sdX /mnt/sd
     
     sudo cp ./boot-P550-20250311-170029.ext4 ./root-P550-20250311-170029.ext4 ./bootloader_P550.bin /mnt/sd
 

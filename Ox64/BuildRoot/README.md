@@ -86,22 +86,22 @@ The system started successfully, with serial output.
 ### Boot Information
 
 ```log
-swapon: /dev/mmcblk0p1: read swap header failed
+swapon: /dev/mmcblkXp1: read swap header failed
 Resizing Rootfs
 CHANGED: partition=3 start=2506786 old: size=1048576 end=3555361 new: size=59827133 end=62333918
 Partition Resized
 resize2fs 1.46.5 (30-Dec-2021)
-Filesystem at /dev/mmcblk0p3 is mounted on /; on-line resizing required
+Filesystem at /dev/mmcblkXp3 is mounted on /; on-line resizing required
 old_desc_blocks = 1, new_desc_blocks = 2
 [    3.120120] EXT4-fs (mmcblk0p3): resizing filesystem from 131072 to 7478391 blocks
 [    3.805460] EXT4-fs (mmcblk0p3): resized filesystem to 7478391
-The filesystem on /dev/mmcblk0p3 is now 7478391 (4k) blocks long.
+The filesystem on /dev/mmcblkXp3 is now 7478391 (4k) blocks long.
 
 Rootfs Resized
 Running mkswap
 Setting up swapspace version 1, size = 1024 MiB (1073737728 bytes)
 no label, UUID=d4bded1e-1d6b-44f1-a861-45c71d817090
-[    4.139249] Adding 1048572k swap on /dev/mmcblk0p1.  Priority:-2 extents:1 across:1048572k SS
+[    4.139249] Adding 1048572k swap on /dev/mmcblkXp1.  Priority:-2 extents:1 across:1048572k SS
 Swap Partition Formatted
 Starting syslogd: OK
 Starting klogd: OK

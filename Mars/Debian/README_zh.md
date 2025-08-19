@@ -20,12 +20,12 @@
 
 ### 刷写镜像
 
-使用 `unzip` 解压镜像。然后使用 `dd`命令或者使用 `balenaEther` 软件将镜像写入 microSD 卡 (假设 `/dev/sdc` 为 microSD卡设备)
+使用 `unzip` 解压镜像。然后使用 `dd`命令或者使用 `balenaEther` 软件将镜像写入 microSD 卡 (假设 `/dev/sdX` 为 microSD卡设备)
 
 ```bash
 unzip mars_debian-desktop_sdk-v3.6.1_sdcard_v1.0.6.img.zip
 
-sudo dd if=mars_debian-desktop_sdk-v3.6.1_sdcard_v1.0.6.img of=/dev/sdc bs=1M status=progress
+sudo dd if=mars_debian-desktop_sdk-v3.6.1_sdcard_v1.0.6.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

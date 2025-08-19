@@ -43,7 +43,7 @@ zstd -d irradium-3.8-riscv64-xfce-lichee_pi_3a-6.15.2-build-20250611.img.zst
 ### 向 microSD 卡烧录系统镜像
 可使用 `dd` 命令
 ```bash
-sudo dd if=irradium-3.8-riscv64-core-lichee_pi_3a-6.15.2-build-20250510.img of=/dev/mmcblk0 bs=1M
+sudo dd if=irradium-3.8-riscv64-core-lichee_pi_3a-6.15.2-build-20250510.img of=/dev/mmcblkX bs=1M
 ```
 
 ### 登录系统
@@ -77,7 +77,7 @@ BUG_REPORT_URL="https://irradium.org/bugs/"
 ## 桌面环境
 官方提供了附带 **Xfce** 桌面环境的系统镜像，烧录进 microSD 卡即可使用。
 ```bash
-sudo dd if=irradium-3.8-riscv64-xfce-lichee_pi_3a-6.15.2-build-20250510.img of=/dev/mmcblk0 bs=1M
+sudo dd if=irradium-3.8-riscv64-xfce-lichee_pi_3a-6.15.2-build-20250510.img of=/dev/mmcblkX bs=1M
 ```
 桌面环境截图：
 ![](Screenshot.png)

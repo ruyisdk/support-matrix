@@ -50,7 +50,7 @@ Or manually enter the following commands to boot the system:
 ```u-boot
 fatload mmc 0:3 0x84000000 Image
 fatload mmc 0:3 0x88000000 dtb
-setenv bootargs "earlyprintk console=ttyS0,115200 debug rootwait earlycon=sbi root=/dev/mmcblk0p4"
+setenv bootargs "earlyprintk console=ttyS0,115200 debug rootwait earlycon=sbi root=/dev/mmcblkXp4"
 booti 0x84000000 - 0x88000000
 ```
 

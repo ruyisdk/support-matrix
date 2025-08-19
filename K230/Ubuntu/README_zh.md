@@ -16,12 +16,12 @@
 
 ### 刷写镜像到 microSD 卡
 
-使用 `dd` 刷入镜像到 microSD 卡。假设 microSD 卡设备为 `/dev/sdb`。
+使用 `dd` 刷入镜像到 microSD 卡。假设 microSD 卡设备为 `/dev/sdX`。
 
 ```bash
 wget https://kendryte-download.canaan-creative.com/developer/k230/canmv_ubuntu_sdcard_1.3.img.gz
 gzip -d canmv_ubuntu_sdcard_1.3.img.gz
-sudo dd if=canmv_ubuntu_sdcard_1.3.img of=/dev/sdb bs=1M status=progress oflag=sync
+sudo dd if=canmv_ubuntu_sdcard_1.3.img of=/dev/sdX bs=1M status=progress oflag=sync
 ```
 
 ### 登录系统

@@ -189,7 +189,7 @@ Example `minicom` screenshot:
 ```log
 Retrieving file: /vmlinuz-5.10.4-20240527-2+
 5084068 bytes read in 227 ms (21.4 MiB/s)
-append: root=/dev/root console=ttyS0,115200 earlycon=sbi root=/dev/mmcblk0p2 rootwait rw
+append: root=/dev/root console=ttyS0,115200 earlycon=sbi root=/dev/mmcblkXp2 rootwait rw
 Retrieving file: /fdt/linux-image-duo256-5.10.4-20240527-2+/cv181x_milkv_duo256m_sd.dtb
 21274 bytes read in 4 ms (5.1 MiB/s)
    Uncompressing Kernel Image
@@ -226,7 +226,7 @@ Starting kernel ...
 [    0.000000] riscv: ISA extensions acdfimsuv
 [    0.000000] riscv: ELF capabilities acdfimv
 [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 63744
-[    0.000000] Kernel command line: root=/dev/root console=ttyS0,115200 earlycon=sbi root=/dev/mmcblk0p2 rootwait rw
+[    0.000000] Kernel command line: root=/dev/root console=ttyS0,115200 earlycon=sbi root=/dev/mmcblkXp2 rootwait rw
 [    0.000000] Dentry cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
 [    0.000000] Inode-cache hash table entries: 16384 (order: 5, 131072 bytes, linear)
 [    0.000000] Sorting __ex_table...
@@ -405,7 +405,7 @@ Starting kernel ...
 [    1.281371] ALSA device list:
 [    1.284651] dw-apb-uart 4140000.serial: forbid DMA for kernel console
 [    1.291448] usb 1-1: new high-speed USB device number 2 using dwc2
-[    1.298011] Waiting for root device /dev/mmcblk0p2...
+[    1.298011] Waiting for root device /dev/mmcblkXp2...
 [    1.332481] mmc0: new high speed SDHC card at address aaaa
 [    1.338962] mmcblk0: mmc0:aaaa SD32G 29.7 GiB
 [    1.346733]  mmcblk0: p1 p2

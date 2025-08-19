@@ -21,11 +21,11 @@
 
 ### 解压并刷写镜像到 microSD 卡
 
-假定 `/dev/sda` 为存储卡。
+假定 `/dev/sdX` 为存储卡。
 
 ```bash
 tar -xvf deepin-23-beige-preview-riscv64-visionfive2-20240613-125619.tar.xz
-sudo dd if=deepin-visionfive2-riscv64-stable-desktop-installer.img of=/dev/sda bs=1M status=progress
+sudo dd if=deepin-visionfive2-riscv64-stable-desktop-installer.img of=/dev/sdX bs=1M status=progress
 ```
 
 #### Issue: Kernel panic
@@ -37,10 +37,10 @@ Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
 
 你需要手动修复镜像中的启动文件。运行 `blkid`，应当出现如下 log：
 ```log
-/dev/sda4: LABEL="root" UUID="4c4bc538-15f7-4687-8509-d02d23d09b15" BLOCK_SIZE="4096" TYPE="ext4" PARTLABEL="root" PARTUUID="a8a69a6c-a25e-4d7a-939c-f539566a1fdd"
-/dev/sda2: PARTLABEL="uboot" PARTUUID="f8dee89e-c53b-48ef-bb3f-ff25b8a25cbf"
-/dev/sda3: UUID="847A-3FD4" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="image" PARTUUID="d1acffb2-3c52-4b50-a25e-63330675c57f"
-/dev/sda1: PARTLABEL="spl" PARTUUID="a4afe21c-10a5-4111-a88e-639128d69b2c"
+/dev/sdX4: LABEL="root" UUID="4c4bc538-15f7-4687-8509-d02d23d09b15" BLOCK_SIZE="4096" TYPE="ext4" PARTLABEL="root" PARTUUID="a8a69a6c-a25e-4d7a-939c-f539566a1fdd"
+/dev/sdX2: PARTLABEL="uboot" PARTUUID="f8dee89e-c53b-48ef-bb3f-ff25b8a25cbf"
+/dev/sdX3: UUID="847A-3FD4" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="image" PARTUUID="d1acffb2-3c52-4b50-a25e-63330675c57f"
+/dev/sdX1: PARTLABEL="spl" PARTUUID="a4afe21c-10a5-4111-a88e-639128d69b2c"
 ```
 
 记下第四分区的 PARTUUID，如上是 `a8a69a6c-a25e-4d7a-939c-f539566a1fdd`。

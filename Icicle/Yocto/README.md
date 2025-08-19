@@ -323,7 +323,7 @@ Starting kernel ...
 [    0.000000] riscv: ELF capabilities acdfim
 [    0.000000] percpu: Embedded 17 pages/cpu s30632 r8192 d30808 u69632
 [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 516615
-[    0.000000] Kernel command line: earlycon=sbi root=/dev/mmcblk0p3 rootwait uio_pdrv_genirq.of_id=generic-uio
+[    0.000000] Kernel command line: earlycon=sbi root=/dev/mmcblkXp3 rootwait uio_pdrv_genirq.of_id=generic-uio
 [    0.000000] Dentry cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
 [    0.000000] Inode-cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
 [    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
@@ -525,7 +525,7 @@ Starting kernel ...
 [    2.964232] random: crng init done
 [    2.972255] of_cfs_init
 [    2.977765] of_cfs_init: OK
-[    2.982292] Waiting for root device /dev/mmcblk0p3...
+[    2.982292] Waiting for root device /dev/mmcblkXp3...
 [    3.011715] mmc0: new HS200 MMC card at address 0001
 [    3.018973] mmcblk0: mmc0:0001 DG4008 7.28 GiB
 [    3.032264]  mmcblk0: p1 p2 p3

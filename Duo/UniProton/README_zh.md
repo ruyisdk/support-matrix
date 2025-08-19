@@ -26,7 +26,7 @@
 ### 使用 `dd` 刷写镜像到 microSD 卡
 
 ```shell
-sudo dd if=oe2303_uniproton.img of=/dev/sdc bs=4M iflag=fullblock status=progress 
+sudo dd if=oe2303_uniproton.img of=/dev/sdX bs=4M iflag=fullblock status=progress 
 ```
 
 ### 登录系统

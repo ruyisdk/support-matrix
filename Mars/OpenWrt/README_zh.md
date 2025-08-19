@@ -25,14 +25,14 @@
 
 使用 `gzip` 命令解压镜像，并使用 `dd` 命令或 `balenaEtcher` 软件将镜像写入 microSD 卡。
 
-其中，`/dev/sdc` 为存储卡对应设备。
+其中，`/dev/sdX` 为存储卡对应设备。
 
 ```bash
 wget https://downloads.openwrt.org/releases/24.10.1/targets/starfive/generic/openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img.gz
 
 gzip -d openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img.gz
 
-sudo dd if=openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img of=/dev/sdc bs=1M status=progress
+sudo dd if=openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

@@ -26,7 +26,7 @@
 使用 `dd` 刷入镜像到 microSD 卡。
 
 ```bash
-sudo dd if=D1-H 哪吒 HDMI 测试固件 20210804（开机 HDMI 就有小企鹅启动 logo）.img of=/dev/sdc status=progress 
+sudo dd if=D1-H 哪吒 HDMI 测试固件 20210804（开机 HDMI 就有小企鹅启动 logo）.img of=/dev/sdX status=progress 
 ```
 
 ### 登录系统

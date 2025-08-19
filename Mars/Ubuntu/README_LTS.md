@@ -31,11 +31,11 @@ last_update: 2025-03-24
 Use `tar` to decompress the image.
 Use `dd` command or use the `balenaEtcher` software to flash the image to the microSD card.
 
-Here, `/dev/sdc` corresponds to the storage device.
+Here, `/dev/sdX` corresponds to the storage device.
 
 ```bash
 tar -xvf ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img.xz
-sudo dd if=ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img of=/dev/sdc bs=1M status=progress
+sudo dd if=ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### Updating U-Boot

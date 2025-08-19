@@ -30,10 +30,10 @@
     unxz -d demo-coreip-xfce4-hifive-premier-p550.rootfs.ext4.xz
     ```
 
-2. 挂载MicroSD卡，并使用 `cp` 命令拷贝镜像文件至MicroSD卡。(假设 `/dev/sdc` 为MicroSD卡设备)
+2. 挂载MicroSD卡，并使用 `cp` 命令拷贝镜像文件至MicroSD卡。(假设 `/dev/sdX` 为MicroSD卡设备)
 
     ```bash
-    sudo mount /dev/sdc /mnt/sd
+    sudo mount /dev/sdX /mnt/sd
     
     sudo cp ./demo-coreip-xfce4-hifive-premier-p550.rootfs.ext4 ./boot.vfat ./bootloader_ddr5_secboot.bin /mnt/sd
 

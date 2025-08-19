@@ -167,11 +167,11 @@ See 'systemctl status systemd-sysctl.service' for details.
 [  OK  ] Found device /dev/ttyS0.
 [  OK  ] Reached target Hardware activated USB gadget.
 [  OK  ] Finished Load/Save Random Seed.
-[  OK  ] Found device /dev/mmcblk0p3.
+[  OK  ] Found device /dev/mmcblkXp3.
 [  OK  ] Reached target Sound Card.
 [  OK  ] Listening on Load/Save RF …itch Status /dev/rfkill Watch.
-         Activating swap /dev/mmcblk0p3...
-[FAILED] Failed to activate swap /dev/mmcblk0p3.
+         Activating swap /dev/mmcblkXp3...
+[FAILED] Failed to activate swap /dev/mmcblkXp3.
 See 'systemctl status dev-mmcblk0p3.swap' for details.
 [DEPEND] Dependency failed for Swaps.
          Mounting /tmp...

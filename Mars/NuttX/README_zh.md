@@ -250,12 +250,12 @@ saicogn@saicogn:~/nuttx_mars$ tar -xvf nuttx-apps-12.9.0.tar.gz
 
     使用 `dd` 命令或 `balenaEtcher` 软件将镜像写入 microSD 卡。
 
-    其中，`/dev/sdc` 为存储卡对应设备。
+    其中，`/dev/sdX` 为存储卡对应设备。
 
     ```bash
     saicogn@saicogn:~/nuttx_mars/nuttx$ wget https://github.com/starfive-tech/VisionFive2/releases/download/JH7110_VF2_515_v5.11.3/sdcard.img
 
-    sudo dd if=sdcard.img of=/dev/sdc bs=1M status=progress
+    sudo dd if=sdcard.img of=/dev/sdX bs=1M status=progress
 
     sync
     ```
@@ -272,8 +272,8 @@ saicogn@saicogn:~/nuttx_mars$ tar -xvf nuttx-apps-12.9.0.tar.gz
     ```bash
     saicogn@saicogn:~/nuttx_mars/nuttx$ df -ha
     Filesystem      Size  Used Avail Use% Mounted on
-    /dev/sdc3       292M  3.1M  289M   2% /media/saicogn/F01E-258D
-    /dev/sdc4       459M  272M  159M  64% /media/saicogn/rootfs
+    /dev/sdX3       292M  3.1M  289M   2% /media/saicogn/F01E-258D
+    /dev/sdX4       459M  272M  159M  64% /media/saicogn/rootfs
 
     saicogn@saicogn:~/nuttx_mars/nuttx$ ls /media/saicogn/F01E-258D/ -lh
     total 135M

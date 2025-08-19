@@ -22,14 +22,14 @@
 
 ### 解压并刷写镜像到 microSD 卡
 
-- 使用 `gzip` 解压镜像，并使用 `dd` 命令或者 `balenaEtcher` 软件将镜像写入 microSD 卡。（假定/dev/sdc为microSD 卡设备）
+- 使用 `gzip` 解压镜像，并使用 `dd` 命令或者 `balenaEtcher` 软件将镜像写入 microSD 卡。（假定/dev/sdX为microSD 卡设备）
 
     ```bash
     wget https://mirror.iscas.ac.cn/fedora-riscv/dl/StarFive/visionfive2/images/fedora-disk-gnome-workstation_starfive_vf2_f41_20241201091200.raw.gz
 
     gzip -d fedora-disk-gnome-workstation_starfive_vf2_f41_20241201091200.raw.gz
 
-    sudo dd if=fedora-disk-gnome-workstation_starfive_vf2-sda.raw of=/dev/sdc bs=1M status=progress
+    sudo dd if=fedora-disk-gnome-workstation_starfive_vf2-sda.raw of=/dev/sdX bs=1M status=progress
 
     sync
     ```

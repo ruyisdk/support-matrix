@@ -34,11 +34,11 @@ The dip switch should be set as follows: `MSEL[3:0]=1011`
 
 ### Extract and Flash the Image to the microSD Card
 
-`/dev/sdc` represents the microSD card location. Please adjust as necessary.
+`/dev/sdX` represents the microSD card location. Please adjust as necessary.
 
 ```bash
-sudo wipefs -af /dev/sdc
-xzcat Fedora-Developer-38-20230519.n.0-mmc.raw.img.xz | sudo dd of=/dev/sdc iflag=fullblock bs=4M status=progress
+sudo wipefs -af /dev/sdX
+xzcat Fedora-Developer-38-20230519.n.0-mmc.raw.img.xz | sudo dd of=/dev/sdX iflag=fullblock bs=4M status=progress
 ```
 
 ### Logging into the System

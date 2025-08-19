@@ -45,11 +45,11 @@ The DIP switch settings should be: `MSEL[3:0]=1011`
 
 Download the demo-coreip-cli-unmatched.rootfs.wic.xz image from [here](https://github.com/sifive/freedom-u-sdk/releases/latest).
 
-Decompress and flash the image to the microSD card. Replace `/dev/sdc` with the location of your microSD card.
+Decompress and flash the image to the microSD card. Replace `/dev/sdX` with the location of your microSD card.
 
 ```bash
 xz -dk demo-coreip-cli-unmatched.rootfs.wic.xz
-sudo dd if=demo-coreip-cli-unmatched.rootfs.wic of=/dev/sdc status=progress
+sudo dd if=demo-coreip-cli-unmatched.rootfs.wic of=/dev/sdX status=progress
 ```
 
 ### U-Boot on SPI Flash

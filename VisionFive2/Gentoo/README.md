@@ -32,10 +32,10 @@ last_update: 2024-06-21
 
 ### Decompress and Flash the Image to the microSD Card
 
-Assuming `/dev/sdc` is the storage card.
+Assuming `/dev/sdX` is the storage card.
 
 ```bash
-bzcat gentoo.img.bz2 | sudo dd of=/dev/sdc iflag=fullblock bs=4M status=progress
+bzcat gentoo.img.bz2 | sudo dd of=/dev/sdX iflag=fullblock bs=4M status=progress
 ```
 
 ### Boot Mode Selection
