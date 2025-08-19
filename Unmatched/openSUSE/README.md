@@ -37,7 +37,7 @@ The dip switches should be set as follows: `MSEL[3:0]=1011`
 `/dev/sdc` is the location of the microSD card; please adjust according to your circumstances.
 
 ```bash
-xzcat openSUSE-Tumbleweed-RISC-V-JeOS-hifiveunmatched.riscv64-2024.03.15-Build1.7.raw.xz | sudo dd bs=4M of=/dev/sdc iflag=fullblock status=progress
+xzcat openSUSE-Tumbleweed-RISC-V-JeOS-hifiveunmatched.riscv64-2024.03.15-Build1.7.raw.xz | sudo dd bs=4M of=/dev/sdX iflag=fullblock status=progress
 ```
 
 ### Logging into the System

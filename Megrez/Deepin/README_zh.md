@@ -30,8 +30,8 @@
 首先将SD卡分为`boot`和`root`两个分区，随后刷入对应镜像：
 
 ``` shell
-sudo dd if=deepin-eic7700-riscv64-25-desktop-installer.boot.ext4 of=/dev/sdd1 status=progress
-sudo dd if=deepin-eic7700-riscv64-25-desktop-installer.root.ext4 of=/dev/sdd2 status=progress
+sudo dd if=deepin-eic7700-riscv64-25-desktop-installer.boot.ext4 of=/dev/sdX1 status=progress
+sudo dd if=deepin-eic7700-riscv64-25-desktop-installer.root.ext4 of=/dev/sdX2 status=progress
 ```
 
 最后，将 SD 卡插入如图一标号 1 所示的 SD 卡槽中。

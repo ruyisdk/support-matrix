@@ -79,7 +79,7 @@ If built successfully, you can find the image file `milkv-duo.img` in the `istor
 
 ```shell
 cp ./istoreos/bin/targets/sophgo/cv180x/milkv-duo.img ./
-dd if=milkv-duo.img of=/dev/sdx bs=1M status=progress
+dd if=milkv-duo.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### Logging into the System

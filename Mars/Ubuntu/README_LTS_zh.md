@@ -26,7 +26,7 @@
 
 ```bash
 tar -xvf ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img.xz
-sudo dd if=ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img of=/dev/sdc bs=1M status=progress
+sudo dd if=ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### 更新 U-Boot

@@ -40,7 +40,7 @@ wget https://hydra.nichi.co/build/1426425/download/1/nixos-image-sd-card-25.05.2
 
 zstd -d nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img.zst
 
-sudo dd if=nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img of=/dev/sdc bs=1M status=progress
+sudo dd if=nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

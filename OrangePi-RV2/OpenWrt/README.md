@@ -37,7 +37,7 @@ Here, `/dev/sdc` corresponds to the storage device.
 ```bash
 gzip -d openwrt-ky-riscv64-x1_orangepi-rv2-ext4-sysupgrade.img.gz
 
-sudo dd if=openwrt-ky-riscv64-x1_orangepi-rv2-ext4-sysupgrade.img of=/dev/sdc bs=1M status=progress
+sudo dd if=openwrt-ky-riscv64-x1_orangepi-rv2-ext4-sysupgrade.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

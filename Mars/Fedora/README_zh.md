@@ -29,7 +29,7 @@
 
     gzip -d fedora-disk-gnome-workstation_starfive_vf2_f41_20241201091200.raw.gz
 
-    sudo dd if=fedora-disk-gnome-workstation_starfive_vf2-sda.raw of=/dev/sdc bs=1M status=progress
+    sudo dd if=fedora-disk-gnome-workstation_starfive_vf2-sda.raw of=/dev/sdX bs=1M status=progress
 
     sync
     ```

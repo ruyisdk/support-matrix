@@ -41,7 +41,7 @@ wget https://downloads.openwrt.org/releases/24.10.1/targets/starfive/generic/ope
 
 gzip -d openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img.gz
 
-sudo dd if=openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img of=/dev/sdc bs=1M status=progress
+sudo dd if=openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

@@ -69,7 +69,7 @@ make -j$(nproc) V=s
 
 ```shell
 cp ./istoreos/bin/targets/sophgo/cv180x/milkv-duo.img ./
-dd if=milkv-duo.img of=/dev/sdx bs=1M status=progress
+dd if=milkv-duo.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### 登录系统

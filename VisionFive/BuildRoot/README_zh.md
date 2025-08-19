@@ -54,7 +54,7 @@ Note: 请确保您的互联网连接正常，编译过程中会自动下载依�
 
 ```shell
 sudo wipefs -af /dev/sdc
-sudo dd if=~/buildroot-2024.02.1/output/images/sdcard.img of=/dev/sdc bs=1M status=progress oflag=direct
+sudo dd if=~/buildroot-2024.02.1/output/images/sdcard.img of=/dev/sdX bs=1M status=progress oflag=direct
 ```
 
 ### 登录系统

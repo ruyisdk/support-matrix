@@ -28,7 +28,7 @@
 下载并解压镜像。使用 `dd` 刷写至 microSD 卡。
 
 ```shell
-xzcat ubuntu-24.04.2-preinstalled-server-riscv64+unmatched.img.xz | sudo dd of=/dev/sdc bs=4M iflag=fullblock status=progress 
+xzcat ubuntu-24.04.2-preinstalled-server-riscv64+unmatched.img.xz | sudo dd of=/dev/sdX bs=4M iflag=fullblock status=progress 
 ```
 
 ### 登录系统

@@ -52,7 +52,7 @@ zstd -d irradium-3.8-riscv64-xfce-lichee_pi_3a-6.15.2-build-20250611.img.zst
 ### Writing System Image to MicroSD Card
 You can use the `dd` command:
 ```bash
-sudo dd if=irradium-3.8-riscv64-core-lichee_pi_3a-6.15.2-build-20250510.img of=/dev/mmcblk0 bs=1M
+sudo dd if=irradium-3.8-riscv64-core-lichee_pi_3a-6.15.2-build-20250510.img of=/dev/mmcblkX bs=1M
 ```
 
 ## Logging into the System
@@ -86,7 +86,7 @@ BUG_REPORT_URL="https://irradium.org/bugs/"
 ## Desktop Environment
 The official release includes an **Xfce** desktop image. Simply write it to the microSD card to use it.
 ```bash
-sudo dd if=irradium-3.8-riscv64-xfce-lichee_pi_3a-6.15.2-build-20250510.img of=/dev/mmcblk0 bs=1M
+sudo dd if=irradium-3.8-riscv64-xfce-lichee_pi_3a-6.15.2-build-20250510.img of=/dev/mmcblkX bs=1M
 ```
 
 Screenshots of XFCE desktop:

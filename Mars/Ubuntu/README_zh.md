@@ -29,7 +29,7 @@
 ```bash
 unxz -d ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz
 
-sudo dd if=ubuntu-25.04-preinstalled-server-riscv64+jh7110.img of=/dev/sdc bs=1M status=progress
+sudo dd if=ubuntu-25.04-preinstalled-server-riscv64+jh7110.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### 更新 U-Boot

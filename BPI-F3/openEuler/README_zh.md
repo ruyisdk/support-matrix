@@ -23,7 +23,7 @@
 
 ```bash
 tar -xvf openEuler-Mega24.03SP1-V1-xfce-k1-testing.img.zst
-sudo dd if=openEuler-Mega24.03SP1-V1-xfce-k1-testing.img of=/dev/sda bs=4M status=progress
+sudo dd if=openEuler-Mega24.03SP1-V1-xfce-k1-testing.img of=/dev/sdX bs=4M status=progress
 ```
 
 ### 登录系统

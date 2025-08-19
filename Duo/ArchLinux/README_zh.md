@@ -27,7 +27,7 @@
 
 ```shell
 unzip milkv-duo-archlinux-riscv64-2023-10-09-7.0gb-v0.0.3-spiritdude.zip
-dd if=milkv-duo-archlinux-riscv64-2023-10-09-7.0gb-v0.0.3-spiritdude.img of=/dev/sdc bs=1M status=progress
+dd if=milkv-duo-archlinux-riscv64-2023-10-09-7.0gb-v0.0.3-spiritdude.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### 登录系统

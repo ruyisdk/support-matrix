@@ -25,7 +25,7 @@
 
 ```bash
 tar -xvf deepin-23-beige-preview-riscv64-visionfive2-20240613-125619.tar.xz
-sudo dd if=deepin-visionfive2-riscv64-stable-desktop-installer.img of=/dev/sda bs=1M status=progress
+sudo dd if=deepin-visionfive2-riscv64-stable-desktop-installer.img of=/dev/sdX bs=1M status=progress
 ```
 
 #### Issue: Kernel panic

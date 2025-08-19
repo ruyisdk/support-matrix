@@ -35,7 +35,7 @@ Use `xz` to decompress the image,  and then use `dd` command or `balenaEtcher` s
 ```bash
 xz -d openSUSE-Tumbleweed-RISC-V-JeOS-starfivevisionfive2.riscv64-2025.04.28-Build1.26.raw.xz
 
-sudo dd if=openSUSE-Tumbleweed-RISC-V-JeOS-starfivevisionfive2.riscv64-2025.04.28-Build1.26.raw of=/dev/sdc bs=1M status=progress
+sudo dd if=openSUSE-Tumbleweed-RISC-V-JeOS-starfivevisionfive2.riscv64-2025.04.28-Build1.26.raw of=/dev/sdX bs=1M status=progress
 
 sync
 ```

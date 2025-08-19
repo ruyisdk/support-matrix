@@ -24,7 +24,7 @@
 
 ```bash
 xz -d ubuntu-24.04.1-preinstalled-server-riscv64+nezha.img.xz
-sudo dd if=ubuntu-24.04.1-preinstalled-server-riscv64+nezha.img of=/dev/sdc bs=1m status=progress
+sudo dd if=ubuntu-24.04.1-preinstalled-server-riscv64+nezha.img of=/dev/sdX bs=1m status=progress
 ```
 
 ### 登录系统
