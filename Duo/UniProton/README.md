@@ -35,7 +35,7 @@ last_update: 2024-10-26
 ### Flashing the Image to microSD Card Using `dd`
 
 ```shell
-sudo dd if=oe2303_uniproton.img of=/dev/sdc bs=4M iflag=fullblock status=progress 
+sudo dd if=oe2303_uniproton.img of=/dev/sdX bs=4M iflag=fullblock status=progress 
 ```
 
 ### Logging into the System

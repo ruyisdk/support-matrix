@@ -120,7 +120,7 @@ losetup -d /dev/loop0
 ### 使用 `dd` 刷写镜像到 microSD 卡
 
 ```shell
-dd if=milkv-duos-sd-20240924-2106.img of=/dev/sdc bs=1M status=progress
+dd if=milkv-duos-sd-20240924-2106.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### 登录系统

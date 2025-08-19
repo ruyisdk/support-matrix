@@ -35,7 +35,7 @@ Here, `/dev/sdc` corresponds to the storage device.
 
 ```bash
 tar -xvf ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img.xz
-sudo dd if=ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img of=/dev/sdc bs=1M status=progress
+sudo dd if=ubuntu-24.04.1-preinstalled-server-riscv64+milkvmars.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### Updating U-Boot

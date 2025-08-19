@@ -62,7 +62,7 @@ sudo losetup -d /dev/loop16
 接下来刷入修改后的镜像：
 
 ```shell
-sudo dd if=milkv-duo256m-v1.1.0-2024-0410.img of=/dev/sdc bs=4M status=progress oflag=direct
+sudo dd if=milkv-duo256m-v1.1.0-2024-0410.img of=/dev/sdX bs=4M status=progress oflag=direct
 ```
 
 至此，存储卡准备完成。插入开发板，准备启动。

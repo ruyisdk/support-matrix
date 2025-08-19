@@ -34,7 +34,7 @@ last_update: 2025-03-31
   ```bash
   unzip mars_debian-desktop_sdk-v3.6.1_sdcard_v1.0.6.img.zip
 
-  sudo dd if=mars_debian-desktop_sdk-v3.6.1_sdcard_v1.0.6.img of=/dev/sdc bs=1M status=progress
+  sudo dd if=mars_debian-desktop_sdk-v3.6.1_sdcard_v1.0.6.img of=/dev/sdX bs=1M status=progress
 
   sync
   ```

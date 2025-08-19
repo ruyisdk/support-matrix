@@ -46,7 +46,7 @@ make
 注意，`/dev/sdc` 为存储卡所在位置。请根据实际情况修改。
 
 ```shell
-sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M status=progress
+sudo dd if=sysimage-sdcard.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### 登录系统

@@ -37,7 +37,7 @@ wget https://dietpi.com/downloads/images/testing/DietPi_VisionFive2-RISC-V-Trixi
 
 xz -d DietPi_VisionFive2-RISC-V-Trixie.img.xz
 
-sudo dd if=DietPi_VisionFive2-RISC-V-Trixie.img of=/dev/sdc bs=1M status=progress
+sudo dd if=DietPi_VisionFive2-RISC-V-Trixie.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

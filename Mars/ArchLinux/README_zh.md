@@ -32,7 +32,7 @@ wget https://github.com/cwt-vf2/archlinux-image-vf2/releases/download/cwt24/Arch
 
 zstd -d ArchLinux-VF2_6.12_v5.14.0-cwt24.img.zst
 
-sudo dd if=ArchLinux-VF2_6.12_v5.14.0-cwt24.img of=/dev/sdc bs=1M status=progress
+sudo dd if=ArchLinux-VF2_6.12_v5.14.0-cwt24.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

@@ -63,7 +63,7 @@ Here, we assume the storage card is located at `/dev/sdc`.
 
 ```shell
 sudo wipefs -af /dev/sdc
-sudo dd if=~/buildroot-2024.02.1/output/images/sdcard.img of=/dev/sdc bs=1M status=progress oflag=direct
+sudo dd if=~/buildroot-2024.02.1/output/images/sdcard.img of=/dev/sdX bs=1M status=progress oflag=direct
 ```
 
 ### Logging into the System

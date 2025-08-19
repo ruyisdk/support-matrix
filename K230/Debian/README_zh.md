@@ -21,7 +21,7 @@
 ```bash
 wget https://kendryte-download.canaan-creative.com/developer/k230/canmv_debian_sdcard_sdk_1.3.img.gz
 gzip -d canmv_debian_sdcard_sdk_1.3.img.gz
-sudo dd if=canmv_debian_sdcard_sdk_1.3.img of=/dev/sdb bs=1M status=progress oflag=sync
+sudo dd if=canmv_debian_sdcard_sdk_1.3.img of=/dev/sdX bs=1M status=progress oflag=sync
 ```
 
 ### 登录系统

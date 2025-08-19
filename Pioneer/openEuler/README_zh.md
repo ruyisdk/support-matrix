@@ -25,7 +25,7 @@
 
 ```shell
 unzip sg2042_firmware_linuxboot.img.zip
-sudo dd if=sg2042_firmware_linuxboot.img of=/dev/mmcblk0 bs=512K iflag=fullblock oflag=direct conv=fsync status=progress
+sudo dd if=sg2042_firmware_linuxboot.img of=/dev/mmcblkX bs=512K iflag=fullblock oflag=direct conv=fsync status=progress
 ```
 
 下载**系统镜像**，解压，使用 `dd` 烧录至 **NVMe SSD**。

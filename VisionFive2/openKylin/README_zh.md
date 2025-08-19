@@ -25,7 +25,7 @@
 
 ```bash
 xz -d openKylin-Embedded-V2.0-SP1-visionfive2-riscv64.img.xz
-sudo dd if=openKylin-Embedded-V2.0-SP1-visionfive2-riscv64.img of=/dev/sdc bs=1M status=progress
+sudo dd if=openKylin-Embedded-V2.0-SP1-visionfive2-riscv64.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### 引导模式选择

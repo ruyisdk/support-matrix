@@ -27,7 +27,7 @@
 
 ```bash
 zstd -d ArchLinux-VF2_6.6_v5.13.1-cwt23.img.zst
-sudo dd if=ArchLinux-VF2_6.6_v5.13.1-cwt23.img of=/dev/sdc bs=4M status=progress
+sudo dd if=ArchLinux-VF2_6.6_v5.13.1-cwt23.img of=/dev/sdX bs=4M status=progress
 ```
 
 ### 引导模式选择

@@ -255,7 +255,7 @@ saicogn@saicogn:~/nuttx_mars$ tar -xvf nuttx-apps-12.9.0.tar.gz
     ```bash
     saicogn@saicogn:~/nuttx_mars/nuttx$ wget https://github.com/starfive-tech/VisionFive2/releases/download/JH7110_VF2_515_v5.11.3/sdcard.img
 
-    sudo dd if=sdcard.img of=/dev/sdc bs=1M status=progress
+    sudo dd if=sdcard.img of=/dev/sdX bs=1M status=progress
 
     sync
     ```

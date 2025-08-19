@@ -30,7 +30,7 @@ Use `dd` to flash the image to the microSD card. Assuming the microSD card devic
 ```bash
 wget https://kendryte-download.canaan-creative.com/developer/k230/canmv_ubuntu_sdcard_1.3.img.gz
 gzip -d canmv_ubuntu_sdcard_1.3.img.gz
-sudo dd if=canmv_ubuntu_sdcard_1.3.img of=/dev/sdb bs=1M status=progress oflag=sync
+sudo dd if=canmv_ubuntu_sdcard_1.3.img of=/dev/sdX bs=1M status=progress oflag=sync
 ```
 
 ### Logging into the System

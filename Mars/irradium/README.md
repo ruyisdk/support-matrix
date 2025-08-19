@@ -35,7 +35,7 @@ Use `zstd` to decompress the image,  and then use `dd` command or `balenaEtcher`
 ```bash
 zstd -d irradium-3.8-riscv64-core-visionfive_2-6.12.28-build-20250512.img.zst
 
-sudo dd if=irradium-3.8-riscv64-core-visionfive_2-6.12.28-build-20250512.img of=/dev/sdc bs=1M status=progress
+sudo dd if=irradium-3.8-riscv64-core-visionfive_2-6.12.28-build-20250512.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```
