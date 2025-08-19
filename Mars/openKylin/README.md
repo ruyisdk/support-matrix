@@ -31,12 +31,12 @@ last_update: 2025-05-29
 
 ### Decompress and Flash Image to microSD Card
 
-Use `xz` to decompress the image,  and then use `dd` command or `balenaEtcher` software to flash the image to the microSD card. (Assuming `/dev/sdc` is the microSD card device)
+Use `xz` to decompress the image,  and then use `dd` command or `balenaEtcher` software to flash the image to the microSD card. (Assuming `/dev/sdX` is the microSD card device)
 
 ```bash
 xz -d openKylin-Embedded-V2.0-SP1-visionfive2-riscv64.img.xz
 
-sudo dd if=openKylin-Embedded-V2.0-SP1-visionfive2-riscv64.img of=/dev/sdc bs=1M status=progress
+sudo dd if=openKylin-Embedded-V2.0-SP1-visionfive2-riscv64.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

@@ -20,12 +20,12 @@
 
 ### 刷写镜像
 
-使用 `gzip` 解压镜像。然后使用 `dd`命令或者使用 `balenaEther` 软件将镜像写入 microSD 卡 (假设 `/dev/sdc` 为 microSD卡设备)
+使用 `gzip` 解压镜像。然后使用 `dd`命令或者使用 `balenaEther` 软件将镜像写入 microSD 卡 (假设 `/dev/sdX` 为 microSD卡设备)
 
 ```bash
 gzip -d openwrt-ky-riscv64-x1_orangepi-rv2-ext4-sysupgrade.img.gz
 
-sudo dd if=openwrt-ky-riscv64-x1_orangepi-rv2-ext4-sysupgrade.img of=/dev/sdc bs=1M status=progress
+sudo dd if=openwrt-ky-riscv64-x1_orangepi-rv2-ext4-sysupgrade.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

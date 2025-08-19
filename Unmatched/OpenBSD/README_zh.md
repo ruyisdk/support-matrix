@@ -36,11 +36,11 @@
 
 从 [此处](https://github.com/sifive/freedom-u-sdk/releases/latest) 获取 demo-coreip-cli-unmatched.rootfs.wic.xz 镜像。
 
-解压并将镜像写入 microSD 卡。其中 `/dev/sdc` 为 microSD 卡所在位置。
+解压并将镜像写入 microSD 卡。其中 `/dev/sdX` 为 microSD 卡所在位置。
 
 ```bash
 xz -dk demo-coreip-cli-unmatched.rootfs.wic.xz
-sudo dd if=demo-coreip-cli-unmatched.rootfs.wic of=/dev/sdc status=progress
+sudo dd if=demo-coreip-cli-unmatched.rootfs.wic of=/dev/sdX status=progress
 ```
 
 ### U-Boot 烧录至 SPI Flash
@@ -83,7 +83,7 @@ dd if=u-boot.itb  of=/dev/mtdblock0 bs=4096 seek=261 conv=sync
 `/dev/sdX` 为 U 盘位置。
 
 ```bash
-sudo dd if=install74.img of=/dev/sdc status=progress
+sudo dd if=install74.img of=/dev/sdX status=progress
 ```
 
 ### 登录系统

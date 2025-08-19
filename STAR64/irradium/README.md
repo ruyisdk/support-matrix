@@ -28,11 +28,11 @@ last_update: 2025-07-13
 
 ### Decompress and Flash the Image to the microSD Card
 
-Assume `/dev/sdc` is the storage card.
+Assume `/dev/sdX` is the storage card.
 
 ```bash
 zstd -d https://dl.irradium.org/irradium/images/star64/irradium-3.8-riscv64-xfce-star64-6.12.33-build-20250613.img.zst
-sudo dd if=https://dl.irradium.org/irradium/images/star64/irradium-3.8-riscv64-xfce-star64-6.12.33-build-20250613.img of=/dev/sdc bs=1m status=progress
+sudo dd if=https://dl.irradium.org/irradium/images/star64/irradium-3.8-riscv64-xfce-star64-6.12.33-build-20250613.img of=/dev/sdX bs=1m status=progress
 ```
 
 ### Logging into the System

@@ -30,12 +30,12 @@ last_update: 2025-05-30
 
 ### Decompress and Flash Image to microSD Card
 
-Use `zstd` to decompress the image,  and then use `dd` command or `balenaEtcher` software to flash the image to the microSD card. (Assuming `/dev/sdc` is the microSD card device)
+Use `zstd` to decompress the image,  and then use `dd` command or `balenaEtcher` software to flash the image to the microSD card. (Assuming `/dev/sdX` is the microSD card device)
 
 ```bash
 zstd -d irradium-3.8-riscv64-core-visionfive_2-6.12.28-build-20250512.img.zst
 
-sudo dd if=irradium-3.8-riscv64-core-visionfive_2-6.12.28-build-20250512.img of=/dev/sdc bs=1M status=progress
+sudo dd if=irradium-3.8-riscv64-core-visionfive_2-6.12.28-build-20250512.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

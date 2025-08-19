@@ -30,12 +30,12 @@ last_update: 2025-05-29
 
 ### Decompress and Flash Image to microSD Card
 
-Use `xz` to decompress the image,  and then use `dd` command or `balenaEtcher` software to flash the image to the microSD card. (Assuming `/dev/sdc` is the microSD card device)
+Use `xz` to decompress the image,  and then use `dd` command or `balenaEtcher` software to flash the image to the microSD card. (Assuming `/dev/sdX` is the microSD card device)
 
 ```bash
 xz -d openSUSE-Tumbleweed-RISC-V-JeOS-starfivevisionfive2.riscv64-2025.04.28-Build1.26.raw.xz
 
-sudo dd if=openSUSE-Tumbleweed-RISC-V-JeOS-starfivevisionfive2.riscv64-2025.04.28-Build1.26.raw of=/dev/sdc bs=1M status=progress
+sudo dd if=openSUSE-Tumbleweed-RISC-V-JeOS-starfivevisionfive2.riscv64-2025.04.28-Build1.26.raw of=/dev/sdX bs=1M status=progress
 
 sync
 ```

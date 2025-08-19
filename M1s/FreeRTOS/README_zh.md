@@ -69,7 +69,7 @@ cd M1s_BL808_example/c906_app
 将 build_out 下 d0fw.bin 移动到检测到的 U 盘中，根据实际替换下面的设备名：
 ```bash
 mkdir mnt
-sudo mount /dev/sda1 mnt
+sudo mount /dev/sdX1 mnt
 sudo mv build_out/d0fw.bin mnt/
 sudo umount mnt
 rm -r mnt

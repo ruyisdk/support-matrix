@@ -60,7 +60,7 @@ Welcome to Ubuntu 22.04 LTS!
 
 [    1.763725] systemd[1]: Hostname set to <milkv-duo>.
 [    2.208805] systemd-fstab-generator[97]: Ignoring "noauto" option for root device
-[    2.294427] systemd-fstab-generator[97]: Swap not supported, ignoring fstab swap entry for /dev/mmcblk0p3.
+[    2.294427] systemd-fstab-generator[97]: Swap not supported, ignoring fstab swap entry for /dev/mmcblkXp3.
 [    3.158107] random: crng init done
 [    3.201494] systemd[1]: Queued start job for default target Graphical Interface.
 [    3.219878] systemd[1]: Created slice Slice /system/modprobe.

@@ -32,11 +32,11 @@ last_update: 2024-10-25
 
 ### Decompress and Flash Image to microSD Card
 
-Assume `/dev/sdc` is the storage card.
+Assume `/dev/sdX` is the storage card.
 
 ```bash
 zstd -d ArchLinux-VF2_6.6_v5.13.1-cwt23.img.zst
-sudo dd if=ArchLinux-VF2_6.6_v5.13.1-cwt23.img of=/dev/sdc bs=4M status=progress
+sudo dd if=ArchLinux-VF2_6.6_v5.13.1-cwt23.img of=/dev/sdX bs=4M status=progress
 ```
 
 ### Boot Mode Selection

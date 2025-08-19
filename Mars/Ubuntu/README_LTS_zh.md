@@ -22,11 +22,11 @@
 使用 `tar` 解压镜像。
 使用 `dd`命令或者使用 `balenaEther` 软件将镜像写入 microSD 卡
 
-其中，`/dev/sdc` 为存储卡对应设备。
+其中，`/dev/sdX` 为存储卡对应设备。
 
 ```bash
 tar -xvf ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img.xz
-sudo dd if=ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img of=/dev/sdc bs=1M status=progress
+sudo dd if=ubuntu-24.04.2-preinstalled-server-riscv64+milkvmars.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### 更新 U-Boot

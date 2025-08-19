@@ -28,10 +28,10 @@
     unxz -d ubuntu-24.04-preinstalled-server-riscv64.img.xz
     ```
 
-2. 挂载MicroSD卡，并使用 `cp` 命令拷贝镜像文件至MicroSD卡。(假设 `/dev/sdc` 为MicroSD卡设备)
+2. 挂载MicroSD卡，并使用 `cp` 命令拷贝镜像文件至MicroSD卡。(假设 `/dev/sdX` 为MicroSD卡设备)
 
     ```bash
-    sudo mount /dev/sdc /mnt/sd
+    sudo mount /dev/sdX /mnt/sd
     
     sudo cp ./ubuntu-24.04-preinstalled-server-riscv64.img ./bootloader_ddr5_secboot.bin /mnt/sd
 

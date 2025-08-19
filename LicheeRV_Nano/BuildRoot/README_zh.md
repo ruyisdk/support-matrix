@@ -58,10 +58,10 @@ Starting kernel ...
 + mount -t configfs configfs /sys/kernel/config
 + mount -t debugfs debugfs /sys/kernel/debug
 + mkdir -p /boot
-+ mount -o ro /dev/mmcblk0p1 /boot
++ mount -o ro /dev/mmcblkXp1 /boot
 + msc=0
 + '[' -e /boot/rec ]
-+ umount /dev/mmcblk0p1
++ umount /dev/mmcblkXp1
 + grep lo
 + grep 'User Key'
 + wc -l
@@ -75,7 +75,7 @@ Starting kernel ...
 + flashkey1=0
 + '[' 0 -ne 0 ]
 + mkdir /realroot
-+ mount -o rw /dev/mmcblk0p2 /realroot
++ mount -o rw /dev/mmcblkXp2 /realroot
 + mfail=0
 + '[' 0 -ne 0 ]
 + mount -t proc proc /realroot/proc
@@ -141,9 +141,9 @@ Starting modeltest: OK
 HELLO WORLD
 Starting nettest: OK
 Starting nntest: OK
-Warning: Partition /dev/mmcblk0p2 is being used. Are you sure you want to continue?
+Warning: Partition /dev/mmcblkXp2 is being used. Are you sure you want to continue?
 udhcpc: broadcasting discover
-Warning: Partition /dev/mmcblk0p2 is being used. Are you sure you want to continue?
+Warning: Partition /dev/mmcblkXp2 is being used. Are you sure you want to continue?
 Yes/No? yes
 Information: You may need to update /etc/fstab.
 
@@ -151,11 +151,11 @@ Starting temptest: OK
 resize2fs 1.47.0 (5-Feb-2023)
 
 Welcome to Linux
-licheervnano-6681 login: Filesystem at /dev/mmcblk0p2 is mounted on /; on-line resizing required
+licheervnano-6681 login: Filesystem at /dev/mmcblkXp2 is mounted on /; on-line resizing required
 old_desc_blocks = 1, new_desc_blocks = 2
 udhcpc: broadcasting discover
 udhcpc: broadcasting discover
-The filesystem on /dev/mmcblk0p2 is now 7787647 (4k) blocks long.
+The filesystem on /dev/mmcblkXp2 is now 7787647 (4k) blocks long.
 
 udhcpc: broadcasting discover
 udhcpc: broadcasting discover

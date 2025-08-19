@@ -42,7 +42,7 @@ u-boot 下载：https://github.com/starfive-tech/Fedora_on_StarFive/releases
 ```u-boot
 fatload mmc 0:3 0x84000000 Image
 fatload mmc 0:3 0x88000000 dtb
-setenv bootargs "earlyprintk console=ttyS0,115200 debug rootwait earlycon=sbi root=/dev/mmcblk0p4"
+setenv bootargs "earlyprintk console=ttyS0,115200 debug rootwait earlycon=sbi root=/dev/mmcblkXp4"
 booti 0x84000000 - 0x88000000
 ```
 

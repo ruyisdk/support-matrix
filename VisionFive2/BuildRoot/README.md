@@ -30,10 +30,10 @@ last_update: 2024-06-21
 
 ### Flashing the Image to the microSD Card
 
-Assuming `/dev/sdc` is the storage card.
+Assuming `/dev/sdX` is the storage card.
 
 ```bash
-sudo dd if=sdcard.img of=/dev/sdc bs=1M status=progress
+sudo dd if=sdcard.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### Boot Mode Selection

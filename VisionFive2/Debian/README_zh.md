@@ -21,11 +21,11 @@
 
 ### 解压并刷写镜像到 microSD 卡
 
-假定 `/dev/sdc` 为存储卡。
+假定 `/dev/sdX` 为存储卡。
 
 ```bash
 bzip2 -dk starfive-jh7110-202403-SD-minimal-desktop-wayland.img.bz2
-sudo dd if=starfive-jh7110-202403-SD-minimal-desktop-wayland.img of=/dev/sdc bs=1M status=progress
+sudo dd if=starfive-jh7110-202403-SD-minimal-desktop-wayland.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### 引导模式选择

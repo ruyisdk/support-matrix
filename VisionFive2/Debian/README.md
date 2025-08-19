@@ -30,11 +30,11 @@ last_update: 2025-03-16
 
 ### Decompress and Flash Image to microSD Card
 
-Assuming `/dev/sdc` is the storage card.
+Assuming `/dev/sdX` is the storage card.
 
 ```bash
 bzip2 -dk starfive-jh7110-202409-SD-minimal-desktop-wayland.img.bz2 
-sudo dd if=starfive-jh7110-202409-SD-minimal-desktop-wayland.img of=/dev/sdc bs=1M status=progress
+sudo dd if=starfive-jh7110-202409-SD-minimal-desktop-wayland.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### Boot Mode Selection

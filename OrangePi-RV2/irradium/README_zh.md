@@ -22,12 +22,12 @@
 
 ### 刷写镜像
 
-使用 `zstd` 解压镜像。然后使用 `dd`命令或者使用 `balenaEther` 软件将镜像写入 microSD 卡 (假设 `/dev/sdc` 为 microSD卡设备)
+使用 `zstd` 解压镜像。然后使用 `dd`命令或者使用 `balenaEther` 软件将镜像写入 microSD 卡 (假设 `/dev/sdX` 为 microSD卡设备)
 
 ```bash
 zstd -d irradium-3.8-riscv64-core-orange_pi_rv2-6.14.4-build-20250503.img.zst 
 
-sudo dd if=irradium-3.8-riscv64-core-orange_pi_rv2-6.14.4-build-20250503.img of=/dev/sdc bs=1M status=progress
+sudo dd if=irradium-3.8-riscv64-core-orange_pi_rv2-6.14.4-build-20250503.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

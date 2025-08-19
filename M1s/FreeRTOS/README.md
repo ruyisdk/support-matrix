@@ -78,7 +78,7 @@ Use the Type-C cable to connect your computer to the C port marked **OTG**; you 
 Move `d0fw.bin` from the `build_out` directory to the detected USB drive, replacing the device name as needed:
 ```bash
 mkdir mnt
-sudo mount /dev/sda1 mnt
+sudo mount /dev/sdX1 mnt
 sudo mv build_out/d0fw.bin mnt/
 sudo umount mnt
 rm -r mnt

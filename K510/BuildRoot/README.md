@@ -52,10 +52,10 @@ Upon completion, the `sysimage-sdcard.img` image will be generated in the `k510_
 
 #### Flashing the Image with dd
 
-Note: `/dev/sdc` represents the location of the storage card. Modify according to your actual setup.
+Note: `/dev/sdX` represents the location of the storage card. Modify according to your actual setup.
 
 ```shell
-sudo dd if=sysimage-sdcard.img of=/dev/sdc bs=1M status=progress
+sudo dd if=sysimage-sdcard.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### Logging into the System

@@ -36,14 +36,14 @@ last_update: 2025-04-26
 
 Use `gzip` command to decompress the image,  and then use `dd` command or `balenaEtcher` software to flash the image to the microSD card.
 
-Here, `/dev/sdc` corresponds to the storage device.
+Here, `/dev/sdX` corresponds to the storage device.
 
 ```bash
 wget https://downloads.openwrt.org/releases/24.10.1/targets/starfive/generic/openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img.gz
 
 gzip -d openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img.gz
 
-sudo dd if=openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img of=/dev/sdc bs=1M status=progress
+sudo dd if=openwrt-24.10.1-starfive-generic-visionfive2-v1.3b-ext4-sdcard.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```
@@ -275,12 +275,12 @@ saicogn@saicogn:~/nuttx_mars$ tar -xvf nuttx-apps-12.9.0.tar.gz
 
     Use `dd` command or `balenaEtcher` software to flash the image to the microSD card.
 
-    Here, `/dev/sdc` corresponds to the storage device.
+    Here, `/dev/sdX` corresponds to the storage device.
 
     ```bash
     saicogn@saicogn:~/nuttx_mars/nuttx$ wget https://github.com/starfive-tech/VisionFive2/releases/download/JH7110_VF2_515_v5.11.3/sdcard.img
 
-    sudo dd if=sdcard.img of=/dev/sdc bs=1M status=progress
+    sudo dd if=sdcard.img of=/dev/sdX bs=1M status=progress
 
     sync
     ```
@@ -298,8 +298,8 @@ saicogn@saicogn:~/nuttx_mars$ tar -xvf nuttx-apps-12.9.0.tar.gz
     ```bash
     saicogn@saicogn:~/nuttx_mars/nuttx$ df -ha
     Filesystem      Size  Used Avail Use% Mounted on
-    /dev/sdc3       292M  3.1M  289M   2% /media/saicogn/F01E-258D
-    /dev/sdc4       459M  272M  159M  64% /media/saicogn/rootfs
+    /dev/sdX3       292M  3.1M  289M   2% /media/saicogn/F01E-258D
+    /dev/sdX4       459M  272M  159M  64% /media/saicogn/rootfs
 
     saicogn@saicogn:~/nuttx_mars/nuttx$ ls /media/saicogn/F01E-258D/ -lh
     total 135M

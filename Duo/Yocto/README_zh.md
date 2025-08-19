@@ -109,7 +109,7 @@ Starting kernel ...
 [    0.000000] pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
 [    0.000000] pcpu-alloc: [0] 0 
 [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 15970
-[    0.000000] Kernel command line: root=/dev/mmcblk0p2 console=ttyS0,115200 earlycon=sbi loglevel=9 rootwait rw
+[    0.000000] Kernel command line: root=/dev/mmcblkXp2 console=ttyS0,115200 earlycon=sbi loglevel=9 rootwait rw
 [    0.000000] Dentry cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
 [    0.000000] Inode-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
 [    0.000000] Sorting __ex_table...

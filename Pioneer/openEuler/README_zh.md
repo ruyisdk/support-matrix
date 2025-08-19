@@ -21,18 +21,18 @@
 
 下载**固件**，解压，使用 `dd` 烧录至 **microSD 卡**。
 
-将下面的 `/dev/mmcblk0` 替换成真实硬盘位置。
+将下面的 `/dev/mmcblkX` 替换成真实硬盘位置。
 
 ```shell
 unzip sg2042_firmware_linuxboot.img.zip
-sudo dd if=sg2042_firmware_linuxboot.img of=/dev/mmcblk0 bs=512K iflag=fullblock oflag=direct conv=fsync status=progress
+sudo dd if=sg2042_firmware_linuxboot.img of=/dev/mmcblkX bs=512K iflag=fullblock oflag=direct conv=fsync status=progress
 ```
 
 下载**系统镜像**，解压，使用 `dd` 烧录至 **NVMe SSD**。
 
 如果您在使用 Windows，推荐使用 Rufus 或 Etcher 这类工具进行烧写。
 
-将下面的 `/dev/sda` 替换成真实硬盘位置。
+将下面的 `/dev/sdX` 替换成真实硬盘位置。
 
 ```shell
 unzip openEuler-25.03-riscv64-sg2042.img.zip

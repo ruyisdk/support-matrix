@@ -31,14 +31,14 @@ last_update: 2025-03-31
 
 ### Decompress and Flash Image to microSD Card
 
-- Use `gzip` to decompress the image,  and then use `dd` command or `balenaEtcher` software to flash the image to the microSD card. (Assuming `/dev/sdc` is the microSD card device)
+- Use `gzip` to decompress the image,  and then use `dd` command or `balenaEtcher` software to flash the image to the microSD card. (Assuming `/dev/sdX` is the microSD card device)
 
     ```bash
     wget https://mirror.iscas.ac.cn/fedora-riscv/dl/StarFive/visionfive2/images/fedora-disk-gnome-workstation_starfive_vf2_f41_20241201091200.raw.gz
 
     gzip -d fedora-disk-gnome-workstation_starfive_vf2_f41_20241201091200.raw.gz
 
-    sudo dd if=fedora-disk-gnome-workstation_starfive_vf2-sda.raw of=/dev/sdc bs=1M status=progress
+    sudo dd if=fedora-disk-gnome-workstation_starfive_vf2-sda.raw of=/dev/sdX bs=1M status=progress
 
     sync
     ```

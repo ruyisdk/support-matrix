@@ -39,8 +39,8 @@ Figure 2: SATA SEL Switch
 First, partition your SD Card into `boot` and `root`. Then flash the corresponding image into the partition:
 
 ``` shell
-sudo dd if=deepin-eic7700-riscv64-25-desktop-installer.boot.ext4 of=/dev/sdd1 status=progress
-sudo dd if=deepin-eic7700-riscv64-25-desktop-installer.root.ext4 of=/dev/sdd2 status=progress
+sudo dd if=deepin-eic7700-riscv64-25-desktop-installer.boot.ext4 of=/dev/sdX1 status=progress
+sudo dd if=deepin-eic7700-riscv64-25-desktop-installer.root.ext4 of=/dev/sdX2 status=progress
 ```
 
 Finally, Insert the SD card into the card slot shown with No.1 of figure 1.

@@ -33,14 +33,14 @@ last_update: 2025-04-18
 
 Use `zstd` command to decompress the image,  and then use `dd` command or `balenaEtcher` software to flash the image to the microSD card.
 
-Here, `/dev/sdc` corresponds to the storage device.
+Here, `/dev/sdX` corresponds to the storage device.
 
 ```bash
 wget https://hydra.nichi.co/build/1426425/download/1/nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img.zst
 
 zstd -d nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img.zst
 
-sudo dd if=nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img of=/dev/sdc bs=1M status=progress
+sudo dd if=nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

@@ -29,11 +29,11 @@ last_update: 2025-01-15
 
 ### Unzipping and Flashing Image to microSD Card
 
-Assume `/dev/sdc` is the storage card.
+Assume `/dev/sdX` is the storage card.
 
 ```bash
 xz -d openKylin-Embedded-V2.0-SP1-visionfive2-riscv64.img.xz
-sudo dd if=openKylin-Embedded-V2.0-SP1-visionfive2-riscv64.img of=/dev/sda status=progress
+sudo dd if=openKylin-Embedded-V2.0-SP1-visionfive2-riscv64.img of=/dev/sdX status=progress
 ```
 
 ### Boot Mode Selection

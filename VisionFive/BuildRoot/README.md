@@ -59,11 +59,11 @@ After the build, an `sdcard.img` image will be created in the `output/images` di
 
 Use `dd` to write the image to the microSD card.
 
-Here, we assume the storage card is located at `/dev/sdc`.
+Here, we assume the storage card is located at `/dev/sdX`.
 
 ```shell
-sudo wipefs -af /dev/sdc
-sudo dd if=~/buildroot-2024.02.1/output/images/sdcard.img of=/dev/sdc bs=1M status=progress oflag=direct
+sudo wipefs -af /dev/sdX
+sudo dd if=~/buildroot-2024.02.1/output/images/sdcard.img of=/dev/sdX bs=1M status=progress oflag=direct
 ```
 
 ### Logging into the System

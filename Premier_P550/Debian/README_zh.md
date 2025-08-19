@@ -28,10 +28,10 @@
     7z x EIC7x_Release_Images_20250228.zip.001
     ```
 
-2. 挂载MicroSD卡，并使用 `cp` 命令拷贝镜像文件至MicroSD卡。(假设 `/dev/sdc` 为MicroSD卡设备)
+2. 挂载MicroSD卡，并使用 `cp` 命令拷贝镜像文件至MicroSD卡。(假设 `/dev/sdX` 为MicroSD卡设备)
 
     ```bash
-    sudo mount /dev/sdc /mnt/sd
+    sudo mount /dev/sdX /mnt/sd
 
     sudo cp ./boot-P550-20250311-170029.ext4 ./root-P550-20250311-170029.ext4 ./bootloader_P550.bin /mnt/sd
 

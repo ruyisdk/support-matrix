@@ -29,11 +29,11 @@ last_update: 2025-05-25
 
 ### Decompress and Flash the Image to the microSD Card
 
-Assume `/dev/sdc` is the storage card.
+Assume `/dev/sdX` is the storage card.
 
 ```bash
 xz -d ubuntu-25.04-preinstalled-server-riscv64+jh7110.img.xz
-sudo dd if=ubuntu-25.04-preinstalled-server-riscv64+jh7110.img of=/dev/sdc bs=1m status=progress
+sudo dd if=ubuntu-25.04-preinstalled-server-riscv64+jh7110.img of=/dev/sdX bs=1m status=progress
 ```
 
 ### Logging into the System

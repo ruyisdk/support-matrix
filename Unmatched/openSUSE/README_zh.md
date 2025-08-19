@@ -25,10 +25,10 @@
 
 ### 解压并烧录镜像到 microSD 卡
 
-`/dev/sdc` 为 microSD 卡所在位置，请根据实际情况更改。
+`/dev/sdX` 为 microSD 卡所在位置，请根据实际情况更改。
 
 ```bash
-xzcat openSUSE-Tumbleweed-RISC-V-JeOS-hifiveunmatched.riscv64-2024.03.15-Build1.7.raw.xz | sudo dd bs=4M of=/dev/sdc iflag=fullblock status=progress
+xzcat openSUSE-Tumbleweed-RISC-V-JeOS-hifiveunmatched.riscv64-2024.03.15-Build1.7.raw.xz | sudo dd bs=4M of=/dev/sdX iflag=fullblock status=progress
 ```
 
 ### 登录系统

@@ -24,14 +24,14 @@
 
 使用 `zstd` 命令解压镜像，并使用 `dd` 命令或 `balenaEtcher` 软件将镜像写入 microSD 卡。
 
-其中，`/dev/sdc` 为存储卡对应设备。
+其中，`/dev/sdX` 为存储卡对应设备。
 
 ```bash
 wget https://hydra.nichi.co/build/1426425/download/1/nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img.zst
 
 zstd -d nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img.zst
 
-sudo dd if=nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img of=/dev/sdc bs=1M status=progress
+sudo dd if=nixos-image-sd-card-25.05.20250328.2cc0d7f-riscv64-linux.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

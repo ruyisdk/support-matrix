@@ -37,7 +37,7 @@ Use `dd` to flash the image to the microSD card.
 
 ```bash
 xz -dkv openwrt-d1-lichee_rv_dock-squashfs-sdcard.img.gz
-sudo dd if=openwrt-d1-lichee_rv_dock-squashfs-sdcard.img of=/dev/sdc status=progress
+sudo dd if=openwrt-d1-lichee_rv_dock-squashfs-sdcard.img of=/dev/sdX status=progress
 ```
 
 ### Logging into the System

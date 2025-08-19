@@ -25,14 +25,14 @@
 
 使用 `zstd` 命令解压镜像，并使用 `dd` 命令或 `balenaEtcher` 软件将镜像写入 microSD 卡。
 
-其中，`/dev/sdc` 为存储卡对应设备。
+其中，`/dev/sdX` 为存储卡对应设备。
 
 ```bash
 wget https://github.com/cwt-vf2/archlinux-image-vf2/releases/download/cwt24/ArchLinux-VF2_6.12_v5.14.0-cwt24.img.zst
 
 zstd -d ArchLinux-VF2_6.12_v5.14.0-cwt24.img.zst
 
-sudo dd if=ArchLinux-VF2_6.12_v5.14.0-cwt24.img of=/dev/sdc bs=1M status=progress
+sudo dd if=ArchLinux-VF2_6.12_v5.14.0-cwt24.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

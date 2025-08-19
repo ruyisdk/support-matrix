@@ -19,11 +19,11 @@
 
 ### 解压并刷写镜像到 microSD 卡
 
-假定 `/dev/sdc` 为存储卡。
+假定 `/dev/sdX` 为存储卡。
 
 ```bash
 zstd -d https://dl.irradium.org/irradium/images/star64/irradium-3.8-riscv64-xfce-star64-6.12.33-build-20250613.img.zst
-sudo dd if=https://dl.irradium.org/irradium/images/star64/irradium-3.8-riscv64-xfce-star64-6.12.33-build-20250613.img of=/dev/sdc bs=1m status=progress
+sudo dd if=https://dl.irradium.org/irradium/images/star64/irradium-3.8-riscv64-xfce-star64-6.12.33-build-20250613.img of=/dev/sdX bs=1m status=progress
 ```
 
 ### 登录系统

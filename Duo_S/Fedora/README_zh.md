@@ -26,7 +26,7 @@
 ### 使用 `dd` 刷写镜像到 microSD 卡
 
 ```shell
-zcat milkv-duos-fedora-minimal.img.gz | sudo dd of=/dev/sda bs=4M iflag=fullblock status=progress 
+zcat milkv-duos-fedora-minimal.img.gz | sudo dd of=/dev/sdX bs=4M iflag=fullblock status=progress 
 ```
 
 ### 登录系统

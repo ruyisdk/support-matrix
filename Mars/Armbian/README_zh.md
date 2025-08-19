@@ -21,12 +21,12 @@
 
 ### 解压并刷写镜像到 microSD 卡
 
-使用 `xz` 解压镜像，并使用 `dd` 命令或者 `balenaEtcher` 软件将镜像写入 microSD 卡。（假定/dev/sdc为microSD 卡设备）
+使用 `xz` 解压镜像，并使用 `dd` 命令或者 `balenaEtcher` 软件将镜像写入 microSD 卡。（假定/dev/sdX为microSD 卡设备）
 
 ```bash
 xz -d Armbian_community_25.8.0-trunk.38_Visionfive2_noble_vendor_6.6.20_minimal.img.xz
 
-sudo dd if=Armbian_community_25.8.0-trunk.38_Visionfive2_noble_vendor_6.6.20_minimal.img of=/dev/sdc bs=1M status=progress
+sudo dd if=Armbian_community_25.8.0-trunk.38_Visionfive2_noble_vendor_6.6.20_minimal.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

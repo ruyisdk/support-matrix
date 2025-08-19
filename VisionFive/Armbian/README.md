@@ -49,7 +49,7 @@ Alternatively, manually enter the following commands to boot the system:
 ```u-boot
 ext4load mmc 0:1 0x84000000 /boot/Image
 ext4load mmc 0:1 0x88000000 /boot/dtb/starfive/jh7100-starfive-visionfive-v1.dtb
-setenv bootargs "root=/dev/mmcblk0p1 console=ttyS0,115200n8 console=tty0 earlycon=sbi rootflags=data=writeback stmmaceth=chain_mode:1 rw rw no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0 splash plymouth.ignore-serial-consoles"
+setenv bootargs "root=/dev/mmcblkXp1 console=ttyS0,115200n8 console=tty0 earlycon=sbi rootflags=data=writeback stmmaceth=chain_mode:1 rw rw no_console_suspend consoleblank=0 fsck.fix=yes fsck.repair=yes net.ifnames=0 splash plymouth.ignore-serial-consoles"
 booti 0x84000000 - 0x88000000
 ```
 

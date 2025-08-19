@@ -31,10 +31,10 @@ last_update: 2025-04-12
 
 Use `dd` command or `balenaEtcher` software to flash the image to the microSD card.
 
-Here, `/dev/sdc` corresponds to the storage device.
+Here, `/dev/sdX` corresponds to the storage device.
 
 ```bash
-sudo dd if=0rvywqxwkfn0rk18q71fv5b55bc16ax8-visionfive2-barebones-raw-image of=/dev/sdc bs=1M status=progress
+sudo dd if=0rvywqxwkfn0rk18q71fv5b55bc16ax8-visionfive2-barebones-raw-image of=/dev/sdX bs=1M status=progress
 ```
 
 ### Logging into the System

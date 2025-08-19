@@ -22,10 +22,10 @@
 
 使用 `dd` 命令或 `balenaEtcher` 软件将镜像写入 microSD 卡。
 
-其中，`/dev/sdc` 为存储卡对应设备。
+其中，`/dev/sdX` 为存储卡对应设备。
 
 ```bash
-sudo dd if=0rvywqxwkfn0rk18q71fv5b55bc16ax8-visionfive2-barebones-raw-image of=/dev/sdc bs=1M status=progress
+sudo dd if=0rvywqxwkfn0rk18q71fv5b55bc16ax8-visionfive2-barebones-raw-image of=/dev/sdX bs=1M status=progress
 ```
 
 ### 登录系统

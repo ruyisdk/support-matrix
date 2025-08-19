@@ -189,7 +189,7 @@ Retrieving file: /extlinux/extlinux.conf
 1:      Linux openEuler-riscv
 Retrieving file: /Image
 35675136 bytes read in 113 ms (301.1 MiB/s)
-append: root=/dev/mmcblk0p4 console=ttyS0,115200 rootwait rw earlycon clk_ignore_unused loglevel=7 eth= rootrwoptions=rw,noatime rootrwreset=yes
+append: root=/dev/mmcblkXp4 console=ttyS0,115200 rootwait rw earlycon clk_ignore_unused loglevel=7 eth= rootrwoptions=rw,noatime rootrwreset=yes
 Retrieving file: /dtbs/thead/th1520-milkv-meles.dtb
 88452 bytes read in 2 ms (42.2 MiB/s)
    Using Device Tree in place at 0000000003800000, end 0000000003818983
@@ -273,7 +273,7 @@ Boot HART MEDELEG         : 0x000000000000b109
 [    0.000000] riscv: ELF capabilities acdfimv
 [    0.000000] percpu: Embedded 28 pages/cpu s74392 r8192 d32104 u114688
 [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 2063880
-[    0.000000] Kernel command line: root=/dev/mmcblk0p4 console=ttyS0,115200 rootwait rw earlycon clk_ignore_unused loglevel=7 eth= rootrwoptions=rw,noatime rootrwreset=yes
+[    0.000000] Kernel command line: root=/dev/mmcblkXp4 console=ttyS0,115200 rootwait rw earlycon clk_ignore_unused loglevel=7 eth= rootrwoptions=rw,noatime rootrwreset=yes
 [    0.000000] Dentry cache hash table entries: 1048576 (order: 11, 8388608 bytes, linear)
 [    0.000000] Inode-cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
 [    0.000000] Sorting __ex_table...

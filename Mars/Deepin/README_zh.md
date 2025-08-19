@@ -22,11 +22,11 @@
 
 ### 解压并刷写镜像到 microSD 卡
 
-- 方法1：使用 `tar` 解压镜像，并使用 `dd` 将镜像写入 microSD 卡。（假定`/dev/sdc`为microSD 卡设备）
+- 方法1：使用 `tar` 解压镜像，并使用 `dd` 将镜像写入 microSD 卡。（假定`/dev/sdX`为microSD 卡设备）
 
     ```bash
     tar -xvf deepin-25-beige-preview-riscv64-jh7110-20250122-110620.tar.xz
-    sudo dd if=deepin-jh7110-riscv64-25-desktop-installer.img of=/dev/sdc bs=4M status=progress
+    sudo dd if=deepin-jh7110-riscv64-25-desktop-installer.img of=/dev/sdX bs=4M status=progress
     sync
     ```
 
@@ -39,7 +39,7 @@
 使用 `dd`命令写入的镜像，在Mars启动时可能会出现无法挂载文件系统的问题，串口输出的log类似于:
 
 ```log
-Failed to mount /dev/mmcblk1p4 as root file system.
+Failed to mount /dev/mmcblkXp4 as root file system.
 ```
 
 或者
@@ -53,10 +53,10 @@ Kernel panic - not syncing: VFS: Unable to mount root fs on unknown-block(0,0)
 ```log
 (base) saicogn-rk@saicogn-rk:~$ sudo blkid
 ···
-/dev/sdc2: PARTLABEL="uboot" PARTUUID="9e4d5fa7-f661-47a8-b030-11716a2c8ce0"
-/dev/sdc3: UUID="FD25-40C1" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="image" PARTUUID="32c1a23d-90dc-474a-8b66-5311eaedd664"
-/dev/sdc1: PARTLABEL="spl" PARTUUID="9901194f-ec08-46c5-9a37-eb16fe970169"
-/dev/sdc4: LABEL="root" UUID="341baff8-3ca3-41a7-b75d-3f49703f8948" BLOCK_SIZE="4096" TYPE="ext4" PARTLABEL="root" PARTUUID="cffa6d69-9765-4e90-be7c-208562d41b87"
+/dev/sdX2: PARTLABEL="uboot" PARTUUID="9e4d5fa7-f661-47a8-b030-11716a2c8ce0"
+/dev/sdX3: UUID="FD25-40C1" BLOCK_SIZE="512" TYPE="vfat" PARTLABEL="image" PARTUUID="32c1a23d-90dc-474a-8b66-5311eaedd664"
+/dev/sdX1: PARTLABEL="spl" PARTUUID="9901194f-ec08-46c5-9a37-eb16fe970169"
+/dev/sdX4: LABEL="root" UUID="341baff8-3ca3-41a7-b75d-3f49703f8948" BLOCK_SIZE="4096" TYPE="ext4" PARTLABEL="root" PARTUUID="cffa6d69-9765-4e90-be7c-208562d41b87"
 ···
 ```
 
