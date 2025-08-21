@@ -14,7 +14,7 @@ last_update: 2025-04-11
 ### Operating System Information
 
 - System Version: openEuler 23.09 RISC-V preview
-- Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/VisionFive2/
+- Download Link: https://mirror.iscas.ac.cn/openeuler-sig-riscv/openEuler-RISC-V/preview/openEuler-23.09-V1-riscv64/Visionfive2/
 - Reference Installation Document: https://gitee.com/openeuler/RISC-V/blob/master/release/openEuler-23.03/Installation_Book/Visionfive2/README.md
 
 > [!NOTE]
