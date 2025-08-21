@@ -24,7 +24,7 @@
 假定 `/dev/sdc` 为存储卡。
 
 ```bash
-xzcat openSUSE-Tumbleweed-RISC-V-JeOS-starfivevisionfive2.riscv64-2024.10.14-Build1.20.raw.xz | sudo dd of=/dev/sdc iflag=fullblock status=progress bs=4M
+xzcat openSUSE-Tumbleweed-RISC-V-JeOS-starfivevisionfive2.riscv64-2024.10.14-Build1.20.raw.xz | sudo dd of=/dev/sdX iflag=fullblock status=progress bs=4M
 ```
 
 ### 引导模式选择

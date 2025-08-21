@@ -33,7 +33,7 @@ Assume `/dev/sdc` is the storage card.
 
 ```bash
 xz -d ubuntu-25.04-preinstalled-server-riscv64+nezha.img.xz
-sudo dd if=ubuntu-25.04-preinstalled-server-riscv64+nezha.img of=/dev/sdc bs=1m status=progress
+sudo dd if=ubuntu-25.04-preinstalled-server-riscv64+nezha.img of=/dev/sdX bs=1m status=progress
 ```
 
 ### Logging into the System

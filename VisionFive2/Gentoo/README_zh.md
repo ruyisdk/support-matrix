@@ -26,7 +26,7 @@
 假定 `/dev/sdc` 为存储卡。
 
 ```bash
-bzcat gentoo.img.bz2 | sudo dd of=/dev/sdc iflag=fullblock bs=4M status=progress
+bzcat gentoo.img.bz2 | sudo dd of=/dev/sdX iflag=fullblock bs=4M status=progress
 ```
 
 ### 引导模式选择

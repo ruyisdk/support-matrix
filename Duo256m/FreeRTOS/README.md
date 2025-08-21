@@ -72,7 +72,7 @@ sudo losetup -d /dev/loop16
 Then flash the modified image:
 
 ```shell
-sudo dd if=milkv-duo256m-v1.1.0-2024-0410.img of=/dev/sdc bs=4M status=progress oflag=direct
+sudo dd if=milkv-duo256m-v1.1.0-2024-0410.img of=/dev/sdX bs=4M status=progress oflag=direct
 ```
 
 At this point, the storage card is ready. Insert it into the development board and prepare to boot.

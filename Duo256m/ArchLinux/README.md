@@ -126,7 +126,7 @@ losetup -d /dev/loop0
 ### Using `dd` to Flash the Image to the microSD Card 
 
 ```shell
-dd if=milkv-duo256m-sd-20240924-2106.img of=/dev/sdc bs=1M status=progress
+dd if=milkv-duo256m-sd-20240924-2106.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### Logging into the System

@@ -7,7 +7,7 @@
 - 下载链接：
   - irradium-core: <https://dl.irradium.org/irradium/images/lichee_pi_4a/irradium-3.8-riscv64-core-lichee_pi_4a-6.6.90-build-20250510.img.zst>
   - irradium-xfce: <https://dl.irradium.org/irradium/images/lichee_pi_4a/irradium-3.8-riscv64-xfce-lichee_pi_4a-6.6.90-build-20250510.img.zst>
-  - boot: <https://dl.irradium.org/irradium/images/lichee_pi_4a/boot-20250510.tar.xz>
+  - U-Boot: <https://dl.irradium.org/irradium/images/lichee_pi_4a/boot-20250510.tar.xz>
 - 参考安装文档：<https://dl.irradium.org/irradium/images/lichee_pi_4a/README.TXT>
 
 ### 硬件信息
@@ -15,12 +15,12 @@
 - 电源适配器
 - USB to UART 调试器一个
 - 杜邦线三根
-- MicroSD 卡一张
+- microSD 卡一张
 
 ## 安装步骤
 
-### 下载并解压镜像与 u-boot
-从[官方下载服务器](https://dl.irradium.org/irradium/images/lichee_pi_4a/)下载你所需镜像与 u-boot。
+### 下载并解压镜像与 U-Boot
+从[官方下载服务器](https://dl.irradium.org/irradium/images/lichee_pi_4a/)下载你所需镜像与 U-Boot。
 **解压相关文件**
 ```bash
 zstd -d irradium-3.8-riscv64-core-lichee_pi_4a-6.6.90-build-20250510.img.zst 
@@ -43,14 +43,14 @@ tar -xvf boot-20250510.tar.xz
 2 directories, 7 files
 ```
 
-### 使用 fastboot 工具刷写 u-boot
+### 使用 fastboot 工具刷写 U-Boot
 用 USB 线连接 LPi4A，按住板上的 **BOOT** 按键不放，然后点按 **reset** 按键（Type-C 口旁边），即可进入 USB 烧录模式。
 
 ```bash
-sudo ./fastboot flash ram ./images/boot/u-boot-with-spl.bin
-sudo ./fastboot reboot
+sudo fastboot flash ram ./images/boot/u-boot-with-spl.bin
+sudo fastboot reboot
 # 稍等几秒，等待开发板重启。
-sudo ./fastboot flash uboot ./images/boot/u-boot-with-spl.bin
+sudo fastboot flash uboot ./images/boot/u-boot-with-spl.bin
 ```
 Log:
 ```log
@@ -69,10 +69,10 @@ Writing 'uboot'                                    OKAY [  0.021s]
 Finished. Total time: 0.104s
 ```
 
-### 向 MicroSD 卡烧录系统镜像
-笔者使用了 `dd` 命令
+### 向 microSD 卡烧录系统镜像
+可使用 `dd` 命令
 ```bash
-sudo dd if=images/irradium-3.8-riscv64-core-lichee_pi_4a-6.6.90-build-20250510.img of=/dev/mmcblk0 bs=1M
+sudo dd if=images/irradium-3.8-riscv64-core-lichee_pi_4a-6.6.90-build-20250510.img of=/dev/mmcblkX bs=1M
 ```
 Log:
 ```log
@@ -82,8 +82,8 @@ Log:
 ```
 
 ### 登录系统
-将 MicroSD 卡插入 LPi4A，重启。
-通过串口登录系统，笔者使用了 `minicom` 工具。
+将 microSD 卡插入 LPi4A，重启。
+通过串口登录系统，例如 `minicom` 工具。
 ```bash
 minicom -D /dev/ttyACM0 -c on
 ```
@@ -165,9 +165,9 @@ BUG_REPORT_URL="https://irradium.org/bugs/"
 # 
 ```
 ## 桌面环境
-官方提供了附带 **XFCE** 桌面环境的系统镜像，烧录进 MicroSD 卡即可使用。
+官方提供了附带 **Xfce** 桌面环境的系统镜像，烧录进 microSD 卡即可使用。
 ```bash
-sudo dd if=images/irradium-3.8-riscv64-xfce-lichee_pi_4a-6.6.90-build-20250510.img of=/dev/mmcblk0 bs=1
+sudo dd if=images/irradium-3.8-riscv64-xfce-lichee_pi_4a-6.6.90-build-20250510.img of=/dev/mmcblkX bs=1
 ```
 桌面环境截图：
 ![](irradiumXfce1.png)

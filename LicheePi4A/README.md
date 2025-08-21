@@ -40,7 +40,7 @@ vendor: Sipeed
 - NixOS 23.05
     - Download Link：https://github.com/ryan4yin/nixos-licheepi4a/releases
     - Reference Installation Document：https://github.com/ryan4yin/nixos-licheepi4a?tab=readme-ov-file
-- OpenWRT
+- OpenWrt
     - Download Link：https://github.com/chainsx/openwrt-th1520/releases
     - Reference Installation Document：https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide_ch.md
 - Slackware
@@ -66,7 +66,7 @@ vendor: Sipeed
 | NixOS Image Boot                | N/A              | [Success][NixOS]                        |
 | irradium Image Boot             | N/A              | [CFT][irradium]                         |
 | Slackware Desktop Image Boot    | N/A              | [Success][Slackware]                    |
-| OpenWRT Image Boot              | N/A              | [Success][OpenWRT]                      |
+| OpenWrt Image Boot              | N/A              | [Success][OpenWrt]                      |
 
 [oERV]: ./openEuler/README.md
 [openEuler]: ./openEuler/Innovation.md
@@ -79,4 +79,4 @@ vendor: Sipeed
 [NixOS]: ./NixOS/README.md
 [irradium]: ./irradium/README.md
 [Slackware]: ./Slackware/README.md
-[OpenWRT]: ./OpenWRT/README.md
+[OpenWrt]: ./OpenWrt/README.md

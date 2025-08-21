@@ -27,7 +27,7 @@
 ```bash
 zstd -d irradium-3.8-riscv64-core-orange_pi_rv2-6.14.4-build-20250503.img.zst 
 
-sudo dd if=irradium-3.8-riscv64-core-orange_pi_rv2-6.14.4-build-20250503.img of=/dev/sdc bs=1M status=progress
+sudo dd if=irradium-3.8-riscv64-core-orange_pi_rv2-6.14.4-build-20250503.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

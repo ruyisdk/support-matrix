@@ -35,7 +35,7 @@ last_update: 2025-03-24
 
     ```bash
     tar -xvf deepin-25-beige-preview-riscv64-jh7110-20250122-110620.tar.xz
-    sudo dd if=deepin-jh7110-riscv64-25-desktop-installer.img of=/dev/sdc bs=4M status=progress
+    sudo dd if=deepin-jh7110-riscv64-25-desktop-installer.img of=/dev/sdX bs=4M status=progress
     sync
     ```
 

@@ -16,7 +16,7 @@ last_update: 2025-06-16
 - Download Links:
   - irradium-core: <https://dl.irradium.org/irradium/images/lichee_pi_4a/irradium-3.8-riscv64-core-lichee_pi_4a-6.6.90-build-20250510.img.zst>
   - irradium-xfce: <https://dl.irradium.org/irradium/images/lichee_pi_4a/irradium-3.8-riscv64-xfce-lichee_pi_4a-6.6.90-build-20250510.img.zst>
-  - boot: <https://dl.irradium.org/irradium/images/lichee_pi_4a/boot-20250510.tar.xz>
+  - U=Boot: <https://dl.irradium.org/irradium/images/lichee_pi_4a/boot-20250510.tar.xz>
 - Installation Reference: <https://dl.irradium.org/irradium/images/lichee_pi_4a/README.TXT>
 
 ### Hardware Information
@@ -24,12 +24,12 @@ last_update: 2025-06-16
 - Power adapter
 - USB to UART debugger
 - Three DuPont wires
-- MicroSD card
+- microSD card
 
 ## Installation Steps
 
-### Download and Extract Image & u-boot
-Download the desired image and u-boot from the [official download server](https://dl.irradium.org/irradium/images/lichee_pi_4a/).
+### Download and Extract Image & U-Boot
+Download the desired image and U-Boot from the [official download server](https://dl.irradium.org/irradium/images/lichee_pi_4a/).
 **Extract files:**
 ```bash
 zstd -d irradium-3.8-riscv64-core-lichee_pi_4a-6.6.90-build-20250510.img.zst 
@@ -52,36 +52,36 @@ tar -xvf boot-20250510.tar.xz
 2 directories, 7 files
 ```
 
-### Flashing u-boot using fastboot
+### Flashing U-Boot using fastboot
 Connect LPi4A via USB, hold the BOOT button and press reset (next to Type-C port) to enter USB burning mode.
 
 ```bash
-sudo ./fastboot flash ram ./images/boot/u-boot-with-spl.bin
-sudo ./fastboot reboot
+sudo fastboot flash ram ./images/boot/u-boot-with-spl.bin
+sudo fastboot reboot
 # Wait a few seconds for the board to reboot.
-sudo ./fastboot flash uboot ./images/boot/u-boot-with-spl.bin
+sudo fastboot flash uboot ./images/boot/u-boot-with-spl.bin
 ```
 Log:
 ```log
-❯ sudo ./fastboot flash ram ./images/boot/u-boot-with-spl.bin
+❯ sudo fastboot flash ram ./images/boot/u-boot-with-spl.bin
 Sending 'ram' (1009 KB)                            OKAY [  0.267s]
 Writing 'ram'                                      OKAY [  0.002s]
 Finished. Total time: 0.278s
 
-❯ sudo ./fastboot reboot
+❯ sudo fastboot reboot
 Rebooting                                          OKAY [  0.001s]
 Finished. Total time: 0.553s
 
-❯ sudo ./fastboot flash uboot ./images/boot/u-boot-with-spl.bin
+❯ sudo fastboot flash uboot ./images/boot/u-boot-with-spl.bin
 Sending 'uboot' (1009 KB)                          OKAY [  0.050s]
 Writing 'uboot'                                    OKAY [  0.021s]
 Finished. Total time: 0.104s
 ```
 
-### Writing System Image to MicroSD Card
-The author used the `dd` command:
+### Writing System Image to microSD Card
+You can used the `dd` command:
 ```bash
-sudo dd if=images/irradium-3.8-riscv64-core-lichee_pi_4a-6.6.90-build-20250510.img of=/dev/mmcblk0 bs=1M
+sudo dd if=images/irradium-3.8-riscv64-core-lichee_pi_4a-6.6.90-build-20250510.img of=/dev/mmcblkX bs=1M
 ```
 Log:
 ```log
@@ -91,8 +91,8 @@ Log:
 ```
 
 ## Logging into the System
-Insert the MicroSD card into LPi4A and reboot.
-Use a serial connection to log in; the author used `minicom`.
+Insert the microSD card into LPi4A and reboot.
+Use a serial connection to log in; e.g. `minicom`.
 ```bash
 minicom -D /dev/ttyACM0 -c on
 ```
@@ -175,9 +175,9 @@ BUG_REPORT_URL="https://irradium.org/bugs/"
 ```
 
 ## Desktop Environment
-The official release includes an **XFCE** desktop image. Simply write it to the MicroSD card to use it.
+The official release includes an **Xfce** desktop image. Simply write it to the microSD card to use it.
 ```bash
-sudo dd if=images/irradium-3.8-riscv64-xfce-lichee_pi_4a-6.6.90-build-20250510.img of=/dev/mmcblk0 bs=1M
+sudo dd if=images/irradium-3.8-riscv64-xfce-lichee_pi_4a-6.6.90-build-20250510.img of=/dev/mmcblkX bs=1M
 ```
 Screenshots of XFCE desktop:
 ![](irradiumXfce1.png)

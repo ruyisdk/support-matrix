@@ -36,7 +36,7 @@ last_update: 2024-06-21
 
 ```shell
 7z x duo-debian-full.7z
-dd if=debian.img of=/dev/sdc bs=1M status=progress
+dd if=debian.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### Logging into the System

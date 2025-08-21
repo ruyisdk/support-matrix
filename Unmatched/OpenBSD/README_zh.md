@@ -40,7 +40,7 @@
 
 ```bash
 xz -dk demo-coreip-cli-unmatched.rootfs.wic.xz
-sudo dd if=demo-coreip-cli-unmatched.rootfs.wic of=/dev/sdc status=progress
+sudo dd if=demo-coreip-cli-unmatched.rootfs.wic of=/dev/sdX status=progress
 ```
 
 ### U-Boot 烧录至 SPI Flash
@@ -83,7 +83,7 @@ dd if=u-boot.itb  of=/dev/mtdblock0 bs=4096 seek=261 conv=sync
 `/dev/sdX` 为 U 盘位置。
 
 ```bash
-sudo dd if=install74.img of=/dev/sdc status=progress
+sudo dd if=install74.img of=/dev/sdX status=progress
 ```
 
 ### 登录系统

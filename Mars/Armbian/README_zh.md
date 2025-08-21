@@ -26,7 +26,7 @@
 ```bash
 xz -d Armbian_community_25.8.0-trunk.38_Visionfive2_noble_vendor_6.6.20_minimal.img.xz
 
-sudo dd if=Armbian_community_25.8.0-trunk.38_Visionfive2_noble_vendor_6.6.20_minimal.img of=/dev/sdc bs=1M status=progress
+sudo dd if=Armbian_community_25.8.0-trunk.38_Visionfive2_noble_vendor_6.6.20_minimal.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

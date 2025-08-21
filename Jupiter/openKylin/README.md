@@ -41,7 +41,7 @@ last_update: 2025-04-05
 
 ```bash
 tar -xvf openKylin-Embedded-V2.0-SP1-spacemit-k1-riscv64.img.tar.xz
-sudo dd if=openKylin-Embedded-V2.0-SP1-spacemit-k1-riscv64.img of=/dev/sda bs=4M status=progress
+sudo dd if=openKylin-Embedded-V2.0-SP1-spacemit-k1-riscv64.img of=/dev/sdX bs=4M status=progress
 ```
 
 For Windows users, try Rufus.

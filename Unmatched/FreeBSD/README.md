@@ -49,7 +49,7 @@ Uncompress and flash the image to the microSD card. Here, `/dev/sdc` is the loca
 
 ```bash
 xz -dk demo-coreip-cli-unmatched.rootfs.wic.xz
-sudo dd if=demo-coreip-cli-unmatched.rootfs.wic of=/dev/sdc status=progress
+sudo dd if=demo-coreip-cli-unmatched.rootfs.wic of=/dev/sdX status=progress
 ```
 
 ### U-Boot on SPI Flash

@@ -37,7 +37,7 @@ wget https://dev.alpinelinux.org/~mps/riscv64/visionfive-v2-mmc.img.xz
 
 xz -d visionfive-v2-mmc.img.xz
 
-sudo dd if=visionfive-v2-mmc.img of=/dev/sdc bs=1M status=progress
+sudo dd if=visionfive-v2-mmc.img of=/dev/sdX bs=1M status=progress
 
 sync
 ```

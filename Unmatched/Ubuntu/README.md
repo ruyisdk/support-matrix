@@ -37,7 +37,7 @@ The dip switch should be set as follows: `MSEL[3:0]=1011`
 Download the image, decompress it, and flash it to the microSD card.
 
 ```shell
-xzcat ubuntu-24.10-preinstalled-server-riscv64+unmatched.img.xz | sudo dd of=/dev/sdc bs=4M iflag=fullblock status=progress 
+xzcat ubuntu-24.10-preinstalled-server-riscv64+unmatched.img.xz | sudo dd of=/dev/sdX bs=4M iflag=fullblock status=progress 
 ```
 
 ### Logging into the System
