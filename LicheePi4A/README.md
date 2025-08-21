@@ -8,75 +8,62 @@ vendor: Sipeed
 
 # Lichee Pi 4A
 
-## Testing Environment
+## Overview
 
-### System Information
+The Lichee Pi 4 A (LPi4A) is a single board computer powered by the Pinto TH1520 processor. It includes a quad-core RISC-V 64GCV instruction set architecture C910@1.85GHz; NPU support of 4TOPS@INT8 algorith; display output support of
+4K@30fps resolution and multiple simultaneous audio and video encoding and decoding; dual Gigabit Ethernet and USB3.0 support; and audio processing using a single core C906.
 
-- openEuler RISC-V 24.03 SP1 LTS
-    - Download Link: https://www.openeuler.org/en/download/#openEuler%2024.03%20LTS%20SP1
-    - Reference Installation Document: https://docs.openeuler.org/en/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
-- openEuler RISC-V 25.03
-    - Download Link: https://repo.openeuler.org/openEuler-25.03/embedded_img/riscv64/lpi4a/
-    - Reference Installation Document: https://docs.openeuler.org/en/docs/24.03_LTS/docs/Installation/RISC-V-LicheePi4A.html
-- RevyOS 20250526
-    - Download link: [RevyOS Images](https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250526/)
-    - Reference Installation Document: [RevyOS Documentation](https://docs.revyos.dev/)
-- openKylin 2.0 SP1
-    - Download link: https://www.openkylin.top/downloads/index-cn.html
-    - Desktop Environment: UKUI
-    - Reference Installation Document: https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8LicheePi4A%E4%B8%8A%E5%AE%89%E8%A3%85openKylin
-- Fedora 41
-  - Download Link: https://images.fedoravforce.org/LicheePi%204A
-  - Reference Installation Document: https://fedoraproject.org/wiki/Architectures/RISC-V/T-Head
-- Armbian (Ubuntu 22.04 LTS)
-    - Download link: https://github.com/chainsx/armbian-riscv-build/releases
-    - Reference Installation Document: ttps://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide.md
-- Arch Linux
-    - Download link: https://mirror.iscas.ac.cn/archriscv/images/
-    - Reference Installation Document: https://wiki.archlinux.org/title/General_recommendations
-- Deepin 25-beige-preview 20250122
-    - Download Link: https://ci.deepin.com/repo/deepin/deepin-ports/cdimage/20250122/riscv64/deepin-25-beige-preview-riscv64-th1520-20250122-113934.tar.xz
-    - Reference Installation Document: https://cdimage.deepin.com/RISC-V/preview-20240517-riscv64/README.md
-- NixOS 23.05
-    - Download Link：https://github.com/ryan4yin/nixos-licheepi4a/releases
-    - Reference Installation Document：https://github.com/ryan4yin/nixos-licheepi4a?tab=readme-ov-file
-- OpenWrt
-    - Download Link：https://github.com/chainsx/openwrt-th1520/releases
-    - Reference Installation Document：https://github.com/chainsx/armbian-riscv-build/blob/main/doc/licheepi-4a-install-guide_ch.md
-- Slackware
-    - Download link: http://dl.slarm64.org/slackware/images/lichee_pi_4a/
-    - Reference Installation Document: http://dl.slarm64.org/slackware/images/lichee_pi_4a/README.TXT
-### Hardware Information
+## Hardware Specifications
 
-- Lichee Pi 4A 8/16GB RAM + 32/128GB eMMC
-
-
-## Test Results
-
-| Software Category               | Software Package | Test Results (Test Report)              |
-|---------------------------------|------------------|-----------------------------------------|
-| openEuler LTS Image Boot        | N/A              | [Success][oERV]                         |
-| openEuler Innovation Image Boot | N/A              | [Success][openEuler]                    |
-| RevyOS Desktop Image Boot       | N/A              | [Success][RevyOS] (Official Support)    |
-| Fedora Desktop Image Boot       | N/A              | [Success][Fedora] (Official Support)    |
-| openKylin Desktop Image Boot    | N/A              | [Success][openKylin] (Official Support) |
-| Armbian (Ubuntu) Image Boot     | N/A              | [Success][Armbian]                      |
-| Arch Linux Desktop Image Boot   | N/A              | [Success][ArchLinux]                    |
-| Deepin Desktop Image Boot       | N/A              | [Success][Deepin]                       |
-| NixOS Image Boot                | N/A              | [Success][NixOS]                        |
-| irradium Image Boot             | N/A              | [CFT][irradium]                         |
-| Slackware Desktop Image Boot    | N/A              | [Success][Slackware]                    |
-| OpenWrt Image Boot              | N/A              | [Success][OpenWrt]                      |
-
-[oERV]: ./openEuler/README.md
-[openEuler]: ./openEuler/Innovation.md
-[RevyOS]: ./RevyOS/README.md
-[Fedora]: ./Fedora/README.md
-[Armbian]: ./Armbian/README.md
-[openKylin]: ./openKylin/README.md
-[ArchLinux]: ./ArchLinux/README.md
-[Deepin]: ./Deepin/README.md
-[NixOS]: ./NixOS/README.md
-[irradium]: ./irradium/README.md
-[Slackware]: ./Slackware/README.md
-[OpenWrt]: ./OpenWrt/README.md
+- **Processor**: TH1520(4xC910@1.85G, RV64GCV, 4TOPS@int8 NPU, 50GFLOP GPU)
+  - **CPU**: RISC-V 64GCV C910*4@1.85GHz
+    - Each core contains 64KB I cache amd 64KB D Cache
+    - 1MB of Shared L2 Cache
+    - Support TEE and REE, configured during core booting
+    - Support multi-core debugging framework of custom and RISC-V compatible interface
+    - Independent power domain, supports DVFS
+  - **GPU**:
+    - OpenCL 1.1/1.2/2.0
+    - OpenGL ES 3.0/3.1/3.2
+    - Vulkan 1.1/1.2
+    - Android NN HAL
+  - **NPU**: Support 4TOPS@INT8, up to 1GHz
+    - Support TensorFlow、ONNX、Caffe
+    - Support CNN、RNN、DNN
+  - **Decode**: Real-time decoder, support H.265/H.264/VP9/8/7/6/AVS/AVS+/AVS2.0/VC1/MPEG4
+    - Supports H.264 BP/MP/HP@level 5.1 decoding, up to 4K resolution
+    - Supports H.265/HEVC Main Profile@level 5.1 decoding, up to 4K resolution
+    - Supports VP9 Profile-2 decoding, up to 4K resolution
+    - Supports AVS2.0 decoding, up to 4K resolution
+    - Supports VP6/7/8/AVS/AVS+/VC1/MPEG4 decoding, up to 1920x1080 resolution
+    - Decoding at 4K@75fps maximum
+  - **Encode**:
+    - Supports H.264 BP/MP/HP@level4.2 encoding, up to 4K resolution
+    - Supports H.265/HEVC Main Profile encoding, up to 4K resolution
+    - Only supports I-frames and P-frames
+    - Encoding at 4K@40fps maximum
+- **Memory**: 8/16GB 64bits LPDDR4X-3733
+- **storage**:
+  - eMMC(Optional): None, 8G, 32G, 128G
+  - Support TF card
+- **Ethernet**: 2 x Gigabit Ethernet interfaces, Optional POE
+- **Wi-Fi/Bluetooth**: RTL8723DS, 802.11b/g/n, 1x1 MIMO, BT4.2
+- **USB**: 
+  - 4 x USB Type-A 3.0
+  - 1 x USB Type-C 2.0(For power supply or flashing OS)
+- **Audio**: 
+  - 1 x 3.5mm stereo interface
+  - One audio interface
+  - Two onboard microphones
+- **Display**:
+  - 1 x HDMI2.0
+  - 1 x 4-lane MIPI DSI
+- **Camera**:
+  - 2 x 2-lane MIPI CSI
+  - 1 x 4-lane MIPI CSI
+- **GPIO**: 2x10 Pin GPIO
+  - 3 x UART, 1 x IIC, 1 x SPI
+  - 1 x 5V, 1 x 3.3V, 2 x GND
+  - Others
+- **Power**: DC5.5, USB-C, PoE(external)
+- **Size**: 99 x 84.5 mm
