@@ -16,8 +16,7 @@ If you are not familiar with GitHub and Git, we recommend first reviewing the [G
 This document contains general contribution information. Different parts of the project also have more specific instructions:
 - [Boards (example VisionFive2)](./VisionFive2/README.md): List and description of supported boards.
 - [OS (example VisionFive2/Alpine)](./VisionFive2/Alpine/README.md): Supported operating system variants.
-- [Repository metadata parsing, SVG generation, and image source synchronization tools](./assets/): When adding new boards or operating systems, [metadata.yml](./assets/metadata.yml) may need to be updated.
-- [Metadata parsing plugins for image source synchronization](./assets/src/ruyi_index_updator/upload_plugin): For some metadata where sys_ver doesn't follow semver standards, adjustments might be made via plugins.
+- [Repository metadata check, SVG generation tools](./assets/): When adding new boards or operating systems, [metadata.yml](./assets/metadata.yml) may need to be updated.
 
 Project structure hierarchy:
 
@@ -32,9 +31,9 @@ support-matrix
     |    |
     |    |--- README.md # Main variant documentation, containing basic system metadata
     |    |
-    |    |--- README_variant.md # Other variant documentation, containing variant metadata
+    |    |--- variant.md # Other variant documentation, containing variant metadata
     |    |
-    |    |--- README(_variant)_lang.yaml # Translations in different languages, **does NOT contain metadata!**
+    |    |--- (_variant)_lang.yaml # Translations in different languages, **does NOT contain metadata!**
     |
     |--- others.yml # Metadata for systems without documentation
 ```
@@ -149,40 +148,30 @@ ram: _        # Memory and flash information
 ```yaml
 # /Board/OS/README.md
 sys: armbian          # System identifier (refer to assets/metadata.yml)
-sys_ver: "24.05"        # System version (Should be the same as the one of the image, shouldn't add any extra part to match other format like semantic versioning. Prepend `v` is optional. *Notice: something like `24.05` would be seen as a number, so please add quotation if necessary*)
+sys_ver: "24.05"      # System version (Should be the same as the one of the image, Prepend `v` is optional)
 sys_var: minimal      # Variant identifier (optional)
-status: basic         # Support status (wip/cft/cfh/cfi/partial/basic/good)
-last_updated: 2024-03-01  # Last update date
+provider: Vendor      # Specifies the image provider. Omit for official distros. Use 'Vendor', 'Community', etc. for others.
+status: basic         # Support status (wip/cft/cfh/cfi/part/basic/good)
+last_updated: 2024-03-01  # Report last update date
 ---
 ```
 
-Note that LTS versions of operating systems count as separate variants.
-
-The LTS identifier exists in some sys_var fields as a variant for historical reasons, but the current convention is to place it in the sys_ver field.
-
-Ideally, Ubuntu 24.04.1 in NeZha-D1s/Ubuntu/README_LTS.md should be written as:
-
-```yaml
-sys_ver: 24.04-LTS-SP1        # System version (Should be the same as the one of the image, shouldn't add any extra part to match other format like semantic versioning. Prepend `v` is optional.)
-sys_var: LTS                  # Variant identifier (optional)
-```
-
-If there are any parts that are still unclear, please contact @wychlw.
+If there are any parts that are still unclear, please create issue.
 
 ### Status Enumeration Description
 
 Refer to [README.md](./README.md) `Notes` part.
 
-| Status Value | Description                                          |
-|--------------|------------------------------------------------------|
-| none         | No support for this OS/board combo, either from official or other sources |
+| Status Value | Description                                                                                                                             |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| none/-       | No support for this OS/board combo, either from official or other sources                                                               |
 | wip          | Official announcements say there will be/is support for this OS/board, but no image or other resources (e.g. source code) avaliable yet |
-| cfi          | Official documentations claims there is support for this OS, but no OS image avaliable yet |
-| cft          | An OS image is avaliable, need further verification on real hardware |
-| cfh          | Official documentations/community forums show this OS is supported on this board, but failed to boot up |
-| partial      | Partial functionality available                      |
-| basic        | Can boot up and run                                  |
-| good         | Supports GUI                                         |
+| cfi          | Official documentations claims there is support for this OS, but no OS image avaliable yet                                              |
+| cft          | An OS image is avaliable, need further verification on real hardware                                                                    |
+| cfh          | Official documentations/community forums show this OS is supported on this board, but failed to boot up                                 |
+| part         | Partial functionality available                                                                                                         |
+| basic        | Support basic function, Can boot up and run via serial port                                                                             |
+| good         | Has fully support, can run and use via desktop environment                                                                              |
 
 ## Documentation Writing Standards
 
@@ -195,7 +184,7 @@ Please refer to the following templates:
 
 ### Internationalization (i18n)
 - Main documentation should be written in English (README.md)
-- Translation documents use the README_{lang}.md format (e.g. Chinese translation can use README_zh.md)
+- Translation documents use the {FileName}_{lang}.md format (e.g. Chinese translation can use README_zh.md)
 - Translation documents **do NOT contain** metadata headers
 - Maintain correct hyperlinks between documents
 - Use consistent terminology with other documents in the same language

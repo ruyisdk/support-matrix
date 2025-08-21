@@ -1,12 +1,11 @@
 - sys: ubuntu
   sys_ver: 24.04
   sys_var: null
-  provider: DeepComputing
+  provider: Vendor
   status: cft
 - sys: ubuntu
   sys_ver: 25.04
   sys_var: null
-  provider: Ubuntu
   status: cft
 - sys: fedora
   sys_ver: 41
