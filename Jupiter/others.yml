@@ -28,7 +28,7 @@
 - sys: deepin
   sys_ver: 25 preview
   sys_var: null
-  provider: Opvolger
+  provider: Community
   status: cft
 - sys: irradium
   sys_ver: 3.8

@@ -1,10 +1,10 @@
 - sys: openwrt
   sys_ver: null
   sys_var: null
-  provider: OrangePi
+  provider: Vendor
   status: cft
 - sys: debian
   sys_ver: null
   sys_var: null
-  provider: OrangePi
+  provider: Vendor
   status: cft

@@ -18,5 +18,5 @@
 - sys: fedora
   sys_ver: 42
   sys_var: null
-  provider: chainsx
+  provider: Community
   status: cft

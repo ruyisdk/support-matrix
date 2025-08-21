@@ -4,7 +4,7 @@
   status: cft
 - sys: fedora
   sys_ver: 41
-  sys_var: DeepComputing
+  sys_var: Vendor
   status: cft
 - sys: fedora
   sys_ver: 42
