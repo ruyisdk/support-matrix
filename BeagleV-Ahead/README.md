@@ -10,11 +10,11 @@ vendor: BeagleV
 
 ## Overview 
 
-BeagleV Ahead is build around T-Head TH1520 RISC-V SoC with quad-core Xuantie C910 processor clocked at 1.85GHz with a 4 TOPS NPU, support for 64-bit DDR, and audio processing using a single core C906.
+BeagleV Ahead is build around TH1520 RISC-V SoC with quad-core Xuantie C910 processor clocked at 1.85GHz with a 4 TOPS NPU, support for 64-bit DDR, and audio processing using a single core C906.
 
 ## Hardware Specifications
 
-- **Processor**: T-Head TH1520 (quad-core Xuantie C910 processor)
+- **Processor**: TH1520 (quad-core Xuantie C910 processor)
 - **Memory**: 4GB LPDDR4
 - **Storage**: 16GB eMMC
 - **WiFi/Bluetooth**: 
