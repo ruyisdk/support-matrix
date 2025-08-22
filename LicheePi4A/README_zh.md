@@ -6,28 +6,28 @@ Lichee Pi 4A（简称 LPi4A）是一款基于平头哥 TH1520 处理器的单板
 
 ## 硬件规格
 - **处理器**：TH1520（4×C910@1.85GHz，RV64GCV，4TOPS@INT8 NPU，50GFLOP GPU）
-  - **CPU**：RISC-V 64GCV C910 × 4 @ 1.85GHz
+  - CPU：RISC-V 64GCV C910 × 4 @ 1.85GHz
     - 每个核心包含 64KB I-Cache 和 64KB D-Cache
     - 共享 1MB L2 缓存
     - 支持 TEE（可信执行环境）和 REE（富执行环境），在核心启动时配置
     - 支持自定义及 RISC-V 兼容的多核调试框架
     - 独立电源域，支持动态电压频率调节（DVFS）
-  - **GPU**：
+  - GPU：
     - 支持 OpenCL 1.1/1.2/2.0
     - 支持 OpenGL ES 3.0/3.1/3.2
     - 支持 Vulkan 1.1/1.2
     - 支持 Android NN HAL
-  - **NPU**：支持 4TOPS@INT8，最高频率 1GHz
+  - NPU：支持 4TOPS@INT8，最高频率 1GHz
     - 支持 TensorFlow、ONNX、Caffe 等框架
     - 支持 CNN、RNN、DNN 等神经网络模型
-  - **视频解码**：实时解码器，支持 H.265/H.264/VP9/VP8/VP7/VP6/AVS/AVS+/AVS2.0/VC1/MPEG4
+  - 视频解码：实时解码器，支持 H.265/H.264/VP9/VP8/VP7/VP6/AVS/AVS+/AVS2.0/VC1/MPEG4
     - 支持 H.264 BP/MP/HP@Level 5.1 解码，最高分辨率 4K
     - 支持 H.265/HEVC Main Profile@Level 5.1 解码，最高分辨率 4K
     - 支持 VP9 Profile-2 解码，最高分辨率 4K
     - 支持 AVS2.0 解码，最高分辨率 4K
     - 支持 VP6/VP7/VP8/AVS/AVS+/VC1/MPEG4 解码，最高分辨率 1920×1080
     - 最大解码能力为 4K@75fps
-  - **视频编码**：
+  - 视频编码：
     - 支持 H.264 BP/MP/HP@Level 4.2 编码，最高分辨率 4K
     - 支持 H.265/HEVC Main Profile 编码，最高分辨率 4K
     - 仅支持 I 帧和 P 帧
