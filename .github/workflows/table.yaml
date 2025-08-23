@@ -9,14 +9,13 @@ on:
   workflow_dispatch:
     inputs:
       deploy:
-        description: 'Upload Tables to Pages'
+        description: "Upload Tables to Pages"
         type: boolean
       debuginfo:
-        description: 'Output Debug'
+        description: "Output Debug"
         type: boolean
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
@@ -34,15 +33,26 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Prepare Environment
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: ninja-build cairosvg libcairo2-dev libjpeg-dev libgif-dev
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "assets/.python-version"
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - name: Install Depends
+        run: uv sync --locked --all-extras --dev
+        working-directory: ./assets
       - name: Generate Images
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -qqy ninja-build cairosvg libcairo2-dev libjpeg-dev libgif-dev
-          sudo pip3 install -q --upgrade meson
-          pip install -qr assets/requirements_svg.txt
-          mkdir assets/output
-          python assets/generate_svgimage.py -p . -o assets/output --html https://${{ github.repository_owner }}.github.io/support-matrix | tee build.log
-          python assets/generate_svgimage.py -p . -o assets/output --html https://${{ github.repository_owner }}.github.io/support-matrix -l zh | tee -a build.log
+          uv run generate_svgimage.py --html https://${{ github.repository_owner }}.github.io/support-matrix | tee build.log
+          uv run generate_svgimage.py --html https://${{ github.repository_owner }}.github.io/support-matrix -l zh | tee -a build.log
+        working-directory: ./assets
       - name: Check Commit ID
         id: truecommit
         run: |
@@ -57,7 +67,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           name: support-matrix-${{ github.run_id }}
-          path: 'assets/output'
+          path: "assets/output"
       - name: Output Success Summary
         run: |
           echo "# Support Matrix Table Build Report" >> $GITHUB_STEP_SUMMARY
@@ -78,16 +88,21 @@ jobs:
           cat ${{ github.workspace }}/assets/output/result.sha256 >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "## Build Log" >> $GITHUB_STEP_SUMMARY
+          cat ${{ github.workspace }}/assets/build.log >> $GITHUB_STEP_SUMMARY
+
+      - name: Output Build Log
+        if: ${{ failure() || (github.event_name == 'workflow_dispatch' && inputs.debuginfo) }}
+        run: |
+          echo "## Build Log" >> $GITHUB_STEP_SUMMARY   
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
-          cat ${{ github.workspace }}/build.log >> $GITHUB_STEP_SUMMARY
+          cat ${{ github.workspace }}/assets/build.log >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
       - name: Output Debug Info
         if: ${{ github.event_name == 'workflow_dispatch' && inputs.debuginfo }}
-        run: |    
+        run: |
           echo "## Debug" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY

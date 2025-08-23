@@ -5,7 +5,7 @@ import argparse
 from typing import Annotated
 import yaml
 
-from pydantic import BaseModel, AfterValidator
+from pydantic import BaseModel, AfterValidator, field_validator
 
 from src.matrix_parser import Systems, ImageStatus
 
@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-p', '--path', dest="path",
-                    help="support matrix path", type=str, default='.')
+                    help="support matrix path", type=str, default='..')
 args = parser.parse_args()
 
 
@@ -99,6 +99,13 @@ class SystemMetadata(BaseModel):
     status: StatusValidator
     last_update: datetime.datetime
 
+    @field_validator('sys_ver', 'sys_var', mode='before')
+    @classmethod
+    def convert_to_string(cls, v):
+        if v is None:
+            return None
+        return str(v)
+
 
 matrix = Systems(args.path)
 for board in matrix.boards:
@@ -114,12 +121,14 @@ for board in matrix.boards:
         existing_sys_vars = set()
         for var in sys.variant:
             if not hasattr(var, 'raw_data'):
+                logger.info("Skipping variant without raw_data: %s", getattr(var, 'link', 'unknown'))
                 continue
             logger.info("Checking system: %s", var.link)
             sys_raw = var.raw_data
             sys_frontmatter = sys_raw.metadata
-            sys_metadata = SystemMetadata(**sys_raw)
-            if sys_metadata.sys_var in existing_sys_vars:
+            sys_metadata = SystemMetadata(**sys_frontmatter)
+            if sys_metadata.sys_var is not None and sys_metadata.sys_var in existing_sys_vars:
                 raise ValueError(
                     f"Duplicate system variant: {sys_metadata.sys_var}.")
-            existing_sys_vars.add(sys_metadata.sys_var)
+            if sys_metadata.sys_var is not None:
+                existing_sys_vars.add(sys_metadata.sys_var)
