@@ -257,7 +257,6 @@ def gen_svg_table(conf: SvgConf, systems: Systems, need_systems: Dict[str, str],
 
     return doc
 
-
 def proc_onesys(system_arr: Dict[str, str], system: Systems,
                 link_func: Callable[[Any, Any, object], Union[str, None]],
                 color_func: Callable[[Any, Any, object], str]) -> SvgNode:
@@ -395,9 +394,9 @@ def main() -> None:
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
     parser.add_argument('-p', '--path', dest="path",
-                        help="Support matrix path", type=str, default='.')
+                        help="Support matrix path", type=str, default='..')
     parser.add_argument('-o', '--output', dest="output",
-                        help="Output directory path", type=str, default='assets/output')
+                        help="Output directory path", type=str, default='output')
     parser.add_argument('-l', '--lang', dest="lang",
                         help=f"Language ({'/'.join(SUPPORTED_LANGUAGES)})", 
                         type=str, default='en', choices=SUPPORTED_LANGUAGES)
