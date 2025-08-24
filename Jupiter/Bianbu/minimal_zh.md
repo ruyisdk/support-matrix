@@ -19,7 +19,7 @@
     - 系统启动优先级为：`microSD > NVMe SSD > eMMC`
     - 从 SD 卡启动时不经过 SPI Flash
     - NVMe SSD 和 eMMC 都不存在时，`titanflasher` 工具只会烧录 U-Boot 等启动程序到 SPI Flash 中。
-    - 本次测试使用 NVMe SSD 启动，型号为：三星 PM961 128GB
+    - 本次测试使用 microSD 启动，型号为：Samsung Pro Ultimate 128GB
 - USB to UART 调试器一个
     - 本次测试使用的调试器为 CH343P
 - USB Type-C 线缆若干（取决于连接需求，至少预留一根用于烧录镜像）
