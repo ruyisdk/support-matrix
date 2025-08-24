@@ -2,7 +2,7 @@
 sys: bredos
 sys_ver: 2025-07-16
 sys_var: null
-status: basic
+status: good
 last_update: 2025-08-13
 ---
 

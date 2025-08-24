@@ -32,6 +32,7 @@ jobs:
 
       - name: Output Log
         if: failure()
+        run: |
           echo "## Log" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY

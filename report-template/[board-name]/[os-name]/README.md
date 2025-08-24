@@ -29,14 +29,16 @@ last_update: [Last Update Date]
 3. Boot the development board and enter the installation interface.
 4. Follow the installation wizard to complete the installation.
 
-## Expected Results
-
-- The system should boot normally and allow login via serial or other methods.
-
 ## Actual Results
 
 - [Record actual test results, including any logs or screenshots]
 
-### Test Conclusion
+### Boot Log
+
+### Desktop Environment
+
+### Software Test 
+
+## Test Conclusion
 
 - [Summarize whether the test was successful]
