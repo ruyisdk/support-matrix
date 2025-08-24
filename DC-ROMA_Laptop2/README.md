@@ -1,9 +1,9 @@
 ---
-product: DC-ROMA AI PC
-cpu: EIC7702X
-cpu_core: SiFive P550
-ram: 32G
+product: DC-ROMA Laptop II
+cpu: Key Stone K1
+cpu_core: SpacemiT X60
+ram: 8G/16G
 vendor: DeepComputing
 ---
 
-# DC-ROMA RISC-V AI PC, RISC-V Mainboard II
+# DC-ROMA Laptop II

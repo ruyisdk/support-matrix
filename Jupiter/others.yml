@@ -19,10 +19,6 @@
   status: cft
 - sys: bianbu
   sys_ver: 3.0
-  sys_var: minimal
-  status: cft
-- sys: bianbu
-  sys_ver: 3.0
   sys_var: Desktop Lite
   status: cft
 - sys: deepin
