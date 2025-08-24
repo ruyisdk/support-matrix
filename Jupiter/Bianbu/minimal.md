@@ -27,7 +27,7 @@ last_update: 2025-08-13
     - Boot priority: `microSD > NVMe SSD > eMMC`
     - When booting from SD, the board won't go through SPI Flash
     - If either NVMe SSD or eMMC module is installed, `titanflasher` will only flash U-Boot to SPI Flash
-    - In this test report we're using NVMe SSD, model: Samsung PM961 128GB
+    - In this test report we're using microSD, model: Samsung Pro Ultimate 128GB
 - A USB to UART debugger
     - In this test report we're using CH343P
 - USB Type-C cables (depends on your usage, at least one for flashing OS image)
