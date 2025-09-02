@@ -4,7 +4,7 @@ sys_ver: null
 sys_var: null
 
 status: basic
-last_update: 2024-10-09
+last_update: 2025-08-31
 ---
 
 # Arch Linux Milk-V Duo S Test Report
@@ -13,7 +13,7 @@ last_update: 2024-10-09
 
 ### Operating System Information
 
-- System Version: archriscv-2024-09-22
+- System Version: archriscv-2025-06-12
 
 You need to build this image on your own.
 
@@ -57,7 +57,7 @@ CONFIG_IPV6=y
 CONFIG_FANOTIFY=y
 ```
 
-Then start build again and get image `out/milkv-duos-sd-20240924-2106.img`.
+Then start build again and get image `out/milkv-duos-sd-<your-build-timex>.img`.
 
 ### Update rootfs
 
@@ -68,7 +68,7 @@ Consider use root to avoid permission issues.
 Get rootfs from [Arch Linux RISC-V](https://archriscv.felixc.at/).
 
 ```
-wget https://archriscv.felixc.at/images/archriscv-2024-09-22.tar.zst
+wget https://archriscv.felixc.at/images/archriscv-2025-06-12.tar.zst
 ```
 
 #### Modify rootfs
@@ -82,7 +82,7 @@ Output is `/dev/loop0`.
 Mount the image on the loop device.
 
 ```
-losetup -P loop0 out/milkv-duos-sd-20240924-2106.img
+losetup -P loop0 out/milkv-duos-sd_2025-0831-0547.img
 ```
 
 Mount disk to `/mnt/duo-rootfs`.
@@ -102,7 +102,7 @@ rm -rf ./*
 Unzip new rootfs.
 
 ```
-tar -xvf archriscv-2024-09-22.tar.zst -C .
+tar -xvf archriscv-2025-06-12.tar.zst -C .
 ```
 
 #### Download Package for Network.
@@ -124,10 +124,10 @@ losetup -d /dev/loop0
 
 ## Installation Steps
 
-### Using `dd` to Flash the Image to the microSD Card 
+### Using `dd` to Flash the Image to the microSD Card
 
 ```shell
-dd if=milkv-duos-sd-20240924-2106.img of=/dev/sdX bs=1M status=progress
+dd if=milkv-duos-sd_2025-0831-0547.img of=/dev/sdc bs=1M status=progress
 ```
 
 ### Logging into the System
@@ -172,6 +172,85 @@ The system boots up normally and allows login through the serial port.
 ## Actual Results
 
 The system boots up normally and login through the serial port is successful.
+
+### Boot Information
+
+```bash
+         Starting Flush Journal to Persistent Storage...
+[    9.174420] systemd-journald[127]: Received client request to flush runtime journal.
+[    9.200170] systemd-journald[127]: File /var/log/journal/33bd66794bef4c019a0e3acfdcceb30a/system.journal corrupted or uncleanly shut down, renaming and replacing.
+[  OK  ] Finished Flush Journal to Persistent Storage.
+[  OK  ] Started User Database Manager.
+[  OK  ] Finished Coldplug All udev Devices.
+[  OK  ] Finished Create Static Device Nodes in /dev gracefully.
+         Starting Create Static Device Nodes in /dev...
+[  OK  ] Finished Create Static Device Nodes in /dev.
+[  OK  ] Reached target Preparation for Local File Systems.
+[  OK  ] Reached target Local File Systems.
+[  OK  ] Listening on Boot Entries Service Socket.
+[  OK  ] Listening on Disk Image Download Service Socket.
+[  OK  ] Listening on System Extension Image Management.
+         Starting Create System Files and Directories...
+         Starting Rule-based Manager for Device Events and Files...
+[   12.700936] random: crng init done
+[  OK  ] Finished Load/Save OS Random Seed.
+[  OK  ] Finished Create System Files and Directories.
+         Starting Record System Boot/Shutdown in UTMP...
+[  OK  ] Started Rule-based Manager for Device Events and Files.
+[   13.672405] bm-dwmac 4070000.ethernet end0: renamed from eth0
+[  OK  ] Found device /dev/ttyS0.
+[  OK  ] Finished Record System Boot/Shutdown in UTMP.
+[  OK  ] Reached target Sound Card.
+[  OK  ] Reached target System Initialization.
+[  OK  ] Started Refresh existing PGP keys of archlinux-keyring regularly.
+[  OK  ] Started Daily verification of password and group files.
+[  OK  ] Started Daily Cleanup of Temporary Directories.
+[  OK  ] Reached target Timer Units.
+[  OK  ] Reached target Hardware activated USB gadget.
+[  OK  ] Listening on D-Bus System Message Bus Socket.
+[  OK  ] Listening on GnuPG network certifi…ent daemon for /etc/pacman.d/gnupg.
+[  OK  ] Listening on GnuPG cryptographic a… browsers) for /etc/pacman.d/gnupg.
+[  OK  ] Listening on GnuPG cryptographic a…estricted) for /etc/pacman.d/gnupg.
+[  OK  ] Listening on GnuPG cryptographic a…emulation) for /etc/pacman.d/gnupg.
+[  OK  ] Listening on GnuPG cryptographic a…rase cache for /etc/pacman.d/gnupg.
+[  OK  ] Listening on GnuPG public key mana…nt service for /etc/pacman.d/gnupg.
+[  OK  ] Listening on Hostname Service Socket.
+[  OK  ] Reached target Socket Units.
+[  OK  ] Listening on Load/Save RF Kill Switch Status /dev/rfkill Watch.
+         Starting D-Bus System Message Bus...
+[  OK  ] Started D-Bus System Message Bus.
+[  OK  ] Reached target Basic System.
+         Starting User Login Management...
+         Starting Permit User Sessions...
+[  OK  ] Finished Permit User Sessions.
+[  OK  ] Started Serial Getty on ttyS0.
+[  OK  ] Reached target Login Prompts.
+[   16.871684] ext4 filesystem being remounted at /run/systemd/mount-rootfs/var/lib/systemd/linger supports timestamps until 2038 (0x7fffffff)
+[   16.886837] ext4 filesystem being remounted at /run/systemd/mount-rootfs/var/tmp supports timestamps until 2038 (0x7fffffff)
+[   16.899137] ext4 filesystem being remounted at /run/systemd/mount-rootfs/etc supports timestamps until 2038 (0x7fffffff)
+[   16.925233] ext4 filesystem being remounted at /run/systemd/mount-rootfs/etc supports timestamps until 2038 (0x7fffffff)
+[   17.048985] ext4 filesystem being remounted at /run/systemd/mount-rootfs/var/lib/systemd/linger supports timestamps until 2038 (0x7fffffff)
+[   17.068576] ext4 filesystem being remounted at /run/systemd/mount-rootfs/var/tmp supports timestamps until 2038 (0x7fffffff)
+[  OK  ] Started User Login Management.
+[  OK  ] Reached target Multi-User System.
+[  OK  ] Reached target Graphical Interface.
+
+Arch Linux 5.10.4-tag- (ttyS0)
+
+archlinux login: root
+Password:
+[root@archlinux ~]# lscpu
+Architecture:          riscv64
+  Byte Order:          Little Endian
+CPU(s):                1
+  On-line CPU(s) list: 0
+[root@archlinux ~]#
+```
+
+Screen recording:
+
+[![asciicast](https://asciinema.org/a/mMXIs8084TXdx8zVAg2scpPWe.svg)](https://asciinema.org/a/mMXIs8084TXdx8zVAg2scpPWe)
+
 
 ## Test Criteria
 
