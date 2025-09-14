@@ -23,7 +23,7 @@
 - 有线网络连接
 - 牙签一根，或者其他能拨动拨码开关的小东西 ;)
 
-由于 MIPI DSI 和 HDMI (DC8200) 的主线化工作尚未完成，目前没有显示/图形界面支持。
+由于 MIPI DSI 和 HDMI (DC8200) 的主线化工作尚未完成（参见 StarFive 的 [JH7110 upstream status](https://rvspace.org/en/project/JH7110_Upstream_Plan)），目前没有显示/图形界面支持。
 
 目前只能从 UART 串口或者 SSH 连接开发板。
 
