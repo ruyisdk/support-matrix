@@ -24,6 +24,7 @@ linux:
   - pmos: postmarketOS
   - rhel: RHEL
   - slackware: Slackware
+  - tizen: Tizen
   - ubuntu: Ubuntu
   - yocto: Yocto
 
