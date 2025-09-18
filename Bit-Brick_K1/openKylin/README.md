@@ -40,7 +40,6 @@ Logging into the system via the serial port.
 Default Username: `openkylin`
 Default Password: `openkylin`
 
-
 ## Actual Results
 
 ### Boot Log

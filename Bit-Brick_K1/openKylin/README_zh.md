@@ -1,16 +1,15 @@
-# openKylin v2.0 SP1 香蕉派 BPI-F3 测试报告
+# openKylin v2.0 SP1 Bit-Brick K1 测试报告
 
 ## 测试环境
 
 ### 系统信息
 
-- 系统版本：openKylin v2.0-SP1
+- 系统版本：openKylin v2.0-SP2
 - 下载链接：[https://www.openkylin.top/downloads/index-cn.html](https://www.openkylin.top/downloads/index-cn.html) **选择 k1 镜像**
-- 参考安装文档：[https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8SpacemiT_K1%E4%B8%8A%E5%AE%89%E8%A3%85openKylin](https://docs.openkylin.top/zh/01_%E5%AE%89%E8%A3%85%E5%8D%87%E7%BA%A7%E6%8C%87%E5%8D%97/%E5%9C%A8riscv%E4%B8%8A%E5%AE%89%E8%A3%85/%E5%9C%A8SpacemiT_K1%E4%B8%8A%E5%AE%89%E8%A3%85openKylin)
 
 ### 硬件信息
 
-- 香蕉派 BPI-F3
+- Bit-Brick K1
 - 电源适配器
 - microSD 卡一张
 - USB to UART 调试器一个
@@ -22,8 +21,8 @@
 下载并解压镜像后，使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
-xz -d openKylin-Embedded-V2.0-SP1-spacemit-k1-riscv64.img
-sudo dd if=openKylin-Embedded-V2.0-SP1-spacemit-k1-riscv64.img of=/dev/your-device bs=4M status=progress
+xz -d openKylin-Embedded-V2.0-SP2-Release-spacemit-k1-riscv64.img.xz
+sudo dd if=openKylin-Embedded-V2.0-SP2-Release-spacemit-k1-riscv64.img of=/dev/your-device bs=4M status=progress
 ```
 
 ### 登录系统
