@@ -37,7 +37,7 @@ sudo fastboot flash boot boot-lpi4a-20240720_171951.ext4
 将 root 分区刷入 eMMC 中。
 
 ```bash
-sudo fastboot flash root openKylin-2.0-sp1-licheepi4a-riscv64.img
+sudo fastboot flash root openKylin-2.0-sp2-licheepi4a-riscv64.ext4
 ```
 
 ### 登录系统
@@ -47,26 +47,20 @@ sudo fastboot flash root openKylin-2.0-sp1-licheepi4a-riscv64.img
 默认用户名： `openkylin`
 默认密码： `openkylin`
 
-## 预期结果
-
-系统正常启动，能够通过板载串口登录。
-
 ## 实际结果
 
 系统正常启动，成功通过板载串口登录。
 
 ### 启动信息
 
-屏幕录像（从刷写镜像到登录系统）：
 
+``` log
 
-[![asciicast](https://asciinema.org/a/W0w4KbFDEjvuvPLGIyEYHtFdS.svg)](https://asciinema.org/a/W0w4KbFDEjvuvPLGIyEYHtFdS)
-```log
-openKylin 2.0 SP1 openkylin ttyS0
+openKylin 2.0 SP2 openkylin ttyS0
 
 openkylin login: openkylin
 密码：
-Welcome to openKylin 2.0 SP1 (GNU/Linux 5.10.113-th1520 riscv64)
+Welcome to openKylin 2.0 SP2 (GNU/Linux 5.10.113-th1520 riscv64)
 
  * Support:        https://openkylin.top
 
@@ -77,17 +71,16 @@ individual files in /usr/share/doc/*/copyright.
 openKylin comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-load environment: QT_ACCESSIBILITY=1
-load environment: PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+You do not have any new mail.
 openkylin@openkylin:~$ uname -a
 Linux openkylin 5.10.113-th1520 #2024.07.20.13.28+d8f77de53 SMP PREEMPT Sat Jul 20 13:29:42 UTC  riscv64 riscv64 riscv64 GNU/Linux
 openkylin@openkylin:~$ cat /etc/os-release
 NAME="openKylin"
 FULL_NAME="openKylin"
-VERSION="2.0 SP1 (nile)"
-VERSION_US="2.0 SP1 (nile)"
+VERSION="2.0 SP2 (nile)"
+VERSION_US="2.0 SP2 (nile)"
 ID=openkylin
-PRETTY_NAME="openKylin 2.0 SP1"
+PRETTY_NAME="openKylin 2.0 SP2"
 VERSION_ID="2.0"
 HOME_URL="https://www.openkylin.top/"
 VERSION_CODENAME=nile
@@ -142,15 +135,14 @@ cpu-cacheline   : 64Bytes
 cpu-vector      : 0.7.1
 
 openkylin@openkylin:~$
- ```
+```
 
+### 桌面环境
 
-## 测试判定标准
-
-测试成功：实际结果与预期结果相符。
-
-测试失败：实际结果与预期结果不符。
+![](./about.jpeg)
 
 ## 测试结论
 
-测试成功。
+系统正常启动，能够通过串口登录
+
+能通过板载 HDMI 接口使用图形界面
