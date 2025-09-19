@@ -2,9 +2,8 @@
 sys: tizen
 sys_ver: null
 sys_var: null
-
-status: cft
-last_update: 2025-09-18
+status: basic
+last_update: 2025-09-20
 ---
 
 # Tizen Snapshot Lichee Pi 4A Test Report
@@ -55,10 +54,10 @@ wget http://download.tizen.org/snapshots/TIZEN/Tizen/Tizen-Unified-X/reference/i
 # wget http://download.tizen.org/snapshots/TIZEN/Tizen/Tizen-Unified-X/reference/images/standard/tizen-headed-riscv64/tizen-unified-x_20250918.035403_tizen-headed-riscv64.tar.gz
 ```
 
-Insert your SD card and run the script: (replace `/dev/mmcblk0` with your SD card device)
+Insert your SD card and run the script: (replace `/dev/sdX` with your SD card device)
 ```bash
-sudo ./tizen-fusing-scripts/scripts/sd_fusing.py -d /dev/mmcblk0 -t lpi4a --format
-sudo ./tizen-fusing-scripts/scripts/sd_fusing.py -d /dev/mmcblk0 -b tizen-unified-x_20250918.035403_tizen-boot-riscv64-lpi4a-8g.tar.gz tizen-unified-x_20250917.211322_tizen-headless-riscv64.tar.gz  -t lpi4a
+sudo ./tizen-fusing-scripts/scripts/sd_fusing.py -d /dev/sdX -t lpi4a --format
+sudo ./tizen-fusing-scripts/scripts/sd_fusing.py -d /dev/sdX -t lpi4a -b tizen-unified-x_20250918.035403_tizen-boot-riscv64-lpi4a-16g.tar.gz  tizen-unified-x_20250918.035403_tizen-headed-riscv64.tar.gz
 ```
 
 ### Logging into the System
@@ -66,25 +65,82 @@ sudo ./tizen-fusing-scripts/scripts/sd_fusing.py -d /dev/mmcblk0 -b tizen-unifie
 Login to the system via the serial port.
 
 Default Username: `root`
-
 Default Password: `tizen`
-
-## Expected Results
-
-The system boots up normally and allows login through the onboard serial port.
 
 ## Actual Results
 
-CFT
-
 ### Boot Log
 
-## Test Criteria
+```log
 
-Successful: The actual result matches the expected result.
+root:~> uname -a
+Linux localhost 6.6.20-riscv-lpi4a #1 SMP PREEMPT Thu Sep 18 04:42:17 UTC 2025 riscv64 GNU/Linux
+root:~> cat /etc[  218.653133] PVR_K:(Error):  5308: PVRSRVDeviceServicesOpen: Driver already in bad state. Device open failed. [487]
+/[  219.664122] PVR_K:(Error):  5308: PVRSRVDeviceServicesOpen: Driver already in bad state. Device open failed. [487]
+[  219.683642] enlightenment[5308]: unhandled signal 11 code 0x1 at 0x0000000000000008 in libgallium-24.3.4.so[3f8c57a000+de6000]
+[  219.695304] CPU: 3 PID: 5308 Comm: enlightenment Tainted: G           O       6.6.20-riscv-lpi4a #1
+[  219.704414] Hardware name: Sipeed Lichee Pi 4A (DT)
+[  219.709350] epc : 0000003f8c5e1d2c ra : 0000003f8c5e1dc2 sp : 0000003fe1311460
+[  219.716627]  gp : 0000002ac7148264 tp : 0000003f95a36780 t0 : ffffffffee50b442
+[  219.723886]  t1 : 0000003f8c5dce6c t2 : 0000000050d43f50 s0 : 0000002ac7273460
+[  219.731141]  s1 : 0000000000000000 a0 : 0000000000000000 a1 : 0000000000000000
+[  219.738398]  a2 : 8080808080808080 a3 : 0000000000000000 a4 : fefeff0001000003
+[  219.745678]  a5 : 0000000000000001 a6 : 0000003f8ccc0558 a7 : 00000000000006e2
+[  219.752950]  s2 : 0000003f8d3c1179 s3 : 0000000000000000 s4 : 0000002ac7273460
+[  219.760211]  s5 : 0000002ac726ee00 s6 : 0000000000000001 s7 : 0000002ac72734f8
+[  219.767465]  s8 : 0000000000000000 s9 : 0000002ac726b7b0 s10: 0000000000000000
+[  219.774718]  s11: 0000002ae471e540 t3 : 0000003f96ee53e6 t4 : 000000001f440000
+[  219.781971]  t5 : ffffffff9e3779b1 t6 : ffffffff85ebca77
+[  219.787314] status: 8000000200006020 badaddr: 0000000000000008 cause: 000000000000000d
+[  219.795655] audit: type=1701 audit(219.648:70): auid=4294967295 uid=0 gid=0 ses=4294967295 subj=System pid=5308 comm="enlightenment" exe="/usr/bin/enlightenment" sig=11 res=1
+os-release
+NAME=Tizen
+VERSION="10.0.0 (Tizen10.0/Unified)"
+ID=tizen
+VERSION_ID=10.0.0
+PRETTY_NAME="Tizen 10.0.0 (Tizen10.0/Unified)"
+ANSI_COLOR="0;36"
+CPE_NAME="cpe:/o:tizen:tizen:10.0.0"
+BUILD_ID=tizen-unified-x_20250918.035403_tizen-headed-riscv64
+root:~> cat /proc/cpuinfo
+processor       : 0
+hart            : 1
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
 
-Failed: The actual result does not match the expected result.
+processor       : 1
+hart            : 0
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+
+processor       : 2
+hart            : 2
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+
+processor       : 3
+hart            : 3
+isa             : rv64imafdc_zicntr_zicsr_zifencei_zihpm
+mmu             : sv39
+uarch           : thead,c910
+mvendorid       : 0x5b7
+marchid         : 0x0
+mimpid          : 0x0
+
+```
 
 ## Test Conclusion
 
-CFT
+The system should boot normally and allow login via the onboard serial port.
