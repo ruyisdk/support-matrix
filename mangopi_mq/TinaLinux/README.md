@@ -3,8 +3,8 @@ sys: tina
 sys_ver: null
 sys_var: null
 
-status: cft
-last_update: 2024-06-21
+status: cfh
+last_update: 2025-09-26
 ---
 
 # Tina Linux Mangopi MQ Test Report
@@ -35,20 +35,17 @@ sudo dd if=mq-r-f133-rtl8189fs-5113-dns-uart0.img of=/dev/your/device bs=1M stat
 
 Logging into the system via the serial port.
 
+The board's TX and RX pins are pins 7, 8 on connector P3, respectively.
+
 ## Expected Results
 
 The system boots up normally and login through the onboard serial port is possible.
 
 ## Actual Results
 
-CFT
+No output from the serial port as the board will always boot into FEL mode for some reason.
 
 ### Boot Log
-
-Screen recording (from flashing image to login):
-
-```log
-```
 
 ## Test Criteria
 
@@ -58,4 +55,4 @@ Failed: The actual result does not match the expected result.
 
 ## Test Conclusion
 
-CFT
+Test failed.
