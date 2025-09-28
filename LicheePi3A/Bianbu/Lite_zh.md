@@ -4,7 +4,7 @@
 
 ### 系统信息
 
-- 系统版本：v3.0.1 Desktop
+- 系统版本：v3.0.1 Desktop Lite
 - 下载链接：https://archive.spacemit.com/image/k1/version/bianbu/v3.0.1/
 - 参考安装文档：https://wiki.sipeed.com/hardware/zh/lichee/K1/lpi3a/1_intro.html
 
@@ -24,8 +24,8 @@
 下载并解压镜像后，使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
-unzip bianbu-25.04-desktop-k1-v3.0.1-release-20250815185656.img.zip
-sudo dd if=/path/to/bianbu-25.04-desktop-k1-v3.0.1-release-20250815185656.img.zip of=/dev/your-device bs=1M status=progress
+unzip bianbu-25.04-desktop-lite-k1-v3.0.1-release-20250815184229.img.zip
+sudo dd if=/path/to/bianbu-25.04-desktop-lite-k1-v3.0.1-release-20250815184229.img of=/dev/your-device bs=1M status=progress
 ```
 
 ### 刷写镜像（eMMC）
@@ -34,7 +34,7 @@ sudo dd if=/path/to/bianbu-25.04-desktop-k1-v3.0.1-release-20250815185656.img.zi
 下载并解压镜像后，使用 `fastboot` 将镜像刷写到 eMMC。
 
 ```bash
-unzip bianbu-25.04-desktop-k1-v3.0.1-release-20250815185656.zip
+unzip bianbu-25.04-desktop-lite-k1-v3.0.1-release-20250815184229.zip
 ```
 
 > 注意：下面的步骤可能需要使用 `sudo`。
@@ -77,13 +77,11 @@ fastboot flash rootfs rootfs.ext4
 
 ### 启动信息
 
-[![asciicast](https://asciinema.org/a/EK2l9BDKszKv8kErl6mPFNLAa.svg)](https://asciinema.org/a/EK2l9BDKszKv8kErl6mPFNLAa)
+[![asciicast](https://asciinema.org/a/JfIdHXEZ7PGMhHDaaoj2r9Y0X.svg)](https://asciinema.org/a/JfIdHXEZ7PGMhHDaaoj2r9Y0X)
 
 ### 桌面环境
 
-![](./gnome1.jpg)
-
-![](./gnome2.jpg)
+![](./lxqt.jpg)
 
 ## 测试结论
 

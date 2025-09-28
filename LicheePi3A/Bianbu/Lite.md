@@ -1,7 +1,7 @@
 ---
 sys: bianbu
 sys_ver: 3.0.1
-sys_var: Desktop
+sys_var: Desktop Lite
 status: good
 last_update: 2025-09-28
 ---
@@ -12,7 +12,7 @@ last_update: 2025-09-28
 
 ### System Information
 
-- System version: v3.0.1 Desktop
+- System version: v3.0.1 Desktop Lite
 - Download Links: https://archive.spacemit.com/image/k1/version/bianbu/v3.0.1/
 - Reference Installation Document: https://wiki.sipeed.com/hardware/en/lichee/K1/lpi3a/1_intro.html
 
@@ -32,8 +32,8 @@ last_update: 2025-09-28
 After downloading and extracting the image, use `dd` to flash the image to the microSD card.
 
 ```bash
-unzip bianbu-25.04-desktop-k1-v3.0.1-release-20250815185656.img.zip
-sudo dd if=/path/to/bianbu-25.04-desktop-k1-v3.0.1-release-20250815185656.img.zip of=/dev/your-device bs=1M status=progress
+unzip bianbu-25.04-desktop-lite-k1-v3.0.1-release-20250815184229.img.zip
+sudo dd if=/path/to/bianbu-25.04-desktop-lite-k1-v3.0.1-release-20250815184229.img of=/dev/your-device bs=1M status=progress
 ```
 
 ### Flashing the Image (eMMC)
@@ -42,7 +42,7 @@ sudo dd if=/path/to/bianbu-25.04-desktop-k1-v3.0.1-release-20250815185656.img.zi
 After downloading and extracting the image, use `fastboot` to flash the image to the eMMC.
 
 ```bash
-unzip bianbu-25.04-desktop-k1-v3.0.1-release-20250815185656.zip
+unzip bianbu-25.04-desktop-lite-k1-v3.0.1-release-20250815184229.zip
 ```
 
 Hold the BOOT button while powering on/RST, to enter the fastboot mode. You shall see the dfu-device in your system.
@@ -85,13 +85,11 @@ Default Password: `bianbu`
 
 Screen recording:
 
-[![asciicast](https://asciinema.org/a/EK2l9BDKszKv8kErl6mPFNLAa.svg)](https://asciinema.org/a/EK2l9BDKszKv8kErl6mPFNLAa)
+[![asciicast](https://asciinema.org/a/JfIdHXEZ7PGMhHDaaoj2r9Y0X.svg)](https://asciinema.org/a/JfIdHXEZ7PGMhHDaaoj2r9Y0X)
 
 ### Desktop Environment
 
-![](./gnome1.jpg)
-
-![](./gnome2.jpg)
+![](./lxqt.jpg)
 
 ## Test Conclusion
 
