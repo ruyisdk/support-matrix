@@ -1,10 +1,9 @@
 ---
 sys: bianbu
-sys_ver: 1.0.15
-sys_var: desktop
-
-status: Good
-last_update: 2024-10-17
+sys_ver: 3.0.1
+sys_var: Desktop Lite
+status: good
+last_update: 2025-09-29
 ---
 
 # Milk-V Jupiter Bianbu Test report
@@ -13,10 +12,8 @@ last_update: 2024-10-17
 
 ### System Information
 
-- Download Link: https://github.com/milkv-jupiter/jupiter-bianbu-build/releases
-    - Note we're using the image provided by Milk-V rather than the one from SpacemiT
+- Download Link: https://archive.spacemit.com/image/k1/version/bianbu/v3.0.1/
 - Reference Install manual: https://milkv.io/docs/jupiter/getting-started/boot
-- titanflasher: https://github.com/milkv-jupiter/jupiter-tools/releases/tag/titanflasher
 
 ### Hardware Information
 
@@ -30,11 +27,10 @@ last_update: 2024-10-17
     - Boot priority: `microSD > NVMe SSD > eMMC`
     - When booting from SD, the board won't go through SPI Flash
     - If either NVMe SSD or eMMC module is installed, `titanflasher` will only flash U-Boot to SPI Flash
-    - In this test report we're using NVMe SSD, model: Samsung PM961 128GB
+    - In this test report we're using microSD, model: Samsung Pro Ultimate 128GB
 - A USB to UART debugger
     - In this test report we're using CH343P
 - USB Type-C cables (depends on your usage, at least one for flashing OS image)
-- USB keyboard/mouse, HDMI cable, HDMI monitor/capture card (if using `desktop` variant)
 
 ## Installation Steps
 
@@ -44,12 +40,9 @@ last_update: 2024-10-17
 
 After downloading and extracting the image, use `dd` to flash the image to the microSD card.
 
-Notice: there are two files, zip.001 and zip.002, download them all to extract the image.
-
 ```bash
-sudo wipefs -af /dev/sdX
-sudo dd if=milkv-jupiter-bianbu-23.10-desktop-k1-v1.0.15-release-2024-0907.img.zip of=/dev/sdX bs=1M status=progress
-sync
+unzip bianbu-25.04-desktop-lite-k1-v3.0.1-release-20250815184229.img.zip
+sudo dd if=/path/to/bianbu-25.04-desktop-lite-k1-v3.0.1-release-20250815184229.img of=/dev/your-device bs=1M status=progress
 ```
 
 ### Flash Image (eMMC/NVMe SSD)
@@ -74,19 +67,13 @@ You'll need to allow the driver installation.
 
 2. Launch `titanflasher`，选择 `Dev Tools -> USB Download`。
 
-![](image/2024-10-17-18-20-40.png)
-
 3. Select the zip file you just downloaded. Or if you've unzipped it, you can also choose `Local Dir`.
-
-![](image/2024-10-17-18-21-39.png)
 
 4. Connect Jupiter with PC using USB Type-C cable.
 
 5. Hold `RECOVERY` button (above the eMMC socket) or short `RECOVERY` pins (near the Wi-Fi IPEX socket), then plugin power for Jupiter.
 
 6. Click `Scan Devices` in `titanflasher`. A `dfu-device` should show up.
-
-![](image/2024-10-17-18-24-24.png)
 
 7. Click `Start Flashing`. DO NOT poweroff or remove the USB cable.
 
@@ -96,41 +83,21 @@ If not, disconnect the PSU and then reconnect it. Jupiter will automatically pow
 
 ### Logging into the System
 
-Logging into the system via the serial port.
-
-If you're using `desktop` image, you can also login from the GUI using keyboard and mouse.
-
-> Note: You'll be prompted to setup your account on first boot.
+Logging into the system via the serial port or desktop environment. No non-root user by default. First boot desktop environment includes a setup wizard that requires setting a username and password. SSH is not enabled by default.
 
 Default Username: `root`
-Default Password: `milkv`
-
-## Expected Results
-
-The system should boot normally and allow login via the onboard serial port.
-
-The `desktop` image should have working HDMI output, and the user can complete the quick start guide, setup account and log into the desktop.
+Default Password: `bianbu`
 
 ## Actual Results
 
-Same as expected.
-
 ### Boot Log
 
-![](image/2024-10-17-14-45-49.png)
+[![asciicast](https://asciinema.org/a/A2wA8tK1HjVIQiIgpy5NKVsh7.svg)](https://asciinema.org/a/A2wA8tK1HjVIQiIgpy5NKVsh7)
 
-![](image/2024-10-17-14-47-27.png)
+### Desktop Environment
 
-![](image/2024-10-17-14-49-49.png)
-
-asciicast: [![asciicast](https://asciinema.org/a/ElEvxFtJfRbanOoLzaiQvSrWU.svg)](https://asciinema.org/a/ElEvxFtJfRbanOoLzaiQvSrWU)
-
-## Test Criteria
-
-Successful: The actual result matches the expected result.
-
-Failed: The actual result does not match the expected result.
+![](./lxqt.jpg)
 
 ## Test Conclusion
 
-Test successful.
+The system booted successfully and login through the onboard serial port as well as the GUI was successful.
