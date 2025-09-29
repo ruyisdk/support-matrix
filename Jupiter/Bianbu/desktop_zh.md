@@ -71,20 +71,21 @@ Windows 下，安装途中会提示安装由 SpacemiT CA 签名的 fastboot/adb 
 
 ### 登录系统
 
-通过串口登录系统。
+通过串口登录或图形界面系统,默认没有非 root 用户,图形界面初次启动有设置向导,需要设置用户名和密码,默认不启动 SSH.
 
 默认用户名： `root`
 默认密码： `bianbu`
 
 ## 实际结果
 
-系统正常启动，能够通过板载串口登录。
-
 ### 启动信息
 
-[![asciicast](https://asciinema.org/a/ckpxaAeBcxxHdsYEMboq90rak.svg)](https://asciinema.org/a/ckpxaAeBcxxHdsYEMboq90rak)
+[![asciicast](https://asciinema.org/a/AYRdbtEF41f4Su8s5UkeZGmwq.svg)](https://asciinema.org/a/AYRdbtEF41f4Su8s5UkeZGmwq)
+
+### 桌面环境
+
+![](./gnome.jpg)
 
 ## 测试结论
 
-系统正常启动，能够通过板载串口登录。
-
+系统正常启动，成功通过串口及图形界面登录。

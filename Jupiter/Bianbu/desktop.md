@@ -1,8 +1,8 @@
 ---
 sys: bianbu
 sys_ver: 3.0.1
-sys_var: minimal
-status: basic
+sys_var: Desktop
+status: good
 last_update: 2025-09-29
 ---
 
@@ -41,8 +41,8 @@ last_update: 2025-09-29
 After downloading and extracting the image, use `dd` to flash the image to the microSD card.
 
 ```bash
-unzip bianbu-25.04-minimal-k1-v3.0.1-release-20250815180414.img.zip
-sudo dd if=/path/to/bianbu-25.04-minimal-k1-v3.0.1-release-20250815180414.img of=/dev/your-device bs=1M status=progress
+unzip bianbu-25.04-desktop-k1-v3.0.1-release-20250815185656.img.zip
+sudo dd if=/path/to/bianbu-25.04-desktop-k1-v3.0.1-release-20250815185656.img.zip of=/dev/your-device bs=1M status=progress
 ```
 
 ### Flash Image (eMMC/NVMe SSD)
@@ -83,7 +83,7 @@ If not, disconnect the PSU and then reconnect it. Jupiter will automatically pow
 
 ### Logging into the System
 
-Logging into the system via the serial port.
+Logging into the system via the serial port or desktop environment. No non-root user by default. First boot desktop environment includes a setup wizard that requires setting a username and password. SSH is not enabled by default.
 
 Default Username: `root`
 Default Password: `bianbu`
@@ -92,8 +92,12 @@ Default Password: `bianbu`
 
 ### Boot Log
 
-[![asciicast](https://asciinema.org/a/ckpxaAeBcxxHdsYEMboq90rak.svg)](https://asciinema.org/a/ckpxaAeBcxxHdsYEMboq90rak)
+[![asciicast](https://asciinema.org/a/AYRdbtEF41f4Su8s5UkeZGmwq.svg)](https://asciinema.org/a/AYRdbtEF41f4Su8s5UkeZGmwq)
+
+### Desktop Environment
+
+![](./gnome.jpg)
 
 ## Test Conclusion
 
-The system should boot normally and allow login via the onboard serial port.
+The system booted successfully and login through the onboard serial port as well as the GUI was successful.
