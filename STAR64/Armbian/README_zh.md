@@ -1,10 +1,16 @@
 # Armbian Star64 测试报告
 
+> [!WARNING]
+> Armbian Star64 的 GitHub release 版本已经被移除；最后一个可供下载的存档版本经测试同样无法启动。
+> 尽管版本不同，若使用 Ubuntu/Debian 或主线 U-Boot 时，你将会遇到和下面完全一致的 `bootarg overflow 265+0+0+1 > 256` 错误。
+> 目前看来 Armbian 对 Star64 的支持已经结束。建议使用其它发行版。
+
 ## 测试环境
 
 ### 操作系统信息
 
-- 下载链接：https://github.com/armbian/community/releases/download/25.2.0-trunk.124/Armbian_community_25.2.0-trunk.124_Star64_noble_edge_5.15.0_xfce_desktop.img.xz
+- 下载链接（已失效/已移除）：https://github.com/armbian/community/releases/download/25.2.0-trunk.124/Armbian_community_25.2.0-trunk.124_Star64_noble_edge_5.15.0_xfce_desktop.img.xz
+    - 最后可用的存档版本：https://k-space.ee.armbian.com/archive/star64/archive/
 - 参考安装文档：https://www.hackster.io/lupyuen/rtos-on-a-risc-v-sbc-star64-jh7110-apache-nuttx-2a7429
 
 ### 硬件信息
