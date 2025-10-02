@@ -4,19 +4,23 @@ sys_ver: 25.2.0-trunk.124
 sys_var: null
 
 status: cfh
-last_update: 2025-04-07
+last_update: 2025-10-02
 
-# Due to the complexcity in armbian mirror naming, we needs to provide the download link for sync tools in the metadata.
-link: https://github.com/armbian/community/releases/download/25.2.0-trunk.124/Armbian_community_25.2.0-trunk.124_Star64_noble_edge_5.15.0_xfce_desktop.img.xz
 ---
 
 # Armbian Star64 Test Report
+
+> [!WARNING]
+> Armbian for Star64's GitHub release versions were already removed; while in out tests, the last available archived version did not boot either.
+> You'll be greeted with the same `bootarg overflow 265+0+0+1 > 256` error as shown below, if using U-Boot from Ubuntu/Debian, or straight from mainline U-Boot.
+> It seems Armbian's support for Star64 is EOL. It is recommended to use other distros instead.
 
 ## Test Environment
 
 ### Operating System Information
 
-- Download Link: https://github.com/armbian/community/releases/download/25.2.0-trunk.124/Armbian_community_25.2.0-trunk.124_Star64_noble_edge_5.15.0_xfce_desktop.img.xz
+- Download Link (expired/removed): https://github.com/armbian/community/releases/download/25.2.0-trunk.124/Armbian_community_25.2.0-trunk.124_Star64_noble_edge_5.15.0_xfce_desktop.img.xz
+    - Last available archived version: https://k-space.ee.armbian.com/archive/star64/archive/
 - Reference Installation Document: https://www.hackster.io/lupyuen/rtos-on-a-risc-v-sbc-star64-jh7110-apache-nuttx-2a7429
 
 ### Hardware Information
