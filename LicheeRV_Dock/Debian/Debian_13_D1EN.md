@@ -229,6 +229,9 @@ sync
 2. Connect it with your computer(via USB to UART debugger and `screen`)
 3. Power on
 
+![lichee2](https://github.com/user-attachments/assets/f44dca2d-4fd8-4909-bbb4-b4aa0409b711)
+
+
 ### Verify system information
 
 1. Login with root
@@ -241,6 +244,7 @@ then,
 
 ### neofetch
 
+![neofetch](https://github.com/user-attachments/assets/387ef200-3d7f-4584-9984-304f5ea39528)
 
 
 ## Basic Info
@@ -271,5 +275,6 @@ mvendorid       : 0x5b7
 marchid         : 0x0
 mimpid          : 0x0
 ```
+
 
 
