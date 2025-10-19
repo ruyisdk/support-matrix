@@ -7,15 +7,15 @@
 - 系统版本：Debian 13 Trixie
 - 来源：
 
-可以通过
+通过
 
 `sudo debootstrap --arch=riscv64 trixie rootfs http://deb.debian.org/debian`
 
 创建一个 rootfs
 
-之后烧录到内存卡
+烧录到内存卡
 
-### 需要用到的仓库
+### 涉及的仓库
 
 * https://github.com/riscv-software-src/opensbi.git
 * https://github.com/smaeul/u-boot.git
@@ -25,8 +25,8 @@
 
 - Sipeed Lichee RV Dock 一块
 - 电源适配器一个
-- MicroSD 卡一张(最好大于 8 GB)
-- CH340 一个(tx 接 rx 记得接通 GND)
+- MicroSD 卡一张(推荐大于 8 GB)
+- CH340 一个(tx 接 rx 需要接通 GND)
 
 ### 所需前置内容
 
@@ -35,7 +35,7 @@
 * riscv64-linux-gnu-gcc
 * debootstrap
 * 磁盘操作工具(任意)
-* screen(也可以用别的)
+* screen(可选)
 
 ## 测试判定标准
 
@@ -63,7 +63,7 @@
 
 ### OpenSBI
 
-可以从 github 上克隆一份源码
+从 github 克隆一份源码
 
 ```
 git clone https://github.com/riscv-software-src/opensbi.git
@@ -79,13 +79,13 @@ make CROSS_COMPILE=riscv64-linux-gnu- PLATFORM=generic FW_PIC=y -j$(nproc)
 
 ### U-Boot
 
-从下面这个仓库里面克隆 d1-wip 分支里的源码
+从下面这个仓库克隆 d1-wip 分支里的源码
 
 ```
 git clone https://github.com/smaeul/u-boot.git -b d1-wip
 ```
 
-先配置再进行编译
+配置后进行编译
 
 ```
 make lichee_rv_dock_defconfig
@@ -93,15 +93,15 @@ make lichee_rv_dock_defconfig
 make CROSS_COMPILE=riscv64-linux-gnu- OPENSBI=../opensbi/build/platform/generic/firmware/fw_dynamic.bin -j$(nproc)
 ```
 
-编译完会生成一份 u-boot-sunxi-with-spl.bin 文件
+编译结束会生成一份 u-boot-sunxi-with-spl.bin 文件
 
 之后要烧录到内存卡
 
 ### Linux Kernel
 
-首先从这个仓库的 d1/all 分支克隆一份内核的源码
+首先从此仓库的 d1/all 分支克隆一份内核的源码
 
-再从下面那个仓库里下载一份 config
+从此仓库下载 config
 
 ```
 git clone https://github.com/smaeul/linux.git -b d1/all
@@ -162,7 +162,7 @@ exit
 
 关于 rootfs 镜像
 
-先建立一个 1 GB 的镜像
+首先建立一个 1 GB 的镜像
 
 然后挂载并把 rootfs 复制到镜像中
 
@@ -188,9 +188,9 @@ sudo resize2fs -M rootfs.img
 
 ### 烧录
 
-注：写在前面，你需要先确定你 sd 卡的设备路径 `sudo lsblk` 诸如此类的方法
+注：写在前面，需要先确定 sd 卡的设备路径 `sudo lsblk` 
 
-1. 先规划一下内存卡的分区 这里我分了一个 boot 和 rootfs
+1. 规划一下内存卡的分区 此处分了一个 boot 和 rootfs
 
 ```
 sudo sgdisk /dev/sdb -o 
@@ -242,9 +242,9 @@ sync
 2. 连接串口
 3. 连接电源
 
-注：此处我使用了 screen 进行调试 成功启动的话就可以进入 shell 进行操作了
+注：此处使用了 screen 进行调试 成功启动的话就可以进入 shell 进行操作了
 
-![lichee2](https://github.com/user-attachments/assets/2fc5915a-5465-4148-b04f-9e8539a4275f)
+![licheervdock](./licheervdock.JPG)
 
 
 ### 验证系统信息
@@ -257,12 +257,9 @@ sync
 
 ### neofetch
 
-我预先克隆并编译了一份 neofetch 进去
-
 如下
 
-![neofetch](https://github.com/user-attachments/assets/391fefee-7168-466b-80be-70690ddfa10b)
-
+![neofetch](./neofetch.jpg)
 
 ## 基本信息
 
@@ -292,5 +289,6 @@ mvendorid       : 0x5b7
 marchid         : 0x0
 mimpid          : 0x0
 ```
+
 
 
