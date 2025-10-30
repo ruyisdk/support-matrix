@@ -4,9 +4,9 @@
 
 ### 操作系统信息
 
-- 系统版本：RevyOS 20241230
-- 下载链接：[https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20241230/](https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20241230/)
-  - 固件: [https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20241230/](https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20241230/)
+- 系统版本：RevyOS 20251030
+- 下载链接：[https://fast-mirror.isrc.ac.cn/revyos/extra/images/sg2042/20251030/](https://fast-mirror.isrc.ac.cn/revyos/extra/images/sg2042/20251030/)
+  - 固件: [https://fast-mirror.isrc.ac.cn/revyos/extra/images/sg2042/20251030/](https://fast-mirror.isrc.ac.cn/revyos/extra/images/sg2042/20251030/)
 - 参考安装文档：[https://docs.revyos.dev/docs/Installation/milkv-pioneer/](https://docs.revyos.dev/docs/Installation/milkv-pioneer/)
 
 ### 硬件信息
@@ -24,8 +24,8 @@
 
 下载固件并刷入 SD 卡中：
 ```bash
-wget https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20241230/firmware_single_sg2042-v6.6-lts-v0p7.img
-sudo dd if=firmware_single_sg2042-v6.6-lts-v0p7.img of=/dev/your/sd/card
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/sg2042/20251030/firmware_sg2042-single-sg2042-upstream-v6.17.y-sg204x-v1.7.img
+sudo dd if=firmware_sg2042-single-sg2042-upstream-v6.17.y-sg204x-v1.7.img of=/dev/your/sd/card
 sync
 ```
 
@@ -43,8 +43,8 @@ sudo modprobe mtdblock
 
 下载固件并刷入 SPI Flash *注意此处固件以 `.bin` 结尾*
 ```bash
-wget https://mirror.iscas.ac.cn/revyos/extra/images/sg2042/20240819/firmware_single_sg2042-v6.6-lts-v0p7.bin
-sudo flashcp -v firmware_single_sg2042-v6.6-lts-v0p7.bin /dev/mtd1
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/sg2042/20251030/firmware_sg2042-single-sg2042-upstream-v6.17.y-sg204x-v1.7.bin
+sudo flashcp -v firmware_sg2042-single-sg2042-upstream-v6.17.y-sg204x-v1.7.bin /dev/mtd1
 ```
 
 
@@ -54,8 +54,8 @@ sudo flashcp -v firmware_single_sg2042-v6.6-lts-v0p7.bin /dev/mtd1
 使用 `dd` 将镜像写入 microSD 卡。
 
 ```bash
-zstd -d /path/to/revyos-pioneer-20241230-212249.img.zst
-dd if=/path/to/revyos-pioneer-20241230-212249.img.zst of=/dev/yout-device bs=4M status=progress
+zstd -d /path/to/revyos-pioneer-20251030-004123.img.zst
+dd if=/path/to/revyos-pioneer-20251030-004123.img.zst of=/dev/yout-device bs=4M status=progress
 ```
 
 ### 常见问题
@@ -89,9 +89,7 @@ dd if=/path/to/revyos-pioneer-20241230-212249.img.zst of=/dev/yout-device bs=4M 
 ![desktop](./desktop.png)
 
 ```log
-revyos-pioneer login: debian
-Password: 
-Linux revyos-pioneer 6.6.66-pioneer #2024.12.27.05.50+c30fe9b9c SMP Fri Dec 27 06:19:30 UTC 2024 riscv64
+Linux revyos-pioneer 6.17.5-pioneer #2025.10.24.07.33+1a3936919 SMP Fri Oct 24 08:22:44 UTC 2025 riscv64
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -99,26 +97,40 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
+debian@revyos-pioneer:~$ fastfetch
+        _,met$$$$$gg.          debian@revyos-pioneer
+     ,g$$$$$$$$$$$$$$$P.       ---------------------
+   ,g$$P""       """Y$$.".     OS: Debian GNU/Linux 13 (trixie) riscv64
+  ,$$P'              `$$$.     Host: Milk-V Pioneer
+',$$P       ,ggs.     `$$b:    Kernel: Linux 6.17.5-pioneer
+`d$$'     ,$P"'   .    $$$     Uptime: 32 mins
+ $$P      d$'     ,    $$P     Packages: 2220 (dpkg)
+ $$:      $$.   -    ,d$$'     Shell: bash 5.2.37
+ $$;      Y$b._   _,d$P'       Display (IDVED11): 1920x1080 @ 60 Hz in 28" [External]
+ Y$$.    `.`"Y$$$$P"'          Theme: Breeze [GTK2/3]
+ `$$b      "-.__               Icons: breeze [GTK2/3/4]
+  `Y$$b                        Font: Noto Sans (10pt) [GTK2/3/4]
+   `Y$$.                       Cursor: breeze (24px)
+     `$$b.                     Terminal: /dev/pts/0
+       `Y$$b.                  CPU: sg2042 (64)
+         `"Y$b._               GPU: AMD Radeon HD 6450/7450/8450 / R5 230 OEM [Discrete]
+             `""""             Memory: 1.68 GiB / 124.88 GiB (1%)
+                               Swap: Disabled
+                               Disk (/): 8.01 GiB / 936.80 GiB (1%) - ext4
+                               Local IP (enP3p5s0): 10.0.0.12/24
+                               Locale: C
+
+                                                       
+                                                       
 debian@revyos-pioneer:~$ uname -a
-Linux revyos-pioneer 6.6.66-pioneer #2024.12.27.05.50+c30fe9b9c SMP Fri Dec 27 06:19:30 UTC 2024 riscv64 GNU/Linux
-debian@revyos-pioneer:~$ cat /etc/os-release 
-PRETTY_NAME="Debian GNU/Linux trixie/sid"
-NAME="Debian GNU/Linux"
-VERSION_CODENAME=trixie
-ID=debian
-HOME_URL="https://www.debian.org/"
-SUPPORT_URL="https://www.debian.org/support"
-BUG_REPORT_URL="https://bugs.debian.org/"
-debian@revyos-pioneer:~$ cat /etc/re
-resolv.conf     revyos-release  
-debian@revyos-pioneer:~$ cat /etc/revyos-release 
-20241230-212249
+Linux revyos-pioneer 6.17.5-pioneer #2025.10.24.07.33+1a3936919 SMP Fri Oct 24 08:22:44 UTC 2025 riscv64 GNU/Linux
+debian@revyos-pioneer:~$
 ```
 
 
 串口日志（从刷写系统到启动系统）：
 
-[![asciicast](https://asciinema.org/a/OFK3vNsNvS9zHLPXAI46ynBtd.svg)](https://asciinema.org/a/OFK3vNsNvS9zHLPXAI46ynBtd)
+[![asciicast](https://asciinema.org/a/wtn7JGIWTSIlLSNmscCBgctCR.svg)](https://asciinema.org/a/wtn7JGIWTSIlLSNmscCBgctCR)
 
 
 ## 测试结论
