@@ -4,8 +4,8 @@
 
 ### 操作系统信息
 
-- 系统版本：RevyOS 20250526
-- 下载链接：[Nginx Directory](https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250526/)
+- 系统版本：RevyOS 20250930
+- 下载链接：[Nginx Directory](https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250930/)
 - 参考安装文档：https://revyos.github.io/docs/
 
 ### 硬件信息
@@ -21,11 +21,11 @@
 下载镜像，使用 `zstd` 解压镜像：
 
 ```shell
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250526/u-boot-with-spl-lpi4a-16g-main.bin
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250526/boot-lpi4a-20250526_182059.ext4.zst
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250526/root-lpi4a-20250526_182059.ext4.zst
-zstd -d boot-lpi4a-20250526_182059.ext4.zst
-zstd -d root-lpi4a-20250526_182059.ext4.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250930/u-boot-with-spl-lpi4a-16g-main.bin
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250930/boot-lpi4a-20250930_113443.ext4.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250930/root-lpi4a-20250930_113443.ext4.zst
+zstd -d boot-lpi4a-20250930_113443.ext4.zst
+zstd -d root-lpi4a-20250930_113443.ext4.zst
 ```
 
 ### 通过 `fastboot` 刷写到板载 eMMC
@@ -41,8 +41,8 @@ sudo fastboot devices
 sudo fastboot flash ram u-boot-with-spl-lpi4a-16g-main.bin
 sudo fastboot reboot
 sudo fastboot flash uboot u-boot-with-spl-lpi4a-16g-main.bin
-sudo fastboot flash boot boot-lpi4a-20250526_182059.ext4.zst
-sudo fastboot flash root root-lpi4a-20250526_182059.ext4.zst
+sudo fastboot flash boot boot-lpi4a-20250930_113443.ext4.zst
+sudo fastboot flash root root-lpi4a-20250930_113443.ext4.zst
 ```
 
 ### 登录系统
@@ -64,22 +64,22 @@ sudo fastboot flash root root-lpi4a-20250526_182059.ext4.zst
 
 屏幕录制（从刷写镜像到登录系统）：
 
-[![asciicast](https://asciinema.org/a/NI5udds5YK0GqgpJ0XVKop5tV.svg)](https://asciinema.org/a/NI5udds5YK0GqgpJ0XVKop5tV)
+[![asciicast](https://asciinema.org/a/EcUulslHiAdfr6lWrcUh87ItU.svg)](https://asciinema.org/a/EcUulslHiAdfr6lWrcUh87ItU)
 
 ![A](A.jpg)
 
 ```log
    ____              _ ____  ____  _  __
   |  _ \ _   _ _   _(_) ___||  _ \| |/ /
-  | |_) | | | | | | | \___ \| | | | ' / 
-  |  _ <| |_| | |_| | |___) | |_| | . \ 
+  | |_) | | | | | | | \___ \| | | | ' /
+  |  _ <| |_| | |_| | |___) | |_| | . \
   |_| \_\\__,_|\__, |_|____/|____/|_|\_\
-               |___/                    
+               |___/
                    -- Presented by ISCAS
 
-  Debian GNU/Linux trixie/sid (kernel 6.6.92-th1520)
+  Debian GNU/Linux trixie/sid (kernel 6.6.108-th1520)
 
-Linux revyos-lpi4a 6.6.92-th1520 #2025.05.26.14.02+c9a17b235 SMP Mon May 26 14:22:33 UTC 2025 riscv64
+Linux revyos-lpi4a 6.6.108-th1520 #2025.09.25.17.23+5c28a90d5 SMP Thu Sep 25 17:41:02 UTC 2025 riscv64
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
