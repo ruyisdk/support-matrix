@@ -14,7 +14,7 @@ last_update: 2024-06-21
 ### System Information
 
 - System Version: RevyOS
-- Reference Installation Document: [https://revyos.github.io/](https://revyos.github.io/)
+- Reference Installation Document: https://revyos.github.io/docs/
 
 ### Hardware Information
 

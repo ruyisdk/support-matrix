@@ -19,7 +19,7 @@ last_update: 2024-06-21
   - Boot Image: [boot-lpi4amain-20240127_105111.ext4.zst](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/boot-lpi4amain-20240127_105111.ext4.zst)
   - U-Boot Image (8G RAM): [u-boot-with-spl-lc4a-main.bin](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/u-boot-with-spl-lc4a-main.bin)
   - U-Boot Image (16G RAM): [u-boot-with-spl-lc4a-16g-main.bin](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/u-boot-with-spl-lc4a-16g-main.bin)
-- Reference Installation Document: https://revyos.github.io/
+- Reference Installation Document: https://revyos.github.io/docs/
 
 ### Hardware Information
 
