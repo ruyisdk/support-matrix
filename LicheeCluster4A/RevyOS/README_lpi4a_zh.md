@@ -5,7 +5,7 @@
 ### 操作系统信息
 
 - 系统版本：RevyOS
-- 参考安装文档：https://revyos.github.io/
+- 参考安装文档：https://revyos.github.io/docs/
 
 ### 硬件信息
 
