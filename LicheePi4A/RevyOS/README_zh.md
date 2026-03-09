@@ -73,7 +73,7 @@ sudo fastboot flash root root-lpi4a-20251226_XXX.ext4
 ### 启动信息
 
 启动和桌面截图：
-![C](C.PNG)
+![Boot and desktop screenshot](c.png)
 
 ## 测试判定标准
 
