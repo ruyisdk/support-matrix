@@ -1,3 +1,12 @@
+---
+sys: revyos
+sys_ver: "20251226"
+sys_var: null
+
+status: good
+last_update: 2026-03-10
+---
+
 # RevyOS LPi4A Test Report
 
 ## Test Environment
@@ -74,7 +83,7 @@ System boots normally and successfully logs in to the desktop environment via th
 
 Boot and desktop screenshot:
 
-![C](C.PNG)
+![Boot and desktop screenshot](c.png)
 
 ## Test Criteria
 
