@@ -82,7 +82,6 @@ System boots normally and successfully logs in to the desktop environment via th
 ### Boot Information
 
 Boot and desktop screenshot:
-
 ![Boot and desktop screenshot](c.png)
 
 ## Test Criteria
