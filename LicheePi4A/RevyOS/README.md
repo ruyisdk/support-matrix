@@ -1,110 +1,86 @@
----
-sys: revyos
-sys_ver: "20250930"
-sys_var: null
-
-status: good
-last_update: 2025-10-29
----
-
 # RevyOS LPi4A Test Report
 
 ## Test Environment
 
-### System Information
+### Operating System Information
 
-- System Version: RevyOS 20250930
-- Download Link: [Nginx Directory](https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250930/)
-- Reference Installation Document: [Visit here](https://revyos.github.io/docs/)
+- System version: RevyOS 20251226
+- Distribution: Debian GNU/Linux trixie/sid (riscv64)
+- Kernel version: 6.6.119-th1520
+- Download link: [Nginx Directory](https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20251226/)
+- Installation docs: https://revyos.github.io/docs/
 
 ### Hardware Information
 
-- Lichee Pi 4A (16GB RAM + 128GB eMMC)
-- USB-C Power Adapter / DC Power Supply
-- USB-UART Debugger
+- Lichee Pi 4A (16G RAM + 128G eMMC)
+- USB-C power adapter / DC power supply
+- HDMI display
+- USB keyboard and mouse
 
 ## Installation Steps
 
-### Download and decompress image
+### Download and Extract Image
 
-Download the image, use `zstd` to decompress the image:
+Download the image and decompress with `zstd` (replace `XXX` with the actual filename from the 20251226 directory):
 
 ```shell
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250930/u-boot-with-spl-lpi4a-16g-main.bin
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250930/boot-lpi4a-20250930_113443.ext4.zst
-wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20250930/root-lpi4a-20250930_113443.ext4.zst
-zstd -d boot-lpi4a-20250930_113443.ext4.zst
-zstd -d root-lpi4a-20250930_113443.ext4.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20251226/u-boot-with-spl-lpi4a-16g-main.bin
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20251226/boot-lpi4a-20251226_XXX.ext4.zst
+wget https://fast-mirror.isrc.ac.cn/revyos/extra/images/lpi4a/20251226/root-lpi4a-20251226_XXX.ext4.zst
+
+zstd -d boot-lpi4a-20251226_XXX.ext4.zst
+zstd -d root-lpi4a-20251226_XXX.ext4.zst
 ```
 
-### Flash to onboard eMMC via `fastboot`
+### Flash to Onboard eMMC via `fastboot`
 
-#### Use boot button to enter fastboot mode
+#### Enter fastboot mode using the BOOT button
 
-Hold the **BOOT** button, then connect the USB-C cable (to your PC on the other side) to enter USB burning mode.
+Hold the **BOOT** button, then connect the USB-C cable (to your PC) to enter USB flashing mode.
 
-Use the following commands to flash the image.
+Use the following commands to flash (adjust filenames according to your actual files):
 
 ```shell
 sudo fastboot devices
 sudo fastboot flash ram u-boot-with-spl-lpi4a-16g-main.bin
 sudo fastboot reboot
 sudo fastboot flash uboot u-boot-with-spl-lpi4a-16g-main.bin
-sudo fastboot flash boot boot-lpi4a-20250930_113443.ext4.zst
-sudo fastboot flash root root-lpi4a-20250930_113443.ext4.zst
+sudo fastboot flash boot boot-lpi4a-20251226_XXX.ext4
+sudo fastboot flash root root-lpi4a-20251226_XXX.ext4
 ```
 
-### Logging into the System
+### Login
 
-Logging into the system via serial console or graphical interface.
+This test used **display + keyboard + mouse** for graphical login. Serial port was not used.
 
-Default username: `debian`
-Default password: `debian`
+- Default username: `debian`
+- Default password: `debian`
 
-## Expected Results
+Login steps:
 
-The system boots up successfully and can be accessed via the serial console.
+1. Power on and wait for the graphical login screen.
+2. Enter username `debian` and password `debian` at the login screen.
+3. Successfully reach the desktop environment.
 
-## Actual Results
+## Expected Result
 
-The system boots up successfully and login via the serial console is successful.
+System boots normally and can log in to the desktop environment via the graphical interface.
 
-### Boot Log
+## Actual Result
 
-Screen recording (from flashing image to logging into system):
+System boots normally and successfully logs in to the desktop environment via the graphical interface.
 
-[![asciicast](https://asciinema.org/a/EcUulslHiAdfr6lWrcUh87ItU.svg)](https://asciinema.org/a/EcUulslHiAdfr6lWrcUh87ItU)
+### Boot Information
 
-![A](A.jpg)
+Boot and desktop screenshot:
 
-```log
-   ____              _ ____  ____  _  __
-  |  _ \ _   _ _   _(_) ___||  _ \| |/ /
-  | |_) | | | | | | | \___ \| | | | ' /
-  |  _ <| |_| | |_| | |___) | |_| | . \
-  |_| \_\\__,_|\__, |_|____/|____/|_|\_\
-               |___/
-                   -- Presented by ISCAS
-
-  Debian GNU/Linux trixie/sid (kernel 6.6.108-th1520)
-
-Linux revyos-lpi4a 6.6.108-th1520 #2025.09.25.17.23+5c28a90d5 SMP Thu Sep 25 17:41:02 UTC 2025 riscv64
-
-The programs included with the Debian GNU/Linux system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-permitted by applicable law.
-
-```
+![C](C.PNG)
 
 ## Test Criteria
 
-Successful: The actual result matches the expected result.
-
-Failed: The actual result does not match the expected result.
+- Test passed: Actual result matches expected result.
+- Test failed: Actual result does not match expected result.
 
 ## Test Conclusion
 
-Test successful.
+Test passed.
