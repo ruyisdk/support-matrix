@@ -10,7 +10,7 @@
   - boot 镜像：[boot-lpi4amain-20240127_105111.ext4.zst](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/boot-lpi4amain-20240127_105111.ext4.zst)
   - u-boot 镜像（8G RAM）：[u-boot-with-spl-lc4a-main.bin](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/u-boot-with-spl-lc4a-main.bin)
   - u-boot 镜像（16G RAM）：[u-boot-with-spl-lc4a-16g-main.bin](https://mirror.iscas.ac.cn/revyos/extra/images/lpi4amain/20240127/u-boot-with-spl-lc4a-16g-main.bin)
-- 参考安装文档：https://revyos.github.io/docs/
+- 参考安装文档：https://docs.revyos.dev
 
 ### 硬件信息
 
