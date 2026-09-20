@@ -4,7 +4,7 @@
 
 ### 操作系统信息
 
-- 系统版本：archriscv-2025-06-12
+- 系统版本：archriscv-2026-08-27
 
 需要自行构建。
 
@@ -61,7 +61,7 @@ CONFIG_FANOTIFY=y
 先从 [Arch Linux RISC-V](https://archriscv.felixc.at/) 下载根文件系统。
 
 ```
-wget https://archriscv.felixc.at/images/archriscv-2025-06-12.tar.zst
+wget https://archriscv.felixc.at/images/archriscv-2026-08-27.tar.zst
 ```
 
 #### 挂载镜像
@@ -75,7 +75,7 @@ sudo losetup -f
 挂载镜像到环设备上。
 
 ```
-losetup -P loop0 out/milkv-duos-sd_2025-0831-0547.img
+losetup -P loop0 out/milkv-duos-sd_<your-build-timex>.img
 ```
 
 挂载分区到目录。
@@ -95,7 +95,7 @@ rm -rf ./*
 将根文件系统解压到此处。
 
 ```
-tar -xvf archriscv-2025-06-12.tar.zst -C .
+tar -xvf archriscv-2026-08-27.tar.zst -C .
 ```
 
 #### 下载包
@@ -104,8 +104,8 @@ tar -xvf archriscv-2025-06-12.tar.zst -C .
 
 ```
 cd /mnt/duo-rootfs/root
-wget https://mirror.iscas.ac.cn/archriscv/repo/core/nano-8.2-1-riscv64.pkg.tar.zst
-wget https://mirror.iscas.ac.cn/archriscv/repo/extra/dhcpcd-10.0.10-1-riscv64.pkg.tar.zst
+wget https://mirror.iscas.ac.cn/archriscv/repo/core/nano-9.2-1-riscv64.pkg.tar.zst
+wget https://mirror.iscas.ac.cn/archriscv/repo/extra/dhcpcd-10.5.2-1-riscv64.pkg.tar.zst
 ```
 
 ### 卸载镜像
@@ -120,7 +120,7 @@ losetup -d /dev/loop0
 ### 使用 `dd` 刷写镜像到 microSD 卡
 
 ```shell
-dd if=milkv-duos-sd_2025-0831-0547.img of=/dev/sdc bs=1M status=progress
+sudo dd if=out/milkv-duos-sd_<your-build-timex>.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### 登录系统
@@ -135,8 +135,8 @@ dd if=milkv-duos-sd_2025-0831-0547.img of=/dev/sdc bs=1M status=progress
 使用 UART 连接到开发板。
 
 ```
-pacman -U ./dhcpcd-10.0.10-1-riscv64.pkg.tar.zst
-pacman -U ./nano-8.2-1-riscv64.pkg.tar.zst
+pacman -U ./dhcpcd-10.5.2-1-riscv64.pkg.tar.zst
+pacman -U ./nano-9.2-1-riscv64.pkg.tar.zst
 ```
 
 启动网络。
@@ -172,36 +172,48 @@ echo -e "nameserver 172.16.0.1" >> /etc/resolv.conf #DNS服务器
 
 ```bash
          Starting Flush Journal to Persistent Storage...
-[    9.174420] systemd-journald[127]: Received client request to flush runtime journal.
-[    9.200170] systemd-journald[127]: File /var/log/journal/33bd66794bef4c019a0e3acfdcceb30a/system.journal corrupted or uncleanly shut down, renaming and replacing.
+[   10.376192] systemd-journald[126]: Received client request to flush runtime journal.
 [  OK  ] Finished Flush Journal to Persistent Storage.
 [  OK  ] Started User Database Manager.
-[  OK  ] Finished Coldplug All udev Devices.
 [  OK  ] Finished Create Static Device Nodes in /dev gracefully.
-         Starting Create Static Device Nodes in /dev...
+         Starting Create System Users...
+[  OK  ] Finished Create System Users.
+         Starting Journal Log Access Socket...
+         [   12.485748] random: crng init done
+Starting Create Static Device Nodes in /dev...
+[  OK  ] Finished Load/Save OS Random Seed.
+[  OK  ] Listening on Journal Log Access Socket.
+[  OK  ] Finished Coldplug All udev Devices.
 [  OK  ] Finished Create Static Device Nodes in /dev.
 [  OK  ] Reached target Preparation for Local File Systems.
 [  OK  ] Reached target Local File Systems.
-[  OK  ] Listening on Boot Entries Service Socket.
+[  OK  ] Listening on Boot Loader Control Service Socket.
 [  OK  ] Listening on Disk Image Download Service Socket.
 [  OK  ] Listening on System Extension Image Management.
          Starting Create System Files and Directories...
          Starting Rule-based Manager for Device Events and Files...
-[   12.700936] random: crng init done
-[  OK  ] Finished Load/Save OS Random Seed.
+         Starting Load JSON user/group Records from Credentials...
+[  OK  ] Finished Load JSON user/group Records from Credentials.
 [  OK  ] Finished Create System Files and Directories.
-         Starting Record System Boot/Shutdown in UTMP...
 [  OK  ] Started Rule-based Manager for Device Events and Files.
-[   13.672405] bm-dwmac 4070000.ethernet end0: renamed from eth0
-[  OK  ] Found device /dev/ttyS0.
+         Starting Rebuild Dynamic Linker Cache...
+         Starting Rebuild Journal Catalog...
+         Starting Record System Boot/Shutdown in UTMP...
 [  OK  ] Finished Record System Boot/Shutdown in UTMP.
+[  OK  ] Finished Rebuild Journal Catalog.
+[   16.740896] bm-dwmac 4070000.ethernet end0: renamed from eth0
+[  OK  ] Found device /dev/ttyS0.
+[  OK  ] Finished Rebuild Dynamic Linker Cache.
 [  OK  ] Reached target Sound Card.
+[  OK  ] Reached target Hardware activated USB gadget.
+[  OK  ] Listening on Load/Save RF Kill Switch Status /dev/rfkill Watch.
+         Starting Update is Completed...
+[  OK  ] Finished Update is Completed.
 [  OK  ] Reached target System Initialization.
 [  OK  ] Started Refresh existing PGP keys of archlinux-keyring regularly.
 [  OK  ] Started Daily verification of password and group files.
 [  OK  ] Started Daily Cleanup of Temporary Directories.
 [  OK  ] Reached target Timer Units.
-[  OK  ] Reached target Hardware activated USB gadget.
 [  OK  ] Listening on D-Bus System Message Bus Socket.
 [  OK  ] Listening on GnuPG network certifi…ent daemon for /etc/pacman.d/gnupg.
 [  OK  ] Listening on GnuPG cryptographic a… browsers) for /etc/pacman.d/gnupg.
@@ -209,9 +221,9 @@ echo -e "nameserver 172.16.0.1" >> /etc/resolv.conf #DNS服务器
 [  OK  ] Listening on GnuPG cryptographic a…emulation) for /etc/pacman.d/gnupg.
 [  OK  ] Listening on GnuPG cryptographic a…rase cache for /etc/pacman.d/gnupg.
 [  OK  ] Listening on GnuPG public key mana…nt service for /etc/pacman.d/gnupg.
-[  OK  ] Listening on Hostname Service Socket.
+[  OK  ] Listening on User Login Management Varlink Socket.
+[  OK  ] Listening on Virtual Machine and C…tainer Registration Service Socket.
 [  OK  ] Reached target Socket Units.
-[  OK  ] Listening on Load/Save RF Kill Switch Status /dev/rfkill Watch.
          Starting D-Bus System Message Bus...
 [  OK  ] Started D-Bus System Message Bus.
 [  OK  ] Reached target Basic System.
@@ -220,31 +232,25 @@ echo -e "nameserver 172.16.0.1" >> /etc/resolv.conf #DNS服务器
 [  OK  ] Finished Permit User Sessions.
 [  OK  ] Started Serial Getty on ttyS0.
 [  OK  ] Reached target Login Prompts.
-[   16.871684] ext4 filesystem being remounted at /run/systemd/mount-rootfs/var/lib/systemd/linger supports timestamps until 2038 (0x7fffffff)
-[   16.886837] ext4 filesystem being remounted at /run/systemd/mount-rootfs/var/tmp supports timestamps until 2038 (0x7fffffff)
-[   16.899137] ext4 filesystem being remounted at /run/systemd/mount-rootfs/etc supports timestamps until 2038 (0x7fffffff)
-[   16.925233] ext4 filesystem being remounted at /run/systemd/mount-rootfs/etc supports timestamps until 2038 (0x7fffffff)
-[   17.048985] ext4 filesystem being remounted at /run/systemd/mount-rootfs/var/lib/systemd/linger supports timestamps until 2038 (0x7fffffff)
-[   17.068576] ext4 filesystem being remounted at /run/systemd/mount-rootfs/var/tmp supports timestamps until 2038 (0x7fffffff)
+[   21.045114] ext4 filesystem being remounted at /run/systemd/mount-rootfs/var/lib/systemd/linger supports timestamps until 2038 (0x7fffffff)
+[   21.058678] ext4 filesystem being remounted at /run/systemd/mount-rootfs/var/tmp supports timestamps until 2038 (0x7fffffff)
+[   21.074402] ext4 filesystem being remounted at /run/systemd/mount-rootfs/etc supports timestamps until 2038 (0x7fffffff)
+[   21.098246] ext4 filesystem being remounted at /run/systemd/mount-rootfs/etc supports timestamps until 2038 (0x7fffffff)
+[   21.215954] ext4 filesystem being remounted at /run/systemd/mount-rootfs/var/lib/systemd/linger supports timestamps until 2038 (0x7fffffff)
+[   21.235324] ext4 filesystem being remounted at /run/systemd/mount-rootfs/var/tmp supports timestamps until 2038 (0x7fffffff)
 [  OK  ] Started User Login Management.
 [  OK  ] Reached target Multi-User System.
 [  OK  ] Reached target Graphical Interface.
-
 Arch Linux 5.10.4-tag- (ttyS0)
 
 archlinux login: root
 Password:
-[root@archlinux ~]# lscpu
-Architecture:          riscv64
-  Byte Order:          Little Endian
-CPU(s):                1
-  On-line CPU(s) list: 0
 [root@archlinux ~]#
 ```
 
 屏幕录像：
 
-[![asciicast](https://asciinema.org/a/mMXIs8084TXdx8zVAg2scpPWe.svg)](https://asciinema.org/a/mMXIs8084TXdx8zVAg2scpPWe)
+[![asciicast](https://asciinema.org/a/FWqEke4GZrtD3ThY.svg)](https://asciinema.org/a/FWqEke4GZrtD3ThY)
 
 
 ## 测试判定标准
