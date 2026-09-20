@@ -4,9 +4,9 @@
 
 ### 操作系统信息
 
-- 系统版本：Ubuntu 22.04
-- 下载链接：https://drive.google.com/file/d/1mkzLhvtjJup3GbgWKZdwL80PZMMXg7n1/view
-- 参考安装文档：https://xyzdims.com/3d-printers/misc-hardware-notes/iot-milk-v-duo-risc-v-esbc-running-linux/
+- 系统版本：Ubuntu 24.04 LTS
+- 下载链接：https://github.com/queenkjuul/milkv-duo-ubuntu/releases/tag/v7.0.6-qkj1
+- 参考安装文档：https://github.com/queenkjuul/milkv-duo-ubuntu/wiki/Building-the-System
 
 ### 硬件信息
 
@@ -24,8 +24,9 @@
 ### 使用 `dd` 刷写镜像到 microSD 卡
 
 ```shell
-sudo dd if=milkv-duo-256m-ubuntu-22.04-riscv64-v0.0.4-spiritdude.img of=/dev/your/device bs=1M status=progress
+sudo dd if=ubuntu-noble-milkv-duos.img of=/dev/sdX bs=1M status=progress
 ```
+> 注：请将 `/dev/sdX` 替换为实际 SD 卡设备名。
 
 ### 登录系统
 
@@ -42,42 +43,32 @@ sudo dd if=milkv-duo-256m-ubuntu-22.04-riscv64-v0.0.4-spiritdude.img of=/dev/you
 ### 启动信息
 
 ```bash
-[  OK  ] Started Message of the Day.
-[  OK  ] Reached target Timer Units.
-[  OK  ] Started dnsmasq - A lightw…t DHCP and caching DNS server.
-[  OK  ] Reached target Host and Network Name Lookups.
-[  OK  ] Started User Login Management.
+[  OK  ] Started dbus.service - D-Bus System Message Bus.
+[  OK  ] Finished e2scrub_reap.service - Re…line ext4 Metadata Check Snapshots.
+[  OK  ] Finished sysstat.service - Resets System Activity Logs.
+[  OK  ] Finished milkv-usb.service - Milk-V Duo S USB OTG.
 
-Ubuntu 22.04 LTS milkv-duo ttyS0
+Ubuntu 24.04 LTS milkv-duos ttyS0
 
-milkv-duo login: root
+milkv-duos login: root
 Password:
-Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.10.4-tag- riscv64)
+Welcome to Ubuntu 24.04 LTS (GNU/Linux 7.0.6-qkj1-duos riscv64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
-
-The programs included with the Ubuntu system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-applicable law.
-
-Last login: Tue Sep 19 16:57:30 UTC 2023 from 192.168.42.2 on pts/0
-root@milkv-duo:~# neofetch
-            .-/+oossssoo+/-.               root@milkv-duo
-        `:+ssssssssssssssssss+:`           --------------
-      -+ssssssssssssssssssyyssss+-         OS: Ubuntu 22.04 LTS riscv64
-    .ossssssssssssssssssdMMMNysssso.       Host: Cvitek. CV181X ASIC. C906.
-   /ssssssssssshdmmNNmmyNMMMMhssssss/      Kernel: 5.10.4-tag-
-  +ssssssssshmydMMMMMMMNddddyssssssss+     Uptime: 29 secs
- /sssssssshNMMMyhhyyyyhmNMMMNhssssssss/    Packages: 245 (dpkg)
-.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Shell: bash 5.1.16
+ * Support:        https://ubuntu.com/pro
+root@milkv-duos:~# neofetch
+            .-/+oossssoo+/-.               root@milkv-duos
+        `:+ssssssssssssssssss+:`           ---------------
+      -+ssssssssssssssssssyyssss+-         OS: Ubuntu 24.04 LTS riscv64
+    .ossssssssssssssssssdMMMNysssso.       Host: Milk-V Duo S
+   /ssssssssssshdmmNNmmyNMMMMhssssss/      Kernel: 7.0.6-qkj1-duos
+  +ssssssssshmydMMMMMMMNddddyssssssss+     Uptime: 1 min
+ /sssssssshNMMMyhhyyyyhmNMMMNhssssssss/    Packages: 402 (dpkg)
+.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Shell: bash 5.2.21
 +sssshhhyNMMNyssssssssssssyNMMMysssssss+   Terminal: /dev/ttyS0
 ossyNMMMNyMMhsssssssssssssshmmmhssssssso   CPU: (1)
-ossyNMMMNyMMhsssssssssssssshmmmhssssssso   Memory: 39MiB / 240MiB
+ossyNMMMNyMMhsssssssssssssshmmmhssssssso   Memory: 74MiB / 466MiB
 +sssshhhyNMMNyssssssssssssyNMMMysssssss+
 .ssssssssdMMMNhsssssssssshNMMMdssssssss.
  /sssssssshNMMMyhhyyyyhdNMMMNhssssssss/
@@ -88,12 +79,12 @@ ossyNMMMNyMMhsssssssssssssshmmmhssssssso   Memory: 39MiB / 240MiB
         `:+ssssssssssssssssss+:`
             .-/+oossssoo+/-.
 
-root@milkv-duo:~#
+root@milkv-duos:~#
 ```
 
 屏幕录像：
 
-[![asciicast](https://asciinema.org/a/ureP4abokF0DE8AIFQjcdB073.svg)](https://asciinema.org/a/ureP4abokF0DE8AIFQjcdB073)
+[![asciicast](https://asciinema.org/a/u4DNnLipiGEsxTl4.svg)](https://asciinema.org/a/u4DNnLipiGEsxTl4)
 
 
 ## 测试判定标准
