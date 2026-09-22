@@ -1,10 +1,9 @@
 ---
 sys: rtthread
-sys_ver: null
+sys_ver: "5.3.1"
 sys_var: null
-
 status: basic
-last_update: 2024-06-21
+last_update: 2026-09-18
 ---
 
 # RT-Thread CH32V307 Test Report
@@ -13,125 +12,92 @@ last_update: 2024-06-21
 
 ### Operating System Information
 
-- Source code link: [CH32V series project repository](https://github.com/Community-PIO-CH32V/ch32-pio-projects)
-- Reference Installation Document:
-    - PlatformIO Core: [Installation Guide](https://docs.platformio.org/en/latest/core/installation/index.html)
-    - PlatformIO CH32V: [Installation Instructions](https://pio-ch32v.readthedocs.io/en/latest/installation.html)
+- Source code: https://github.com/RT-Thread/rt-thread/tree/dc3da6d87fa980b5e4fe2f73a828708e69182b90
+- Tested commit: `dc3da6d87fa980b5e4fe2f73a828708e69182b90` (serial banner prints 5.3.1; this is not the `v5.3.1` release tag)
+- BSP: `bsp/wch/risc-v/ch32v307v-r1`
+- Board README: https://github.com/RT-Thread/rt-thread/blob/dc3da6d87fa980b5e4fe2f73a828708e69182b90/bsp/wch/risc-v/ch32v307v-r1/README.md
+- Toolchain: WCH RISC-V GCC 8.2.0
+  - https://github.com/NanjingQinheng/sdk-toolchain-RISC-V-GCC-WCH/archive/refs/tags/V1.0.0.zip
+- Build environment: RT-Thread Env v2.0.0 for Windows
+  - https://github.com/RT-Thread/env-windows/releases
+- Flasher: WCH-LinkUtility 3.1
+  - https://www.wch.cn/downloads/WCH-LinkUtility_EXE.html
+- SDK package (needed for `ch32v30x.h`): [CH32V307-SDK-for-RTT](https://github.com/kaidegit/CH32V307-SDK-for-RTT)
 
 ### Hardware Information
 
-- CH32V307V-EVT-R2-1v1
-- A USB to UART debugger
-- A WCH-Link(E)
+- CH32V307V-EVT-R1 (MCU: CH32V307VCT6)
+- On-board WCH-LinkE (Type-C next to the two buttons)
+- USB Type-C cable
+- Optional: Ethernet cable for the on-board 10M PHY
+
+This report was verified on Windows.
 
 ## Installation Steps
 
-### Install PlatformIO Core
+### Hardware connection
 
-You can first check if the package manager includes [platformio-core](https://archlinux.org/packages/?name=platformio-core). If not, you can use the installation script:
+1. Plug Type-C into the on-board WCH-LinkE port (next to the two buttons). Do not use the USB connector on the opposite side.
+2. Turn on the board power switch.
+3. Windows Device Manager should show **WCH-LinkRV** and a COM port. Install the WCH-Link driver if they do not appear.
 
-```bash
-curl -fsSL -o get-platformio.py https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
-python3 get-platformio.py
+### Build
+
+1. Download and extract WCH RISC-V GCC 8.2.0. `riscv-none-embed-gcc --version` should print 8.2.0.
+2. Install RT-Thread Env v2.0.0.
+3. Clone RT-Thread and open Env in the BSP directory:
+
+```
+git clone https://github.com/RT-Thread/rt-thread.git
+cd rt-thread
+git checkout dc3da6d87fa980b5e4fe2f73a828708e69182b90
+cd bsp\wch\risc-v\ch32v307v-r1
 ```
 
-### PlatformIO Environment Configuration
+4. `board.h` includes `ch32v30x.h`, but that header is not in the RT-Thread tree. In Env, enable the CH32V307 SDK package and run `pkgs --update`, or extract [CH32V307-SDK-for-RTT](https://github.com/kaidegit/CH32V307-SDK-for-RTT) into this BSP's `packages` directory.
+5. Build:
 
-Install CH32V development environment:
-```bash
-pio pkg install -g -p https://github.com/Community-PIO-CH32V/platform-ch32v.git
+```
+scons --exec-path=YOUR_PATH\sdk-toolchain-RISC-V-GCC-WCH\bin
 ```
 
-Add udev rules and apply them (may need to change GROUP according to the distribution):
-```bash
-curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core/develop/platformio/assets/system/99-platformio-udev.rules | sudo tee /etc/udev/rules.d/99-platformio-udev.rules
-cat << EOF | sudo tee -a /etc/udev/rules.d/99-platformio-udev.rules
-SUBSYSTEM=="usb", ATTR{idVendor}="1a86", ATTR{idProduct}=="8010", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTR{idVendor}="4348", ATTR{idProduct}=="55e0", GROUP="plugdev"
-SUBSYSTEM=="usb", ATTR{idVendor}="1a86", ATTR{idProduct}=="8012", GROUP="plugdev"
-EOF
-sudo udevadm control --reload-rules
-sudo udevadm trigger
-```
+A successful build produces `rtthread.bin` in the BSP directory.
 
-Add user groups:
-- Debian-based systems:
-```bash
-sudo usermod -a -G dialout $USER
-sudo usermod -a -G plugdev $USER
-```
-- Arch-based systems:
-```bash
-sudo usermod -a -G uucp $USER
-sudo usermod -a -G lock $USER
-```
+### Flash
 
-### Prepare Project Repository
+1. Open WCH-LinkUtility. Set Target File to `rtthread.bin`.
+2. Set Chip Mem to **224K ROM + 96K RAM** and click **Set**. Changing the dropdown without Set has no effect. CH32V307 flash and SRAM are configurable (288K+32K / 256K+64K / 224K+96K / 192K+128K). The board overview `ram: 64KB(SRAM)` is the 256K+64K datasheet split. This BSP's `board.h` uses 224K flash + 96K SRAM (`SRAM_SIZE 96`), so the flasher must match that split. It is not extra physical RAM, and it does not replace the board metadata.
+3. Enable Erase, Program, Verify, and Reset, then download.
 
-Clone the relevant repositories:
-```bash
-git clone https://github.com/Community-PIO-CH32V/platform-ch32v.git
-```
+### Serial console
 
-### Code Compilation
-
-Compile the code using pio:
-```bash
-cd platform-ch32v/examples/hello-world-rt-thread
-pio run
-```
-
-### Flashing Image
-
-After confirming WCH-Link(E) is connected to the SWD debugging port, manually specify the development board using pio and then burn the code:
-```bash
-pio run -e your_board --target upload
-```
-
-#### Common Issues
-
-- Error: error writing to flash at address 0x00000000 at offset 0x00000000
-    - This is due to a low firmware version of WCH-Link. (See [important-notices](https://github.com/Community-PIO-CH32V/platform-ch32v?tab=readme-ov-file#important-notices)).
-    - Please use the [WCH-Link Utility](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html) to connect once with WCH-Link to automatically update. **This tool is currently only available for Windows**
-- Error: Read-Protect Status Currently Enabled
-    - This is caused by the chip having write protection enabled. In Windows, we can use the [WCH-Link Utility](https://www.wch.cn/downloads/WCH-LinkUtility_ZIP.html) to disable protection. In Linux, OpenOCD can be used:
-```bash
-cd ~/.platformio/packages/tool-openocd-riscv-wch/bin
-./openocd -f wch-riscv.cfg -c init -c halt -c "flash protect wch_riscv 0 last  off " -c exit
-cd -
-```
-
-### Logging into the System
-
-Connect to the development board via serial port.
+Open the WCH-Link COM port at 115200 8-N-1. Open the serial session **before** resetting the board, otherwise the banner is easy to miss.
 
 ## Expected Results
 
-The system boots up successfully, and information can be viewed through the onboard serial port.
+The board boots RT-Thread. The serial console shows the RT-Thread banner and an `msh >` prompt.
 
 ## Actual Results
 
-The system boots up successfully, and information can be viewed through the onboard serial port.
+The board booted. Serial output showed RT-Thread 5.3.1 and `msh >`. `help`, `ps`, `version`, and `free` responded.
+
+On-board LED1/LED2 are only wired to header J3. They stay dark unless jumpered. The default `main.c` toggles PB5 (Arduino silk D5). Missing LEDs are not a boot failure.
 
 ### Boot Log
-
-Screen recording (from compilation to boot):
-[![asciicast](https://asciinema.org/a/1oVzw3PJ1k0wQM9HYsBR8q3hl.svg)](https://asciinema.org/a/1oVzw3PJ1k0wQM9HYsBR8q3hl)
-
 
 ```log
  \ | /
 - RT -     Thread Operating System
- / | \     3.1.3 build Apr 25 2024
- 2006 - 2019 Copyright by rt-thread team
-
- MCU: CH32V307
-SystemClk:96000000
-ChipID: 30700528
- www.wch.cn
+ / | \     5.3.1 build Sep 18 2026 19:21:26
+ 2006 - 2026 Copyright by RT-Thread team
 msh >
-
 ```
+
+### Optional: on-board 10M Ethernet
+
+Default `ch32v307v-r1` leaves Ethernet off. In Env `menuconfig`: **Hardware Drivers Config → On-chip Peripheral Drivers → Enable Ethernet**. lwIP, netdev, and SAL come with that option; DHCP is on by default. Rebuild and flash with the same 224K+96K Chip Mem.
+
+Plug the RJ45 into a LAN router (not a PC Ethernet port). After reset, `ifconfig` showed `e0` `LINK_UP` with a DHCP address, and `ping` to the gateway succeeded.
 
 ## Test Criteria
 
