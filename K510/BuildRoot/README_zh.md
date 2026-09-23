@@ -5,7 +5,7 @@
 ### 操作系统信息
 
 - 构建系统环境：Ubuntu 20.04.4 LTS in Docker
-- 系统版本：v1.9
+- 系统版本：Buildroot 2020.02.11
 - 参考安装文档：https://github.com/kendryte/k510_buildroot
 
 ### 硬件信息
@@ -23,7 +23,13 @@
 
 请参考各发行版的文档，或者 Docker 官网文档进行安装。
 
-#### 拉取源码仓
+确认 Docker 可正常使用：
+
+```
+docker --version
+```
+
+#### 拉取源码仓库
 
 ```shell
 git clone --depth=1 https://github.com/kendryte/k510_buildroot
@@ -31,22 +37,38 @@ git clone --depth=1 https://github.com/kendryte/k510_buildroot
 
 #### 开始构建
 
+进入 Docker 构建环境：
+
 ```shell
 sh k510_buildroot/tools/docker/run_k510_docker.sh
+# 在容器内执行：
 make dl
 make
+# 构建完成后退出容器：
+exit
 ```
 
 注意，默认为单线程编译，耗时较久，请确保网络连接正常。
 
-编译结束后，会在 `k510_buildroot/k510_crb_lp3_v1_2_defconfig/image/` 目录下生成 `sysimage-sdcard.img` 镜像。
+查找生成的系统镜像：
+
+```shell
+find k510_buildroot/k510_crb_lp3_v1_2_defconfig \
+-name "sysimage-sdcard.img" -type f
+```
+
+本次实际生成的镜像为：
+
+```shell
+k510_buildroot/k510_crb_lp3_v1_2_defconfig/images/sysimage-sdcard.img
+```
 
 #### 使用 dd 烧录镜像
 
-注意，`/dev/sdc` 为存储卡所在位置。请根据实际情况修改。
+注意，`/dev/sdX` 为 microSD 卡对应的设备，请根据实际设备路径修改。
 
 ```shell
-sudo dd if=sysimage-sdcard.img of=/dev/sdX bs=1M status=progress
+sudo dd if=k510_buildroot/k510_crb_lp3_v1_2_defconfig/images/sysimage-sdcard.img of=/dev/sdX bs=1M status=progress
 ```
 
 ### 登录系统
@@ -54,17 +76,51 @@ sudo dd if=sysimage-sdcard.img of=/dev/sdX bs=1M status=progress
 插入 microSD 卡，确保板载 SW1 开关处于 microSD 卡启动位置：
 
 | BOOT1  | BOOT0  | 启动方式   |
-|--------|--------|------------|
+| ------ | ------ | ---------- |
 | 0(ON)  | 0(ON)  | 串口       |
 | 0(ON)  | 1(OFF) | microSD    |
 | 1(OFF) | 0(ON)  | NAND Flash |
 | 1(OFF) | 1(OFF) | eMMC       |
 
-插入 USB Type-C 供电和 USB-UART 串口。接口分别位于开发板两侧，丝印为 `DC:5V` 和 `UART`。
+连接开发板：
 
-（K510 板载了一颗 CH340 用于 USB-UART，可直接连接使用。UART 接口同时用作 USB 辅助供电，建议连接。）
+- `DC:5V`：供电
+- `UART`：USB-UART 串口
 
-将电源开关 `K1` 拨到 ON 位置，通过串口连接并登录系统。
+确认串口设备，例如：
+
+```
+/dev/ttyUSB0
+```
+
+首次使用 minicom 时配置串口：
+
+```
+sudo minicom -s
+```
+
+设置：
+
+```
+Serial Device          : /dev/ttyUSB0
+Bps/Par/Bits            : 115200 8N1
+Hardware Flow Control   : No
+```
+
+打开串口：
+
+```
+sudo minicom
+```
+
+将电源开关 `K1` 拨至 `ON`，等待系统启动。
+
+登录信息：
+
+```
+用户名：root
+密码：空，直接回车
+```
 
 ## 预期结果
 
@@ -78,7 +134,7 @@ sudo dd if=sysimage-sdcard.img of=/dev/sdX bs=1M status=progress
 
 ```log
 [root@canaan ~ ]$ uname -a
-Linux canaan 4.17.0 #1 SMP PREEMPT Fri Apr 12 18:13:44 CST 2024 riscv64 GNU/Linux
+Linux canaan 4.17.0 #1 SMP PREEMPT Tue Jul 14 18:27:09 CST 2026 riscv64 GNU/Linx
 [root@canaan ~ ]$ cat /etc/os-release
 NAME=Buildroot
 VERSION=-g2ce01d0
@@ -99,7 +155,7 @@ mmu     : sv39
 
 屏幕录像（从刷写镜像到登录系统）：
 
-[![asciicast](https://asciinema.org/a/wdVYHHOcy5laeXA2tKewkqNRR.svg)](https://asciinema.org/a/wdVYHHOcy5laeXA2tKewkqNRR)
+[![asciicast](https://asciinema.org/a/1264225.svg)](https://asciinema.org/a/1264225)
 
 ## 测试判定标准
 
