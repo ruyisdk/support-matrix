@@ -17,8 +17,6 @@
 
 ## 构建步骤
 
-以下步骤在 Arch Linux 上测试通过，但应适用各大主流 Linux 发行版。
-
 ### 拉取源码并编译固件
 
 获取工具链并配置：
@@ -37,41 +35,41 @@ export RTT_EXEC_PATH=/opt/Xuantie-900-gcc-elf-newlib-x86_64-V2.8.1/bin
 获取依赖：
 ```bash
 sudo apt install -y scons libncurses5-dev device-tree-compiler
-# 在 Arch Linux 上为：sudo pacman -S scons dtc ncurses uboot-tools
 ```
 
 ```shell
-m@n:~/.../tmp/rt-thread-5.2.1$ ls
+$ cd rt-thread
+$ ls
 bsp           components     examples  Kconfig  LICENSE      README_de.md  README.md     src
 ChangeLog.md  documentation  include   libcpu   MAINTAINERS  README_es.md  README_zh.md  tools
-m@n:~/.../tmp/rt-thread-5.2.1$ cd bsp/cvitek/
+$ cd bsp/cvitek/
 c906_little  cv18xx_aarch64  cv18xx_risc-v  drivers  output  rttpkgtool  README.md  build.sh  tools.sh
-m@n:~/.../bsp/cvitek$ cd cv18xx_risc-v/
+$ cd cv18xx_risc-v/
 # 生成配置文件
-m@n:~/.../cvitek/cv18xx_risc-v$ scons --menuconfig
-m@n:~/.../cvitek/cv18xx_risc-v$ source ~/.env/env.sh
-m@n:~/.../cvitek/cv18xx_risc-v$ pkgs --update
+$ scons --menuconfig
+$ source ~/.env/env.sh
+$ pkgs --update
 Failed to read env.json: [Errno 2] No such file or directory: 'env.json'
 Failed to read env.json: [Errno 2] No such file or directory: 'env.json'
 [Use Github server - auto decision based on IP location]
-/home/mitchell/Documents/tmp/rt-thread-5.2.1/bsp/cvitek/cv18xx_risc-v/packages/zlib-latest
+packages/zlib-latest
 ==============================>  zlib update done
 
 Operation completed successfully.
 # 构建 boot.sd
-m@n:~/.../cvitek/cv18xx_risc-v$ scons -j$(nproc) --verbose
+$ scons -j$(nproc) --verbose
 
-m@n:~/.../cvitek/cv18xx_risc-v$ cd ../c906_little/
+$ cd ../c906_little/
 # 生成配置文件
-m@n:~/.../cvitek/c906_little$ scons --menuconfig
-m@n:~/.../cvitek/c906_little$ source ~/.env/env.sh
-m@n:~/.../cvitek/c906_little$ pkgs --update
+$ scons --menuconfig
+$ source ~/.env/env.sh
+$ pkgs --update
 Failed to read env.json: [Errno 2] No such file or directory: 'env.json'
 Failed to read env.json: [Errno 2] No such file or directory: 'env.json'
 Operation completed successfully.
 
 # 构建 fip.bin
-m@n:~/.../cvitek/c906_little$ scons -j$(nproc) --verbose
+$ scons -j$(nproc) --verbose
 ```
 
 menuconfig 中的 Board Type 请选择 `milkv-duos`，并关闭 `Enable RT-Thread Smart (microkernel on kernel/userland)` 选项。
@@ -102,9 +100,6 @@ mkfs.fat /path/to/your-card
 
 ### 启动信息
 
-屏幕录像（从编译到启动）：
-[![asciicast](https://asciinema.org/a/WvrrTMHJyKlhT2GLEKolzIzw0.svg)](https://asciinema.org/a/WvrrTMHJyKlhT2GLEKolzIzw0)
-
 ```log
 Starting kernel ...
 
@@ -112,18 +107,20 @@ Starting kernel ...
 
 [I/drv.pinmux] Pin Name = "UART0_TX", Func Type = 282, selected Func [0]
 
-heap: [0x0x000000008029b968 - 0x0x0000000080a9b968]
+heap: [0x0x000000008023fce0 - 0x0x0000000080a3fce0]
 
  \ | /
 - RT -     Thread Operating System
- / | \     5.2.1 build Jul 21 2025 14:03:06
+ / | \     5.2.2 build Sep  9 2026 20:02:47
  2006 - 2024 Copyright by RT-Thread team
-lwIP-2.1.2 initialized!
-[I/sal.skt] Socket Abstraction Layer initialize success.
 Hello RISC-V/C906B !
 msh />
 
 ```
+
+屏幕录像：
+
+[![asciicast](https://asciinema.org/a/hdg2nOJPZFg74qMg.svg)](https://asciinema.org/a/hdg2nOJPZFg74qMg)
 
 ## 测试判定标准
 
