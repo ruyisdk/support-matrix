@@ -1,10 +1,11 @@
 ---
 sys: debian
-sys_ver: null
+sys_ver: 1.9.6
 sys_var: null
+provider: Community
 
 status: basic
-last_update: 2025-07-11
+last_update: 2026-09-08
 ---
 
 # Debian Milk-V Duo S Test Report
@@ -13,7 +14,8 @@ last_update: 2025-07-11
 
 ### Operating System Information
 
-- Download Link: https://github.com/scpcom/sophgo-sg200x-debian/releases/tag/v1.6.35
+- System Version: Debian 13 (trixie), community image v1.9.6
+- Download Link: https://github.com/scpcom/sophgo-sg200x-debian/releases/tag/v1.9.6
 - Reference Installation Document: https://github.com/scpcom/sophgo-sg200x-debian
 
 ### Hardware Information
@@ -50,16 +52,16 @@ The system boots up normally and login through the onboard serial port is succes
 ### Boot Information
 
 ```log
-Debian GNU/Linux 13 duos-a0d7 ttyS0
+         Starting systemd-random-seed.service - Load/Save OS Random Seed...
+[   13.079265] systemd[1]: Failed to start systemd-sysctl.service - Apply Kernel Variables.
+[FAILED] Failed to start systemd-sysctl.service - Apply Kernel Variables.
+See 'systemctl status systemd-sysctl.service' for details.
 
-duos-a0d7 login: debian
+Debian GNU/Linux 13 duos-1f79 ttyS0
+
+duos-1f79 login: root
 Password:
-
-Debian GNU/Linux 13 duos-a0d7 ttyS0
-
-duos-a0d7 login: root
-Password:
-Linux duos-a0d7 5.10.235-20250615-6+duos #1 PREEMPT Mon Jun 16 00:47:42 UTC 2025 riscv64
+Linux duos-1f79 5.10.260-20260711-6+duos #1 PREEMPT Tue Jul 14 03:03:04 UTC 2026 riscv64
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -67,20 +69,22 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-root@duos-a0d7:~# lscpu
+root@duos-1f79:~# lscpu
 Architecture:          riscv64
   Byte Order:          Little Endian
 CPU(s):                1
   On-line CPU(s) list: 0
-root@duos-a0d7:~# uname -a
-Linux duos-a0d7 5.10.235-20250615-6+duos #1 PREEMPT Mon Jun 16 00:47:42 UTC 2025 riscv64 GNU/Linux
-root@duos-a0d7:~#
+root@duos-1f79:~# uname -a
+Linux duos-1f79 5.10.260-20260711-6+duos #1 PREEMPT Tue Jul 14 03:03:04 UTC 2026 riscv64 GNU/Linux
+root@duos-1f79:~#
 
 ```
 
+> During boot, `systemd-sysctl.service` failed to start. The cause has not been confirmed. Serial console login was successful in this test.
+
 Screen recording:
 
-[![asciicast](https://asciinema.org/a/wg2iVMT950W3x8gLiZEFRPch3.svg)](https://asciinema.org/a/wg2iVMT950W3x8gLiZEFRPch3)
+[![asciicast](https://asciinema.org/a/x5lUx5XQO1zB9w2C.svg)](https://asciinema.org/a/x5lUx5XQO1zB9w2C)
 
 ## Test Criteria
 
@@ -90,4 +94,4 @@ Failed: The actual result does not match the expected result.
 
 ## Test Conclusion
 
-Test successful.
+Test successful. The system boots up normally and login through the onboard serial port is successful.
