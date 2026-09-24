@@ -30,7 +30,18 @@ for d in ['ESP-IDF-latest', 'FreeRTOS-Wrapper-latest']:
 Return('objs')
 ```
 
-这块 DevKitM-1 是 ESP32-C3 AZ revision v1.1。默认镜像头写着 `min_rev=3`，esptool 会拒绝烧录。在 `SConstruct` 里、`elf2image` 之前，把 `image.min_rev` 设为 0；有 `min_rev_full` 时也设为 0。`builtin_imgs/bootloader.bin` 的 `min_rev` 同样改为 0。这是针对这块 rev v1.1 的本地修改，不在 [RT-Thread/rt-thread#11816](https://github.com/RT-Thread/rt-thread/pull/11816) 里。
+这块 DevKitM-1 是 ESP32-C3 AZ revision v1.1。默认镜像头写着 `min_rev=3`，esptool 会拒绝烧录。在 `SConstruct` 里、`elf2image` 之前，把 `image.min_rev` 设为 0；有 `min_rev_full` 时也设为 0。`builtin_imgs/bootloader.bin` 没有重新编译，是在 BSP 目录里用下面这段把 `min_rev` 改成 0，另存一份再烧，不覆盖原文件：
+
+```python
+from esptool.bin_image import LoadFirmwareImage
+
+bl = LoadFirmwareImage("esp32c3", "builtin_imgs/bootloader.bin")
+print("bootloader min_rev before", bl.min_rev)
+bl.min_rev = 0
+bl.save("bootloader-min_rev0.bin")
+```
+
+Env 的 Python 里执行：`python patch_bootloader_min_rev.py`。烧录时 `0x0` 用这份 `bootloader-min_rev0.bin`，不用原来的 `builtin_imgs/bootloader.bin`。这是针对这块 rev v1.1 的本地修改，不在 [RT-Thread/rt-thread#11816](https://github.com/RT-Thread/rt-thread/pull/11816) 里。
 
 Windows 上 GNU ld 记下的目标文件路径用反斜杠，`idf_port/ld/sections.ld` 里只写 `/` 的通配对不上，IRAM 里的代码会被丢进 Flash，启动时报非法指令。能同时匹配 `/` 和 `\` 的通配在上述 PR，提交 `144e141e4de792cb8ebaca14ba4caaba18dc5e31`。2026-09-22 用这个提交重新编译并烧到这块板，COM10 仍然能进 `msh >`。下面的命令记录来自 2026-09-20 16:49:51 编出来的那份镜像。
 
@@ -63,7 +74,7 @@ cd bsp/ESP/ESP32_C3
 ```
 
 4. 在 Env 里执行 `pkgs --update`，然后用上面的 `packages/SConscript`。
-5. Windows 上采用 PR 11816 里的 `sections.ld`。这块 rev v1.1 还要把 `min_rev` 设为 0。
+5. Windows 上采用 PR 11816 里的 `sections.ld`。这块 rev v1.1 还要用上面的脚本把 `builtin_imgs/bootloader.bin` 的 `min_rev` 改成 0。
 6. 编译：
 
 ```
@@ -77,7 +88,7 @@ BSP 目录下会生成 `rtthread.bin`。
 在 BSP 目录下，三份镜像按下面的地址写入：
 
 ```
-esptool.py -p COM10 -b 460800 --before default_reset --after hard_reset write_flash --flash_mode dio --flash_size detect --flash_freq 80m 0x0 builtin_imgs/bootloader.bin 0x8000 partition-table.bin 0x10000 rtthread.bin
+esptool.py -p COM10 -b 460800 --before default_reset --after hard_reset write_flash --flash_mode dio --flash_size detect --flash_freq 80m 0x0 bootloader-min_rev0.bin 0x8000 partition-table.bin 0x10000 rtthread.bin
 ```
 
 `COM10` 换成自己机器上的 CP210x 口。

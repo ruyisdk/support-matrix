@@ -38,7 +38,18 @@ for d in ['ESP-IDF-latest', 'FreeRTOS-Wrapper-latest']:
 Return('objs')
 ```
 
-This DevKitM-1 is ESP32-C3 AZ revision v1.1. The default image header says `min_rev=3` and esptool refuses it. In `SConstruct`, before `elf2image` runs, set `image.min_rev = 0` and, when the attribute exists, `image.min_rev_full = 0`. Set `min_rev` to 0 on `builtin_imgs/bootloader.bin` as well. This change is local to the board revision. It is not part of [RT-Thread/rt-thread#11816](https://github.com/RT-Thread/rt-thread/pull/11816).
+This DevKitM-1 is ESP32-C3 AZ revision v1.1. The default image header says `min_rev=3` and esptool refuses it. In `SConstruct`, before `elf2image` runs, set `image.min_rev = 0` and, when the attribute exists, `image.min_rev_full = 0`. `builtin_imgs/bootloader.bin` was not rebuilt. From the BSP directory, this script sets its `min_rev` to 0 and writes a separate file:
+
+```python
+from esptool.bin_image import LoadFirmwareImage
+
+bl = LoadFirmwareImage("esp32c3", "builtin_imgs/bootloader.bin")
+print("bootloader min_rev before", bl.min_rev)
+bl.min_rev = 0
+bl.save("bootloader-min_rev0.bin")
+```
+
+Run it with Env's Python: `python patch_bootloader_min_rev.py`. Flash `bootloader-min_rev0.bin` at `0x0` instead of the original `builtin_imgs/bootloader.bin`. This change is local to the board revision. It is not part of [RT-Thread/rt-thread#11816](https://github.com/RT-Thread/rt-thread/pull/11816).
 
 On Windows, GNU ld records object paths with backslashes, so slash-only globs in `idf_port/ld/sections.ld` miss IRAM code and the boot dies with an illegal instruction. The separator-tolerant globs are in that pull request, commit `144e141e4de792cb8ebaca14ba4caaba18dc5e31`. On 2026-09-22 that commit was rebuilt and flashed to this board; COM10 still reached `msh >`. The command transcript below is from the image built on 2026-09-20 16:49:51.
 
@@ -71,7 +82,7 @@ cd bsp/ESP/ESP32_C3
 ```
 
 4. In Env, run `pkgs --update`, then use the `packages/SConscript` shown above.
-5. On Windows, apply the `sections.ld` change from pull request 11816. On this rev v1.1 board, also set `min_rev` to 0 as described above.
+5. On Windows, apply the `sections.ld` change from pull request 11816. On this rev v1.1 board, also run the script above so `builtin_imgs/bootloader.bin` is saved with `min_rev` 0.
 6. Build:
 
 ```
@@ -85,7 +96,7 @@ The BSP directory then contains `rtthread.bin`.
 From the BSP directory, with the three images at these offsets:
 
 ```
-esptool.py -p COM10 -b 460800 --before default_reset --after hard_reset write_flash --flash_mode dio --flash_size detect --flash_freq 80m 0x0 builtin_imgs/bootloader.bin 0x8000 partition-table.bin 0x10000 rtthread.bin
+esptool.py -p COM10 -b 460800 --before default_reset --after hard_reset write_flash --flash_mode dio --flash_size detect --flash_freq 80m 0x0 bootloader-min_rev0.bin 0x8000 partition-table.bin 0x10000 rtthread.bin
 ```
 
 Replace `COM10` with the CP210x port on your machine.
