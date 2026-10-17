@@ -1,6 +1,6 @@
 ---
 sys: rtthread
-sys_ver: null
+sys_ver: 5.0.0
 sys_var: null
 status: basic
 last_update: 2026-10-17
@@ -63,8 +63,10 @@ To work around xfel's unreliable large-block transfers over USB-FEL (which
 cause SD NAND timeouts and state loss), strict **chunked write with per-chunk
 read-back verification** was performed:
 
-1. **Chunking strategy**: 64 KB (65,536 bytes) per chunk, dividing the 1.7 MB
-   image into 28 chunks (chunks 0–27; the last chunk is 23,808 bytes).
+1. **Chunking strategy**: 64 KiB (65,536 bytes) per chunk, dividing the
+   1,793,536-byte image into 28 chunks: chunks 0–26 are full 65,536-byte chunks
+   and chunk 27 is the 24,064-byte tail chunk (27 × 65,536 + 24,064 =
+   1,793,536 bytes, so the whole image is covered).
 2. **Per-chunk write and verify**:
    - Chunks 0–9: each 64 KB chunk was written and immediately read back for
      hash comparison; all passed on the first attempt.
@@ -80,6 +82,45 @@ read-back verification** was performed:
    compared against the source SHA256 hash
    (`e203b1f9cc4a587ec2c06a43ae884766fd72556eb97fdfcdca9ec1d92aa42d40`),
    confirming 100% byte-for-byte consistency with the factory source image.
+
+The following script reproduces exactly the chunked write and the read-back
+verification described above. Run it with the index of the failed chunk to
+resume from that breakpoint (for example `sh flash.sh 10`):
+
+```sh
+IMG=sd.bin          # factory image, 1,793,536 bytes
+BASE=57344          # 0xE000: target byte offset on the SD NAND
+BOOT0=8192          # 0x2000: Boot0 byte offset on the SD NAND
+CHUNK=65536         # 64 KiB per transfer
+LAST=27             # chunk 27 is the 24,064-byte tail chunk
+
+# Read back and verify the Boot0 already present on the media (no rewrite needed)
+xfel sd read "$BOOT0" 49152 boot0.readback.bin
+sha256sum boot0.readback.bin   # 139635802d9078599dfdeac257201310d994b5560abba7947aa7d0b4640b54c6
+
+# Split the image: chunk_00 .. chunk_27 (27 x 65,536 + 24,064 = 1,793,536 bytes)
+split -b "$CHUNK" -d -a 2 "$IMG" chunk_
+
+# Write and verify chunk by chunk; "$1" is the chunk index to resume from
+for i in $(seq "${1:-0}" "$LAST"); do
+    f=$(printf 'chunk_%02d' "$i")
+    len=$(wc -c < "$f" | tr -d ' ')      # 65,536, or 24,064 for chunk 27
+    off=$((BASE + i * CHUNK))
+    echo "chunk $i: $len bytes @ offset $off"
+    xfel sd write "$off" "$f"           # 64 KiB is the tested upper bound
+    xfel sd read  "$off" "$len" "$f.read"
+    cmp "$f" "$f.read" || { echo "chunk $i failed, resume with: $0 $i"; break; }
+    echo "chunk $i: verified"
+done
+
+# Global read-back verification of the whole 1,793,536-byte image
+xfel sd read "$BASE" 1793536 sd.readback.bin
+sha256sum sd.readback.bin   # e203b1f9cc4a587ec2c06a43ae884766fd72556eb97fdfcdca9ec1d92aa42d40
+
+xfel reset
+```
+
+On macOS use `shasum -a 256` instead of `sha256sum`.
 
 ### 4. Serial Connection and Boot
 
