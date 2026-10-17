@@ -1,0 +1,160 @@
+# RT-Thread RDC2022 纪念版（D1s）测试报告
+
+## 测试环境
+
+### 硬件信息
+
+- **开发板**：RT-Thread RDC2022 纪念版开发板（SoC: 全志 D1s / 平头哥玄铁 C906，RV64IMAFDCVU @ 1.008GHz，片上封装 64MB DDR2）
+- **板载存储**：SD NAND（丝印 `SDN1G`，容量 126,877,696 字节，约 121 MiB，挂载于 SDC0 / PF0~PF5）
+- **板载串口**：板载 CH340N USB-to-UART 芯片（USB VID:PID 为 `0x1a86:0x7523`，板载 Type-C 调试口连接至 SoC PE2/UART0_TX、PE3/UART0_RX）
+- **测试主机**：macOS 26.6（Apple Silicon，arm64，CH340 免驱识别为 `/dev/cu.usbserial-111130`）
+
+### 操作系统信息
+
+- **操作系统版本**：RT-Thread Smart 5.0.0 build Jan 10 2023（出厂恢复版本，启动横幅见实测日志；主线对比版本为 RT-Thread Smart 5.3.1 build Oct 16 2026）
+- **代码仓库**：https://github.com/RT-Thread/rt-thread
+- **参考安装文档**：
+  - RT-Thread 社区教程：《快来尝鲜！！使用 D1s (RDC2022 纪念版) 运行 RT-Smart》（https://club.rt-thread.org/ask/article/bd9c5cb55e0bc8f5.html）
+  - 全志在线论坛镜像贴：https://bbs.aw-ol.com/topic/2905/
+  - RT-Thread D1s BSP 说明文档：`bsp/allwinner/d1s/README-M7.md`
+- **固件来源与编译工具链**：
+  - 出厂预编译固件包：`RDC资料.7z`（MD5: `ba70c72c683d85b92bf8318f6e4d41e6`），内含官方出厂 `boot0_sdcard_sun20iw1p1_f133.bin`（49,152 字节，SHA256: `139635802d9078599dfdeac257201310d994b5560abba7947aa7d0b4640b54c6`）与出厂系统内核镜像 `sd.bin`（1,793,536 字节，SHA256: `e203b1f9cc4a587ec2c06a43ae884766fd72556eb97fdfcdca9ec1d92aa42d40`）。
+  - 主线对比固件：基于 RT-Thread master 分支 `bsp/allwinner/d1s`，使用 `riscv64-linux-musleabi_for_x86_64-pc-linux-gnu`（GCC 10.1.0）交叉工具链编译，经 `mksdimg.sh`（`mkimage -T sunxi_toc1`）合成 TOC1 格式 `sd.bin`（1,084,416 字节，SHA256: `69ba25bacc50b8fa2102013bd968b5cca6d49c2e918c0d57fddc76c98056570f`）。
+
+---
+
+## 安装步骤
+
+### 1. 进入 FEL 烧写模式
+
+在开发板断电状态下按住板载 FEL 下载按键（Burn Key），通过 Type-C 数据线插入下方的 USB 下载接口给板子供电并连接主机，识别到 SoC 芯片 ID 为 `0x00185900`（Allwinner D1/F133 系列），释放按键。
+
+### 2. 烧写工具准备
+
+在主机端使用针对全志 SDIO 控制器补丁适配的 `aozima/xfel`（基于 commit `35641da` 编译，提供 `xfel sd` 子命令），**不得使用**未经修复的 `test-sdcard` 分支（该分支在 SD NAND 上存在引脚驱动未配、忽略读写返回值导致静默失败并挂死控制器的严重缺陷）。
+
+### 3. 出厂固件恢复、分块写入与回读校验
+
+全志 D1s 引导介质布局如下：
+- **Boot0（SPL/eGON.BT0）**：目标字节偏移 `8192`（`0x2000`，扇区 16）。经校验，官方出厂包中 `boot0_sdcard_sun20iw1p1_f133.bin` 与主线 tools 下 `boot0_sdcard_sun20iw1p1_d1s.bin` 逐字节完全一致（SHA256 相同）。实测板载 SD NAND 偏移 8192 处原有 Boot0 数据完整，`xfel sd read 8192 49152` 回读比对哈希一致，无需重复擦写。
+- **系统内核镜像（TOC1 格式 sd.bin）**：目标字节偏移 `57344`（`0xE000`，扇区 112），文件大小为 1,793,536 字节。
+
+为规避 xfel 在 USB-FEL 模式下单次大块传输引起 SD NAND 超时和状态丢失的问题，实测执行严格的**分块写入与逐块校验**：
+1. **分块策略**：按 64KB（65,536 字节）为单块粒度，共计划分为 28 块（块 0 至块 26 为满 64KB 块，块 27 为 24,064 字节的尾块；27 × 65,536 + 24,064 = 1,793,536 字节，恰好覆盖整镜像）。
+2. **逐块写入与校验**：
+   - 块 0 至块 9：依次执行 64KB 写入并立即进行 64KB 回读比对，哈希校验全部一次性通过。
+   - 块 10：首次写入后回读校验失败；随即连续复读 2 次，读回数据与写入源数据稳定不一致，确认物理介质在本次大块写入中未成功落盘。
+   - 断点续写：暂停流程并获确认后，自块 10 起进行断点续写；块 10 至块 27 依次写入并回读，全部一次性通过校验。
+3. **全局回读校验**：全部分块写入完成后，对偏移 57344 起始的整段 1,793,536 字节执行全量回读，比对 SHA256 哈希值为 `e203b1f9cc4a587ec2c06a43ae884766fd72556eb97fdfcdca9ec1d92aa42d40`，确认与出厂源镜像 100% 逐字节完全一致。
+
+以下脚本即上述分块写入与回读校验的完整复现流程。若某一块校验失败，带上该块序号重新执行即可断点续写（例如 `sh flash.sh 10`）：
+
+```sh
+IMG=sd.bin          # 出厂镜像，1,793,536 字节
+BASE=57344          # 0xE000：SD NAND 上的目标字节偏移
+BOOT0=8192          # 0x2000：SD NAND 上 Boot0 的字节偏移
+CHUNK=65536         # 每次传输 64 KiB
+LAST=27             # 块 27 为 24,064 字节的尾块
+
+# 回读校验介质上已有的 Boot0（无需重复写入）
+xfel sd read "$BOOT0" 49152 boot0.readback.bin
+sha256sum boot0.readback.bin   # 139635802d9078599dfdeac257201310d994b5560abba7947aa7d0b4640b54c6
+
+# 切分镜像：chunk_00 .. chunk_27（27 × 65,536 + 24,064 = 1,793,536 字节）
+split -b "$CHUNK" -d -a 2 "$IMG" chunk_
+
+# 逐块写入并校验；"$1" 为断点续写的起始块序号
+for i in $(seq "${1:-0}" "$LAST"); do
+    f=$(printf 'chunk_%02d' "$i")
+    len=$(wc -c < "$f" | tr -d ' ')      # 65,536，块 27 为 24,064
+    off=$((BASE + i * CHUNK))
+    echo "chunk $i: $len bytes @ offset $off"
+    xfel sd write "$off" "$f"           # 64 KiB 为实测可靠的单次传输上限
+    xfel sd read  "$off" "$len" "$f.read"
+    cmp "$f" "$f.read" || { echo "chunk $i 失败，断点续写命令：$0 $i"; break; }
+    echo "chunk $i: 校验通过"
+done
+
+# 对整段 1,793,536 字节做全局回读校验
+xfel sd read "$BASE" 1793536 sd.readback.bin
+sha256sum sd.readback.bin   # e203b1f9cc4a587ec2c06a43ae884766fd72556eb97fdfcdca9ec1d92aa42d40
+
+xfel reset
+```
+
+macOS 下请用 `shasum -a 256` 代替 `sha256sum`。
+
+### 4. 串口连接与启动
+
+1. 将 USB-to-UART 调试线或板载 CH340N Type-C 串口接入主机（设备节点 `/dev/cu.usbserial-111130`）。
+2. 终端配置串口参数为 **500000 8-N-1**，无流控（注意：该板 Boot0 及 RT-Thread 驱动默认波特率为 500000，使用常见的 115200 会显示乱码）。
+3. 拨动电源开关或执行 `xfel reset` 触发硬件复位。
+
+---
+
+## 预期结果
+
+开发板从板载 SD NAND 正常引导，Boot0 初始化 DDR2 并成功加载 TOC1 包中的 OpenSBI、设备树与内核镜像。串口在 500000 波特率下输出启动横幅与内核启动信息，最终打印出 `msh />` 命令行交互提示符，能够键入命令并正常回显响应。
+
+---
+
+## 实际结果
+
+### 1. 出厂固件恢复实测
+
+开发板复位后，板载 CH340N 串口在 **500000 8N1** 波特率下正常输出系统交互终端，成功进入 `msh />` 命令行提示符。输入 `version` 命令，正常输出系统版本与构建时间。
+
+### 2. 自编主线固件对比实测
+
+使用 RT-Thread 主线代码编译打包的 `sd.bin`（大小 1,084,416 字节，TOC1 格式包含 OpenSBI v0.9、设备树及 RT-Thread 5.3.1 内核），同样以 64KB 分块方式烧写至偏移 57344 且全量回读校验完全一致。但复位后板载串口在 500000 及 115200 波特率下均无任何字符输出（接收到 0 字节），且芯片未掉回 FEL 模式。
+
+### 启动信息
+
+在出厂固件成功恢复后的真实串口交互日志（波特率 500000 8N1）如下：
+
+```log
+x: command not found.
+msh />
+msh />version
+
+ \ | /
+- RT -     Thread Smart Operating System
+ / | \     5.0.0 build Jan 10 2023
+ 2006 - 2020 Copyright by rt-thread team
+msh />
+msh />
+```
+
+---
+
+## 测试判定标准
+
+- 测试成功：实际结果与预期结果相符，系统正常启动并可与 msh 交互。
+- 测试失败：实际结果与预期结果不符，系统无法引导或无法建立终端交互。
+
+---
+
+## 测试结论与已知问题
+
+### 测试结论
+
+**状态评定：`basic`（出厂预置固件基本功能正常通过，主线最新固件尚待适配）**
+
+1. **硬件完好性验证**：开发板 SoC（全志 D1s）、片上 DDR2 内存控制器、板载 SD NAND（SDN1G 121MB）、板载 CH340N USB-to-UART 转换芯片及供电链路均已通过真机验证，工作状态完全正常。
+2. **固件可用性验证**：官方出厂固件（RT-Thread Smart 5.0.0）在经正确的分块写入与回读比对后，能够稳定启动并提供交互式 msh 终端。
+
+### 已知问题与规避建议
+
+1. **xfel 大块写入不可靠**：
+   - 现存开源 `xfel` 针对全志 SDIO/SD-NAND 控制器的固件载荷在长数据流写入时容易丢失传输状态或触发内部超时；
+   - 且部分分支（如 `test-sdcard`）未对辅助函数的错误码进行校验，会导致数据写入失败但工具静默报告"成功"；
+   - **规避建议**：烧写板载 SD NAND 时，务必使用 `aozima` 补丁分支，且必须采取不超过 64KB 的分块写入策略，每块写完后务必立即回读校验比对；若出现单块校验失败，应支持断点续写重试。
+2. **自编主线 sd.bin 未能启动**：
+   - 主线 BSP（`bsp/allwinner/d1s`）目前构建生成的固件在 RDC2022 纪念版上复位后无任何串口输出（0 字节）；
+   - 经反汇编与静态排查发现：Boot0 在 500000 波特率下初始化，而主线设备树 `u-boot.dtb` 的 `chosen` 节点被硬编码为 `serial0:115200n8`，但内核驱动 `drv_uart.c` 又默认设定 `UART_DEFAULT_BAUDRATE 500000`；此外主线通用 Boot0 的 DDR 初始化时序参数可能与本板 SIP 颗粒存在细微失配。此问题需在后续工作中重整设备树与时钟引脚配置作进一步排查。
+
+---
+
+## 致谢
+
+感谢 @BernardXiong 的支持。
