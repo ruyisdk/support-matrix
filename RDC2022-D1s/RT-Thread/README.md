@@ -1,7 +1,7 @@
 ---
 sys: rtthread
 sys_ver: 5.0.0
-sys_var: null
+sys_var: smart
 status: basic
 last_update: 2026-10-17
 ---
@@ -175,15 +175,6 @@ msh />
 msh />
 ```
 
-## Test Criteria
-
-- **Test success**: the actual result matches the expected result; the system
-  boots normally and can interact via the msh terminal.
-- **Test failure**: the actual result does not match the expected result; the
-  system fails to boot or terminal interaction cannot be established.
-
-## Test Conclusion
-
 **Status assessment: `basic` (factory pre-instired firmware basic functionality
 passes; mainline firmware is not yet working on this board)**
 
@@ -217,6 +208,17 @@ passes; mainline firmware is not yet working on this board)**
      the generic Boot0 DDR initialization timing parameters may have minor
      mismatches with this board's SiP memory颗粒. This issue requires further
      device tree and clock pin configuration work.
+
+## Test Criteria
+
+- **Test success**: the actual result matches the expected result; the system
+  boots normally and can interact via the msh terminal.
+- **Test failure**: the actual result does not match the expected result; the
+  system fails to boot or terminal interaction cannot be established.
+
+## Test Conclusion
+
+Test success / BASIC
 
 ## Acknowledgements
 
