@@ -12,9 +12,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Prepare Environment
-        uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: ninja-build cairosvg libcairo2-dev libjpeg-dev libgif-dev
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ninja-build cairosvg libcairo2-dev libjpeg-dev libgif-dev pkg-config
+          pkg-config --modversion cairo
       - name: "Set up Python"
         uses: actions/setup-python@v5
         with:
